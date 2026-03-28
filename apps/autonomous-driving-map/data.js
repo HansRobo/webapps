@@ -2628,5 +2628,89 @@ const EXPERIMENTS = [
     references: [
       { id: 1, title: "国内初の中型自動運転バスによるレベル4営業運行開始のお知らせ", url: "https://www.as-mobi.com/news/", date: "2025-01-20", source: "先進モビリティ株式会社" }
     ]
+  },
+  {
+    id: "exp-126",
+    name: { value: "富士市 自動運転バス実証実験", refs: [1] },
+    location: { value: "静岡県富士市", lat: 35.161, lng: 138.676, refs: [1] },
+    prefecture: { value: "静岡県", refs: [1] },
+    period: { value: "2025年11月〜", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "富士市における自動運転バスの実証実験。市公式公開情報を一次ソースとして追加した。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス（実証車両）", refs: [1] },
+    route: { value: "富士市内（実証ルート）", refs: [1] },
+    operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "富士市", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "富士市における自動運転バス実証実験", url: "https://www.city.fuji.shizuoka.jp/sp/machi/c1307/c1307/hngtkl000000d2we.html", date: "2025-11-01", source: "富士市" }
+    ]
+  },
+  {
+    id: "exp-127",
+    name: { value: "狛江市 自動運転バス実証実験", refs: [1] },
+    location: { value: "東京都狛江市", lat: 35.634, lng: 139.578, refs: [1] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2025年12月〜", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "狛江市における自動運転バスの実証実験。市公式公開情報を一次ソースとして追加した。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス（実証車両）", refs: [1] },
+    route: { value: "狛江市内（実証ルート）", refs: [1] },
+    operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "狛江市", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "狛江市内における自動運転バス実証実験", url: "https://www.city.komae.tokyo.jp/events/index.cfm/detail.4.135758.html", date: "2025-12-03", source: "狛江市" }
+    ]
+  },
+  {
+    id: "exp-128",
+    name: { value: "川崎市 臨海部 自動運転バス実証実験", refs: [1] },
+    location: { value: "神奈川県川崎市", lat: 35.53, lng: 139.703, refs: [1] },
+    prefecture: { value: "神奈川県", refs: [1] },
+    period: { value: "2025年11月〜", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "川崎市臨海部における自動運転バスの実証実験。市公式公開情報を一次ソースとして追加した。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス（実証車両）", refs: [1] },
+    route: { value: "川崎市臨海部（実証ルート）", refs: [1] },
+    operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "川崎市", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "川崎市 臨海部における自動運転バス実証実験", url: "https://www.city.kawasaki.jp/250/page/0000148404.html", date: "2025-11-28", source: "川崎市" }
+    ]
+  },
+  {
+    id: "exp-129",
+    name: { value: "西宮市 自動運転バス実証実験", refs: [1] },
+    location: { value: "兵庫県西宮市", lat: 34.737, lng: 135.341, refs: [1] },
+    prefecture: { value: "兵庫県", refs: [1] },
+    period: { value: "2025年3月〜", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "西宮市における自動運転バスの実証実験。市公式公開情報を一次ソースとして追加した。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス（実証車両）", refs: [1] },
+    route: { value: "西宮市内（実証ルート）", refs: [1] },
+    operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "西宮市", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "西宮市における自動運転バス実証実験", url: "https://www.nishi.or.jp/shisei/koho/hasshin/press_2024/202409_202503/20250331175400277.html", date: "2025-03-31", source: "西宮市" }
+    ]
   }
 ];
