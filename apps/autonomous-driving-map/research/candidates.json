@@ -1,27 +1,5 @@
 [
   {
-    "prefecture": "東京都",
-    "priority": 27,
-    "queries": [
-      "東京都 自動運転 実証実験 2023..2026",
-      "東京都 自動運転 レベル4 実証",
-      "東京都 自動運転 国土交通省 自治体",
-      "東京都 自動運転 バス タクシー 実証"
-    ],
-    "candidates": []
-  },
-  {
-    "prefecture": "滋賀県",
-    "priority": 17,
-    "queries": [
-      "滋賀県 自動運転 実証実験 2023..2026",
-      "滋賀県 自動運転 レベル4 実証",
-      "滋賀県 自動運転 国土交通省 自治体",
-      "滋賀県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": []
-  },
-  {
     "prefecture": "千葉県",
     "priority": 17,
     "queries": [
@@ -29,83 +7,6 @@
       "千葉県 自動運転 レベル4 実証",
       "千葉県 自動運転 国土交通省 自治体",
       "千葉県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": []
-  },
-  {
-    "prefecture": "福井県",
-    "priority": 17,
-    "queries": [
-      "福井県 自動運転 実証実験 2023..2026",
-      "福井県 自動運転 レベル4 実証",
-      "福井県 自動運転 国土交通省 自治体",
-      "福井県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": []
-  },
-  {
-    "prefecture": "熊本県",
-    "priority": 16,
-    "queries": [
-      "熊本県 自動運転 実証実験 2023..2026",
-      "熊本県 自動運転 レベル4 実証",
-      "熊本県 自動運転 国土交通省 自治体",
-      "熊本県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": []
-  },
-  {
-    "prefecture": "山形県",
-    "priority": 16,
-    "queries": [
-      "山形県 自動運転 実証実験 2023..2026",
-      "山形県 自動運転 レベル4 実証",
-      "山形県 自動運転 国土交通省 自治体",
-      "山形県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": []
-  },
-  {
-    "prefecture": "石川県",
-    "priority": 16,
-    "queries": [
-      "石川県 自動運転 実証実験 2023..2026",
-      "石川県 自動運転 レベル4 実証",
-      "石川県 自動運転 国土交通省 自治体",
-      "石川県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": []
-  },
-  {
-    "prefecture": "群馬県",
-    "priority": 15,
-    "queries": [
-      "群馬県 自動運転 実証実験 2023..2026",
-      "群馬県 自動運転 レベル4 実証",
-      "群馬県 自動運転 国土交通省 自治体",
-      "群馬県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": []
-  },
-  {
-    "prefecture": "福岡県",
-    "priority": 15,
-    "queries": [
-      "福岡県 自動運転 実証実験 2023..2026",
-      "福岡県 自動運転 レベル4 実証",
-      "福岡県 自動運転 国土交通省 自治体",
-      "福岡県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": []
-  },
-  {
-    "prefecture": "山梨県",
-    "priority": 13,
-    "queries": [
-      "山梨県 自動運転 実証実験 2023..2026",
-      "山梨県 自動運転 レベル4 実証",
-      "山梨県 自動運転 国土交通省 自治体",
-      "山梨県 自動運転 バス タクシー 実証"
     ],
     "candidates": []
   },
@@ -121,163 +22,26 @@
     "candidates": []
   },
   {
-    "prefecture": "奈良県",
-    "priority": 13,
-    "queries": [
-      "奈良県 自動運転 実証実験 2023..2026",
-      "奈良県 自動運転 レベル4 実証",
-      "奈良県 自動運転 国土交通省 自治体",
-      "奈良県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": []
-  },
-  {
-    "prefecture": "富山県",
-    "priority": 13,
-    "queries": [
-      "富山県 自動運転 実証実験 2023..2026",
-      "富山県 自動運転 レベル4 実証",
-      "富山県 自動運転 国土交通省 自治体",
-      "富山県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": []
-  },
-  {
-    "prefecture": "和歌山県",
-    "priority": 13,
-    "queries": [
-      "和歌山県 自動運転 実証実験 2023..2026",
-      "和歌山県 自動運転 レベル4 実証",
-      "和歌山県 自動運転 国土交通省 自治体",
-      "和歌山県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": []
-  },
-  {
-    "prefecture": "茨城県",
+    "prefecture": "東京都",
     "priority": 12,
     "queries": [
-      "茨城県 自動運転 実証実験 2023..2026",
-      "茨城県 自動運転 レベル4 実証",
-      "茨城県 自動運転 国土交通省 自治体",
-      "茨城県 自動運転 バス タクシー 実証"
+      "東京都 自動運転 実証実験 2023..2026",
+      "東京都 自動運転 レベル4 実証",
+      "東京都 自動運転 国土交通省 自治体",
+      "東京都 自動運転 バス タクシー 実証"
     ],
     "candidates": []
   },
   {
-    "prefecture": "静岡県",
+    "prefecture": "福井県",
     "priority": 12,
     "queries": [
-      "静岡県 自動運転 実証実験 2023..2026",
-      "静岡県 自動運転 レベル4 実証",
-      "静岡県 自動運転 国土交通省 自治体",
-      "静岡県 自動運転 バス タクシー 実証"
+      "福井県 自動運転 実証実験 2023..2026",
+      "福井県 自動運転 レベル4 実証",
+      "福井県 自動運転 国土交通省 自治体",
+      "福井県 自動運転 バス タクシー 実証"
     ],
     "candidates": []
-  },
-  {
-    "prefecture": "北海道",
-    "priority": 11,
-    "queries": [
-      "北海道 自動運転 実証実験 2023..2026",
-      "北海道 自動運転 レベル4 実証",
-      "北海道 自動運転 国土交通省 自治体",
-      "北海道 自動運転 バス タクシー 実証"
-    ],
-    "candidates": [
-      {
-        "title": "北海道当別町とマクニカ、自動運転EVバスの冬季含めた長期間の実証運行を実施",
-        "url": "https://www.macnica.co.jp/public-relations/news/2025/148366/",
-        "date": "2025-09-26",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-057の一次情報化（冬季含む長期実証、ロイズタウン駅周辺の運行条件を補強）。"
-      }
-    ]
-  },
-  {
-    "prefecture": "宮城県",
-    "priority": 10,
-    "queries": [
-      "宮城県 自動運転 実証実験 2023..2026",
-      "宮城県 自動運転 レベル4 実証",
-      "宮城県 自動運転 国土交通省 自治体",
-      "宮城県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": [
-      {
-        "title": "自動運転実証事業の実施エリアを拡大します（発表資料）",
-        "url": "https://www.city.sendai.jp/sesakukoho/gaiyo/shichoshitsu/kaiken/2025/10/14unten2.html",
-        "date": "2025-10-15",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-120の一次情報化（青葉山に加え東部北・秋保エリア拡大、運行予定時期）。"
-      },
-      {
-        "title": "自動運転実証事業「青葉山グリーン回遊プロジェクト」自動運転レベル2の運行実験を実施します（発表資料）",
-        "url": "https://www.city.sendai.jp/sesakukoho/gaiyo/shichoshitsu/kaiken/2024/10/08zidouunten2.html",
-        "date": "2024-10-09",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-120の前年度実証条件（運行区間・レベル2）補強。"
-      }
-    ]
-  },
-  {
-    "prefecture": "広島県",
-    "priority": 10,
-    "queries": [
-      "広島県 自動運転 実証実験 2023..2026",
-      "広島県 自動運転 レベル4 実証",
-      "広島県 自動運転 国土交通省 自治体",
-      "広島県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": [
-      {
-        "title": "自動運転・隊列走行BRT実証実験／東広島市ホームページ",
-        "url": "https://www.city.higashihiroshima.lg.jp/soshiki/toshi/7/1_1/44126.html",
-        "date": "2025-11-07",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-090の一次情報化（年度継続、JR西条駅〜広島大学方面のBRT実証）。"
-      },
-      {
-        "title": "自動運転・隊列走行BRTの社会実装に向けた「自動運転EVバス」走行試験開始",
-        "url": "https://www.city.higashihiroshima.lg.jp/material/files/group/205/press.pdf",
-        "date": "2025-10-24",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-090の実施期間・体制・走行区間の詳細補強。"
-      }
-    ]
-  },
-  {
-    "prefecture": "三重県",
-    "priority": 10,
-    "queries": [
-      "三重県 自動運転 実証実験 2023..2026",
-      "三重県 自動運転 レベル4 実証",
-      "三重県 自動運転 国土交通省 自治体",
-      "三重県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": [
-      {
-        "title": "自動運転バス実証実験｜伊勢市公式ホームページ",
-        "url": "https://www.city.ise.mie.jp/kurashi/koutsu/okage_bus/1019584.html",
-        "date": "2025-12-15",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-123の一次情報化（実施期間、実施区間、レベル2実証）。"
-      },
-      {
-        "title": "〖三重県伊勢市〗伊勢神宮内宮エリアで自動運転バスの運行に参画しました",
-        "url": "https://www.aisantec.co.jp/ir/information/2026/03/post-160.html",
-        "date": "2026-03-05",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-123の事業者側一次情報（参画体制・実証背景）補強。"
-      }
-    ]
   },
   {
     "prefecture": "愛媛県",
@@ -288,132 +52,7 @@
       "愛媛県 自動運転 国土交通省 自治体",
       "愛媛県 自動運転 バス タクシー 実証"
     ],
-    "candidates": [
-      {
-        "title": "全国初「自動運転レベル4 路線バス本格運行」について（伊予鉄グループ）",
-        "url": "https://www.iyotetsu.co.jp/sp/topics/press/2024/1210_gbac.pdf",
-        "date": "2024-12-10",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-094の一次情報（レベル4運行開始日・運行区間）確認。"
-      }
-    ]
-  },
-  {
-    "prefecture": "岐阜県",
-    "priority": 9,
-    "queries": [
-      "岐阜県 自動運転 実証実験 2023..2026",
-      "岐阜県 自動運転 レベル4 実証",
-      "岐阜県 自動運転 国土交通省 自治体",
-      "岐阜県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": [
-      {
-        "title": "新たな「GIFU HEART BUS」の運行がいよいよスタート！",
-        "url": "https://www.city.gifu.lg.jp/kurashi/douro/1002587/1023154/1036889.html",
-        "date": "2026-01-28",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-036の一次情報化（新型車両仕様、運行フェーズ更新）。"
-      }
-    ]
-  },
-  {
-    "prefecture": "京都府",
-    "priority": 9,
-    "queries": [
-      "京都府 自動運転 実証実験 2023..2026",
-      "京都府 自動運転 レベル4 実証",
-      "京都府 自動運転 国土交通省 自治体",
-      "京都府 自動運転 バス タクシー 実証"
-    ],
-    "candidates": [
-      {
-        "title": "洛西ニュータウンにおける自動運転実証実験の実施について",
-        "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000321234.html",
-        "date": "2026-03-01",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-082の一次情報（実施区間、実施主体、将来のレベル4目標）更新。"
-      }
-    ]
-  },
-  {
-    "prefecture": "香川県",
-    "priority": 9,
-    "queries": [
-      "香川県 自動運転 実証実験 2023..2026",
-      "香川県 自動運転 レベル4 実証",
-      "香川県 自動運転 国土交通省 自治体",
-      "香川県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": [
-      {
-        "title": "小豆島における自動運転バス実証実験の実施",
-        "url": "https://www.jtbcorp.jp/jp/newsroom/2024/07/26_shodoshima-autonomous.html",
-        "date": "2024-07-26",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-093の一次情報（実施区間・実証概要）補強。"
-      },
-      {
-        "title": "観光地の持続可能な発展に向けたエリア開発事業を小豆島で開始",
-        "url": "https://www.jtbcorp.jp/jp/newsroom/2024/08/01_jtb_shodoshima.html",
-        "date": "2024-08-01",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-093のプロジェクト全体文脈（2024年9月の自動運転バス実証予定）補強。"
-      }
-    ]
-  },
-  {
-    "prefecture": "高知県",
-    "priority": 9,
-    "queries": [
-      "高知県 自動運転 実証実験 2023..2026",
-      "高知県 自動運転 レベル4 実証",
-      "高知県 自動運転 国土交通省 自治体",
-      "高知県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": [
-      {
-        "title": "広報「あかるいまち」2025年12月号簡易テキスト（HTML）",
-        "url": "https://www.city.kochi.kochi.jp/soshiki/80/akamati202512oshirase.html",
-        "date": "2025-11-28",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-095の一次情報（実証運行期間・運行区間・便数）補強。"
-      },
-      {
-        "title": "高知県高知市における「安全かつ効率的なレベル4自動運転に資する通信システム等の検証」を開始",
-        "url": "https://www.nttbizsol.jp/newsrelease/202507291600001209.html",
-        "date": "2025-07-29",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-095の実証実施体制（高知市・NTT西日本・NTT BS・マクニカ）補強。"
-      }
-    ]
-  },
-  {
-    "prefecture": "秋田県",
-    "priority": 9,
-    "queries": [
-      "秋田県 自動運転 実証実験 2023..2026",
-      "秋田県 自動運転 レベル4 実証",
-      "秋田県 自動運転 国土交通省 自治体",
-      "秋田県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": [
-      {
-        "title": "自動運転社会実装推進事業について | 大館市公式サイト",
-        "url": "https://www.city.odate.lg.jp/city/soshiki/koutsu/p11894",
-        "date": "2025-11-11",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-061の一次情報化（実施内容、運行エリア、実施主体）更新。"
-      }
-    ]
+    "candidates": []
   },
   {
     "prefecture": "新潟県",
@@ -424,24 +63,7 @@
       "新潟県 自動運転 国土交通省 自治体",
       "新潟県 自動運転 バス タクシー 実証"
     ],
-    "candidates": [
-      {
-        "title": "自動運転車両について｜自動運転車両「ミコぴょん号」｜弥彦村",
-        "url": "https://www.vill.yahiko.niigata.jp/life/?content=704",
-        "date": "2025-04-01",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-116の一次情報化（車両仕様、運用情報、自治体運行体制）。"
-      },
-      {
-        "title": "弥彦村で自動運転バス「MiCa」による通年運行を開始",
-        "url": "https://www.softbank.jp/drive/press/2024/20240130_01/",
-        "date": "2024-01-30",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-116の導入開始リリース（開始時期・連携事業者）補強。"
-      }
-    ]
+    "candidates": []
   },
   {
     "prefecture": "青森県",
@@ -452,92 +74,7 @@
       "青森県 自動運転 国土交通省 自治体",
       "青森県 自動運転 バス タクシー 実証"
     ],
-    "candidates": [
-      {
-        "title": "むつ市自動運転実証運行業務委託に係る公募型プロポーザルの実施について",
-        "url": "https://www.city.mutsu.lg.jp/work/bid/proposal/jidountenproposal.html",
-        "date": "2025-06-18",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-058の一次情報補強（むつ市の自動運転実証運行事業の正式公告）。"
-      },
-      {
-        "title": "むつ市自動運転実証運行業務委託に係る公募型プロポーザルの審査結果について",
-        "url": "https://www.city.mutsu.lg.jp/work/bid/proposal/jidountenproposal_shinsakekka.html",
-        "date": "2025-07-25",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-058の実施フェーズ進捗（審査結果公表）補強。"
-      }
-    ]
-  },
-  {
-    "prefecture": "島根県",
-    "priority": 9,
-    "queries": [
-      "島根県 自動運転 実証実験 2023..2026",
-      "島根県 自動運転 レベル4 実証",
-      "島根県 自動運転 国土交通省 自治体",
-      "島根県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": [
-      {
-        "title": "松江市における自動運転バス実証実験の実施について",
-        "url": "https://www.city.matsue.lg.jp/soshiki/kotsu/jidounten.html",
-        "date": "2024-03-01",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-088の一次情報化（自治体公表の実証概要）。"
-      }
-    ]
-  },
-  {
-    "prefecture": "徳島県",
-    "priority": 9,
-    "queries": [
-      "徳島県 自動運転 実証実験 2023..2026",
-      "徳島県 自動運転 レベル4 実証",
-      "徳島県 自動運転 国土交通省 自治体",
-      "徳島県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": [
-      {
-        "title": "鳴門市におけるロボットタクシー実証実験（NEC）",
-        "url": "https://jpn.nec.com/press/202501/20250115_01.html",
-        "date": "2025-01-15",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-092の一次情報化（徳島県鳴門市・松茂町エリアの実証体制）。"
-      },
-      {
-        "title": "徳島県における自動運転タクシー実証運行について",
-        "url": "https://www.pref.tokushima.lg.jp/ippannokata/kuseijoho/koho/7234567.html",
-        "date": "2026-02-01",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-092の自治体側一次情報（運行期間・対象エリア）補強。"
-      }
-    ]
-  },
-  {
-    "prefecture": "福島県",
-    "priority": 9,
-    "queries": [
-      "福島県 自動運転 実証実験 2023..2026",
-      "福島県 自動運転 レベル4 実証",
-      "福島県 自動運転 国土交通省 自治体",
-      "福島県 自動運転 バス タクシー 実証"
-    ],
-    "candidates": [
-      {
-        "title": "磐梯町における自動運転実証実験の実施について",
-        "url": "https://www.town.bandai.fukushima.jp/soshiki/seisaku/jidounten.html",
-        "date": "2024-10-01",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-063の一次情報化（実施ルート・実施主体・期間）。"
-      }
-    ]
+    "candidates": []
   },
   {
     "prefecture": "岡山県",
@@ -548,16 +85,7 @@
       "岡山県 自動運転 国土交通省 自治体",
       "岡山県 自動運転 バス タクシー 実証"
     ],
-    "candidates": [
-      {
-        "title": "津山市での自動運転バスの実証実験を開始（JR西日本）",
-        "url": "https://www.westjr.co.jp/press/article/2025/10/page_29256.html",
-        "date": "2025-10-15",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-043の一次情報（実証概要・実施時期）確認。"
-      }
-    ]
+    "candidates": []
   },
   {
     "prefecture": "沖縄県",
@@ -568,16 +96,7 @@
       "沖縄県 自動運転 国土交通省 自治体",
       "沖縄県 自動運転 バス タクシー 実証"
     ],
-    "candidates": [
-      {
-        "title": "豊見城市における自動運転推進事業について",
-        "url": "https://www.city.tomigusuku.lg.jp/kurashi/koutsu/jidouuntenservice.html",
-        "date": "2025-01-01",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-056の一次情報（生活路線105番での実証運行）確認。"
-      }
-    ]
+    "candidates": []
   },
   {
     "prefecture": "宮崎県",
@@ -588,16 +107,18 @@
       "宮崎県 自動運転 国土交通省 自治体",
       "宮崎県 自動運転 バス タクシー 実証"
     ],
-    "candidates": [
-      {
-        "title": "西都市における自動運転実証実験の推進について",
-        "url": "https://www.city.saito.miyazaki.jp/koutsu/jidounten.html",
-        "date": "2025-01-01",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-054の一次情報（西都原周辺の長期実証）確認。"
-      }
-    ]
+    "candidates": []
+  },
+  {
+    "prefecture": "山梨県",
+    "priority": 8,
+    "queries": [
+      "山梨県 自動運転 実証実験 2023..2026",
+      "山梨県 自動運転 レベル4 実証",
+      "山梨県 自動運転 国土交通省 自治体",
+      "山梨県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
   },
   {
     "prefecture": "鹿児島県",
@@ -608,16 +129,7 @@
       "鹿児島県 自動運転 国土交通省 自治体",
       "鹿児島県 自動運転 バス タクシー 実証"
     ],
-    "candidates": [
-      {
-        "title": "南さつま市における自動運転実証実験の推進について",
-        "url": "https://www.city.minamisatsuma.lg.jp/jidounten/",
-        "date": "2025-01-01",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-055の一次情報（鹿児島県内初の自動運転EVバス実証）確認。"
-      }
-    ]
+    "candidates": []
   },
   {
     "prefecture": "大分県",
@@ -628,16 +140,7 @@
       "大分県 自動運転 国土交通省 自治体",
       "大分県 自動運転 バス タクシー 実証"
     ],
-    "candidates": [
-      {
-        "title": "佐伯市大入島における自動運転バス実証運行について",
-        "url": "https://www.city.saiki.oita.jp/koutsu/jidouuntensub.html",
-        "date": "2025-02-01",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-053の一次情報（離島での代替交通実証）確認。"
-      }
-    ]
+    "candidates": []
   },
   {
     "prefecture": "長崎県",
@@ -648,16 +151,84 @@
       "長崎県 自動運転 国土交通省 自治体",
       "長崎県 自動運転 バス タクシー 実証"
     ],
-    "candidates": [
-      {
-        "title": "対馬市における移動支援実証の取り組みについて",
-        "url": "https://www.city.tsushima.nagasaki.jp/kurashi/bus/8763.html",
-        "date": "2024-01-01",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-052の一次情報（離島における自動運転移動支援実証）確認。"
-      }
-    ]
+    "candidates": []
+  },
+  {
+    "prefecture": "奈良県",
+    "priority": 8,
+    "queries": [
+      "奈良県 自動運転 実証実験 2023..2026",
+      "奈良県 自動運転 レベル4 実証",
+      "奈良県 自動運転 国土交通省 自治体",
+      "奈良県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
+  },
+  {
+    "prefecture": "富山県",
+    "priority": 8,
+    "queries": [
+      "富山県 自動運転 実証実験 2023..2026",
+      "富山県 自動運転 レベル4 実証",
+      "富山県 自動運転 国土交通省 自治体",
+      "富山県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
+  },
+  {
+    "prefecture": "和歌山県",
+    "priority": 8,
+    "queries": [
+      "和歌山県 自動運転 実証実験 2023..2026",
+      "和歌山県 自動運転 レベル4 実証",
+      "和歌山県 自動運転 国土交通省 自治体",
+      "和歌山県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
+  },
+  {
+    "prefecture": "茨城県",
+    "priority": 7,
+    "queries": [
+      "茨城県 自動運転 実証実験 2023..2026",
+      "茨城県 自動運転 レベル4 実証",
+      "茨城県 自動運転 国土交通省 自治体",
+      "茨城県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
+  },
+  {
+    "prefecture": "滋賀県",
+    "priority": 7,
+    "queries": [
+      "滋賀県 自動運転 実証実験 2023..2026",
+      "滋賀県 自動運転 レベル4 実証",
+      "滋賀県 自動運転 国土交通省 自治体",
+      "滋賀県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
+  },
+  {
+    "prefecture": "熊本県",
+    "priority": 6,
+    "queries": [
+      "熊本県 自動運転 実証実験 2023..2026",
+      "熊本県 自動運転 レベル4 実証",
+      "熊本県 自動運転 国土交通省 自治体",
+      "熊本県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
+  },
+  {
+    "prefecture": "山形県",
+    "priority": 6,
+    "queries": [
+      "山形県 自動運転 実証実験 2023..2026",
+      "山形県 自動運転 レベル4 実証",
+      "山形県 自動運転 国土交通省 自治体",
+      "山形県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
   },
   {
     "prefecture": "山口県",
@@ -668,24 +239,29 @@
       "山口県 自動運転 国土交通省 自治体",
       "山口県 自動運転 バス タクシー 実証"
     ],
-    "candidates": [
-      {
-        "title": "周南市自動運転ＥＶバス　実証運行",
-        "url": "https://www.city.shunan.lg.jp/soshiki/102/122749.html",
-        "date": "2025-12-22",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-045の一次情報（徳山駅〜動物園ルート、実証概要）確認。"
-      },
-      {
-        "title": "自動運転EVバスの実証運行",
-        "url": "https://www.city.shunan.lg.jp/soshiki/3/124082.html",
-        "date": "2024-11-19",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-045の年度別実証情報を補強。"
-      }
-    ]
+    "candidates": []
+  },
+  {
+    "prefecture": "石川県",
+    "priority": 6,
+    "queries": [
+      "石川県 自動運転 実証実験 2023..2026",
+      "石川県 自動運転 レベル4 実証",
+      "石川県 自動運転 国土交通省 自治体",
+      "石川県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
+  },
+  {
+    "prefecture": "北海道",
+    "priority": 6,
+    "queries": [
+      "北海道 自動運転 実証実験 2023..2026",
+      "北海道 自動運転 レベル4 実証",
+      "北海道 自動運転 国土交通省 自治体",
+      "北海道 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
   },
   {
     "prefecture": "愛知県",
@@ -696,44 +272,29 @@
       "愛知県 自動運転 国土交通省 自治体",
       "愛知県 自動運転 バス タクシー 実証"
     ],
-    "candidates": [
-      {
-        "title": "日進市自動運転バス実証運行について",
-        "url": "https://www.city.nisshin.lg.jp/soshiki/sougou/kikaku/jidounten/index.html",
-        "date": "2024-04-01",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-079の一次情報（ARMAの長期運行、運行ルート）確認。"
-      }
-    ]
+    "candidates": []
   },
   {
-    "prefecture": "岩手県",
+    "prefecture": "群馬県",
     "priority": 5,
     "queries": [
-      "岩手県 自動運転 実証実験 2023..2026",
-      "岩手県 自動運転 レベル4 実証",
-      "岩手県 自動運転 国土交通省 自治体",
-      "岩手県 自動運転 バス タクシー 実証"
+      "群馬県 自動運転 実証実験 2023..2026",
+      "群馬県 自動運転 レベル4 実証",
+      "群馬県 自動運転 国土交通省 自治体",
+      "群馬県 自動運転 バス タクシー 実証"
     ],
-    "candidates": [
-      {
-        "title": "【終了】令和5年2月1日～3月5日実施（高田松原復興祈念公園における自動運転走行実証実験）",
-        "url": "https://www.city.rikuzentakata.iwate.jp/soshiki/kikakuseisakuka/seisakukohogakari/1/1/6566.html",
-        "date": "2023-11-28",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-025の一次情報（実施期間・運行ルート）確認。"
-      },
-      {
-        "title": "高田松原津波復興祈念公園内およびその周辺市街地における自動運転サービスの運行開始",
-        "url": "https://www.kddi.com/corporate/sustainability/regional-initiative/pressrelease/20230817/",
-        "date": "2023-08-17",
-        "sourceType": "primary",
-        "decision": "update",
-        "note": "exp-025の拡張実証（市街地走行）補強。"
-      }
-    ]
+    "candidates": []
+  },
+  {
+    "prefecture": "広島県",
+    "priority": 5,
+    "queries": [
+      "広島県 自動運転 実証実験 2023..2026",
+      "広島県 自動運転 レベル4 実証",
+      "広島県 自動運転 国土交通省 自治体",
+      "広島県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
   },
   {
     "prefecture": "神奈川県",
@@ -743,6 +304,61 @@
       "神奈川県 自動運転 レベル4 実証",
       "神奈川県 自動運転 国土交通省 自治体",
       "神奈川県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
+  },
+  {
+    "prefecture": "福岡県",
+    "priority": 5,
+    "queries": [
+      "福岡県 自動運転 実証実験 2023..2026",
+      "福岡県 自動運転 レベル4 実証",
+      "福岡県 自動運転 国土交通省 自治体",
+      "福岡県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
+  },
+  {
+    "prefecture": "岐阜県",
+    "priority": 4,
+    "queries": [
+      "岐阜県 自動運転 実証実験 2023..2026",
+      "岐阜県 自動運転 レベル4 実証",
+      "岐阜県 自動運転 国土交通省 自治体",
+      "岐阜県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
+  },
+  {
+    "prefecture": "京都府",
+    "priority": 4,
+    "queries": [
+      "京都府 自動運転 実証実験 2023..2026",
+      "京都府 自動運転 レベル4 実証",
+      "京都府 自動運転 国土交通省 自治体",
+      "京都府 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
+  },
+  {
+    "prefecture": "香川県",
+    "priority": 4,
+    "queries": [
+      "香川県 自動運転 実証実験 2023..2026",
+      "香川県 自動運転 レベル4 実証",
+      "香川県 自動運転 国土交通省 自治体",
+      "香川県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
+  },
+  {
+    "prefecture": "高知県",
+    "priority": 4,
+    "queries": [
+      "高知県 自動運転 実証実験 2023..2026",
+      "高知県 自動運転 レベル4 実証",
+      "高知県 自動運転 国土交通省 自治体",
+      "高知県 自動運転 バス タクシー 実証"
     ],
     "candidates": []
   },
@@ -758,6 +374,17 @@
     "candidates": []
   },
   {
+    "prefecture": "秋田県",
+    "priority": 4,
+    "queries": [
+      "秋田県 自動運転 実証実験 2023..2026",
+      "秋田県 自動運転 レベル4 実証",
+      "秋田県 自動運転 国土交通省 自治体",
+      "秋田県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
+  },
+  {
     "prefecture": "長野県",
     "priority": 4,
     "queries": [
@@ -765,6 +392,28 @@
       "長野県 自動運転 レベル4 実証",
       "長野県 自動運転 国土交通省 自治体",
       "長野県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
+  },
+  {
+    "prefecture": "島根県",
+    "priority": 4,
+    "queries": [
+      "島根県 自動運転 実証実験 2023..2026",
+      "島根県 自動運転 レベル4 実証",
+      "島根県 自動運転 国土交通省 自治体",
+      "島根県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
+  },
+  {
+    "prefecture": "徳島県",
+    "priority": 4,
+    "queries": [
+      "徳島県 自動運転 実証実験 2023..2026",
+      "徳島県 自動運転 レベル4 実証",
+      "徳島県 自動運転 国土交通省 自治体",
+      "徳島県 自動運転 バス タクシー 実証"
     ],
     "candidates": []
   },
@@ -780,6 +429,17 @@
     "candidates": []
   },
   {
+    "prefecture": "福島県",
+    "priority": 4,
+    "queries": [
+      "福島県 自動運転 実証実験 2023..2026",
+      "福島県 自動運転 レベル4 実証",
+      "福島県 自動運転 国土交通省 自治体",
+      "福島県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
+  },
+  {
     "prefecture": "兵庫県",
     "priority": 4,
     "queries": [
@@ -791,6 +451,39 @@
     "candidates": []
   },
   {
+    "prefecture": "静岡県",
+    "priority": 2,
+    "queries": [
+      "静岡県 自動運転 実証実験 2023..2026",
+      "静岡県 自動運転 レベル4 実証",
+      "静岡県 自動運転 国土交通省 自治体",
+      "静岡県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
+  },
+  {
+    "prefecture": "岩手県",
+    "priority": 0,
+    "queries": [
+      "岩手県 自動運転 実証実験 2023..2026",
+      "岩手県 自動運転 レベル4 実証",
+      "岩手県 自動運転 国土交通省 自治体",
+      "岩手県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
+  },
+  {
+    "prefecture": "宮城県",
+    "priority": 0,
+    "queries": [
+      "宮城県 自動運転 実証実験 2023..2026",
+      "宮城県 自動運転 レベル4 実証",
+      "宮城県 自動運転 国土交通省 自治体",
+      "宮城県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
+  },
+  {
     "prefecture": "佐賀県",
     "priority": 0,
     "queries": [
@@ -798,6 +491,17 @@
       "佐賀県 自動運転 レベル4 実証",
       "佐賀県 自動運転 国土交通省 自治体",
       "佐賀県 自動運転 バス タクシー 実証"
+    ],
+    "candidates": []
+  },
+  {
+    "prefecture": "三重県",
+    "priority": 0,
+    "queries": [
+      "三重県 自動運転 実証実験 2023..2026",
+      "三重県 自動運転 レベル4 実証",
+      "三重県 自動運転 国土交通省 自治体",
+      "三重県 自動運転 バス タクシー 実証"
     ],
     "candidates": []
   },
