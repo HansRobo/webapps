@@ -3072,7 +3072,7 @@ const EXPERIMENTS = [
     period: { value: "2017年12月22日", refs: [1] },
     status: { value: "完了", refs: [1] },
     description: {
-      value: "ソフトバンク、三菱地所、SBドライブが実施した自動運転バス試乗会。東京都23区内公道での自動運転車両走行として実施された。",
+      value: "ソフトバンク、三菱地所、SBドライブ（現BOLDLY）が実施した自動運転バス試乗会。東京都23区内公道での自動運転車両走行として実施された。",
       refs: [1]
     },
     vehicle: { value: "NAVYA ARMA", refs: [1] },
@@ -3080,7 +3080,7 @@ const EXPERIMENTS = [
     route: { value: "丸の内仲通り 往復約200m（バス停1箇所）", refs: [1] },
     operationType: { value: "レベル4対応車両による試乗実証（監視付き）", refs: [1] },
     stakeholders: [
-      { role: "事業主体", name: "ソフトバンク株式会社、三菱地所株式会社、SBドライブ株式会社", refs: [1] }
+      { role: "事業主体", name: "ソフトバンク株式会社、三菱地所株式会社、SBドライブ株式会社（現BOLDLY株式会社）", refs: [1] }
     ],
     references: [
       { id: 1, title: "『自動運転バス試乗会 in 丸の内仲通り』を実施", url: "https://www.softbank.jp/corp/group/sbm/news/press/2017/20171211_01/", date: "2017-12-11", source: "ソフトバンク株式会社" }
@@ -4527,6 +4527,55 @@ const EXPERIMENTS = [
     ],
     references: [
       { id: 1, title: "八丈島において自動運転の検証走行を実施", url: "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2023100201", date: "2023-10-02", source: "日本モビリティ株式会社 リリース" }
+    ]
+  },
+  {
+    id: "exp-206",
+    name: { value: "対馬市 厳原港まつり 自動運転バス公道実証（MIAD連携）", refs: [1, 2, 3] },
+    location: { value: "長崎県対馬市（厳原港周辺）", lat: 34.205, lng: 129.288, refs: [1, 2] },
+    prefecture: { value: "長崎県", refs: [1] },
+    period: { value: "2019年8月3日〜8月4日", refs: [1, 2] },
+    status: { value: "完了", refs: [1, 2] },
+    description: {
+      value: "明治大学自動運転社会総合研究所（MIAD）と対馬市、SBドライブ（現BOLDLY）の連携により実施。厳原港まつり会場周辺の一般公道で、NAVYA ARMAを用いた来場者向け走行実証を行い、地域交通の社会実装に向けた初期検証を実施した。",
+      refs: [1, 2, 3]
+    },
+    vehicle: { value: "NAVYA ARMA", refs: [1, 2] },
+    adSystem: { value: "NAVYA", refs: [] },
+    route: { value: "厳原地方合同庁舎〜厳原港まつり会場（往復約700m）", refs: [1] },
+    operationType: { value: "レベル2（運転手・保安要員同乗）", refs: [1] },
+    stakeholders: [
+      { role: "実証主体", name: "明治大学 自動運転社会総合研究所、対馬市（長崎県）、SBドライブ株式会社（現BOLDLY株式会社）", refs: [1, 2, 3] },
+      { role: "車両製造", name: "Navya（フランス）", refs: [1, 2] }
+    ],
+    references: [
+      { id: 1, title: "対馬プロジェクト", url: "https://www.isc.meiji.ac.jp/~jidou_unten/project/tsushima-project.html", date: "2021-08-02", source: "明治大学自動運転社会総合研究所" },
+      { id: 2, title: "対馬市「厳原港まつり」で“ハンドルのない”自動運転バスが公道走行", url: "https://car.watch.impress.co.jp/docs/news/1199585.html", date: "2019-08-02", source: "Car Watch" },
+      { id: 3, title: "当研究所について（沿革）", url: "https://www.isc.meiji.ac.jp/~jidou_unten/aboutus.html", date: "2022-12-20", source: "明治大学自動運転社会総合研究所" }
+    ]
+  },
+  {
+    id: "exp-207",
+    name: { value: "香川県小豆島 3大学連合 公道実証（MIAD連携）", refs: [1, 2, 3] },
+    location: { value: "香川県小豆島（公道実証区間）", lat: 34.48, lng: 134.18, refs: [1, 2] },
+    prefecture: { value: "香川県", refs: [1, 2] },
+    period: { value: "2019年3月（実証実施）", refs: [1, 2, 3] },
+    status: { value: "完了", refs: [1, 2] },
+    description: {
+      value: "明治大学自動運転社会総合研究所、群馬大学、香川大学の3大学連合による共同研究として実施。群馬大学保有の改造アルファードを用い、見通しの良くない区間を含む小豆島の公道で走行実証と飛び出し事故想定試験を行った。",
+      refs: [1, 2, 3]
+    },
+    vehicle: { value: "トヨタ アルファード", refs: [1] },
+    adSystem: { value: "不明", refs: [] },
+    route: { value: "香川県小豆島内の一般公道（詳細区間非公表）", refs: [1, 3] },
+    operationType: { value: "公道実証（運転手同乗）", refs: [1, 3] },
+    stakeholders: [
+      { role: "実証主体", name: "明治大学 自動運転社会総合研究所、群馬大学(CRANTS)、香川大学", refs: [1, 2, 3] }
+    ],
+    references: [
+      { id: 1, title: "小豆島プロジェクト", url: "https://www.isc.meiji.ac.jp/~jidou_unten/project/azukishima-project.html", date: "2019-11-14", source: "明治大学自動運転社会総合研究所" },
+      { id: 2, title: "当研究所について（沿革）", url: "https://www.isc.meiji.ac.jp/~jidou_unten/aboutus.html", date: "2022-12-20", source: "明治大学自動運転社会総合研究所" },
+      { id: 3, title: "6/5(水)「自動運転とサイバーリスク」〜香川・群馬・明治の3大学連合による小豆島実証実験をもとに〜", url: "https://www.jst.go.jp/ristex/hite/topics/411.html", date: "2019-05-05", source: "JST RISTEX" }
     ]
   }
 ];
