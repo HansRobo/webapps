@@ -145,7 +145,6 @@ document.addEventListener("DOMContentLoaded", () => {
       raw.period.value,
       raw.status.value,
       raw.description.value,
-      raw.vehicleType.value,
       raw.operationType.value,
       raw.route.value,
       orgNames.join(" "),
@@ -167,7 +166,6 @@ document.addEventListener("DOMContentLoaded", () => {
       period: raw.period.value,
       status,
       description: raw.description.value,
-      vehicleType: raw.vehicleType.value,
       vehicle,
       adSystem,
       operationType: raw.operationType.value,
@@ -668,7 +666,6 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="detail-section__title"><span class="material-symbols-outlined">info</span>基本情報</div>
         ${field("実施期間", exp.period)}
         ${field("運行形態", exp.operationType)}
-        ${field("使用車両", exp.vehicleType)}
         ${exp.vehicle?.value ? `<div class="detail-field"><span class="detail-field__label">車両名</span><span class="detail-field__value">${escHtml(exp.vehicle.value)}${refLink(exp.vehicle.refs ?? [])}</span></div>` : ""}
         ${exp.adSystem?.value ? `<div class="detail-field"><span class="detail-field__label">自動運転システム</span><span class="detail-field__value">${escHtml(exp.adSystem.value)}${refLink(exp.adSystem.refs ?? [])}</span></div>` : ""}
         ${field("ルート", exp.route)}
