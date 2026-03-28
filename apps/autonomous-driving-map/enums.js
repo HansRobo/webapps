@@ -333,7 +333,7 @@
     TAJIMA_GSM8: "タジマ GSM8",
     // 低速モビリティ（ヤマハ発動機）
     YAMAHA_GREEN_SLOW_MOBILITY: "ヤマハグリーンスローモビリティ",
-    YAMAHA_LANDCAR: "ヤマハ ランドカー",
+    YAMAHA_LANDCAR: "ヤマハランドカー",
     YAMAHA_GOLF_CAR: "ヤマハ ゴルフカー（公道仕様）",
     // その他専用設計
     PANASONIC_ELECTRIC_CART: "パナソニック製電動カート",

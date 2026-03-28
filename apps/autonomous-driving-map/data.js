@@ -40,7 +40,7 @@ const EXPERIMENTS = [
       value: "廃線跡を活用した専用道路「永平寺参ろーど」での自動運転移動サービス。2023年3月30日に国内初のレベル4車両認可を取得し、同年5月21日から運転者を配置しないレベル4サービスを開始した。",
       refs: [1, 2, 3]
     },
-    vehicle: { value: "ヤマハ発動機 グリーンスローモビリティ（電動カートベース）", refs: [2] },
+    vehicle: { value: "ヤマハグリーンスローモビリティ", refs: [2] },
     adSystem: { value: "産総研コンソーシアム", refs: [] },
     route: { value: "永平寺参ろーど 約2km（専用道）、最高速度12km/h", refs: [1, 2] },
     operationType: { value: "レベル4（特定自動運行、運転者なし）", refs: [1, 3] },
@@ -1734,7 +1734,7 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicle: { value: "ティアフォー Minibus", refs: [2] },
-    adSystem: { value: "ティアフォー（Autoware）", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "JR小松駅〜小松空港（片道約4.4km）", refs: [1, 2] },
     operationType: { value: "レベル2通年運行（レベル4社会実装準備中）", refs: [1, 2] },
     stakeholders: [
@@ -1829,7 +1829,7 @@ const EXPERIMENTS = [
       value: "JR御厨駅周辺において、ヤマハ発動機の電動小型低速車両を用いた実証を実施。カメラ認識によるVGL方式等の技術検証を行った。",
       refs: [1]
     },
-    vehicle: { value: "ヤマハ ランドカー", refs: [1] },
+    vehicle: { value: "ヤマハランドカー", refs: [1] },
     adSystem: { value: "ヤマハ発動機", refs: [] },
     route: { value: "JR御厨駅周辺 公道ルート", refs: [1] },
     operationType: { value: "レベル2相当（技術検証）", refs: [1] },
