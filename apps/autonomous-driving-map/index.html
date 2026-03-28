@@ -8,57 +8,158 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;500;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="top-app-bar" id="topBar">
+    <header class="top-app-bar">
       <div class="top-app-bar__content">
         <a href="../../index.html" class="top-app-bar__back" aria-label="ダッシュボードへ戻る">
           <span class="material-symbols-outlined">arrow_back</span>
         </a>
         <span class="material-symbols-outlined top-app-bar__icon">directions_car</span>
-        <h1 class="top-app-bar__title">自動運転実証実験マップ</h1>
+        <div class="top-app-bar__title-wrap">
+          <h1 class="top-app-bar__title">自動運転実証実験マップ</h1>
+          <p class="top-app-bar__subtitle">探索中心のマルチフィルタビュー</p>
+        </div>
       </div>
     </header>
 
     <div class="app-layout">
-      <!-- Sidebar -->
-      <aside class="sidebar" id="sidebar">
-        <div class="sidebar__header">
-          <span class="label-large">実証実験一覧</span>
-          <span class="experiment-count" id="experimentCount">0件</span>
+      <aside class="control-panel" id="controlPanel">
+        <div class="panel-header">
+          <h2>絞り込み</h2>
+          <button class="ghost-button" id="clearFiltersButton" type="button">全解除</button>
         </div>
 
-        <div class="filter-section">
-          <div class="filter-row">
-            <div class="filter-chip-group" id="statusFilter">
-              <button class="filter-chip active" data-value="">すべて</button>
-              <button class="filter-chip" data-value="実施中">実施中</button>
-              <button class="filter-chip" data-value="完了">完了</button>
-              <button class="filter-chip" data-value="計画中">計画中</button>
-            </div>
-          </div>
-          <div class="filter-row">
-            <select class="filter-select" id="prefectureFilter">
+        <div class="quick-search">
+          <span class="material-symbols-outlined">search</span>
+          <input id="queryInput" type="search" placeholder="実験名・地域・組織で検索" autocomplete="off" />
+        </div>
+
+        <section class="filter-block">
+          <div class="filter-block__title">ステータス</div>
+          <div class="chip-group" id="statusFilterGroup"></div>
+        </section>
+
+        <section class="filter-block">
+          <div class="filter-block__title">都道府県</div>
+          <div class="filter-combo">
+            <select id="prefectureSelect" class="filter-select">
               <option value="">都道府県（すべて）</option>
             </select>
+            <button class="chip-button" type="button" id="prefectureAddButton">追加</button>
           </div>
-        </div>
+          <div class="selected-chip-wrap" id="prefectureSelected"></div>
+        </section>
 
-        <ul class="experiment-list" id="experimentList" role="list"></ul>
+        <button class="advanced-toggle" id="advancedToggle" type="button" aria-expanded="false">
+          <span class="material-symbols-outlined">tune</span>
+          高度な絞り込み
+        </button>
+
+        <div class="advanced-filters" id="advancedFilters" hidden>
+          <section class="filter-block">
+            <div class="filter-block__title">運行レベル</div>
+            <div class="chip-group" id="levelFilterGroup"></div>
+          </section>
+
+          <section class="filter-block">
+            <div class="filter-block__title">車種カテゴリ</div>
+            <div class="chip-group" id="vehicleFilterGroup"></div>
+          </section>
+
+          <section class="filter-block">
+            <div class="filter-block__title">実施開始年</div>
+            <div class="range-grid">
+              <select id="yearFromSelect" class="filter-select">
+                <option value="">開始年（下限なし）</option>
+              </select>
+              <select id="yearToSelect" class="filter-select">
+                <option value="">開始年（上限なし）</option>
+              </select>
+            </div>
+          </section>
+
+          <section class="filter-block">
+            <div class="filter-block__title">主体組織（部分一致）</div>
+            <div class="quick-search quick-search--small">
+              <span class="material-symbols-outlined">business</span>
+              <input id="orgQueryInput" type="search" placeholder="例: ティアフォー / 自治体名" autocomplete="off" />
+            </div>
+          </section>
+
+          <section class="filter-block">
+            <div class="filter-block__title">自治体（部分一致）</div>
+            <div class="quick-search quick-search--small">
+              <span class="material-symbols-outlined">location_city</span>
+              <input id="municipalityQueryInput" type="search" placeholder="例: 永平寺町 / 日立市" autocomplete="off" />
+            </div>
+          </section>
+
+          <section class="filter-block">
+            <div class="filter-block__title">ルート特性</div>
+            <div class="chip-group" id="routeTagFilterGroup"></div>
+          </section>
+        </div>
       </aside>
 
-      <!-- Map -->
-      <main class="map-container">
+      <main class="map-stage">
+        <div class="map-info-card">
+          <div>
+            <div class="map-info-card__label">表示中</div>
+            <div class="map-info-card__value" id="filteredCountMain">0件</div>
+          </div>
+          <div>
+            <div class="map-info-card__label">現在地図範囲</div>
+            <div class="map-info-card__sub" id="mapBoundsCount">0件</div>
+          </div>
+        </div>
         <div id="map"></div>
       </main>
+
+      <aside class="results-panel" id="resultsPanel">
+        <div class="panel-header">
+          <h2>実証実験一覧</h2>
+          <span class="count-pill" id="resultCount">0件</span>
+        </div>
+
+        <div class="sort-row">
+          <label for="sortSelect">並び替え</label>
+          <select id="sortSelect" class="filter-select">
+            <option value="relevance">関連度順</option>
+            <option value="recent">開始年が新しい順</option>
+            <option value="prefecture">都道府県順</option>
+            <option value="status">ステータス順</option>
+          </select>
+        </div>
+
+        <div class="active-filters" id="activeFilters"></div>
+        <div class="empty-hint" id="emptyHint" hidden>
+          条件に一致する実証実験がありません。フィルタを一部解除するか、キーワードを短くしてください。
+        </div>
+        <ul class="experiment-list" id="experimentList" role="list"></ul>
+      </aside>
     </div>
 
-    <!-- Detail Panel -->
+    <div class="mobile-dock" id="mobileDock">
+      <button id="mobileShowFilters" type="button">
+        <span class="material-symbols-outlined">tune</span>
+        フィルタ
+      </button>
+      <button id="mobileShowResults" type="button" class="active">
+        <span class="material-symbols-outlined">format_list_bulleted</span>
+        結果
+      </button>
+      <button id="mobileHidePanels" type="button">
+        <span class="material-symbols-outlined">map</span>
+        地図
+      </button>
+    </div>
+
     <div class="detail-overlay" id="detailOverlay" role="dialog" aria-modal="true" aria-labelledby="detailTitle" hidden>
       <div class="detail-panel" id="detailPanel">
         <div class="detail-panel__header">
@@ -71,7 +172,6 @@
             <span class="material-symbols-outlined">close</span>
           </button>
         </div>
-
         <div class="detail-panel__body" id="detailBody"></div>
       </div>
     </div>
