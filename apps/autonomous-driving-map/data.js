@@ -1848,24 +1848,25 @@ const EXPERIMENTS = [
   },
   {
     id: "exp-090",
-    name: { value: "東広島市・自動運転隊列走行BRT実証", refs: [1] },
+    name: { value: "東広島市・自動運転隊列走行BRT実証", refs: [1, 2] },
     location: { value: "広島県東広島市", lat: 34.43, lng: 132.74, refs: [1] },
     prefecture: { value: "広島県", refs: [1] },
-    period: { value: "2024年〜（継続実証中）", refs: [1] },
+    period: { value: "2024年〜2026年1月（継続実証）", refs: [1, 2] },
     status: { value: "実施中", refs: [1] },
     description: {
       value: "ブールバール等において、JR西日本・ソフトバンクと連携し連節バスの自動運転・隊列走行（BRT）実証を実施。将来の拠点間移動の高度化を目指す。",
-      refs: [1]
+      refs: [1, 2]
     },
-    vehicleType: { value: "自動運転連節EVバス (BRT仕様)", refs: [1] },
-    route: { value: "JR西条駅〜広島大学キャンパス (ブールバール)", refs: [1] },
-    operationType: { value: "レベル2（自動隊列走行BRT）", refs: [1] },
+    vehicleType: { value: "自動運転EVバス（BRT仕様）", refs: [1, 2] },
+    route: { value: "JR西条駅周辺〜広島大学東広島キャンパス（ブールバール）", refs: [1, 2] },
+    operationType: { value: "レベル2（自動運転・隊列走行BRT実証）", refs: [1, 2] },
     stakeholders: [
-      { role: "自治体", name: "東広島市", refs: [1] },
-      { role: "主体", name: "JR西日本、ソフトバンク", refs: [1] }
+      { role: "自治体", name: "東広島市", refs: [1, 2] },
+      { role: "主体", name: "西日本旅客鉄道株式会社（JR西日本）、ソフトバンク株式会社", refs: [1, 2] }
     ],
     references: [
-      { id: 1, title: "自動運転・隊列走行BRT実証実験の推進について", url: "https://www.higashihiroshima.lg.jp/soshiki/toshikotsu/kotsu/jidounden/index.html", date: "2024-11-05", source: "東広島市" }
+      { id: 1, title: "自動運転・隊列走行BRT実証実験", url: "https://www.city.higashihiroshima.lg.jp/soshiki/toshi/7/1_1/44126.html", date: "2025-11-07", source: "東広島市" },
+      { id: 2, title: "自動運転・隊列走行BRTの社会実装に向けた「自動運転EVバス」走行試験開始", url: "https://www.city.higashihiroshima.lg.jp/material/files/group/205/press.pdf", date: "2025-10-24", source: "東広島市・JR西日本 連名資料" }
     ]
   },
   {
@@ -2409,25 +2410,25 @@ const EXPERIMENTS = [
   },
   {
     id: "exp-120",
-    name: { value: "仙台市 沿岸・秋保地域 自動運転バス実証（宮城交通・先進モビリティ）", refs: [1] },
-    location: { value: "宮城県仙台市（宮城野区荒浜・太白区秋保町）", lat: 38.218, lng: 140.942, refs: [1] },
+    name: { value: "仙台市 自動運転実証事業（青葉山・東部北・秋保エリア）", refs: [1, 2] },
+    location: { value: "宮城県仙台市（青葉山・東部北・秋保エリア）", lat: 38.262, lng: 140.876, refs: [1, 2] },
     prefecture: { value: "宮城県", refs: [1] },
-    period: { value: "2024年11月〜2026年1月", refs: [1] },
+    period: { value: "2024年10月〜2026年1月（段階的に拡大）", refs: [1, 2] },
     status: { value: "実施中", refs: [1] },
     description: {
-      value: "東日本大震災の被災地である沿岸部（荒浜地区）の震災遺構巡りや、観光地である秋保温泉周辺において、中型自動運転バスを用いた実証実験を実施。観光客の二次交通確保と、公共交通の持続可能性を検証している。",
-      refs: [1]
+      value: "仙台市の自動運転実証事業として、青葉山グリーン回遊プロジェクト（国際センター駅〜仙台城跡）での運行実験を起点に、2025年度は東部北エリアおよび秋保エリアへ実施範囲を拡大。観光・地域交通の移動手段確保と社会受容性を検証している。",
+      refs: [1, 2]
     },
-    vehicleType: { value: "中型自動運転バス（いすゞ・エルガ改造）", refs: [1] },
-    route: { value: "荒浜地区シャトルルート、秋保温泉周辺ルート", refs: [1] },
-    operationType: { value: "レベル2（将来のレベル4実装に向けた検証）", refs: [1] },
+    vehicleType: { value: "自動運転EVバス（レベル2実証車両）", refs: [1, 2] },
+    route: { value: "国際センター駅〜仙台城跡、東部北エリア、秋保エリア", refs: [1, 2] },
+    operationType: { value: "レベル2（将来のレベル4実装に向けた実証）", refs: [1, 2] },
     stakeholders: [
-      { role: "運行主体", name: "宮城交通株式会社", refs: [1] },
-      { role: "システム・車両製作", name: "先進モビリティ株式会社", refs: [1] },
-      { role: "自治体", name: "宮城県仙台市", refs: [1] }
+      { role: "自治体", name: "仙台市", refs: [1, 2] },
+      { role: "協力", name: "東北大学", refs: [1, 2] }
     ],
     references: [
-      { id: 1, title: "仙台市における自動運転バス実証実験の実施について", url: "https://www.as-mobi.com/news/", date: "2024-11-01", source: "先進モビリティ株式会社" }
+      { id: 1, title: "自動運転実証事業の実施エリアを拡大します（発表資料）", url: "https://www.city.sendai.jp/sesakukoho/gaiyo/shichoshitsu/kaiken/2025/10/14unten2.html", date: "2025-10-15", source: "仙台市" },
+      { id: 2, title: "自動運転実証事業「青葉山グリーン回遊プロジェクト」自動運転レベル2の運行実験を実施します（発表資料）", url: "https://www.city.sendai.jp/sesakukoho/gaiyo/shichoshitsu/kaiken/2024/10/08zidouunten2.html", date: "2024-10-09", source: "仙台市" }
     ]
   },
   {
