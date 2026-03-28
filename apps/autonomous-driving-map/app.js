@@ -136,7 +136,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const orgNames = [...new Set(raw.stakeholders.flatMap((s) => splitOrganizations(s.name)).filter(Boolean))];
     const municipalities = [...new Set(orgNames.filter((name) => /（.+?[都道府県]）/.test(name)))];
     const routeTags = deriveRouteTags(raw.route.value, raw.description.value, raw.location.value);
-    const vehicle = raw.vehicle?.value ?? null;
+    const vehicleArr = Array.isArray(raw.vehicle) ? raw.vehicle : raw.vehicle ? [raw.vehicle] : [];
+    const vehicles = vehicleArr.map((v) => v.value).filter(Boolean);
     const adSystem = raw.adSystem?.value ?? null;
     const searchableText = [
       raw.name.value,
@@ -149,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
       raw.route.value,
       orgNames.join(" "),
       municipalities.join(" "),
-      vehicle ?? "",
+      vehicles.join(" "),
       adSystem ?? "",
     ]
       .join(" ")
@@ -166,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
       period: raw.period.value,
       status,
       description: raw.description.value,
-      vehicle,
+      vehicles,
       adSystem,
       operationType: raw.operationType.value,
       route: raw.route.value,
@@ -211,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function buildFilterChoices() {
     const statuses = [...new Set(experiments.map((exp) => exp.status))].sort((a, b) => (statusPriority[a] ?? 99) - (statusPriority[b] ?? 99));
     const levels = [...new Set(experiments.flatMap((exp) => exp.levels))].sort();
-    const vehicles = [...new Set(experiments.map((exp) => exp.vehicle).filter((v) => v !== null))].sort((a, b) => a.localeCompare(b, "ja"));
+    const vehicles = [...new Set(experiments.flatMap((exp) => exp.vehicles))].sort((a, b) => a.localeCompare(b, "ja"));
     const adSystems = [...new Set(experiments.map((exp) => exp.adSystem).filter((v) => v !== null))].sort((a, b) => a.localeCompare(b, "ja"));
     const prefectures = [...new Set(experiments.map((exp) => exp.prefecture))].sort();
     const years = [...new Set(experiments.map((exp) => exp.startYear).filter((v) => v !== null))].sort((a, b) => a - b);
@@ -259,7 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="map-popup__meta">
             <span class="status-badge" data-status="${escAttr(exp.status)}">${escHtml(exp.status)}</span>
             <span class="meta-chip">${escHtml(exp.primaryLevel)}</span>
-            ${exp.vehicle ? `<span class="meta-chip">${escHtml(exp.vehicle)}</span>` : ""}
+            ${exp.vehicles.map((v) => `<span class="meta-chip">${escHtml(v)}</span>`).join("")}
           </div>
         </div>`,
         { maxWidth: 320 }
@@ -463,7 +464,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (state.statuses.size > 0 && !state.statuses.has(exp.status)) return false;
     if (state.prefectures.size > 0 && !state.prefectures.has(exp.prefecture)) return false;
     if (state.levels.size > 0 && !exp.levels.some((level) => state.levels.has(level))) return false;
-    if (state.vehicles.size > 0 && !state.vehicles.has(exp.vehicle)) return false;
+    if (state.vehicles.size > 0 && !exp.vehicles.some((v) => state.vehicles.has(v))) return false;
     if (state.adSystems.size > 0 && !state.adSystems.has(exp.adSystem)) return false;
     if (state.routeTags.size > 0 && !exp.routeTags.some((tag) => state.routeTags.has(tag))) return false;
 
@@ -666,7 +667,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="detail-section__title"><span class="material-symbols-outlined">info</span>基本情報</div>
         ${field("実施期間", exp.period)}
         ${field("運行形態", exp.operationType)}
-        ${exp.vehicle?.value ? `<div class="detail-field"><span class="detail-field__label">車両名</span><span class="detail-field__value">${escHtml(exp.vehicle.value)}${refLink(exp.vehicle.refs ?? [])}</span></div>` : ""}
+        ${(Array.isArray(exp.vehicle) ? exp.vehicle : exp.vehicle ? [exp.vehicle] : []).map((v) => `<div class="detail-field"><span class="detail-field__label">車両名</span><span class="detail-field__value">${escHtml(v.value)}${refLink(v.refs ?? [])}</span></div>`).join("")}
         ${exp.adSystem?.value ? `<div class="detail-field"><span class="detail-field__label">自動運転システム</span><span class="detail-field__value">${escHtml(exp.adSystem.value)}${refLink(exp.adSystem.refs ?? [])}</span></div>` : ""}
         ${field("ルート", exp.route)}
         ${field("概要", exp.description, ' style="grid-template-columns: 140px 1fr"')}

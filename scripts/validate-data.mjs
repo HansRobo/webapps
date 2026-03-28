@@ -73,7 +73,6 @@ function validateExperiments(experiments, enums) {
     "period",
     "status",
     "description",
-    "vehicle",
     "adSystem",
     "route",
     "operationType",
@@ -133,8 +132,21 @@ function validateExperiments(experiments, enums) {
     if (exp.adSystem?.value && !knownAdSystems.includes(exp.adSystem.value))
       err(id, `adSystem.value "${exp.adSystem.value}" は許可されたenum値ではありません。許可値: ${knownAdSystems.join(", ")}`);
 
-    if (exp.vehicle?.value && !knownVehicles.includes(exp.vehicle.value))
-      err(id, `vehicle.value "${exp.vehicle.value}" は許可されたenum値ではありません。許可値: ${knownVehicles.join(", ")}`);
+    const vehicleItems = Array.isArray(exp.vehicle) ? exp.vehicle : exp.vehicle ? [exp.vehicle] : [];
+    if (vehicleItems.length === 0) {
+      err(id, 'フィールド "vehicle" がありません');
+    } else {
+      for (const v of vehicleItems) {
+        if (typeof v.value !== "string" || v.value.trim() === "")
+          err(id, `vehicle.value が空または文字列ではありません`);
+        if (!Array.isArray(v.refs))
+          err(id, `vehicle.refs が配列ではありません`);
+        else if (v.refs.some((r) => typeof r !== "number"))
+          err(id, `vehicle.refs に数値以外の値が含まれています`);
+        if (v.value && !knownVehicles.includes(v.value))
+          err(id, `vehicle.value "${v.value}" は許可されたenum値ではありません。許可値: ${knownVehicles.join(", ")}`);
+      }
+    }
 
     if (!Array.isArray(exp.stakeholders) || exp.stakeholders.length === 0) {
       warn(id, "stakeholders が空または配列ではありません");

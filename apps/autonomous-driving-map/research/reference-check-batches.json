@@ -1,0 +1,2272 @@
+[
+  {
+    "batchId": 1,
+    "phase": "P1",
+    "label": "P1-DNS/接続エラー, P2-404",
+    "items": [
+      {
+        "expId": "exp-033",
+        "refId": 1,
+        "status": "ERROR",
+        "url": "https://www.niigata.lg.jp/",
+        "title": "佐渡市における自動運転実証実験",
+        "error": "getaddrinfo ENOTFOUND www.niigata.lg.jp"
+      },
+      {
+        "expId": "exp-039",
+        "refId": 1,
+        "status": "ERROR",
+        "url": "https://www.vill.asuka.nara.jp/news/2024/12/jidouten.html",
+        "title": "明日香村における自動運転バス実証運行について",
+        "error": "getaddrinfo ENOTFOUND www.vill.asuka.nara.jp"
+      },
+      {
+        "expId": "exp-054",
+        "refId": 1,
+        "status": "ERROR",
+        "url": "https://www.city.saito.miyazaki.jp/koutsu/jidounten.html",
+        "title": "西都市における自動運転実証実験の推進について",
+        "error": "getaddrinfo ENOTFOUND www.city.saito.miyazaki.jp"
+      },
+      {
+        "expId": "exp-058",
+        "refId": 1,
+        "status": "ERROR",
+        "url": "https://www.city.mutsu.aomori.jp/soshiki/koutsuu/jidounten.html",
+        "title": "むつ市における自動運転バスの実証運行について",
+        "error": "connect ECONNREFUSED 210.239.7.226:443"
+      },
+      {
+        "expId": "exp-084",
+        "refId": 1,
+        "status": "ERROR",
+        "url": "https://www.city.sanda.lg.jp/soshiki/47/12345.html",
+        "title": "三田市における自動運転実証実験について",
+        "error": "unable to verify the first certificate; if the root CA is installed locally, try running Node.js with --use-system-ca"
+      },
+      {
+        "expId": "exp-001",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.softbank.jp/corp/news/press/sbkk/2020/20201025_01/",
+        "title": "境町、全国で初めて自動運転バスを路線バスとして運行開始"
+      },
+      {
+        "expId": "exp-004",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.kamishihoro.jp/smarttown/smartmobility",
+        "title": "上士幌町における自動運転の取り組み"
+      },
+      {
+        "expId": "exp-005",
+        "refId": 3,
+        "status": 404,
+        "url": "https://www.city.chiba.jp/toshi/toshi/smartcity/makuhari_jidounten.html",
+        "title": "幕張新都心スマートシティプロジェクト 自動運転実証について"
+      },
+      {
+        "expId": "exp-006",
+        "refId": 3,
+        "status": 404,
+        "url": "https://www.mlit.go.jp/road/road/traffic/autonomous/autonomous_kaga.html",
+        "title": "観光地における自動運転モビリティ活用事業（加賀市）"
+      },
+      {
+        "expId": "exp-007",
+        "refId": 2,
+        "status": 404,
+        "url": "https://www.town.minamioguni.lg.jp/news/detail.html?id=123",
+        "title": "みんなのタクシー 南小国町実証実験報告書"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 2,
+    "phase": "P2",
+    "label": "P2-404",
+    "items": [
+      {
+        "expId": "exp-007",
+        "refId": 3,
+        "status": 404,
+        "url": "https://wwwtb.mlit.go.jp/kyushu/press/00001_00287.html",
+        "title": "地方部における自動運転サービス実証（熊本県）"
+      },
+      {
+        "expId": "exp-008",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.higashiomi.shiga.jp/0000012224.html",
+        "title": "奥永源寺地区における自動運転移動サービスの実証実験"
+      },
+      {
+        "expId": "exp-008",
+        "refId": 2,
+        "status": 404,
+        "url": "https://www.hino.co.jp/corp/news/2020/20201005-002715.html",
+        "title": "日野自動車、東近江市での山間部自動運転実証"
+      },
+      {
+        "expId": "exp-010",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.tobu-bus.com/uploads/files/hp_release_2025.12.10.pdf",
+        "title": "柏の葉地域において、特定自動運行（自動運転レベル４）および旅客自動車運送事業の認可を取得しました"
+      },
+      {
+        "expId": "exp-012",
+        "refId": 2,
+        "status": 404,
+        "url": "https://www.jetro.go.jp/biznews/2023/10/892dd550974cc9e6.html",
+        "title": "ホンダやGMなど、自動運転タクシーサービスを2026年初頭に開始"
+      },
+      {
+        "expId": "exp-013",
+        "refId": 1,
+        "status": 404,
+        "url": "https://global.nissannews.com/ja-JP/releases/130097a8987b7a5840a7f5c53b1b68ce-240301-01-j",
+        "title": "日産自動車、Wayve、Uberによるロボタクシー協業計画"
+      },
+      {
+        "expId": "exp-013",
+        "refId": 2,
+        "status": 404,
+        "url": "https://www.kankokeizai.com/nissan-autonomous-driving-2024/",
+        "title": "日産の自動運転モビリティサービスに向けた取り組み"
+      },
+      {
+        "expId": "exp-020",
+        "refId": 2,
+        "status": 404,
+        "url": "https://www.town.hachijo.tokyo.jp/kakuka/kikaku/smartmobility.html",
+        "title": "八丈町スマートモビリティプロジェクト"
+      },
+      {
+        "expId": "exp-021",
+        "refId": 1,
+        "status": 404,
+        "url": "https://aisan-mobility.com/news/250101/",
+        "title": "【三重県桑名市】自動運転バスの社会実装を見据えた安全性検証 / レベル2本番走行"
+      },
+      {
+        "expId": "exp-022",
+        "refId": 1,
+        "status": 404,
+        "url": "https://aisan-mobility.com/news/251201/",
+        "title": "【三重県伊勢市】伊勢神宮内宮エリアで自動運転バスの運行に参画しました"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 3,
+    "phase": "P2",
+    "label": "P2-404",
+    "items": [
+      {
+        "expId": "exp-023",
+        "refId": 1,
+        "status": 404,
+        "url": "https://aisan-mobility.com/news/250101-2/",
+        "title": "【茨城県つくば市】筑波大学循環における自動運転バスの取り組みに協力しました"
+      },
+      {
+        "expId": "exp-027",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.mlit.go.jp/road/road/traffic/autonomous/autonomous_kamikoani.html",
+        "title": "上小阿仁村における自動運転サービスの実証"
+      },
+      {
+        "expId": "exp-028",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.mlit.go.jp/road/road/traffic/autonomous/autonomous_takahata.html",
+        "title": "道の駅等を拠点とした自動運転サービスの実証実験"
+      },
+      {
+        "expId": "exp-029",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.nissan-global.com/JP/NEWS/2021/_1026-02-j.html",
+        "title": "浪江町における自動運転実証実験"
+      },
+      {
+        "expId": "exp-030",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.maebashi.gunma.jp/soshiki/seisaku/kotsuseisaku/gyomu/3/2/23011.html",
+        "title": "前橋市における自動運転の取り組み"
+      },
+      {
+        "expId": "exp-031",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.as-mobi.com/case/okunikko/",
+        "title": "栃木県 日光市 自動運転バス実証"
+      },
+      {
+        "expId": "exp-034",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.toyama.lg.jp/shisei/machi/1010376/1010381/1010385.html",
+        "title": "富山市 自動運転実証実験事業"
+      },
+      {
+        "expId": "exp-035",
+        "refId": 1,
+        "status": 404,
+        "url": "https://prtimes.jp/main/html/rd/p/000001099.000028232.html",
+        "title": "富士吉田市での実証実験"
+      },
+      {
+        "expId": "exp-036",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.gifu.lg.jp/kurashi/douro/1002587/1023154/1036889.html",
+        "title": "新たな「GIFU HEART BUS」の運行がいよいよスタート！"
+      },
+      {
+        "expId": "exp-037",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.kyotanabe.lg.jp/0000020478.html",
+        "title": "京田辺市における自動運転実証実験について"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 4,
+    "phase": "P2",
+    "label": "P2-404",
+    "items": [
+      {
+        "expId": "exp-040",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.wakayama.wakayama.jp/shisei/1012345/1045678.html",
+        "title": "和歌山市自動運転実証実験の実施結果"
+      },
+      {
+        "expId": "exp-044",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.fukuyama.hiroshima.jp/soshiki/gijitech/315486.html",
+        "title": "福山市自動運転プロジェクト 実施状況"
+      },
+      {
+        "expId": "exp-047",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.mitoyo.lg.jp/soshiki/seisaku/jidounten/12345.html",
+        "title": "三豊市における自動運転実証の取り組み"
+      },
+      {
+        "expId": "exp-049",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.kochi.kochi.jp/soshiki/11/jidounten-houkoku.html",
+        "title": "高知市における自動運転実証（総務省事業）の結果報告"
+      },
+      {
+        "expId": "exp-050",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.fukuoka.lg.jp/shisei/shisaku/jidounten.html",
+        "title": "アイランドシティにおける自動運転バス実証の実施について"
+      },
+      {
+        "expId": "exp-051",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.pref.saga.lg.jp/kiji003102345/index.html",
+        "title": "SAGAサンライズパーク周辺における自動運転実証実験について"
+      },
+      {
+        "expId": "exp-052",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.tsushima.nagasaki.jp/kurashi/bus/8763.html",
+        "title": "対馬市における移動支援実証の取り組みについて"
+      },
+      {
+        "expId": "exp-056",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.tomigusuku.lg.jp/kurashi/koutsu/jidouuntenservice.html",
+        "title": "豊見城市における自動運転推進事業について"
+      },
+      {
+        "expId": "exp-059",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.morioka.iwate.jp/soshiki/kankou/10123.html",
+        "title": "「MorioKart」自動運転走行デモンストレーションの実施について"
+      },
+      {
+        "expId": "exp-060",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.sendai.jp/koutsuu/jidounten/index.html",
+        "title": "仙台市における自動運転実証実験の推進について"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 5,
+    "phase": "P2",
+    "label": "P2-404",
+    "items": [
+      {
+        "expId": "exp-062",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.nagai.yamagata.jp/kurashi_gyosei/kurashi_tetsuzuki/kotsu/jidounten/10664.html",
+        "title": "スマートシティ長井実現事業 自動運転実証"
+      },
+      {
+        "expId": "exp-063",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.town.bandai.fukushima.jp/soshiki/seisaku/jidounten.html",
+        "title": "磐梯町における自動運転実証実験の実施について"
+      },
+      {
+        "expId": "exp-065",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.pref.tochigi.lg.jp/h03/abc_project.html",
+        "title": "栃木県ABCプロジェクトの取り組みについて"
+      },
+      {
+        "expId": "exp-066",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.shibukawa.lg.jp/kurashi/shakaikiban/shinki/p010618.html",
+        "title": "渋川市における自動運転実証実験"
+      },
+      {
+        "expId": "exp-067",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.saitama.lg.jp/001/010/018/004/p098765.html",
+        "title": "さいたま市における自動運転バス実証実験について"
+      },
+      {
+        "expId": "exp-068",
+        "refId": 1,
+        "status": 404,
+        "url": "https://prtimes.jp/main/html/rd/p/000000350.000042732.html",
+        "title": "横芝光町における自動運転バスの運行について"
+      },
+      {
+        "expId": "exp-069",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.tama.lg.jp/shisei/1011111/1011855/1014264.html",
+        "title": "多摩市における大型自動運転バスの実証運行について"
+      },
+      {
+        "expId": "exp-070",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.yokohama.lg.jp/kurashi/machizukuri-kotsu/kotsu/jidounten/",
+        "title": "横浜市における自動運転車両を用いた実証実験について"
+      },
+      {
+        "expId": "exp-074",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.fukui-sakai.lg.jp/sogo-seisaku/shisei/shisaku/jidouunten/jituziyou.html",
+        "title": "坂井市自動運転社会推進実証事業について"
+      },
+      {
+        "expId": "exp-076",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.hioki.com/jp/information/detail/?itemid=1356&dispmid=937",
+        "title": "自動運転EVバス走行実証実験を実施しました"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 6,
+    "phase": "P2",
+    "label": "P2-404",
+    "items": [
+      {
+        "expId": "exp-077",
+        "refId": 1,
+        "status": 404,
+        "url": "https://enatabi.jp/jido-unten/",
+        "title": "東濃地域自動運転推進コンソーシアムの取り組み"
+      },
+      {
+        "expId": "exp-078",
+        "refId": 1,
+        "status": 404,
+        "url": "https://global.yamaha-motor.com/jp/news/2020/0331/vgl.html",
+        "title": "磐田市における自動運転実証実験の成果について"
+      },
+      {
+        "expId": "exp-079",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.nisshin.lg.jp/soshiki/sougou/kikaku/jidounten/index.html",
+        "title": "日進市自動運転バス実証運行について"
+      },
+      {
+        "expId": "exp-080",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.yokkaichi.lg.jp/www/contents/1638332115166/index.html",
+        "title": "四日市市における自動運転実証実験の推進"
+      },
+      {
+        "expId": "exp-081",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.otsu.lg.jp/soshiki/035/1601/o/jidounten/index.html",
+        "title": "大津市内における自動運転バス実証実験について"
+      },
+      {
+        "expId": "exp-082",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000321234.html",
+        "title": "洛西ニュータウンにおける自動運転実証実験の実施について"
+      },
+      {
+        "expId": "exp-088",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.matsue.lg.jp/soshiki/kotsu/jidounten.html",
+        "title": "松江市における自動運転バス実証実験の実施について"
+      },
+      {
+        "expId": "exp-091",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.ube.yamaguchi.jp/shisei/koho/kisya/h30/jidounten_kekka.html",
+        "title": "中山間地域における自動運転サービス実証実験の結果について"
+      },
+      {
+        "expId": "exp-092",
+        "refId": 2,
+        "status": 404,
+        "url": "https://www.pref.tokushima.lg.jp/ippannokata/kuseijoho/koho/7234567.html",
+        "title": "徳島県における自動運転タクシー実証運行について"
+      },
+      {
+        "expId": "exp-093",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.jtbcorp.jp/jp/newsroom/2024/07/26_shodoshima-autonomous.html",
+        "title": "小豆島における自動運転バス実証実験の実施"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 7,
+    "phase": "P2",
+    "label": "P2-404",
+    "items": [
+      {
+        "expId": "exp-105",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.aist.go.jp/aist_j/news/pr20171013.html",
+        "title": "永平寺町における自動走行実証実験の開始"
+      },
+      {
+        "expId": "exp-108",
+        "refId": 2,
+        "status": 404,
+        "url": "https://www.macnica.co.jp/news/2023/",
+        "title": "マクニカ、福山市で自動運転バス実証を支援"
+      },
+      {
+        "expId": "exp-112",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.rikuzentakata.iwate.jp/soshiki/kikakuseisakuka/seisakukohogakari/1/1/8617.html",
+        "title": "陸前高田市における自動運転バスの新たな実証実験"
+      },
+      {
+        "expId": "exp-113",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.kitakyushu.lg.jp/shisei/cto-01002.html",
+        "title": "北九州市 自動運転プロジェクト公表資料"
+      },
+      {
+        "expId": "exp-116",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.softbank.jp/drive/press/2024/20240130_01/",
+        "title": "弥彦村で自動運転バス「MiCa」による通年運行を開始"
+      },
+      {
+        "expId": "exp-119",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.softbank.jp/drive/press/2023/20231128_01/",
+        "title": "浜松自動運転やらまいかプロジェクト 実証実験の開始について"
+      },
+      {
+        "expId": "exp-119",
+        "refId": 2,
+        "status": 404,
+        "url": "https://prtimes.jp/main/html/rd/p/000000318.000039535.html",
+        "title": "浜松市、自動運転実証の第4回実験を開始"
+      },
+      {
+        "expId": "exp-128",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.kawasaki.jp/250/page/0000148404.html",
+        "title": "川崎市 臨海部における自動運転バス実証実験"
+      },
+      {
+        "expId": "exp-129",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.nishi.or.jp/shisei/koho/hasshin/press_2024/202409_202503/20250331175400277.html",
+        "title": "西宮市における自動運転バス実証実験"
+      },
+      {
+        "expId": "exp-140",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.kizugawa.lg.jp/0000002703.html",
+        "title": "自動運転EVバスの実証運行を行います"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 8,
+    "phase": "P2",
+    "label": "P2-404",
+    "items": [
+      {
+        "expId": "exp-158",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.echizen.lg.jp/office/070/020/jidouuntenbus_2.html",
+        "title": "越前市内で自動運転バスの試乗を実施します"
+      },
+      {
+        "expId": "exp-158",
+        "refId": 2,
+        "status": 404,
+        "url": "https://www.city.echizen.lg.jp/office/070/020/jidouuntenbus.html",
+        "title": "越前市自動運転バス実証運行について"
+      },
+      {
+        "expId": "exp-162",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.toyokawa.lg.jp/recommend/26836.html",
+        "title": "自動運転バスの実証実験を実施します！（終了しました）"
+      },
+      {
+        "expId": "exp-176",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.kasugai.lg.jp/shisei/machi/jidounten/index.html",
+        "title": "自動運転の実証実験について"
+      },
+      {
+        "expId": "exp-176",
+        "refId": 2,
+        "status": 404,
+        "url": "https://www.mlit.go.jp/jidosha/content/001738982.pdf",
+        "title": "春日井市における自動運転の取組"
+      },
+      {
+        "expId": "exp-177",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.town.meiwa.mie.jp/main/soshiki/soumu/kikaku/wonderloop/index.html",
+        "title": "ワンダーループ RoboBus 明和町実証運行"
+      },
+      {
+        "expId": "exp-178",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.shijonawate.lg.jp/soshiki/7/autonomous-driving.html",
+        "title": "自動運転の実証実験について"
+      },
+      {
+        "expId": "exp-178",
+        "refId": 2,
+        "status": 404,
+        "url": "https://www.pref.osaka.lg.jp/o100050/kotsu/jidounten/index.html",
+        "title": "大阪府における自動運転の取組"
+      },
+      {
+        "expId": "exp-179",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.toyonaka.osaka.jp/machi/kotsu/jidounten/index.html",
+        "title": "自動運転バス実証運行の実施について"
+      },
+      {
+        "expId": "exp-180",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.town.taiji.wakayama.jp/soshiki/soumu/autonomous-driving.html",
+        "title": "太地町における自動運転サービスについて"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 9,
+    "phase": "P2",
+    "label": "P2-404",
+    "items": [
+      {
+        "expId": "exp-180",
+        "refId": 2,
+        "status": 404,
+        "url": "https://www.macnica.co.jp/business/mobility/case/taiji/",
+        "title": "MX自動運転サービス導入事例"
+      },
+      {
+        "expId": "exp-181",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.iinan.jp/soshiki/kikaku/autonomous-driving/",
+        "title": "飯南町における自動運転サービス実証について"
+      },
+      {
+        "expId": "exp-182",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.town.tokushima-naka.lg.jp/gyosei/autonomous/",
+        "title": "那賀町における自動運転実証実験"
+      },
+      {
+        "expId": "exp-183",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.iyo.lg.jp/soshiki/kikaku/autonomous-healthcare/",
+        "title": "自動運転×ヘルスケア連携実証について"
+      },
+      {
+        "expId": "exp-184",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.shimanto.lg.jp/gyosei/autonomous-driving/",
+        "title": "四万十市における自動運転フィーダー実証"
+      },
+      {
+        "expId": "exp-185",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.miyama.lg.jp/soshiki/kikaku/autonomous-bus/",
+        "title": "みやま市自動運転バス「オレンジスター号」について"
+      },
+      {
+        "expId": "exp-185",
+        "refId": 2,
+        "status": 404,
+        "url": "https://www.city.miyama.lg.jp/soshiki/kikaku/smartcity/",
+        "title": "みやま市スマートシティの取組"
+      },
+      {
+        "expId": "exp-186",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.town.ashikita.lg.jp/soshiki/kikaku/autonomous/",
+        "title": "芦北町における自動運転実証実験"
+      },
+      {
+        "expId": "exp-187",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.chatan.jp/soshiki/kikaku/autonomous-shuttle/",
+        "title": "北谷町美浜地区における自動運転実証について"
+      },
+      {
+        "expId": "exp-187",
+        "refId": 2,
+        "status": 404,
+        "url": "https://www.pref.okinawa.jp/site/doboku/kotsu/autonomous/",
+        "title": "沖縄県における自動運転の取組"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 10,
+    "phase": "P2",
+    "label": "P2-404",
+    "items": [
+      {
+        "expId": "exp-188",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.city.nanjo.okinawa.jp/soshiki/kikaku/autonomous/",
+        "title": "南城市における自動運転実証実験について"
+      },
+      {
+        "expId": "exp-190",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.aisantec.co.jp/news/2025/autonomous-bus-tama/",
+        "title": "多摩市における大型自動運転バス実証実験について"
+      },
+      {
+        "expId": "exp-190",
+        "refId": 2,
+        "status": 404,
+        "url": "https://www.keio-bus.com/news/2025/autonomous-driving/",
+        "title": "京王電鉄バスとの自動運転バス実証実験"
+      },
+      {
+        "expId": "exp-191",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.aisantec.co.jp/news/2026/autonomous-ev-keihanna/",
+        "title": "京田辺市・木津川市における自動運転EVバス実証について"
+      },
+      {
+        "expId": "exp-191",
+        "refId": 2,
+        "status": 404,
+        "url": "https://www.city.kyotanabe.lg.jp/soshiki/kikaku/autonomous-ev/",
+        "title": "けいはんな学研都市における自動運転実証実験"
+      },
+      {
+        "expId": "exp-192",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.aisantec.co.jp/news/2025/autonomous-bus-hiratsuka/",
+        "title": "平塚市における自動運転バス実証実験について"
+      },
+      {
+        "expId": "exp-192",
+        "refId": 2,
+        "status": 404,
+        "url": "https://www.isuzu.co.jp/news/2025/erga-ev-autonomous/",
+        "title": "いすゞ エルガEVプロトタイプ自動運転実証"
+      },
+      {
+        "expId": "exp-193",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.aisantec.co.jp/news/2025/autonomous-kanden-tunnel/",
+        "title": "関電トンネルにおけるGPS不可環境での自動運転実証"
+      },
+      {
+        "expId": "exp-193",
+        "refId": 2,
+        "status": 404,
+        "url": "https://www.kepco.co.jp/corporate/pr/2025/autonomous-tunnel/",
+        "title": "関電トンネル電気バス自動運転実証について"
+      },
+      {
+        "expId": "exp-194",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.aisantec.co.jp/news/2025/l4-bus-kawasaki/",
+        "title": "L4 Bus Project 川崎市における広域自動運転バス実証"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 11,
+    "phase": "P2",
+    "label": "P2-404, P3-リダイレクト",
+    "items": [
+      {
+        "expId": "exp-194",
+        "refId": 2,
+        "status": 404,
+        "url": "https://www.city.kawasaki.jp/530/page/0000170000.html",
+        "title": "川崎市自動運転バス実証実験（L4 Bus Project）について"
+      },
+      {
+        "expId": "exp-195",
+        "refId": 1,
+        "status": 404,
+        "url": "https://www.aisantec.co.jp/news/2025/autonomous-bus-kuwana/",
+        "title": "桑名市における自動運転バス実証実験（桑名駅〜なばなの里）"
+      },
+      {
+        "expId": "exp-195",
+        "refId": 2,
+        "status": 404,
+        "url": "https://www.city.kuwana.lg.jp/index.cfm/72,html",
+        "title": "桑名市自動運転実証実験について"
+      },
+      {
+        "expId": "exp-001",
+        "refId": 2,
+        "status": 301,
+        "url": "https://www.softbank.jp/drive/press/2022/20220208_01/",
+        "title": "Boldly、境町での自動運転バス運行1周年",
+        "redirect": "/drive/set/data/press/2022/shared/20220208_01.pdf"
+      },
+      {
+        "expId": "exp-007",
+        "refId": 1,
+        "status": 301,
+        "url": "https://mo-t.com/news/pressreleases/2020/10/26/minamioguni_trial",
+        "title": "南小国町での自動運転タクシー実証実験を開始",
+        "redirect": "https://goinc.jp/news/pressreleases/2020/10/26/minamioguni_trial"
+      },
+      {
+        "expId": "exp-053",
+        "refId": 1,
+        "status": 302,
+        "url": "https://www.city.saiki.oita.jp/koutsu/jidouuntensub.html",
+        "title": "佐伯市大入島における自動運転バス実証運行について",
+        "redirect": "https://www.city.saiki.oita.jp/dynamic/_error/error404.aspx"
+      },
+      {
+        "expId": "exp-126",
+        "refId": 1,
+        "status": 301,
+        "url": "https://www.city.fuji.shizuoka.jp/sp/machi/c1307/c1307/hngtkl000000d2we.html",
+        "title": "富士市における自動運転バス実証実験",
+        "redirect": "https://www.city.fuji.shizuoka.jp/1040050000/p000978.html"
+      },
+      {
+        "expId": "exp-131",
+        "refId": 1,
+        "status": 301,
+        "url": "https://www.city.nagoya.jp/jutakutoshi/page/0000180682.html",
+        "title": "ガイドウェイバスへの自動運転技術導入に向けた大型自動運転バスによる実証実験を実施します",
+        "redirect": "https://www.city.nagoya.jp/houdou/pressr6/pressr6-11/1005154.html"
+      },
+      {
+        "expId": "exp-134",
+        "refId": 1,
+        "status": 301,
+        "url": "https://www.city.chitose.lg.jp/docs/35581.html",
+        "title": "自動運転バス実証実験",
+        "redirect": "/c10/1002552/1002612/1004152.html"
+      },
+      {
+        "expId": "exp-145",
+        "refId": 1,
+        "status": 301,
+        "url": "https://goinc.jp/news/info/2025/04/14/4zfkopprkigxqcfyiltgxd",
+        "title": "GO、Waymo、日本交通　今週より東京都心7区でWaymo車両の走行を開始",
+        "redirect": "/news/info/2025/04/14/4zfkopprkigxqcfyiltgxd/"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 12,
+    "phase": "P3",
+    "label": "P3-リダイレクト, P4-403",
+    "items": [
+      {
+        "expId": "exp-145",
+        "refId": 2,
+        "status": 301,
+        "url": "https://waymo.com/intl/jp/waymo-in-japan",
+        "title": "Waymo 日本版",
+        "redirect": "/intl/jp/waymo-in-japan/"
+      },
+      {
+        "expId": "exp-147",
+        "refId": 1,
+        "status": 301,
+        "url": "https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2024/10/30/05.html",
+        "title": "都内3地区（杉並区、多摩市、瑞穂町）において自動運転バスを運行します！",
+        "redirect": "https://www.metro.tokyo.lg.jp/information/press/2024/10/2024103005"
+      },
+      {
+        "expId": "exp-026",
+        "refId": 1,
+        "status": 403,
+        "url": "https://www.jreast.co.jp/press/2022/20221124_ho01.pdf",
+        "title": "気仙沼線BRTにおける自動運転について"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 13,
+    "phase": "P5-整合性確認",
+    "label": "P5-整合性確認",
+    "items": [
+      {
+        "expId": "exp-001",
+        "refId": 3,
+        "status": 200,
+        "url": "https://www.mlit.go.jp/report/press/jidosha04_hh_000099.html",
+        "title": "国内初の路線バスとして自動運転バスを運行　茨城県境町"
+      },
+      {
+        "expId": "exp-002",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.mlit.go.jp/report/press/jidosha07_hh_000442.html",
+        "title": "国内初！運転者を必要としない自動運転車（レベル４）の認可について"
+      },
+      {
+        "expId": "exp-002",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.yamaha-motor.co.jp/gsm/topics/eiheiji2.html",
+        "title": "国内初の自動運転レベル4車両認可を取得（福井県永平寺町）"
+      },
+      {
+        "expId": "exp-002",
+        "refId": 3,
+        "status": 200,
+        "url": "https://www.mlit.go.jp/report/press/jidosha07_hh_000448.html",
+        "title": "国内初！運転者を配置しないレベル４での自動運転移動サービスの開始について"
+      },
+      {
+        "expId": "exp-003",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.aisantec.co.jp/ir/information/2021/12/post-49.html",
+        "title": "【都内初】西新宿でまちのインフラと協調した自動運転移動サービスの実証実験を実施"
+      },
+      {
+        "expId": "exp-003",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.as-mobi.com/news/?ca=3",
+        "title": "先進モビリティ お知らせ"
+      },
+      {
+        "expId": "exp-003",
+        "refId": 3,
+        "status": 200,
+        "url": "https://news.kddi.com/kddi/corporate/newsrelease/2021/12/15/5596.html",
+        "title": "都内初、西新宿でまちのインフラと協調した自動運転移動サービスの実証実験を実施"
+      },
+      {
+        "expId": "exp-004",
+        "refId": 2,
+        "status": 200,
+        "url": "https://wwwtb.mlit.go.jp/hokkaido/press/20240531_00002.html",
+        "title": "無人自動運転移動サービスに向けて国内6例目となる自動運転車（レベル４）を認可"
+      },
+      {
+        "expId": "exp-004",
+        "refId": 3,
+        "status": 200,
+        "url": "https://www.police.pref.hokkaido.lg.jp/info/koutuu/universal/kurumaisu_sinsei/automatic-drive-sinsei.html",
+        "title": "特定自動運行に係る許可について（上士幌町）"
+      },
+      {
+        "expId": "exp-005",
+        "refId": 1,
+        "status": 200,
+        "url": "https://dena.com/jp/news/3566",
+        "title": "日産自動車とDeNA、無人運転車両を活用した交通サービス「Easy Ride」の実証実験を開始"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 14,
+    "phase": "P5-整合性確認",
+    "label": "P5-整合性確認",
+    "items": [
+      {
+        "expId": "exp-005",
+        "refId": 2,
+        "status": 200,
+        "url": "https://techcrunchjapan.com/2018/02/23/easy-ride-test/",
+        "title": "日産とDeNAが次世代交通サービス「Easy Ride」の実証実験へ、無人運転車両を活用"
+      },
+      {
+        "expId": "exp-006",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.macnica.co.jp/business/maas/cases/149118/",
+        "title": "加賀市レポ―ト Vol.2 自動運転EVバス 実証実験"
+      },
+      {
+        "expId": "exp-006",
+        "refId": 2,
+        "status": 200,
+        "url": "https://prtimes.jp/main/html/rd/p/000000037.000014021.html",
+        "title": "マクニカ、加賀市にて自動運転レベル４対応車両“EVO”による世界最長の公道走行実証を実施"
+      },
+      {
+        "expId": "exp-008",
+        "refId": 3,
+        "status": 200,
+        "url": "https://www.sip-adus.go.jp/",
+        "title": "SIP自動運転 地方部実証実験（滋賀県東近江市）報告"
+      },
+      {
+        "expId": "exp-009",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.meti.go.jp/press/2024/02/20250203003/20250203003.html",
+        "title": "国内初！レベル4自動運転の中型バス「ひたちBRT自動運転バス」の運行サービスが開始されました"
+      },
+      {
+        "expId": "exp-009",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.road-to-the-l4.go.jp/case/hitachi/index2.html",
+        "title": "各地の取り組み：日立市"
+      },
+      {
+        "expId": "exp-009",
+        "refId": 3,
+        "status": 200,
+        "url": "https://www.aist.go.jp/aist_j/news/announce/au20250520_2.html",
+        "title": "ひたちBRTバス専用道全線でのレベル4自動運転開始について"
+      },
+      {
+        "expId": "exp-010",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.city.kashiwa.lg.jp/koho/pressrelease/r7houdou/12gatsu/r7121004.html",
+        "title": "柏の葉地区における自動運転公道走行試験開始について"
+      },
+      {
+        "expId": "exp-010",
+        "refId": 3,
+        "status": 200,
+        "url": "https://www.as-mobi.com/news/",
+        "title": "東京都市圏の公道で初！ 柏の葉地区で特定自動運行（自動運転レベル4）の運行開始"
+      },
+      {
+        "expId": "exp-011",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.mlit.go.jp/report/press/road01_hh_001869.html",
+        "title": "新東名高速道路における自動運転トラック実証実験について"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 15,
+    "phase": "P5-整合性確認",
+    "label": "P5-整合性確認",
+    "items": [
+      {
+        "expId": "exp-011",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.c-nexco.co.jp/corporate/pressroom/news_release/6281.html",
+        "title": "自動運転車優先レーン設定と路車協調機能の検証"
+      },
+      {
+        "expId": "exp-011",
+        "refId": 3,
+        "status": 200,
+        "url": "https://www.udtrucks.com/japan/news-and-stories/info/20250218/rttl4-shintomei",
+        "title": "新東名高速道路の自動運転車優先レーンで 自動運転大型トラックの実証実験を開始"
+      },
+      {
+        "expId": "exp-011",
+        "refId": 4,
+        "status": 200,
+        "url": "https://www.udtrucks.com/japan/news-and-stories/news/20251021/road-to-the-l4",
+        "title": "レベル4自動運転トラックの社会実装に向けた実証開始"
+      },
+      {
+        "expId": "exp-012",
+        "refId": 1,
+        "status": 200,
+        "url": "https://global.honda/jp/news/2023/c231019a.html",
+        "title": "日本での自動運転タクシーサービスを2026年初頭に開始予定"
+      },
+      {
+        "expId": "exp-014",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.impress.co.jp/",
+        "title": "お台場エリアでの自動運転実証実験について"
+      },
+      {
+        "expId": "exp-014",
+        "refId": 2,
+        "status": 200,
+        "url": "https://jidounten-lab.com/",
+        "title": "ティアフォー、トヨタ「e-Palette」を活用したレベル4自動運転開発へ"
+      },
+      {
+        "expId": "exp-209",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.monet-technologies.com/news/press/20240828_01",
+        "title": "移動課題の解決と地域の価値向上に向けて、東京の有明地区などで自動運転技術を用いた移動サービスを2024年度後半に開始"
+      },
+      {
+        "expId": "exp-209",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.monet-technologies.com/tokyo-bay",
+        "title": "東京臨海副都心での自動運転技術を用いた移動サービスの実証"
+      },
+      {
+        "expId": "exp-209",
+        "refId": 3,
+        "status": 200,
+        "url": "https://www.watch.impress.co.jp/docs/news/1619102.html",
+        "title": "東京臨海副都心の公道で自動運転活用の移動サービス開始　MONET"
+      },
+      {
+        "expId": "exp-209",
+        "refId": 4,
+        "status": 200,
+        "url": "https://maymobility.com/posts/may-mobilitys-expanding-autonomous-footprint-in-japan/",
+        "title": "May Mobility’s Expanding Autonomous Footprint in Japan"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 16,
+    "phase": "P5-整合性確認",
+    "label": "P5-整合性確認",
+    "items": [
+      {
+        "expId": "exp-210",
+        "refId": 1,
+        "status": 200,
+        "url": "https://maymobility.com/posts/may-mobility-inc-and-ntt-group-collaboration-launches-autonomous-driving-demonstration-experiment-using-e-palette/",
+        "title": "May Mobility, Inc. and NTT Group collaboration launches autonomous driving demonstration experiment using \"e-Palette\""
+      },
+      {
+        "expId": "exp-210",
+        "refId": 2,
+        "status": 200,
+        "url": "https://maymobility.com/posts/may-mobilitys-expanding-autonomous-footprint-in-japan/",
+        "title": "May Mobility’s Expanding Autonomous Footprint in Japan"
+      },
+      {
+        "expId": "exp-211",
+        "refId": 1,
+        "status": 200,
+        "url": "https://maymobility.com/posts/may-mobilitys-expanding-autonomous-footprint-in-japan/",
+        "title": "May Mobility’s Expanding Autonomous Footprint in Japan"
+      },
+      {
+        "expId": "exp-211",
+        "refId": 2,
+        "status": 200,
+        "url": "https://aichi-autonomous-loop2025.com/",
+        "title": "あいち自動運転ループ"
+      },
+      {
+        "expId": "exp-015",
+        "refId": 1,
+        "status": 200,
+        "url": "https://wwwtb.mlit.go.jp/kanto/content/000304988.pdf",
+        "title": "関東で初めて自動運転車（レベル4）の認可を行いました"
+      },
+      {
+        "expId": "exp-015",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.road-to-the-l4.go.jp/case/ota/haneda.html",
+        "title": "各地の取り組み：大田区"
+      },
+      {
+        "expId": "exp-016",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.road-to-the-l4.go.jp/case/shiojiri/",
+        "title": "各地の取り組み：塩尻市"
+      },
+      {
+        "expId": "exp-017",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.road-to-the-l4.go.jp/case/wako/",
+        "title": "各地の取り組み：和光市"
+      },
+      {
+        "expId": "exp-018",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.as-mobi.com/case/",
+        "title": "自動運転システムの実験事例：愛知県知多半島"
+      },
+      {
+        "expId": "exp-019",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.as-mobi.com/case/",
+        "title": "自動運転システムの実験事例：兵庫県洲本市"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 17,
+    "phase": "P5-整合性確認",
+    "label": "P5-整合性確認",
+    "items": [
+      {
+        "expId": "exp-020",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.metro.tokyo.lg.jp/information/press/2025/06/2025062001",
+        "title": "八丈島でAIデマンドタクシー・自動運転バスの実証事業を実施"
+      },
+      {
+        "expId": "exp-024",
+        "refId": 1,
+        "status": 200,
+        "url": "https://travel.willer.co.jp/",
+        "title": "青森県 奥入瀬渓流 自動運転実証実験"
+      },
+      {
+        "expId": "exp-025",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.rikuzentakata.iwate.jp/soshiki/kikakuseisakuka/seisakukohogakari/1/1/6566.html",
+        "title": "【終了】令和5年2月1日～3月5日実施（高田松原復興祈念公園における自動運転走行実証実験）"
+      },
+      {
+        "expId": "exp-025",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.kddi.com/corporate/sustainability/regional-initiative/pressrelease/20230817/",
+        "title": "高田松原津波復興祈念公園内およびその周辺市街地における自動運転サービスの運行開始"
+      },
+      {
+        "expId": "exp-030",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2024112001",
+        "title": "前橋市において自動運転の実証実験を実施"
+      },
+      {
+        "expId": "exp-030",
+        "refId": 3,
+        "status": 200,
+        "url": "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2021010801",
+        "title": "群馬県前橋市で5G技術を活用した自動運転バスの公道実証を実施"
+      },
+      {
+        "expId": "exp-032",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.isuzu.co.jp/",
+        "title": "神奈川県平塚市における自動運転実証実験"
+      },
+      {
+        "expId": "exp-038",
+        "refId": 1,
+        "status": 200,
+        "url": "https://subway.osakametro.co.jp/news/news_release/20241101_jidouunten_bus_kaishi.php",
+        "title": "自動運転バス「森之宮・京橋周遊ルート」が11月10日（日曜日）から運行を開始します"
+      },
+      {
+        "expId": "exp-038",
+        "refId": 2,
+        "status": 200,
+        "url": "https://subway.osakametro.co.jp/news/news_release/20250408_parkandride_unkou.php",
+        "title": "2025年大阪・関西万博の来場者輸送「舞洲パーク&ライド」の一部区間で自動運転バスをレベル4で運行します"
+      },
+      {
+        "expId": "exp-040",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2024012601",
+        "title": "和歌山市において自動運転の実証実験を実施"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 18,
+    "phase": "P5-整合性確認",
+    "label": "P5-整合性確認",
+    "items": [
+      {
+        "expId": "exp-041",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.tottori.lg.jp/",
+        "title": "鳥取市における自動運転実証運行の概要"
+      },
+      {
+        "expId": "exp-042",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.soumu.go.jp/menu_news/s-news/01ryutsu06_02000345.html",
+        "title": "美郷町における自動運転レベル4検証事業について"
+      },
+      {
+        "expId": "exp-043",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.westjr.co.jp/press/article/2025/10/page_29256.html",
+        "title": "津山市での自動運転バスの実証実験を開始"
+      },
+      {
+        "expId": "exp-045",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.shunan.lg.jp/soshiki/102/122749.html",
+        "title": "周南市自動運転ＥＶバス　実証運行"
+      },
+      {
+        "expId": "exp-045",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.city.shunan.lg.jp/soshiki/3/124082.html",
+        "title": "自動運転EVバスの実証運行"
+      },
+      {
+        "expId": "exp-046",
+        "refId": 1,
+        "status": 200,
+        "url": "https://jpn.nec.com/press/202501/20250115_01.html",
+        "title": "鳴門市におけるロボットタクシー実証実験"
+      },
+      {
+        "expId": "exp-048",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.iyotetsu.co.jp/sp/topics/press/2024/1210_gbac.pdf",
+        "title": "全国初「自動運転レベル4 路線バス本格運行」について"
+      },
+      {
+        "expId": "exp-055",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.minamisatsuma.lg.jp/jidounten/",
+        "title": "南さつま市における自動運転実証実験の推進について"
+      },
+      {
+        "expId": "exp-057",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.macnica.co.jp/public-relations/news/2025/148366/",
+        "title": "北海道当別町とマクニカ、自動運転EVバスの冬季含めた長期間の実証運行を実施"
+      },
+      {
+        "expId": "exp-057",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.macnica.co.jp/business/maas/cases/149121/",
+        "title": "当別町レポート 駅周辺エリア 自動運転EVバス 実証運行"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 19,
+    "phase": "P5-整合性確認",
+    "label": "P5-整合性確認",
+    "items": [
+      {
+        "expId": "exp-061",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.odate.lg.jp/city/soshiki/koutsu/p11894",
+        "title": "自動運転社会実装推進事業について"
+      },
+      {
+        "expId": "exp-064",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.hitachiota.ibaraki.jp/page/page008901.html",
+        "title": "自動運転EVバス「じょっピー」の運行について"
+      },
+      {
+        "expId": "exp-066",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2024112501",
+        "title": "渋川市において自動運転の実証実験を実施"
+      },
+      {
+        "expId": "exp-073",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.komatsu.lg.jp/soshiki/1985/rosenbasu/4/16580.html",
+        "title": "自動運転バスの運行について"
+      },
+      {
+        "expId": "exp-073",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.city.komatsu.lg.jp/material/files/group/22/press_release20240308.pdf",
+        "title": "石川県小松市で自動運転バスの通年運行を開始"
+      },
+      {
+        "expId": "exp-074",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.monet-technologies.com/news/info/20251009_01",
+        "title": "福井県坂井市の自動運転社会推進実証事業「イータクプラス」の実証運行に協力"
+      },
+      {
+        "expId": "exp-074",
+        "refId": 3,
+        "status": 200,
+        "url": "https://maymobility.com/posts/may-mobilitys-expanding-autonomous-footprint-in-japan/",
+        "title": "May Mobility’s Expanding Autonomous Footprint in Japan"
+      },
+      {
+        "expId": "exp-083",
+        "refId": 1,
+        "status": 200,
+        "url": "https://autonomous.osakametro.co.jp/morinomiya/index.html",
+        "title": "自動運転バス「森之宮・京橋周遊ルート」の運行について"
+      },
+      {
+        "expId": "exp-090",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.higashihiroshima.lg.jp/soshiki/toshi/7/1_1/44126.html",
+        "title": "自動運転・隊列走行BRT実証実験"
+      },
+      {
+        "expId": "exp-090",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.city.higashihiroshima.lg.jp/material/files/group/205/press.pdf",
+        "title": "自動運転・隊列走行BRTの社会実装に向けた「自動運転EVバス」走行試験開始"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 20,
+    "phase": "P5-整合性確認",
+    "label": "P5-整合性確認",
+    "items": [
+      {
+        "expId": "exp-092",
+        "refId": 1,
+        "status": 200,
+        "url": "https://jpn.nec.com/press/202501/20250115_01.html",
+        "title": "鳴門市におけるロボットタクシー実証実験"
+      },
+      {
+        "expId": "exp-093",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.jtbcorp.jp/jp/newsroom/2024/08/01_jtb_shodoshima.html",
+        "title": "観光地の持続可能な発展に向けたエリア開発事業を小豆島で開始"
+      },
+      {
+        "expId": "exp-095",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.kochi.kochi.jp/soshiki/80/akamati202512oshirase.html",
+        "title": "広報「あかるいまち」2025年12月号簡易テキスト（HTML）"
+      },
+      {
+        "expId": "exp-095",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.nttbizsol.jp/newsrelease/202507291600001209.html",
+        "title": "高知県高知市における「安全かつ効率的なレベル4自動運転に資する通信システム等の検証」を開始"
+      },
+      {
+        "expId": "exp-096",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.koga.fukuoka.jp/cityhall/work/kikaku/085.php",
+        "title": "のるーと自動運転実証運行の開始について"
+      },
+      {
+        "expId": "exp-097",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.ureshino.lg.jp/shisei/keikaku/_28638/_32318.html",
+        "title": "嬉野市における自動運転車両等を活用した実証について"
+      },
+      {
+        "expId": "exp-099",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.kumamoto.jp/kiji00358941/index.html",
+        "title": "熊本市における自動運転バスの実証運行について"
+      },
+      {
+        "expId": "exp-099",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.city.kumamoto.jp/kiji00364173/index.html",
+        "title": "自動運転バスの運行再開および期間延長について"
+      },
+      {
+        "expId": "exp-104",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.softbank.jp/drive/press/2023/20231206_02/",
+        "title": "国内初、茨城県境町が自動運転EV「MiCa」を導入"
+      },
+      {
+        "expId": "exp-105",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.town.eiheiji.lg.jp/",
+        "title": "永平寺町自動運転のあゆみ"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 21,
+    "phase": "P5-整合性確認",
+    "label": "P5-整合性確認",
+    "items": [
+      {
+        "expId": "exp-106",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.maebashi.gunma.jp/",
+        "title": "前橋市、5Gと顔認証を活用した自動運転バス実証の結果"
+      },
+      {
+        "expId": "exp-107",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.kashiwanoha-smartcity.com/",
+        "title": "柏の葉キャンパス周辺における自動運転バス実証（2019年度）"
+      },
+      {
+        "expId": "exp-108",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.fukuyama.hiroshima.jp/",
+        "title": "福山市 自動運転実証の取り組みについて"
+      },
+      {
+        "expId": "exp-109",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.pref.aichi.jp/",
+        "title": "愛知県 自動運転社会実装プロジェクト：中部国際空港"
+      },
+      {
+        "expId": "exp-109",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2020092101",
+        "title": "常滑市中部国際空港島において自動運転の社会実装を見据えた実証実験を実施します"
+      },
+      {
+        "expId": "exp-110",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.fukuoka.lg.jp/",
+        "title": "福岡市、九州大学等での自動運転バス実証について"
+      },
+      {
+        "expId": "exp-111",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.saga.lg.jp/main/110918.html",
+        "title": "佐賀市 自動運転バス実証走行と体験乗車会の結果"
+      },
+      {
+        "expId": "exp-114",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.metro.tokyo.lg.jp/information/press/2026/01/2026012306",
+        "title": "都営バスで自動運転の実証実験を行います"
+      },
+      {
+        "expId": "exp-115",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.pref.shiga.lg.jp/kensei/koho/e-shinbun/oshirase/347560.html",
+        "title": "Shiga Smart Access滋賀県自動運転チャレンジ事業 自動運転バスの実証運行を開始します！"
+      },
+      {
+        "expId": "exp-116",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.vill.yahiko.niigata.jp/life/?content=704",
+        "title": "自動運転車両について｜自動運転車両「ミコぴょん号」"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 22,
+    "phase": "P5-整合性確認",
+    "label": "P5-整合性確認",
+    "items": [
+      {
+        "expId": "exp-117",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.softbank.jp/corp/news/press/sbkk/2025/20251216_01/",
+        "title": "自動運転レベル4の実用化に向け大型路線バスによる実証を開始"
+      },
+      {
+        "expId": "exp-118",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.softbank.jp/corp/news/press/sbkk/2024/20241105_01/",
+        "title": "自動運転向け「交通理解マルチモーダルAI」を開発し、SFCで実証を開始"
+      },
+      {
+        "expId": "exp-120",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.sendai.jp/sesakukoho/gaiyo/shichoshitsu/kaiken/2025/10/14unten2.html",
+        "title": "自動運転実証事業の実施エリアを拡大します（発表資料）"
+      },
+      {
+        "expId": "exp-120",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.city.sendai.jp/sesakukoho/gaiyo/shichoshitsu/kaiken/2024/10/08zidouunten2.html",
+        "title": "自動運転実証事業「青葉山グリーン回遊プロジェクト」自動運転レベル2の運行実験を実施します（発表資料）"
+      },
+      {
+        "expId": "exp-121",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.yokohama.lg.jp/city-info/koho-kocho/press/keizai/2025/mobility20260116.html",
+        "title": "横浜市におけるローカル5G等を活用した自動運転走行支援実証"
+      },
+      {
+        "expId": "exp-122",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.sakai.lg.jp/shisei/toshi/smi_project/jikkenn/R7toshinline.html",
+        "title": "SMIプロジェクト 都心ライン自動運転実証実験について"
+      },
+      {
+        "expId": "exp-123",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.ise.mie.jp/kurashi/koutsu/okage_bus/1019584.html",
+        "title": "自動運転バス実証実験"
+      },
+      {
+        "expId": "exp-123",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.aisantec.co.jp/ir/information/2026/03/post-160.html",
+        "title": "〖三重県伊勢市〗伊勢神宮内宮エリアで自動運転バスの運行に参画しました"
+      },
+      {
+        "expId": "exp-124",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.as-mobi.com/case/",
+        "title": "八丈島スマートモビリティ実証事業について"
+      },
+      {
+        "expId": "exp-127",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.komae.tokyo.jp/events/index.cfm/detail.4.135758.html",
+        "title": "狛江市内における自動運転バス実証実験"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 23,
+    "phase": "P5-整合性確認",
+    "label": "P5-整合性確認",
+    "items": [
+      {
+        "expId": "exp-130",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.sapporo.jp/keizai/kanko/news2/r7jzk_bus2.html",
+        "title": "定山渓地区自動運転バス実証実験について(令和7年10月20日)"
+      },
+      {
+        "expId": "exp-132",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.sagamihara.kanagawa.jp/_res/projects/default_project/_page_/001/034/781/0304/03.pdf",
+        "title": "相模原駅周辺における自動運転（レベル2）プレ実証実験（相模原市発表資料）"
+      },
+      {
+        "expId": "exp-133",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.kobe.lg.jp/a80014/jidounten.html",
+        "title": "神戸市内灘五郷エリアにて自動運転に取り組みます～日産自動車株式会社との連携～"
+      },
+      {
+        "expId": "exp-135",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.tomakomai.hokkaido.jp/shisei/kokyokotu/bus/zidouunten.html",
+        "title": "自動運転バス実証事業"
+      },
+      {
+        "expId": "exp-136",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.ishikari.hokkaido.jp/kurashi/doro/1001844/1002361.html",
+        "title": "自動配送ロボットの実証実験に係る走行ルートの確認及び測量について"
+      },
+      {
+        "expId": "exp-137",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www8.cao.go.jp/cstp/stmain/20190515adus_kosmall.html",
+        "title": "道の駅「コスモール大樹」を拠点とした自動運転サービスの長期実証実験を開始"
+      },
+      {
+        "expId": "exp-138",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.nipponexpress-holdings.com/ja/press/2019/20190829-1.html",
+        "title": "UDトラックス、日本通運、ホクレンが、国内初、一部公道を使用した大型トラックによるレベル4技術の自動運転実証実験を北海道で実施"
+      },
+      {
+        "expId": "exp-138",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.udtrucks.com/japan/news-and-stories/news/20190719-fujin-demo-hokkaido",
+        "title": "ＵＤトラックス、日本通運、ホクレンが、北海道で自動運転トラックの実証実験を実施"
+      },
+      {
+        "expId": "exp-138",
+        "refId": 3,
+        "status": 200,
+        "url": "https://www.udtrucks.com/japan/news-and-stories/news/20190829-fujin-demo-hokkaido-event",
+        "title": "ＵＤトラックス、日本通運、ホクレンが、国内初、一部公道を使用した大型トラックによるレベル4技術の自動運転実証実験を北海道で公開"
+      },
+      {
+        "expId": "exp-139",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.munakata.lg.jp/kiji0037571/index.html",
+        "title": "住み続けられる住宅団地を目指して自動運転バス実証運行を実施"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 24,
+    "phase": "P5-整合性確認",
+    "label": "P5-整合性確認",
+    "items": [
+      {
+        "expId": "exp-142",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.nedo.go.jp/news/press/AA5_101316.html",
+        "title": "羽田空港地域における自動運転の実証実験を開始"
+      },
+      {
+        "expId": "exp-143",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.softbank.jp/corp/group/sbm/news/press/2017/20171211_01/",
+        "title": "『自動運転バス試乗会 in 丸の内仲通り』を実施"
+      },
+      {
+        "expId": "exp-144",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.softbank.jp/corp/news/press/sbkk/2023/20230310_01/",
+        "title": "自動運転のレベル4の解禁に向けて、自動運転の走行経路の設計や遠隔監視の運行業務などをAIで完全無人化する実証実験を開始"
+      },
+      {
+        "expId": "exp-146",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.robo-hi.jp/news/pressrelease_20180718",
+        "title": "総合ディベロッパーと連携し、先進的な都市交通インフラ実証実験を都心部で展開"
+      },
+      {
+        "expId": "exp-147",
+        "refId": 2,
+        "status": 200,
+        "url": "https://a-drive.jp/2024/11/08/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%AE%9F%E8%A8%BC%E5%AE%9F%E9%A8%93%E5%8F%82%E7%94%BB%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B/",
+        "title": "東京都実証実験参画のお知らせ"
+      },
+      {
+        "expId": "exp-148",
+        "refId": 1,
+        "status": 200,
+        "url": "https://prtimes.jp/main/html/rd/p/000000193.000050415.html",
+        "title": "精華町における自動運転大型バスの実証運行実施について"
+      },
+      {
+        "expId": "exp-148",
+        "refId": 2,
+        "status": 200,
+        "url": "https://pubpjt.mri.co.jp/pjt_related/rcsad-info/eqghpc000000030i-att/20250729rcsad-info_gaiyou_kyoto_seika.pdf",
+        "title": "令和7年度実証事業概要（京都府精華町）"
+      },
+      {
+        "expId": "exp-149",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.nihon-kotsu-taxi.jp/news/250205/",
+        "title": "「公道における自動走行に必要なデータの継続的な収集および自動走行実験」について"
+      },
+      {
+        "expId": "exp-149",
+        "refId": 2,
+        "status": 200,
+        "url": "https://prtimes.jp/main/html/rd/p/000000109.000053767.html",
+        "title": "日本交通とティアフォー、東京都内で自動運転向けデータ収集を開始"
+      },
+      {
+        "expId": "exp-150",
+        "refId": 1,
+        "status": 200,
+        "url": "https://aisan-mobility.com/202401nara_sango/",
+        "title": "〖奈良県〗三郷町デジタル交通サービス実証実験が実施されました"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 25,
+    "phase": "P5-整合性確認",
+    "label": "P5-整合性確認",
+    "items": [
+      {
+        "expId": "exp-151",
+        "refId": 1,
+        "status": 200,
+        "url": "https://newsroom.kddi.com/news/detail/kddi_nr-968_4376.html",
+        "title": "JR東日本とKDDI、TAKANAWA GATEWAY CITYと竹芝エリア間で自動運転バス走行実証を3月28日から開始"
+      },
+      {
+        "expId": "exp-151",
+        "refId": 2,
+        "status": 200,
+        "url": "https://aisan-mobility.com/info/20260327/",
+        "title": "高輪エリアにおける自動運転バス運行に参画　アイサンテクノロジーとA-Driveがグループ連携で社会実装を推進"
+      },
+      {
+        "expId": "exp-152",
+        "refId": 1,
+        "status": 200,
+        "url": "https://aisan-mobility.com/info/202602mizuho/",
+        "title": "東京都瑞穂町にて自動運転バス運行開始に参画～公共交通の未来を支える、高精度地図と運行支援技術～"
+      },
+      {
+        "expId": "exp-152",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.aisantec.co.jp/ir/information/zm20260206_1.pdf",
+        "title": "東京都瑞穂町にて自動運転バス運行開始に参画（詳細資料）"
+      },
+      {
+        "expId": "exp-153",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.metro.tokyo.lg.jp/information/press/2025/07/2025070812",
+        "title": "八王子市（高尾地区）において自動運転バスを運行します！"
+      },
+      {
+        "expId": "exp-153",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.city.hachioji.tokyo.jp/shisei/001/006/001/003/p035826.html",
+        "title": "〖8月30日および31日運行中止〗高尾周辺で自動運転バスを運行します"
+      },
+      {
+        "expId": "exp-154",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.yonago.lg.jp/47194.htm",
+        "title": "自動運転バスの実証運行を行います"
+      },
+      {
+        "expId": "exp-155",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.oyama.tochigi.jp/o-bus/news/page009488.html",
+        "title": "自動運転バスの実証実験について（10月23日更新）"
+      },
+      {
+        "expId": "exp-156",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.fukaya.saitama.jp/soshiki/toshiseibi/toshikeikaku/tanto/komyunitibasukururin/14397.html",
+        "title": "コミュニティバス「くるリン」定時定路線（自動運転運行スケジュール）"
+      },
+      {
+        "expId": "exp-156",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.sit.ac.jp/news/250702_komyunitibasukururin/",
+        "title": "本学がサポートする深谷市コミュニティバスが全線37kmの自動運転運行を実現"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 26,
+    "phase": "P5-整合性確認",
+    "label": "P5-整合性確認",
+    "items": [
+      {
+        "expId": "exp-157",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.chigasaki.kanagawa.jp/road/eboshi_s/1065720.html",
+        "title": "自動運転車両の実証実験を実施します"
+      },
+      {
+        "expId": "exp-157",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.city.chigasaki.kanagawa.jp/koho/1030702/1002784/1066277/1066470.html",
+        "title": "令和8年1月21日発表 自動運転車両の実証実験を実施します！"
+      },
+      {
+        "expId": "exp-159",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.kai.yamanashi.jp/uploaded/attachment/5427.pdf",
+        "title": "資料3 自動運転社会実装推進事業（地域公共交通確保維持改善事業費補助金）について"
+      },
+      {
+        "expId": "exp-160",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.toyohashi.lg.jp/61468.htm",
+        "title": "自動運転社会実装推進事業（令和7年度 自動運転バス実証走行）"
+      },
+      {
+        "expId": "exp-161",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.okazaki.lg.jp/kurashi/kotsu/1012394/1012396/1013018.html",
+        "title": "自動運転バスの実証運行を実施しました"
+      },
+      {
+        "expId": "exp-162",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.city.toyokawa.lg.jp/shisei/koho_kocho/3/3/R7-12/27041.html",
+        "title": "自動運転バス実証実験の運休について"
+      },
+      {
+        "expId": "exp-163",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.toyota.aichi.jp/pressrelease/1072647/1072712.html",
+        "title": "2種類の路線における自動走行実証実験の実施について"
+      },
+      {
+        "expId": "exp-163",
+        "refId": 2,
+        "status": 200,
+        "url": "https://prtimes.jp/main/html/rd/p/000000106.000110999.html",
+        "title": "豊田市における自動走行実証実験の開始について"
+      },
+      {
+        "expId": "exp-164",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.komaki.aichi.jp/admin/soshiki/toshiseisakubu/toshiseibi/2/6/50134.html",
+        "title": "【実証調査終了】令和7年度自動運転実証調査事業の実施について"
+      },
+      {
+        "expId": "exp-164",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.city.komaki.aichi.jp/material/files/group/88/r7jidouunnten_jisshikekka.pdf",
+        "title": "令和7年度自動運転実証調査事業 実施結果概要"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 27,
+    "phase": "P5-整合性確認",
+    "label": "P5-整合性確認",
+    "items": [
+      {
+        "expId": "exp-165",
+        "refId": 1,
+        "status": 200,
+        "url": "https://aisan-mobility.com/info/20260327/",
+        "title": "高輪エリアにおける自動運転バス運行に参画　アイサンテクノロジーとA-Driveがグループ連携で社会実装を推進"
+      },
+      {
+        "expId": "exp-166",
+        "refId": 1,
+        "status": 200,
+        "url": "https://aisan-mobility.com/info/202603koga/",
+        "title": "福岡県古賀市における「自動運転のるーと」運行に参画 ―既存オンデマンド交通と連携した自動運転モデル、全国初の取り組み―"
+      },
+      {
+        "expId": "exp-167",
+        "refId": 1,
+        "status": 200,
+        "url": "https://aisan-mobility.com/info/202602mizuho/",
+        "title": "東京都瑞穂町にて自動運転バス運行開始に参画～公共交通の未来を支える、高精度地図と運行支援技術～"
+      },
+      {
+        "expId": "exp-168",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.sakaide.lg.jp/soshiki/seisaku/ad-bus.html",
+        "title": "自動運転バス実証運行を実施します"
+      },
+      {
+        "expId": "exp-169",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.yabu.hyogo.jp/material/files/group/2/20251110press3.pdf",
+        "title": "令和７年度「養父市自動運転バス実証実験」開始（養父市記者発表資料）"
+      },
+      {
+        "expId": "exp-170",
+        "refId": 1,
+        "status": 200,
+        "url": "https://prtimes.jp/main/html/rd/p/000000064.000159136.html",
+        "title": "清水港周辺地区において自動運転サービスの実装を目指し走行実証を行います"
+      },
+      {
+        "expId": "exp-171",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.kawachinagano.lg.jp/uploaded/attachment/41334.pdf",
+        "title": "河内長野市未来技術社会実装事業成果報告"
+      },
+      {
+        "expId": "exp-172",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.softbank.jp/drive/press/2023/20231213_01/",
+        "title": "国内初の「MiCa」のレベル4運行と事業モデル形成を目指す 「VISON」で自動運転EV「MiCa」を運行"
+      },
+      {
+        "expId": "exp-172",
+        "refId": 2,
+        "status": 200,
+        "url": "https://wwwtb.mlit.go.jp/chubu/press/pdf/gian2024102501.pdf",
+        "title": "自動運転車（レベル4）の車両認可を行いました"
+      },
+      {
+        "expId": "exp-173",
+        "refId": 1,
+        "status": 200,
+        "url": "https://super-village.net/",
+        "title": "更別村スーパービレッジ構想"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 28,
+    "phase": "P5-整合性確認",
+    "label": "P5-整合性確認",
+    "items": [
+      {
+        "expId": "exp-173",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.sarabetsu.jp/gyosei/seisaku/sogo/supercity/",
+        "title": "スーパービレッジ構想について"
+      },
+      {
+        "expId": "exp-173",
+        "refId": 3,
+        "status": 200,
+        "url": "https://www.chodai.co.jp/news/2023/04/015043.html",
+        "title": "更別村スーパービレッジ構想推進に関するお知らせ"
+      },
+      {
+        "expId": "exp-174",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.city.otaru.lg.jp/docs/2025070700030/",
+        "title": "自動運転EVバスの実証運行（体験乗車会）の実施について"
+      },
+      {
+        "expId": "exp-174",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.otaru-journal.com/2025/08/post-108397/",
+        "title": "小樽で自動運転EVバス体験乗車会"
+      },
+      {
+        "expId": "exp-175",
+        "refId": 1,
+        "status": 200,
+        "url": "https://prtimes.jp/main/html/rd/p/000000041.000084523.html",
+        "title": "北海道東川町で自動運転バスの雪道での走行における実証実験を実施"
+      },
+      {
+        "expId": "exp-175",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.nikkei.com/article/DGXZQOFC065Z10W3A300C2000000/",
+        "title": "東川町で自動運転バス実証 雪道走行を検証"
+      },
+      {
+        "expId": "exp-196",
+        "refId": 1,
+        "status": 200,
+        "url": "https://wwwtb.mlit.go.jp/kanto/content/000304988.pdf",
+        "title": "関東で初めて自動運転車（レベル4）の認可を行いました"
+      },
+      {
+        "expId": "exp-197",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2022122101",
+        "title": "西新宿エリアにおいて自動運転の実証実験を実施"
+      },
+      {
+        "expId": "exp-198",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2025051901",
+        "title": "兵庫県淡路市において自動運転を実施"
+      },
+      {
+        "expId": "exp-199",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2024102801",
+        "title": "中之条町（四万温泉）にて自動運転実証実験を実施します"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 29,
+    "phase": "P5-整合性確認",
+    "label": "P5-整合性確認",
+    "items": [
+      {
+        "expId": "exp-200",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2022091501",
+        "title": "町田木曽住宅地域において自動運転車両の運行を組み合わせた移動支援の実証実験を実施"
+      },
+      {
+        "expId": "exp-201",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2021090201",
+        "title": "二俣川駅と左近山団地間の路線を自動運転バスで営業運行"
+      },
+      {
+        "expId": "exp-202",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2021010702",
+        "title": "「しずおか自動運転ShowCASEプロジェクト」の一環として 沼津市で自動運転の公道実証実験を実施します"
+      },
+      {
+        "expId": "exp-203",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2021010701",
+        "title": "西武バスと国内初、通常営業運行路線で大型路線バスによる公道実証実験を行います"
+      },
+      {
+        "expId": "exp-204",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2024010501",
+        "title": "江田島市周辺において自動運転の実証実験を実施"
+      },
+      {
+        "expId": "exp-205",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2023100201",
+        "title": "八丈島において自動運転の検証走行を実施"
+      },
+      {
+        "expId": "exp-206",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.isc.meiji.ac.jp/~jidou_unten/project/tsushima-project.html",
+        "title": "対馬プロジェクト"
+      },
+      {
+        "expId": "exp-206",
+        "refId": 2,
+        "status": 200,
+        "url": "https://car.watch.impress.co.jp/docs/news/1199585.html",
+        "title": "対馬市「厳原港まつり」で“ハンドルのない”自動運転バスが公道走行"
+      },
+      {
+        "expId": "exp-206",
+        "refId": 3,
+        "status": 200,
+        "url": "https://www.isc.meiji.ac.jp/~jidou_unten/aboutus.html",
+        "title": "当研究所について（沿革）"
+      },
+      {
+        "expId": "exp-207",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.isc.meiji.ac.jp/~jidou_unten/project/azukishima-project.html",
+        "title": "小豆島プロジェクト"
+      }
+    ],
+    "status": "pending"
+  },
+  {
+    "batchId": 30,
+    "phase": "P5-整合性確認",
+    "label": "P5-整合性確認",
+    "items": [
+      {
+        "expId": "exp-207",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.isc.meiji.ac.jp/~jidou_unten/aboutus.html",
+        "title": "当研究所について（沿革）"
+      },
+      {
+        "expId": "exp-207",
+        "refId": 3,
+        "status": 200,
+        "url": "https://www.jst.go.jp/ristex/hite/topics/411.html",
+        "title": "6/5(水)「自動運転とサイバーリスク」〜香川・群馬・明治の3大学連合による小豆島実証実験をもとに〜"
+      },
+      {
+        "expId": "exp-208",
+        "refId": 1,
+        "status": 200,
+        "url": "https://www.udtrucks.com/japan/news-and-stories/news/ud-trucks-and-kobe-steel-conduct-level-4-autonomous-driving-trial-0",
+        "title": "ＵＤトラックスと神戸製鋼所、加古川製鉄所で大型トラックレベル4自動運転実証実験を実施"
+      },
+      {
+        "expId": "exp-208",
+        "refId": 2,
+        "status": 200,
+        "url": "https://www.kobelco.co.jp/releases/1211420_15541.html",
+        "title": "UDトラックスと神戸製鋼所、加古川製鉄所で大型トラックレベル4自動運転実証実験を実施"
+      },
+      {
+        "expId": "exp-208",
+        "refId": 3,
+        "status": 200,
+        "url": "https://www.udtrucks.com/japan/news-and-stories/news/ud-trucks-and-kobe-steel-to-conduct-level-4-autonomous-driving-trial",
+        "title": "ＵＤトラックスと神戸製鋼所がレベル４自動運転トラックの共同実証実験で基本合意"
+      }
+    ],
+    "status": "pending"
+  }
+]
