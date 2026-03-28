@@ -3,6 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
   let selectedId = null;
   let markers = {};
 
+  const escEl = document.createElement("div");
+  function escHtml(str) {
+    escEl.textContent = String(str ?? "");
+    return escEl.innerHTML;
+  }
+
   const experimentList = document.getElementById("experimentList");
   const experimentCount = document.getElementById("experimentCount");
   const statusFilter = document.getElementById("statusFilter");
@@ -245,12 +251,6 @@ document.addEventListener("DOMContentLoaded", () => {
     activeFilter.prefecture = prefectureFilter.value;
     renderList();
   });
-
-  const escEl = document.createElement("div");
-  function escHtml(str) {
-    escEl.textContent = String(str ?? "");
-    return escEl.innerHTML;
-  }
 
   function escAttr(str) {
     return String(str ?? "")
