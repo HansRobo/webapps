@@ -751,12 +751,15 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2（実証中・将来レベル4目標）", refs: [1] },
     stakeholders: [
       { role: "事業主体", name: "前橋市（群馬県）", refs: [1] },
+      { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [2, 3] },
       { role: "自動運転システム・車両整備", name: "先進モビリティ株式会社", refs: [1] },
       { role: "技術協力・研究", name: "群馬大学(CRANTS)", refs: [1] },
       { role: "運行協力", name: "日本中央バス株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "前橋市における自動運転の取り組み", url: "https://www.city.maebashi.gunma.jp/soshiki/seisaku/kotsuseisaku/gyomu/3/2/23011.html", date: "2023-01-01", source: "前橋市" }
+      { id: 1, title: "前橋市における自動運転の取り組み", url: "https://www.city.maebashi.gunma.jp/soshiki/seisaku/kotsuseisaku/gyomu/3/2/23011.html", date: "2023-01-01", source: "前橋市" },
+      { id: 2, title: "前橋市において自動運転の実証実験を実施", url: "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2024112001", date: "2024-11-20", source: "日本モビリティ株式会社 リリース" },
+      { id: 3, title: "群馬県前橋市で5G技術を活用した自動運転バスの公道実証を実施", url: "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2021010801", date: "2021-01-08", source: "日本モビリティ株式会社 リリース" }
     ]
   },
   {
@@ -997,10 +1000,12 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2（将来レベル4相当を目指す）", refs: [1] },
     stakeholders: [
       { role: "自治体", name: "和歌山市（和歌山県）", refs: [1] },
+      { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [2] },
       { role: "協力企業", name: "NTT西日本株式会社、株式会社マクニカ", refs: [1] }
     ],
     references: [
-      { id: 1, title: "和歌山市自動運転実証実験の実施結果", url: "https://www.city.wakayama.wakayama.jp/shisei/1012345/1045678.html", date: "2025-02-01", source: "和歌山市" }
+      { id: 1, title: "和歌山市自動運転実証実験の実施結果", url: "https://www.city.wakayama.wakayama.jp/shisei/1012345/1045678.html", date: "2025-02-01", source: "和歌山市" },
+      { id: 2, title: "和歌山市において自動運転の実証実験を実施", url: "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2024012601", date: "2024-01-30", source: "日本モビリティ株式会社 リリース" }
     ]
   },
   {
@@ -1617,10 +1622,12 @@ const EXPERIMENTS = [
     stakeholders: [
       { role: "自治体", name: "渋川市（群馬県）", refs: [1] },
       { role: "自治体", name: "群馬県", refs: [1] },
+      { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [2] },
       { role: "事業参画", name: "関越交通株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "渋川市における自動運転実証実験", url: "https://www.city.shibukawa.lg.jp/kurashi/shakaikiban/shinki/p010618.html", date: "2024-01-01", source: "渋川市" }
+      { id: 1, title: "渋川市における自動運転実証実験", url: "https://www.city.shibukawa.lg.jp/kurashi/shakaikiban/shinki/p010618.html", date: "2024-01-01", source: "渋川市" },
+      { id: 2, title: "渋川市において自動運転の実証実験を実施", url: "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2024112501", date: "2024-11-25", source: "日本モビリティ株式会社 リリース" }
     ]
   },
   {
@@ -2332,10 +2339,12 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2〜（段階的実証）", refs: [1] },
     stakeholders: [
       { role: "支援", name: "愛知県", refs: [1] },
+      { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [2] },
       { role: "システム", name: "先進モビリティ株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "愛知県 自動運転社会実装プロジェクト：中部国際空港", url: "https://www.pref.aichi.jp/", date: "2024-01-01", source: "愛知県" }
+      { id: 1, title: "愛知県 自動運転社会実装プロジェクト：中部国際空港", url: "https://www.pref.aichi.jp/", date: "2024-01-01", source: "愛知県" },
+      { id: 2, title: "常滑市中部国際空港島において自動運転の社会実装を見据えた実証実験を実施します", url: "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2020092101", date: "2020-09-21", source: "日本モビリティ株式会社 リリース" }
     ]
   },
   {
@@ -4310,6 +4319,214 @@ const EXPERIMENTS = [
     ],
     references: [
       { id: 1, title: "関東で初めて自動運転車（レベル4）の認可を行いました", url: "https://wwwtb.mlit.go.jp/kanto/content/000304988.pdf", date: "2023-10-20", source: "国土交通省 関東運輸局" }
+    ]
+  },
+  {
+    id: "exp-197",
+    name: { value: "西新宿エリア 路線バス自動運転実証（2023年・日本モビリティ参画）", refs: [1] },
+    location: { value: "東京都新宿区（新宿駅西口〜都庁周辺）", lat: 35.692, lng: 139.691, refs: [1] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2023年1月〜2月", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "京王電鉄バス・京王バスと日本モビリティが、西新宿エリアで路線バスを用いた自動運転実証を実施。既存ダイヤ間で走行し、都市部での運用性を検証した。",
+      refs: [1]
+    },
+    vehicle: { value: "日野ポンチョロング（2扉車）", refs: [1] },
+    adSystem: { value: "日本モビリティ", refs: [1] },
+    route: { value: "新宿駅西口（地下）〜都庁第一本庁舎〜都庁第二本庁舎〜新宿駅西口", refs: [1] },
+    operationType: { value: "レベル2（運転士同乗）", refs: [1] },
+    stakeholders: [
+      { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [1] },
+      { role: "運行主体", name: "京王電鉄バス株式会社、京王バス株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "西新宿エリアにおいて自動運転の実証実験を実施", url: "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2022122101", date: "2022-12-21", source: "日本モビリティ株式会社 リリース" }
+    ]
+  },
+  {
+    id: "exp-198",
+    name: { value: "淡路夢舞台地区 自動運転実証（兵庫県淡路市）", refs: [1] },
+    location: { value: "兵庫県淡路市（淡路夢舞台地区）", lat: 34.560, lng: 135.006, refs: [1] },
+    prefecture: { value: "兵庫県", refs: [1] },
+    period: { value: "2025年5月15日〜5月26日", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "兵庫県企業庁と日本モビリティが、淡路夢舞台地区で自動運転実証を実施。運転士同乗のレベル2を基本とし、国営明石海峡公園内では一部レベル4相当の走行を行った。",
+      refs: [1]
+    },
+    vehicle: { value: "特別装置自動車（ハンドル・ペダルなし）", refs: [1] },
+    adSystem: { value: "日本モビリティ", refs: [1] },
+    route: { value: "グランドニッコー淡路〜交流の翼港、グランドニッコー淡路〜海岸北口ゲート", refs: [1] },
+    operationType: { value: "レベル2（公園内一部レベル4相当）", refs: [1] },
+    stakeholders: [
+      { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [1] },
+      { role: "自治体・事業主体", name: "兵庫県企業庁", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "兵庫県淡路市において自動運転を実施", url: "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2025051901", date: "2025-05-19", source: "日本モビリティ株式会社 リリース" }
+    ]
+  },
+  {
+    id: "exp-199",
+    name: { value: "中之条町（四万温泉） 自動運転実証実験", refs: [1] },
+    location: { value: "群馬県中之条町（四万温泉）", lat: 36.676, lng: 138.773, refs: [1] },
+    prefecture: { value: "群馬県", refs: [1] },
+    period: { value: "2024年11月11日〜12月3日", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "地域交通の持続性確保と移動サービス向上を目的に、中之条町で自動運転実証を実施。総務省の地域デジタル基盤活用推進事業の一環として、通信環境調査も行った。",
+      refs: [1]
+    },
+    vehicle: { value: null, refs: [1] },
+    adSystem: { value: "日本モビリティ", refs: [1] },
+    route: { value: "Aルート：くれない専用駐車場〜四万川ダム大型駐車場、Bルート：奥四万湖周回", refs: [1] },
+    operationType: { value: "レベル2（運転士同乗）", refs: [1] },
+    stakeholders: [
+      { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [1] },
+      { role: "自治体", name: "中之条町（群馬県）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "中之条町（四万温泉）にて自動運転実証実験を実施します", url: "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2024102801", date: "2024-10-28", source: "日本モビリティ株式会社 リリース" }
+    ]
+  },
+  {
+    id: "exp-200",
+    name: { value: "町田木曽住宅地域 自動運転車両活用の移動支援実証", refs: [1] },
+    location: { value: "東京都町田市木曽東（町田木曽住宅地域）", lat: 35.563, lng: 139.418, refs: [1] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2022年9月22日〜10月5日", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "JKK東京が実施した町田木曽住宅地域の移動支援実証に日本モビリティが参画。住宅内22か所の乗降場所を設定し、予約制で運行した。",
+      refs: [1]
+    },
+    vehicle: { value: null, refs: [1] },
+    adSystem: { value: "日本モビリティ", refs: [1] },
+    route: { value: "町田木曽住宅地域内（22か所の乗降地点間）", refs: [1] },
+    operationType: { value: "レベル2（予約制オンデマンド実証）", refs: [1] },
+    stakeholders: [
+      { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [1] },
+      { role: "事業主体", name: "東京都住宅供給公社（JKK東京）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "町田木曽住宅地域において自動運転車両の運行を組み合わせた移動支援の実証実験を実施", url: "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2022091501", date: "2022-09-15", source: "日本モビリティ株式会社 リリース" }
+    ]
+  },
+  {
+    id: "exp-201",
+    name: { value: "二俣川駅〜左近山団地 路線バス自動運転営業運行実証", refs: [1] },
+    location: { value: "神奈川県横浜市旭区（二俣川駅南口〜左近山団地）", lat: 35.463, lng: 139.532, refs: [1] },
+    prefecture: { value: "神奈川県", refs: [1] },
+    period: { value: "2021年9月（延期告知を含む）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "相鉄バスが横浜市内で路線バス営業運行による自動運転実証を実施。日本モビリティが参画し、二俣川駅南口と左近山第5バス停間の往復約9kmで検証した。",
+      refs: [1]
+    },
+    vehicle: { value: "日野ブルーリボン ハイブリッド", refs: [1] },
+    adSystem: { value: "日本モビリティ", refs: [1] },
+    route: { value: "二俣川駅南口バス停〜左近山第5バス停（往復約9km）", refs: [1] },
+    operationType: { value: "レベル2（運転士同乗）", refs: [1] },
+    stakeholders: [
+      { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [1] },
+      { role: "運行主体", name: "相鉄バス株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "二俣川駅と左近山団地間の路線を自動運転バスで営業運行", url: "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2021090201", date: "2021-09-02", source: "日本モビリティ株式会社 リリース" }
+    ]
+  },
+  {
+    id: "exp-202",
+    name: { value: "沼津市 しずおか自動運転ShowCASE公道実証", refs: [1] },
+    location: { value: "静岡県沼津市（沼津駅〜沼津港）", lat: 35.095, lng: 138.863, refs: [1] },
+    prefecture: { value: "静岡県", refs: [1] },
+    period: { value: "2021年1月13日〜1月22日", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "静岡県のShowCASEプロジェクトの一環として、沼津駅〜沼津港間で公道実証を実施。交通量の多い都市部での自動運転実装に向けた技術と社会受容性を検証した。",
+      refs: [1]
+    },
+    vehicle: { value: null, refs: [1] },
+    adSystem: { value: "日本モビリティ", refs: [1] },
+    route: { value: "沼津駅〜沼津港", refs: [1] },
+    operationType: { value: "レベル3実証（運用上は安全要員配置）", refs: [1] },
+    stakeholders: [
+      { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [1] },
+      { role: "自治体", name: "沼津市（静岡県）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "「しずおか自動運転ShowCASEプロジェクト」の一環として 沼津市で自動運転の公道実証実験を実施します", url: "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2021010702", date: "2021-01-07", source: "日本モビリティ株式会社 リリース" }
+    ]
+  },
+  {
+    id: "exp-203",
+    name: { value: "西武バス 飯能市通常路線 大型バス自動運転実証", refs: [1] },
+    location: { value: "埼玉県飯能市（飯能駅南口〜美杉台ニュータウン）", lat: 35.851, lng: 139.327, refs: [1] },
+    prefecture: { value: "埼玉県", refs: [1] },
+    period: { value: "2021年2月（実証実施）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "西武バスと日本モビリティが、通常営業路線と同一形態で大型路線バスの自動運転実証を実施。遠隔監視システムを活用し、営業運行での実装可能性を検証した。",
+      refs: [1]
+    },
+    vehicle: { value: "大型路線バス", refs: [1] },
+    adSystem: { value: "日本モビリティ", refs: [1] },
+    route: { value: "飯能駅南口〜美杉台ニュータウン（片道約2.5km）", refs: [1] },
+    operationType: { value: "営業運行形態の公道実証（遠隔監視活用）", refs: [1] },
+    stakeholders: [
+      { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [1] },
+      { role: "運行主体", name: "西武バス株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "西武バスと国内初、通常営業運行路線で大型路線バスによる公道実証実験を行います", url: "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2021010701", date: "2021-01-07", source: "日本モビリティ株式会社 リリース" }
+    ]
+  },
+  {
+    id: "exp-204",
+    name: { value: "江田島市 公共交通バス路線一部区間 自動運転実証", refs: [1] },
+    location: { value: "広島県江田島市（ゆめタウン〜大盤団地）", lat: 34.220, lng: 132.481, refs: [1] },
+    prefecture: { value: "広島県", refs: [1] },
+    period: { value: "2024年1月20日〜1月21日", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "国交省補助事業を活用し、江田島市が公共交通路線の一部区間で自動運転実証を実施。日本モビリティが参画し、レベル2運行で検証を行った。",
+      refs: [1]
+    },
+    vehicle: { value: "トヨタ ヴェルファイア", refs: [1] },
+    adSystem: { value: "日本モビリティ", refs: [1] },
+    route: { value: "ゆめタウン〜大盤団地バス停", refs: [1] },
+    operationType: { value: "レベル2（運転士同乗）", refs: [1] },
+    stakeholders: [
+      { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [1] },
+      { role: "自治体", name: "江田島市（広島県）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "江田島市周辺において自動運転の実証実験を実施", url: "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2024010501", date: "2024-01-19", source: "日本モビリティ株式会社 リリース" }
+    ]
+  },
+  {
+    id: "exp-205",
+    name: { value: "八丈島 公道検証走行実証（2023年・日本モビリティ）", refs: [1] },
+    location: { value: "東京都八丈町（神湊港〜八丈島空港〜八重根港）", lat: 33.114, lng: 139.789, refs: [1] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2023年10月14日〜10月27日", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "東京都都市整備局の令和5年度調査検討業務の一環として、八丈島で公道走行調査を実施。地域ニーズを踏まえた自動運転サービス導入に向け、課題抽出と運行検証を行った。",
+      refs: [1]
+    },
+    vehicle: { value: "日野ポンチョ", refs: [1] },
+    adSystem: { value: "日本モビリティ", refs: [1] },
+    route: { value: "神湊（底土）港〜八丈島空港〜八重根港", refs: [1] },
+    operationType: { value: "レベル2（運転手搭乗）", refs: [1] },
+    stakeholders: [
+      { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [1] },
+      { role: "事業連携", name: "パシフィックコンサルタンツ株式会社", refs: [1] },
+      { role: "自治体", name: "東京都", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "八丈島において自動運転の検証走行を実施", url: "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2023100201", date: "2023-10-02", source: "日本モビリティ株式会社 リリース" }
     ]
   }
 ];
