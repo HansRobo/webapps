@@ -218,26 +218,26 @@ const EXPERIMENTS = [
     name: { value: "ひたちBRT・大甕駅周辺 自動運転中型バスレベル4実証（RoAD to the L4）", refs: [1, 2] },
     location: { value: "茨城県日立市（ひたちBRT専用道、JR大甕駅周辺）", lat: 36.513, lng: 140.628, refs: [1] },
     prefecture: { value: "茨城県", refs: [1] },
-    period: { value: "2024年11月〜（継続中）", refs: [1, 2] },
+    period: { value: "2024年11月〜（2025年5月にBRT専用道全線でレベル4営業運行開始）", refs: [1, 2, 3] },
     status: { value: "実施中", refs: [1] },
     description: {
-      value: "経済産業省と国土交通省が推進する「RoAD to the L4」プロジェクトの一環。ひたちBRT専用道路で運行する中型バスが国内で初めてレベル4の認可を取得。また、総務省の事業としてローカル5Gなどを活用した狭隘道路や交差点での通信・遠隔監視の検証も行われている。",
+      value: "経済産業省と国土交通省が推進する「RoAD to the L4」プロジェクトの一環。ひたちBRT専用道での中型バス実証に加え、総務省事業としてローカル5G等を活用した通信・遠隔監視検証を実施。2025年5月には、ひたちBRT専用道全線でレベル4自動運転による営業運行が開始された。",
       refs: [1, 2, 3]
     },
-    vehicleType: { value: "中型バス（自動運転システム搭載、ティアフォー製）", refs: [1, 2] },
-    route: { value: "ひたちBRT専用道 および JR大甕駅周辺の一般道", refs: [1, 2] },
-    operationType: { value: "レベル4（特定自動運行）、レベル2（実証検証）", refs: [1] },
+    vehicleType: { value: "中型バス（自動運転システム搭載）", refs: [1, 2, 3] },
+    route: { value: "ひたちBRT専用道全線 および JR大甕駅周辺の一般道", refs: [1, 2, 3] },
+    operationType: { value: "レベル4（特定自動運行・営業運行）および検証走行", refs: [1, 2, 3] },
     stakeholders: [
-      { role: "実証事業主体", name: "みちのりホールディングス、茨城交通", refs: [2] },
-      { role: "自動運転システム", name: "株式会社ティアフォー", refs: [2] },
+      { role: "実証事業主体", name: "みちのりホールディングス、茨城交通", refs: [1, 3] },
+      { role: "自動運転システム", name: "株式会社ティアフォー", refs: [1, 3] },
       { role: "通信システム検証", name: "日本電気株式会社（NEC）", refs: [2] },
-      { role: "自治体", name: "茨城県日立市", refs: [1] },
+      { role: "自治体", name: "茨城県日立市", refs: [1, 2] },
       { role: "支援", name: "経済産業省、国土交通省、総務省", refs: [1, 2] }
     ],
     references: [
-      { id: 1, title: "日立市における自動運転レベル4認可取得について", url: "https://www.hitachi.lg.jp/", date: "2024-11-26", source: "日立市" },
-      { id: 2, title: "総務省事業として日立市における自動運転実証を開始", url: "https://jpn.nec.com/press/", date: "2024-12-01", source: "NEC プレスリリース" },
-      { id: 3, title: "自動運転レベル4等先進モビリティサービス研究開発・社会実装プロジェクト", url: "https://www.meti.go.jp/", date: "2024-11-01", source: "経済産業省" }
+      { id: 1, title: "国内初！レベル4自動運転の中型バス「ひたちBRT自動運転バス」の運行サービスが開始されました", url: "https://www.meti.go.jp/press/2024/02/20250203003/20250203003.html", date: "2025-02-03", source: "経済産業省" },
+      { id: 2, title: "茨城県日立市にて自動運転レベル4を支援する通信システムの検証を開始", url: "https://jpn.nec.com/press/202410/20241021_01.html", date: "2024-10-21", source: "NEC プレスリリース" },
+      { id: 3, title: "ひたちBRTバス専用道全線でのレベル4自動運転開始について", url: "https://www.aist.go.jp/aist_j/news/announce/au20250520_2.html", date: "2025-05-20", source: "産業技術総合研究所" }
     ]
   },
   {
@@ -471,24 +471,25 @@ const EXPERIMENTS = [
   },
   {
     id: "exp-020",
-    name: { value: "八丈島スマートモビリティ 自動運転バス実証（先進モビリティ）", refs: [1] },
-    location: { value: "東京都八丈島（八丈島空港〜底土港）", lat: 33.116, lng: 139.782, refs: [1] },
+    name: { value: "八丈島スマートモビリティ 自動運転バス実証（東京都・八丈町）", refs: [1, 2] },
+    location: { value: "東京都八丈島（樫立地区〜末吉地区）", lat: 33.116, lng: 139.782, refs: [1] },
     prefecture: { value: "東京都", refs: [1] },
-    period: { value: "2024年7月〜8月", refs: [1] },
-    status: { value: "完了", refs: [1] },
+    period: { value: "2024年実証、2025年7月〜8月に追加実証", refs: [1, 2] },
+    status: { value: "実施中・一部計画中", refs: [1] },
     description: {
-      value: "八丈島スマートモビリティサービス実証事業の一環。夏の繁忙期における空港や港を含む中心市街地の回遊性の向上を目的として、八丈島坂下地域で運行実証を実施。",
-      refs: [1]
+      value: "八丈島スマートモビリティサービス実証事業の一環。東京都・八丈町等が連携し、デジタル技術を活用した島内移動の効率化を目的に、AIデマンドタクシーと組み合わせた自動運転バスの実証を段階的に実施。",
+      refs: [1, 2]
     },
-    vehicleType: { value: "自動運転バス（先進モビリティ自動運転システム搭載）", refs: [1] },
-    route: { value: "八丈島坂下地域（八丈島空港〜底土港）", refs: [1] },
-    operationType: { value: "実証実験", refs: [1] },
+    vehicleType: { value: "自動運転バス（レベル2、運転手同乗）", refs: [1] },
+    route: { value: "樫立地区〜末吉地区（八丈島内）", refs: [1] },
+    operationType: { value: "レベル2（期間限定実証）", refs: [1] },
     stakeholders: [
-      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] },
-      { role: "自治体", name: "東京都八丈町", refs: [1] }
+      { role: "自治体", name: "東京都八丈町", refs: [1, 2] },
+      { role: "自治体", name: "東京都", refs: [1] }
     ],
     references: [
-      { id: 1, title: "自動運転システムの実験事例：東京都八丈島", url: "https://www.as-mobi.com/case/", date: "2024-01-01", source: "先進モビリティ株式会社" }
+      { id: 1, title: "八丈島でAIデマンドタクシー・自動運転バスの実証事業を実施", url: "https://www.metro.tokyo.lg.jp/information/press/2025/06/2025062001", date: "2025-06-20", source: "東京都 報道発表資料" },
+      { id: 2, title: "八丈町スマートモビリティプロジェクト", url: "https://www.town.hachijo.tokyo.jp/kakuka/kikaku/smartmobility.html", date: "2025-07-01", source: "八丈町" }
     ]
   },
   {
@@ -2209,20 +2210,22 @@ const EXPERIMENTS = [
     name: { value: "熊本市 熊本城周辺等 自動運転バス実証実験", refs: [1] },
     location: { value: "熊本県熊本市", lat: 32.803, lng: 130.707, refs: [1] },
     prefecture: { value: "熊本県", refs: [1] },
-    period: { value: "2025年3月〜", refs: [1] },
+    period: { value: "2025年3月〜10月（第1弾・第2弾）", refs: [1, 2, 3] },
     status: { value: "実施中", refs: [1] },
     description: {
-      value: "熊本城周辺ルート、および南熊本エリア等の循環ルートにおいて、運転士不足解消等を目指しレベル2自動運転バスの実証実験を実施。2027年本格導入目標。",
-      refs: [1]
+      value: "熊本市が実施する実証で、熊本城周辺ルートや南熊本駅周辺ルート等において、運転士不足対策と地域交通の維持を目的にレベル2自動運転バスの運行を段階的に実施。運行継続・再開・期間延長を経て第2弾実証まで展開している。",
+      refs: [1, 2, 3]
     },
-    vehicleType: { value: "自動運転バス", refs: [1] },
-    route: { value: "熊本城周辺、南熊本エリアなど", refs: [1] },
-    operationType: { value: "レベル2", refs: [1] },
+    vehicleType: { value: "自動運転バス（レベル2）", refs: [1, 2, 3] },
+    route: { value: "熊本城周辺、南熊本駅周辺など市内ルート", refs: [1, 2, 3] },
+    operationType: { value: "レベル2（運行継続・再開・延長を伴う段階実証）", refs: [1, 2, 3] },
     stakeholders: [
-      { role: "自治体", name: "熊本市", refs: [1] }
+      { role: "自治体", name: "熊本市", refs: [1, 2, 3] }
     ],
     references: [
-      { id: 1, title: "熊本市 自動運転バス実証", url: "https://www.city.kumamoto.jp/", date: "2025-03-01", source: "熊本市" }
+      { id: 1, title: "自動運転バスの実証運行について", url: "https://www.city.kumamoto.jp/kiji00358941/index.html", date: "2025-10-07", source: "熊本市 公式サイト" },
+      { id: 2, title: "【報道資料】自動運転バスの運行継続について", url: "https://www.city.kumamoto.jp/kiji00363335/index.html", date: "2025-04-02", source: "熊本市 報道資料" },
+      { id: 3, title: "【報道資料】自動運転バスの運行再開および運行期間延長について", url: "https://www.city.kumamoto.jp/kiji00364173/index.html", date: "2025-05-12", source: "熊本市 報道資料" }
     ]
   },
   {
@@ -2309,6 +2312,281 @@ const EXPERIMENTS = [
     ],
     references: [
       { id: 1, title: "豊見城市 105番路線 自動運転実証", url: "https://www.city.tomigusuku.lg.jp/", date: "2024-01-01", source: "豊見城市" }
+    ]
+  },
+  {
+    id: "exp-104",
+    name: { value: "境町 新型車両MiCa導入・ルート拡充（第4期）", refs: [1] },
+    location: { value: "茨城県境町（新ルート含む全域）", lat: 36.148, lng: 139.792, refs: [1] },
+    prefecture: { value: "茨城県", refs: [1] },
+    period: { value: "2024年4月〜", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "2020年から国内初の定常運行を続ける境町において、2024年にエストニア製の新型車両「MiCa」を導入。従来のARMAに加え複数台体制での運行を実現し、走行ルートもさらに拡大。信号協調やインフラ連携による安全性向上を図っている。",
+      refs: [1]
+    },
+    vehicleType: { value: "Auve Tech MiCa", refs: [1] },
+    route: { value: "境町内循環ルート（第4期拡充エリア含む）", refs: [1] },
+    operationType: { value: "レベル2（定常運行）、将来のレベル4実装に向けた検証", refs: [1] },
+    stakeholders: [
+      { role: "事業主体", name: "茨城県境町", refs: [1] },
+      { role: "運行管理・システム", name: "BOLDLY株式会社", refs: [1] },
+      { role: "車両提供", name: "マクニカ株式会社", refs: [1] },
+      { role: "車両製造", name: "Auve Tech（エストニア）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "境町、新型自動運転バス「MiCa」を導入しルート拡大", url: "https://boldly.jp/news/2024/04/", date: "2024-04-01", source: "BOLDLY株式会社" }
+    ]
+  },
+  {
+    id: "exp-105",
+    name: { value: "永平寺町 始まりの実証（産総研・パナソニック共同）", refs: [1, 2] },
+    location: { value: "福井県永平寺町（永平寺参ろーど）", lat: 36.092, lng: 136.355, refs: [1] },
+    prefecture: { value: "福井県", refs: [1] },
+    period: { value: "2017年10月〜11月", refs: [1, 2] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "国内屈指の導入実績を持つ永平寺町における最初の本格実証。廃線跡を活用した専用道で、パナソニック製の電動カートを使用。一人の遠隔監視者が複数台を管理する技術の基礎を確立した。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "パナソニック製電動カート", refs: [1] },
+    route: { value: "永平寺参ろーど 約1.4km", refs: [1] },
+    operationType: { value: "レベル2（遠隔監視型、最初期検証）", refs: [1] },
+    stakeholders: [
+      { role: "研究開発", name: "国立研究開発法人 産業技術総合研究所（産総研）", refs: [1] },
+      { role: "車両提供", name: "パナソニック株式会社", refs: [1] },
+      { role: "自治体", name: "福井県永平寺町", refs: [2] }
+    ],
+    references: [
+      { id: 1, title: "永平寺町における自動走行実証実験の開始", url: "https://www.aist.go.jp/aist_j/news/pr20171013.html", date: "2017-10-13", source: "産総研 プレスリリース" },
+      { id: 2, title: "永平寺町自動運転のあゆみ", url: "https://www.town.eiheiji.lg.jp/", date: "2023-01-01", source: "永平寺町" }
+    ]
+  },
+  {
+    id: "exp-106",
+    name: { value: "前橋市 5G連携・顔認証等 高度化実証", refs: [1] },
+    location: { value: "群馬県前橋市（JR前橋駅〜中央前橋駅）", lat: 36.389, lng: 139.071, refs: [1] },
+    prefecture: { value: "群馬県", refs: [1] },
+    period: { value: "2022年度〜2023年度", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "2018年から実証を続ける前橋市の第3フェーズ。ローカル5G等を活用した高精度な遠隔監視や、マイナンバーカード・顔認証と連携した決済システムの検証を行い、社会実装に向けた利便性を追求した。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス（大型・中型）", refs: [1] },
+    route: { value: "JR前橋駅〜中央前橋駅シャトルルート 約1km", refs: [1] },
+    operationType: { value: "レベル2（5G連携・高度技術検証）", refs: [1] },
+    stakeholders: [
+      { role: "事業全体", name: "前橋市", refs: [1] },
+      { role: "技術協力", name: "群馬大学(CRANTS)", refs: [1] },
+      { role: "システム", name: "日本電気株式会社（NEC）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "前橋市、5Gと顔認証を活用した自動運転バス実証の結果", url: "https://www.city.maebashi.gunma.jp/", date: "2024-03-31", source: "前橋市" }
+    ]
+  },
+  {
+    id: "exp-107",
+    name: { value: "柏の葉キャンパス 導入初期公道走行試験（2019）", refs: [1] },
+    location: { value: "千葉県柏市（柏の葉キャンパス周辺）", lat: 35.895, lng: 139.953, refs: [1] },
+    prefecture: { value: "千葉県", refs: [1] },
+    period: { value: "2019年11月〜2020年3月", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "柏の葉キャンパス周辺での長期実証の第一段階。一般公道を実際にバスが走行し、技術的な安全性と住民の受容性を調査。現在のCooL4プロジェクトへと繋がる原点となった。",
+      refs: [1]
+    },
+    vehicleType: { value: "先進モビリティ製自動運転システム搭載バス", refs: [1] },
+    route: { value: "柏の葉キャンパス駅〜東京大学柏キャンパス 約2.5km", refs: [1] },
+    operationType: { value: "レベル2（初期公道検証）", refs: [1] },
+    stakeholders: [
+      { role: "事業主体", name: "東京大学", refs: [1] },
+      { role: "システム", name: "先進モビリティ株式会社", refs: [1] },
+      { role: "自治体", name: "千葉県柏市", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "柏の葉キャンパス周辺における自動運転バス実証（2019年度）", url: "https://www.kashiwanoha-smartcity.com/", date: "2019-11-01", source: "柏の葉スマートシティ" }
+    ]
+  },
+  {
+    id: "exp-108",
+    name: { value: "福山市 レベル4実装に向けた公道実証プロジェクト", refs: [1, 2] },
+    location: { value: "広島県福山市", lat: 34.485, lng: 133.362, refs: [1] },
+    prefecture: { value: "広島県", refs: [1] },
+    period: { value: "2021年度〜継続中", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "都市部における自動運転サービスの早期実装を目指。中型バスを用いた公道実証を毎年繰り返し実施。ルート上の信号情報との連携や、駐停車車両を回避する高度なAI技術の検証を行っている。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "自動運転中型バス", refs: [1] },
+    route: { value: "福山市内中心部 公道路線", refs: [1] },
+    operationType: { value: "レベル2〜レベル4に向けた段階的実証", refs: [2] },
+    stakeholders: [
+      { role: "事業主体", name: "広島県福山市", refs: [1] },
+      { role: "技術支援", name: "マクニカ株式会社", refs: [2] },
+      { role: "運行協力", name: "中国バス", refs: [2] }
+    ],
+    references: [
+      { id: 1, title: "福山市 自動運転実証の取り組みについて", url: "https://www.city.fukuyama.hiroshima.jp/", date: "2024-01-01", source: "福山市" },
+      { id: 2, title: "マクニカ、福山市で自動運転バス実証を支援", url: "https://www.macnica.co.jp/news/2023/", date: "2023-11-01", source: "マクニカ株式会社" }
+    ]
+  },
+  {
+    id: "exp-109",
+    name: { value: "中部国際空港 常時運行に向けた空港内・周辺実証", refs: [1] },
+    location: { value: "愛知県常滑市（中部国際空港周辺）", lat: 34.862, lng: 136.812, refs: [1] },
+    prefecture: { value: "愛知県", refs: [1] },
+    period: { value: "2022年〜継続中", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "空港アクセス向上と空港内作業の自動化を目指し、制限区域および空港島内一般道での実証を複数回実施。特に、大型・中型バスによる多人数輸送における、GNSSが届きにくいエリアでの精度検証を行っている。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス、空港用特殊車両", refs: [1] },
+    route: { value: "中部国際空港内および空港島周辺", refs: [1] },
+    operationType: { value: "レベル2〜（段階的実証）", refs: [1] },
+    stakeholders: [
+      { role: "支援", name: "愛知県", refs: [1] },
+      { role: "システム", name: "先進モビリティ株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "愛知県 自動運転社会実装プロジェクト：中部国際空港", url: "https://www.pref.aichi.jp/", date: "2024-01-01", source: "愛知県" }
+    ]
+  },
+  {
+    id: "exp-110",
+    name: { value: "福岡市 大学キャンパス・ウォーターフロント実証", refs: [1] },
+    location: { value: "福岡県福岡市（九州大学伊都キャンパス・博多港周辺）", lat: 33.595, lng: 130.222, refs: [1] },
+    prefecture: { value: "福岡県", refs: [1] },
+    period: { value: "2023年度〜2024年", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "広大な九州大学伊都キャンパス内での学生移動と、観光ニーズの高いウォーターフロント地区での回遊性向上を目的とした実証。段階的に実装エリアを拡大しており、MaaS連携による予約システムの検証も行っている。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス「ARMA」等", refs: [1] },
+    route: { value: "九大伊都キャンパス内、博多港周辺エリア", refs: [1] },
+    operationType: { value: "レベル2（MaaS連携実証）", refs: [1] },
+    stakeholders: [
+      { role: "事業協力", name: "九州大学", refs: [1] },
+      { role: "自治体", name: "福岡市", refs: [1] },
+      { role: "運行・システム", name: "BOLDLY株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "福岡市、九州大学等での自動運転バス実証について", url: "https://www.city.fukuoka.lg.jp/", date: "2024-03-01", source: "福岡市" }
+    ]
+  },
+  {
+    id: "exp-111",
+    name: { value: "佐賀市 市街地回遊性向上実走調査", refs: [1] },
+    location: { value: "佐賀県佐賀市（SAGAサンライズパーク周辺）", lat: 33.275, lng: 130.298, refs: [1] },
+    prefecture: { value: "佐賀県", refs: [1] },
+    period: { value: "2023年〜2024年", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "SAGAサンライズパークの開業に合わせ、周辺の賑わい創出と二次交通解消を目指した実証。2024年の本格稼働に向け、ルート上の課題抽出と乗客満足度の調査を主体としたプレ実証を実施。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス", refs: [1] },
+    route: { value: "SAGAサンライズパーク〜佐賀駅周辺", refs: [1] },
+    operationType: { value: "レベル2（導入前実証）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "佐賀市", refs: [1] },
+      { role: "運行協力", name: "佐賀市交通局", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "佐賀市 自動運転バス実証走行と体験乗車会の結果", url: "https://www.city.saga.lg.jp/main/110918.html", date: "2024-01-01", source: "佐賀市" }
+    ]
+  },
+  {
+    id: "exp-112",
+    name: { value: "陸前高田市 まちなか再生エリア 利便性検証（2024）", refs: [1] },
+    location: { value: "岩手県陸前高田市（市街地・アバッセ周辺）", lat: 39.015, lng: 141.628, refs: [1] },
+    prefecture: { value: "岩手県", refs: [1] },
+    period: { value: "2024年度（予定合含む）", refs: [1] },
+    status: { value: "実施中・一部計画中", refs: [1] },
+    description: {
+      value: "震災復興公園に加え、再建された市街地エリアでの日常移動を支えるモビリティとして、NAVYA ARMA等を用いた実証を実施。観光ガイド同乗による回遊性向上と住民の買い物支援のハイブリッドモデルを目指す。",
+      refs: [1]
+    },
+    vehicleType: { value: "NAVYA ARMA", refs: [1] },
+    route: { value: "陸前高田市中心市街地", refs: [1] },
+    operationType: { value: "レベル2（中心市街地実証）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "陸前高田市", refs: [1] },
+      { role: "運行管理", name: "BOLDLY株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "陸前高田市における自動運転バスの新たな実証実験", url: "https://www.city.rikuzentakata.iwate.jp/", date: "2024-03-01", source: "陸前高田市" }
+    ]
+  },
+  {
+    id: "exp-113",
+    name: { value: "北九州市 響灘・東田地区 複数拠点実証", refs: [1] },
+    location: { value: "福岡県北九州市（若松区・八幡東区）", lat: 33.912, lng: 130.812, refs: [1] },
+    prefecture: { value: "福岡県", refs: [1] },
+    period: { value: "2022年〜継続中", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "響灘地区の工業地帯と、環境ミュージアム等がある東田地区（スマートシティ拠点）の2拠点において、地域交通の持続性を検証。将来的なレベル4遠隔監視システムとの統合も見越し、複数年度にわたる実証活動を展開している。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス「ARMA」等", refs: [1] },
+    route: { value: "響灘地区・東田地区 各拠点ルート", refs: [1] },
+    operationType: { value: "レベル2（複数拠点展開）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "北九州市", refs: [1] },
+      { role: "技術協力", name: "アイサンテクノロジー株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "北九州市 自動運転プロジェクト公表資料", url: "https://www.city.kitakyushu.lg.jp/", date: "2024-01-01", source: "北九州市" }
+    ]
+  },
+  {
+    id: "exp-114",
+    name: { value: "都営バス 新木場駅前〜日本科学未来館 自動運転実証", refs: [1] },
+    location: { value: "東京都江東区（新木場駅前〜日本科学未来館）", lat: 35.65, lng: 139.79, refs: [1] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2026年3月1日〜3月13日", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "東京都交通局が、既存の都営バス路線の一部を活用して大型バスによる自動運転実証を実施。予約制の無料乗車で運用し、自動運転レベル2（運転手同乗）で技術・運行課題を検証した。",
+      refs: [1]
+    },
+    vehicleType: { value: "いすゞ ERGA（大型バス）", refs: [1] },
+    route: { value: "新木場駅前〜日本科学未来館（片道約30分）", refs: [1] },
+    operationType: { value: "レベル2（運転手同乗）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "東京都", refs: [1] },
+      { role: "運行主体", name: "東京都交通局", refs: [1] },
+      { role: "車両提供", name: "いすゞ自動車", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "都営バスで自動運転の実証実験を行います", url: "https://www.metro.tokyo.lg.jp/information/press/2026/01/2026012306", date: "2026-01-23", source: "東京都 報道発表資料" }
+    ]
+  },
+  {
+    id: "exp-115",
+    name: { value: "彦根市 Shiga Smart Access 自動運転バス実証運行", refs: [1] },
+    location: { value: "滋賀県彦根市（彦根駅〜市立病院・くすのきセンター）", lat: 35.275, lng: 136.259, refs: [1] },
+    prefecture: { value: "滋賀県", refs: [1] },
+    period: { value: "2026年1月31日〜2月16日（一般運行は2月2日〜）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "滋賀県の自動運転チャレンジ事業として、彦根市中心部でレベル2相当の自動運転EVバス実証を実施。持続可能な地域交通の社会実装に向け、営業運行を見据えた運行条件や需要を検証した。",
+      refs: [1]
+    },
+    vehicleType: { value: "NAVYA EVO（自動運転EVバス）", refs: [1] },
+    route: { value: "彦根駅〜彦根市立病院〜くすのきセンター", refs: [1] },
+    operationType: { value: "レベル2相当（実証運行）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "滋賀県", refs: [1] },
+      { role: "自治体", name: "彦根市", refs: [1] },
+      { role: "協力企業", name: "NTT西日本、NTTビジネスソリューションズ株式会社、マクニカ株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "Shiga Smart Access滋賀県自動運転チャレンジ事業 自動運転バスの実証運行を開始します！", url: "https://www.pref.shiga.lg.jp/kensei/koho/e-shinbun/oshirase/347560.html", date: "2026-01-13", source: "滋賀県" }
     ]
   }
 ];
