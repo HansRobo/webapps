@@ -363,7 +363,7 @@
     TOYOTA_ALPHARD: "トヨタ アルファード",
     TOYOTA_VELLFIRE: "トヨタ ヴェルファイア",
     TOYOTA_SIENNA: "トヨタ シエナ",
-    TOYOTA_ESTIMA_HYBRID: "トヨタ エスティマ ハイブリッド",
+    TOYOTA_ESTIMA: "トヨタ エスティマ",
     // UDトラックス
     UD_QUON: "UDトラックス クオン",
     // WeRide
