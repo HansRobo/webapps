@@ -3034,5 +3034,323 @@ const EXPERIMENTS = [
       { id: 1, title: "GO、Waymo、日本交通　今週より東京都心7区でWaymo車両の走行を開始", url: "https://goinc.jp/news/info/2025/04/14/4zfkopprkigxqcfyiltgxd", date: "2025-04-14", source: "GO株式会社" },
       { id: 2, title: "Waymo 日本版", url: "https://waymo.com/intl/jp/waymo-in-japan", date: "2025-04-14", source: "Waymo" }
     ]
+  },
+  {
+    id: "exp-146",
+    name: { value: "千代田区〜港区 Aidelix 自動運転タクシー公道営業実証", refs: [1] },
+    location: { value: "東京都千代田区（大手町）〜東京都港区（六本木）", lat: 35.676, lng: 139.746, refs: [1] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2018年8月27日〜9月8日", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "日の丸交通とZMPが実施した自動運転タクシーの公道営業実証。大手町フィナンシャルシティと六本木ヒルズ間を結ぶ約5.3kmで、予約者向けに有償試験運行を行った。",
+      refs: [1]
+    },
+    vehicleType: { value: "ミニバンタイプ自動運転実験車両", refs: [1] },
+    route: { value: "大手町フィナンシャルシティ グランキューブ〜六本木ヒルズ（約5.3km）", refs: [1] },
+    operationType: { value: "公道営業実証（監視付き自動運転）", refs: [1] },
+    stakeholders: [
+      { role: "事業主体", name: "日の丸交通株式会社、株式会社ZMP", refs: [1] },
+      { role: "協賛・協力", name: "三菱地所株式会社、森ビル株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "総合ディベロッパーと連携し、先進的な都市交通インフラ実証実験を都心部で展開", url: "https://www.robo-hi.jp/news/pressrelease_20180718", date: "2018-07-18", source: "ROBO-HI（旧ZMP発表アーカイブ）" }
+    ]
+  },
+  {
+    id: "exp-147",
+    name: { value: "杉並区（荻窪駅周辺） 自動運転バス走行実証", refs: [1, 2] },
+    location: { value: "東京都杉並区（荻窪駅周辺）", lat: 35.704, lng: 139.620, refs: [1] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2024年度（令和6年度）", refs: [1, 2] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "東京都が令和6年度の導入推進プロジェクトとして、杉並区荻窪駅周辺で実施した自動運転バス走行実証。地元自治体・交通事業者と連携し、走行環境整備と運行検証を行った。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "自動運転バス（実証車両）", refs: [1, 2] },
+    route: { value: "杉並区 荻窪駅周辺の実証ルート", refs: [1] },
+    operationType: { value: "導入推進に向けた走行実証", refs: [1, 2] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "東京都、杉並区", refs: [1] },
+      { role: "運行・実装支援", name: "A-Drive株式会社", refs: [2] }
+    ],
+    references: [
+      { id: 1, title: "都内3地区（杉並区、多摩市、瑞穂町）において自動運転バスを運行します！", url: "https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2024/10/30/05.html", date: "2024-10-30", source: "東京都" },
+      { id: 2, title: "東京都実証実験参画のお知らせ", url: "https://a-drive.jp/2024/11/08/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%AE%9F%E8%A8%BC%E5%AE%9F%E9%A8%93%E5%8F%82%E7%94%BB%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B/", date: "2024-11-08", source: "A-Drive株式会社" }
+    ]
+  },
+  {
+    id: "exp-148",
+    name: { value: "精華町 けいはんな万博2025 自動運転大型バス実証運行", refs: [1, 2] },
+    location: { value: "京都府相楽郡精華町（けいはんなプラザ周辺）", lat: 34.735, lng: 135.784, refs: [1, 2] },
+    prefecture: { value: "京都府", refs: [1, 2] },
+    period: { value: "2025年8月4日〜9月2日（準備運行含む）", refs: [1, 2] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "総務省「地域社会DX推進パッケージ事業（自動運転レベル4検証タイプ）」の一環として、精華町で実施された大型バス実証。けいはんな万博2025に合わせ、レベル2運行と1:N遠隔監視（1人で複数台監視）の安全性・運用性を検証した。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "いすゞ エルガ（改造自動運転バス）", refs: [2] },
+    route: { value: "けいはんなプラザ〜KICK周辺（往復約3km、精華大通り付近の片道約1.5km区間を含む）", refs: [1, 2] },
+    operationType: { value: "レベル2（部分運転自動化）・1:N遠隔監視実証", refs: [1, 2] },
+    stakeholders: [
+      { role: "自治体", name: "精華町（京都府）、京都府", refs: [1, 2] },
+      { role: "代表機関", name: "アイサンテクノロジー株式会社", refs: [1, 2] },
+      { role: "通信・遠隔監視", name: "NTTドコモビジネス株式会社", refs: [2] },
+      { role: "運行協力", name: "奈良交通株式会社", refs: [2] },
+      { role: "研究協力", name: "同志社大学 モビリティ研究センター", refs: [2] }
+    ],
+    references: [
+      { id: 1, title: "精華町における自動運転大型バスの実証運行実施について", url: "https://prtimes.jp/main/html/rd/p/000000193.000050415.html", date: "2025-07-28", source: "アイサンテクノロジー株式会社" },
+      { id: 2, title: "令和7年度実証事業概要（京都府精華町）", url: "https://pubpjt.mri.co.jp/pjt_related/rcsad-info/eqghpc000000030i-att/20250729rcsad-info_gaiyou_kyoto_seika.pdf", date: "2025-07-29", source: "MRI受託事業 公募・公開情報" }
+    ]
+  },
+  {
+    id: "exp-149",
+    name: { value: "日本交通×ティアフォー DRS搭載車による東京都23区データ収集運行", refs: [1, 2] },
+    location: { value: "東京都23区（千代田区・中央区・港区・新宿区・文京区・台東区・墨田区・江東区・品川区・目黒区・大田区・世田谷区・渋谷区・中野区・杉並区・豊島区・北区・荒川区・板橋区・練馬区・足立区・葛飾区・江戸川区）", lat: 35.681, lng: 139.767, refs: [1, 2] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2025年2月5日〜2025年12月（予定）", refs: [1, 2] },
+    status: { value: "実施中", refs: [1, 2] },
+    description: {
+      value: "日本交通とティアフォーが、DRS（Data Recording System）搭載タクシー車両で東京都23区の公道データを継続収集する運行。レベル4相当の自動運転サービス実装に向け、運行環境データの蓄積と走行シナリオ整備を進める。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "DRS搭載タクシー車両（データ収集用途）", refs: [1, 2] },
+    route: { value: "東京都23区内の公道（千代田区、中央区、港区、新宿区、文京区、台東区、墨田区、江東区、品川区、目黒区、大田区、世田谷区、渋谷区、中野区、杉並区、豊島区、北区、荒川区、板橋区、練馬区、足立区、葛飾区、江戸川区）", refs: [1, 2] },
+    operationType: { value: "自動運転向けデータ収集・走行環境マッピング実証", refs: [1, 2] },
+    stakeholders: [
+      { role: "事業主体", name: "日本交通株式会社", refs: [1, 2] },
+      { role: "技術提供", name: "株式会社ティアフォー", refs: [1, 2] }
+    ],
+    references: [
+      { id: 1, title: "「公道における自動走行に必要なデータの継続的な収集および自動走行実験」について", url: "https://www.nihon-kotsu-taxi.jp/news/250205/", date: "2025-02-05", source: "日本交通株式会社" },
+      { id: 2, title: "日本交通とティアフォー、東京都内で自動運転向けデータ収集を開始", url: "https://prtimes.jp/main/html/rd/p/000000109.000053767.html", date: "2025-02-07", source: "PR TIMES" }
+    ]
+  },
+  {
+    id: "exp-150",
+    name: { value: "三郷町 デジタル交通サービス自動運転バス実証", refs: [1] },
+    location: { value: "奈良県生駒郡三郷町（JR三郷駅〜FSS35キャンパス）", lat: 34.600, lng: 135.683, refs: [1] },
+    prefecture: { value: "奈良県", refs: [1] },
+    period: { value: "2025年1月9日〜1月15日（1月12日・13日を除く）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "奈良県と三郷町が共同で実施した移動支援サービス導入に向けた実証。JR三郷駅とFSS35キャンパスを結ぶルートで、2023年度に続く2024年度実証として自動運転バスを運行した。坂道区間でのブレーキ制御や路車協調を含む安全運行の検証を行った。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス（実証車両、乗車定員13名）", refs: [1] },
+    route: { value: "JR三郷駅ー立野南二丁目ーFSS35キャンパスー立野南二丁目ーJR三郷駅", refs: [1] },
+    operationType: { value: "実証運行（無料・事前予約優先）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "三郷町（奈良県）、奈良県", refs: [1] },
+      { role: "技術・運行協力", name: "アイサンテクノロジー株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "〖奈良県〗三郷町デジタル交通サービス実証実験が実施されました", url: "https://aisan-mobility.com/202401nara_sango/", date: "2025-01-23", source: "アイサンテクノロジー株式会社" }
+    ]
+  },
+  {
+    id: "exp-151",
+    name: { value: "高輪ゲートウェイ〜竹芝 自動運転バス走行実証（JR東日本・KDDI）", refs: [1, 2] },
+    location: { value: "東京都港区（TAKANAWA GATEWAY CITY〜竹芝エリア）", lat: 35.646, lng: 139.752, refs: [1] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2026年3月28日〜5月10日（4月1日〜7日は一部運休）", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "JR東日本とKDDIが、都市部でのレベル4社会実装を見据えて実施する一般乗車可能な自動運転バス実証。高輪ゲートウェイシティ周回ルートと竹芝方面ルートの2ルートで、レベル2運行により自動運転率、乗り心地、社会受容性、運行オペレーションを検証する。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "自動運転小型EVバス Minibus 2.0（ティアフォー提供）", refs: [1] },
+    route: { value: "TAKANAWA GATEWAY CITY周回（約5分/1日12便）および TAKANAWA GATEWAY CITY〜ウォーターズ竹芝（約65分/1日4便）", refs: [1] },
+    operationType: { value: "レベル2（一般乗車可能な実証運行）", refs: [1] },
+    stakeholders: [
+      { role: "共同実証企画主体", name: "東日本旅客鉄道株式会社（JR東日本）、KDDI株式会社", refs: [1] },
+      { role: "技術協力", name: "アイサンテクノロジー株式会社、A-Drive株式会社、株式会社ティアフォー", refs: [1, 2] }
+    ],
+    references: [
+      { id: 1, title: "JR東日本とKDDI、TAKANAWA GATEWAY CITYと竹芝エリア間で自動運転バス走行実証を3月28日から開始", url: "https://newsroom.kddi.com/news/detail/kddi_nr-968_4376.html", date: "2026-03-24", source: "KDDI News Room" },
+      { id: 2, title: "高輪エリアにおける自動運転バス運行に参画　アイサンテクノロジーとA-Driveがグループ連携で社会実装を推進", url: "https://aisan-mobility.com/info/20260327/", date: "2026-03-27", source: "アイサンテクノロジー株式会社" }
+    ]
+  },
+  {
+    id: "exp-152",
+    name: { value: "瑞穂町 自動運転バス実証運行（石畑・殿ケ谷コース）", refs: [1, 2] },
+    location: { value: "東京都西多摩郡瑞穂町（石畑・殿ケ谷エリア）", lat: 35.771, lng: 139.353, refs: [1, 2] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2026年2月14日〜2月20日（2月15日は運休）", refs: [2] },
+    status: { value: "完了", refs: [1, 2] },
+    description: {
+      value: "瑞穂町が主体となり、A-Driveおよびアイサンテクノロジー等と連携して実施した自動運転バス実証。コミュニティバス「石畑・殿ケ谷コース」約7.5kmの一部区間でレベル2走行を行い、将来の本格導入に向けた運用検証を実施した。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "自動運転バス（事前予約制、1便あたり13名）", refs: [2] },
+    route: { value: "石畑・殿ケ谷コース（ジョイフル本田方面）約7.5kmの一部区間", refs: [2] },
+    operationType: { value: "レベル2（1日6便、無料・事前予約制）", refs: [2] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "瑞穂町（東京都）", refs: [1, 2] },
+      { role: "運行・技術協力", name: "A-Drive株式会社、アイサンテクノロジー株式会社、立川バス株式会社", refs: [2] }
+    ],
+    references: [
+      { id: 1, title: "東京都瑞穂町にて自動運転バス運行開始に参画～公共交通の未来を支える、高精度地図と運行支援技術～", url: "https://aisan-mobility.com/info/202602mizuho/", date: "2026-02-06", source: "アイサンテクノロジー株式会社" },
+      { id: 2, title: "東京都瑞穂町にて自動運転バス運行開始に参画（詳細資料）", url: "https://www.aisantec.co.jp/ir/information/zm20260206_1.pdf", date: "2026-02-06", source: "アイサンテクノロジー株式会社" }
+    ]
+  },
+  {
+    id: "exp-153",
+    name: { value: "八王子市（高尾地区） 自動運転バス実証運行", refs: [1, 2] },
+    location: { value: "東京都八王子市（高尾駅北口〜高尾台住宅）", lat: 35.642, lng: 139.282, refs: [1, 2] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2025年8月23日〜8月31日（8月30日・31日は運行中止）", refs: [1, 2] },
+    status: { value: "完了", refs: [1, 2] },
+    description: {
+      value: "東京都が八王子市高尾駅周辺で実施したレベル2自動運転バスの実証運行。西東京バス住01系統と同様のルートで運行し、社会実装に向けた利用者アンケート等を実施した。期間中の事故により最終2日間は中止となった。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "小型バス（E-City L6、乗客定員12名）", refs: [1] },
+    route: { value: "高尾駅北口〜高尾台住宅（住01系統相当、片道約2.6km）", refs: [1, 2] },
+    operationType: { value: "レベル2（運転手搭乗型、無料実証運行）", refs: [1, 2] },
+    stakeholders: [
+      { role: "実施主体", name: "東京都", refs: [1] },
+      { role: "協力自治体", name: "八王子市（東京都）", refs: [1, 2] },
+      { role: "運行事業者", name: "西東京バス株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "八王子市（高尾地区）において自動運転バスを運行します！", url: "https://www.metro.tokyo.lg.jp/information/press/2025/07/2025070812", date: "2025-07-08", source: "東京都 報道発表資料" },
+      { id: 2, title: "〖8月30日および31日運行中止〗高尾周辺で自動運転バスを運行します", url: "https://www.city.hachioji.tokyo.jp/shisei/001/006/001/003/p035826.html", date: "2025-08-29", source: "八王子市" }
+    ]
+  },
+  {
+    id: "exp-154",
+    name: { value: "米子市 自動運転バス実証運行（米子駅〜鳥取大学附属病院）", refs: [1] },
+    location: { value: "鳥取県米子市（JR米子駅〜鳥取大学附属病院）", lat: 35.429, lng: 133.339, refs: [1] },
+    prefecture: { value: "鳥取県", refs: [1] },
+    period: { value: "2025年12月22日〜2026年2月27日（平日運行、土日祝・年末年始除く）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "米子市が、運転手不足や交通安全課題への対応を目的に実施した自動運転バス実証。レベル4の早期社会実装を見据え、実証期間中はレベル2で一般向け無料運行を行い、利用者アンケート等で課題抽出を進めた。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス（実証時の乗車可能人数最大8名）", refs: [1] },
+    route: { value: "JR米子駅〜鳥取大学附属病院間（往復約3km）", refs: [1] },
+    operationType: { value: "レベル2（無料・予約不要）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "米子市（鳥取県）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "自動運転バスの実証運行を行います", url: "https://www.city.yonago.lg.jp/47194.htm", date: "2025-12-22", source: "米子市" }
+    ]
+  },
+  {
+    id: "exp-155",
+    name: { value: "小山市 おーバス自動運転実証実験（ハーヴェストウォーク線）", refs: [1] },
+    location: { value: "栃木県小山市（小山駅西口〜ハーヴェストウォーク〜小山温泉思川）", lat: 36.314, lng: 139.800, refs: [1] },
+    prefecture: { value: "栃木県", refs: [1] },
+    period: { value: "2025年11月2日〜11月18日（水・木運休）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "小山市が将来の自動運転バス導入を見据えて実施した実証実験。おーバス ハーヴェストウォーク線の一部区間でレベル2走行を行い、社会受容性や運行上の課題を検証した。",
+      refs: [1]
+    },
+    vehicleType: { value: "いすゞ エルガミオ（座席数28席、実証時定員20名）", refs: [1] },
+    route: { value: "小山駅西口〜ハーヴェストウォーク〜小山温泉思川（片道約20分）", refs: [1] },
+    operationType: { value: "レベル2（有償・事前予約制）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "小山市（栃木県）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "自動運転バスの実証実験について（10月23日更新）", url: "https://www.city.oyama.tochigi.jp/o-bus/news/page009488.html", date: "2025-10-23", source: "小山市" }
+    ]
+  },
+  {
+    id: "exp-156",
+    name: { value: "深谷市コミュニティバス「くるリン」自動運転運行", refs: [1, 2] },
+    location: { value: "埼玉県深谷市（JR深谷駅北口起終点）", lat: 36.196, lng: 139.283, refs: [1, 2] },
+    prefecture: { value: "埼玉県", refs: [1] },
+    period: { value: "2025年4月〜（継続中）", refs: [1, 2] },
+    status: { value: "実施中", refs: [1, 2] },
+    description: {
+      value: "深谷市コミュニティバス「くるリン」の北部シャトル便＋周遊便ルートで、県内初となる定時定路線の自動運転運行を実施。段階的に自動運転区間を拡大し、全線合計約37kmでレベル2運行を実現している。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "自動運転バス（レベル2、営業運行対応車両）", refs: [2] },
+    route: { value: "北部シャトル便＋周遊便（JR深谷駅北口起終点、全線合計約37km）", refs: [1, 2] },
+    operationType: { value: "レベル2（定時定路線での営業運行）", refs: [1, 2] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "深谷市（埼玉県）", refs: [1, 2] },
+      { role: "技術協力", name: "埼玉工業大学", refs: [1, 2] }
+    ],
+    references: [
+      { id: 1, title: "コミュニティバス「くるリン」定時定路線（自動運転運行スケジュール）", url: "https://www.city.fukaya.saitama.jp/soshiki/toshiseibi/toshikeikaku/tanto/komyunitibasukururin/14397.html", date: "2025-07-16", source: "深谷市" },
+      { id: 2, title: "本学がサポートする深谷市コミュニティバスが全線37kmの自動運転運行を実現", url: "https://www.sit.ac.jp/news/250702_komyunitibasukururin/", date: "2025-07-02", source: "埼玉工業大学" }
+    ]
+  },
+  {
+    id: "exp-157",
+    name: { value: "茅ヶ崎市 えぼし号維持に向けた自動運転車両実証実験", refs: [1, 2] },
+    location: { value: "神奈川県茅ヶ崎市（茅ヶ崎市立病院〜松風台）", lat: 35.338, lng: 139.407, refs: [1] },
+    prefecture: { value: "神奈川県", refs: [1] },
+    period: { value: "2026年2月6日〜2月26日（準備運行: 2026年1月10日〜2月1日）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "茅ヶ崎市がコミュニティバス「えぼし号」の将来維持を目的に実施した公道実証。茅ヶ崎市立病院〜松風台間を往復運行し、技術精度と走行安全性を検証した。国土交通省の自動運転社会実装推進事業を活用し、BOLDLYへ委託して実施。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "Auve Tech製 MiCa（乗車定員8名）", refs: [1] },
+    route: { value: "茅ヶ崎市立病院〜松風台 往復ルート（市立病院発着）", refs: [1] },
+    operationType: { value: "レベル2（運転士同乗、モニター予約制）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "茅ヶ崎市（神奈川県）", refs: [1, 2] },
+      { role: "受託事業者", name: "BOLDLY株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "自動運転車両の実証実験を実施します", url: "https://www.city.chigasaki.kanagawa.jp/road/eboshi_s/1065720.html", date: "2026-02-09", source: "茅ヶ崎市" },
+      { id: 2, title: "令和8年1月21日発表 自動運転車両の実証実験を実施します！", url: "https://www.city.chigasaki.kanagawa.jp/koho/1030702/1002784/1066277/1066470.html", date: "2026-01-21", source: "茅ヶ崎市 記者発表" }
+    ]
+  },
+  {
+    id: "exp-158",
+    name: { value: "越前市 市街地循環ルート 自動運転バス実証運行", refs: [1, 2] },
+    location: { value: "福井県越前市（越前たけふ駅〜市役所〜越前武生駅）", lat: 35.903, lng: 136.168, refs: [1, 2] },
+    prefecture: { value: "福井県", refs: [1] },
+    period: { value: "2026年1月17日〜2月2日（試乗期間）", refs: [1] },
+    status: { value: "完了", refs: [1, 2] },
+    description: {
+      value: "越前市が既存路線バスの維持確保を目的に実施した自動運転バス実証。越前たけふ駅と越前武生駅を結ぶ市街地循環ルートで、レベル2運行の有償試乗を行い、将来の持続可能な公共交通への移行可能性を検証した。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "自動運転バス（定員11名）", refs: [1] },
+    route: { value: "越前たけふ駅〜市役所〜越前武生駅（循環約4.9km）", refs: [1] },
+    operationType: { value: "レベル2（有償試乗）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "越前市（福井県）", refs: [1, 2] },
+      { role: "実施協力", name: "福井鉄道株式会社、株式会社ティアフォー、A-Drive株式会社", refs: [2] }
+    ],
+    references: [
+      { id: 1, title: "越前市内で自動運転バスの試乗を実施します", url: "https://www.city.echizen.lg.jp/office/070/020/jidouuntenbus_2.html", date: "2025-12-26", source: "越前市" },
+      { id: 2, title: "越前市自動運転バス実証運行について", url: "https://www.city.echizen.lg.jp/office/070/020/jidouuntenbus.html", date: "2026-02-03", source: "越前市" }
+    ]
+  },
+  {
+    id: "exp-159",
+    name: { value: "甲斐市 市民バス医大線一部区間 自動運転実証運行", refs: [1] },
+    location: { value: "山梨県甲斐市（山梨交通敷島営業所〜JR竜王駅南口）", lat: 35.664, lng: 138.518, refs: [1] },
+    prefecture: { value: "山梨県", refs: [1] },
+    period: { value: "2025年1月〜2月", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "甲斐市が持続可能な地域公共交通の実現とレベル4実現を前提とした事業性検討を目的に実施した自動運転実証。EVバスを用い、市民バス医大線の一部区間で社会受容性の醸成を含む検証を行った。",
+      refs: [1]
+    },
+    vehicleType: { value: "EVバス（自動運転実証車両）", refs: [1] },
+    route: { value: "甲斐市民バス医大線の一部区間（山梨交通敷島営業所〜JR竜王駅南口）", refs: [1] },
+    operationType: { value: "実証運行（無償、9時〜17時予定）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "甲斐市（山梨県）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "資料3 自動運転社会実装推進事業（地域公共交通確保維持改善事業費補助金）について", url: "https://www.city.kai.yamanashi.jp/uploaded/attachment/5427.pdf", date: "2025-01-01", source: "甲斐市" }
+    ]
   }
 ];
