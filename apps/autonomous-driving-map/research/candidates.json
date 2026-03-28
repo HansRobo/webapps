@@ -288,7 +288,16 @@
       "愛媛県 自動運転 国土交通省 自治体",
       "愛媛県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "全国初「自動運転レベル4 路線バス本格運行」について（伊予鉄グループ）",
+        "url": "https://www.iyotetsu.co.jp/sp/topics/press/2024/1210_gbac.pdf",
+        "date": "2024-12-10",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-094の一次情報（レベル4運行開始日・運行区間）確認。"
+      }
+    ]
   },
   {
     "prefecture": "岐阜県",
@@ -299,7 +308,16 @@
       "岐阜県 自動運転 国土交通省 自治体",
       "岐阜県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "新たな「GIFU HEART BUS」の運行がいよいよスタート！",
+        "url": "https://www.city.gifu.lg.jp/kurashi/douro/1002587/1023154/1036889.html",
+        "date": "2026-01-28",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-036の一次情報化（新型車両仕様、運行フェーズ更新）。"
+      }
+    ]
   },
   {
     "prefecture": "京都府",
@@ -310,7 +328,16 @@
       "京都府 自動運転 国土交通省 自治体",
       "京都府 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "洛西ニュータウンにおける自動運転実証実験の実施について",
+        "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000321234.html",
+        "date": "2026-03-01",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-082の一次情報（実施区間、実施主体、将来のレベル4目標）更新。"
+      }
+    ]
   },
   {
     "prefecture": "香川県",
@@ -321,7 +348,24 @@
       "香川県 自動運転 国土交通省 自治体",
       "香川県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "小豆島における自動運転バス実証実験の実施",
+        "url": "https://www.jtbcorp.jp/jp/newsroom/2024/07/26_shodoshima-autonomous.html",
+        "date": "2024-07-26",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-093の一次情報（実施区間・実証概要）補強。"
+      },
+      {
+        "title": "観光地の持続可能な発展に向けたエリア開発事業を小豆島で開始",
+        "url": "https://www.jtbcorp.jp/jp/newsroom/2024/08/01_jtb_shodoshima.html",
+        "date": "2024-08-01",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-093のプロジェクト全体文脈（2024年9月の自動運転バス実証予定）補強。"
+      }
+    ]
   },
   {
     "prefecture": "高知県",
@@ -332,7 +376,24 @@
       "高知県 自動運転 国土交通省 自治体",
       "高知県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "広報「あかるいまち」2025年12月号簡易テキスト（HTML）",
+        "url": "https://www.city.kochi.kochi.jp/soshiki/80/akamati202512oshirase.html",
+        "date": "2025-11-28",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-095の一次情報（実証運行期間・運行区間・便数）補強。"
+      },
+      {
+        "title": "高知県高知市における「安全かつ効率的なレベル4自動運転に資する通信システム等の検証」を開始",
+        "url": "https://www.nttbizsol.jp/newsrelease/202507291600001209.html",
+        "date": "2025-07-29",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-095の実証実施体制（高知市・NTT西日本・NTT BS・マクニカ）補強。"
+      }
+    ]
   },
   {
     "prefecture": "秋田県",
@@ -343,7 +404,16 @@
       "秋田県 自動運転 国土交通省 自治体",
       "秋田県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "自動運転社会実装推進事業について | 大館市公式サイト",
+        "url": "https://www.city.odate.lg.jp/city/soshiki/koutsu/p11894",
+        "date": "2025-11-11",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-061の一次情報化（実施内容、運行エリア、実施主体）更新。"
+      }
+    ]
   },
   {
     "prefecture": "新潟県",
@@ -354,7 +424,24 @@
       "新潟県 自動運転 国土交通省 自治体",
       "新潟県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "自動運転車両について｜自動運転車両「ミコぴょん号」｜弥彦村",
+        "url": "https://www.vill.yahiko.niigata.jp/life/?content=704",
+        "date": "2025-04-01",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-116の一次情報化（車両仕様、運用情報、自治体運行体制）。"
+      },
+      {
+        "title": "弥彦村で自動運転バス「MiCa」による通年運行を開始",
+        "url": "https://www.softbank.jp/drive/press/2024/20240130_01/",
+        "date": "2024-01-30",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-116の導入開始リリース（開始時期・連携事業者）補強。"
+      }
+    ]
   },
   {
     "prefecture": "青森県",
@@ -365,7 +452,24 @@
       "青森県 自動運転 国土交通省 自治体",
       "青森県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "むつ市自動運転実証運行業務委託に係る公募型プロポーザルの実施について",
+        "url": "https://www.city.mutsu.lg.jp/work/bid/proposal/jidountenproposal.html",
+        "date": "2025-06-18",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-058の一次情報補強（むつ市の自動運転実証運行事業の正式公告）。"
+      },
+      {
+        "title": "むつ市自動運転実証運行業務委託に係る公募型プロポーザルの審査結果について",
+        "url": "https://www.city.mutsu.lg.jp/work/bid/proposal/jidountenproposal_shinsakekka.html",
+        "date": "2025-07-25",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-058の実施フェーズ進捗（審査結果公表）補強。"
+      }
+    ]
   },
   {
     "prefecture": "島根県",
