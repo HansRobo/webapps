@@ -73,7 +73,6 @@ function validateExperiments(experiments, enums) {
     "period",
     "status",
     "description",
-    "adSystem",
     "route",
     "operationType",
   ];
@@ -129,8 +128,21 @@ function validateExperiments(experiments, enums) {
     if (exp.prefecture?.value && !enums.PREFECTURES.includes(exp.prefecture.value))
       err(id, `prefecture.value "${exp.prefecture.value}" は47都道府県に含まれません`);
 
-    if (exp.adSystem?.value && !knownAdSystems.includes(exp.adSystem.value))
-      err(id, `adSystem.value "${exp.adSystem.value}" は許可されたenum値ではありません。許可値: ${knownAdSystems.join(", ")}`);
+    const adSystemItems = Array.isArray(exp.adSystem) ? exp.adSystem : exp.adSystem ? [exp.adSystem] : [];
+    if (adSystemItems.length === 0) {
+      err(id, 'フィールド "adSystem" がありません');
+    } else {
+      for (const a of adSystemItems) {
+        if (typeof a.value !== "string" || a.value.trim() === "")
+          err(id, `adSystem.value が空または文字列ではありません`);
+        if (!Array.isArray(a.refs))
+          err(id, `adSystem.refs が配列ではありません`);
+        else if (a.refs.some((r) => typeof r !== "number"))
+          err(id, `adSystem.refs に数値以外の値が含まれています`);
+        if (a.value && !knownAdSystems.includes(a.value))
+          err(id, `adSystem.value "${a.value}" は許可されたenum値ではありません。許可値: ${knownAdSystems.join(", ")}`);
+      }
+    }
 
     const vehicleItems = Array.isArray(exp.vehicle) ? exp.vehicle : exp.vehicle ? [exp.vehicle] : [];
     if (vehicleItems.length === 0) {
@@ -164,9 +176,9 @@ function validateExperiments(experiments, enums) {
           const normalizedRole = normalizeRole(s.role);
           const normalizedMatches = roleNormToKnown.get(normalizedRole) ?? [];
           if (normalizedMatches.length === 1) {
-            warn(id, `${prefix}.role "${s.role}" は既存表記 "${normalizedMatches[0]}" と同一語彙の可能性があります（表記統一を検討してください）`);
+            err(id, `${prefix}.role "${s.role}" は既存表記 "${normalizedMatches[0]}" と表記ゆれがあります（正規表記に統一してください）`);
           } else if (normalizedMatches.length > 1) {
-            warn(id, `${prefix}.role "${s.role}" は既存表記に複数候補があります: ${normalizedMatches.join(" / ")}`);
+            err(id, `${prefix}.role "${s.role}" は既存表記に複数候補があります: ${normalizedMatches.join(" / ")}`);
           }
         }
 
@@ -179,9 +191,9 @@ function validateExperiments(experiments, enums) {
               const normalizedOrg = normalizeOrgName(org);
               const normalizedMatches = orgNormToKnown.get(normalizedOrg) ?? [];
               if (normalizedMatches.length === 1) {
-                warn(id, `${prefix}.name 内 "${org}" は既存表記 "${normalizedMatches[0]}" と同一組織の可能性があります（表記統一を検討してください）`);
+                err(id, `${prefix}.name 内 "${org}" は既存表記 "${normalizedMatches[0]}" と表記ゆれがあります（正規表記に統一してください）`);
               } else if (normalizedMatches.length > 1) {
-                warn(id, `${prefix}.name 内 "${org}" は既存表記に複数候補があります: ${normalizedMatches.join(" / ")}`);
+                err(id, `${prefix}.name 内 "${org}" は既存表記に複数候補があります: ${normalizedMatches.join(" / ")}`);
               } else {
                 // 新規組織名はここでは警告しない。
                 // 既存表記との正規化一致のみを「表記ゆれ候補」として扱う。
@@ -219,6 +231,18 @@ function validateExperiments(experiments, enums) {
         for (const r of (exp[f]?.refs ?? [])) {
           if (!refIds.has(r))
             err(id, `${f}.refs に参照番号 ${r} がありますが、references[].id に存在しません`);
+        }
+      }
+      for (const [i, a] of adSystemItems.entries()) {
+        for (const r of (a.refs ?? [])) {
+          if (!refIds.has(r))
+            err(id, `adSystem[${i}].refs に参照番号 ${r} がありますが、references[].id に存在しません`);
+        }
+      }
+      for (const [i, v] of vehicleItems.entries()) {
+        for (const r of (v.refs ?? [])) {
+          if (!refIds.has(r))
+            err(id, `vehicle[${i}].refs に参照番号 ${r} がありますが、references[].id に存在しません`);
         }
       }
       for (const [i, s] of (exp.stakeholders ?? []).entries()) {

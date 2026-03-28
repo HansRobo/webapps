@@ -374,19 +374,22 @@
     YAMAHA_LANDCAR: "ヤマハランドカー",
     YAMAHA_GOLF_CAR: "ヤマハ ゴルフカー（公道仕様）",
     YAMAHA_AR07: "ヤマハ AR-07",
+    YAMAHA_AR04: "ヤマハ AR-04",
     YAMAHA_G30S: "ヤマハ G30s",
     // 日野
     HINO_PONCHO: "日野ポンチョ",
     HINO_RAINBOW: "日野レインボー",
     HINO_RAINBOW_II: "日野レインボーII",
     HINO_BLUE_RIBBON: "日野ブルーリボン",
-    HINO_RIESSEII: "日野リエッセII",
+    HINO_LIESSE: "日野リエッセ",
     HINO_PROFIA: "日野プロフィア",
     // 宇通バス（中国）
     YUTONG_XIAOYU_2: "Yutong Xiaoyu 2.0",
     // トヨタ（追加）
     TOYOTA_JPN_TAXI: "トヨタ JPN TAXI",
     // その他分類
+    TAJIMA_NAO6J: "タジマ NAO-6J",
+    TAJIMA_ECOM10: "タジマ eCOM-10",
     E_CITY_L6: "E-City L6",
     DELIVERY_ROBOT: "自動配送ロボット",
     LARGE_ROUTE_BUS_GENERIC: "大型路線バス",
@@ -397,7 +400,7 @@
 
   // 搭載自動運転システム（開発・提供会社名）
   // 専用設計型AD車両（NAVYA、Auve Tech 等）もメーカー名を記載する
-  // アイサンテクノロジー・BOLDLY・ヤマハ発動機・東京都交通局は自前のADシステムを持たないため記載しない
+  // BOLDLY・ヤマハ発動機・東京都交通局は自前のADシステムを持たないため記載しない
   exports.AD_SYSTEMS = {
     // 専用設計型AD車両メーカー（車両とADシステムを一体提供）
     NAVYA: "NAVYA",
@@ -417,6 +420,9 @@
     NIHON_MOBILITY: "日本モビリティ",
     SAITAMA_UNIV: "埼玉工業大学",
     MEIJI_MIAD: "明治大学 自動運転社会総合研究所",
+    NAGOYA_UNIV: "名古屋大学",
+    GUNMA_UNIV: "群馬大学",
+    AISANTEC: "アイサンテクノロジー",
     AIST: "産総研",
     // 自動車メーカー（自社AD開発）
     NISSAN: "日産",
