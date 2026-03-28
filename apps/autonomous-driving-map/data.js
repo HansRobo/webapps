@@ -4421,7 +4421,7 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "いすゞ エルガEV（プロトタイプ、大型電動路線バス）", refs: [1] },
-    vehicle: { value: "いすゞ エルガEV（プロトタイプ）", refs: [] },
+    vehicle: { value: "いすゞ エルガEV", refs: [] },
     adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "平塚市内路線（詳細非公開）", refs: [1] },
     operationType: { value: "実証実験（大型EVバス自動運転）", refs: [1] },

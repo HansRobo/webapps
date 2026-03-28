@@ -343,10 +343,15 @@
     BYD_J6: "BYD J6",
     BYD_J6_2: "BYD J6 2.0",
     BYD_K8_2: "BYD K8 2.0",
+    // いすゞ バス製品群（メーカーサイトの区分に合わせて整理）
+    // 路線バス「エルガ」
     ISUZU_ERGA: "いすゞ エルガ",
+    // 路線バス「エルガEV」
     ISUZU_ERGA_EV: "いすゞ エルガEV",
-    ISUZU_ERGA_EV_PROTO: "いすゞ エルガEV（プロトタイプ）",
+    // プロトタイプは同車種としてエルガEVに統合
+    // 路線バス「エルガミオ」
     ISUZU_ERGA_MIO: "いすゞ エルガミオ",
+    // 連節バス「エルガデュオ」
     ISUZU_ERGA_DUO: "いすゞ エルガデュオ",
     ISUZU_GIGA: "いすゞ ギガ",
     HINO_PONCHO: "日野ポンチョ",
