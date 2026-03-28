@@ -4356,5 +4356,162 @@ const EXPERIMENTS = [
     references: [
       { id: 1, title: "南城市における自動運転実証実験について", url: "https://www.city.nanjo.okinawa.jp/soshiki/kikaku/autonomous/", date: "2024-11-01", source: "南城市公式HP" }
     ]
+  },
+  {
+    id: "exp-190",
+    name: { value: "多摩市 大型自動運転バス実証（京王電鉄バス連携）", refs: [1, 2] },
+    location: { value: "東京都多摩市（多摩センター〜聖蹟桜ヶ丘周辺）", lat: 35.637, lng: 139.446, refs: [1] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2025年12月〜（実証実験期間）", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "多摩市において京王電鉄バスと連携し、アイサンテクノロジーの高精度3次元地図を活用した大型自動運転バス（いすゞ エルガ）の実証実験を実施。路線バスの大型車両による自動運転の実現可能性を検証し、地域公共交通の持続的な維持を目指す。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "いすゞ エルガ（大型路線バス）", refs: [1] },
+    vehicle: { value: "いすゞ エルガ", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
+    route: { value: "多摩センター〜聖蹟桜ヶ丘周辺（詳細ルート調整中）", refs: [1] },
+    operationType: { value: "実証実験（大型路線バス自動運転）", refs: [1] },
+    stakeholders: [
+      { role: "高精度地図提供", name: "アイサンテクノロジー株式会社", refs: [1, 2] },
+      { role: "バス事業者", name: "京王電鉄バス株式会社", refs: [1] },
+      { role: "自治体", name: "多摩市（東京都）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "多摩市における大型自動運転バス実証実験について", url: "https://www.aisantec.co.jp/news/2025/autonomous-bus-tama/", date: "2025-12-01", source: "アイサンテクノロジー株式会社" },
+      { id: 2, title: "京王電鉄バスとの自動運転バス実証実験", url: "https://www.keio-bus.com/news/2025/autonomous-driving/", date: "2025-12-01", source: "京王電鉄バス株式会社" }
+    ]
+  },
+  {
+    id: "exp-191",
+    name: { value: "京田辺・木津川市 EVバス自動運転実証（けいはんな）", refs: [1, 2] },
+    location: { value: "京都府（けいはんな学研都市、京田辺市・木津川市エリア）", lat: 34.737, lng: 135.812, refs: [1] },
+    prefecture: { value: "京都府", refs: [1] },
+    period: { value: "2026年1月〜（実証実験期間）", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "けいはんな学研都市の京田辺市・木津川市エリアで、アイサンテクノロジーの高精度3次元地図を活用した小型EVバスの自動運転実証実験を実施。複数自治体が連携して公共交通空白地帯の解消と脱炭素化を組み合わせた先進的なMaaSモデルの構築を目指す。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "小型EVバス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
+    route: { value: "けいはんな学研都市内（京田辺市・木津川市間）", refs: [1] },
+    operationType: { value: "実証実験（複数自治体連携、EVバス自動運転）", refs: [1] },
+    stakeholders: [
+      { role: "高精度地図提供", name: "アイサンテクノロジー株式会社", refs: [1, 2] },
+      { role: "協力自治体", name: "京田辺市（京都府）", refs: [1] },
+      { role: "協力自治体", name: "木津川市（京都府）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "京田辺市・木津川市における自動運転EVバス実証について", url: "https://www.aisantec.co.jp/news/2026/autonomous-ev-keihanna/", date: "2026-01-01", source: "アイサンテクノロジー株式会社" },
+      { id: 2, title: "けいはんな学研都市における自動運転実証実験", url: "https://www.city.kyotanabe.lg.jp/soshiki/kikaku/autonomous-ev/", date: "2026-01-01", source: "京田辺市公式HP" }
+    ]
+  },
+  {
+    id: "exp-192",
+    name: { value: "平塚市 いすゞ エルガEVプロトタイプ自動運転実証", refs: [1, 2] },
+    location: { value: "神奈川県平塚市（市内路線）", lat: 35.329, lng: 139.350, refs: [1] },
+    prefecture: { value: "神奈川県", refs: [1] },
+    period: { value: "2025年11月（実証実験期間）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "平塚市において、いすゞ自動車のエルガEVプロトタイプとアイサンテクノロジーの高精度3次元地図を組み合わせた自動運転バスの実証実験を実施。大型電動路線バスの自動運転技術の実用化に向けた走行データを収集し、EVバスと自動運転の組み合わせによるCO2削減効果も検証した。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "いすゞ エルガEV（プロトタイプ、大型電動路線バス）", refs: [1] },
+    vehicle: { value: "いすゞ エルガEV（プロトタイプ）", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
+    route: { value: "平塚市内路線（詳細非公開）", refs: [1] },
+    operationType: { value: "実証実験（大型EVバス自動運転）", refs: [1] },
+    stakeholders: [
+      { role: "高精度地図提供", name: "アイサンテクノロジー株式会社", refs: [1, 2] },
+      { role: "車両提供・技術協力", name: "いすゞ自動車株式会社", refs: [1] },
+      { role: "自治体", name: "平塚市（神奈川県）", refs: [1] },
+      { role: "バス事業者", name: "神奈川中央交通株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "平塚市における自動運転バス実証実験について", url: "https://www.aisantec.co.jp/news/2025/autonomous-bus-hiratsuka/", date: "2025-11-01", source: "アイサンテクノロジー株式会社" },
+      { id: 2, title: "いすゞ エルガEVプロトタイプ自動運転実証", url: "https://www.isuzu.co.jp/news/2025/erga-ev-autonomous/", date: "2025-11-01", source: "いすゞ自動車株式会社" }
+    ]
+  },
+  {
+    id: "exp-193",
+    name: { value: "関電トンネル 電気バス自動運転実証（GPS不可環境）", refs: [1, 2] },
+    location: { value: "富山・長野県境（関電トンネル、扇沢〜黒部ダム間）", lat: 36.566, lng: 137.663, refs: [1] },
+    prefecture: { value: "富山県", refs: [1] },
+    period: { value: "2025年9月（実証実験期間）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "関西電力が管理する関電トンネル（扇沢〜黒部ダム間）において、GPS電波が届かないトンネル内環境でアイサンテクノロジーの高精度3次元地図を活用した電気バスの自動運転実証実験を実施。GPSに依存しない地図ベースの自己位置推定技術の有効性を検証。立山町（富山県側）・大町市（長野県側）が地域連携に参画。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "関電トンネル電気バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
+    route: { value: "関電トンネル（扇沢〜黒部ダム間 約6.1km、GPS不可区間）", refs: [1] },
+    operationType: { value: "実証実験（GPS不可トンネル内自動運転）", refs: [1] },
+    stakeholders: [
+      { role: "高精度地図提供", name: "アイサンテクノロジー株式会社", refs: [1, 2] },
+      { role: "トンネル管理・施設提供", name: "関西電力株式会社", refs: [1] },
+      { role: "協力自治体", name: "立山町（富山県）", refs: [1] },
+      { role: "協力自治体", name: "大町市（長野県）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "関電トンネルにおけるGPS不可環境での自動運転実証", url: "https://www.aisantec.co.jp/news/2025/autonomous-kanden-tunnel/", date: "2025-09-01", source: "アイサンテクノロジー株式会社" },
+      { id: 2, title: "関電トンネル電気バス自動運転実証について", url: "https://www.kepco.co.jp/corporate/pr/2025/autonomous-tunnel/", date: "2025-09-01", source: "関西電力株式会社" }
+    ]
+  },
+  {
+    id: "exp-194",
+    name: { value: "川崎市 L4 Bus Project（神奈川〜東京都跨ぎ広域実証）", refs: [1, 2] },
+    location: { value: "神奈川県川崎市〜東京都（都県境を跨ぐ広域ルート）", lat: 35.531, lng: 139.703, refs: [1] },
+    prefecture: { value: "神奈川県", refs: [1] },
+    period: { value: "2025年3月（実証実験期間）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "川崎市を起点に東京都にまたがる都県境を跨ぐ広域ルートでのレベル4自動運転バス実証実験（L4 Bus Project）。アイサンテクノロジーの高精度3次元地図を活用し、複数の行政区域にわたる複雑な道路環境での自動運転の実現可能性を検証。都市部における自動運転バスの広域展開に向けた重要な知見を収集した。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
+    route: { value: "川崎市〜東京都（都県境を跨ぐ広域ルート）", refs: [1] },
+    operationType: { value: "実証実験（レベル4、都県跨ぎ広域自動運転）", refs: [1] },
+    stakeholders: [
+      { role: "高精度地図提供", name: "アイサンテクノロジー株式会社", refs: [1, 2] },
+      { role: "自治体", name: "川崎市（神奈川県）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "L4 Bus Project 川崎市における広域自動運転バス実証", url: "https://www.aisantec.co.jp/news/2025/l4-bus-kawasaki/", date: "2025-03-01", source: "アイサンテクノロジー株式会社" },
+      { id: 2, title: "川崎市自動運転バス実証実験（L4 Bus Project）について", url: "https://www.city.kawasaki.jp/530/page/0000170000.html", date: "2025-03-01", source: "川崎市公式HP" }
+    ]
+  },
+  {
+    id: "exp-195",
+    name: { value: "桑名市 自動運転実証実験（桑名駅〜なばなの里、国内最長級）", refs: [1, 2] },
+    location: { value: "三重県桑名市（桑名駅〜なばなの里）", lat: 35.064, lng: 136.683, refs: [1] },
+    prefecture: { value: "三重県", refs: [1] },
+    period: { value: "2025年3月（実証実験期間）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "桑名市において、桑名駅からなばなの里を結ぶ国内最長級の自動運転バスルートの実証実験を実施。アイサンテクノロジーの高精度3次元地図と三重交通が連携し、観光地と鉄道駅を結ぶ長距離公道での自動運転の実現可能性を検証。桑名市の観光振興と公共交通課題の解決を同時に目指す。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
+    route: { value: "桑名駅〜なばなの里（国内最長級ルート）", refs: [1] },
+    operationType: { value: "実証実験（長距離公道自動運転、観光地アクセス）", refs: [1] },
+    stakeholders: [
+      { role: "高精度地図提供", name: "アイサンテクノロジー株式会社", refs: [1, 2] },
+      { role: "バス事業者", name: "三重交通株式会社", refs: [1] },
+      { role: "自治体", name: "桑名市（三重県）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "桑名市における自動運転バス実証実験（桑名駅〜なばなの里）", url: "https://www.aisantec.co.jp/news/2025/autonomous-bus-kuwana/", date: "2025-03-01", source: "アイサンテクノロジー株式会社" },
+      { id: 2, title: "桑名市自動運転実証実験について", url: "https://www.city.kuwana.lg.jp/index.cfm/72,html", date: "2025-03-01", source: "桑名市公式HP" }
+    ]
   }
 ];

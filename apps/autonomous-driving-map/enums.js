@@ -345,6 +345,7 @@
     BYD_K8_2: "BYD K8 2.0",
     ISUZU_ERGA: "いすゞ エルガ",
     ISUZU_ERGA_EV: "いすゞ エルガEV",
+    ISUZU_ERGA_EV_PROTO: "いすゞ エルガEV（プロトタイプ）",
     ISUZU_ERGA_MIO: "いすゞ エルガミオ",
     ISUZU_ERGA_DUO: "いすゞ エルガデュオ",
     ISUZU_GIGA: "いすゞ ギガ",
@@ -470,5 +471,8 @@
     "サービス提供",
     "導入・実証主体",
     "導入主体",
+    "高精度地図提供",
+    "バス事業者",
+    "トンネル管理・施設提供",
   ];
 })(typeof module !== "undefined" ? module.exports : (window.ENUMS = {}));
