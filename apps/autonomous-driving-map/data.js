@@ -2950,31 +2950,6 @@ const EXPERIMENTS = [
     ]
   },
   {
-    id: "exp-141",
-    name: { value: "ティアフォー×日本交通 AIパイロット 公道データ収集実験", refs: [1, 2] },
-    location: { value: "東京都内および関東・甲信越等の公道（掲載市区町村）", lat: 35.681, lng: 139.767, refs: [1, 2] },
-    prefecture: { value: "東京都", refs: [1] },
-    period: { value: "2018年11月〜（段階的実施）", refs: [1, 2] },
-    status: { value: "完了", refs: [1] },
-    description: {
-      value: "日本交通、ティアフォー、名古屋大学、JapanTaxiが共同で実施した自動運転社会向けデータ収集実験。自動運転AIを搭載したタクシー車両で公道の3次元データを収集し、データの量・品質と価値を検証した。対象市区町村はティアフォー告知ページ掲載エリアに準拠。",
-      refs: [1, 2]
-    },
-    vehicleType: { value: "タクシー車両（自動運転AI『AIパイロット』搭載）", refs: [1] },
-    route: { value: "ティアフォー告知ページ掲載の各市区町村における公道ルート", refs: [2] },
-    operationType: { value: "自動走行に必要な3次元データ収集実験", refs: [1, 2] },
-    stakeholders: [
-      { role: "事業主体", name: "日本交通株式会社", refs: [1] },
-      { role: "技術提供", name: "株式会社ティアフォー", refs: [1, 2] },
-      { role: "共同研究", name: "名古屋大学次世代モビリティ研究センター", refs: [1] },
-      { role: "共同事業者", name: "JapanTaxi株式会社", refs: [1] }
-    ],
-    references: [
-      { id: 1, title: "自動運転社会向けデータ収集実験への参加について", url: "https://www.nihon-kotsu.co.jp/news/20181101-818/", date: "2018-11-01", source: "日本交通株式会社" },
-      { id: 2, title: "公道における自動走行に必要なデータの継続的な収集および自動走行実験について", url: "https://tier4.jp/media/detail/?sys_id=3z8IBohaXAeRK6z0RlrnS4&category=NEWS", date: "2018-11-01", source: "株式会社ティアフォー" }
-    ]
-  },
-  {
     id: "exp-142",
     name: { value: "羽田空港地域 次世代公共交通システム自動運転実証", refs: [1] },
     location: { value: "東京都大田区（羽田空港地域）", lat: 35.549, lng: 139.779, refs: [1] },
@@ -2994,6 +2969,70 @@ const EXPERIMENTS = [
     ],
     references: [
       { id: 1, title: "羽田空港地域における自動運転の実証実験を開始", url: "https://www.nedo.go.jp/news/press/AA5_101316.html", date: "2020-06-05", source: "NEDO" }
+    ]
+  },
+  {
+    id: "exp-143",
+    name: { value: "千代田区 丸の内仲通り 自動運転バス試乗会", refs: [1] },
+    location: { value: "東京都千代田区 丸の内仲通り", lat: 35.681, lng: 139.764, refs: [1] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2017年12月22日", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "ソフトバンク、三菱地所、SBドライブが実施した自動運転バス試乗会。東京都23区内公道での自動運転車両走行として実施された。",
+      refs: [1]
+    },
+    vehicleType: { value: "NAVYA ARMA（自動運転シャトルバス）", refs: [1] },
+    route: { value: "丸の内仲通り 往復約200m（バス停1箇所）", refs: [1] },
+    operationType: { value: "レベル4対応車両による試乗実証（監視付き）", refs: [1] },
+    stakeholders: [
+      { role: "事業主体", name: "ソフトバンク株式会社、三菱地所株式会社、SBドライブ株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "『自動運転バス試乗会 in 丸の内仲通り』を実施", url: "https://www.softbank.jp/corp/group/sbm/news/press/2017/20171211_01/", date: "2017-12-11", source: "ソフトバンク株式会社" }
+    ]
+  },
+  {
+    id: "exp-144",
+    name: { value: "港区 竹芝エリア 自動運転運行業務AI無人化実証", refs: [1] },
+    location: { value: "東京都港区 竹芝エリア", lat: 35.654, lng: 139.763, refs: [1] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2023年1月〜", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "ソフトバンクが竹芝エリアで、自動運転の走行経路設計や遠隔監視など運行業務のAI無人化に向けて実施した実証実験。レベル4社会実装を見据えた運用面の検証を行った。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転車両（遠隔監視・AI運行管理検証）", refs: [1] },
+    route: { value: "竹芝エリア内 実証ルート", refs: [1] },
+    operationType: { value: "レベル4解禁を見据えた運行業務無人化実証", refs: [1] },
+    stakeholders: [
+      { role: "事業主体", name: "ソフトバンク株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "自動運転のレベル4の解禁に向けて、自動運転の走行経路の設計や遠隔監視の運行業務などをAIで完全無人化する実証実験を開始", url: "https://www.softbank.jp/corp/news/press/sbkk/2023/20230310_01/", date: "2023-03-10", source: "ソフトバンク株式会社" }
+    ]
+  },
+  {
+    id: "exp-145",
+    name: { value: "東京都心7区 Waymo車両データ収集走行（GO・Waymo・日本交通）", refs: [1, 2] },
+    location: { value: "東京都 港区・新宿区・渋谷区・千代田区・中央区・品川区・江東区", lat: 35.666, lng: 139.768, refs: [1, 2] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2025年4月14日週〜", refs: [1, 2] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "GO、Waymo、日本交通が東京都心7区で開始した公道走行。日本交通の乗務員による手動運転でデータを収集し、Waymo Driverの日本向け適応を進める実証。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "Waymo車両（Jaguar I-PACEベース）", refs: [1, 2] },
+    route: { value: "港区・新宿区・渋谷区・千代田区・中央区・品川区・江東区の公道", refs: [1, 2] },
+    operationType: { value: "手動運転によるデータ収集・技術適応実証", refs: [1, 2] },
+    stakeholders: [
+      { role: "事業主体", name: "GO株式会社、Waymo、日本交通株式会社", refs: [1, 2] }
+    ],
+    references: [
+      { id: 1, title: "GO、Waymo、日本交通　今週より東京都心7区でWaymo車両の走行を開始", url: "https://goinc.jp/news/info/2025/04/14/4zfkopprkigxqcfyiltgxd", date: "2025-04-14", source: "GO株式会社" },
+      { id: 2, title: "Waymo 日本版", url: "https://waymo.com/intl/jp/waymo-in-japan", date: "2025-04-14", source: "Waymo" }
     ]
   }
 ];
