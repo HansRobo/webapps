@@ -34,27 +34,27 @@ const EXPERIMENTS = [
     name: { value: "永平寺町自動運転サービス（ゆっくり号）レベル4認可", refs: [1, 2] },
     location: { value: "福井県永平寺町（永平寺参ろーど）", lat: 36.091, lng: 136.469, refs: [1] },
     prefecture: { value: "福井県", refs: [1] },
-    period: { value: "2018年〜（2023年4月にレベル4へ移行）", refs: [1, 2] },
+    period: { value: "2018年〜（2023年3月にレベル4車両認可、同年5月に特定自動運行サービス開始）", refs: [1, 2, 3] },
     status: { value: "実施中", refs: [1] },
     description: {
-      value: "廃線跡を活用した専用道路「永平寺参ろーど」で、ZMPの自動運転技術を搭載した電動カート「RoboCar MiniVan」を運行。2023年4月に道路交通法改正に基づく「特定自動運行」（レベル4）として世界初の認可を受け、運転者なしでの運行を実現。",
+      value: "廃線跡を活用した専用道路「永平寺参ろーど」での自動運転移動サービス。2023年3月30日に国内初のレベル4車両認可を取得し、同年5月21日から運転者を配置しないレベル4サービスを開始した。",
       refs: [1, 2, 3]
     },
-    vehicle: { value: "トヨタ エスティマ ハイブリッド", refs: [2, 3] },
-    adSystem: { value: "ZMP", refs: [] },
-    route: { value: "永平寺参ろーど約2km（専用道）、最高速度12km/h", refs: [1, 3] },
-    operationType: { value: "レベル4（特定自動運行、無人運転）※2023年4月〜", refs: [1, 2] },
+    vehicle: { value: "ヤマハ発動機 グリーンスローモビリティ（電動カートベース）", refs: [2] },
+    adSystem: { value: "産総研コンソーシアム", refs: [] },
+    route: { value: "永平寺参ろーど 約2km（専用道）、最高速度12km/h", refs: [1, 2] },
+    operationType: { value: "レベル4（特定自動運行、運転者なし）", refs: [1, 3] },
     stakeholders: [
-      { role: "自動運転システム開発・車両提供", name: "株式会社ZMP", refs: [2, 3] },
       { role: "自治体・事業主体", name: "永平寺町（福井県）", refs: [1] },
-      { role: "運行管理", name: "えちぜん鉄道株式会社", refs: [1, 3] },
-      { role: "実証実験支援", name: "国土交通省 北陸地方整備局", refs: [1] },
-      { role: "協力自治体", name: "福井県", refs: [1] }
+      { role: "申請者", name: "国立研究開発法人産業技術総合研究所", refs: [1] },
+      { role: "運行管理", name: "えちぜん鉄道株式会社", refs: [3] },
+      { role: "車両ベース提供", name: "ヤマハ発動機株式会社", refs: [2] },
+      { role: "支援", name: "国土交通省、経済産業省", refs: [1, 3] }
     ],
     references: [
-      { id: 1, title: "永平寺町、自動運転「レベル4」解禁で全国初の公道サービス", url: "https://www.mlit.go.jp/road/road/traffic/autonomous/level4_eiheiji.html", date: "2023-04-01", source: "国土交通省" },
-      { id: 2, title: "ZMP、永平寺町レベル4自動運転サービス開始のお知らせ", url: "https://www.zmp.co.jp/news/", date: "2023-04-01", source: "株式会社ZMP" },
-      { id: 3, title: "改正道路交通法施行でレベル4自動運転の許可第一号", url: "https://www.npa.go.jp/bureau/traffic/autonomous/index.html", date: "2023-04-01", source: "警察庁" }
+      { id: 1, title: "国内初！運転者を必要としない自動運転車（レベル４）の認可について", url: "https://www.mlit.go.jp/report/press/jidosha07_hh_000442.html", date: "2023-03-31", source: "国土交通省" },
+      { id: 2, title: "国内初の自動運転レベル4車両認可を取得（福井県永平寺町）", url: "https://www.yamaha-motor.co.jp/gsm/topics/eiheiji2.html", date: "2023-03-30", source: "ヤマハ発動機" },
+      { id: 3, title: "国内初！運転者を配置しないレベル４での自動運転移動サービスの開始について", url: "https://www.mlit.go.jp/report/press/jidosha07_hh_000448.html", date: "2023-05-12", source: "国土交通省" }
     ]
   },
   {
@@ -89,27 +89,26 @@ const EXPERIMENTS = [
     name: { value: "上士幌町自動運転バス実証（Boldly・NAVYA ARMA）", refs: [1, 2] },
     location: { value: "北海道上士幌町（市街地循環ルート）", lat: 43.213, lng: 143.387, refs: [1] },
     prefecture: { value: "北海道", refs: [1] },
-    period: { value: "2019年10月〜2020年3月（複数年度実施）", refs: [1, 2] },
-    status: { value: "完了", refs: [2] },
+    period: { value: "2019年10月〜（2024年5月にレベル4車両認可、同年10月に特定自動運行許可）", refs: [1, 2, 3] },
+    status: { value: "実施中", refs: [1] },
     description: {
-      value: "過疎・高齢化が進む上士幌町において、地域住民の移動手段確保を目的に実施された自動運転バスの実証実験。NAVYA ARMAを使用し、役場周辺や商業施設を結ぶ循環ルートを走行。冬季の積雪環境下での自動運転技術の有効性も検証した。",
+      value: "過疎・高齢化が進む上士幌町で継続されている自動運転バス事業。NAVYA ARMAを用いた運行を継続しつつ、2024年にレベル4車両認可と特定自動運行許可を取得し、無人運行の実証段階に進んだ。",
       refs: [1, 2, 3]
     },
-    vehicle: { value: "NAVYA ARMA", refs: [2] },
+    vehicle: { value: "NAVYA ARMA", refs: [1, 3] },
     adSystem: { value: "NAVYA", refs: [] },
-    route: { value: "上士幌町役場〜道の駅かみしほろ周辺 約2.5km循環", refs: [1, 3] },
-    operationType: { value: "レベル2（乗務員乗車）、冬季積雪環境での走行実証", refs: [1, 2] },
+    route: { value: "上士幌町内の町道（約630m区間を含む）", refs: [1, 2] },
+    operationType: { value: "レベル2定常運行＋レベル4実証（特定自動運行）", refs: [1, 2, 3] },
     stakeholders: [
-      { role: "運行管理", name: "BOLDLY株式会社", refs: [1, 2] },
+      { role: "運行管理", name: "BOLDLY株式会社", refs: [1, 3] },
       { role: "自治体・事業主体", name: "上士幌町（北海道）", refs: [1] },
-      { role: "出資・支援", name: "ソフトバンク株式会社", refs: [2] },
-      { role: "協力企業", name: "マクニカ株式会社", refs: [2] },
-      { role: "実験支援", name: "北海道運輸局", refs: [3] }
+      { role: "車両認可", name: "国土交通省 北海道運輸局", refs: [2] },
+      { role: "特定自動運行許可", name: "北海道公安委員会", refs: [3] }
     ],
     references: [
-      { id: 1, title: "上士幌町で自動運転バスの実証実験を開始", url: "https://boldly.jp/news/2019/10/01_01/", date: "2019-10-01", source: "BOLDLY株式会社" },
-      { id: 2, title: "SBドライブ、上士幌町での自動運転バス実証実験実施報告", url: "https://www.softbank.jp/corp/news/press/sbkk/2020/20200331_01/", date: "2020-03-31", source: "ソフトバンク株式会社" },
-      { id: 3, title: "北海道での自動運転実証実験（冬季）について", url: "https://wwwtb.mlit.go.jp/hokkaido/press/press_2020/000127.html", date: "2020-02-10", source: "国土交通省 北海道運輸局" }
+      { id: 1, title: "上士幌町における自動運転の取り組み", url: "https://www.kamishihoro.jp/smarttown/smartmobility", date: "2024-10-28", source: "上士幌町" },
+      { id: 2, title: "無人自動運転移動サービスに向けて国内6例目となる自動運転車（レベル４）を認可", url: "https://wwwtb.mlit.go.jp/hokkaido/press/20240531_00002.html", date: "2024-05-31", source: "国土交通省 北海道運輸局" },
+      { id: 3, title: "特定自動運行に係る許可について（上士幌町）", url: "https://www.police.pref.hokkaido.lg.jp/info/koutuu/universal/kurumaisu_sinsei/automatic-drive-sinsei.html", date: "2024-10-25", source: "北海道警察" }
     ]
   },
   {
@@ -223,29 +222,29 @@ const EXPERIMENTS = [
   },
   {
     id: "exp-009",
-    name: { value: "ひたちBRT・大甕駅周辺 自動運転中型バスレベル4実証（RoAD to the L4）", refs: [1, 2] },
+    name: { value: "日立市 ひたちBRT 中型自動運転バス レベル4営業運行（RoAD to the L4）", refs: [1, 2] },
     location: { value: "茨城県日立市（ひたちBRT専用道、JR大甕駅周辺）", lat: 36.513, lng: 140.628, refs: [1] },
     prefecture: { value: "茨城県", refs: [1] },
-    period: { value: "2024年11月〜（2025年5月にBRT専用道全線でレベル4営業運行開始）", refs: [1, 2, 3] },
+    period: { value: "2025年2月3日〜（2025年5月にBRT専用道全線でレベル4営業運行開始）", refs: [1, 2, 3] },
     status: { value: "実施中", refs: [1] },
     description: {
-      value: "経済産業省と国土交通省が推進する「RoAD to the L4」プロジェクトの一環。ひたちBRT専用道での中型バス実証に加え、総務省事業としてローカル5G等を活用した通信・遠隔監視検証を実施。2025年5月には、ひたちBRT専用道全線でレベル4自動運転による営業運行が開始された。",
+      value: "経済産業省・国土交通省のRoAD to the L4テーマ2の一環として、ひたちBRTで中型バスによるレベル4営業運行を実施。2025年2月に営業運行を開始し、同年5月には専用道区間全線でレベル4運行に拡張した。",
       refs: [1, 2, 3]
     },
-    vehicle: { value: null, refs: [1, 2, 3] },
-    adSystem: { value: "ティアフォー", refs: [] },
-    route: { value: "ひたちBRT専用道全線 および JR大甕駅周辺の一般道", refs: [1, 2, 3] },
-    operationType: { value: "レベル4（特定自動運行・営業運行）および検証走行", refs: [1, 2, 3] },
+    vehicle: { value: "いすゞ エルガミオ", refs: [2] },
+    adSystem: { value: "先進モビリティ", refs: [] },
+    route: { value: "道の駅日立おさかなセンター〜JR常陸多賀駅（約8.7km、うち専用道約6.1km）", refs: [2] },
+    operationType: { value: "レベル4（乗務員乗車型・営業運行）", refs: [1, 2, 3] },
     stakeholders: [
-      { role: "実証事業主体", name: "みちのりホールディングス、茨城交通株式会社", refs: [1, 3] },
-      { role: "自動運転システム", name: "株式会社ティアフォー", refs: [1, 3] },
-      { role: "通信システム検証", name: "日本電気株式会社（NEC）", refs: [2] },
-      { role: "自治体", name: "日立市（茨城県）", refs: [1, 2] },
-      { role: "支援", name: "経済産業省、国土交通省、総務省", refs: [1, 2] }
+      { role: "運行主体", name: "茨城交通株式会社", refs: [1, 2] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [2] },
+      { role: "事業協力", name: "株式会社みちのりホールディングス", refs: [2] },
+      { role: "自治体", name: "日立市（茨城県）", refs: [2] },
+      { role: "支援", name: "経済産業省、国土交通省", refs: [1] }
     ],
     references: [
       { id: 1, title: "国内初！レベル4自動運転の中型バス「ひたちBRT自動運転バス」の運行サービスが開始されました", url: "https://www.meti.go.jp/press/2024/02/20250203003/20250203003.html", date: "2025-02-03", source: "経済産業省" },
-      { id: 2, title: "茨城県日立市にて自動運転レベル4を支援する通信システムの検証を開始", url: "https://jpn.nec.com/press/202410/20241021_01.html", date: "2024-10-21", source: "NEC プレスリリース" },
+      { id: 2, title: "各地の取り組み：日立市", url: "https://www.road-to-the-l4.go.jp/case/hitachi/index2.html", date: "2025-05-29", source: "RoAD to the L4 プロジェクト" },
       { id: 3, title: "ひたちBRTバス専用道全線でのレベル4自動運転開始について", url: "https://www.aist.go.jp/aist_j/news/announce/au20250520_2.html", date: "2025-05-20", source: "産業技術総合研究所" }
     ]
   },
@@ -254,26 +253,28 @@ const EXPERIMENTS = [
     name: { value: "柏の葉キャンパス自動運転バス公道走行試験（CooL4）", refs: [1, 2] },
     location: { value: "千葉県柏市（柏の葉キャンパス駅〜東京大学柏キャンパス）", lat: 35.894, lng: 139.952, refs: [1] },
     prefecture: { value: "千葉県", refs: [1] },
-    period: { value: "2024年2月〜", refs: [1, 2] },
+    period: { value: "2019年11月〜（2025年8月にレベル4車両認可、同年11月に特定自動運行許可）", refs: [1, 2, 3] },
     status: { value: "実施中", refs: [1] },
     description: {
-      value: "東京大学を幹事とするコンソーシアム「CooL4」による実証。将来のレベル4特定自動運行に向け、一般車両や歩行者が混在する空間で、インフラ協調（信号・センサー情報）や路上駐車回避などの技術を検証。",
-      refs: [1, 2]
+      value: "東京大学を幹事とするCooL4コンソーシアムによる柏の葉地域での自動運転実証。2025年8月にレベル4車両認可、同年11月に特定自動運行許可を取得し、2026年1月から一部便でレベル4運行を開始した。",
+      refs: [1, 2, 3]
     },
-    vehicle: { value: "いすゞ エルガ", refs: [1] },
+    vehicle: { value: "いすゞ エルガミオ", refs: [1] },
     adSystem: { value: "先進モビリティ", refs: [] },
-    route: { value: "柏の葉キャンパス駅〜東京大学柏キャンパス間", refs: [1] },
-    operationType: { value: "レベル2（乗務員乗車、レベル4に向けた検証）", refs: [1, 2] },
+    route: { value: "東京大学柏キャンパス・シャトルバスルートの一部区間（特定自動運行区間あり）", refs: [1] },
+    operationType: { value: "レベル2運行＋レベル4（特定自動運行）", refs: [1, 2, 3] },
     stakeholders: [
-      { role: "事業主体（CooL4幹事）", name: "東京大学", refs: [1] },
+      { role: "事業主体（CooL4幹事）", name: "東京大学", refs: [2] },
+      { role: "運行主体", name: "東武バスセントラル株式会社", refs: [1] },
       { role: "自動運転システム・車両整備", name: "先進モビリティ株式会社", refs: [1] },
       { role: "車両提供", name: "いすゞ自動車株式会社", refs: [1] },
-      { role: "自治体", name: "柏市（千葉県）", refs: [1] },
-      { role: "支援", name: "経済産業省、国土交通省", refs: [2] }
+      { role: "自治体", name: "柏市（千葉県）", refs: [2] },
+      { role: "支援", name: "経済産業省、国土交通省", refs: [1, 2] }
     ],
     references: [
-      { id: 1, title: "柏の葉地区における自動運転公道走行試験開始について", url: "https://www.city.kashiwa.lg.jp/", date: "2024-02-01", source: "柏市" },
-      { id: 2, title: "柏の葉スマートシティにおける自動運転の取り組み", url: "https://www.kashiwanoha-smartcity.com/", date: "2024-02-01", source: "柏の葉スマートシティ" }
+      { id: 1, title: "柏の葉地域において、特定自動運行（自動運転レベル４）および旅客自動車運送事業の認可を取得しました", url: "https://www.tobu-bus.com/uploads/files/hp_release_2025.12.10.pdf", date: "2025-12-10", source: "東武バス" },
+      { id: 2, title: "柏の葉地区における自動運転公道走行試験開始について", url: "https://www.city.kashiwa.lg.jp/koho/pressrelease/r7houdou/12gatsu/r7121004.html", date: "2025-12-10", source: "柏市" },
+      { id: 3, title: "東京都市圏の公道で初！ 柏の葉地区で特定自動運行（自動運転レベル4）の運行開始", url: "https://www.as-mobi.com/news/", date: "2026-01-13", source: "先進モビリティ株式会社" }
     ]
   },
   {
@@ -378,7 +379,7 @@ const EXPERIMENTS = [
     name: { value: "羽田イノベーションシティ 自動運転バス実証（大田区）", refs: [1, 2] },
     location: { value: "東京都大田区（羽田イノベーションシティ内）", lat: 35.548, lng: 139.754, refs: [1] },
     prefecture: { value: "東京都", refs: [1] },
-    period: { value: "2020年9月〜（レベル2定常運行）、2024年8月〜（レベル4運行）", refs: [1, 2] },
+    period: { value: "2020年9月〜（2023年10月にレベル4車両認可、2024年8月からレベル4運行）", refs: [1, 2] },
     status: { value: "実施中", refs: [1] },
     stakeholders: [
       { role: "事業主体", name: "羽田みらい開発株式会社", refs: [1] },
@@ -386,7 +387,7 @@ const EXPERIMENTS = [
       { role: "自治体", name: "大田区（東京都）", refs: [1, 2] }
     ],
     description: {
-      value: "新産業創造・発信拠点「羽田イノベーションシティ」内における自動運転バスの定常運行実証。民間事業のショーケースとして国内最多の実績を重ねており、2024年6月には民間初の自動運転レベル4運行許可を取得。NAVYA ARMAによるレベル4運行や、AuveTech MiCaによるレベル2運行を実施している。",
+      value: "新産業創造・発信拠点「羽田イノベーションシティ」内における自動運転バス運行。2023年10月にレベル4車両認可を取得し、NAVYA ARMAによる特定ルート運行を継続している。",
       refs: [1, 2]
     },
     vehicle: { value: "NAVYA ARMA", refs: [1] },
@@ -394,8 +395,8 @@ const EXPERIMENTS = [
     route: { value: "羽田イノベーションシティ内の循環ルート", refs: [1] },
     operationType: { value: "レベル2（運転士乗車）および レベル4（特定自動運行）", refs: [1, 2] },
     references: [
-      { id: 1, title: "各地の取り組み：大田区", url: "https://www.road-to-the-l4.go.jp/case/ota/haneda.html", date: "2025-05-29", source: "RoAD to the L4 プロジェクト" },
-      { id: 2, title: "HICity 自動運転バス スケジュール", url: "https://haneda-innovation-city.com/bus_schedule/", date: "2024-01-01", source: "HANEDA INNOVATION CITY" }
+      { id: 1, title: "関東で初めて自動運転車（レベル4）の認可を行いました", url: "https://wwwtb.mlit.go.jp/kanto/content/000304988.pdf", date: "2023-10-20", source: "国土交通省 関東運輸局" },
+      { id: 2, title: "各地の取り組み：大田区", url: "https://www.road-to-the-l4.go.jp/case/ota/haneda.html", date: "2025-05-29", source: "RoAD to the L4 プロジェクト" }
     ]
   },
   {
@@ -403,16 +404,16 @@ const EXPERIMENTS = [
     name: { value: "塩尻市 自動運転バス実証・社会実装（RoAD to the L4）", refs: [1] },
     location: { value: "長野県塩尻市（塩尻駅〜市役所等）", lat: 36.114, lng: 137.953, refs: [1] },
     prefecture: { value: "長野県", refs: [1] },
-    period: { value: "2025年5月〜定常運行（レベル4実証は2026年3月予定）", refs: [1] },
-    status: { value: "実施中・一部計画中", refs: [1] },
+    period: { value: "2024年1月〜3月（レベル4実証）／2025年5月〜（レベル2定常運行）", refs: [1] },
+    status: { value: "実施中", refs: [1] },
     description: {
-      value: "市街地へのアクセス移動や駅周辺の交通需要に対し、オンデマンドバスと組み合わせて自動運転バスを導入する計画。塩尻駅や市役所周辺の東・西回りルート（各約5km）を設定し、2025年5月からレベル2での定常運行を開始し、将来のレベル4実装を目指す。",
+      value: "塩尻駅〜市役所周辺で、一般道の混在空間を対象に自動運転を段階的に導入。2024年にレベル4実証を行い、2025年5月からはレベル2で東西2ルートの定常運行を開始している。",
       refs: [1]
     },
-    vehicle: { value: "BYD J6", refs: [1] },
+    vehicle: { value: "ティアフォー Minibus", refs: [1] },
     adSystem: { value: "ティアフォー", refs: [] },
-    route: { value: "塩尻駅〜市役所等の西回りルート・東回りルート（各路線約5km）", refs: [1] },
-    operationType: { value: "レベル2（定常運行）および レベル4（一部区間で実証予定）", refs: [1] },
+    route: { value: "塩尻駅周辺〜市役所方面（東回り・西回り、各約5.5km）", refs: [1] },
+    operationType: { value: "レベル2（定常運行）および レベル4（一般道実証）", refs: [1] },
     stakeholders: [
       { role: "事業主体", name: "塩尻市（長野県）、一般財団法人塩尻市振興公社", refs: [1] },
       { role: "運行受託", name: "アルピコ交通株式会社", refs: [1] },
@@ -1181,22 +1182,24 @@ const EXPERIMENTS = [
     name: { value: "松山市 レベル4路線バス本格運行（愛媛県）", refs: [1] },
     location: { value: "愛媛県松山市（松山観光港周辺）", lat: 33.882, lng: 132.709, refs: [1] },
     prefecture: { value: "愛媛県", refs: [1] },
-    period: { value: "2024年12月〜", refs: [1] },
+    period: { value: "2024年12月25日〜", refs: [1] },
     status: { value: "実施中", refs: [1] },
     description: {
-      value: "全国に先駆けて、営業路線における「自動運転レベル4」の特定自動運行を開始（認可申請中・実証段階含む）。松山観光港周辺のルートを設定し、既存バス交通の代替・補完としての実効性を検証する。",
+      value: "伊予鉄グループが高浜駅〜松山観光港連絡バスで、全国初のレベル4路線バス本格運行を開始。完全キャッシュレスで毎日運行し、保安員配置と遠隔監視を組み合わせた運行体制を採用している。",
       refs: [1]
     },
-    vehicle: { value: "WeRideバス", refs: [1] },
-    adSystem: { value: "WeRide", refs: [] },
-    route: { value: "松山観光港周辺 循環ルート", refs: [1] },
-    operationType: { value: "レベル4（段階的に実装）", refs: [1] },
+    vehicle: { value: "EVモーターズ・ジャパン製EVバス", refs: [1] },
+    adSystem: { value: "BOLDLY", refs: [] },
+    route: { value: "伊予鉄道高浜駅〜松山観光港（往復約1.6km）", refs: [1] },
+    operationType: { value: "レベル4（路線バス本格運行）", refs: [1] },
     stakeholders: [
       { role: "運行主体", name: "伊予鉄バス株式会社", refs: [1] },
+      { role: "自動運転システム", name: "BOLDLY株式会社", refs: [1] },
+      { role: "車両提供", name: "株式会社EVモーターズ・ジャパン", refs: [1] },
       { role: "自治体", name: "松山市（愛媛県）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "松山観光港における自動運転レベル4実証について", url: "https://www.iyotetsu.co.jp/", date: "2024-12-01", source: "伊予鉄グループ" }
+      { id: 1, title: "全国初「自動運転レベル4 路線バス本格運行」について", url: "https://www.iyotetsu.co.jp/sp/topics/press/2024/1210_gbac.pdf", date: "2024-12-10", source: "伊予鉄グループ" }
     ]
   },
   {
@@ -1717,23 +1720,25 @@ const EXPERIMENTS = [
     name: { value: "小松市・自動運転バス通年運行（レベル4検証）", refs: [1, 2] },
     location: { value: "石川県小松市", lat: 36.402, lng: 136.45, refs: [1] },
     prefecture: { value: "石川県", refs: [1] },
-    period: { value: "2024年3月〜（通年運行継続中）", refs: [1] },
+    period: { value: "2024年3月9日〜（通年運行継続中）", refs: [1, 2] },
     status: { value: "実施中", refs: [1] },
     description: {
-      value: "小松城下街エリアから小松空港を結ぶルートで、自動運転バス（ARMA）の通年運行を実施。NEC等と連携し、ローカル5Gを活用したレベル4支援通信の検証も並行。",
+      value: "JR小松駅と小松空港を結ぶ片道約4.4kmで、自動運転バスの通年運行を実施。ティアフォー製MinibusとBOLDLYの運行管理基盤を用い、路線バスとして継続運用しながら社会実装を進めている。",
       refs: [1, 2]
     },
-    vehicle: { value: "NAVYA ARMA", refs: [1, 2] },
-    adSystem: { value: "NAVYA", refs: [] },
-    route: { value: "小松駅〜小松空港 連絡ルート", refs: [1] },
+    vehicle: { value: "ティアフォー Minibus", refs: [2] },
+    adSystem: { value: "ティアフォー（Autoware）", refs: [] },
+    route: { value: "JR小松駅〜小松空港（片道約4.4km）", refs: [1, 2] },
     operationType: { value: "レベル2通年運行（レベル4社会実装準備中）", refs: [1, 2] },
     stakeholders: [
       { role: "自治体", name: "小松市（石川県）", refs: [1, 2] },
-      { role: "技術協力", name: "BOLDLY株式会社、株式会社ティアフォー、日本電気株式会社（NEC）", refs: [1, 2] }
+      { role: "運行管理", name: "BOLDLY株式会社", refs: [2] },
+      { role: "自動運転システム", name: "株式会社ティアフォー", refs: [2] },
+      { role: "技術協力", name: "アイサンテクノロジー株式会社、損害保険ジャパン株式会社", refs: [2] }
     ],
     references: [
       { id: 1, title: "自動運転バスの運行について", url: "https://www.city.komatsu.lg.jp/soshiki/1985/rosenbasu/4/16580.html", date: "2026-02-01", source: "小松市" },
-      { id: 2, title: "小松市にて自動運転レベル4を支援する通信システムの検証を開始", url: "https://jpn.nec.com/press/202410/20241021_02.html", date: "2024-10-21", source: "NEC" }
+      { id: 2, title: "石川県小松市で自動運転バスの通年運行を開始", url: "https://www.city.komatsu.lg.jp/material/files/group/22/press_release20240308.pdf", date: "2024-03-08", source: "小松市/BOLDLY/ティアフォー/アイサンテクノロジー/損害保険ジャパン" }
     ]
   },
   {
@@ -2085,31 +2090,6 @@ const EXPERIMENTS = [
     references: [
       { id: 1, title: "小豆島における自動運転バス実証実験の実施", url: "https://www.jtbcorp.jp/jp/newsroom/2024/07/26_shodoshima-autonomous.html", date: "2024-07-26", source: "JTB" },
       { id: 2, title: "観光地の持続可能な発展に向けたエリア開発事業を小豆島で開始", url: "https://www.jtbcorp.jp/jp/newsroom/2024/08/01_jtb_shodoshima.html", date: "2024-08-01", source: "JTB" }
-    ]
-  },
-  {
-    id: "exp-094",
-    name: { value: "松山市・伊予鉄グループ自動運転レベル4路線運行", refs: [1] },
-    location: { value: "愛媛県松山市", lat: 33.84, lng: 132.77, refs: [1] },
-    prefecture: { value: "愛媛県", refs: [1] },
-    period: { value: "2024年12月〜（本格稼働開始）", refs: [1] },
-    status: { value: "実施中", refs: [1] },
-    description: {
-      value: "全国初となる「大型路線バス」等でのレベル4認可・運行を目指す先進プロジェクト。松山観光港ルート等で定常運行を開始。",
-      refs: [1]
-    },
-    vehicle: { value: "WeRideバス", refs: [1] },
-    adSystem: { value: "WeRide", refs: [] },
-    route: { value: "松山観光港〜高浜駅、松山環状線", refs: [1] },
-    operationType: { value: "レベル4認可・定常運行開始", refs: [1] },
-    stakeholders: [
-      { role: "運行主体", name: "伊予鉄道株式会社", refs: [1] },
-      { role: "自治体", name: "松山市（愛媛県）", refs: [1] },
-      { role: "自動運転システム", name: "BOLDLY株式会社", refs: [1] },
-      { role: "車両提供", name: "EVモーターズ・ジャパン株式会社", refs: [1] }
-    ],
-    references: [
-      { id: 1, title: "全国初「自動運転レベル4 路線バス本格運行」について", url: "https://www.iyotetsu.co.jp/sp/topics/press/2024/1210_gbac.pdf", date: "2024-12-10", source: "伊予鉄グループ" }
     ]
   },
   {
@@ -2715,31 +2695,6 @@ const EXPERIMENTS = [
     ],
     references: [
       { id: 1, title: "八丈島スマートモビリティ実証事業について", url: "https://www.as-mobi.com/case/", date: "2024-07-01", source: "先進モビリティ株式会社" }
-    ]
-  },
-  {
-    id: "exp-125",
-    name: { value: "日立市 ひたちBRT 中型自動運転バス レベル4営業運行（先進モビリティ）", refs: [1] },
-    location: { value: "茨城県日立市（ひたちBRT専用道・一部公道）", lat: 36.515, lng: 140.630, refs: [1] },
-    prefecture: { value: "茨城県", refs: [1] },
-    period: { value: "2025年1月24日〜", refs: [1] },
-    status: { value: "実施中", refs: [1] },
-    description: {
-      value: "国内初となる「中型自動運転バスによるレベル4営業運行」を開始。先進モビリティが車両開発・製作を担当し、2024年11月に認可を取得。BRT専用道および大甕駅周辺の公道区間において、特定自動運行として乗客を乗せて走行する。",
-      refs: [1]
-    },
-    vehicle: { value: "いすゞ エルガ", refs: [1] },
-    adSystem: { value: "先進モビリティ", refs: [] },
-    route: { value: "ひたちBRT専用道全線、JR大甕駅周辺", refs: [1] },
-    operationType: { value: "レベル4（特定自動運行・営業運行）", refs: [1] },
-    stakeholders: [
-      { role: "運行主体", name: "茨城交通株式会社", refs: [1] },
-      { role: "車両製作・開発", name: "先進モビリティ株式会社", refs: [1] },
-      { role: "事業協力", name: "みちのりホールディングス", refs: [1] },
-      { role: "自治体", name: "日立市（茨城県）", refs: [1] }
-    ],
-    references: [
-      { id: 1, title: "国内初の中型自動運転バスによるレベル4営業運行開始のお知らせ", url: "https://www.as-mobi.com/news/", date: "2025-01-20", source: "先進モビリティ株式会社" }
     ]
   },
   {
@@ -3790,10 +3745,10 @@ const EXPERIMENTS = [
     name: { value: "多気町 VISON 自動運転EV「MiCa」運行実証", refs: [1, 2] },
     location: { value: "三重県多気町（商業リゾート施設 VISON）", lat: 34.513, lng: 136.548, refs: [1, 2] },
     prefecture: { value: "三重県", refs: [1] },
-    period: { value: "2023年12月19日〜2024年2月29日", refs: [1] },
-    status: { value: "完了", refs: [1] },
+    period: { value: "2023年12月19日〜（2024年10月にレベル4車両認可）", refs: [1, 2] },
+    status: { value: "実施中", refs: [2] },
     description: {
-      value: "多気町がBOLDLY、ヴィソン多気と協力して実施した自動運転実証。VISON内で将来のレベル4運行と事業モデル形成を目指し、モビリティレーンと一般車道を組み合わせたルートで走行し、観光地における安全性・運行体制・社会受容性を検証した。2024年10月には同エリアを対象にレベル4車両認可（走行環境条件付与）が公表された。",
+      value: "多気町がBOLDLYおよびヴィソン多気と連携してVISON構内で実施する自動運転事業。MiCaによる実証運行を開始し、2024年10月には同エリアを対象にレベル4車両認可（走行環境条件付与）を取得した。",
       refs: [1, 2]
     },
     vehicle: { value: "Auve Tech MiCa", refs: [1, 2] },
@@ -4331,6 +4286,30 @@ const EXPERIMENTS = [
     references: [
       { id: 1, title: "桑名市における自動運転バス実証実験（桑名駅〜なばなの里）", url: "https://www.aisantec.co.jp/news/2025/autonomous-bus-kuwana/", date: "2025-03-01", source: "アイサンテクノロジー株式会社" },
       { id: 2, title: "桑名市自動運転実証実験について", url: "https://www.city.kuwana.lg.jp/index.cfm/72,html", date: "2025-03-01", source: "桑名市公式HP" }
+    ]
+  },
+  {
+    id: "exp-196",
+    name: { value: "GLP ALFALINK相模原 構内自動運転（レベル4認可）", refs: [1] },
+    location: { value: "神奈川県相模原市（GLP ALFALINK相模原構内）", lat: 35.573, lng: 139.373, refs: [1] },
+    prefecture: { value: "神奈川県", refs: [1] },
+    period: { value: "2023年10月〜", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "GLP ALFALINK相模原構内で運行する車両が、2023年10月に関東初のレベル4車両認可を取得。物流施設構内の定路線で、運転者を必要としない自動運転車としての運行条件が付与された。",
+      refs: [1]
+    },
+    vehicle: { value: "タジマ GSM8", refs: [1] },
+    adSystem: { value: "ティアフォー", refs: [] },
+    route: { value: "GLP ALFALINK相模原構内 全周約1.3km", refs: [1] },
+    operationType: { value: "レベル4（運転者不要の自動運転車認可）", refs: [1] },
+    stakeholders: [
+      { role: "申請者・運行主体", name: "株式会社ティアフォー", refs: [1] },
+      { role: "施設提供", name: "日本GLP株式会社", refs: [1] },
+      { role: "認可機関", name: "国土交通省 関東運輸局", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "関東で初めて自動運転車（レベル4）の認可を行いました", url: "https://wwwtb.mlit.go.jp/kanto/content/000304988.pdf", date: "2023-10-20", source: "国土交通省 関東運輸局" }
     ]
   }
 ];
