@@ -1372,23 +1372,28 @@ const EXPERIMENTS = [
   },
   {
     id: "exp-052",
-    name: { value: "対馬市・離島自動運転移動支援実証", refs: [] },
-    location: { value: "長崎県対馬市", lat: 34.205, lng: 129.288, refs: [] },
-    prefecture: { value: "長崎県", refs: [] },
-    period: { value: "不明", refs: [] },
-    status: { value: "不明", refs: [] },
+    name: { value: "対馬市 ターゲットラインシステム自動運転実証（シダックス×MIAD）", refs: [1] },
+    location: { value: "長崎県対馬市上対馬町（上対馬高校周辺）", lat: 34.647, lng: 129.355, refs: [1] },
+    prefecture: { value: "長崎県", refs: [1] },
+    period: { value: "2022年5月19日〜22日", refs: [1] },
+    status: { value: "完了", refs: [1] },
     description: {
-      value: "離島における持続可能な移動手段確保のため、山間部や狭隘道路での自動運転実証を実施。高齢者の外出支援を目的とする。詳細不明。",
-      refs: []
+      value: "シダックス・明治大学自動運転社会総合研究所（MIAD）・対馬市・日本ペイントによる4者連携実証。道路に塗装した特殊塗料をセンサーで検知して自動追従走行する「ターゲットラインシステム」を国内初の公道で検証した。",
+      refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [] },
-    adSystem: { value: "不明", refs: [] },
-    route: { value: "不明", refs: [] },
-    operationType: { value: "不明", refs: [] },
+    vehicle: { value: "トヨタ エスティマ", refs: [1] },
+    adSystem: { value: "明治大学 自動運転社会総合研究所", refs: [1] },
+    route: { value: "バリュースタジアムタケスエ大浦店〜上対馬高校手前（往復約1.6km）", refs: [1] },
+    operationType: { value: "レベル2（最大時速20km/h）", refs: [1] },
     stakeholders: [
-      { role: "自治体", name: "対馬市（長崎県）", refs: [] }
+      { role: "車両・事業主体", name: "シダックス株式会社", refs: [1] },
+      { role: "ADシステム開発・運行管理", name: "明治大学 自動運転社会総合研究所", refs: [1] },
+      { role: "自治体", name: "対馬市（長崎県）", refs: [1] },
+      { role: "技術協力", name: "日本ペイント・インダストリアルコーティングス株式会社", refs: [1] }
     ],
-    references: []
+    references: [
+      { id: 1, title: "長崎県対馬市にて自動運転レベル2 実証実験を実施", url: "https://www.shidax.co.jp/corporate/press-release/2022/0427-1/", date: "2022-04-27", source: "シダックス株式会社" }
+    ]
   },
   {
     id: "exp-053",
@@ -2679,6 +2684,7 @@ const EXPERIMENTS = [
     operationType: { value: "レベル4の無人化に向けたAI遠隔監視・サポート検証", refs: [1] },
     stakeholders: [
       { role: "技術開発・実施主体", name: "ソフトバンク株式会社", refs: [1] },
+      { role: "自動運転実証", name: "MONETテクノロジーズ株式会社", refs: [1] },
       { role: "協力", name: "慶應義塾大学", refs: [1] }
     ],
     references: [
@@ -2698,7 +2704,7 @@ const EXPERIMENTS = [
     },
     vehicle: { value: "スズキ ソリオ", refs: [2] },
     adSystem: { value: "スズキ", refs: [] },
-    route: { value: "浜松市庄内地区等 路線網（片道約9km等）", refs: [1, 2] },
+    route: { value: "浜松市庄内地区等 路線網（片道約9.1km等）", refs: [1, 2] },
     operationType: { value: "レベル2（Dispatcherによる遠隔監視・運行管理）", refs: [1] },
     stakeholders: [
       { role: "自治体", name: "浜松市（静岡県）", refs: [1] },
@@ -2716,18 +2722,23 @@ const EXPERIMENTS = [
     name: { value: "仙台市 自動運転実証事業（青葉山・東部北・秋保エリア）", refs: [1, 2] },
     location: { value: "宮城県仙台市（青葉山・東部北・秋保エリア）", lat: 38.262, lng: 140.876, refs: [1, 2] },
     prefecture: { value: "宮城県", refs: [1] },
-    period: { value: "2024年10月〜2026年1月（段階的に拡大）", refs: [1, 2] },
-    status: { value: "実施中", refs: [1] },
+    period: { value: "2024年10月〜2026年1月30日（段階的拡大・2024年度青葉山、2025年度東部北・秋保）", refs: [1, 2] },
+    status: { value: "完了", refs: [1] },
     description: {
-      value: "仙台市の自動運転実証事業として、青葉山グリーン回遊プロジェクト（国際センター駅〜仙台城跡）での運行実験を起点に、2025年度は東部北エリアおよび秋保エリアへ実施範囲を拡大。観光・地域交通の移動手段確保と社会受容性を検証している。",
+      value: "仙台市の自動運転実証事業として、2024年度は青葉山グリーン回遊プロジェクト（国際センター駅〜仙台城跡、ティアフォー Minibus）を実施。2025年度は東部北エリア（三井アウトレットパーク仙台港〜仙台港、片道約10km、日野ポンチョ、2025年11月27日〜12月7日）・秋保エリア（山間部、片道約29km、日野ポンチョ、2026年1月19日〜30日）へ拡大。複数キャリア回線・ローカル5G・都市OSとの連携による安全走行実証を行い、秋保ルートの2026年1月30日をもって完了。",
       refs: [1, 2]
     },
-    vehicle: { value: "日野ポンチョ", refs: [1, 2] },
-    adSystem: { value: "ティアフォー", refs: [1, 2] },
-    route: { value: "国際センター駅〜仙台城跡、東部北エリア、秋保エリア", refs: [1, 2] },
+    vehicle: { value: "日野ポンチョ（東部北・秋保エリア）/ ティアフォー Minibus（2024年度青葉山エリア）", refs: [1, 2] },
+    adSystem: { value: "アイサンテクノロジー（2024年度青葉山）/ NTTドコモビジネス等コンソーシアム（2025年度東部北・秋保）", refs: [1] },
+    route: { value: "青葉山：国際センター駅〜仙台城跡（約2.4km）/ 東部北：三井アウトレットパーク仙台港〜仙台港エリア（片道約10km）/ 秋保：山間部（片道約29km）", refs: [1, 2] },
     operationType: { value: "レベル2（将来のレベル4実装に向けた実証）", refs: [1, 2] },
     stakeholders: [
       { role: "自治体", name: "仙台市（宮城県）", refs: [1, 2] },
+      { role: "自動運転技術（2024年度）", name: "アイサンテクノロジー株式会社", refs: [2] },
+      { role: "代表機関（2025年度）", name: "NTTドコモビジネス株式会社", refs: [1] },
+      { role: "通信技術（2025年度）", name: "NTTアドバンステクノロジ株式会社", refs: [1] },
+      { role: "経営研究・システム（2025年度）", name: "株式会社NTTデータ経営研究所", refs: [1] },
+      { role: "通信・路車協調（2025年度）", name: "パナソニック コネクト株式会社", refs: [1] },
       { role: "協力", name: "東北大学", refs: [1, 2] }
     ],
     references: [
@@ -2740,21 +2751,26 @@ const EXPERIMENTS = [
     name: { value: "横浜市 ズーラシア路線 自動運転バス実証（横浜市・先進モビリティ）", refs: [1] },
     location: { value: "神奈川県横浜市（鶴ヶ峰駅〜よこはま動物園ズーラシア）", lat: 35.474, lng: 139.544, refs: [1] },
     prefecture: { value: "神奈川県", refs: [1] },
-    period: { value: "2026年1月（2024年秋〜継続実施）", refs: [1] },
-    status: { value: "実施中", refs: [1] },
+    period: { value: "2026年1月17日〜22日（2024年9月から継続実証）", refs: [1] },
+    status: { value: "完了", refs: [1] },
     description: {
-      value: "ローカル5Gや路側インフラ（センサー等）を活用した、都市部における高度な走行支援の実証実験。慶應義塾大学等と連携し、GPSが届きにくい場所や交通量の多い交差点での安全な自動運転を目指している。",
+      value: "総務省「地域デジタル基盤活用推進事業（自動運転レベル4検証タイプ）」採択案件。NTTドコモビジネス代表8社コンソーシアムが実施。ローカル5Gや路側インフラ（スマートポール・路側カメラ）を活用し、GPSが届きにくい場所や交通量の多い交差点での安全な自動運転走行支援・無線リソース最適化による遠隔監視を検証。2026年1月17〜22日に一般試乗（各試乗定員10名、日野ポンチョ2台）を実施。",
       refs: [1]
     },
-    vehicle: { value: "いすゞ エルガ", refs: [1] },
+    vehicle: { value: "日野ポンチョ", refs: [1] },
     adSystem: { value: "先進モビリティ", refs: [1] },
     route: { value: "鶴ヶ峰駅〜よこはま動物園ズーラシア間 路線バスルート", refs: [1] },
     operationType: { value: "レベル2（インフラ協調型・遠隔監視検証）", refs: [1] },
     stakeholders: [
-      { role: "事業統括", name: "慶應義塾大学", refs: [1] },
-      { role: "システム・車両", name: "先進モビリティ株式会社", refs: [1] },
-      { role: "自治体", name: "横浜市（神奈川県）", refs: [1] },
-      { role: "通信協力", name: "KDDI株式会社", refs: [1] }
+      { role: "代表機関", name: "NTTドコモビジネス株式会社", refs: [1] },
+      { role: "通信技術", name: "NTTアドバンステクノロジ株式会社", refs: [1] },
+      { role: "経営研究・システム", name: "株式会社NTTデータ経営研究所", refs: [1] },
+      { role: "路側インフラ", name: "スタンレー電気株式会社", refs: [1] },
+      { role: "路側インフラ", name: "株式会社東海理化", refs: [1] },
+      { role: "通信技術", name: "ドコモ・テクノロジ株式会社", refs: [1] },
+      { role: "運行事業者", name: "相鉄バス株式会社", refs: [1] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] },
+      { role: "自治体", name: "横浜市（神奈川県）", refs: [1] }
     ],
     references: [
       { id: 1, title: "横浜市におけるローカル5G等を活用した自動運転走行支援実証", url: "https://www.city.yokohama.lg.jp/city-info/koho-kocho/press/keizai/2025/mobility20260116.html", date: "2026-01-16", source: "横浜市" }
@@ -2765,13 +2781,13 @@ const EXPERIMENTS = [
     name: { value: "堺市 SMI都心ライン 自動運転実証", refs: [1] },
     location: { value: "大阪府堺市（堺駅前〜堺東駅前）", lat: 34.577, lng: 135.476, refs: [1] },
     prefecture: { value: "大阪府", refs: [1] },
-    period: { value: "2025年10月〜2026年2月（予定）", refs: [1] },
-    status: { value: "計画中", refs: [1] },
+    period: { value: "2025年10月1日〜2026年2月27日（完了）", refs: [1] },
+    status: { value: "完了", refs: [1] },
     description: {
-      value: "堺市の次世代モビリティ「SMI（Sakai Mobility Innovation）」プロジェクトの一環。都心のシンボルロードである大小路筋において、中型自動運転バスを用いた実証運行を実施予定。都市部における円滑な走行と社会受容性の向上を検証する。",
+      value: "堺市の次世代モビリティ「SMI（Sakai Mobility Innovation）」プロジェクトの一環。都心のシンボルロードである大小路筋において、BYD J6を用いた自動運転実証運行を実施。都市部における円滑な走行と社会受容性の向上を検証し、2026年2月27日に実証完了。",
       refs: [1]
     },
-    vehicle: { value: "いすゞ エルガミオ", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [1] },
     adSystem: { value: "先進モビリティ", refs: [1] },
     route: { value: "堺駅前〜堺東駅前（大小路筋）約1.5km", refs: [1] },
     operationType: { value: "レベル2（将来のレベル4化に向けた検証）", refs: [1] },
@@ -2791,16 +2807,17 @@ const EXPERIMENTS = [
     period: { value: "2025年12月15日〜26日", refs: [1] },
     status: { value: "完了", refs: [1] },
     description: {
-      value: "観光客が急増する伊勢神宮周辺において、交通渋滞緩和と二次交通の確保を目的とした実証。アイサンテクノロジー主導のコンソーシアムに先進モビリティが技術協力を行い、中型バスによる公道走行を実施した。",
+      value: "観光客が急増する伊勢神宮周辺において、交通渋滞緩和と二次交通の確保を目的とした実証。アイサンテクノロジー・A-Drive主導のもと、三重交通が運行を担い、ティアフォー製Minibus2.0（定員16名）で近鉄五十鈴川駅〜内宮前（約2.5km）を1日12便運行（無料）。2033年式年遷宮を見据えた地域交通持続可能性確保の取り組み。",
       refs: [1, 2]
     },
-    vehicle: { value: "BYD J6", refs: [1, 2] },
-    adSystem: { value: "先進モビリティ", refs: [] },
-    route: { value: "五十鈴川駅〜伊勢神宮内宮前", refs: [1, 2] },
+    vehicle: { value: "BYD J6", refs: [1] },
+    adSystem: { value: "アイサンテクノロジー", refs: [2] },
+    route: { value: "近鉄五十鈴川駅〜内宮（宇治橋前）片道約2.5km", refs: [1, 2] },
     operationType: { value: "レベル2（観光地実証）", refs: [1, 2] },
     stakeholders: [
-      { role: "事業主体", name: "アイサンテクノロジー株式会社", refs: [2] },
-      { role: "技術協力", name: "先進モビリティ株式会社", refs: [2] },
+      { role: "事業主体・運行計画策定", name: "アイサンテクノロジー株式会社", refs: [2] },
+      { role: "自動運転導入コンサルティング", name: "A-Drive株式会社", refs: [2] },
+      { role: "運行事業者・遠隔監視", name: "三重交通株式会社", refs: [1] },
       { role: "自治体", name: "伊勢市（三重県）", refs: [1] }
     ],
     references: [
@@ -2837,21 +2854,24 @@ const EXPERIMENTS = [
     name: { value: "富士市 自動運転バス実証実験", refs: [1] },
     location: { value: "静岡県富士市", lat: 35.161, lng: 138.676, refs: [1] },
     prefecture: { value: "静岡県", refs: [1] },
-    period: { value: "2025年11月〜", refs: [1] },
-    status: { value: "実施中", refs: [1] },
+    period: { value: "2025年11月22日〜12月12日（日曜運休）", refs: [1] },
+    status: { value: "完了", refs: [1] },
     description: {
-      value: "富士市における自動運転バスの実証実験。市公式公開情報を一次ソースとして追加した。",
+      value: "国の「新しい地方経済・生活環境創生交付金」を活用した富士市の自動運転バス実証実験。ティアフォー製Minibus2.0（定員28名・実証時乗客定員13名、最高時速35km/h）を使用。新富士駅富士山口駅前広場〜富士駅北口（片道約2km往復）を運行し、レベル2の自動運転技術を検証。アイサンテクノロジーが高精度3次元地図提供等を担当。",
       refs: [1]
     },
-    vehicle: { value: "タジマ NAO-8J", refs: [1] },
-    adSystem: { value: "マクニカ", refs: [1] },
-    route: { value: "富士市内（実証ルート）", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [1] },
+    adSystem: { value: "ティアフォー", refs: [1] },
+    route: { value: "新富士駅富士山口駅前広場〜富士駅北口（片道約2km往復）", refs: [1] },
     operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
     stakeholders: [
-      { role: "自治体・事業主体", name: "富士市（静岡県）", refs: [1] }
+      { role: "自治体・事業主体", name: "富士市（静岡県）", refs: [1] },
+      { role: "自動運転システム・車両", name: "株式会社ティアフォー", refs: [1] },
+      { role: "高精度地図・運行支援", name: "アイサンテクノロジー株式会社", refs: [1] },
+      { role: "交通協議体", name: "ふじMaaS推進協議会", refs: [1] }
     ],
     references: [
-      { id: 1, title: "富士市における自動運転バス実証実験", url: "https://www.city.fuji.shizuoka.jp/1040050000/p000978.html", date: "2025-11-01", source: "富士市" }
+      { id: 1, title: "富士市における自動運転バス実証実験", url: "https://www.city.fuji.shizuoka.jp/1040050000/p000978.html", date: "2025-11-22", source: "富士市" }
     ]
   },
   {
@@ -2859,21 +2879,26 @@ const EXPERIMENTS = [
     name: { value: "狛江市 自動運転バス実証実験", refs: [1] },
     location: { value: "東京都狛江市", lat: 35.634, lng: 139.578, refs: [1] },
     prefecture: { value: "東京都", refs: [1] },
-    period: { value: "2025年12月〜", refs: [1] },
+    period: { value: "2025年12月〜2026年1月（試乗会2026年1月）", refs: [1] },
     status: { value: "実施中", refs: [1] },
     description: {
-      value: "狛江市における自動運転バスの実証実験。市公式公開情報を一次ソースとして追加した。",
+      value: "総務省「地域デジタル基盤活用推進事業（自動運転レベル4検証タイプ）」採択案件。NTT東日本代表6社コンソーシアムが実施。ローカル5G×路側センサ統合基盤（スマートポール）を活用し、見通し外の交通状況を先読みした遠隔監視型自動運転を実証。東京都多摩地区初の公道自動運転実証。和泉多摩川駅〜六郷さくら通り〜多摩川住宅の約5.1km周回コース。",
       refs: [1]
     },
     vehicle: { value: "BYD J6", refs: [1] },
     adSystem: { value: "ティアフォー", refs: [1] },
-    route: { value: "狛江市内（実証ルート）", refs: [1] },
-    operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
+    route: { value: "和泉多摩川駅〜六郷さくら通り〜多摩川住宅（約5.1km周回）", refs: [1] },
+    operationType: { value: "レベル2（遠隔監視型・インフラ協調）", refs: [1] },
     stakeholders: [
-      { role: "自治体・事業主体", name: "狛江市（東京都）", refs: [1] }
+      { role: "代表機関", name: "東日本電信電話株式会社（NTT東日本）", refs: [1] },
+      { role: "自動運転システム・車両", name: "株式会社ティアフォー", refs: [1] },
+      { role: "地図・位置情報", name: "株式会社マップフォー", refs: [1] },
+      { role: "交通計画", name: "株式会社計量計画研究所", refs: [1] },
+      { role: "運行事業者", name: "小田急バス株式会社", refs: [1] },
+      { role: "自治体", name: "狛江市（東京都）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "狛江市内における自動運転バス実証実験", url: "https://www.city.komae.tokyo.jp/events/index.cfm/detail.4.135758.html", date: "2025-12-03", source: "狛江市" }
+      { id: 1, title: "東京都狛江市内でローカル5G等を活用した遠隔型自動運転実証実験を実施中〜東京都多摩地区初の公道自動運転実証！〜", url: "https://www.ntt-east.co.jp/tokyo/info/detail/1291853_2608.html", date: "2025-12-01", source: "NTT東日本" }
     ]
   },
   {
@@ -2881,10 +2906,10 @@ const EXPERIMENTS = [
     name: { value: "川崎市 臨海部 自動運転バス実証実験", refs: [1] },
     location: { value: "神奈川県川崎市", lat: 35.53, lng: 139.703, refs: [1] },
     prefecture: { value: "神奈川県", refs: [1] },
-    period: { value: "2025年11月〜", refs: [1] },
+    period: { value: "2024年9月〜（FY2024: 2024年9月〜2025年1月、FY2025: 2025年9月〜11月26日）", refs: [1] },
     status: { value: "実施中", refs: [1] },
     description: {
-      value: "川崎市臨海部における自動運転バスの実証実験。市公式公開情報を一次ソースとして追加した。",
+      value: "川崎市が2027年度のレベル4自動運転バス実装を目指す「KAWASAKI L4 Bus Project」。FY2024は羽田コネクターライン（大師橋駅〜天空橋駅、都県をまたぐ全国初実証）とKAWASAKI病院ラインの2路線でMinibus2.0・いすゞ エルガを用いてレベル2実証。FY2025は羽田コネクターラインでMinibus2.0（2025年9月22日〜11月26日）・いすゞ エルガ（10月3〜8日試乗）を継続。",
       refs: [1]
     },
     vehicle: [
@@ -2892,13 +2917,17 @@ const EXPERIMENTS = [
       { value: "いすゞ エルガ", refs: [1] }
     ],
     adSystem: { value: "ティアフォー", refs: [1] },
-    route: { value: "川崎市臨海部（実証ルート）", refs: [1] },
-    operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
+    route: { value: "羽田コネクターライン：大師橋駅〜天空橋駅（都県境をまたぐ）/ KAWASAKI病院ライン：川崎駅〜川崎市立川崎病院", refs: [1] },
+    operationType: { value: "レベル2（レベル4実装に向けた段階的実証）", refs: [1] },
     stakeholders: [
-      { role: "自治体・事業主体", name: "川崎市（神奈川県）", refs: [1] }
+      { role: "自治体・事業主体", name: "川崎市（神奈川県）", refs: [1] },
+      { role: "自動運転システム・車両（中型）", name: "株式会社ティアフォー", refs: [1] },
+      { role: "自動運転システム・車両（大型）", name: "いすゞ自動車株式会社", refs: [1] },
+      { role: "高精度地図", name: "アイサンテクノロジー株式会社", refs: [1] },
+      { role: "運行事業者", name: "川崎鶴見臨港バス株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "KAWASAKI L4 Bus Project - 自動運転バス", url: "https://www.city.kawasaki.jp/500/page/0000167580.html", date: "2025-01-27", source: "川崎市" }
+      { id: 1, title: "KAWASAKI L4 Bus Project - 自動運転バス", url: "https://www.city.kawasaki.jp/500/page/0000167580.html", date: "2024-08-02", source: "川崎市" }
     ]
   },
   {
@@ -2912,7 +2941,7 @@ const EXPERIMENTS = [
       value: "西宮市と阪神電気鉄道が連携し、甲子園エリアで実施した自動運転EVバス実証実験。運転士不足への対応と次世代モビリティの実用化検証を目的とし、無料・事前予約制で運行した。",
       refs: [1]
     },
-    vehicle: { value: "Minibus2.0（ティアフォー製）", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [1] },
     adSystem: { value: "ティアフォー", refs: [1] },
     route: { value: "西宮市内 甲子園エリア（実証ルート）", refs: [1] },
     operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
@@ -2937,7 +2966,7 @@ const EXPERIMENTS = [
       value: "札幌市が定山渓地区で実施した自動運転バス実証実験。観光周遊での活用可能性を検証し、期間中は無料で運行した。",
       refs: [1]
     },
-    vehicle: { value: "MiCa（Auve Tech社製）", refs: [1] },
+    vehicle: { value: "Auve Tech MiCa", refs: [1] },
     adSystem: { value: "Auve Tech", refs: [] },
     route: { value: "秋の定山渓満喫ルート・湯けむりナイトルート", refs: [1] },
     operationType: { value: "レベル2（オペレーター同乗）", refs: [1] },
@@ -3027,7 +3056,7 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicle: { value: "いすゞ エルガ", refs: [1] },
-    adSystem: { value: "アイサンテクノロジー / A-Drive", refs: [1] },
+    adSystem: { value: "A-Drive", refs: [1] },
     route: { value: "千歳駅前西口〜本社ターミナル等の市内ルート", refs: [1] },
     operationType: { value: "レベル2（運転手同乗・必要時介入）", refs: [1] },
     stakeholders: [
@@ -3158,25 +3187,31 @@ const EXPERIMENTS = [
   },
   {
     id: "exp-140",
-    name: { value: "木津川市 自動運転EVバス実証運行（城山台地域）", refs: [1] },
+    name: { value: "木津川市 自動運転バス実証運行（城山台地域）", refs: [1, 2, 3] },
     location: { value: "京都府木津川市（JR木津駅東口〜城山台地域周辺）", lat: 34.736, lng: 135.825, refs: [1] },
     prefecture: { value: "京都府", refs: [1] },
-    period: { value: "2026年1月下旬〜2月中旬", refs: [1] },
+    period: { value: "2026年1月24日〜2月13日", refs: [1, 2] },
     status: { value: "完了", refs: [1] },
     description: {
-      value: "木津川市が京都府・京田辺市・精華町等と連携し、城山台地域で実施した自動運転EVバスの実証運行。レベル2運行に加え、1:N遠隔監視オペレーションの成立性を検証した。",
-      refs: [1]
+      value: "京都府が主体となり木津川市・京田辺市・精華町と連携して実施した自動運転バス実証運行。JR木津駅東口を発着点に城山台・京大農場を一周する約20分のルートで、1日7便を無料・事前予約制で運行した。レベル2の自動運転に加え、異なる地域を走行する複数台を遠隔監視する1:Nオペレーションの成立性を検証。国土交通省「自動運転社会実装推進事業」重点支援事業および総務省「自動運転レベル4検証タイプ」に採択されている。",
+      refs: [1, 2, 3]
     },
-    vehicle: { value: "BYD J6", refs: [1] },
-    adSystem: { value: "ティアフォー", refs: [] },
-    route: { value: "JR木津駅東口発着・城山台地域周辺ルート", refs: [1] },
-    operationType: { value: "レベル2（1:N遠隔監視検証を含む実証）", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [2] },
+    adSystem: { value: "A-Drive", refs: [2] },
+    route: { value: "JR木津駅東口発着〜木津城山台〜京大農場周回ルート（所要約20分）", refs: [1] },
+    operationType: { value: "レベル2（1:N遠隔監視検証を含む実証）", refs: [1, 2] },
     stakeholders: [
-      { role: "自治体・事業主体", name: "木津川市（京都府）", refs: [1] },
-      { role: "自治体・連携", name: "京都府、京田辺市（京都府）、精華町（京都府）", refs: [1] }
+      { role: "自治体・主体", name: "京都府", refs: [1, 2, 3] },
+      { role: "自治体・連携", name: "木津川市（京都府）、京田辺市（京都府）、精華町（京都府）", refs: [1, 2, 3] },
+      { role: "自動運転・事業実施", name: "A-Drive株式会社", refs: [2] },
+      { role: "技術支援", name: "アイサンテクノロジー株式会社", refs: [2] },
+      { role: "運行事業者", name: "奈良交通株式会社", refs: [1] },
+      { role: "コンサルティング", name: "KPMGコンサルティング株式会社", refs: [2] }
     ],
     references: [
-      { id: 1, title: "自動運転EVバスの実証運行を行います", url: "https://www.pref.kyoto.jp/bunkaga/news/selfdrivingevbus.html", date: "2026-01-09", source: "京都府" }
+      { id: 1, title: "京都府木津川市で自動運転バスの実証開始、試乗体験受け付け中", url: "https://www.nara-np.co.jp/news/20260124115339.html", date: "2026-01-24", source: "奈良新聞デジタル" },
+      { id: 2, title: "レベル4自動運転技術の許認可取得に向けて実証～自動運転バス試乗体験や出発式を京田辺市と木津川市で実施～", url: "https://prtimes.jp/main/html/rd/p/000000226.000050415.html", date: "2026-01-23", source: "アイサンテクノロジー株式会社" },
+      { id: 3, title: "自動運転EVバスの実証運行を行います（木津川市・京田辺市）", url: "https://www.pref.kyoto.jp/bunkaga/news/kkautobus.html", date: "2026-01-09", source: "京都府" }
     ]
   },
   {
@@ -3294,25 +3329,26 @@ const EXPERIMENTS = [
   },
   {
     id: "exp-147",
-    name: { value: "杉並区（荻窪駅周辺） 自動運転バス走行実証", refs: [1, 2] },
-    location: { value: "東京都杉並区（荻窪駅周辺）", lat: 35.704, lng: 139.620, refs: [1] },
+    name: { value: "杉並区（荻窪駅周辺） 自動運転グリーンスローモビリティ走行実証", refs: [1, 2] },
+    location: { value: "東京都杉並区（荻窪駅南側地域）", lat: 35.704, lng: 139.620, refs: [1] },
     prefecture: { value: "東京都", refs: [1] },
-    period: { value: "2024年度（令和6年度）", refs: [1, 2] },
+    period: { value: "2024年11月16日〜22日（本格実証）、2024年12月追加実証", refs: [1, 2] },
     status: { value: "完了", refs: [1] },
     description: {
-      value: "東京都が令和6年度の導入推進プロジェクトとして、杉並区荻窪駅周辺で実施した自動運転バス走行実証。地元自治体・交通事業者と連携し、走行環境整備と運行検証を行った。",
+      value: "東京都が令和6年度の「自動運転サービス導入推進プロジェクト」として、杉並区荻窪駅南側地域で実施した自動運転グリーンスローモビリティ（定員7名、最高速度20km/h未満）の走行実証。荻窪駅南側約2.5kmの周回ルートで無料・予約不要で運行。A-Driveが自動運転システムを担当し、将来の本格導入に向けた走行環境整備と安全性検証を実施した。",
       refs: [1, 2]
     },
-    vehicle: { value: "BYD J6", refs: [1, 2] },
-    adSystem: { value: "ティアフォー", refs: [] },
-    route: { value: "杉並区 荻窪駅周辺の実証ルート", refs: [1] },
-    operationType: { value: "導入推進に向けた走行実証", refs: [1, 2] },
+    vehicle: { value: "タジマ NAO-6J（グリーンスローモビリティ、定員7名）", refs: [1] },
+    adSystem: { value: "A-Drive", refs: [2] },
+    route: { value: "荻窪駅南側地域周回ルート（約2.5km）", refs: [1] },
+    operationType: { value: "レベル2（運転手同乗・自動運転検証）", refs: [1, 2] },
     stakeholders: [
       { role: "自治体・事業主体", name: "東京都、杉並区", refs: [1] },
-      { role: "運行・実装支援", name: "A-Drive", refs: [2] }
+      { role: "自動運転・事業実施", name: "A-Drive株式会社", refs: [2] },
+      { role: "受託・運行支援", name: "日本工営株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "都内3地区（杉並区、多摩市、瑞穂町）において自動運転バスを運行します！", url: "https://www.metro.tokyo.lg.jp/information/press/2024/10/2024103005", date: "2024-10-30", source: "東京都" },
+      { id: 1, title: "都内3地区（杉並区、多摩市、瑞穂町）において自動運転バスを運行します！", url: "https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2024/10/30/05.html", date: "2024-10-30", source: "東京都" },
       { id: 2, title: "東京都実証実験参画のお知らせ", url: "https://a-drive.jp/2024/11/08/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%AE%9F%E8%A8%BC%E5%AE%9F%E9%A8%93%E5%8F%82%E7%94%BB%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B/", date: "2024-11-08", source: "A-Drive" }
     ]
   },
@@ -3351,12 +3387,12 @@ const EXPERIMENTS = [
     period: { value: "2025年2月5日〜2025年12月（予定）", refs: [1, 2] },
     status: { value: "実施中", refs: [1, 2] },
     description: {
-      value: "日本交通とティアフォーが、DRS（Data Recording System）搭載タクシー車両で東京都23区の公道データを継続収集する運行。レベル4相当の自動運転サービス実装に向け、運行環境データの蓄積と走行シナリオ整備を進める。",
+      value: "日本交通とティアフォーが、DRS（Data Recording System）搭載タクシー車両で東京都23区・武蔵野市・三鷹市およびその周辺地域の公道データを継続収集する運行。レベル4相当の自動運転サービス実装に向け、運行環境データの蓄積と走行シナリオ整備を進める。",
       refs: [1, 2]
     },
     vehicle: { value: "トヨタ JPN TAXI", refs: [1, 2] },
     adSystem: { value: "ティアフォー", refs: [] },
-    route: { value: "東京都23区内の公道（千代田区、中央区、港区、新宿区、文京区、台東区、墨田区、江東区、品川区、目黒区、大田区、世田谷区、渋谷区、中野区、杉並区、豊島区、北区、荒川区、板橋区、練馬区、足立区、葛飾区、江戸川区）", refs: [1, 2] },
+    route: { value: "東京都23区・武蔵野市・三鷹市およびその周辺の公道（千代田区、中央区、港区、新宿区、文京区、台東区、墨田区、江東区、品川区、目黒区、大田区、世田谷区、渋谷区、中野区、杉並区、豊島区、北区、荒川区、板橋区、練馬区、足立区、葛飾区、江戸川区、武蔵野市、三鷹市）", refs: [1, 2] },
     operationType: { value: "自動運転向けデータ収集・走行環境マッピング実証", refs: [1, 2] },
     stakeholders: [
       { role: "事業主体", name: "日本交通株式会社", refs: [1, 2] },
@@ -3450,7 +3486,7 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicle: { value: "E-City L6", refs: [1] },
-    adSystem: { value: "マクニカ", refs: [1] },
+    adSystem: { value: "NAVYA", refs: [1] },
     route: { value: "高尾駅北口〜高尾台住宅（住01系統相当、片道約2.6km）", refs: [1, 2] },
     operationType: { value: "レベル2（運転手搭乗型、無料実証運行）", refs: [1, 2] },
     stakeholders: [
@@ -3501,7 +3537,8 @@ const EXPERIMENTS = [
     route: { value: "小山駅西口〜ハーヴェストウォーク〜小山温泉思川（片道約20分）", refs: [1] },
     operationType: { value: "レベル2（有償・事前予約制）", refs: [1] },
     stakeholders: [
-      { role: "自治体・事業主体", name: "小山市（栃木県）", refs: [1] }
+      { role: "自治体・事業主体", name: "小山市（栃木県）", refs: [1] },
+      { role: "運行事業者", name: "関東自動車株式会社", refs: [1] }
     ],
     references: [
       { id: 1, title: "自動運転バスの実証実験について（10月23日更新）", url: "https://www.city.oyama.tochigi.jp/o-bus/news/page009488.html", date: "2025-10-23", source: "小山市" }
@@ -3588,7 +3625,7 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicle: { value: "E-City L6", refs: [1] },
-    adSystem: { value: "マクニカ", refs: [1] },
+    adSystem: { value: "NAVYA", refs: [1] },
     route: { value: "甲斐市民バス医大線の一部区間（山梨交通敷島営業所〜JR竜王駅南口）", refs: [1] },
     operationType: { value: "実証運行（無償、9時〜17時予定）", refs: [1] },
     stakeholders: [
@@ -3638,8 +3675,9 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2（運転席有人、無料試乗予約制）", refs: [1] },
     stakeholders: [
       { role: "自治体・実施主体", name: "岡崎市（愛知県）", refs: [1] },
-      { role: "運行主体", name: "名鉄バス株式会社", refs: [1] },
-      { role: "実証支援", name: "名鉄グループバスホールディングス株式会社、A-Drive、アイサンテクノロジー株式会社", refs: [1] }
+      { role: "運行主体（事業総括）", name: "名鉄バス株式会社", refs: [1] },
+      { role: "全体統括支援", name: "A-Drive株式会社", refs: [1] },
+      { role: "技術協力", name: "アイサンテクノロジー株式会社", refs: [1] }
     ],
     references: [
       { id: 1, title: "自動運転バスの実証運行を実施しました", url: "https://www.city.okazaki.lg.jp/kurashi/kotsu/1012394/1012396/1013018.html", date: "2026-02-25", source: "岡崎市" }
@@ -3679,7 +3717,7 @@ const EXPERIMENTS = [
       value: "豊田市が2027年度までのレベル4自動運転実装を目指して実施した実証。名鉄三河線土橋駅〜愛知環状鉄道三河豊田駅間でトヨタ シエナ2台（自動走行、4名定員）とe-Palette1台（手動追従、10名定員）を用いた定時定路線・オンデマンド路線の2形態で運行し、走行性能・事業採算性・安全性を検証した。",
       refs: [1, 2]
     },
-    vehicle: { value: "トヨタ シエナ", refs: [1, 2] },
+    vehicle: { value: "トヨタ シエナ（自動走行2台）/ トヨタ e-Palette（手動追従1台）", refs: [1, 2] },
     adSystem: { value: "May Mobility", refs: [] },
     route: { value: "名鉄三河線土橋駅（豊田市土橋町）〜愛知環状鉄道三河豊田駅（豊田市山之手）間（定時定路線・オンデマンド路線の2形態）", refs: [1] },
     operationType: { value: "レベル2（無料・定時定路線＋オンデマンド）", refs: [1] },
@@ -3704,8 +3742,8 @@ const EXPERIMENTS = [
       value: "小牧市が、こまき巡回バス「こまくる」の将来的なサービス水準維持と運転手不足対策を目的に実施した自動運転実証調査。桃花台ニュータウン内で走行性・安全性・社会受容性を検証し、レベル4許認可に必要な条件整理やコスト検証を進めた。",
       refs: [1]
     },
-    vehicle: { value: "BYD J6", refs: [1] },
-    adSystem: { value: "ティアフォー", refs: [] },
+    vehicle: { value: "ティアフォー製 Minibus 2.0（定員14名、最高時速35km/h）", refs: [1] },
+    adSystem: { value: "ティアフォー", refs: [1] },
     route: { value: "桃花台ニュータウン内（桃花台センター起終点、光ヶ丘第三公園前等）", refs: [1] },
     operationType: { value: "レベル2（無料、事前予約推奨・空席時当日乗車可、運転手・補助員同乗）", refs: [1] },
     stakeholders: [
@@ -3720,7 +3758,7 @@ const EXPERIMENTS = [
   {
     id: "exp-165",
     name: { value: "高輪エリアにおける自動運転バス運行", refs: [1] },
-    location: { value: "東京都港区（高輪エリア）", lat: 35.636, lng: 139.736, refs: [1] },
+    location: { value: "東京都港区（TAKANAWA GATEWAY CITY〜竹芝エリア間）", lat: 35.636, lng: 139.736, refs: [1] },
     prefecture: { value: "東京都", refs: [1] },
     period: { value: "2026年3月〜", refs: [1] },
     status: { value: "計画中", refs: [1] },
@@ -3730,7 +3768,7 @@ const EXPERIMENTS = [
     },
     vehicle: { value: "BYD J6", refs: [1] },
     adSystem: { value: "ティアフォー", refs: [] },
-    route: { value: "東京都港区高輪エリア", refs: [1] },
+    route: { value: "TAKANAWA GATEWAY CITY〜竹芝エリア間", refs: [1] },
     operationType: { value: "レベル2〜（段階的に社会実装推進）", refs: [1] },
     stakeholders: [
       { role: "事業参画・社会実装推進", name: "アイサンテクノロジー株式会社", refs: [1] },

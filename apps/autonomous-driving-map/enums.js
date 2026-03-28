@@ -373,6 +373,8 @@
     YAMAHA_GREEN_SLOW_MOBILITY: "ヤマハグリーンスローモビリティ",
     YAMAHA_LANDCAR: "ヤマハランドカー",
     YAMAHA_GOLF_CAR: "ヤマハ ゴルフカー（公道仕様）",
+    YAMAHA_AR07: "ヤマハ AR-07",
+    YAMAHA_G30S: "ヤマハ G30s",
     // 日野
     HINO_PONCHO: "日野ポンチョ",
     HINO_RAINBOW: "日野レインボー",
@@ -380,6 +382,10 @@
     HINO_BLUE_RIBBON: "日野ブルーリボン",
     HINO_RIESSEII: "日野リエッセII",
     HINO_PROFIA: "日野プロフィア",
+    // 宇通バス（中国）
+    YUTONG_XIAOYU_2: "Yutong Xiaoyu 2.0",
+    // トヨタ（追加）
+    TOYOTA_JPN_TAXI: "トヨタ JPN TAXI",
     // その他分類
     E_CITY_L6: "E-City L6",
     DELIVERY_ROBOT: "自動配送ロボット",
@@ -410,6 +416,7 @@
     WAYVE: "Wayve",
     NIHON_MOBILITY: "日本モビリティ",
     SAITAMA_UNIV: "埼玉工業大学",
+    MEIJI_MIAD: "明治大学 自動運転社会総合研究所",
     AIST: "産総研",
     // 自動車メーカー（自社AD開発）
     NISSAN: "日産",
@@ -420,6 +427,9 @@
     MINNA_NO_TAXI: "みんなのタクシー",
     SOFTBANK: "ソフトバンク",
     NEC: "NEC",
+    NTT_DOCOMO: "NTTドコモ",
+    JTEKT: "ジェイテクト",
+    KCCS: "KCCS",
     UNKNOWN: "不明",
   };
 
