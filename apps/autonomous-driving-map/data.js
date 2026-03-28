@@ -24,7 +24,7 @@ const EXPERIMENTS = [
       { role: "事業連携", name: "マクニカ株式会社", refs: [3] }
     ],
     references: [
-      { id: 1, title: "境町、全国で初めて自動運転バスを路線バスとして運行開始", url: "https://www.softbank.jp/corp/news/press/sbkk/2020/20201025_01/", date: "2020-10-25", source: "ソフトバンク プレスリリース" },
+      { id: 1, title: "境町で自動運転バスを定常運行しています", url: "https://www.town.ibaraki-sakai.lg.jp/page/page002440.html", date: "2020-10-25", source: "境町" },
       { id: 2, title: "Boldly、境町での自動運転バス運行1周年", url: "https://www.softbank.jp/drive/press/2022/20220208_01/", date: "2022-02-08", source: "BOLDLY / ソフトバンク" },
       { id: 3, title: "国内初の路線バスとして自動運転バスを運行　茨城県境町", url: "https://www.mlit.go.jp/report/press/jidosha04_hh_000099.html", date: "2020-10-26", source: "国土交通省 プレスリリース" }
     ]
@@ -106,7 +106,7 @@ const EXPERIMENTS = [
       { role: "特定自動運行許可", name: "北海道公安委員会", refs: [3] }
     ],
     references: [
-      { id: 1, title: "上士幌町における自動運転の取り組み", url: "https://www.kamishihoro.jp/smarttown/smartmobility", date: "2024-10-28", source: "上士幌町" },
+      { id: 1, title: "自動運転バス定期運行｜北海道 上士幌町", url: "https://www.kamishihoro.jp/sp/self_driving_bus", date: "2024-10-28", source: "上士幌町" },
       { id: 2, title: "無人自動運転移動サービスに向けて国内6例目となる自動運転車（レベル４）を認可", url: "https://wwwtb.mlit.go.jp/hokkaido/press/20240531_00002.html", date: "2024-05-31", source: "国土交通省 北海道運輸局" },
       { id: 3, title: "特定自動運行に係る許可について（上士幌町）", url: "https://www.police.pref.hokkaido.lg.jp/info/koutuu/universal/kurumaisu_sinsei/automatic-drive-sinsei.html", date: "2024-10-25", source: "北海道警察" }
     ]
@@ -135,7 +135,7 @@ const EXPERIMENTS = [
     references: [
       { id: 1, title: "日産自動車とDeNA、無人運転車両を活用した交通サービス「Easy Ride」の実証実験を開始", url: "https://dena.com/jp/news/3566", date: "2018-02-23", source: "DeNA ニュース" },
       { id: 2, title: "日産とDeNAが次世代交通サービス「Easy Ride」の実証実験へ、無人運転車両を活用", url: "https://techcrunchjapan.com/2018/02/23/easy-ride-test/", date: "2018-02-23", source: "TechCrunch Japan" },
-      { id: 3, title: "幕張新都心スマートシティプロジェクト 自動運転実証について", url: "https://www.city.chiba.jp/toshi/toshi/smartcity/makuhari_jidounten.html", date: "2018-09-01", source: "千葉市 都市局" }
+      { id: 3, title: "自動運転モビリティの導入（幕張新都心スマートシティ）", url: "https://www.city.chiba.jp/sogoseisaku/miraitoshi/tokku/tokku_mobility.html", date: "2018-09-01", source: "千葉市" }
     ]
   },
   {
@@ -162,7 +162,7 @@ const EXPERIMENTS = [
     references: [
       { id: 1, title: "加賀市レポ―ト Vol.2 自動運転EVバス 実証実験", url: "https://www.macnica.co.jp/business/maas/cases/149118/", date: "2021-12-09", source: "マクニカ" },
       { id: 2, title: "マクニカ、加賀市にて自動運転レベル４対応車両“EVO”による世界最長の公道走行実証を実施", url: "https://prtimes.jp/main/html/rd/p/000000037.000014021.html", date: "2021-09-15", source: "PR TIMES（株式会社マクニカ）" },
-      { id: 3, title: "観光地における自動運転モビリティ活用事業（加賀市）", url: "https://www.mlit.go.jp/road/road/traffic/autonomous/autonomous_kaga.html", date: "2021-09-15", source: "国土交通省 道路局" }
+      { id: 3, title: "加賀市の交通政策・自動運転EVバス実証", url: "https://www.city.kaga.ishikawa.jp/soshiki/seisaku_senryaku/seisaku_suishin/5/index.html", date: "2021-09-15", source: "加賀市" }
     ]
   },
   {
@@ -908,7 +908,7 @@ const EXPERIMENTS = [
       { role: "企業", name: "新潟交通佐渡株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "佐渡市における自動運転実証実験", url: "https://www.niigata.lg.jp/", date: "2024-01-01", source: "新潟県" }
+      { id: 1, title: "佐渡島 自動運転バス実証（WILLER）", url: "https://travel.willer.co.jp/maas/autonomousdriving-sado/", date: "2024-01-01", source: "WILLER" }
     ]
   },
   {
@@ -1060,7 +1060,7 @@ const EXPERIMENTS = [
       { role: "支援", name: "国土交通省 近畿地方整備局", refs: [1] }
     ],
     references: [
-      { id: 1, title: "明日香村における自動運転バス実証運行について", url: "https://www.vill.asuka.nara.jp/news/2024/12/jidouten.html", date: "2025-01-01", source: "明日香村" }
+      { id: 1, title: "自動運転バスの実験走行について（明日香村）", url: "https://www.pref.nara.lg.jp/n137/64893.html", date: "2025-01-01", source: "奈良県" }
     ]
   },
   {
@@ -1428,7 +1428,7 @@ const EXPERIMENTS = [
       { role: "自治体", name: "宮崎県", refs: [1] }
     ],
     references: [
-      { id: 1, title: "西都市における自動運転実証実験の推進について", url: "https://www.city.saito.miyazaki.jp/koutsu/jidounten.html", date: "2025-01-01", source: "西都市" }
+      { id: 1, title: "宮崎県西都市で自動運転車両の実証運行を開始", url: "https://prtimes.jp/main/html/rd/p/000000156.000085099.html", date: "2025-01-01", source: "NTTビジネスソリューションズ プレスリリース" }
     ]
   },
   {
@@ -1523,7 +1523,7 @@ const EXPERIMENTS = [
       { role: "技術協力", name: "株式会社ティアフォー", refs: [1] }
     ],
     references: [
-      { id: 1, title: "むつ市における自動運転バスの実証運行について", url: "https://www.city.mutsu.aomori.jp/soshiki/koutsuu/jidounten.html", date: "2025-10-01", source: "むつ市" }
+      { id: 1, title: "むつ市における自動運転バスの実証運行について", url: "https://www.city.mutsu.lg.jp/kurashi/koutsu/koutsu_sisaku/r7mutsushi-jidounten.html", date: "2025-10-01", source: "むつ市" }
     ]
   },
   {
@@ -2062,7 +2062,7 @@ const EXPERIMENTS = [
       { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "三田市における自動運転実証実験について", url: "https://www.city.sanda.lg.jp/soshiki/47/12345.html", date: "2024-10-01", source: "三田市" }
+      { id: 1, title: "FY24 三田市 自動運転支援 路車協調実証（ウッディタウン）", url: "https://smicip.com/project/fy24sanda/", date: "2024-10-01", source: "SMICIP" }
     ]
   },
   {
@@ -3619,27 +3619,27 @@ const EXPERIMENTS = [
   },
   {
     id: "exp-163",
-    name: { value: "豊田市 土橋駅〜三河豊田駅間 自動運転バス実証運行", refs: [1, 2] },
-    location: { value: "愛知県豊田市（土橋駅南口〜三河豊田駅前）", lat: 35.073, lng: 137.155, refs: [1] },
+    name: { value: "豊田市 土橋駅〜三河豊田駅間 自動運転実証運行（May Mobility×MONET）", refs: [1, 2] },
+    location: { value: "愛知県豊田市（名鉄三河線土橋駅〜愛知環状鉄道三河豊田駅間）", lat: 35.073, lng: 137.155, refs: [1] },
     prefecture: { value: "愛知県", refs: [1] },
-    period: { value: "2026年1月16日〜2月14日（期間中の土日）", refs: [1] },
+    period: { value: "2026年2月2日〜2月27日（平日）9:00〜16:00", refs: [1, 2] },
     status: { value: "完了", refs: [1] },
     description: {
-      value: "豊田市が既存路線バスの維持と自動運転レベル4実装に向けて実施した実証。土橋駅南口〜三河豊田駅前間を往復し、歩車混在環境や交差点の多い市街地で運行課題を検証した。",
+      value: "豊田市が2027年度までのレベル4自動運転実装を目指して実施した実証。名鉄三河線土橋駅〜愛知環状鉄道三河豊田駅間でトヨタ シエナ2台（自動走行、4名定員）とe-Palette1台（手動追従、10名定員）を用いた定時定路線・オンデマンド路線の2形態で運行し、走行性能・事業採算性・安全性を検証した。",
       refs: [1, 2]
     },
-    vehicle: { value: "いすゞ エルガ", refs: [1] },
-    adSystem: { value: "不明", refs: [] },
-    route: { value: "土橋駅南口〜三河豊田駅前（片道約4.2km、往復約8.4km）", refs: [1] },
-    operationType: { value: "レベル2（運転士同乗、無料試乗）", refs: [1] },
+    vehicle: { value: "トヨタ シエナ", refs: [1, 2] },
+    adSystem: { value: "May Mobility", refs: [] },
+    route: { value: "名鉄三河線土橋駅（豊田市土橋町）〜愛知環状鉄道三河豊田駅（豊田市山之手）間（定時定路線・オンデマンド路線の2形態）", refs: [1] },
+    operationType: { value: "レベル2（無料・定時定路線＋オンデマンド）", refs: [1] },
     stakeholders: [
       { role: "自治体・実施主体", name: "豊田市（愛知県）", refs: [1] },
       { role: "運行事業者", name: "名鉄バス株式会社", refs: [1] },
-      { role: "事業協力", name: "MONET Technologies株式会社", refs: [2] }
+      { role: "車両・運行管理・配車システム提供", name: "MONET Technologies株式会社", refs: [2] }
     ],
     references: [
-      { id: 1, title: "自動運転バス実証運行を実施します", url: "https://www.city.toyota.aichi.jp/pressrelease/1063543/1063554.html", date: "2025-12-23", source: "豊田市" },
-      { id: 2, title: "豊田市における自動運転バス実証運行の開始について", url: "https://www.monet-technologies.com/news/2025/20251223", date: "2025-12-23", source: "MONET Technologies" }
+      { id: 1, title: "2種類の路線における自動走行実証実験の実施について", url: "https://www.city.toyota.aichi.jp/pressrelease/1072647/1072712.html", date: "2026-01-30", source: "豊田市" },
+      { id: 2, title: "豊田市における自動走行実証実験の開始について", url: "https://prtimes.jp/main/html/rd/p/000000106.000110999.html", date: "2026-02-03", source: "MONET Technologies" }
     ]
   },
   {
