@@ -1464,8 +1464,8 @@ const EXPERIMENTS = [
       value: "既存の生活路線「105番」において、自動運転EVバスによる高度実証（有償）を実施。将来のレベル4実装を見据えた走行データを蓄積。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "ティアフォー", refs: [] },
+    vehicle: { value: "日野 レインボー", refs: [1] },
+    adSystem: { value: "日本モビリティ", refs: [1] },
     route: { value: "豊見城市内 生活路線（105番線等）", refs: [1] },
     operationType: { value: "有償実証運行（将来レベル4目標）", refs: [1] },
     stakeholders: [
@@ -1537,8 +1537,8 @@ const EXPERIMENTS = [
       value: "盛岡城跡公園等において、自動運転EVを用いた走行デモンストレーションを実施。未来技術体験の場として公開。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "不明", refs: [] },
+    vehicle: { value: "ヤマハ ランドカー", refs: [1] },
+    adSystem: { value: "ヤマハ発動機", refs: [1] },
     route: { value: "盛岡城跡公園周辺 指定エリア", refs: [1] },
     operationType: { value: "技術デモンストレーション", refs: [1] },
     stakeholders: [
@@ -1559,8 +1559,8 @@ const EXPERIMENTS = [
       value: "仙台港（東部北）エリア等において、将来のレベル4実装に向けた公道実証を継続。津波避難支援等の可能性も検証。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "不明", refs: [] },
+    vehicle: { value: "日野 ポンチョ", refs: [1] },
+    adSystem: { value: "ティアフォー", refs: [1] },
     route: { value: "仙台港・東部北エリア 循環ルート", refs: [1] },
     operationType: { value: "レベル2（将来レベル4へ移行準備）", refs: [1] },
     stakeholders: [
@@ -1604,8 +1604,8 @@ const EXPERIMENTS = [
       value: "特別豪雪地帯である長井市の市街地循環コース（約3.5km）にて自動運転バスの実証実験を実施。降雪時の対応や遠隔監視の検証を行い、将来のレベル4実現を目指す。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "不明", refs: [] },
+    vehicle: { value: "BYD J6", refs: [1] },
+    adSystem: { value: "ティアフォー", refs: [1] },
     route: { value: "交流施設「くるんと」〜市役所等 循環", refs: [1] },
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
@@ -1722,7 +1722,7 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicle: { value: "いすゞ エルガ", refs: [1, 2] },
-    adSystem: { value: "アイサンテクノロジー", refs: [1] },
+    adSystem: { value: "NTTドコモ", refs: [1] },
     route: { value: "北浦和駅西口〜埼玉大学", refs: [1] },
     operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
     stakeholders: [
@@ -2131,7 +2131,7 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicle: { value: "トヨタ エスティマ", refs: [1] },
-    adSystem: { value: "アイサンテクノロジー", refs: [1] },
+    adSystem: { value: "NTTドコモ", refs: [1] },
     route: { value: "楠こもれびの郷 周辺ルート", refs: [1] },
     operationType: { value: "レベル2（中山間地モデル）", refs: [1] },
     stakeholders: [
