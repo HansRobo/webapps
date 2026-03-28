@@ -13,6 +13,8 @@ const EXPERIMENTS = [
       refs: [1, 2, 3]
     },
     vehicleType: { value: "NAVYA ARMA（電動自動走行小型バス、定員15名）", refs: [2, 3] },
+    vehicle: { value: "NAVYA ARMA", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "境町役場〜イオンタウン境間 約3km、最高速度19km/h", refs: [1, 3] },
     operationType: { value: "レベル2（乗務員乗車）、将来的なレベル4を目指す", refs: [2] },
     stakeholders: [
@@ -40,6 +42,8 @@ const EXPERIMENTS = [
       refs: [1, 2, 3]
     },
     vehicleType: { value: "ZMP RoboCar MiniVan（改造電動ミニバン、定員5名）", refs: [2, 3] },
+    vehicle: { value: "トヨタ エスティマ ハイブリッド", refs: [] },
+    adSystem: { value: "ZMP", refs: [] },
     route: { value: "永平寺参ろーど約2km（専用道）、最高速度12km/h", refs: [1, 3] },
     operationType: { value: "レベル4（特定自動運行、無人運転）※2023年4月〜", refs: [1, 2] },
     stakeholders: [
@@ -67,6 +71,8 @@ const EXPERIMENTS = [
       refs: [1, 2, 3]
     },
     vehicleType: { value: "日野・レインボー（大型路線バス改造、先進モビリティ製自動運転システム搭載）", refs: [2, 3] },
+    vehicle: { value: "日野レインボー", refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "新宿駅西口〜西新宿周辺 約1.5km", refs: [1] },
     operationType: { value: "レベル2（乗務員乗車）", refs: [1, 2] },
     stakeholders: [
@@ -93,6 +99,8 @@ const EXPERIMENTS = [
       refs: [1, 2, 3]
     },
     vehicleType: { value: "NAVYA ARMA（電動自動走行小型バス、定員15名）", refs: [2] },
+    vehicle: { value: "NAVYA ARMA", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "上士幌町役場〜道の駅かみしほろ周辺 約2.5km循環", refs: [1, 3] },
     operationType: { value: "レベル2（乗務員乗車）、冬季積雪環境での走行実証", refs: [1, 2] },
     stakeholders: [
@@ -120,6 +128,8 @@ const EXPERIMENTS = [
       refs: [1, 2, 3]
     },
     vehicleType: { value: "日産リーフ改造（自動運転システム搭載、DeNA自動運転AI）", refs: [2, 3] },
+    vehicle: { value: "日産リーフ", refs: [] },
+    adSystem: { value: "DeNA", refs: [] },
     route: { value: "幕張メッセ周辺〜アパホテル・IMM Hotel間 約2km", refs: [1] },
     operationType: { value: "レベル2（安全監視員同乗）", refs: [1, 2] },
     stakeholders: [
@@ -146,6 +156,8 @@ const EXPERIMENTS = [
       refs: [1, 2, 3]
     },
     vehicleType: { value: "ヤマハ発動機製 電動低速車両（HAKOBUS）自動運転改造版", refs: [2, 3] },
+    vehicle: { value: "HAKOBUS", refs: [] },
+    adSystem: { value: "ヤマハ発動機", refs: [] },
     route: { value: "片山津温泉総湯〜各旅館・柴山潟周辺 約1.5km循環", refs: [1, 3] },
     operationType: { value: "レベル2〜3相当（乗務員乗車、限定エリア）", refs: [1, 2] },
     stakeholders: [
@@ -172,6 +184,8 @@ const EXPERIMENTS = [
       refs: [1, 2, 3]
     },
     vehicleType: { value: "トヨタ アルファード改造（自動運転システム搭載）", refs: [2] },
+    vehicle: { value: "トヨタ アルファード", refs: [] },
+    adSystem: { value: "みんなのタクシー", refs: [] },
     route: { value: "黒川温泉バス停〜各旅館間 約3km（山岳道路含む）", refs: [1, 3] },
     operationType: { value: "レベル2（ドライバー乗車）", refs: [1, 2] },
     stakeholders: [
@@ -198,6 +212,8 @@ const EXPERIMENTS = [
       refs: [1, 2, 3]
     },
     vehicleType: { value: "日野・ポンチョ改造（自動運転システム搭載、AICE・先進モビリティ製）", refs: [2, 3] },
+    vehicle: { value: "日野ポンチョ", refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "奥永源寺渓流の里〜杠葉尾バス停間 約10km（山岳道路）", refs: [1, 3] },
     operationType: { value: "レベル2（乗務員乗車）、山間部急勾配・急カーブ対応", refs: [1, 2] },
     stakeholders: [
@@ -225,6 +241,8 @@ const EXPERIMENTS = [
       refs: [1, 2, 3]
     },
     vehicleType: { value: "中型バス（自動運転システム搭載）", refs: [1, 2, 3] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "ひたちBRT専用道全線 および JR大甕駅周辺の一般道", refs: [1, 2, 3] },
     operationType: { value: "レベル4（特定自動運行・営業運行）および検証走行", refs: [1, 2, 3] },
     stakeholders: [
@@ -252,6 +270,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "自動運転バス（レベル2運用）", refs: [1] },
+    vehicle: { value: "いすゞ エルガ", refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "柏の葉キャンパス駅〜東京大学柏キャンパス間", refs: [1] },
     operationType: { value: "レベル2（乗務員乗車、レベル4に向けた検証）", refs: [1, 2] },
     stakeholders: [
@@ -278,6 +298,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "大型自動運転トラック", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "新東名高速道路 駿河湾沼津SA〜浜松SA間（約115km）", refs: [1] },
     operationType: { value: "深夜帯 自動運転車優先レーン走行（レベル4に向けた検証）", refs: [1, 2] },
     stakeholders: [
@@ -302,6 +324,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "Cruise Origin（運転席なし専用設計車、6人乗り）", refs: [1, 2] },
+    vehicle: { value: "Cruise Origin", refs: [] },
+    adSystem: { value: "Cruise", refs: [] },
     route: { value: "東京都心部の一般道（詳細未定）", refs: [1] },
     operationType: { value: "レベル4（完全自動運転・無人タクシー）", refs: [1, 2] },
     stakeholders: [
@@ -324,6 +348,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "日産 リーフ（Wayve自動運転システム搭載）", refs: [1, 2] },
+    vehicle: { value: "日産リーフ", refs: [] },
+    adSystem: { value: "Wayve", refs: [] },
     route: { value: "東京都内一般道（想定）", refs: [1] },
     operationType: { value: "レベル2〜（初期はドライバー同乗、将来的にレベル4化）", refs: [1] },
     stakeholders: [
@@ -348,6 +374,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "シエナ（実証用）、e-Palette（開発用）", refs: [1, 2] },
+    vehicle: { value: "トヨタ シエナ", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "お台場エリア一般道", refs: [1] },
     operationType: { value: "レベル2〜（段階的にレベル4を目指す）", refs: [1, 2] },
     stakeholders: [
@@ -376,6 +404,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "NAVYA ARMA（レベル4）、AuveTech MiCa（レベル2）", refs: [1] },
+    vehicle: { value: "NAVYA ARMA", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "羽田イノベーションシティ内の循環ルート", refs: [1] },
     operationType: { value: "レベル2（運転士乗車）および レベル4（特定自動運行）", refs: [1, 2] },
     references: [
@@ -395,6 +425,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "ティアフォー Minibus2.0（定員10名）", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "塩尻駅〜市役所等の西回りルート・東回りルート（各路線約5km）", refs: [1] },
     operationType: { value: "レベル2（定常運行）および レベル4（一部区間で実証予定）", refs: [1] },
     stakeholders: [
@@ -418,6 +450,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "日野ポンチョ（自動運転システム搭載、定員12名）", refs: [1] },
+    vehicle: { value: "日野ポンチョ", refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "和光市駅北口〜和光北インター周辺（約4.7km）", refs: [1] },
     operationType: { value: "レベル2（運転士乗車、バス専用車線および一部一般車線）", refs: [1] },
     stakeholders: [
@@ -441,6 +475,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "大型観光バスタイプ（先進モビリティ自動運転システム搭載）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "知多半島地域の高速道路（中部国際空港アクセスルート）", refs: [1] },
     operationType: { value: "未定（実証実験）", refs: [1] },
     stakeholders: [
@@ -462,6 +498,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス（先進モビリティ自動運転システム搭載）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "洲本市中心市街地〜由良地区（日中）、温泉街〜市街地（夜間）の2ルート", refs: [1] },
     operationType: { value: "未定（実証実験）", refs: [1] },
     stakeholders: [
@@ -483,6 +521,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "自動運転バス（レベル2、運転手同乗）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "樫立地区〜末吉地区（八丈島内）", refs: [1] },
     operationType: { value: "レベル2（期間限定実証）", refs: [1] },
     stakeholders: [
@@ -509,6 +549,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス「Minibus」", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "桑名市内 一般道", refs: [1] },
     operationType: { value: "レベル2（本番走行）、将来のレベル4運用を目指す", refs: [1] },
     stakeholders: [
@@ -531,6 +573,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "伊勢神宮内宮周辺エリア", refs: [1] },
     operationType: { value: "実証実験", refs: [1] },
     stakeholders: [
@@ -553,6 +597,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "筑波大学循環ルート", refs: [1] },
     operationType: { value: "実証実験", refs: [1] },
     stakeholders: [
@@ -575,6 +621,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: "Auve Tech MiCa", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "奥入瀬渓流エリア", refs: [1] },
     operationType: { value: "実証実験", refs: [1] },
     stakeholders: [
@@ -600,6 +648,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "小型EV車両（GSM8）", refs: [1] },
+    vehicle: { value: "タジマ GSM8", refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "高田松原津波復興祈念公園内および周辺市街地", refs: [1, 2] },
     operationType: { value: "レベル2（実証実験）", refs: [1, 2] },
     stakeholders: [
@@ -623,6 +673,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "大型自動運転ハイブリッドバス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "気仙沼線BRT 柳津駅～陸前横山駅間（片道約4.8kmの専用道）", refs: [1] },
     operationType: { value: "レベル2（実用化済み）、将来レベル4予定", refs: [1] },
     stakeholders: [
@@ -645,6 +697,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "ゴルフカート型車両（電磁誘導線方式）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ヤマハ発動機", refs: [] },
     route: { value: "道の駅かみこあに〜周辺集落", refs: [1] },
     operationType: { value: "レベル2運行（レベル4検証中）", refs: [1] },
     stakeholders: [
@@ -669,6 +723,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転車両", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "高畠町内（道の駅〜生活拠点）", refs: [1] },
     operationType: { value: "実証実験", refs: [1] },
     stakeholders: [
@@ -692,6 +748,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "日産EV車両（自動運転システム搭載）等", refs: [1] },
+    vehicle: { value: "日産リーフ", refs: [] },
+    adSystem: { value: "日産", refs: [] },
     route: { value: "浪江町内", refs: [1] },
     operationType: { value: "実証実験", refs: [1] },
     stakeholders: [
@@ -716,6 +774,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "JR前橋駅〜中央前橋駅間など", refs: [1] },
     operationType: { value: "レベル2（実証中・将来レベル4目標）", refs: [1] },
     stakeholders: [
@@ -740,6 +800,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "大型EVバス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "奥日光低公害バス路線", refs: [1] },
     operationType: { value: "実証実験", refs: [1] },
     stakeholders: [
@@ -763,6 +825,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "いすゞ「エルガ」「エルガEV」", refs: [1] },
+    vehicle: { value: "いすゞ エルガEV", refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "平塚駅周辺の路線バスルート", refs: [1] },
     operationType: { value: "レベル2（実証中）", refs: [1] },
     stakeholders: [
@@ -784,6 +848,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "佐渡島内ルート（全長約36km）", refs: [1] },
     operationType: { value: "レベル4社会実装に向けた実証", refs: [1] },
     stakeholders: [
@@ -806,6 +872,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "EVバス自動運転車両", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "富山市婦中地域 朝日地区", refs: [1] },
     operationType: { value: "実証実験", refs: [1] },
     stakeholders: [
@@ -830,6 +898,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転EVバス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "富士吉田市内循環ルート", refs: [1] },
     operationType: { value: "レベル2（有償実証運行）", refs: [1] },
     stakeholders: [
@@ -852,6 +922,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス「GIFU HEART BUS」", refs: [1] },
+    vehicle: { value: "NAVYA ARMA", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "岐阜市中心市街地", refs: [1] },
     operationType: { value: "レベル2（将来レベル4へ移行）", refs: [1] },
     stakeholders: [
@@ -877,6 +949,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転EVバス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "京田辺市内 けいはんな学研都市周辺", refs: [1] },
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
@@ -901,6 +975,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "大型EVバス（自動運転システム搭載）", refs: [1, 2] },
+    vehicle: { value: "BYD J6", refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "舞洲・夢洲エリア（万博会場周辺）", refs: [1] },
     operationType: { value: "レベル2〜レベル4（万博輸送実証）", refs: [1, 2] },
     stakeholders: [
@@ -926,6 +1002,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "近鉄飛鳥駅〜高松塚古墳〜キトラ古墳", refs: [1] },
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
@@ -952,6 +1030,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転EVバス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "JR和歌山駅〜和歌山城 前通り", refs: [1] },
     operationType: { value: "レベル2（将来レベル4相当を目指す）", refs: [1] },
     stakeholders: [
@@ -974,6 +1054,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "鳥取駅～中心市街地循環ルート", refs: [1] },
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
@@ -998,6 +1080,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転車両（レベル4検証用）", refs: [1] },
+    vehicle: { value: "NAVYA EVO", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "美郷町内 指定ルート", refs: [1] },
     operationType: { value: "レベル4に向けた検証", refs: [1] },
     stakeholders: [
@@ -1023,6 +1107,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "JR津山駅〜津山リージョンセンター", refs: [1] },
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
@@ -1046,6 +1132,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: "NAVYA EVO", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "福山駅周辺〜エフピコアリーナふくやま", refs: [1] },
     operationType: { value: "レベル2（レベル4に向けた技術検証）", refs: [1] },
     stakeholders: [
@@ -1069,6 +1157,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "自動運転EVバス", refs: [1, 2] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "JR徳山駅〜徳山動物園（約2km）", refs: [1, 2] },
     operationType: { value: "レベル2（実証実験）", refs: [1, 2] },
     stakeholders: [
@@ -1091,6 +1181,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転タクシー車両", refs: [1] },
+    vehicle: { value: "Hyundai IONIQ5", refs: [] },
+    adSystem: { value: "a2z", refs: [] },
     route: { value: "鳴門市内 指定エリア", refs: [1] },
     operationType: { value: "レベル4を目指す実証運行", refs: [1] },
     stakeholders: [
@@ -1117,6 +1209,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転EVバス", refs: [1] },
+    vehicle: { value: "NAVYA EVO", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "三豊市内（駅〜主要施設）", refs: [1] },
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
@@ -1141,6 +1235,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転路線バス", refs: [1] },
+    vehicle: { value: "WeRideバス", refs: [] },
+    adSystem: { value: "WeRide", refs: [] },
     route: { value: "松山観光港周辺 循環ルート", refs: [1] },
     operationType: { value: "レベル4（段階的に実装）", refs: [1] },
     stakeholders: [
@@ -1163,6 +1259,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス「Minibus」", refs: [1] },
+    vehicle: { value: "NAVYA EVO", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "JR高知駅〜イオンモール高知〜高知赤十字病院", refs: [1] },
     operationType: { value: "レベル4に向けた実証運行", refs: [1] },
     stakeholders: [
@@ -1189,6 +1287,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: "Auve Tech MiCa", refs: [] },
+    adSystem: { value: "Auve Tech", refs: [] },
     route: { value: "アイランドシティ（香椎照葉エリア）循環ルート", refs: [1] },
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
@@ -1212,6 +1312,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "佐賀駅バスセンター〜SAGAサンライズパーク周辺", refs: [1] },
     operationType: { value: "レベル4に向けた高度実証", refs: [1] },
     stakeholders: [
@@ -1237,6 +1339,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転カート (グリーンスローモビリティ等)", refs: [1] },
+    vehicle: { value: "ヤマハグリーンスローモビリティ", refs: [] },
+    adSystem: { value: "ヤマハ発動機", refs: [] },
     route: { value: "対馬市内 指定集落エリア", refs: [1] },
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
@@ -1258,6 +1362,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転小型バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "大入島内（循環ルート）", refs: [1] },
     operationType: { value: "レベル2（実用化検証）", refs: [1] },
     stakeholders: [
@@ -1279,6 +1385,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転EVバス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "西都市中心部・西都原古墳群周辺", refs: [1] },
     operationType: { value: "レベル2（実証中）", refs: [1] },
     stakeholders: [
@@ -1301,6 +1409,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転EVバス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "南さつま市中心部 循環ルート", refs: [1] },
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
@@ -1322,6 +1432,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転EVバス (マクニカ提供等)", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "豊見城市内 生活路線（105番線等）", refs: [1] },
     operationType: { value: "有償実証運行（将来レベル4目標）", refs: [1] },
     stakeholders: [
@@ -1347,6 +1459,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス (NAVYA EVO等)", refs: [1] },
+    vehicle: { value: "NAVYA EVO", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "JRロイズタウン駅〜道の駅とうべつ周辺", refs: [1] },
     operationType: { value: "レベル2（長期実証中）", refs: [1] },
     stakeholders: [
@@ -1370,6 +1484,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス (TIER IV Minibus等)", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "むつ来さまい館〜むつ総合病院〜下北駅", refs: [1] },
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
@@ -1392,6 +1508,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転EV (低速ゴルフカート等)", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "盛岡城跡公園周辺 指定エリア", refs: [1] },
     operationType: { value: "技術デモンストレーション", refs: [1] },
     stakeholders: [
@@ -1413,6 +1531,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "仙台港・東部北エリア 循環ルート", refs: [1] },
     operationType: { value: "レベル2（将来レベル4へ移行準備）", refs: [1] },
     stakeholders: [
@@ -1434,6 +1554,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転小型EVバス (Minibus)", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "JR大館駅周辺 循環ルート", refs: [1] },
     operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
     stakeholders: [
@@ -1456,6 +1578,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "交流施設「くるんと」〜市役所等 循環", refs: [1] },
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
@@ -1477,6 +1601,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "TIER IV Minibus", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "JR磐梯町駅〜道の駅ばんだい〜慧日寺", refs: [1] },
     operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
     stakeholders: [
@@ -1499,6 +1625,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転EVバス (NAVYA EVO等)", refs: [1] },
+    vehicle: { value: "NAVYA EVO", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "常陸太田市 中心市街地ルート", refs: [1] },
     operationType: { value: "定常運行（将来レベル4認可取得済）", refs: [1] },
     stakeholders: [
@@ -1521,6 +1649,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: "日野リエッセII", refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "宇都宮市内（西川田エリア等）", refs: [1] },
     operationType: { value: "レベル2（本格実装準備中）", refs: [1] },
     stakeholders: [
@@ -1543,6 +1673,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "渋川市街地 循環ルート", refs: [1] },
     operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
     stakeholders: [
@@ -1566,6 +1698,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転大型バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "北浦和駅西口〜埼玉大学", refs: [1] },
     operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
     stakeholders: [
@@ -1588,6 +1722,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転小型EVバス (Minibus)", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "横芝光町内 循環ルート", refs: [1] },
     operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
     stakeholders: [
@@ -1610,6 +1746,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "大型自動運転バス (エルガ等)", refs: [1] },
+    vehicle: { value: "いすゞ エルガ", refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "多摩センター駅〜鶴牧エリア 循環", refs: [1] },
     operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
     stakeholders: [
@@ -1632,6 +1770,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転タクシー (日産セレナ等)", refs: [1] },
+    vehicle: { value: "日産セレナ", refs: [] },
+    adSystem: { value: "日産", refs: [] },
     route: { value: "みなとみらい・桜木町・関内エリア", refs: [1] },
     operationType: { value: "レベル2相当（将来レベル4目標）", refs: [1] },
     stakeholders: [
@@ -1654,6 +1794,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "自動運転バス (ARMA)", refs: [1, 2] },
+    vehicle: { value: "NAVYA ARMA", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "小松駅〜小松空港 連絡ルート", refs: [1] },
     operationType: { value: "レベル2通年運行（レベル4社会実装準備中）", refs: [1, 2] },
     stakeholders: [
@@ -1677,6 +1819,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転車両 (ミニバン等)", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "春江地区 循環ルート", refs: [1] },
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
@@ -1700,6 +1844,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転EVバス (マクニカ提供等)", refs: [1] },
+    vehicle: { value: "NAVYA EVO", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "HIOKI本社〜JR神畑駅周辺", refs: [1] },
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
@@ -1722,6 +1868,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス/車両", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "中津川駅〜周辺観光エリア等", refs: [1] },
     operationType: { value: "実証調査・技術検証", refs: [1] },
     stakeholders: [
@@ -1744,6 +1892,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "電動小型低速車両 (ランドカーベース)", refs: [1] },
+    vehicle: { value: "ヤマハ ランドカー", refs: [] },
+    adSystem: { value: "ヤマハ発動機", refs: [] },
     route: { value: "JR御厨駅周辺 公道ルート", refs: [1] },
     operationType: { value: "レベル2相当（技術検証）", refs: [1] },
     stakeholders: [
@@ -1766,6 +1916,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス (ARMA)", refs: [1] },
+    vehicle: { value: "NAVYA ARMA", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "日進市役所〜東山地区 循環ルート", refs: [1] },
     operationType: { value: "レベル2（長期実証中）", refs: [1] },
     stakeholders: [
@@ -1788,6 +1940,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転EVバス (NAVYA EVO等)", refs: [1] },
+    vehicle: { value: "NAVYA EVO", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "近鉄四日市駅周辺 中央通りルート", refs: [1] },
     operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
     stakeholders: [
@@ -1810,6 +1964,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転中型バス/EVバス", refs: [1] },
+    vehicle: { value: "いすゞ エルガミオ", refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "JR大津駅〜びわ湖大津プリンスホテル周辺", refs: [1] },
     operationType: { value: "レベル2相当", refs: [1] },
     stakeholders: [
@@ -1832,6 +1988,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "小型EV自動運転バス (Minibus)", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "洛西ニュータウン〜JR桂川駅前", refs: [1] },
     operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
     stakeholders: [
@@ -1855,6 +2013,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス (EVバス等)", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "森之宮・京橋周遊ルート", refs: [1] },
     operationType: { value: "レベル2（商用実証運行）", refs: [1] },
     stakeholders: [
@@ -1879,6 +2039,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: "いすゞ エルガミオ", refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "ウッディタウン〜JR新三田駅周辺", refs: [1] },
     operationType: { value: "レベル2（社会実装準備中）", refs: [1] },
     stakeholders: [
@@ -1902,6 +2064,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "松江市内 中心部ルート", refs: [1] },
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
@@ -1924,6 +2088,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "自動運転EVバス（BRT仕様）", refs: [1, 2] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ソフトバンク", refs: [] },
     route: { value: "JR西条駅周辺〜広島大学東広島キャンパス（ブールバール）", refs: [1, 2] },
     operationType: { value: "レベル2（自動運転・隊列走行BRT実証）", refs: [1, 2] },
     stakeholders: [
@@ -1947,6 +2113,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転車両", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "楠こもれびの郷 周辺ルート", refs: [1] },
     operationType: { value: "レベル2（中山間地モデル）", refs: [1] },
     stakeholders: [
@@ -1968,6 +2136,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "自動運転タクシー (乗用車ベース)", refs: [1, 2] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "鳴門市西部・松茂町エリア", refs: [1, 2] },
     operationType: { value: "レベル2（将来レベル4目標）", refs: [1, 2] },
     stakeholders: [
@@ -1991,6 +2161,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "自動運転バス (ARMA等)", refs: [1] },
+    vehicle: { value: "NAVYA ARMA", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "土庄港〜エンジェルロード周辺", refs: [1] },
     operationType: { value: "レベル2（観光実証）", refs: [1] },
     stakeholders: [
@@ -2013,6 +2185,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転特定バス (レベル4仕様)", refs: [1] },
+    vehicle: { value: "WeRideバス", refs: [] },
+    adSystem: { value: "WeRide", refs: [] },
     route: { value: "松山観光港〜高浜駅、松山環状線", refs: [1] },
     operationType: { value: "レベル4認可・定常運行開始", refs: [1] },
     stakeholders: [
@@ -2037,6 +2211,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "自動運転バス (マクニカ提供等)", refs: [1, 2] },
+    vehicle: { value: "NAVYA EVO", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "JR高知駅〜イオンモール高知〜高知赤十字病院", refs: [1, 2] },
     operationType: { value: "レベル4社会実装に向けた技術検証", refs: [1, 2] },
     stakeholders: [
@@ -2060,6 +2236,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転車両 (のるーと専用車)", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "JR古賀駅東口〜JRししぶ駅東口", refs: [1] },
     operationType: { value: "レベル2（AIオンデマンド連携）", refs: [1] },
     stakeholders: [
@@ -2087,6 +2265,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転専用車両 (ARMA等)", refs: [1] },
+    vehicle: { value: "NAVYA ARMA", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "嬉野温泉駅〜温泉街周辺", refs: [1] },
     operationType: { value: "レベル2相当（観光回遊性向上）", refs: [1] },
     stakeholders: [
@@ -2110,6 +2290,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス (レベル2)", refs: [1, 2] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "熊本城周辺ルート、南熊本駅周辺ルート", refs: [1] },
     operationType: { value: "レベル2（長期実証中）", refs: [1, 2] },
     stakeholders: [
@@ -2133,6 +2315,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "Auve Tech MiCa", refs: [1] },
+    vehicle: { value: "Auve Tech MiCa", refs: [] },
+    adSystem: { value: "Auve Tech", refs: [] },
     route: { value: "境町内循環ルート（第4期拡充エリア含む）", refs: [1] },
     operationType: { value: "レベル2（定常運行）、将来のレベル4実装に向けた検証", refs: [1] },
     stakeholders: [
@@ -2157,6 +2341,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "パナソニック製電動カート", refs: [1] },
+    vehicle: { value: "パナソニック製電動カート", refs: [] },
+    adSystem: { value: "パナソニック", refs: [] },
     route: { value: "永平寺参ろーど 約1.4km", refs: [1] },
     operationType: { value: "レベル2（遠隔監視型、最初期検証）", refs: [1] },
     stakeholders: [
@@ -2181,6 +2367,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス（大型・中型）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "NEC", refs: [] },
     route: { value: "JR前橋駅〜中央前橋駅シャトルルート 約1km", refs: [1] },
     operationType: { value: "レベル2（5G連携・高度技術検証）", refs: [1] },
     stakeholders: [
@@ -2204,6 +2392,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "先進モビリティ製自動運転システム搭載バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "柏の葉キャンパス駅〜東京大学柏キャンパス 約2.5km", refs: [1] },
     operationType: { value: "レベル2（初期公道検証）", refs: [1] },
     stakeholders: [
@@ -2227,6 +2417,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "自動運転中型バス", refs: [1] },
+    vehicle: { value: "NAVYA EVO", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "福山市内中心部 公道路線", refs: [1] },
     operationType: { value: "レベル2〜レベル4に向けた段階的実証", refs: [2] },
     stakeholders: [
@@ -2251,6 +2443,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス、空港用特殊車両", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "中部国際空港内および空港島周辺", refs: [1] },
     operationType: { value: "レベル2〜（段階的実証）", refs: [1] },
     stakeholders: [
@@ -2273,6 +2467,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス「ARMA」等", refs: [1] },
+    vehicle: { value: "NAVYA ARMA", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "九大伊都キャンパス内、博多港周辺エリア", refs: [1] },
     operationType: { value: "レベル2（MaaS連携実証）", refs: [1] },
     stakeholders: [
@@ -2296,6 +2492,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "SAGAサンライズパーク〜佐賀駅周辺", refs: [1] },
     operationType: { value: "レベル2（導入前実証）", refs: [1] },
     stakeholders: [
@@ -2318,6 +2516,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "NAVYA ARMA", refs: [1] },
+    vehicle: { value: "NAVYA ARMA", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "陸前高田市中心市街地", refs: [1] },
     operationType: { value: "レベル2（中心市街地実証）", refs: [1] },
     stakeholders: [
@@ -2340,6 +2540,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス「ARMA」等", refs: [1] },
+    vehicle: { value: "NAVYA ARMA", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "響灘地区・東田地区 各拠点ルート", refs: [1] },
     operationType: { value: "レベル2（複数拠点展開）", refs: [1] },
     stakeholders: [
@@ -2362,6 +2564,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "いすゞ ERGA（大型バス）", refs: [1] },
+    vehicle: { value: "いすゞ エルガ", refs: [] },
+    adSystem: { value: "東京都交通局", refs: [] },
     route: { value: "新木場駅前〜日本科学未来館（片道約30分）", refs: [1] },
     operationType: { value: "レベル2（運転手同乗）", refs: [1] },
     stakeholders: [
@@ -2385,6 +2589,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "NAVYA EVO（自動運転EVバス）", refs: [1] },
+    vehicle: { value: "NAVYA EVO", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "彦根駅〜彦根市立病院〜くすのきセンター", refs: [1] },
     operationType: { value: "レベル2相当（実証運行）", refs: [1] },
     stakeholders: [
@@ -2408,6 +2614,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "Auve Tech MiCa", refs: [1, 2] },
+    vehicle: { value: "Auve Tech MiCa", refs: [] },
+    adSystem: { value: "Auve Tech", refs: [] },
     route: { value: "弥彦村内 循環ルート", refs: [1, 2] },
     operationType: { value: "レベル2（定常運行）", refs: [1, 2] },
     stakeholders: [
@@ -2431,6 +2639,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "大型路線バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ソフトバンク", refs: [] },
     route: { value: "YRP野比駅〜横須賀リサーチパーク（YRP）", refs: [1] },
     operationType: { value: "レベル2（将来のレベル4・隊列走行を見据えた検証）", refs: [1] },
     stakeholders: [
@@ -2454,6 +2664,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転車両", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ソフトバンク", refs: [] },
     route: { value: "慶應義塾大学 湘南藤沢キャンパス（SFC）構内", refs: [1] },
     operationType: { value: "レベル4の無人化に向けたAI遠隔監視・サポート検証", refs: [1] },
     stakeholders: [
@@ -2476,6 +2688,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "スズキ ソリオ（自動運転仕様）", refs: [2] },
+    vehicle: { value: "スズキ ソリオ", refs: [] },
+    adSystem: { value: "スズキ", refs: [] },
     route: { value: "浜松市庄内地区等 路線網（片道約9km等）", refs: [1, 2] },
     operationType: { value: "レベル2（Dispatcherによる遠隔監視・運行管理）", refs: [1] },
     stakeholders: [
@@ -2501,6 +2715,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "自動運転EVバス（レベル2実証車両）", refs: [1, 2] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "国際センター駅〜仙台城跡、東部北エリア、秋保エリア", refs: [1, 2] },
     operationType: { value: "レベル2（将来のレベル4実装に向けた実証）", refs: [1, 2] },
     stakeholders: [
@@ -2524,6 +2740,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "中型自動運転バス（先進モビリティ製システム搭載）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "鶴ヶ峰駅〜よこはま動物園ズーラシア間 路線バスルート", refs: [1] },
     operationType: { value: "レベル2（インフラ協調型・遠隔監視検証）", refs: [1] },
     stakeholders: [
@@ -2548,6 +2766,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "中型自動運転バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "堺駅前〜堺東駅前（大小路筋）約1.5km", refs: [1] },
     operationType: { value: "レベル2（将来のレベル4化に向けた検証）", refs: [1] },
     stakeholders: [
@@ -2570,6 +2790,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "中型自動運転バス（先進モビリティ製システム搭載）", refs: [1, 2] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "五十鈴川駅〜伊勢神宮内宮前", refs: [1, 2] },
     operationType: { value: "レベル2（観光地実証）", refs: [1, 2] },
     stakeholders: [
@@ -2594,6 +2816,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "中型自動運転バス（先進モビリティ製システム搭載）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "八丈島空港〜中心市街地〜底土（しんど）港", refs: [1] },
     operationType: { value: "レベル2（期間限定実証）", refs: [1] },
     stakeholders: [
@@ -2617,6 +2841,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "いすゞ・エルガ（中型バス、レベル4仕様、先進モビリティ製）", refs: [1] },
+    vehicle: { value: "いすゞ エルガ", refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "ひたちBRT専用道全線、JR大甕駅周辺", refs: [1] },
     operationType: { value: "レベル4（特定自動運行・営業運行）", refs: [1] },
     stakeholders: [
@@ -2641,6 +2867,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス（実証車両）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "富士市内（実証ルート）", refs: [1] },
     operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
     stakeholders: [
@@ -2662,6 +2890,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス（実証車両）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "狛江市内（実証ルート）", refs: [1] },
     operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
     stakeholders: [
@@ -2683,6 +2913,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス（実証車両）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "川崎市臨海部（実証ルート）", refs: [1] },
     operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
     stakeholders: [
@@ -2704,6 +2936,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス（実証車両）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "西宮市内（実証ルート）", refs: [1] },
     operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
     stakeholders: [
@@ -2725,6 +2959,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス（実証車両）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "定山渓地区内 実証ルート", refs: [1] },
     operationType: { value: "レベル2（オペレーター同乗）", refs: [1] },
     stakeholders: [
@@ -2746,6 +2982,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "大型自動運転バス（実証車両）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "ガイドウェイバス志段味線 実証区間", refs: [1] },
     operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
     stakeholders: [
@@ -2767,6 +3005,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス（レベル2実証車両）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "相模原駅周辺 実証ルート", refs: [1] },
     operationType: { value: "レベル2（プレ実証）", refs: [1] },
     stakeholders: [
@@ -2788,6 +3028,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "日産リーフベース自動運転車両", refs: [1] },
+    vehicle: { value: "日産リーフ", refs: [] },
+    adSystem: { value: "日産", refs: [] },
     route: { value: "神戸酒心館周辺を含む灘五郷エリア周回ルート", refs: [1] },
     operationType: { value: "レベル2（一般試乗を伴う実証運行）", refs: [1] },
     stakeholders: [
@@ -2810,6 +3052,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "いすゞ エルガ（自動運転システム搭載）", refs: [1] },
+    vehicle: { value: "いすゞ エルガ", refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "千歳駅前西口〜本社ターミナル等の市内ルート", refs: [1] },
     operationType: { value: "レベル2（運転手同乗・必要時介入）", refs: [1] },
     stakeholders: [
@@ -2831,6 +3075,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "NAVYA ARMA等のEV自動運転バス", refs: [1] },
+    vehicle: { value: "NAVYA ARMA", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "苫小牧駅前〜ぷらっとみなと市場等、イベント会場周辺ルート", refs: [1] },
     operationType: { value: "レベル2中心（イベント時にレベル4走行検証を実施）", refs: [1] },
     stakeholders: [
@@ -2852,6 +3098,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "無人自動配送ロボット（中速・中型含む）", refs: [1] },
+    vehicle: { value: "自動配送ロボット", refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "石狩市内の指定エリア（石狩新港地域・緑苑台東地区）", refs: [1] },
     operationType: { value: "遠隔監視型の自動走行実証（限定エリア）", refs: [1] },
     stakeholders: [
@@ -2874,6 +3122,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転サービス車両（地域移動向け）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "コスモール大樹〜尾田地区往復便、市街地循環便", refs: [1] },
     operationType: { value: "道の駅拠点型自動運転サービス実証", refs: [1] },
     stakeholders: [
@@ -2896,6 +3146,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "UDトラックス クオン（レベル4技術搭載大型トラック）", refs: [1] },
+    vehicle: { value: "UDトラックス クオン", refs: [] },
+    adSystem: { value: "UDトラックス", refs: [] },
     route: { value: "中斜里製糖工場と集積施設を結ぶルート（一部公道含む）", refs: [1] },
     operationType: { value: "レベル4技術の実証走行（限定ルート）", refs: [1] },
     stakeholders: [
@@ -2918,6 +3170,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス（レベル2実証車両）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "自由ヶ丘地区コミュニティ・センター〜JR赤間駅南口", refs: [1] },
     operationType: { value: "レベル2（運転手同乗・手動介入可能）", refs: [1] },
     stakeholders: [
@@ -2939,6 +3193,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "EV自動運転バス（レベル2実証車両）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "JR木津駅東口発着・城山台地域周辺ルート", refs: [1] },
     operationType: { value: "レベル2（1:N遠隔監視検証を含む実証）", refs: [1] },
     stakeholders: [
@@ -2961,6 +3217,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス（インフラ協調型）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "羽田空港地域内の実証ルート", refs: [1] },
     operationType: { value: "レベル4相当を目指す実証走行", refs: [1] },
     stakeholders: [
@@ -2983,6 +3241,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "NAVYA ARMA（自動運転シャトルバス）", refs: [1] },
+    vehicle: { value: "NAVYA ARMA", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "丸の内仲通り 往復約200m（バス停1箇所）", refs: [1] },
     operationType: { value: "レベル4対応車両による試乗実証（監視付き）", refs: [1] },
     stakeholders: [
@@ -3004,6 +3264,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転車両（遠隔監視・AI運行管理検証）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ソフトバンク", refs: [] },
     route: { value: "竹芝エリア内 実証ルート", refs: [1] },
     operationType: { value: "レベル4解禁を見据えた運行業務無人化実証", refs: [1] },
     stakeholders: [
@@ -3025,6 +3287,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "Waymo車両（Jaguar I-PACEベース）", refs: [1, 2] },
+    vehicle: { value: "Jaguar I-PACE", refs: [] },
+    adSystem: { value: "Waymo", refs: [] },
     route: { value: "港区・新宿区・渋谷区・千代田区・中央区・品川区・江東区の公道", refs: [1, 2] },
     operationType: { value: "手動運転によるデータ収集・技術適応実証", refs: [1, 2] },
     stakeholders: [
@@ -3047,6 +3311,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "ミニバンタイプ自動運転実験車両", refs: [1] },
+    vehicle: { value: "トヨタ エスティマ ハイブリッド", refs: [] },
+    adSystem: { value: "ZMP", refs: [] },
     route: { value: "大手町フィナンシャルシティ グランキューブ〜六本木ヒルズ（約5.3km）", refs: [1] },
     operationType: { value: "公道営業実証（監視付き自動運転）", refs: [1] },
     stakeholders: [
@@ -3069,6 +3335,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "自動運転バス（実証車両）", refs: [1, 2] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "杉並区 荻窪駅周辺の実証ルート", refs: [1] },
     operationType: { value: "導入推進に向けた走行実証", refs: [1, 2] },
     stakeholders: [
@@ -3092,6 +3360,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "いすゞ エルガ（改造自動運転バス）", refs: [2] },
+    vehicle: { value: "いすゞ エルガ", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "けいはんなプラザ〜KICK周辺（往復約3km、精華大通り付近の片道約1.5km区間を含む）", refs: [1, 2] },
     operationType: { value: "レベル2（部分運転自動化）・1:N遠隔監視実証", refs: [1, 2] },
     stakeholders: [
@@ -3118,6 +3388,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "DRS搭載タクシー車両（データ収集用途）", refs: [1, 2] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "東京都23区内の公道（千代田区、中央区、港区、新宿区、文京区、台東区、墨田区、江東区、品川区、目黒区、大田区、世田谷区、渋谷区、中野区、杉並区、豊島区、北区、荒川区、板橋区、練馬区、足立区、葛飾区、江戸川区）", refs: [1, 2] },
     operationType: { value: "自動運転向けデータ収集・走行環境マッピング実証", refs: [1, 2] },
     stakeholders: [
@@ -3141,6 +3413,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス（実証車両、乗車定員13名）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "JR三郷駅ー立野南二丁目ーFSS35キャンパスー立野南二丁目ーJR三郷駅", refs: [1] },
     operationType: { value: "実証運行（無料・事前予約優先）", refs: [1] },
     stakeholders: [
@@ -3163,6 +3437,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "自動運転小型EVバス Minibus 2.0（ティアフォー提供）", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "TAKANAWA GATEWAY CITY周回（約5分/1日12便）および TAKANAWA GATEWAY CITY〜ウォーターズ竹芝（約65分/1日4便）", refs: [1] },
     operationType: { value: "レベル2（一般乗車可能な実証運行）", refs: [1] },
     stakeholders: [
@@ -3186,6 +3462,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "自動運転バス（事前予約制、1便あたり13名）", refs: [2] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "石畑・殿ケ谷コース（ジョイフル本田方面）約7.5kmの一部区間", refs: [2] },
     operationType: { value: "レベル2（1日6便、無料・事前予約制）", refs: [2] },
     stakeholders: [
@@ -3209,6 +3487,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "小型バス（E-City L6、乗客定員12名）", refs: [1] },
+    vehicle: { value: "E-City L6", refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "高尾駅北口〜高尾台住宅（住01系統相当、片道約2.6km）", refs: [1, 2] },
     operationType: { value: "レベル2（運転手搭乗型、無料実証運行）", refs: [1, 2] },
     stakeholders: [
@@ -3233,6 +3513,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス（実証時の乗車可能人数最大8名）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "JR米子駅〜鳥取大学附属病院間（往復約3km）", refs: [1] },
     operationType: { value: "レベル2（無料・予約不要）", refs: [1] },
     stakeholders: [
@@ -3254,6 +3536,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "いすゞ エルガミオ（座席数28席、実証時定員20名）", refs: [1] },
+    vehicle: { value: "いすゞ エルガミオ", refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "小山駅西口〜ハーヴェストウォーク〜小山温泉思川（片道約20分）", refs: [1] },
     operationType: { value: "レベル2（有償・事前予約制）", refs: [1] },
     stakeholders: [
@@ -3275,6 +3559,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "自動運転バス（レベル2、営業運行対応車両）", refs: [2] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "埼玉工業大学", refs: [] },
     route: { value: "北部シャトル便＋周遊便（JR深谷駅北口起終点、全線合計約37km）", refs: [1, 2] },
     operationType: { value: "レベル2（定時定路線での営業運行）", refs: [1, 2] },
     stakeholders: [
@@ -3298,6 +3584,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "Auve Tech製 MiCa（乗車定員8名）", refs: [1] },
+    vehicle: { value: "Auve Tech MiCa", refs: [] },
+    adSystem: { value: "Auve Tech", refs: [] },
     route: { value: "茅ヶ崎市立病院〜松風台 往復ルート（市立病院発着）", refs: [1] },
     operationType: { value: "レベル2（運転士同乗、モニター予約制）", refs: [1] },
     stakeholders: [
@@ -3321,6 +3609,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "自動運転バス（定員11名）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "越前たけふ駅〜市役所〜越前武生駅（循環約4.9km）", refs: [1] },
     operationType: { value: "レベル2（有償試乗）", refs: [1] },
     stakeholders: [
@@ -3344,6 +3634,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "EVバス（自動運転実証車両）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "甲斐市民バス医大線の一部区間（山梨交通敷島営業所〜JR竜王駅南口）", refs: [1] },
     operationType: { value: "実証運行（無償、9時〜17時予定）", refs: [1] },
     stakeholders: [
@@ -3365,6 +3657,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス（乗車定員18人程度、予約席13席）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "豊橋南プラザ〜大清水駅〜レイクタウン〜レイクヒルズ", refs: [1] },
     operationType: { value: "レベル2（無料、予約優先・空席時当日乗車可）", refs: [1] },
     stakeholders: [
@@ -3387,6 +3681,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "いすゞ自動車製 大型バス「エルガ」", refs: [1] },
+    vehicle: { value: "いすゞ エルガ", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "県道483号（電車通り） 名鉄東岡崎駅南口〜JR岡崎駅東口（約3.5km）", refs: [1] },
     operationType: { value: "レベル2（運転席有人、無料試乗予約制）", refs: [1] },
     stakeholders: [
@@ -3410,6 +3706,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "J6 2.0（小型バス）", refs: [1] },
+    vehicle: { value: "BYD J6 2.0", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "イオンモール豊川〜豊川体育館前西〜豊川市役所前〜イオン豊川店〜豊川駅前", refs: [1] },
     operationType: { value: "レベル2（無料・予約制）", refs: [1] },
     stakeholders: [
@@ -3432,6 +3730,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "大型路線バス（いすゞ ERGA）", refs: [1] },
+    vehicle: { value: "いすゞ エルガ", refs: [] },
+    adSystem: { value: "MONET Technologies", refs: [] },
     route: { value: "土橋駅南口〜三河豊田駅前（片道約4.2km、往復約8.4km）", refs: [1] },
     operationType: { value: "レベル2（運転士同乗、無料試乗）", refs: [1] },
     stakeholders: [
@@ -3456,6 +3756,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "Minibus ver2.0（乗車定員最大14名）", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "桃花台ニュータウン内（桃花台センター起終点、光ヶ丘第三公園前等）", refs: [1] },
     operationType: { value: "レベル2（無料、事前予約推奨・空席時当日乗車可、運転手・補助員同乗）", refs: [1] },
     stakeholders: [
@@ -3479,6 +3781,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "東京都港区高輪エリア", refs: [1] },
     operationType: { value: "レベル2〜（段階的に社会実装推進）", refs: [1] },
     stakeholders: [
@@ -3504,6 +3808,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "福岡県古賀市内", refs: [1] },
     operationType: { value: "レベル2〜", refs: [1] },
     stakeholders: [
@@ -3527,6 +3833,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転バス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "東京都瑞穂町内", refs: [1] },
     operationType: { value: "レベル2〜", refs: [1] },
     stakeholders: [
@@ -3550,6 +3858,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "RoboBus（乗車定員10名程度、着席乗車）", refs: [1] },
+    vehicle: { value: "PIX RoboBus", refs: [] },
+    adSystem: { value: "PIX Moving", refs: [] },
     route: { value: "坂出駅北口→百十四銀行東部支店前→パッケージプラザ前→かきのは前→みんなの動物病院前→マルナカ坂出店前→マイルドハート坂出前→回生病院北→市役所前→坂出駅北口", refs: [1] },
     operationType: { value: "レベル2（無料、先着乗車、運転手乗務）", refs: [1] },
     stakeholders: [
@@ -3572,6 +3882,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "Auve Tech製 EV「MiCa」2台（1台あたり乗車定員7人、オペレーター込み8人）", refs: [1] },
+    vehicle: { value: "Auve Tech MiCa", refs: [] },
+    adSystem: { value: "Auve Tech", refs: [] },
     route: { value: "JR八鹿駅→やぶ市民交流広場→公立八鹿病院→養父市役所→フレッシュバザール八鹿店→スーパーセンタートライアル養父店→道の駅ようか但馬蔵（片道約6.5km）", refs: [1] },
     operationType: { value: "レベル2（無料、予約不要）", refs: [1] },
     stakeholders: [
@@ -3594,6 +3906,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "ヤマハ発動機製 ヤマハグリーンスローモビリティ（2台運行）", refs: [1] },
+    vehicle: { value: "ヤマハグリーンスローモビリティ", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "清水港の港湾施設内および一部公道を含む清水港周辺ルート", refs: [1] },
     operationType: { value: "レベル2（事前予約・当日予約制）", refs: [1] },
     stakeholders: [
@@ -3617,6 +3931,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "電磁誘導方式の自動運転車両（最高速度12km/h）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "日東町・大師町 A/Bルート（総距離約5.5km）", refs: [1] },
     operationType: { value: "レベル2（遠隔監視体制を含む実証運行）", refs: [1] },
     stakeholders: [
@@ -3639,6 +3955,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "Auve Tech製 自動運転EV「MiCa」", refs: [1, 2] },
+    vehicle: { value: "Auve Tech MiCa", refs: [] },
+    adSystem: { value: "Auve Tech", refs: [] },
     route: { value: "VISON構内（自動運転専用レーン内および専用レーン外の一部道路）", refs: [1, 2] },
     operationType: { value: "レベル2実証運行（無料、自由乗車・事前予約不要、14便/日予定）※2024年10月にレベル4車両認可", refs: [1, 2] },
     stakeholders: [
@@ -3662,6 +3980,8 @@ const EXPERIMENTS = [
       refs: [1, 2, 3]
     },
     vehicleType: { value: "ティアフォー製 Autoware搭載車両", refs: [1, 2] },
+    vehicle: { value: "BYD J6", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "村内デマンド型（フルデマンド乗合運行）", refs: [1] },
     operationType: { value: "レベル2相当→レベル4を目指す（2025年中にレベル4試験走行計画）", refs: [1, 3] },
     stakeholders: [
@@ -3688,6 +4008,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "NAVYA EVO（自動運転EVバス）", refs: [1] },
+    vehicle: { value: "NAVYA EVO", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "小樽国際インフォメーションセンター〜色内大通り・堺町本通り〜道道17号小樽港線通り（臨港線）〜小樽国際インフォメーションセンター、循環3.7km", refs: [1] },
     operationType: { value: "レベル2（オペレータ乗車、1日7便、定員8名/便）", refs: [1] },
     stakeholders: [
@@ -3711,6 +4033,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "NAVYA ARMA（ナビヤ アルマ）", refs: [1] },
+    vehicle: { value: "NAVYA ARMA", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "町役場〜道の駅ひがしかわ「道草館」等を通る1周約2.6km", refs: [1] },
     operationType: { value: "レベル2相当（オペレータ乗車、信号交差点以外は無介入自動走行）", refs: [1] },
     stakeholders: [
@@ -3735,6 +4059,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "ティアフォー製自動運転車両", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "高蔵寺ニュータウン内 石尾台・押沢台地区〜高蔵寺駅周辺", refs: [1] },
     operationType: { value: "レベル4実証（2024年度許可取得、2025年度社会実装目標）", refs: [1, 2] },
     stakeholders: [
@@ -3759,6 +4085,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "RoboBus（自動運転バス）", refs: [1] },
+    vehicle: { value: "PIX RoboBus", refs: [] },
+    adSystem: { value: "PIX Moving", refs: [] },
     route: { value: "斎宮歴史博物館周辺ルート", refs: [1] },
     operationType: { value: "実証運行（体験乗車）", refs: [1] },
     stakeholders: [
@@ -3781,6 +4109,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "自動運転車両（詳細は公式発表参照）", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "田原地区 丘陵住宅地〜商業施設・公共施設周辺", refs: [1] },
     operationType: { value: "レベル4実証（段階的実施）", refs: [1, 2] },
     stakeholders: [
@@ -3804,6 +4134,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転EVバス", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "千里ニュータウン内循環ルート", refs: [1] },
     operationType: { value: "実証運行（体験乗車）", refs: [1] },
     stakeholders: [
@@ -3825,6 +4157,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "マクニカ製自動運転車両", refs: [1] },
+    vehicle: { value: "NAVYA EVO", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "太地町内（公共交通空白地域を結ぶルート）", refs: [1] },
     operationType: { value: "社会実装（定常運行）", refs: [1, 2] },
     stakeholders: [
@@ -3848,6 +4182,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転車両", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "道の駅赤来高原周辺ルート", refs: [1] },
     operationType: { value: "実証運行（段階的実施）", refs: [1] },
     stakeholders: [
@@ -3869,6 +4205,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転車両", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "国道195号線沿い（那賀町内区間）", refs: [1] },
     operationType: { value: "実証実験", refs: [1] },
     stakeholders: [
@@ -3890,6 +4228,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "NAVYA ARMA（ナビヤ アルマ）", refs: [1] },
+    vehicle: { value: "NAVYA ARMA", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "JR伊予市駅周辺ルート", refs: [1] },
     operationType: { value: "実証実験（自動運転×ヘルスケア連携）", refs: [1] },
     stakeholders: [
@@ -3911,6 +4251,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転車両", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "JR中村駅〜周辺地域（フィーダールート）", refs: [1] },
     operationType: { value: "実証実験（鉄道連携フィーダー交通）", refs: [1] },
     stakeholders: [
@@ -3933,6 +4275,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "自動運転バス「オレンジスター号」", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "高田地区内ルート", refs: [1] },
     operationType: { value: "実証運行（社会実装を目指し段階的に実施）", refs: [1] },
     stakeholders: [
@@ -3955,6 +4299,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "自動運転車両", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "道の駅芦北でこぽん周辺ルート", refs: [1] },
     operationType: { value: "実証実験", refs: [1] },
     stakeholders: [
@@ -3976,6 +4322,8 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "自動運転シャトルカート", refs: [1] },
+    vehicle: { value: null, refs: [] },
+    adSystem: { value: "不明", refs: [] },
     route: { value: "美浜アメリカンビレッジ周辺（観光・商業エリア内）", refs: [1] },
     operationType: { value: "実証運行（観光地・商業エリア内低速自動運転）", refs: [1] },
     stakeholders: [
@@ -3998,6 +4346,8 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicleType: { value: "NAVYA EVO（自動運転EVバス）", refs: [1] },
+    vehicle: { value: "NAVYA EVO", refs: [] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "斎場御嶽周辺（駐車場〜斎場御嶽入口）", refs: [1] },
     operationType: { value: "実証実験（観光地アクセス向上）", refs: [1] },
     stakeholders: [

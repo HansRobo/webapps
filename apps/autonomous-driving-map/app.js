@@ -135,6 +135,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const orgNames = [...new Set(raw.stakeholders.flatMap((s) => splitOrganizations(s.name)).filter(Boolean))];
     const municipalities = [...new Set(orgNames.filter((name) => /（.+?[都道府県]）/.test(name)))];
     const routeTags = deriveRouteTags(raw.route.value, raw.description.value, raw.location.value);
+    const vehicle = raw.vehicle?.value ?? null;
+    const adSystem = raw.adSystem?.value ?? null;
     const searchableText = [
       raw.name.value,
       raw.location.value,
@@ -147,6 +149,8 @@ document.addEventListener("DOMContentLoaded", () => {
       raw.route.value,
       orgNames.join(" "),
       municipalities.join(" "),
+      vehicle ?? "",
+      adSystem ?? "",
     ]
       .join(" ")
       .toLowerCase();
@@ -163,6 +167,8 @@ document.addEventListener("DOMContentLoaded", () => {
       status,
       description: raw.description.value,
       vehicleType: raw.vehicleType.value,
+      vehicle,
+      adSystem,
       operationType: raw.operationType.value,
       route: raw.route.value,
       stakeholders: raw.stakeholders,
@@ -666,6 +672,8 @@ document.addEventListener("DOMContentLoaded", () => {
         ${field("実施期間", exp.period)}
         ${field("運行形態", exp.operationType)}
         ${field("使用車両", exp.vehicleType)}
+        ${exp.vehicle?.value ? `<div class="detail-field"><span class="detail-field__label">車両名</span><span class="detail-field__value">${escHtml(exp.vehicle.value)}${refLink(exp.vehicle.refs ?? [])}</span></div>` : ""}
+        ${exp.adSystem?.value ? `<div class="detail-field"><span class="detail-field__label">自動運転システム</span><span class="detail-field__value">${escHtml(exp.adSystem.value)}${refLink(exp.adSystem.refs ?? [])}</span></div>` : ""}
         ${field("ルート", exp.route)}
         ${field("概要", exp.description, ' style="grid-template-columns: 140px 1fr"')}
       </div>

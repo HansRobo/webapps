@@ -130,6 +130,9 @@
     "本田技研工業株式会社",
     "名鉄バス株式会社",
     "琉球バス交通株式会社",
+    "関西電力株式会社",
+    "大成ロテック株式会社",
+    "独立行政法人都市再生機構（UR都市機構）",
   ];
 
   // 自治体（市町村・特別区は 市町村名（都道府県） で統一）
@@ -244,6 +247,10 @@
     "浪江町（福島県）",
     "和歌山市（和歌山県）",
     "和光市（埼玉県）",
+    "木津川市（京都府）",
+    "立山町（富山県）",
+    "大町市（長野県）",
+    "宗像市（福岡県）",
   ];
 
   // 省庁・大学・研究機関・都道府県・公共団体
@@ -305,6 +312,100 @@
     ...exports.MUNICIPALITIES,
     ...exports.PUBLIC_ORGS,
   ];
+
+  // 使用車両（ベース車両名 or 専用設計AD車両名）
+  // 表記ゆれ防止のため、data.js の vehicle.value はここから参照すること
+  // 専用設計型AD車両（purpose-built）: 車両メーカー名を adSystem にも設定する
+  // 市販車ベース改造: 市販車名を vehicle、ADシステム提供会社を adSystem に設定する
+  exports.VEHICLES = {
+    // 専用設計型自動運転車両
+    NAVYA_ARMA: "NAVYA ARMA",
+    NAVYA_EVO: "NAVYA EVO",
+    AUVE_TECH_MICA: "Auve Tech MiCa",
+    CRUISE_ORIGIN: "Cruise Origin",
+    E_PALETTE: "e-Palette",
+    HAKOBUS: "HAKOBUS",
+    PIX_ROBOBUS: "PIX RoboBus",
+    E_CITY_L6: "E-City L6",
+    WERIDE_BUS: "WeRideバス",
+    TAJIMA_GSM8: "タジマ GSM8",
+    // 低速モビリティ（ヤマハ発動機）
+    YAMAHA_GREEN_SLOW_MOBILITY: "ヤマハグリーンスローモビリティ",
+    YAMAHA_LANDCAR: "ヤマハ ランドカー",
+    YAMAHA_GOLF_CAR: "ヤマハ ゴルフカー（公道仕様）",
+    // その他専用設計
+    PANASONIC_ELECTRIC_CART: "パナソニック製電動カート",
+    DELIVERY_ROBOT: "自動配送ロボット",
+    // EVモーターズ・ジャパン製バス
+    EV_MOTORS_JAPAN_F8_MINI: "EVモーターズ・ジャパン F8 series4-Mini Bus",
+    EV_MOTORS_JAPAN_F8_CITY: "EVモーターズ・ジャパン F8シリーズ2",
+    // 市販車ベース（バス）
+    BYD_J6: "BYD J6",
+    BYD_J6_2: "BYD J6 2.0",
+    BYD_K8_2: "BYD K8 2.0",
+    ISUZU_ERGA: "いすゞ エルガ",
+    ISUZU_ERGA_EV: "いすゞ エルガEV",
+    ISUZU_ERGA_MIO: "いすゞ エルガミオ",
+    ISUZU_ERGA_DUO: "いすゞ エルガデュオ",
+    ISUZU_GIGA: "いすゞ ギガ",
+    HINO_PONCHO: "日野ポンチョ",
+    HINO_RAINBOW: "日野レインボー",
+    HINO_RAINBOW_II: "日野レインボーII",
+    HINO_BLUE_RIBBON: "日野ブルーリボン",
+    HINO_RIESSEII: "日野リエッセII",
+    HINO_PROFIA: "日野プロフィア",
+    MITSUBISHI_SUPER_GREAT: "三菱ふそう スーパーグレート",
+    MITSUBISHI_AERO_ACE: "三菱ふそう エアロエース",
+    UD_QUON: "UDトラックス クオン",
+    // 市販車ベース（乗用車・ミニバン）
+    NISSAN_LEAF: "日産リーフ",
+    NISSAN_SERENA: "日産セレナ",
+    TOYOTA_ALPHARD: "トヨタ アルファード",
+    TOYOTA_SIENNA: "トヨタ シエナ",
+    TOYOTA_ESTIMA_HYBRID: "トヨタ エスティマ ハイブリッド",
+    SUZUKI_SOLIO: "スズキ ソリオ",
+    HYUNDAI_IONIQ5: "Hyundai IONIQ5",
+    JAGUAR_I_PACE: "Jaguar I-PACE",
+    // 詳細不明
+    UNKNOWN: "詳細不明",
+  };
+
+  // 搭載自動運転システム（開発・提供会社名）
+  // 専用設計型AD車両（NAVYA、Auve Tech 等）もメーカー名を記載する
+  // アイサンテクノロジー・BOLDLY・ヤマハ発動機は自前のADシステムを持たないため記載しない
+  exports.AD_SYSTEMS = {
+    // 専用設計型AD車両メーカー（車両とADシステムを一体提供）
+    NAVYA: "NAVYA",
+    AUVE_TECH: "Auve Tech",
+    CRUISE: "Cruise",
+    PIX_MOVING: "PIX Moving",
+    WERIDE: "WeRide",
+    // AD技術専業・自動車メーカー系
+    ADVANCED_MOBILITY: "先進モビリティ",
+    TIER_IV: "ティアフォー",
+    ZMP: "ZMP",
+    A_DRIVE: "A-Drive",
+    A2Z: "a2z",
+    MAY_MOBILITY: "May Mobility",
+    WAYMO: "Waymo",
+    WAYVE: "Wayve",
+    NIHON_MOBILITY: "日本モビリティ",
+    SAITAMA_UNIV: "埼玉工業大学",
+    MONET: "MONET Technologies",
+    // 自動車メーカー（自社AD開発）
+    NISSAN: "日産",
+    SUZUKI: "スズキ",
+    UD_TRUCKS: "UDトラックス",
+    YAMAHA: "ヤマハ発動機",
+    PANASONIC: "パナソニック",
+    // その他IT・インフラ系
+    DENA: "DeNA",
+    MINNA_NO_TAXI: "みんなのタクシー",
+    SOFTBANK: "ソフトバンク",
+    TOKYO_METRO: "東京都交通局",
+    NEC: "NEC",
+    UNKNOWN: "不明",
+  };
 
 
   // ステークホルダーの役割（現在データに存在する値）
