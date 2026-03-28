@@ -320,59 +320,70 @@
   // 専用設計型AD車両（purpose-built）: 車両メーカー名を adSystem にも設定する
   // 市販車ベース改造: 市販車名を vehicle、ADシステム提供会社を adSystem に設定する
   exports.VEHICLES = {
-    // 専用設計型自動運転車両
+    // Auve Tech
+    AUVE_TECH_MICA: "Auve Tech MiCa",
+    // BYD
+    BYD_J6: "BYD J6",
+    BYD_K8: "BYD K8",
+    // Cruise
+    CRUISE_ORIGIN: "Cruise Origin",
+    // EVモーターズ・ジャパン
+    EV_MOTORS_JAPAN_F8_MINI: "EVモーターズ・ジャパン F8 series4-Mini Bus",
+    EV_MOTORS_JAPAN_F8_CITY: "EVモーターズ・ジャパン F8シリーズ2",
+    // Hyundai
+    HYUNDAI_IONIQ5: "Hyundai IONIQ5",
+    // いすゞ
+    ISUZU_ERGA: "いすゞ エルガ",
+    ISUZU_ERGA_EV: "いすゞ エルガEV",
+    ISUZU_ERGA_MIO: "いすゞ エルガミオ",
+    ISUZU_ERGA_DUO: "いすゞ エルガデュオ",
+    ISUZU_GIGA: "いすゞ ギガ",
+    // Jaguar
+    JAGUAR_I_PACE: "Jaguar I-PACE",
+    // 三菱ふそう
+    MITSUBISHI_SUPER_GREAT: "三菱ふそう スーパーグレート",
+    MITSUBISHI_AERO_ACE: "三菱ふそう エアロエース",
+    // NAVYA
     NAVYA_ARMA: "NAVYA ARMA",
     NAVYA_EVO: "NAVYA EVO",
-    AUVE_TECH_MICA: "Auve Tech MiCa",
-    CRUISE_ORIGIN: "Cruise Origin",
-    E_PALETTE: "e-Palette",
-    HAKOBUS: "HAKOBUS",
+    // 日産
+    NISSAN_LEAF: "日産リーフ",
+    NISSAN_SERENA: "日産セレナ",
+    // パナソニック
+    PANASONIC_ELECTRIC_CART: "パナソニック製電動カート",
+    // PIX Moving
     PIX_ROBOBUS: "PIX RoboBus",
-    E_CITY_L6: "E-City L6",
-    WERIDE_BUS: "WeRideバス",
+    // スズキ
+    SUZUKI_SOLIO: "スズキ ソリオ",
+    // タジマモーターコーポレーション
     TAJIMA_GSM8: "タジマ GSM8",
-    // 低速モビリティ（ヤマハ発動機）
+    // トヨタ
+    E_PALETTE: "e-Palette",
+    TOYOTA_ALPHARD: "トヨタ アルファード",
+    TOYOTA_VELLFIRE: "トヨタ ヴェルファイア",
+    TOYOTA_SIENNA: "トヨタ シエナ",
+    TOYOTA_ESTIMA_HYBRID: "トヨタ エスティマ ハイブリッド",
+    // UDトラックス
+    UD_QUON: "UDトラックス クオン",
+    // WeRide
+    WERIDE_BUS: "WeRideバス",
+    // ヤマハ発動機
+    HAKOBUS: "HAKOBUS",
     YAMAHA_GREEN_SLOW_MOBILITY: "ヤマハグリーンスローモビリティ",
     YAMAHA_LANDCAR: "ヤマハランドカー",
     YAMAHA_GOLF_CAR: "ヤマハ ゴルフカー（公道仕様）",
-    // その他専用設計
-    PANASONIC_ELECTRIC_CART: "パナソニック製電動カート",
-    DELIVERY_ROBOT: "自動配送ロボット",
-    // EVモーターズ・ジャパン製バス
-    EV_MOTORS_JAPAN_F8_MINI: "EVモーターズ・ジャパン F8 series4-Mini Bus",
-    EV_MOTORS_JAPAN_F8_CITY: "EVモーターズ・ジャパン F8シリーズ2",
-    // 市販車ベース（バス）
-    BYD_J6: "BYD J6",
-    BYD_K8: "BYD K8",
-    // いすゞ バス製品群（メーカーサイトの区分に合わせて整理）
-    // 路線バス「エルガ」
-    ISUZU_ERGA: "いすゞ エルガ",
-    // 路線バス「エルガEV」
-    ISUZU_ERGA_EV: "いすゞ エルガEV",
-    // プロトタイプは同車種としてエルガEVに統合
-    // 路線バス「エルガミオ」
-    ISUZU_ERGA_MIO: "いすゞ エルガミオ",
-    // 連節バス「エルガデュオ」
-    ISUZU_ERGA_DUO: "いすゞ エルガデュオ",
-    ISUZU_GIGA: "いすゞ ギガ",
+    // 日野
     HINO_PONCHO: "日野ポンチョ",
     HINO_RAINBOW: "日野レインボー",
     HINO_RAINBOW_II: "日野レインボーII",
     HINO_BLUE_RIBBON: "日野ブルーリボン",
     HINO_RIESSEII: "日野リエッセII",
     HINO_PROFIA: "日野プロフィア",
-    MITSUBISHI_SUPER_GREAT: "三菱ふそう スーパーグレート",
-    MITSUBISHI_AERO_ACE: "三菱ふそう エアロエース",
-    UD_QUON: "UDトラックス クオン",
-    // 市販車ベース（乗用車・ミニバン）
-    NISSAN_LEAF: "日産リーフ",
-    NISSAN_SERENA: "日産セレナ",
-    TOYOTA_ALPHARD: "トヨタ アルファード",
-    TOYOTA_SIENNA: "トヨタ シエナ",
-    TOYOTA_ESTIMA_HYBRID: "トヨタ エスティマ ハイブリッド",
-    SUZUKI_SOLIO: "スズキ ソリオ",
-    HYUNDAI_IONIQ5: "Hyundai IONIQ5",
-    JAGUAR_I_PACE: "Jaguar I-PACE",
+    // その他分類
+    E_CITY_L6: "E-City L6",
+    DELIVERY_ROBOT: "自動配送ロボット",
+    LARGE_ROUTE_BUS_GENERIC: "大型路線バス",
+    SPECIAL_EQUIPMENT_VEHICLE: "特別装置自動車（ハンドル・ペダルなし）",
     // 詳細不明
     UNKNOWN: "詳細不明",
   };
@@ -398,15 +409,13 @@
     WAYVE: "Wayve",
     NIHON_MOBILITY: "日本モビリティ",
     SAITAMA_UNIV: "埼玉工業大学",
-    MONET: "MONET Technologies",
+    AIST: "産総研",
     // 自動車メーカー（自社AD開発）
     NISSAN: "日産",
     SUZUKI: "スズキ",
     UD_TRUCKS: "UDトラックス",
     YAMAHA: "ヤマハ発動機",
-    PANASONIC: "パナソニック",
     // その他IT・インフラ系
-    DENA: "DeNA",
     MINNA_NO_TAXI: "みんなのタクシー",
     SOFTBANK: "ソフトバンク",
     NEC: "NEC",

@@ -79,6 +79,8 @@ function validateExperiments(experiments, enums) {
     "operationType",
   ];
   const knownRoles = Array.isArray(enums.STAKEHOLDER_ROLES) ? enums.STAKEHOLDER_ROLES : [];
+  const knownAdSystems = Object.values(enums.AD_SYSTEMS ?? {});
+  const knownVehicles = Object.values(enums.VEHICLES ?? {});
   const roleNormToKnown = new Map();
   for (const r of knownRoles) {
     const n = normalizeRole(r);
@@ -127,6 +129,12 @@ function validateExperiments(experiments, enums) {
 
     if (exp.prefecture?.value && !enums.PREFECTURES.includes(exp.prefecture.value))
       err(id, `prefecture.value "${exp.prefecture.value}" は47都道府県に含まれません`);
+
+    if (exp.adSystem?.value && !knownAdSystems.includes(exp.adSystem.value))
+      err(id, `adSystem.value "${exp.adSystem.value}" は許可されたenum値ではありません。許可値: ${knownAdSystems.join(", ")}`);
+
+    if (exp.vehicle?.value && !knownVehicles.includes(exp.vehicle.value))
+      err(id, `vehicle.value "${exp.vehicle.value}" は許可されたenum値ではありません。許可値: ${knownVehicles.join(", ")}`);
 
     if (!Array.isArray(exp.stakeholders) || exp.stakeholders.length === 0) {
       warn(id, "stakeholders が空または配列ではありません");
