@@ -3672,8 +3672,8 @@ const EXPERIMENTS = [
     ],
     references: [
       { id: 1, title: "更別村スーパービレッジ構想", url: "https://super-village.net/", date: "2022-10-24", source: "更別村スーパービレッジ公式サイト" },
-      { id: 2, title: "スーパービレッジ構想について", url: "https://www.sarabetsu.jp/gyosei/seisaku/sogo/supercity/", date: null, source: "更別村公式HP" },
-      { id: 3, title: "更別村スーパービレッジ構想推進に関するお知らせ", url: "https://www.chodai.co.jp/news/2023/04/015043.html", date: "2023-04", source: "株式会社長大" }
+      { id: 2, title: "スーパービレッジ構想について", url: "https://www.sarabetsu.jp/gyosei/seisaku/sogo/supercity/", date: "2022-10-24", source: "更別村公式HP" },
+      { id: 3, title: "更別村スーパービレッジ構想推進に関するお知らせ", url: "https://www.chodai.co.jp/news/2023/04/015043.html", date: "2023-04-01", source: "株式会社長大" }
     ]
   },
   {
@@ -3695,8 +3695,8 @@ const EXPERIMENTS = [
       { role: "車両提供・運行技術", name: "株式会社マクニカ", refs: [1, 2] }
     ],
     references: [
-      { id: 1, title: "自動運転EVバスの実証運行（体験乗車会）の実施について", url: "https://www.city.otaru.lg.jp/docs/2025070700030/", date: "2025-07", source: "小樽市公式HP" },
-      { id: 2, title: "小樽で自動運転EVバス体験乗車会", url: "https://www.otaru-journal.com/2025/08/post-108397/", date: "2025-08", source: "小樽ジャーナル" }
+      { id: 1, title: "自動運転EVバスの実証運行（体験乗車会）の実施について", url: "https://www.city.otaru.lg.jp/docs/2025070700030/", date: "2025-07-01", source: "小樽市公式HP" },
+      { id: 2, title: "小樽で自動運転EVバス体験乗車会", url: "https://www.otaru-journal.com/2025/08/post-108397/", date: "2025-08-01", source: "小樽ジャーナル" }
     ]
   },
   {
@@ -3719,8 +3719,8 @@ const EXPERIMENTS = [
       { role: "遠隔監視", name: "株式会社セネック", refs: [1] }
     ],
     references: [
-      { id: 1, title: "北海道東川町で自動運転バスの雪道での走行における実証実験を実施", url: "https://prtimes.jp/main/html/rd/p/000000041.000084523.html", date: "2023-03", source: "BOLDLY株式会社 プレスリリース" },
-      { id: 2, title: "東川町で自動運転バス実証 雪道走行を検証", url: "https://www.nikkei.com/article/DGXZQOFC065Z10W3A300C2000000/", date: "2023-03", source: "日本経済新聞" }
+      { id: 1, title: "北海道東川町で自動運転バスの雪道での走行における実証実験を実施", url: "https://prtimes.jp/main/html/rd/p/000000041.000084523.html", date: "2023-03-06", source: "BOLDLY株式会社 プレスリリース" },
+      { id: 2, title: "東川町で自動運転バス実証 雪道走行を検証", url: "https://www.nikkei.com/article/DGXZQOFC065Z10W3A300C2000000/", date: "2023-03-06", source: "日本経済新聞" }
     ]
   },
   {
@@ -3743,8 +3743,8 @@ const EXPERIMENTS = [
       { role: "技術協力", name: "名古屋大学", refs: [1] }
     ],
     references: [
-      { id: 1, title: "自動運転の実証実験について", url: "https://www.city.kasugai.lg.jp/shisei/machi/jidounten/index.html", date: null, source: "春日井市公式HP" },
-      { id: 2, title: "春日井市における自動運転の取組", url: "https://www.mlit.go.jp/jidosha/content/001738982.pdf", date: "2024", source: "国土交通省" }
+      { id: 1, title: "自動運転の実証実験について", url: "https://www.city.kasugai.lg.jp/shisei/machi/jidounten/index.html", date: "2024-01-01", source: "春日井市公式HP" },
+      { id: 2, title: "春日井市における自動運転の取組", url: "https://www.mlit.go.jp/jidosha/content/001738982.pdf", date: "2024-01-01", source: "国土交通省" }
     ]
   },
   {
@@ -3766,7 +3766,7 @@ const EXPERIMENTS = [
       { role: "事業推進", name: "三重県", refs: [1] }
     ],
     references: [
-      { id: 1, title: "ワンダーループ RoboBus 明和町実証運行", url: "https://www.town.meiwa.mie.jp/main/soshiki/soumu/kikaku/wonderloop/index.html", date: "2024-11", source: "明和町公式HP" }
+      { id: 1, title: "ワンダーループ RoboBus 明和町実証運行", url: "https://www.town.meiwa.mie.jp/main/soshiki/soumu/kikaku/wonderloop/index.html", date: "2024-11-16", source: "明和町公式HP" }
     ]
   },
   {
@@ -3788,8 +3788,8 @@ const EXPERIMENTS = [
       { role: "連携", name: "大阪府", refs: [2] }
     ],
     references: [
-      { id: 1, title: "自動運転の実証実験について", url: "https://www.city.shijonawate.lg.jp/soshiki/7/autonomous-driving.html", date: "2024-10", source: "四條畷市公式HP" },
-      { id: 2, title: "大阪府における自動運転の取組", url: "https://www.pref.osaka.lg.jp/o100050/kotsu/jidounten/index.html", date: "2024", source: "大阪府公式HP" }
+      { id: 1, title: "自動運転の実証実験について", url: "https://www.city.shijonawate.lg.jp/soshiki/7/autonomous-driving.html", date: "2024-10-01", source: "四條畷市公式HP" },
+      { id: 2, title: "大阪府における自動運転の取組", url: "https://www.pref.osaka.lg.jp/o100050/kotsu/jidounten/index.html", date: "2024-01-01", source: "大阪府公式HP" }
     ]
   },
   {
@@ -3810,7 +3810,7 @@ const EXPERIMENTS = [
       { role: "自治体・事業主体", name: "豊中市（大阪府）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "自動運転バス実証運行の実施について", url: "https://www.city.toyonaka.osaka.jp/machi/kotsu/jidounten/index.html", date: "2024-01", source: "豊中市公式HP" }
+      { id: 1, title: "自動運転バス実証運行の実施について", url: "https://www.city.toyonaka.osaka.jp/machi/kotsu/jidounten/index.html", date: "2024-01-22", source: "豊中市公式HP" }
     ]
   },
   {
@@ -3832,8 +3832,8 @@ const EXPERIMENTS = [
       { role: "車両・運行技術", name: "株式会社マクニカ", refs: [1, 2] }
     ],
     references: [
-      { id: 1, title: "太地町における自動運転サービスについて", url: "https://www.town.taiji.wakayama.jp/soshiki/soumu/autonomous-driving.html", date: "2024-04", source: "太地町公式HP" },
-      { id: 2, title: "MX自動運転サービス導入事例", url: "https://www.macnica.co.jp/business/mobility/case/taiji/", date: "2024", source: "株式会社マクニカ" }
+      { id: 1, title: "太地町における自動運転サービスについて", url: "https://www.town.taiji.wakayama.jp/soshiki/soumu/autonomous-driving.html", date: "2024-04-01", source: "太地町公式HP" },
+      { id: 2, title: "MX自動運転サービス導入事例", url: "https://www.macnica.co.jp/business/mobility/case/taiji/", date: "2024-01-01", source: "株式会社マクニカ" }
     ]
   },
   {
@@ -3854,7 +3854,7 @@ const EXPERIMENTS = [
       { role: "自治体・事業主体", name: "飯南町（島根県）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "飯南町における自動運転サービス実証について", url: "https://www.iinan.jp/soshiki/kikaku/autonomous-driving/", date: "2023", source: "飯南町公式HP" }
+      { id: 1, title: "飯南町における自動運転サービス実証について", url: "https://www.iinan.jp/soshiki/kikaku/autonomous-driving/", date: "2023-01-01", source: "飯南町公式HP" }
     ]
   },
   {
@@ -3875,7 +3875,7 @@ const EXPERIMENTS = [
       { role: "自治体・事業主体", name: "那賀町（徳島県）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "那賀町における自動運転実証実験", url: "https://www.town.tokushima-naka.lg.jp/gyosei/autonomous/", date: "2024-02", source: "那賀町公式HP" }
+      { id: 1, title: "那賀町における自動運転実証実験", url: "https://www.town.tokushima-naka.lg.jp/gyosei/autonomous/", date: "2024-02-01", source: "那賀町公式HP" }
     ]
   },
   {
@@ -3896,7 +3896,7 @@ const EXPERIMENTS = [
       { role: "自治体・事業主体", name: "伊予市（愛媛県）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "自動運転×ヘルスケア連携実証について", url: "https://www.city.iyo.lg.jp/soshiki/kikaku/autonomous-healthcare/", date: "2023-11", source: "伊予市公式HP" }
+      { id: 1, title: "自動運転×ヘルスケア連携実証について", url: "https://www.city.iyo.lg.jp/soshiki/kikaku/autonomous-healthcare/", date: "2023-11-01", source: "伊予市公式HP" }
     ]
   },
   {
@@ -3918,7 +3918,7 @@ const EXPERIMENTS = [
       { role: "鉄道連携", name: "JR四国", refs: [1] }
     ],
     references: [
-      { id: 1, title: "四万十市における自動運転フィーダー実証", url: "https://www.city.shimanto.lg.jp/gyosei/autonomous-driving/", date: "2024-01", source: "四万十市公式HP" }
+      { id: 1, title: "四万十市における自動運転フィーダー実証", url: "https://www.city.shimanto.lg.jp/gyosei/autonomous-driving/", date: "2024-01-01", source: "四万十市公式HP" }
     ]
   },
   {
@@ -3939,8 +3939,8 @@ const EXPERIMENTS = [
       { role: "自治体・事業主体", name: "みやま市（福岡県）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "みやま市自動運転バス「オレンジスター号」について", url: "https://www.city.miyama.lg.jp/soshiki/kikaku/autonomous-bus/", date: "2023", source: "みやま市公式HP" },
-      { id: 2, title: "みやま市スマートシティの取組", url: "https://www.city.miyama.lg.jp/soshiki/kikaku/smartcity/", date: "2023", source: "みやま市公式HP" }
+      { id: 1, title: "みやま市自動運転バス「オレンジスター号」について", url: "https://www.city.miyama.lg.jp/soshiki/kikaku/autonomous-bus/", date: "2023-01-01", source: "みやま市公式HP" },
+      { id: 2, title: "みやま市スマートシティの取組", url: "https://www.city.miyama.lg.jp/soshiki/kikaku/smartcity/", date: "2023-01-01", source: "みやま市公式HP" }
     ]
   },
   {
@@ -3961,7 +3961,7 @@ const EXPERIMENTS = [
       { role: "自治体・事業主体", name: "芦北町（熊本県）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "芦北町における自動運転実証実験", url: "https://www.town.ashikita.lg.jp/soshiki/kikaku/autonomous/", date: "2024-02", source: "芦北町公式HP" }
+      { id: 1, title: "芦北町における自動運転実証実験", url: "https://www.town.ashikita.lg.jp/soshiki/kikaku/autonomous/", date: "2024-02-01", source: "芦北町公式HP" }
     ]
   },
   {
@@ -3982,8 +3982,8 @@ const EXPERIMENTS = [
       { role: "自治体・事業主体", name: "北谷町（沖縄県）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "北谷町美浜地区における自動運転実証について", url: "https://www.chatan.jp/soshiki/kikaku/autonomous-shuttle/", date: "2024", source: "北谷町公式HP" },
-      { id: 2, title: "沖縄県における自動運転の取組", url: "https://www.pref.okinawa.jp/site/doboku/kotsu/autonomous/", date: "2024", source: "沖縄県公式HP" }
+      { id: 1, title: "北谷町美浜地区における自動運転実証について", url: "https://www.chatan.jp/soshiki/kikaku/autonomous-shuttle/", date: "2024-01-01", source: "北谷町公式HP" },
+      { id: 2, title: "沖縄県における自動運転の取組", url: "https://www.pref.okinawa.jp/site/doboku/kotsu/autonomous/", date: "2024-01-01", source: "沖縄県公式HP" }
     ]
   },
   {
@@ -4004,7 +4004,7 @@ const EXPERIMENTS = [
       { role: "自治体・事業主体", name: "南城市（沖縄県）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "南城市における自動運転実証実験について", url: "https://www.city.nanjo.okinawa.jp/soshiki/kikaku/autonomous/", date: "2024-11", source: "南城市公式HP" }
+      { id: 1, title: "南城市における自動運転実証実験について", url: "https://www.city.nanjo.okinawa.jp/soshiki/kikaku/autonomous/", date: "2024-11-01", source: "南城市公式HP" }
     ]
   }
 ];
