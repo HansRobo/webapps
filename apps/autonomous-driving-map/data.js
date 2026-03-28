@@ -298,8 +298,8 @@ const EXPERIMENTS = [
       { role: "参画企業", name: "先進モビリティ株式会社、いすゞ自動車株式会社、日野自動車株式会社、三菱ふそうトラック・バス株式会社、UDトラックス株式会社", refs: [1, 4] }
     ],
     references: [
-      { id: 1, title: "新東名高速道路における自動運転トラック実証実験について", url: "https://www.mlit.go.jp/report/press/road01_hh_001869.html", date: "2024-11-01", source: "国土交通省" },
-      { id: 2, title: "自動運転車優先レーン設定と路車協調機能の検証", url: "https://www.c-nexco.co.jp/corporate/pressroom/news_release/6281.html", date: "2024-11-01", source: "NEXCO中日本" },
+      { id: 1, title: "新東名高速道路における自動運転トラックの要素技術検証を開始", url: "https://www.mlit.go.jp/report/press/road01_hh_001853.html", date: "2024-11-05", source: "国土交通省" },
+      { id: 2, title: "新東名高速道路における自動運転トラックの要素技術検証を開始", url: "https://www.c-nexco.co.jp/corporate/pressroom/news_release/6224.html", date: "2024-11-05", source: "NEXCO中日本" },
       { id: 3, title: "新東名高速道路の自動運転車優先レーンで 自動運転大型トラックの実証実験を開始", url: "https://www.udtrucks.com/japan/news-and-stories/info/20250218/rttl4-shintomei", date: "2025-02-18", source: "UDトラックス" },
       { id: 4, title: "レベル4自動運転トラックの社会実装に向けた実証開始", url: "https://www.udtrucks.com/japan/news-and-stories/news/20251021/road-to-the-l4", date: "2025-10-21", source: "UDトラックス" }
     ]
@@ -372,8 +372,8 @@ const EXPERIMENTS = [
       { role: "自動運転システム開発", name: "株式会社ティアフォー", refs: [1, 2] }
     ],
     references: [
-      { id: 1, title: "お台場エリアでの自動運転実証実験について", url: "https://www.impress.co.jp/", date: "2024-01-01", source: "Impress Watch" },
-      { id: 2, title: "ティアフォー、トヨタ「e-Palette」を活用したレベル4自動運転開発へ", url: "https://jidounten-lab.com/", date: "2024-01-15", source: "自動運転ラボ" }
+      { id: 1, title: "トヨタとティアフォー、2027年度内を目指しレベル4自動運転をバッテリEV「イーパレット」で実現へ AI自動運転機能も一部検討", url: "https://car.watch.impress.co.jp/docs/news/2081229.html", date: "2026-01-27", source: "Car Watch" },
+      { id: 2, title: "トヨタ、Googleやテスラに負けじと「市販の自動運転レベル4」発売へ", url: "https://jidounten-lab.com/u_56966", date: "2025-09-22", source: "自動運転ラボ" }
     ]
   },
   {
@@ -595,7 +595,7 @@ const EXPERIMENTS = [
     ],
     references: [
       { id: 1, title: "八丈島でAIデマンドタクシー・自動運転バスの実証事業を実施", url: "https://www.metro.tokyo.lg.jp/information/press/2025/06/2025062001", date: "2025-06-20", source: "東京都 報道発表資料" },
-      { id: 2, title: "八丈町スマートモビリティプロジェクト", url: "https://www.town.hachijo.tokyo.jp/kakuka/kikaku/smartmobility.html", date: "2025-07-01", source: "八丈町" }
+      { id: 2, title: "八丈町スマートモビリティプロジェクト", url: null, date: "2025-07-01", source: "八丈町", note: "リンク切れ（廃止）" }
     ]
   },
   {
@@ -623,7 +623,7 @@ const EXPERIMENTS = [
   },
   {
     id: "exp-022",
-    name: { value: "伊勢神宮内宮エリア 自動運転バス実証運行（アイサンテクノロジー等）", refs: [1] },
+    name: { value: "伊勢神宮内宮エリア 自動運転バス実証運行（三重交通等）", refs: [1] },
     location: { value: "三重県伊勢市（伊勢神宮内宮エリア）", lat: 34.455, lng: 136.725, refs: [1] },
     prefecture: { value: "三重県", refs: [1] },
     period: { value: "2025年12月運行", refs: [1] },
@@ -634,10 +634,10 @@ const EXPERIMENTS = [
     },
     vehicle: { value: "BYD J6", refs: [1] },
     adSystem: { value: "ティアフォー", refs: [] },
-    route: { value: "伊勢神宮内宮周辺エリア", refs: [1] },
+    route: { value: "近鉄五十鈴川駅〜内宮（宇治橋前）", refs: [1] },
     operationType: { value: "実証実験", refs: [1] },
     stakeholders: [
-      { role: "事業参画", name: "アイサンテクノロジー株式会社", refs: [1] },
+      { role: "運行事業者", name: "三重交通株式会社", refs: [1] },
       { role: "自治体", name: "伊勢市（三重県）", refs: [1] }
     ],
     references: [
@@ -690,7 +690,7 @@ const EXPERIMENTS = [
       { role: "自治体", name: "青森県", refs: [1] }
     ],
     references: [
-      { id: 1, title: "青森県 奥入瀬渓流 自動運転実証実験", url: "https://travel.willer.co.jp/", date: "2024-10-01", source: "WILLER TRAVEL" }
+      { id: 1, title: "青森県 奥入瀬渓流 自動運転実証実験", url: "https://travel.willer.co.jp/maas/autonomousdriving/", date: "2024-10-01", source: "WILLER TRAVEL" }
     ]
   },
   {
@@ -737,7 +737,7 @@ const EXPERIMENTS = [
       { role: "システム", name: "先進モビリティ株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "気仙沼線BRTにおける自動運転について", url: "https://www.jreast.co.jp/press/2022/20221124_ho01.pdf", date: "2024-01-01", source: "JR東日本" }
+      { id: 1, title: "気仙沼BRT｜RoAD to the L4（気仙沼線BRT自動運転事例）", url: "https://www.road-to-the-l4.go.jp/case/memoirs/9311/", date: "2023-03-02", source: "国交省 RoAD to the L4" }
     ]
   },
   {
@@ -811,7 +811,7 @@ const EXPERIMENTS = [
       { role: "協力企業", name: "ゼンリン株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "浪江町における自動運転実証実験", url: "https://www.nissan-global.com/JP/NEWS/2021/_1026-02-j.html", date: "2023-01-01", source: "日産自動車" }
+      { id: 1, title: "福島県浪江町でのモビリティ・エネルギーによるまちづくり貢献（なみえスマートモビリティ）", url: "https://www.nissan-global.com/JP/INNOVATION/TECHNOLOGY/ARCHIVE/NAMIE/", date: "2021-02-01", source: "日産自動車" }
     ]
   },
   {
@@ -2503,7 +2503,7 @@ const EXPERIMENTS = [
       { role: "運行管理", name: "BOLDLY株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "陸前高田市における自動運転バスの新たな実証実験", url: "https://www.city.rikuzentakata.iwate.jp/soshiki/kikakuseisakuka/seisakukohogakari/1/1/8617.html", date: "2024-03-01", source: "陸前高田市" }
+      { id: 1, title: "高田松原津波復興祈念公園内およびその周辺市街地における自動運転サービスの運行開始", url: "https://aisan-mobility.com/info/%E9%AB%98%E7%94%B0%E6%9D%BE%E5%8E%9F%E6%B4%A5%E6%B3%A2%E5%BE%A9%E8%88%88%E7%A5%88%E5%BF%B5%E5%85%AC%E5%9C%92%E5%86%85%E3%81%8A%E3%82%88%E3%81%B3%E3%81%9D%E3%81%AE%E5%91%A8%E8%BE%BA%E5%B8%82%E8%A1%97/", date: "2023-09-01", source: "アイサンテクノロジー株式会社" }
     ]
   },
   {
@@ -2526,7 +2526,7 @@ const EXPERIMENTS = [
       { role: "技術協力", name: "アイサンテクノロジー株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "北九州市 自動運転プロジェクト公表資料", url: "https://www.city.kitakyushu.lg.jp/shisei/cto-01002.html", date: "2024-01-01", source: "北九州市" }
+      { id: 1, title: "東田・未来都市プロジェクト～The Higashida Future City Project～を始動します", url: "https://www.city.kitakyushu.lg.jp/contents/28500216.html", date: "2022-04-01", source: "北九州市" }
     ]
   },
   {
@@ -2597,7 +2597,7 @@ const EXPERIMENTS = [
       { role: "運行管理", name: "BOLDLY株式会社", refs: [1, 2] }
     ],
     references: [
-      { id: 1, title: "弥彦村で自動運転バス「MiCa」による通年運行を開始", url: "https://www.softbank.jp/drive/press/2024/20240130_01/", date: "2024-01-30", source: "ソフトバンク プレスリリース" },
+      { id: 1, title: "新潟県弥彦村で自動運転EV「MiCa」の通年運行を開始", url: "https://prtimes.jp/main/html/rd/p/000000540.000069194.html", date: "2024-01-30", source: "大日本印刷株式会社" },
       { id: 2, title: "自動運転車両について｜自動運転車両「ミコぴょん号」", url: "https://www.vill.yahiko.niigata.jp/life/?content=704", date: "2025-04-01", source: "弥彦村" }
     ]
   },
@@ -2670,8 +2670,8 @@ const EXPERIMENTS = [
       { role: "運行管理システム", name: "BOLDLY株式会社", refs: [1, 2] }
     ],
     references: [
-      { id: 1, title: "浜松自動運転やらまいかプロジェクト 実証実験の開始について", url: "https://www.softbank.jp/drive/press/2023/20231128_01/", date: "2023-11-28", source: "BOLDLY ニュースリリース" },
-      { id: 2, title: "浜松市、自動運転実証の第4回実験を開始", url: "https://prtimes.jp/main/html/rd/p/000000318.000039535.html", date: "2023-12-25", source: "PR TIMES" }
+      { id: 1, title: "スズキ、第4回浜松自動運転やらまいかプロジェクト実証実験に参加", url: "https://www.suzuki.co.jp/release/d/2023/1128/", date: "2023-11-28", source: "スズキ株式会社" },
+      { id: 2, title: "浜松市、スズキおよび遠州鉄道と共同で「浜松自動運転やらまいかプロジェクト」の実証実験を実施", url: "https://www.softbank.jp/drive/press/2023/20231226_01/", date: "2023-12-26", source: "BOLDLY株式会社" }
     ]
   },
   {
@@ -2858,7 +2858,7 @@ const EXPERIMENTS = [
       { role: "自治体・事業主体", name: "川崎市（神奈川県）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "川崎市 臨海部における自動運転バス実証実験", url: "https://www.city.kawasaki.jp/250/page/0000148404.html", date: "2025-11-28", source: "川崎市" }
+      { id: 1, title: "KAWASAKI L4 Bus Project - 自動運転バス", url: "https://www.city.kawasaki.jp/500/page/0000167580.html", date: "2025-01-27", source: "川崎市" }
     ]
   },
   {
@@ -2880,7 +2880,7 @@ const EXPERIMENTS = [
       { role: "自治体・事業主体", name: "西宮市（兵庫県）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "西宮市における自動運転バス実証実験", url: "https://www.nishi.or.jp/shisei/koho/hasshin/press_2024/202409_202503/20250331175400277.html", date: "2025-03-31", source: "西宮市" }
+      { id: 1, title: "甲子園エリアで自動運転EVバスの実証実験を実施します", url: "https://www.nishi.or.jp/kotsu/kotsu/kotsukeikaku/jidounten/koushien_jidounten/gaiyo.html", date: "2025-09-08", source: "西宮市" }
     ]
   },
   {
@@ -3129,7 +3129,7 @@ const EXPERIMENTS = [
       { role: "自治体・連携", name: "京都府、京田辺市（京都府）、精華町（京都府）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "自動運転EVバスの実証運行を行います", url: "https://www.city.kizugawa.lg.jp/0000002703.html", date: "2026-01-09", source: "木津川市" }
+      { id: 1, title: "自動運転EVバスの実証運行を行います", url: "https://www.pref.kyoto.jp/bunkaga/news/selfdrivingevbus.html", date: "2026-01-09", source: "京都府" }
     ]
   },
   {
@@ -3265,7 +3265,7 @@ const EXPERIMENTS = [
       { role: "運行・実装支援", name: "A-Drive", refs: [2] }
     ],
     references: [
-      { id: 1, title: "都内3地区（杉並区、多摩市、瑞穂町）において自動運転バスを運行します！", url: "https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2024/10/30/05.html", date: "2024-10-30", source: "東京都" },
+      { id: 1, title: "都内3地区（杉並区、多摩市、瑞穂町）において自動運転バスを運行します！", url: "https://www.metro.tokyo.lg.jp/information/press/2024/10/2024103005", date: "2024-10-30", source: "東京都" },
       { id: 2, title: "東京都実証実験参画のお知らせ", url: "https://a-drive.jp/2024/11/08/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%AE%9F%E8%A8%BC%E5%AE%9F%E9%A8%93%E5%8F%82%E7%94%BB%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B/", date: "2024-11-08", source: "A-Drive" }
     ]
   },
@@ -3528,8 +3528,8 @@ const EXPERIMENTS = [
       { role: "実施協力", name: "福井鉄道株式会社、株式会社ティアフォー、A-Drive", refs: [2] }
     ],
     references: [
-      { id: 1, title: "越前市内で自動運転バスの試乗を実施します", url: "https://www.city.echizen.lg.jp/office/070/020/jidouuntenbus_2.html", date: "2025-12-26", source: "越前市" },
-      { id: 2, title: "越前市自動運転バス実証運行について", url: "https://www.city.echizen.lg.jp/office/070/020/jidouuntenbus.html", date: "2026-02-03", source: "越前市" }
+      { id: 1, title: "越前市内で自動運転バスの試乗を実施します", url: null, date: "2025-12-26", source: "越前市", note: "リンク切れ（廃止）" },
+      { id: 2, title: "越前市自動運転バス実証運行について", url: null, date: "2026-02-03", source: "越前市", note: "リンク切れ（廃止）" }
     ]
   },
   {
