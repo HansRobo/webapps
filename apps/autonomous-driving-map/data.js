@@ -215,8 +215,8 @@ const EXPERIMENTS = [
       { role: "実証支援", name: "国土交通省 近畿運輸局", refs: [1, 3] }
     ],
     references: [
-      { id: 1, title: "奥永源寺地区における自動運転移動サービスの実証実験", url: "https://www.city.higashiomi.shiga.jp/0000012224.html", date: "2020-10-01", source: "東近江市 プレスリリース" },
-      { id: 2, title: "日野自動車、東近江市での山間部自動運転実証", url: "https://www.hino.co.jp/corp/news/2020/20201005-002715.html", date: "2020-10-05", source: "日野自動車株式会社" },
+      { id: 1, title: "道の駅「奥永源寺渓流の里」を拠点とした自動運転サービス", url: "https://www.city.higashiomi.shiga.jp/kurashi_tetsuzuki/koutsuu/1002061/1002062.html", date: "2020-10-01", source: "東近江市" },
+      { id: 2, title: "国交省、滋賀県東近江市道の駅に自動運転サービス本格導入", url: "https://ligare.news/story/milt-0421/", date: "2021-04-01", source: "LIGARE" },
       { id: 3, title: "SIP自動運転 地方部実証実験（滋賀県東近江市）報告", url: "https://www.sip-adus.go.jp/", date: "2021-05-01", source: "内閣府SIPスマートモビリティチャレンジ" }
     ]
   },
@@ -272,7 +272,7 @@ const EXPERIMENTS = [
       { role: "支援", name: "経済産業省、国土交通省", refs: [1, 2] }
     ],
     references: [
-      { id: 1, title: "柏の葉地域において、特定自動運行（自動運転レベル４）および旅客自動車運送事業の認可を取得しました", url: "https://www.tobu-bus.com/uploads/files/hp_release_2025.12.10.pdf", date: "2025-12-10", source: "東武バス" },
+      { id: 1, title: "柏の葉地域において、特定自動運行（自動運転レベル４）および旅客自動車運送事業の認可を取得しました", url: "https://www.meti.go.jp/press/2025/01/20260113001/20260113001.html", date: "2025-12-10", source: "経済産業省" },
       { id: 2, title: "柏の葉地区における自動運転公道走行試験開始について", url: "https://www.city.kashiwa.lg.jp/koho/pressrelease/r7houdou/12gatsu/r7121004.html", date: "2025-12-10", source: "柏市" },
       { id: 3, title: "東京都市圏の公道で初！ 柏の葉地区で特定自動運行（自動運転レベル4）の運行開始", url: "https://www.as-mobi.com/news/", date: "2026-01-13", source: "先進モビリティ株式会社" }
     ]
@@ -324,7 +324,7 @@ const EXPERIMENTS = [
     ],
     references: [
       { id: 1, title: "日本での自動運転タクシーサービスを2026年初頭に開始予定", url: "https://global.honda/jp/news/2023/c231019a.html", date: "2023-10-19", source: "Honda 企業情報" },
-      { id: 2, title: "ホンダやGMなど、自動運転タクシーサービスを2026年初頭に開始", url: "https://www.jetro.go.jp/biznews/2023/10/892dd550974cc9e6.html", date: "2023-10-20", source: "JETRO" }
+      { id: 2, title: "ホンダやGMなど、自動運転タクシーサービスを2026年初頭に開始", url: "https://www.jetro.go.jp/biznews/2023/10/d7cfe8f5bd22e589.html", date: "2023-10-20", source: "JETRO" }
     ]
   },
   {
@@ -348,8 +348,8 @@ const EXPERIMENTS = [
       { role: "配車プラットフォーム", name: "Uber Technologies", refs: [1, 2] }
     ],
     references: [
-      { id: 1, title: "日産自動車、Wayve、Uberによるロボタクシー協業計画", url: "https://global.nissannews.com/ja-JP/releases/130097a8987b7a5840a7f5c53b1b68ce-240301-01-j", date: "2024-03-01", source: "日産自動車 ニュースルーム" },
-      { id: 2, title: "日産の自動運転モビリティサービスに向けた取り組み", url: "https://www.kankokeizai.com/nissan-autonomous-driving-2024/", date: "2024-03-01", source: "観光経済新聞" }
+      { id: 1, title: "Wayve、Uber、日産がロボタクシーでの協業を発表", url: "https://car.watch.impress.co.jp/docs/news/2092665.html", date: "2026-03-12", source: "Car Watch" },
+      { id: 2, title: "Wayve・Uber・日産、東京でロボタクシー試験運行へ", url: "https://www.kankokeizai.com/2603231030kks/", date: "2026-03-23", source: "観光経済新聞" }
     ]
   },
   {
@@ -618,7 +618,7 @@ const EXPERIMENTS = [
       { role: "自治体", name: "桑名市（三重県）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "【三重県桑名市】自動運転バスの社会実装を見据えた安全性検証 / レベル2本番走行", url: "https://aisan-mobility.com/news/250101/", date: "2025-01-01", source: "アイサンテクノロジー ニュース" }
+      { id: 1, title: "【三重県桑名市】自動運転バスの社会実装を見据えた安全性検証 / レベル2本番走行", url: "https://aisan-mobility.com/202501kuwana/", date: "2025-01-01", source: "アイサンテクノロジー" }
     ]
   },
   {
@@ -641,7 +641,7 @@ const EXPERIMENTS = [
       { role: "自治体", name: "伊勢市（三重県）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "【三重県伊勢市】伊勢神宮内宮エリアで自動運転バスの運行に参画しました", url: "https://aisan-mobility.com/news/251201/", date: "2025-12-01", source: "アイサンテクノロジー ニュース" }
+      { id: 1, title: "伊勢神宮内宮エリア 自動運転バス実証実験（伊勢市）", url: "https://www.city.ise.mie.jp/kurashi/koutsu/okage_bus/1019584.html", date: "2025-12-01", source: "伊勢市" }
     ]
   },
   {
