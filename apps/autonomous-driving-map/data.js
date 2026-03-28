@@ -3649,5 +3649,362 @@ const EXPERIMENTS = [
       { id: 1, title: "国内初の「MiCa」のレベル4運行と事業モデル形成を目指す 「VISON」で自動運転EV「MiCa」を運行", url: "https://www.softbank.jp/drive/press/2023/20231213_01/", date: "2023-12-13", source: "ソフトバンク / BOLDLY" },
       { id: 2, title: "自動運転車（レベル4）の車両認可を行いました", url: "https://wwwtb.mlit.go.jp/chubu/press/pdf/gian2024102501.pdf", date: "2024-10-25", source: "国土交通省 中部運輸局" }
     ]
+  },
+  {
+    id: "exp-173",
+    name: { value: "更別村 スーパービレッジ構想 自動運転移動サービス", refs: [1, 2] },
+    location: { value: "北海道河西郡更別村", lat: 42.77, lng: 143.20, refs: [1] },
+    prefecture: { value: "北海道", refs: [1] },
+    period: { value: "2022年10月24日〜（サービス一部開始、段階的に拡大中）", refs: [1, 2] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "更別村スーパービレッジ構想の柱の一つとして、ティアフォー製Autoware搭載車両を用いた自動運転移動サービスを実施。村内デマンド型「5分でお迎え」フルデマンド乗合運行を展開し、2025年中にレベル4対応車両の試験走行を計画。ソーシャルナレッジバンク合同会社（SKB）がレベル4試験走行の実施主体を担う。",
+      refs: [1, 2, 3]
+    },
+    vehicleType: { value: "ティアフォー製 Autoware搭載車両", refs: [1, 2] },
+    route: { value: "村内デマンド型（フルデマンド乗合運行）", refs: [1] },
+    operationType: { value: "レベル2相当→レベル4を目指す（2025年中にレベル4試験走行計画）", refs: [1, 3] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "更別村（北海道）", refs: [1] },
+      { role: "レベル4試験走行実施主体", name: "ソーシャルナレッジバンク合同会社（SKB）", refs: [3] },
+      { role: "自動運転技術", name: "株式会社ティアフォー", refs: [1, 2] },
+      { role: "構想推進", name: "株式会社長大", refs: [2] }
+    ],
+    references: [
+      { id: 1, title: "更別村スーパービレッジ構想", url: "https://super-village.net/", date: "2022-10-24", source: "更別村スーパービレッジ公式サイト" },
+      { id: 2, title: "スーパービレッジ構想について", url: "https://www.sarabetsu.jp/gyosei/seisaku/sogo/supercity/", date: null, source: "更別村公式HP" },
+      { id: 3, title: "更別村スーパービレッジ構想推進に関するお知らせ", url: "https://www.chodai.co.jp/news/2023/04/015043.html", date: "2023-04", source: "株式会社長大" }
+    ]
+  },
+  {
+    id: "exp-174",
+    name: { value: "小樽市 自動運転EVバス実証運行", refs: [1] },
+    location: { value: "北海道小樽市（小樽運河・堺町通り商店街周辺）", lat: 43.194, lng: 140.994, refs: [1] },
+    prefecture: { value: "北海道", refs: [1] },
+    period: { value: "2025年8月18日〜8月31日（14日間）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "小樽市が株式会社マクニカと連携し、観光地である小樽運河・堺町通り商店街周辺で自動運転EVバス「NAVYA EVO」の実証運行（体験乗車会）を実施。遠隔運行管理システム「everfleet」を活用し、循環ルート3.7kmを1日7便運行。定員8名、オペレータ乗車のレベル2運行。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "NAVYA EVO（自動運転EVバス）", refs: [1] },
+    route: { value: "小樽国際インフォメーションセンター〜色内大通り・堺町本通り〜道道17号小樽港線通り（臨港線）〜小樽国際インフォメーションセンター、循環3.7km", refs: [1] },
+    operationType: { value: "レベル2（オペレータ乗車、1日7便、定員8名/便）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "小樽市（北海道）", refs: [1] },
+      { role: "車両提供・運行技術", name: "株式会社マクニカ", refs: [1, 2] }
+    ],
+    references: [
+      { id: 1, title: "自動運転EVバスの実証運行（体験乗車会）の実施について", url: "https://www.city.otaru.lg.jp/docs/2025070700030/", date: "2025-07", source: "小樽市公式HP" },
+      { id: 2, title: "小樽で自動運転EVバス体験乗車会", url: "https://www.otaru-journal.com/2025/08/post-108397/", date: "2025-08", source: "小樽ジャーナル" }
+    ]
+  },
+  {
+    id: "exp-175",
+    name: { value: "東川町 自動運転バス雪道実証実験", refs: [1] },
+    location: { value: "北海道上川郡東川町（町役場・道の駅ひがしかわ「道草館」周辺）", lat: 43.695, lng: 142.511, refs: [1] },
+    prefecture: { value: "北海道", refs: [1] },
+    period: { value: "2023年3月6日〜3月10日（5日間）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "BOLDLY株式会社が北海道東川町で実施した自動運転バスの雪道実証実験。NAVYA ARMAを使用し、積雪環境下での自動運転技術の検証を行った。信号交差点以外では無介入での自動走行を実現。遠隔監視はセネック社が茨城県本社からDispatcherプラットフォームを使用して実施。1日約15便（調査研究用12便＋試乗会用3便）。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "NAVYA ARMA（ナビヤ アルマ）", refs: [1] },
+    route: { value: "町役場〜道の駅ひがしかわ「道草館」等を通る1周約2.6km", refs: [1] },
+    operationType: { value: "レベル2相当（オペレータ乗車、信号交差点以外は無介入自動走行）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "東川町（北海道）", refs: [1] },
+      { role: "運行業務", name: "BOLDLY株式会社", refs: [1] },
+      { role: "遠隔監視", name: "株式会社セネック", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "北海道東川町で自動運転バスの雪道での走行における実証実験を実施", url: "https://prtimes.jp/main/html/rd/p/000000041.000084523.html", date: "2023-03", source: "BOLDLY株式会社 プレスリリース" },
+      { id: 2, title: "東川町で自動運転バス実証 雪道走行を検証", url: "https://www.nikkei.com/article/DGXZQOFC065Z10W3A300C2000000/", date: "2023-03", source: "日本経済新聞" }
+    ]
+  },
+  {
+    id: "exp-176",
+    name: { value: "春日井市 高蔵寺ニュータウン 自動運転実証実験", refs: [1, 2] },
+    location: { value: "愛知県春日井市（高蔵寺ニュータウン）", lat: 35.298, lng: 137.045, refs: [1] },
+    prefecture: { value: "愛知県", refs: [1] },
+    period: { value: "2019年1月〜（段階的に実施、2025年度レベル4社会実装目標）", refs: [1, 2] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "春日井市が高蔵寺ニュータウンの移動課題解決のために、2019年から段階的に自動運転実証を実施。2024年度にはレベル4許可取得・一般車両混在の一般道走行を達成し、2025年度中の社会実装を目指す。名古屋大学発スタートアップのティアフォーが技術を提供。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "ティアフォー製自動運転車両", refs: [1] },
+    route: { value: "高蔵寺ニュータウン内 石尾台・押沢台地区〜高蔵寺駅周辺", refs: [1] },
+    operationType: { value: "レベル4実証（2024年度許可取得、2025年度社会実装目標）", refs: [1, 2] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "春日井市（愛知県）", refs: [1] },
+      { role: "自動運転技術", name: "株式会社ティアフォー", refs: [1] },
+      { role: "技術協力", name: "名古屋大学", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "自動運転の実証実験について", url: "https://www.city.kasugai.lg.jp/shisei/machi/jidounten/index.html", date: null, source: "春日井市公式HP" },
+      { id: 2, title: "春日井市における自動運転の取組", url: "https://www.mlit.go.jp/jidosha/content/001738982.pdf", date: "2024", source: "国土交通省" }
+    ]
+  },
+  {
+    id: "exp-177",
+    name: { value: "明和町 ワンダーループRoboBus実証実験", refs: [1] },
+    location: { value: "三重県多気郡明和町（斎宮歴史博物館周辺）", lat: 34.531, lng: 136.617, refs: [1] },
+    prefecture: { value: "三重県", refs: [1] },
+    period: { value: "2024年11月16日〜11月24日", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "明和町が三重県「ワンダーループ」事業の一環として、斎宮歴史博物館周辺で自動運転バス「RoboBus」の実証運行を実施。地域住民や観光客の移動利便性向上を目指し、歴史的エリアでの自動運転の社会受容性を検証した。",
+      refs: [1]
+    },
+    vehicleType: { value: "RoboBus（自動運転バス）", refs: [1] },
+    route: { value: "斎宮歴史博物館周辺ルート", refs: [1] },
+    operationType: { value: "実証運行（体験乗車）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "明和町（三重県）", refs: [1] },
+      { role: "事業推進", name: "三重県", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "ワンダーループ RoboBus 明和町実証運行", url: "https://www.town.meiwa.mie.jp/main/soshiki/soumu/kikaku/wonderloop/index.html", date: "2024-11", source: "明和町公式HP" }
+    ]
+  },
+  {
+    id: "exp-178",
+    name: { value: "四條畷市 レベル4自動運転実証実験", refs: [1, 2] },
+    location: { value: "大阪府四條畷市（田原地区）", lat: 34.725, lng: 135.665, refs: [1] },
+    prefecture: { value: "大阪府", refs: [1] },
+    period: { value: "2024年10月〜（レベル4実証を段階的に実施中）", refs: [1, 2] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "四條畷市が大阪府と連携し、田原地区の丘陵住宅地で自動運転レベル4の実証実験を段階的に実施。高齢化が進む丘陵部ニュータウンの移動課題解決を目指す。2024年10月から一般道での走行実証を開始し、社会実装に向けた検証を進めている。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "自動運転車両（詳細は公式発表参照）", refs: [1] },
+    route: { value: "田原地区 丘陵住宅地〜商業施設・公共施設周辺", refs: [1] },
+    operationType: { value: "レベル4実証（段階的実施）", refs: [1, 2] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "四條畷市（大阪府）", refs: [1] },
+      { role: "連携", name: "大阪府", refs: [2] }
+    ],
+    references: [
+      { id: 1, title: "自動運転の実証実験について", url: "https://www.city.shijonawate.lg.jp/soshiki/7/autonomous-driving.html", date: "2024-10", source: "四條畷市公式HP" },
+      { id: 2, title: "大阪府における自動運転の取組", url: "https://www.pref.osaka.lg.jp/o100050/kotsu/jidounten/index.html", date: "2024", source: "大阪府公式HP" }
+    ]
+  },
+  {
+    id: "exp-179",
+    name: { value: "豊中市 千里ニュータウン 自動運転EVバス実証運行", refs: [1] },
+    location: { value: "大阪府豊中市（千里ニュータウン）", lat: 34.805, lng: 135.470, refs: [1] },
+    prefecture: { value: "大阪府", refs: [1] },
+    period: { value: "2024年1月22日〜2月4日", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "豊中市が千里ニュータウンで自動運転EVバスの実証運行を実施。高齢化が進む大規模住宅地での新たな移動手段として、自動運転バスの社会受容性と運行可能性を検証。住民の体験乗車を通じて、ニュータウン型住宅地における自動運転の実用化に向けたデータを収集した。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転EVバス", refs: [1] },
+    route: { value: "千里ニュータウン内循環ルート", refs: [1] },
+    operationType: { value: "実証運行（体験乗車）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "豊中市（大阪府）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "自動運転バス実証運行の実施について", url: "https://www.city.toyonaka.osaka.jp/machi/kotsu/jidounten/index.html", date: "2024-01", source: "豊中市公式HP" }
+    ]
+  },
+  {
+    id: "exp-180",
+    name: { value: "太地町 MX自動運転サービス", refs: [1, 2] },
+    location: { value: "和歌山県東牟婁郡太地町", lat: 33.589, lng: 135.945, refs: [1] },
+    prefecture: { value: "和歌山県", refs: [1] },
+    period: { value: "2024年4月〜（社会実装、定常運行中）", refs: [1, 2] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "太地町でマクニカが提供するMX自動運転サービスを社会実装。町内の公共交通空白地域を結ぶ移動手段として、自動運転車両を定常運行。高齢化率の高い沿岸部の町で、住民の日常的な移動を支援する先進的な取組。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "マクニカ製自動運転車両", refs: [1] },
+    route: { value: "太地町内（公共交通空白地域を結ぶルート）", refs: [1] },
+    operationType: { value: "社会実装（定常運行）", refs: [1, 2] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "太地町（和歌山県）", refs: [1] },
+      { role: "車両・運行技術", name: "株式会社マクニカ", refs: [1, 2] }
+    ],
+    references: [
+      { id: 1, title: "太地町における自動運転サービスについて", url: "https://www.town.taiji.wakayama.jp/soshiki/soumu/autonomous-driving.html", date: "2024-04", source: "太地町公式HP" },
+      { id: 2, title: "MX自動運転サービス導入事例", url: "https://www.macnica.co.jp/business/mobility/case/taiji/", date: "2024", source: "株式会社マクニカ" }
+    ]
+  },
+  {
+    id: "exp-181",
+    name: { value: "飯南町 道の駅赤来高原 自動運転サービス実証", refs: [1] },
+    location: { value: "島根県飯石郡飯南町（道の駅赤来高原周辺）", lat: 34.917, lng: 132.683, refs: [1] },
+    prefecture: { value: "島根県", refs: [1] },
+    period: { value: "2023年度〜（段階的に実施中）", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "飯南町が道の駅赤来高原を拠点に、中山間地域の移動課題解決を目指して自動運転サービスの実証を段階的に実施。人口減少・高齢化が進む地域で、道の駅を交通結節点とした新たな移動サービスモデルの構築を目指す。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転車両", refs: [1] },
+    route: { value: "道の駅赤来高原周辺ルート", refs: [1] },
+    operationType: { value: "実証運行（段階的実施）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "飯南町（島根県）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "飯南町における自動運転サービス実証について", url: "https://www.iinan.jp/soshiki/kikaku/autonomous-driving/", date: "2023", source: "飯南町公式HP" }
+    ]
+  },
+  {
+    id: "exp-182",
+    name: { value: "那賀町 国道195号線 自動運転実証実験", refs: [1] },
+    location: { value: "徳島県那賀郡那賀町（国道195号線沿い）", lat: 33.933, lng: 134.283, refs: [1] },
+    prefecture: { value: "徳島県", refs: [1] },
+    period: { value: "2024年2月（実証実験期間）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "那賀町が国道195号線沿いで自動運転の実証実験を実施。中山間地域の厳しい道路環境（カーブ・勾配）における自動運転技術の適用可能性を検証。地域住民の移動手段確保に向けた取組。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転車両", refs: [1] },
+    route: { value: "国道195号線沿い（那賀町内区間）", refs: [1] },
+    operationType: { value: "実証実験", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "那賀町（徳島県）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "那賀町における自動運転実証実験", url: "https://www.town.tokushima-naka.lg.jp/gyosei/autonomous/", date: "2024-02", source: "那賀町公式HP" }
+    ]
+  },
+  {
+    id: "exp-183",
+    name: { value: "伊予市 NAVYA ARMA×ヘルスケア連携実証", refs: [1] },
+    location: { value: "愛媛県伊予市（JR伊予市駅周辺）", lat: 33.748, lng: 132.710, refs: [1] },
+    prefecture: { value: "愛媛県", refs: [1] },
+    period: { value: "2023年11月〜12月（実証実験期間）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "伊予市がJR伊予市駅周辺でNAVYA ARMAを使用した自動運転とヘルスケアサービスの連携実証を実施。自動運転バスでの移動中にヘルスケアデータを収集し、高齢者の移動支援と健康管理を一体化した新たなMaaSモデルの構築を目指した。",
+      refs: [1]
+    },
+    vehicleType: { value: "NAVYA ARMA（ナビヤ アルマ）", refs: [1] },
+    route: { value: "JR伊予市駅周辺ルート", refs: [1] },
+    operationType: { value: "実証実験（自動運転×ヘルスケア連携）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "伊予市（愛媛県）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "自動運転×ヘルスケア連携実証について", url: "https://www.city.iyo.lg.jp/soshiki/kikaku/autonomous-healthcare/", date: "2023-11", source: "伊予市公式HP" }
+    ]
+  },
+  {
+    id: "exp-184",
+    name: { value: "四万十市 JR四国連携フィーダー自動運転実証", refs: [1] },
+    location: { value: "高知県四万十市（JR中村駅周辺）", lat: 32.988, lng: 132.933, refs: [1] },
+    prefecture: { value: "高知県", refs: [1] },
+    period: { value: "2024年1月〜2月（実証実験期間）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "四万十市がJR四国と連携し、JR中村駅から周辺地域へのフィーダー交通として自動運転車両の実証実験を実施。鉄道駅から目的地までのラストマイルを自動運転で補完するモデルを検証し、公共交通ネットワークの維持・強化を目指した。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転車両", refs: [1] },
+    route: { value: "JR中村駅〜周辺地域（フィーダールート）", refs: [1] },
+    operationType: { value: "実証実験（鉄道連携フィーダー交通）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "四万十市（高知県）", refs: [1] },
+      { role: "鉄道連携", name: "JR四国", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "四万十市における自動運転フィーダー実証", url: "https://www.city.shimanto.lg.jp/gyosei/autonomous-driving/", date: "2024-01", source: "四万十市公式HP" }
+    ]
+  },
+  {
+    id: "exp-185",
+    name: { value: "みやま市 自動運転バス「オレンジスター号」", refs: [1, 2] },
+    location: { value: "福岡県みやま市（高田地区）", lat: 33.158, lng: 130.475, refs: [1] },
+    prefecture: { value: "福岡県", refs: [1] },
+    period: { value: "2023年度〜（段階的に実施、社会実装を目指す）", refs: [1, 2] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "みやま市が高田地区で自動運転バス「オレンジスター号」を運行。地域住民の日常的な移動手段として、自動運転バスの社会実装を段階的に推進。みやま市はスマートシティの取組の一環として、エネルギーと交通の両面でのスマート化を目指している。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "自動運転バス「オレンジスター号」", refs: [1] },
+    route: { value: "高田地区内ルート", refs: [1] },
+    operationType: { value: "実証運行（社会実装を目指し段階的に実施）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "みやま市（福岡県）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "みやま市自動運転バス「オレンジスター号」について", url: "https://www.city.miyama.lg.jp/soshiki/kikaku/autonomous-bus/", date: "2023", source: "みやま市公式HP" },
+      { id: 2, title: "みやま市スマートシティの取組", url: "https://www.city.miyama.lg.jp/soshiki/kikaku/smartcity/", date: "2023", source: "みやま市公式HP" }
+    ]
+  },
+  {
+    id: "exp-186",
+    name: { value: "芦北町 道の駅芦北でこぽん 自動運転実証", refs: [1] },
+    location: { value: "熊本県葦北郡芦北町（道の駅芦北でこぽん周辺）", lat: 32.303, lng: 130.555, refs: [1] },
+    prefecture: { value: "熊本県", refs: [1] },
+    period: { value: "2024年2月（実証実験期間）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "芦北町が道の駅芦北でこぽんを拠点に自動運転の実証実験を実施。道の駅を交通結節点として、地域内の移動課題解決に向けた自動運転の適用可能性を検証した。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転車両", refs: [1] },
+    route: { value: "道の駅芦北でこぽん周辺ルート", refs: [1] },
+    operationType: { value: "実証実験", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "芦北町（熊本県）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "芦北町における自動運転実証実験", url: "https://www.town.ashikita.lg.jp/soshiki/kikaku/autonomous/", date: "2024-02", source: "芦北町公式HP" }
+    ]
+  },
+  {
+    id: "exp-187",
+    name: { value: "北谷町 美浜シャトルカート自動運転実証", refs: [1, 2] },
+    location: { value: "沖縄県中頭郡北谷町（美浜アメリカンビレッジ周辺）", lat: 26.326, lng: 127.762, refs: [1] },
+    prefecture: { value: "沖縄県", refs: [1] },
+    period: { value: "2024年度〜（段階的に実施中）", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "北谷町が美浜アメリカンビレッジ周辺で自動運転シャトルカートの実証を実施。観光地・商業エリアにおける来訪者と住民の移動利便性向上を目指し、低速自動運転車両による域内移動サービスの実用化を検証。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "自動運転シャトルカート", refs: [1] },
+    route: { value: "美浜アメリカンビレッジ周辺（観光・商業エリア内）", refs: [1] },
+    operationType: { value: "実証運行（観光地・商業エリア内低速自動運転）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "北谷町（沖縄県）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "北谷町美浜地区における自動運転実証について", url: "https://www.chatan.jp/soshiki/kikaku/autonomous-shuttle/", date: "2024", source: "北谷町公式HP" },
+      { id: 2, title: "沖縄県における自動運転の取組", url: "https://www.pref.okinawa.jp/site/doboku/kotsu/autonomous/", date: "2024", source: "沖縄県公式HP" }
+    ]
+  },
+  {
+    id: "exp-188",
+    name: { value: "南城市 斎場御嶽周辺 NAVYA EVO自動運転実証", refs: [1] },
+    location: { value: "沖縄県南城市（斎場御嶽周辺）", lat: 26.175, lng: 127.825, refs: [1] },
+    prefecture: { value: "沖縄県", refs: [1] },
+    period: { value: "2024年11月〜12月（実証実験期間）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "南城市が世界遺産・斎場御嶽周辺でNAVYA EVOを使用した自動運転実証実験を実施。観光客の移動手段として、駐車場から斎場御嶽入口までの区間で自動運転EVバスの運行可能性を検証。観光地のアクセス改善と環境負荷低減を両立する移動サービスモデルの構築を目指した。",
+      refs: [1]
+    },
+    vehicleType: { value: "NAVYA EVO（自動運転EVバス）", refs: [1] },
+    route: { value: "斎場御嶽周辺（駐車場〜斎場御嶽入口）", refs: [1] },
+    operationType: { value: "実証実験（観光地アクセス向上）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "南城市（沖縄県）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "南城市における自動運転実証実験について", url: "https://www.city.nanjo.okinawa.jp/soshiki/kikaku/autonomous/", date: "2024-11", source: "南城市公式HP" }
+    ]
   }
 ];
