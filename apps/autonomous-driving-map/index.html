@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>自動運転実証実験マップ - 日本</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="top-app-bar" id="topBar">
+      <div class="top-app-bar__content">
+        <a href="../../index.html" class="top-app-bar__back" aria-label="ダッシュボードへ戻る">
+          <span class="material-symbols-outlined">arrow_back</span>
+        </a>
+        <span class="material-symbols-outlined top-app-bar__icon">directions_car</span>
+        <h1 class="top-app-bar__title">自動運転実証実験マップ</h1>
+      </div>
+    </header>
+
+    <div class="app-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar__header">
+          <span class="label-large">実証実験一覧</span>
+          <span class="experiment-count" id="experimentCount">0件</span>
+        </div>
+
+        <div class="filter-section">
+          <div class="filter-row">
+            <div class="filter-chip-group" id="statusFilter">
+              <button class="filter-chip active" data-value="">すべて</button>
+              <button class="filter-chip" data-value="実施中">実施中</button>
+              <button class="filter-chip" data-value="完了">完了</button>
+              <button class="filter-chip" data-value="計画中">計画中</button>
+            </div>
+          </div>
+          <div class="filter-row">
+            <select class="filter-select" id="prefectureFilter">
+              <option value="">都道府県（すべて）</option>
+            </select>
+          </div>
+        </div>
+
+        <ul class="experiment-list" id="experimentList" role="list"></ul>
+      </aside>
+
+      <!-- Map -->
+      <main class="map-container">
+        <div id="map"></div>
+      </main>
+    </div>
+
+    <!-- Detail Panel -->
+    <div class="detail-overlay" id="detailOverlay" role="dialog" aria-modal="true" aria-labelledby="detailTitle" hidden>
+      <div class="detail-panel" id="detailPanel">
+        <div class="detail-panel__header">
+          <div class="detail-panel__title-area">
+            <span class="status-badge" id="detailStatus"></span>
+            <h2 class="detail-panel__title" id="detailTitle"></h2>
+            <p class="detail-panel__location" id="detailLocation"></p>
+          </div>
+          <button class="icon-button" id="closeDetail" aria-label="閉じる">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+
+        <div class="detail-panel__body" id="detailBody"></div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

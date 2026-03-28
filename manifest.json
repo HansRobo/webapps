@@ -1,3 +1,11 @@
 {
-  "apps": []
+  "apps": [
+    {
+      "name": "自動運転実証実験マップ",
+      "description": "日本国内の自動運転実証実験を地図上で一覧。ステークホルダー・参考文献付きデータベース。",
+      "icon": "🚗",
+      "path": "apps/autonomous-driving-map/index.html",
+      "tags": ["自動運転", "地図", "モビリティ", "交通"]
+    }
+  ]
 }
