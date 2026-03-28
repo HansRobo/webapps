@@ -102,6 +102,8 @@ function validateExperiments(experiments, enums) {
           warn(id, `${prefix}.role "${s.role}" は既知の役割リストにありません（新規役割の場合はenums.jsに追加してください）`);
 
         if (s.name) {
+          // 組織名は enums.js の正規表記（正式名称）で管理する。
+          // 複数組織は「、」区切りで個別照合する。
           const orgs = s.name.split("、").map((o) => o.trim());
           for (const org of orgs) {
             if (!enums.ORGANIZATIONS.includes(org)) {
