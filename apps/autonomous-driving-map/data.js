@@ -835,5 +835,441 @@ const EXPERIMENTS = [
     references: [
       { id: 1, title: "岐阜市自動運転事業", url: "https://www.city.gifu.lg.jp/", date: "2024-01-01", source: "岐阜市" }
     ]
+  },
+  {
+    id: "exp-037",
+    name: { value: "京田辺市 自動運転EVバス実証（京都府）", refs: [1] },
+    location: { value: "京都府京田辺市（けいはんな学研都市エリア）", lat: 34.8, lng: 135.77, refs: [1] },
+    prefecture: { value: "京都府", refs: [1] },
+    period: { value: "2024年12月", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "けいはんな学研都市エリアの交通課題解決に向け、自動運転レベル2のEVバスによる実証運行を実施。将来的なレベル4実装に向けた技術検証と社会受容性の確認を行った。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転EVバス", refs: [1] },
+    route: { value: "京田辺市内 けいはんな学研都市周辺", refs: [1] },
+    operationType: { value: "レベル2（実証実験）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "京田辺市", refs: [1] },
+      { role: "協力", name: "京都スマートシティ推進協議会", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "京田辺市における自動運転実証実験について", url: "https://www.city.kyotanabe.lg.jp/", date: "2024-12-01", source: "京田辺市" }
+    ]
+  },
+  {
+    id: "exp-038",
+    name: { value: "大阪・関西万博 舞洲・夢洲自動運転バス（大阪府）", refs: [1, 2] },
+    location: { value: "大阪府大阪市此花区（舞洲・夢洲エリア）", lat: 34.66, lng: 135.39, refs: [1] },
+    prefecture: { value: "大阪府", refs: [1] },
+    period: { value: "2024年3月〜2025年4月", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "2025年大阪・関西万博への来場者輸送を見据え、大型EVバスを用いた自動運転実証を実施。GPS信号が届きにくい場所でも走行可能なターゲットラインペイント技術などを活用している。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "大型EVバス（自動運転システム搭載）", refs: [1] },
+    route: { value: "舞洲・夢洲エリア（万博会場周辺）", refs: [1] },
+    operationType: { value: "レベル2〜（将来的なレベル4を目指す）", refs: [1] },
+    stakeholders: [
+      { role: "運行主体", name: "Osaka Metro", refs: [1] },
+      { role: "技術協力", name: "日本ペイント（ターゲットラインペイント）", refs: [2] }
+    ],
+    references: [
+      { id: 1, title: "万博に向けた自動運転実証実験の実施について", url: "https://www.osakametro.co.jp/", date: "2024-03-01", source: "Osaka Metro" },
+      { id: 2, title: "ターゲットラインペイントを活用した自動運転実証", url: "https://www.nipponpaint-industrial.com/", date: "2024-03-01", source: "日本ペイント・インダストリアルコーティング" }
+    ]
+  },
+  {
+    id: "exp-039",
+    name: { value: "明日香村 自動運転バス実証運行（奈良県）", refs: [1] },
+    location: { value: "奈良県高市郡明日香村（飛鳥駅周辺）", lat: 34.469, lng: 135.795, refs: [1] },
+    prefecture: { value: "奈良県", refs: [1] },
+    period: { value: "2025年1月", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "観光地における交通利便性向上を目指し、近鉄飛鳥駅と高松塚古墳・キトラ古墳を結ぶルートで自動運転バスの実証運行を実施。歴史的資源を巡る二次交通としての有効性を検証した。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス", refs: [1] },
+    route: { value: "近鉄飛鳥駅〜高松塚古墳〜キトラ古墳", refs: [1] },
+    operationType: { value: "レベル2（実証実験）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "明日香村", refs: [1] },
+      { role: "協力", name: "奈良県", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "明日香村における自動運転バス実証運行について", url: "https://www.vill.asuka.nara.jp/", date: "2025-01-01", source: "明日香村" }
+    ]
+  },
+  {
+    id: "exp-040",
+    name: { value: "和歌山市 運行・路車協調実証（和歌山県）", refs: [1] },
+    location: { value: "和歌山県和歌山市（JR和歌山駅〜和歌山城）", lat: 34.232, lng: 135.191, refs: [1] },
+    prefecture: { value: "和歌山県", refs: [1] },
+    period: { value: "2025年1月〜2月", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "中心市街地の活性化と移動手段確保のため、JR和歌山駅から和歌山城の間でEVバスを用いた実証実験を実施。信号連携や路車協調システムを用いた走行支援技術の検証を行った。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転EVバス", refs: [1] },
+    route: { value: "JR和歌山駅〜和歌山城 前通り", refs: [1] },
+    operationType: { value: "レベル2（将来レベル4相当を目指す）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "和歌山市", refs: [1] },
+      { role: "協力企業", name: "NTT西日本、マクニカ", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "和歌山市自動運転実証実験の実施結果", url: "https://www.city.wakayama.wakayama.jp/", date: "2025-02-01", source: "和歌山市" }
+    ]
+  },
+  {
+    id: "exp-041",
+    name: { value: "鳥取市 中心市街地自動運転バス実証（鳥取県）", refs: [1] },
+    location: { value: "鳥取県鳥取市（鳥取駅周辺）", lat: 35.494, lng: 134.225, refs: [1] },
+    prefecture: { value: "鳥取県", refs: [1] },
+    period: { value: "2025年12月", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "持続可能な公共交通網の構築を目指し、循環バス「くる梨」のルート等を活用した走行実証を実施。中心市街地における自動運転バスの導入課題を技術・運用の両面から整理した。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス", refs: [1] },
+    route: { value: "鳥取駅～中心市街地循環ルート", refs: [1] },
+    operationType: { value: "レベル2（実証実験）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "鳥取市", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "鳥取市における自動運転実証運行の概要", url: "https://www.city.tottori.lg.jp/", date: "2025-12-01", source: "鳥取市" }
+    ]
+  },
+  {
+    id: "exp-042",
+    name: { value: "美郷町 自動運転レベル4検証プロジェクト（島根県）", refs: [1] },
+    location: { value: "島根県邑智郡美郷町", lat: 35.06, lng: 132.65, refs: [1] },
+    prefecture: { value: "島根県", refs: [1] },
+    period: { value: "2025年度", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "総務省の「地域社会DX推進パッケージ事業」に採択され、中山間地域におけるレベル4自動運転の実現に向けた通信システム等の検証を実施。豪雪地帯や電波状況の悪い環境での安定運行を目指す。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転車両（レベル4検証用）", refs: [1] },
+    route: { value: "美郷町内 指定ルート", refs: [1] },
+    operationType: { value: "レベル4に向けた検証", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "美郷町", refs: [1] },
+      { role: "支援", name: "総務省", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "美郷町における自動運転レベル4検証事業について", url: "https://www.soumu.go.jp/", date: "2025-01-01", source: "総務省" }
+    ]
+  },
+  {
+    id: "exp-043",
+    name: { value: "津山市 地域公共交通自動運転実証（岡山県）", refs: [1] },
+    location: { value: "岡山県津山市（JR津山駅周辺）", lat: 35.059, lng: 134.004, refs: [1] },
+    prefecture: { value: "岡山県", refs: [1] },
+    period: { value: "2025年11月", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "JR津山駅と津山リージョンセンターを結ぶ区間で、JR西日本と連携した自動運転バスの実証運行を実施。既存の路線バスとの接続や、地域公共交通としての運用モデルの構築を目指した。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス", refs: [1] },
+    route: { value: "JR津山駅〜津山リージョンセンター", refs: [1] },
+    operationType: { value: "レベル2（実証実験）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "津山市", refs: [1] },
+      { role: "協力", name: "西日本旅客鉄道株式会社（JR西日本）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "津山市における自動運転バスの実証について", url: "https://www.city.tsuyama.lg.jp/", date: "2025-11-01", source: "津山市" }
+    ]
+  },
+  {
+    id: "exp-044",
+    name: { value: "福山市 レベル4社会実装に向けた実証（広島県）", refs: [1] },
+    location: { value: "広島県福山市（福山駅〜エフピコアリーナ）", lat: 34.489, lng: 133.361, refs: [1] },
+    prefecture: { value: "広島県", refs: [1] },
+    period: { value: "2025年度", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "2027年度のレベル4社会実装を目標に、市街地での複雑な道路状況下での走行検証を継続。信号連携技術や、路上駐車などの障害物回避技術の更なる高度化を図っている。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス", refs: [1] },
+    route: { value: "福山駅周辺〜エフピコアリーナふくやま", refs: [1] },
+    operationType: { value: "レベル2（レベル4に向けた技術検証）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "福山市", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "福山市自動運転プロジェクト 実施状況", url: "https://www.city.fukuyama.hiroshima.jp/", date: "2025-01-01", source: "福山市" }
+    ]
+  },
+  {
+    id: "exp-045",
+    name: { value: "周南市 徳山駅〜動物園ルート実証（山口県）", refs: [1] },
+    location: { value: "山口県周南市（JR徳山駅〜徳山動物園）", lat: 34.051, lng: 131.802, refs: [1] },
+    prefecture: { value: "山口県", refs: [1] },
+    period: { value: "2025年度", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "山口県と連携し、2027年度の社会実装を目指して取り組むプロジェクト。JR徳山駅から徳山動物園までのルートで夜間走行や信号連携の検証を行い、観光ルートとしての実用性を高めている。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転EVバス", refs: [1] },
+    route: { value: "JR徳山駅〜徳山動物園（約2km）", refs: [1] },
+    operationType: { value: "レベル2（実証実験）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "周南市、山口県", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "周南市における自動運転実証実験の推進について", url: "https://www.city.shunan.lg.jp/", date: "2025-01-01", source: "周南市" }
+    ]
+  },
+  {
+    id: "exp-046",
+    name: { value: "鳴門市 ロボットタクシー実証運行（徳島県）", refs: [1] },
+    location: { value: "徳島県鳴門市", lat: 34.185, lng: 134.607, refs: [1] },
+    prefecture: { value: "徳島県", refs: [1] },
+    period: { value: "2025年度〜2026年3月", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "国土交通省事業の一環として、NECや電脳交通と連携し、レベル4を見据えたロボットタクシーの運行実証を実施。オンデマンド配車システムとの連携や遠隔監視体制の構築を検証している。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転タクシー車両", refs: [1] },
+    route: { value: "鳴門市内 指定エリア", refs: [1] },
+    operationType: { value: "レベル4を目指す実証運行", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "鳴門市、徳島県", refs: [1] },
+      { role: "企業", name: "NEC、株式会社電脳交通", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "鳴門市におけるロボットタクシー実証実験", url: "https://www.nec.com/", date: "2025-01-01", source: "NEC" }
+    ]
+  },
+  {
+    id: "exp-047",
+    name: { value: "三豊市 信号協調EVバス実証（香川県）", refs: [1] },
+    location: { value: "香川県三豊市", lat: 34.172, lng: 133.727, refs: [1] },
+    prefecture: { value: "香川県", refs: [1] },
+    period: { value: "2025年度", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "持続可能な公共交通の実現に向け、信号協調システムを導入した自動運転EVバスの実証を実施。走行ルートの拡大や、将来のレベル4移行を見据えた安全管理体制の強化に取り組んでいる。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転EVバス", refs: [1] },
+    route: { value: "三豊市内（駅〜主要施設）", refs: [1] },
+    operationType: { value: "レベル2（実証実験）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "三豊市", refs: [1] },
+      { role: "協力", name: "NTT西日本グループ", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "三豊市における自動運転実証の取り組み", url: "https://www.city.mitoyo.lg.jp/", date: "2025-01-01", source: "三豊市" }
+    ]
+  },
+  {
+    id: "exp-048",
+    name: { value: "松山市 レベル4路線バス本格運行（愛媛県）", refs: [1] },
+    location: { value: "愛媛県松山市（松山観光港周辺）", lat: 33.882, lng: 132.709, refs: [1] },
+    prefecture: { value: "愛媛県", refs: [1] },
+    period: { value: "2024年12月〜", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "全国に先駆けて、営業路線における「自動運転レベル4」の特定自動運行を開始（認可申請中・実証段階含む）。松山観光港周辺のルートを設定し、既存バス交通の代替・補完としての実効性を検証する。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転路線バス", refs: [1] },
+    route: { value: "松山観光港周辺 循環ルート", refs: [1] },
+    operationType: { value: "レベル4（段階的に実装）", refs: [1] },
+    stakeholders: [
+      { role: "運行主体", name: "伊予鉄バス", refs: [1] },
+      { role: "自治体", name: "松山市", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "松山観光港における自動運転レベル4実証について", url: "https://www.iyotetsu.co.jp/", date: "2024-12-01", source: "伊予鉄グループ" }
+    ]
+  },
+  {
+    id: "exp-049",
+    name: { value: "高知市 都市部レベル4実証（高知県）", refs: [1] },
+    location: { value: "高知県高知市（JR高知駅〜イオンモール高知）", lat: 33.567, lng: 133.543, refs: [1] },
+    prefecture: { value: "高知県", refs: [1] },
+    period: { value: "2025年12月", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "都市部における自動運転サービスの可能性を検証するため、JR高知駅から主要商業施設・病院を結ぶルートでレベル4実証を実施。周辺車両や歩行者が多い環境での安全性を重点的に確認した。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス「Minibus」", refs: [1] },
+    route: { value: "JR高知駅〜イオンモール高知〜高知赤十字病院", refs: [1] },
+    operationType: { value: "レベル4に向けた実証運行", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "高知市、高知県", refs: [1] },
+      { role: "協力企業", name: "マクニカ、アイサンテクノロジー", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "高知市における自動運転実証（総務省事業）の結果報告", url: "https://www.city.kochi.kochi.jp/", date: "2025-12-01", source: "高知市" }
+    ]
+  },
+  {
+    id: "exp-050",
+    name: { value: "福岡市 アイランドシティ自動運転実証（福岡県）", refs: [1] },
+    location: { value: "福岡県福岡市東区（アイランドシティ）", lat: 33.666, lng: 130.408, refs: [1] },
+    prefecture: { value: "福岡県", refs: [1] },
+    period: { value: "2025年11月", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "スマートシティ「アイランドシティ」内における移動の高度化に向けた実証実験。香椎照葉エリアの住宅・公園エリアを循環し、住民の生活空間における自動運転バスの親和性を検証した。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス", refs: [1] },
+    route: { value: "アイランドシティ（香椎照葉エリア）循環ルート", refs: [1] },
+    operationType: { value: "レベル2（実証実験）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "福岡市", refs: [1] },
+      { role: "企業", name: "西日本鉄道、三菱電機（路車協調）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "アイランドシティにおける自動運転バス実証の実施について", url: "https://www.city.fukuoka.lg.jp/", date: "2025-11-01", source: "福岡市" }
+    ]
+  },
+  {
+    id: "exp-051",
+    name: { value: "佐賀市 SAGAサンライズパーク レベル4実証（佐賀県）", refs: [1] },
+    location: { value: "佐賀県佐賀市（佐賀駅〜SAGAサンライズパーク）", lat: 33.264, lng: 130.298, refs: [1] },
+    prefecture: { value: "佐賀県", refs: [1] },
+    period: { value: "2026年1月", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "大規模スポーツイベント対応等の輸送力強化。佐賀駅からSAGAサンライズパークの間において、難易度の高い右折交差点等を含むルートの約7割をレベル4（相当）で走行する高度実証を行った。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス", refs: [1] },
+    route: { value: "佐賀駅バスセンター〜SAGAサンライズパーク（約1.5km）", refs: [1] },
+    operationType: { value: "レベル4に向けた高度実証", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "佐賀県、佐賀市", refs: [1] },
+      { role: "技術協力", name: "ティアフォー、マクニカ", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "SAGAサンライズパーク周辺における自動運転実証実験", url: "https://www.pref.saga.lg.jp/", date: "2026-01-01", source: "佐賀県" }
+    ]
+  },
+  {
+    id: "exp-052",
+    name: { value: "対馬市 離島自動運転ソリューション（長崎県）", refs: [1] },
+    location: { value: "長崎県対馬市", lat: 34.205, lng: 129.288, refs: [1] },
+    prefecture: { value: "長崎県", refs: [1] },
+    period: { value: "過去実施（継続検証中）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "離島における持続可能な高齢者移動手段の確保として、自動運転車両（レベル2）の走行実証を実施。特有の急勾配や狭隘道路における自己位置推定技術の有効性を確認した。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転車両", refs: [1] },
+    route: { value: "対馬市内 指定エリア", refs: [1] },
+    operationType: { value: "レベル2", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "対馬市", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "対馬市における移動支援実証の取り組み", url: "https://www.city.tsushima.nagasaki.jp/", date: "2024-01-01", source: "対馬市" }
+    ]
+  },
+  {
+    id: "exp-053",
+    name: { value: "佐伯市 大入島コミュニティバス代替実証（大分県）", refs: [1] },
+    location: { value: "大分県佐伯市（大入島）", lat: 32.99, lng: 131.91, refs: [1] },
+    prefecture: { value: "大分県", refs: [1] },
+    period: { value: "2025年1月〜2月", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "大入島のコミュニティバス代替としての運用を目指し、自動運転バスの実証運行を実施。狭隘な島内道路における対向車検知や離合支援システムの検証を行った。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転小型バス", refs: [1] },
+    route: { value: "大入島内（島内周回等）", refs: [1] },
+    operationType: { value: "レベル2（実用化に向けた検証）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "佐伯市", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "大入島における自動運転バス実証運行の結果", url: "https://www.city.saiki.oita.jp/", date: "2025-02-01", source: "佐伯市" }
+    ]
+  },
+  {
+    id: "exp-054",
+    name: { value: "西都市 宮崎県内初EVバス実証（宮崎県）", refs: [1] },
+    location: { value: "宮崎県西都市", lat: 32.11, lng: 131.4, refs: [1] },
+    prefecture: { value: "宮崎県", refs: [1] },
+    period: { value: "2024年11月〜2026年3月", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "宮崎県内初となる自動運転EVバスの実証運行を実施。市内中心部の周遊ルートを設定し、高齢者の外出支援や観光拠点間の回遊性向上、将来的なレベル4運行の可能性を検証している。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転EVバス", refs: [1] },
+    route: { value: "西都市中心部・観光周遊ルート", refs: [1] },
+    operationType: { value: "レベル2（実証中）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "西都市、宮崎県", refs: [1] },
+      { role: "協力", name: "宮崎大学、ソフトバンク", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "西都市における自動運転実証の実施について", url: "https://www.city.saito.miyazaki.jp/", date: "2025-01-01", source: "西都市" }
+    ]
+  },
+  {
+    id: "exp-055",
+    name: { value: "南さつま市 鹿児島県内初EVバス実証（鹿児島県）", refs: [1] },
+    location: { value: "鹿児島県南さつま市", lat: 31.42, lng: 130.32, refs: [1] },
+    prefecture: { value: "鹿児島県", refs: [1] },
+    period: { value: "2024年12月", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "鹿児島県内初となる自動運転EVバスの実証。持続可能な公共交通体系の構築を目指し、中心市街地で自動運転車両を走行させ、遠隔監視による安全性や社会ニーズを検証した。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転EVバス", refs: [1] },
+    route: { value: "南さつま市中心部 循環ルート", refs: [1] },
+    operationType: { value: "レベル2", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "南さつま市", refs: [1] },
+      { role: "協力企業", name: "マクニカ、NTT西日本", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "南さつま市自動運転バス実証実験の結果概要", url: "https://www.city.minamisatsuma.lg.jp/", date: "2025-01-01", source: "南さつま市" }
+    ]
+  },
+  {
+    id: "exp-056",
+    name: { value: "豊見城市 有償実証・レベル4開発（沖縄県）", refs: [1] },
+    location: { value: "沖縄県豊見城市", lat: 26.17, lng: 127.67, refs: [1] },
+    prefecture: { value: "沖縄県", refs: [1] },
+    period: { value: "2025年11月〜2026年2月", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "既存の生活路線を活用したレベル4自動運転の実現に向けた高度実証。完全キャッシュレス対応の有償運行を実施し、将来的な無人化運行に向けた事業性の検証と、走行データの蓄積を行っている。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転EVバス", refs: [1] },
+    route: { value: "豊見城市内 生活路線（105番線等）の一部区間（約18km）", refs: [1] },
+    operationType: { value: "有償実証運行（将来レベル4目標）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "豊見城市", refs: [1] },
+      { role: "運行主体", name: "第一交通産業", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "豊見城市における自動運転推進事業について", url: "https://www.city.tomigusuku.lg.jp/", date: "2025-01-01", source: "豊見城市" }
+    ]
   }
 ];
