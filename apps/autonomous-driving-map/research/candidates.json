@@ -147,7 +147,24 @@
       "静岡県 自動運転 国土交通省 自治体",
       "静岡県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "自動運転バスの実証運行について",
+        "url": "https://www.city.fuji.shizuoka.jp/1040050000/p000978.html",
+        "date": "2026-01-27",
+        "sourceType": "primary",
+        "decision": "new",
+        "note": "富士市（新富士駅〜富士駅）の実証運行。既存exp-011（高速トラック）とは別案件。"
+      },
+      {
+        "title": "新東名高速道路における自動運転トラックとインフラとの連携に係る実証実験を開始します",
+        "url": "https://www.meti.go.jp/press/2024/02/20250207003/20250207003.html",
+        "date": "2025-02-07",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-011の一次情報更新。"
+      }
+    ]
   },
   {
     "prefecture": "石川県",
@@ -158,7 +175,24 @@
       "石川県 自動運転 国土交通省 自治体",
       "石川県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "自動運転バスの運行について",
+        "url": "https://www.city.komatsu.lg.jp/soshiki/1985/rosenbasu/4/16580.html",
+        "date": "2026-02-01",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-073の通年運行情報の一次情報更新。"
+      },
+      {
+        "title": "石川県小松市にて自動運転レベル4を支援する通信システムの検証を開始",
+        "url": "https://jpn.nec.com/press/202410/20241021_02.html",
+        "date": "2024-10-21",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-073の路車協調・通信検証情報の補強。"
+      }
+    ]
   },
   {
     "prefecture": "福岡県",
@@ -180,7 +214,24 @@
       "大阪府 自動運転 国土交通省 自治体",
       "大阪府 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "自動運転バス「森之宮・京橋周遊ルート」が11月10日（日曜日）から運行を開始します",
+        "url": "https://subway.osakametro.co.jp/news/news_release/20241101_jidouunten_bus_kaishi.php",
+        "date": "2024-11-01",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-083の一次情報更新。運行期間（2024/11〜2025/10予定）を反映。"
+      },
+      {
+        "title": "2025年大阪・関西万博の来場者輸送「舞洲パーク&ライド」の一部区間で自動運転バスをレベル4で運行します",
+        "url": "https://subway.osakametro.co.jp/news/news_release/20250408_parkandride_unkou.php",
+        "date": "2025-04-08",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-038のレベル4運行実施情報を補強。"
+      }
+    ]
   },
   {
     "prefecture": "福井県",
@@ -246,7 +297,24 @@
       "岩手県 自動運転 国土交通省 自治体",
       "岩手県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "【終了】令和5年2月1日～3月5日実施（高田松原復興祈念公園における自動運転走行実証実験）",
+        "url": "https://www.city.rikuzentakata.iwate.jp/soshiki/kikakuseisakuka/seisakukohogakari/1/1/6566.html",
+        "date": "2023-11-28",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-025の一次情報更新。"
+      },
+      {
+        "title": "高田松原津波復興祈念公園内およびその周辺市街地における自動運転サービスの運行開始",
+        "url": "https://www.kddi.com/corporate/sustainability/regional-initiative/pressrelease/20230817/",
+        "date": "2023-08-17",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-025の市街地拡張実証情報の補強。"
+      }
+    ]
   },
   {
     "prefecture": "群馬県",
