@@ -416,7 +416,7 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicle: { value: "トヨタ シエナ", refs: [1] },
-    adSystem: { value: "ソフトバンク", refs: [] },
+    adSystem: { value: "May Mobility", refs: [1] },
     route: { value: "NTT中央研修センター構内", refs: [1] },
     operationType: { value: "実証実験（遠隔監視機能を含む）", refs: [1] },
     stakeholders: [
@@ -2757,7 +2757,7 @@ const EXPERIMENTS = [
       value: "観光客が急増する伊勢神宮周辺において、交通渋滞緩和と二次交通の確保を目的とした実証。アイサンテクノロジー主導のコンソーシアムに先進モビリティが技術協力を行い、中型バスによる公道走行を実施した。",
       refs: [1, 2]
     },
-    vehicle: { value: "詳細不明", refs: [1, 2] },
+    vehicle: { value: "BYD J6", refs: [1, 2] },
     adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "五十鈴川駅〜伊勢神宮内宮前", refs: [1, 2] },
     operationType: { value: "レベル2（観光地実証）", refs: [1, 2] },
@@ -2782,7 +2782,7 @@ const EXPERIMENTS = [
       value: "八丈島の夏季観光繁忙期に合わせた実証。空港、港、中心市街地を結ぶルートで、観光客や住民の移動をサポート。島嶼部特有の坂道や狭隘道路における自動運転技術の適用性を検証した。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
+    vehicle: { value: "日野 ポンチョ", refs: [1] },
     adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "八丈島空港〜中心市街地〜底土（しんど）港", refs: [1] },
     operationType: { value: "レベル2（期間限定実証）", refs: [1] },
@@ -2806,7 +2806,7 @@ const EXPERIMENTS = [
       value: "富士市における自動運転バスの実証実験。市公式公開情報を一次ソースとして追加した。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
+    vehicle: { value: "タジマ NAO-8J", refs: [1] },
     adSystem: { value: "不明", refs: [] },
     route: { value: "富士市内（実証ルート）", refs: [1] },
     operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
@@ -2828,7 +2828,7 @@ const EXPERIMENTS = [
       value: "狛江市における自動運転バスの実証実験。市公式公開情報を一次ソースとして追加した。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [1] },
     adSystem: { value: "不明", refs: [] },
     route: { value: "狛江市内（実証ルート）", refs: [1] },
     operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
@@ -2850,7 +2850,7 @@ const EXPERIMENTS = [
       value: "川崎市臨海部における自動運転バスの実証実験。市公式公開情報を一次ソースとして追加した。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
+    vehicle: { value: "BYD J6 / いすゞ エルガ", refs: [1] },
     adSystem: { value: "不明", refs: [] },
     route: { value: "川崎市臨海部（実証ルート）", refs: [1] },
     operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
@@ -2872,7 +2872,7 @@ const EXPERIMENTS = [
       value: "西宮市における自動運転バスの実証実験。市公式公開情報を一次ソースとして追加した。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [1] },
     adSystem: { value: "不明", refs: [] },
     route: { value: "西宮市内（実証ルート）", refs: [1] },
     operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
@@ -2894,8 +2894,8 @@ const EXPERIMENTS = [
       value: "札幌市が定山渓地区で実施した自動運転バス実証実験。観光周遊での活用可能性を検証し、期間中は無料で運行した。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "不明", refs: [] },
+    vehicle: { value: "NAVYA ARMA", refs: [1] },
+    adSystem: { value: "NAVYA", refs: [] },
     route: { value: "定山渓地区内 実証ルート", refs: [1] },
     operationType: { value: "レベル2（オペレーター同乗）", refs: [1] },
     stakeholders: [
@@ -2916,8 +2916,8 @@ const EXPERIMENTS = [
       value: "名古屋市がガイドウェイバスへの自動運転技術導入に向けて実施した大型自動運転バスの実証実験。一般モニター試乗を含めて検証を行った。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "不明", refs: [] },
+    vehicle: { value: "いすゞ エルガ", refs: [1] },
+    adSystem: { value: "アイサンテクノロジー", refs: [] },
     route: { value: "ガイドウェイバス志段味線 実証区間", refs: [1] },
     operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
     stakeholders: [
@@ -2938,7 +2938,7 @@ const EXPERIMENTS = [
       value: "相模原市が相模原駅周辺で実施した自動運転（レベル2）プレ実証実験。社会受容性や運行条件の確認を目的として実施した。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [1] },
     adSystem: { value: "不明", refs: [] },
     route: { value: "相模原駅周辺 実証ルート", refs: [1] },
     operationType: { value: "レベル2（プレ実証）", refs: [1] },
@@ -3050,8 +3050,8 @@ const EXPERIMENTS = [
       value: "内閣府・国土交通省によるSIPの一環として、大樹町で道の駅を拠点にした長期自動運転サービス実証を実施。全国で初めて自家用有償旅客運送で料金徴収を行う長期間実証として検証した。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "不明", refs: [] },
+    vehicle: { value: "日野 ポンチョ", refs: [1] },
+    adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "コスモール大樹〜尾田地区往復便、市街地循環便", refs: [1] },
     operationType: { value: "道の駅拠点型自動運転サービス実証", refs: [1] },
     stakeholders: [
@@ -3098,8 +3098,8 @@ const EXPERIMENTS = [
       value: "宗像市が令和9年度の本格運行を見据えて実施した公道でのレベル2実証運行。自由ヶ丘地区とJR赤間駅南口を結ぶルートで無料運行を実施した。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "不明", refs: [] },
+    vehicle: { value: "BYD J6", refs: [1] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "自由ヶ丘地区コミュニティ・センター〜JR赤間駅南口", refs: [1] },
     operationType: { value: "レベル2（運転手同乗・手動介入可能）", refs: [1] },
     stakeholders: [
@@ -3120,8 +3120,8 @@ const EXPERIMENTS = [
       value: "木津川市が京都府・京田辺市・精華町等と連携し、城山台地域で実施した自動運転EVバスの実証運行。レベル2運行に加え、1:N遠隔監視オペレーションの成立性を検証した。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "不明", refs: [] },
+    vehicle: { value: "BYD J6", refs: [1] },
+    adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "JR木津駅東口発着・城山台地域周辺ルート", refs: [1] },
     operationType: { value: "レベル2（1:N遠隔監視検証を含む実証）", refs: [1] },
     stakeholders: [
@@ -3143,8 +3143,8 @@ const EXPERIMENTS = [
       value: "NEDOが管理するSIP第2期の一環として、羽田空港地域で自動運転技術を活用した次世代公共交通システムの実証を開始。磁気マーカー活用やバス停正着制御などを検証し、レベル4相当の実現可能性を評価した。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "不明", refs: [] },
+    vehicle: { value: "日野 ブルーリボンシティ", refs: [1] },
+    adSystem: { value: "ジェイテクト", refs: [] },
     route: { value: "羽田空港地域内の実証ルート", refs: [1] },
     operationType: { value: "レベル4相当を目指す実証走行", refs: [1] },
     stakeholders: [
@@ -3188,7 +3188,7 @@ const EXPERIMENTS = [
       value: "ソフトバンクが竹芝エリアで、自動運転の走行経路設計や遠隔監視など運行業務のAI無人化に向けて実施した実証実験。レベル4社会実装を見据えた運用面の検証を行った。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
+    vehicle: { value: "トヨタ シエナ", refs: [1] },
     adSystem: { value: "May Mobility", refs: [1] },
     route: { value: "竹芝エリア内 実証ルート", refs: [1] },
     operationType: { value: "レベル4解禁を見据えた運行業務無人化実証", refs: [1] },
@@ -3256,7 +3256,7 @@ const EXPERIMENTS = [
       value: "東京都が令和6年度の導入推進プロジェクトとして、杉並区荻窪駅周辺で実施した自動運転バス走行実証。地元自治体・交通事業者と連携し、走行環境整備と運行検証を行った。",
       refs: [1, 2]
     },
-    vehicle: { value: "詳細不明", refs: [1, 2] },
+    vehicle: { value: "BYD J6", refs: [1, 2] },
     adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "杉並区 荻窪駅周辺の実証ルート", refs: [1] },
     operationType: { value: "導入推進に向けた走行実証", refs: [1, 2] },
@@ -3307,7 +3307,7 @@ const EXPERIMENTS = [
       value: "日本交通とティアフォーが、DRS（Data Recording System）搭載タクシー車両で東京都23区の公道データを継続収集する運行。レベル4相当の自動運転サービス実装に向け、運行環境データの蓄積と走行シナリオ整備を進める。",
       refs: [1, 2]
     },
-    vehicle: { value: "詳細不明", refs: [1, 2] },
+    vehicle: { value: "トヨタ JPN TAXI", refs: [1, 2] },
     adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "東京都23区内の公道（千代田区、中央区、港区、新宿区、文京区、台東区、墨田区、江東区、品川区、目黒区、大田区、世田谷区、渋谷区、中野区、杉並区、豊島区、北区、荒川区、板橋区、練馬区、足立区、葛飾区、江戸川区）", refs: [1, 2] },
     operationType: { value: "自動運転向けデータ収集・走行環境マッピング実証", refs: [1, 2] },
@@ -3331,7 +3331,7 @@ const EXPERIMENTS = [
       value: "奈良県と三郷町が共同で実施した移動支援サービス導入に向けた実証。JR三郷駅とFSS35キャンパスを結ぶルートで、2023年度に続く2024年度実証として自動運転バスを運行した。坂道区間でのブレーキ制御や路車協調を含む安全運行の検証を行った。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
+    vehicle: { value: "日野 レインボーII", refs: [1] },
     adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "JR三郷駅ー立野南二丁目ーFSS35キャンパスー立野南二丁目ーJR三郷駅", refs: [1] },
     operationType: { value: "実証運行（無料・事前予約優先）", refs: [1] },
@@ -3378,7 +3378,7 @@ const EXPERIMENTS = [
       value: "瑞穂町が主体となり、A-Driveおよびアイサンテクノロジー等と連携して実施した自動運転バス実証。コミュニティバス「石畑・殿ケ谷コース」約7.5kmの一部区間でレベル2走行を行い、将来の本格導入に向けた運用検証を実施した。",
       refs: [1, 2]
     },
-    vehicle: { value: "詳細不明", refs: [2] },
+    vehicle: { value: "BYD J6", refs: [2] },
     adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "石畑・殿ケ谷コース（ジョイフル本田方面）約7.5kmの一部区間", refs: [2] },
     operationType: { value: "レベル2（1日6便、無料・事前予約制）", refs: [2] },
@@ -3758,7 +3758,7 @@ const EXPERIMENTS = [
       value: "坂出市が、バス運転手不足への対応と公共交通の安定供給を目的に実施した自動運転バス実証。坂出駅を起終点に市内停留所を循環し、将来のレベル4実装に向けて技術実用性と社会受容性を検証した。",
       refs: [1]
     },
-    vehicle: { value: "WeRideバス", refs: [1] },
+    vehicle: { value: "Yutong Xiaoyu 2.0", refs: [1] },
     adSystem: { value: "WeRide", refs: [] },
     route: { value: "坂出駅北口→百十四銀行東部支店前→パッケージプラザ前→かきのは前→みんなの動物病院前→マルナカ坂出店前→マイルドハート坂出前→回生病院北→市役所前→坂出駅北口", refs: [1] },
     operationType: { value: "レベル2（無料、先着乗車、運転手乗務）", refs: [1] },
