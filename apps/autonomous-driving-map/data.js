@@ -378,28 +378,80 @@ const EXPERIMENTS = [
   },
   {
     id: "exp-209",
-    name: { value: "お台場・有明・青海 自動運転移動サービス実証（MONET・シエナ）", refs: [1, 2, 3] },
+    name: { value: "東京臨海副都心 自動運転移動サービス実証（MONET・May Mobility）", refs: [1, 2, 3, 4] },
     location: { value: "東京都江東区（有明・台場・青海エリア）", lat: 35.627, lng: 139.779, refs: [1, 2] },
     prefecture: { value: "東京都", refs: [1] },
-    period: { value: "2024年度後半〜2025年3月14日（第1期実証）", refs: [1, 2] },
-    status: { value: "完了", refs: [2] },
+    period: { value: "2024年度後半〜2025年3月14日（第1期）／2025年8月〜12月（第2期）", refs: [1, 2, 4] },
+    status: { value: "完了", refs: [2, 4] },
     description: {
-      value: "MONET Technologiesが東京臨海副都心（有明・台場・青海地区）の公道で実施した自動運転移動サービス。トヨタのミニバン「シエナ」をベースにした車両2台で、運転の自動化レベル2（運転士同乗）によるオンデマンド運行を行い、社会実装に向けた受容性と運行面を検証した。",
-      refs: [1, 2, 3]
+      value: "MONET Technologiesが東京臨海副都心で実施した公道実証。第1期は有明・台場・青海の5停留所で運行し、第2期は有明・お台場・豊洲の11停留所へ拡張。May Mobilityの自動運転装置を搭載した車両によるレベル2（運転士同乗）のオンデマンド運行で、社会実装に向けた受容性と運行面を検証した。",
+      refs: [1, 2, 3, 4]
     },
     vehicle: { value: "トヨタ シエナ", refs: [1, 3] },
-    adSystem: { value: "May Mobility", refs: [1, 2] },
-    route: { value: "有明・台場・青海エリア（5停留所）", refs: [2] },
+    adSystem: { value: "May Mobility", refs: [4] },
+    route: { value: "有明・台場・青海（第1期: 5停留所）／有明・お台場・豊洲（第2期: 11停留所）", refs: [2, 4] },
     operationType: { value: "レベル2（運転士同乗）", refs: [1, 2] },
     stakeholders: [
       { role: "運行主体", name: "MONET Technologies株式会社", refs: [1, 2] },
       { role: "車両提供", name: "トヨタ自動車株式会社", refs: [1] },
+      { role: "自動運転システム", name: "May Mobility", refs: [4] },
       { role: "支援事業", name: "東京都", refs: [1] }
     ],
     references: [
       { id: 1, title: "移動課題の解決と地域の価値向上に向けて、東京の有明地区などで自動運転技術を用いた移動サービスを2024年度後半に開始", url: "https://www.monet-technologies.com/news/press/20240828_01", date: "2024-08-28", source: "MONET Technologies" },
       { id: 2, title: "東京臨海副都心での自動運転技術を用いた移動サービスの実証", url: "https://www.monet-technologies.com/tokyo-bay", date: "2024-12-23", source: "MONET Technologies" },
-      { id: 3, title: "東京臨海副都心の公道で自動運転活用の移動サービス開始　MONET", url: "https://www.watch.impress.co.jp/docs/news/1619102.html", date: "2024-08-28", source: "Impress Watch" }
+      { id: 3, title: "東京臨海副都心の公道で自動運転活用の移動サービス開始　MONET", url: "https://www.watch.impress.co.jp/docs/news/1619102.html", date: "2024-08-28", source: "Impress Watch" },
+      { id: 4, title: "May Mobility’s Expanding Autonomous Footprint in Japan", url: "https://maymobility.com/posts/may-mobilitys-expanding-autonomous-footprint-in-japan/", date: "2026-02-24", source: "May Mobility" }
+    ]
+  },
+  {
+    id: "exp-210",
+    name: { value: "NTT中央研修センター 自動運転実証（NTT・May Mobility）", refs: [1, 2] },
+    location: { value: "東京都調布市（NTT中央研修センター）", lat: 35.661, lng: 139.535, refs: [1] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2024年11月〜（2025年3月にe-Palette活用実証を発表）", refs: [1] },
+    status: { value: "実施中", refs: [1, 2] },
+    description: {
+      value: "NTTとMay MobilityがNTT中央研修センター内に設置した実証拠点で実施する自動運転実証。既存のシエナベース車両での検証に加え、2025年3月にe-Paletteを活用した実証を発表し、ローカル5Gを用いた遠隔監視機能の検証を進めている。",
+      refs: [1, 2]
+    },
+    vehicle: { value: "トヨタ シエナ", refs: [1] },
+    adSystem: { value: "May Mobility", refs: [1] },
+    route: { value: "NTT中央研修センター構内", refs: [1] },
+    operationType: { value: "実証実験（遠隔監視機能を含む）", refs: [1] },
+    stakeholders: [
+      { role: "共同実施", name: "日本電信電話株式会社（NTT）", refs: [1] },
+      { role: "共同実施・自動運転システム", name: "May Mobility", refs: [1] },
+      { role: "技術協力", name: "NTT東日本", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "May Mobility, Inc. and NTT Group collaboration launches autonomous driving demonstration experiment using \"e-Palette\"", url: "https://maymobility.com/posts/may-mobility-inc-and-ntt-group-collaboration-launches-autonomous-driving-demonstration-experiment-using-e-palette/", date: "2025-03-27", source: "May Mobility" },
+      { id: 2, title: "May Mobility’s Expanding Autonomous Footprint in Japan", url: "https://maymobility.com/posts/may-mobilitys-expanding-autonomous-footprint-in-japan/", date: "2026-02-24", source: "May Mobility" }
+    ]
+  },
+  {
+    id: "exp-211",
+    name: { value: "あいち自動運転ループ（名古屋駅・栄・STATION Ai）", refs: [1, 2] },
+    location: { value: "愛知県名古屋市（名古屋駅・愛知芸術文化センター・STATION Ai）", lat: 35.171, lng: 136.906, refs: [1, 2] },
+    prefecture: { value: "愛知県", refs: [1] },
+    period: { value: "2025年10月14日〜2026年3月19日", refs: [2] },
+    status: { value: "完了", refs: [2] },
+    description: {
+      value: "愛知県が名古屋市中心部で実施したループ型の自動運転実証。名古屋駅（スパイラルタワーズ）・愛知芸術文化センター・STATION Aiの3拠点を結び、May Mobilityの自動運転装置を搭載した車両2台で社会受容性と運行面を検証した。",
+      refs: [1, 2]
+    },
+    vehicle: { value: "詳細不明", refs: [1] },
+    adSystem: { value: "May Mobility", refs: [1] },
+    route: { value: "名古屋駅（スパイラルタワーズ）→愛知芸術文化センター→STATION Ai（ループ）", refs: [1, 2] },
+    operationType: { value: "レベル2（運転士同乗、無料・予約制）", refs: [2] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "愛知県", refs: [1, 2] },
+      { role: "自動運転システム", name: "May Mobility", refs: [1] },
+      { role: "参画企業", name: "NTTドコモ", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "May Mobility’s Expanding Autonomous Footprint in Japan", url: "https://maymobility.com/posts/may-mobilitys-expanding-autonomous-footprint-in-japan/", date: "2026-02-24", source: "May Mobility" },
+      { id: 2, title: "あいち自動運転ループ", url: "https://aichi-autonomous-loop2025.com/", date: "2025-10-14", source: "あいち自動運転ループ事務局" }
     ]
   },
   {
@@ -1784,20 +1836,22 @@ const EXPERIMENTS = [
     period: { value: "2025年10月〜11月（実証実施済み）", refs: [1] },
     status: { value: "完了", refs: [1] },
     description: {
-      value: "予約制乗り合いタクシー「イータク」の利便性向上を目指し、自動運転技術を導入した「イータクプラス」の実証を実施。MONETの運行管理を活用。",
-      refs: [1]
+      value: "予約制乗り合いタクシー「イータク」の利便性向上を目指し、自動運転技術を導入した「イータクプラス」の実証を実施。May Mobilityの自動運転装置を搭載した車両を用い、MONETが運行管理・配車システムを提供した。",
+      refs: [1, 2, 3]
     },
     vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "ティアフォー", refs: [] },
+    adSystem: { value: "May Mobility", refs: [3] },
     route: { value: "春江地区 循環ルート", refs: [1] },
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
       { role: "自治体", name: "坂井市（福井県）", refs: [1] },
-      { role: "運行管理", name: "MONET Technologies株式会社", refs: [1] },
-      { role: "自動運転システム", name: "株式会社ティアフォー", refs: [1] }
+      { role: "運行管理・配車システム", name: "MONET Technologies株式会社", refs: [1, 2] },
+      { role: "自動運転システム", name: "May Mobility", refs: [3] }
     ],
     references: [
-      { id: 1, title: "坂井市自動運転社会推進実証事業について", url: "https://www.city.fukui-sakai.lg.jp/sogo-seisaku/shisei/shisaku/jidouunten/jituziyou.html", date: "2025-10-01", source: "坂井市" }
+      { id: 1, title: "坂井市自動運転社会推進実証事業について", url: "https://www.city.fukui-sakai.lg.jp/sogo-seisaku/shisei/shisaku/jidouunten/jituziyou.html", date: "2025-10-01", source: "坂井市" },
+      { id: 2, title: "福井県坂井市の自動運転社会推進実証事業「イータクプラス」の実証運行に協力", url: "https://www.monet-technologies.com/news/info/20251009_01", date: "2025-10-09", source: "MONET Technologies" },
+      { id: 3, title: "May Mobility’s Expanding Autonomous Footprint in Japan", url: "https://maymobility.com/posts/may-mobilitys-expanding-autonomous-footprint-in-japan/", date: "2026-02-24", source: "May Mobility" }
     ]
   },
   {
