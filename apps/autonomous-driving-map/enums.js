@@ -377,7 +377,7 @@
 
   // 搭載自動運転システム（開発・提供会社名）
   // 専用設計型AD車両（NAVYA、Auve Tech 等）もメーカー名を記載する
-  // アイサンテクノロジー・BOLDLY・ヤマハ発動機は自前のADシステムを持たないため記載しない
+  // アイサンテクノロジー・BOLDLY・ヤマハ発動機・東京都交通局は自前のADシステムを持たないため記載しない
   exports.AD_SYSTEMS = {
     // 専用設計型AD車両メーカー（車両とADシステムを一体提供）
     NAVYA: "NAVYA",
@@ -407,7 +407,6 @@
     DENA: "DeNA",
     MINNA_NO_TAXI: "みんなのタクシー",
     SOFTBANK: "ソフトバンク",
-    TOKYO_METRO: "東京都交通局",
     NEC: "NEC",
     UNKNOWN: "不明",
   };

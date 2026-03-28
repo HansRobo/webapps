@@ -45,11 +45,54 @@ function levenshtein(a, b) {
   return dp[m][n];
 }
 
+function normalizeRole(role) {
+  return String(role)
+    .replace(/[ 　]/g, "")
+    .replace(/（[^）]*）/g, "")
+    .trim();
+}
+
+function normalizeOrgName(name) {
+  return String(name)
+    .replace(/[ 　]/g, "")
+    .replace(/（[^）]*）/g, "")
+    .replace(/\([^)]*\)/g, "")
+    .replace(/株式会社|（株）|有限会社|一般財団法人|一般社団法人|国立研究開発法人/g, "")
+    .trim();
+}
+
 function validateExperiments(experiments, enums) {
   const errors = [];
   const warnings = [];
   const err = (id, msg) => errors.push(`[ERROR] ${id}: ${msg}`);
   const warn = (id, msg) => warnings.push(`[WARN]  ${id}: ${msg}`);
+  const requiredValueFields = [
+    "name",
+    "location",
+    "prefecture",
+    "period",
+    "status",
+    "description",
+    "vehicle",
+    "adSystem",
+    "route",
+    "operationType",
+  ];
+  const knownRoles = Array.isArray(enums.STAKEHOLDER_ROLES) ? enums.STAKEHOLDER_ROLES : [];
+  const roleNormToKnown = new Map();
+  for (const r of knownRoles) {
+    const n = normalizeRole(r);
+    if (!roleNormToKnown.has(n)) roleNormToKnown.set(n, []);
+    roleNormToKnown.get(n).push(r);
+  }
+
+  const knownOrgs = Array.isArray(enums.ORGANIZATIONS) ? enums.ORGANIZATIONS : [];
+  const orgNormToKnown = new Map();
+  for (const o of knownOrgs) {
+    const n = normalizeOrgName(o);
+    if (!orgNormToKnown.has(n)) orgNormToKnown.set(n, []);
+    orgNormToKnown.get(n).push(o);
+  }
 
   const seenIds = new Set();
   for (const exp of experiments) {
@@ -61,7 +104,6 @@ function validateExperiments(experiments, enums) {
   for (const exp of experiments) {
     const id = exp.id ?? "(不明)";
 
-    const requiredValueFields = ["name", "location", "prefecture", "period", "status", "description", "vehicleType", "route", "operationType"];
     for (const f of requiredValueFields) {
       if (!exp[f]) { err(id, `フィールド "${f}" がありません`); continue; }
       if (typeof exp[f].value !== "string" || exp[f].value.trim() === "")
@@ -98,22 +140,32 @@ function validateExperiments(experiments, enums) {
         if (!Array.isArray(s.refs))
           err(id, `${prefix}.refs が配列ではありません`);
 
-        if (s.role && !enums.STAKEHOLDER_ROLES.includes(s.role))
-          warn(id, `${prefix}.role "${s.role}" は既知の役割リストにありません（新規役割の場合はenums.jsに追加してください）`);
+        if (s.role && !knownRoles.includes(s.role)) {
+          const normalizedRole = normalizeRole(s.role);
+          const normalizedMatches = roleNormToKnown.get(normalizedRole) ?? [];
+          if (normalizedMatches.length === 1) {
+            warn(id, `${prefix}.role "${s.role}" は既存表記 "${normalizedMatches[0]}" と同一語彙の可能性があります（表記統一を検討してください）`);
+          } else if (normalizedMatches.length > 1) {
+            warn(id, `${prefix}.role "${s.role}" は既存表記に複数候補があります: ${normalizedMatches.join(" / ")}`);
+          }
+        }
 
         if (s.name) {
           // 組織名は enums.js の正規表記（正式名称）で管理する。
           // 複数組織は「、」区切りで個別照合する。
           const orgs = s.name.split("、").map((o) => o.trim());
           for (const org of orgs) {
-            if (!enums.ORGANIZATIONS.includes(org)) {
-              const similar = enums.ORGANIZATIONS.filter(
-                (known) => levenshtein(org, known) <= 3 && org.length >= 3
-              );
-              if (similar.length > 0)
-                warn(id, `${prefix}.name 内 "${org}" は既知の組織名にありません。表記ゆれの可能性: ${similar.join(" / ")}`);
-              else
-                warn(id, `${prefix}.name 内 "${org}" は既知の組織名にありません（新規組織の場合はenums.jsに追加してください）`);
+            if (!knownOrgs.includes(org)) {
+              const normalizedOrg = normalizeOrgName(org);
+              const normalizedMatches = orgNormToKnown.get(normalizedOrg) ?? [];
+              if (normalizedMatches.length === 1) {
+                warn(id, `${prefix}.name 内 "${org}" は既存表記 "${normalizedMatches[0]}" と同一組織の可能性があります（表記統一を検討してください）`);
+              } else if (normalizedMatches.length > 1) {
+                warn(id, `${prefix}.name 内 "${org}" は既存表記に複数候補があります: ${normalizedMatches.join(" / ")}`);
+              } else {
+                // 新規組織名はここでは警告しない。
+                // 既存表記との正規化一致のみを「表記ゆれ候補」として扱う。
+              }
             }
           }
         }
@@ -143,7 +195,7 @@ function validateExperiments(experiments, enums) {
           warn(id, `${prefix}.source が空または文字列ではありません`);
       }
 
-      for (const f of ["name", "location", "prefecture", "period", "status", "description", "vehicleType", "route", "operationType"]) {
+      for (const f of requiredValueFields) {
         for (const r of (exp[f]?.refs ?? [])) {
           if (!refIds.has(r))
             err(id, `${f}.refs に参照番号 ${r} がありますが、references[].id に存在しません`);
