@@ -25,7 +25,7 @@ const EXPERIMENTS = [
     ],
     references: [
       { id: 1, title: "境町、全国で初めて自動運転バスを路線バスとして運行開始", url: "https://www.softbank.jp/corp/news/press/sbkk/2020/20201025_01/", date: "2020-10-25", source: "ソフトバンク プレスリリース" },
-      { id: 2, title: "Boldly、境町での自動運転バス運行1周年", url: "https://boldly.jp/news/2021/11/", date: "2021-11-25", source: "BOLDLY株式会社" },
+      { id: 2, title: "Boldly、境町での自動運転バス運行1周年", url: "https://www.softbank.jp/drive/press/2022/20220208_01/", date: "2022-02-08", source: "BOLDLY / ソフトバンク" },
       { id: 3, title: "国内初の路線バスとして自動運転バスを運行　茨城県境町", url: "https://www.mlit.go.jp/report/press/jidosha04_hh_000099.html", date: "2020-10-26", source: "国土交通省 プレスリリース" }
     ]
   },
@@ -80,7 +80,7 @@ const EXPERIMENTS = [
     ],
     references: [
       { id: 1, title: "【都内初】西新宿でまちのインフラと協調した自動運転移動サービスの実証実験を実施", url: "https://www.aisantec.co.jp/ir/information/2021/12/post-49.html", date: "2021-12-15", source: "アイサンテクノロジー株式会社" },
-      { id: 2, title: "先進モビリティ、小田急バスとの自動運転バス実証実験について", url: "https://www.advanced-mobility.jp/news/20190918/", date: "2019-09-17", source: "先進モビリティ株式会社" },
+      { id: 2, title: "先進モビリティ お知らせ", url: "https://www.as-mobi.com/news/?ca=3", date: "2019-09-17", source: "先進モビリティ株式会社" },
       { id: 3, title: "都内初、西新宿でまちのインフラと協調した自動運転移動サービスの実証実験を実施", url: "https://news.kddi.com/kddi/corporate/newsrelease/2021/12/15/5596.html", date: "2021-12-15", source: "KDDI ニュースリリース" }
     ]
   },
@@ -133,8 +133,8 @@ const EXPERIMENTS = [
       { role: "支援機関", name: "千葉県", refs: [1, 3] }
     ],
     references: [
-      { id: 1, title: "DeNAと日産、幕張新都心で自動運転タクシー実証実験を開始", url: "https://dena.com/jp/press/4155/", date: "2018-10-04", source: "DeNA プレスリリース" },
-      { id: 2, title: "EasyRide（イージーライド）自動運転モビリティサービス実証実験", url: "https://nissan-newsroom.com/ja-JP/releases/181004-01-j", date: "2018-10-04", source: "日産自動車 ニュースリリース" },
+      { id: 1, title: "日産自動車とDeNA、無人運転車両を活用した交通サービス「Easy Ride」の実証実験を開始", url: "https://dena.com/jp/news/3566", date: "2018-02-23", source: "DeNA ニュース" },
+      { id: 2, title: "日産とDeNAが次世代交通サービス「Easy Ride」の実証実験へ、無人運転車両を活用", url: "https://techcrunchjapan.com/2018/02/23/easy-ride-test/", date: "2018-02-23", source: "TechCrunch Japan" },
       { id: 3, title: "幕張新都心スマートシティプロジェクト 自動運転実証について", url: "https://www.city.chiba.jp/toshi/toshi/smartcity/makuhari_jidounten.html", date: "2018-09-01", source: "千葉市 都市局" }
     ]
   },
@@ -2221,7 +2221,7 @@ const EXPERIMENTS = [
       { role: "車両製造", name: "Auve Tech（エストニア）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "境町、新型自動運転バス「MiCa」を導入しルート拡大", url: "https://boldly.jp/news/2024/04/", date: "2024-04-01", source: "BOLDLY株式会社" }
+      { id: 1, title: "国内初、茨城県境町が自動運転EV「MiCa」を導入", url: "https://www.softbank.jp/drive/press/2023/20231206_02/", date: "2023-12-06", source: "BOLDLY / ソフトバンク" }
     ]
   },
   {
