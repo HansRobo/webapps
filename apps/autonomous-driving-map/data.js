@@ -1695,8 +1695,8 @@ const EXPERIMENTS = [
       value: "運転手不足や地域交通の課題解決のため、関越交通などと連携し、一般の市民が予約不要で乗車できる渋川市街地循環ルートでの自動運転実証運行を実施。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "不明", refs: [] },
+    vehicle: { value: "日野 レインボー", refs: [1] },
+    adSystem: { value: "日本モビリティ", refs: [2] },
     route: { value: "渋川市街地 循環ルート", refs: [1] },
     operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
     stakeholders: [
@@ -1721,8 +1721,8 @@ const EXPERIMENTS = [
       value: "大型バスを用いた自動運転実証を路線バス（北浦03系統）において継続。運転士不足への対応と安全性向上を検証。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "不明", refs: [] },
+    vehicle: { value: "いすゞ エルガ", refs: [1, 2] },
+    adSystem: { value: "アイサンテクノロジー", refs: [1] },
     route: { value: "北浦和駅西口〜埼玉大学", refs: [1] },
     operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
     stakeholders: [
@@ -1839,7 +1839,7 @@ const EXPERIMENTS = [
       value: "予約制乗り合いタクシー「イータク」の利便性向上を目指し、自動運転技術を導入した「イータクプラス」の実証を実施。May Mobilityの自動運転装置を搭載した車両を用い、MONETが運行管理・配車システムを提供した。",
       refs: [1, 2, 3]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
+    vehicle: { value: "トヨタ シエナ", refs: [1, 2] },
     adSystem: { value: "May Mobility", refs: [3] },
     route: { value: "春江地区 循環ルート", refs: [1] },
     operationType: { value: "レベル2（実証実験）", refs: [1] },
@@ -1888,8 +1888,8 @@ const EXPERIMENTS = [
       value: "リニア中央新幹線開業を見据え、東濃地域5市等によるコンソーシアムを設立。持続可能な自動運転移動サービスの構築と技術検証を推進。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "不明", refs: [] },
+    vehicle: { value: "NAVYA EVO", refs: [1] },
+    adSystem: { value: "NAVYA", refs: [1] },
     route: { value: "中津川駅〜周辺観光エリア等", refs: [1] },
     operationType: { value: "実証調査・技術検証", refs: [1] },
     stakeholders: [
@@ -2076,8 +2076,8 @@ const EXPERIMENTS = [
       value: "バス運転士不足対策に向け、ソフトバンクと連携して自動運転バスの実証を実施。市街地公道での走行安定性と受容性を検証。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "不明", refs: [] },
+    vehicle: { value: "三菱ふそう エアロエース等", refs: [1, 2] },
+    adSystem: { value: "先進モビリティ", refs: [1, 2] },
     route: { value: "松江市内 中心部ルート", refs: [1] },
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
@@ -2130,8 +2130,8 @@ const EXPERIMENTS = [
       value: "中山間地域での移動手段確保を目的とし、多世代交流拠点施設「楠こもれびの郷」周辺で自動運転サ－ビスの実証を実施。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "不明", refs: [] },
+    vehicle: { value: "トヨタ エスティマ", refs: [1] },
+    adSystem: { value: "アイサンテクノロジー", refs: [1] },
     route: { value: "楠こもれびの郷 周辺ルート", refs: [1] },
     operationType: { value: "レベル2（中山間地モデル）", refs: [1] },
     stakeholders: [
@@ -2152,8 +2152,8 @@ const EXPERIMENTS = [
       value: "地元タクシー会社、NEC、電脳交通等と連携し、既存配車システムを活用した自動運転タクシー実証を実施。27箇所の拠点を走行。",
       refs: [1, 2]
     },
-    vehicle: { value: "詳細不明", refs: [1, 2] },
-    adSystem: { value: "不明", refs: [] },
+    vehicle: { value: "Hyundai IONIQ 5", refs: [1, 2] },
+    adSystem: { value: "Autonomous A2Z", refs: [1, 2] },
     route: { value: "鳴門市西部・松茂町エリア", refs: [1, 2] },
     operationType: { value: "レベル2（将来レベル4目標）", refs: [1, 2] },
     stakeholders: [
@@ -2223,8 +2223,8 @@ const EXPERIMENTS = [
       value: "AIオンデマンド交通「のるーと」の車両において、全国初となる自動運転実証を実施。JR古賀駅〜ししぶ駅間での実用性を検証。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "ティアフォー", refs: [] },
+    vehicle: { value: "BYD J6", refs: [1] },
+    adSystem: { value: "ティアフォー", refs: [1] },
     route: { value: "JR古賀駅東口〜JRししぶ駅東口", refs: [1] },
     operationType: { value: "レベル2（AIオンデマンド連携）", refs: [1] },
     stakeholders: [
@@ -2275,8 +2275,8 @@ const EXPERIMENTS = [
       value: "熊本城周辺および南熊本地区において、大型・中型バスによるレベル2実証を継続。運転士不足への対応と地域交通維持を検証。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1, 2] },
-    adSystem: { value: "先進モビリティ", refs: [] },
+    vehicle: { value: "BYD J6", refs: [1, 2] },
+    adSystem: { value: "ティアフォー", refs: [1] },
     route: { value: "熊本城周辺ルート、南熊本駅周辺ルート", refs: [1] },
     operationType: { value: "レベル2（長期実証中）", refs: [1, 2] },
     stakeholders: [
@@ -2349,8 +2349,8 @@ const EXPERIMENTS = [
       value: "2018年から実証を続ける前橋市の第3フェーズ。ローカル5G等を活用した高精度な遠隔監視や、マイナンバーカード・顔認証と連携した決済システムの検証を行い、社会実装に向けた利便性を追求した。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "NEC", refs: [] },
+    vehicle: { value: "いすゞ エルガ", refs: [1] },
+    adSystem: { value: "NEC / 群馬大学", refs: [1] },
     route: { value: "JR前橋駅〜中央前橋駅シャトルルート 約1km", refs: [1] },
     operationType: { value: "レベル2（5G連携・高度技術検証）", refs: [1] },
     stakeholders: [
@@ -2373,8 +2373,8 @@ const EXPERIMENTS = [
       value: "柏の葉キャンパス周辺での長期実証の第一段階。一般公道を実際にバスが走行し、技術的な安全性と住民の受容性を調査。現在のCooL4プロジェクトへと繋がる原点となった。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "先進モビリティ", refs: [] },
+    vehicle: { value: "日野 ポンチョ", refs: [1] },
+    adSystem: { value: "先進モビリティ", refs: [1] },
     route: { value: "柏の葉キャンパス駅〜東京大学柏キャンパス 約2.5km", refs: [1] },
     operationType: { value: "レベル2（初期公道検証）", refs: [1] },
     stakeholders: [
@@ -2422,8 +2422,8 @@ const EXPERIMENTS = [
       value: "空港アクセス向上と空港内作業の自動化を目指し、制限区域および空港島内一般道での実証を複数回実施。特に、大型・中型バスによる多人数輸送における、GNSSが届きにくいエリアでの精度検証を行っている。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "先進モビリティ", refs: [] },
+    vehicle: { value: "日野 ポンチョ等", refs: [1] },
+    adSystem: { value: "先進モビリティ / 日本モビリティ", refs: [1, 2] },
     route: { value: "中部国際空港内および空港島周辺", refs: [1] },
     operationType: { value: "レベル2〜（段階的実証）", refs: [1] },
     stakeholders: [
@@ -2471,8 +2471,8 @@ const EXPERIMENTS = [
       value: "SAGAサンライズパークの開業に合わせ、周辺の賑わい創出と二次交通解消を目指した実証。2024年の本格稼働に向け、ルート上の課題抽出と乗客満足度の調査を主体としたプレ実証を実施。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "不明", refs: [] },
+    vehicle: { value: "BYD J6", refs: [1] },
+    adSystem: { value: "ティアフォー", refs: [1] },
     route: { value: "SAGAサンライズパーク〜佐賀駅周辺", refs: [1] },
     operationType: { value: "レベル2（導入前実証）", refs: [1] },
     stakeholders: [
@@ -2541,7 +2541,7 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicle: { value: "いすゞ エルガ", refs: [1] },
-    adSystem: { value: "不明", refs: [] },
+    adSystem: { value: "先進モビリティ", refs: [1] },
     route: { value: "新木場駅前〜日本科学未来館（片道約30分）", refs: [1] },
     operationType: { value: "レベル2（運転手同乗）", refs: [1] },
     stakeholders: [
