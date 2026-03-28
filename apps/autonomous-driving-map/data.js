@@ -664,7 +664,7 @@ const EXPERIMENTS = [
       { role: "実施主体等", name: "つくば市（茨城県）、筑波大学", refs: [1] }
     ],
     references: [
-      { id: 1, title: "【茨城県つくば市】筑波大学循環における自動運転バスの取り組みに協力しました", url: "https://aisan-mobility.com/news/250101-2/", date: "2025-01-01", source: "アイサンテクノロジー ニュース" }
+      { id: 1, title: "つくば市自動運転バスの実証実験に参画しました", url: "https://aisan-mobility.com/info/%E3%81%A4%E3%81%8F%E3%81%B0%E5%B8%82%E8%87%AA%E5%8B%95%E9%81%8B%E8%BB%A2%E3%83%90%E3%82%B9%E3%81%AE%E5%AE%9F%E8%A8%BC%E5%AE%9F%E9%A8%93%E3%81%AB%E5%8F%82%E7%94%BB%E3%81%97%E3%81%BE%E3%81%99/", date: "2025-01-01", source: "アイサンテクノロジー" }
     ]
   },
   {
@@ -762,7 +762,7 @@ const EXPERIMENTS = [
       { role: "支援", name: "国土交通省、総務省", refs: [1] }
     ],
     references: [
-      { id: 1, title: "上小阿仁村における自動運転サービスの実証", url: "https://www.mlit.go.jp/road/road/traffic/autonomous/autonomous_kamikoani.html", date: "2024-01-01", source: "国土交通省" }
+      { id: 1, title: "上小阿仁村における自動運転サービスの実証", url: "https://www.mlit.go.jp/report/press/road01_hh_001258.html", date: "2024-01-01", source: "国土交通省" }
     ]
   },
   {
@@ -786,7 +786,7 @@ const EXPERIMENTS = [
       { role: "技術協力", name: "アイサンテクノロジー株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "道の駅等を拠点とした自動運転サービスの実証実験", url: "https://www.mlit.go.jp/road/road/traffic/autonomous/autonomous_takahata.html", date: "2020-01-01", source: "国土交通省" }
+      { id: 1, title: "道の駅等を拠点とした自動運転サービスの実証実験（高畠町）", url: "https://www8.cao.go.jp/cstp/stmain/20210921_1sip.html", date: "2021-09-21", source: "内閣府 SIP" }
     ]
   },
   {
@@ -837,7 +837,7 @@ const EXPERIMENTS = [
       { role: "運行協力", name: "日本中央バス株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "前橋市における自動運転の取り組み", url: "https://www.city.maebashi.gunma.jp/soshiki/seisaku/kotsuseisaku/gyomu/3/2/23011.html", date: "2023-01-01", source: "前橋市" },
+      { id: 1, title: "前橋市における自動運転バス実証実験", url: "https://maebashimobility.jp/630", date: "2023-01-01", source: "前橋交通モビリティポータル" },
       { id: 2, title: "前橋市において自動運転の実証実験を実施", url: "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2024112001", date: "2024-11-20", source: "日本モビリティ株式会社 リリース" },
       { id: 3, title: "群馬県前橋市で5G技術を活用した自動運転バスの公道実証を実施", url: "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2021010801", date: "2021-01-08", source: "日本モビリティ株式会社 リリース" }
     ]
@@ -863,7 +863,7 @@ const EXPERIMENTS = [
       { role: "自治体", name: "栃木県", refs: [1] }
     ],
     references: [
-      { id: 1, title: "栃木県 日光市 自動運転バス実証", url: "https://www.as-mobi.com/case/okunikko/", date: "2024-01-01", source: "先進モビリティ株式会社" }
+      { id: 1, title: "自動運転バスに乗ろう＠日光市（奥日光大型EVバス実証）", url: "https://www.pref.tochigi.lg.jp/h03/houdou/nikkojidouuntenten.html", date: "2024-01-01", source: "栃木県" }
     ]
   },
   {
@@ -933,7 +933,7 @@ const EXPERIMENTS = [
       { role: "車両提供", name: "BYD（比亜迪）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "富山市 自動運転実証実験事業", url: "https://www.city.toyama.lg.jp/shisei/machi/1010376/1010381/1010385.html", date: "2024-01-01", source: "富山市" }
+      { id: 1, title: "富山市 自動運転実証実験事業（令和6年度実施報告）", url: "https://aisan-mobility.com/202409toyama/", date: "2024-09-01", source: "アイサンテクノロジー" }
     ]
   },
   {
@@ -956,7 +956,7 @@ const EXPERIMENTS = [
       { role: "自治体", name: "富士吉田市（山梨県）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "富士吉田市での実証実験", url: "https://prtimes.jp/main/html/rd/p/000001099.000028232.html", date: "2025-01-01", source: "富士急行" }
+      { id: 1, title: "富士吉田市での自動運転EVバス実証運行（富士急行）", url: "https://prtimes.jp/main/html/rd/p/000001684.000001110.html", date: "2025-01-01", source: "富士急行 プレスリリース" }
     ]
   },
   {
@@ -982,7 +982,7 @@ const EXPERIMENTS = [
       { role: "運行補佐", name: "岐阜バス株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "新たな「GIFU HEART BUS」の運行がいよいよスタート！", url: "https://www.city.gifu.lg.jp/kurashi/douro/1002587/1023154/1036889.html", date: "2026-01-28", source: "岐阜市" }
+      { id: 1, title: "GIFU HEART BUS 自動運転バス継続運行について", url: "https://www.city.gifu.lg.jp/kurashi/douro/1002587/1023154/1023168.html", date: "2026-01-28", source: "岐阜市" }
     ]
   },
   {
@@ -1007,7 +1007,7 @@ const EXPERIMENTS = [
       { role: "協力", name: "京都スマートシティ推進協議会", refs: [1] }
     ],
     references: [
-      { id: 1, title: "京田辺市における自動運転実証実験について", url: "https://www.city.kyotanabe.lg.jp/0000020478.html", date: "2024-12-01", source: "京田辺市（京都府）" }
+      { id: 1, title: "京田辺市における自動運転実証実験（2024年12月実施）", url: "https://aisan-mobility.com/202412kyoutanabe/", date: "2024-12-01", source: "アイサンテクノロジー" }
     ]
   },
   {
@@ -2093,23 +2093,30 @@ const EXPERIMENTS = [
     name: { value: "東広島市・自動運転隊列走行BRT実証", refs: [1, 2] },
     location: { value: "広島県東広島市", lat: 34.43, lng: 132.74, refs: [1] },
     prefecture: { value: "広島県", refs: [1] },
-    period: { value: "2024年〜2026年1月（継続実証）", refs: [1, 2] },
-    status: { value: "実施中", refs: [1] },
+    period: { value: "2023年11月〜（2025年11月5日〜2026年1月下旬が最新フェーズ、2027年度レベル4認可取得目標）", refs: [1, 2, 3] },
+    status: { value: "実施中", refs: [1, 3] },
     description: {
-      value: "ブールバール等において、JR西日本・ソフトバンクと連携し連節バスの自動運転・隊列走行（BRT）実証を実施。将来の拠点間移動の高度化を目指す。",
-      refs: [1, 2]
+      value: "東広島市ブールバール（JR西条駅〜広島大学東広島キャンパス、約12km周回）において、JR西日本・先進モビリティ・ソフトバンク等と連携しBYD製「K8 2.0」大型EVバスによる自動運転・隊列走行（BRT）実証を実施。2023年11月からレベル2実証を開始し、2025年11月から走行範囲を全ルートに拡大。2027年度に一部区間（約500m）でのレベル4自動運転認可取得を目指す。なお隊列走行は新型EV導入に伴い一時中断中。",
+      refs: [1, 2, 3]
     },
-    vehicle: { value: "詳細不明", refs: [1, 2] },
-    adSystem: { value: "ソフトバンク", refs: [] },
-    route: { value: "JR西条駅周辺〜広島大学東広島キャンパス（ブールバール）", refs: [1, 2] },
-    operationType: { value: "レベル2（自動運転・隊列走行BRT実証）", refs: [1, 2] },
+    vehicle: { value: "BYD K8 2.0（大型EVバス、全長約10m、定員73名・着席28名、LiDAR/ステレオカメラ/GNSSアンテナ搭載）", refs: [2, 3] },
+    adSystem: { value: "先進モビリティ", refs: [] },
+    route: { value: "JR西条駅周辺〜広島大学東広島キャンパス（ブールバール、中央公園前〜鏡山公園入口〜池ノ上〜広大中央口、約12km周回）", refs: [1, 2] },
+    operationType: { value: "レベル2（自動運転・隊列走行BRT実証、2027年度レベル4認可目標）", refs: [1, 2, 3] },
     stakeholders: [
       { role: "自治体", name: "東広島市（広島県）", refs: [1, 2] },
-      { role: "主体", name: "西日本旅客鉄道株式会社（JR西日本）、ソフトバンク株式会社", refs: [1, 2] }
+      { role: "支援自治体", name: "広島県", refs: [2] },
+      { role: "運行・事業主体", name: "西日本旅客鉄道株式会社（JR西日本）", refs: [1, 2, 3] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [2, 3] },
+      { role: "データ分析・通信", name: "ソフトバンク株式会社", refs: [2, 3] },
+      { role: "バス運行", name: "JRバス中国株式会社", refs: [2, 3] },
+      { role: "コンサルタント", name: "ジェイアール西日本コンサルタンツ株式会社", refs: [2] },
+      { role: "連携機関", name: "広島大学、芸陽バス株式会社", refs: [2] }
     ],
     references: [
       { id: 1, title: "自動運転・隊列走行BRT実証実験", url: "https://www.city.higashihiroshima.lg.jp/soshiki/toshi/7/1_1/44126.html", date: "2025-11-07", source: "東広島市" },
-      { id: 2, title: "自動運転・隊列走行BRTの社会実装に向けた「自動運転EVバス」走行試験開始", url: "https://www.city.higashihiroshima.lg.jp/material/files/group/205/press.pdf", date: "2025-10-24", source: "東広島市・JR西日本 連名資料" }
+      { id: 2, title: "自動運転・隊列走行BRTの社会実装に向けた「自動運転EVバス」走行試験開始", url: "https://www.city.higashihiroshima.lg.jp/material/files/group/205/press.pdf", date: "2025-10-24", source: "東広島市・JR西日本 連名資料" },
+      { id: 3, title: "JR西日本の自動運転バス「2歩前進」どんな内容？東広島で実験、営業運転見据え27年度認可目指す", url: "https://toyokeizai.net/articles/-/930009", date: "2026-01-19", source: "東洋経済オンライン" }
     ]
   },
   {
