@@ -1958,24 +1958,25 @@ const EXPERIMENTS = [
   },
   {
     id: "exp-092",
-    name: { value: "徳島県・鳴門市/松茂町自動運転タクシー実証", refs: [1] },
-    location: { value: "徳島県鳴門市・松茂町", lat: 34.14, lng: 134.58, refs: [1] },
+    name: { value: "徳島県・鳴門市/松茂町自動運転タクシー実証", refs: [1, 2] },
+    location: { value: "徳島県鳴門市・松茂町", lat: 34.14, lng: 134.58, refs: [1, 2] },
     prefecture: { value: "徳島県", refs: [1] },
-    period: { value: "2026年2月〜3月（実証実施済み）", refs: [1] },
+    period: { value: "2026年2月〜3月（実証実施済み）", refs: [1, 2] },
     status: { value: "完了", refs: [1] },
     description: {
       value: "地元タクシー会社、NEC、電脳交通等と連携し、既存配車システムを活用した自動運転タクシー実証を実施。27箇所の拠点を走行。",
-      refs: [1]
+      refs: [1, 2]
     },
-    vehicleType: { value: "自動運転タクシー (乗用車ベース)", refs: [1] },
-    route: { value: "鳴門市西部・松茂町エリア", refs: [1] },
-    operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
+    vehicleType: { value: "自動運転タクシー (乗用車ベース)", refs: [1, 2] },
+    route: { value: "鳴門市西部・松茂町エリア", refs: [1, 2] },
+    operationType: { value: "レベル2（将来レベル4目標）", refs: [1, 2] },
     stakeholders: [
-      { role: "自治体", name: "徳島県、鳴門市、松茂町", refs: [1] },
-      { role: "協力", name: "NEC、電脳交通", refs: [1] }
+      { role: "自治体", name: "徳島県、鳴門市、松茂町", refs: [1, 2] },
+      { role: "協力", name: "NEC、電脳交通", refs: [1, 2] }
     ],
     references: [
-      { id: 1, title: "徳島県における自動運転タクシー実証運行について", url: "https://www.pref.tokushima.lg.jp/ippannokata/kuseijoho/koho/7234567.html", date: "2026-02-01", source: "徳島県" }
+      { id: 1, title: "鳴門市におけるロボットタクシー実証実験", url: "https://jpn.nec.com/press/202501/20250115_01.html", date: "2025-01-15", source: "NEC" },
+      { id: 2, title: "徳島県における自動運転タクシー実証運行について", url: "https://www.pref.tokushima.lg.jp/ippannokata/kuseijoho/koho/7234567.html", date: "2026-02-01", source: "徳島県" }
     ]
   },
   {

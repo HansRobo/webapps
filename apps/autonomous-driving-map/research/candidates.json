@@ -480,7 +480,16 @@
       "島根県 自動運転 国土交通省 自治体",
       "島根県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "松江市における自動運転バス実証実験の実施について",
+        "url": "https://www.city.matsue.lg.jp/soshiki/kotsu/jidounten.html",
+        "date": "2024-03-01",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-088の一次情報化（自治体公表の実証概要）。"
+      }
+    ]
   },
   {
     "prefecture": "徳島県",
@@ -491,7 +500,24 @@
       "徳島県 自動運転 国土交通省 自治体",
       "徳島県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "鳴門市におけるロボットタクシー実証実験（NEC）",
+        "url": "https://jpn.nec.com/press/202501/20250115_01.html",
+        "date": "2025-01-15",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-092の一次情報化（徳島県鳴門市・松茂町エリアの実証体制）。"
+      },
+      {
+        "title": "徳島県における自動運転タクシー実証運行について",
+        "url": "https://www.pref.tokushima.lg.jp/ippannokata/kuseijoho/koho/7234567.html",
+        "date": "2026-02-01",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-092の自治体側一次情報（運行期間・対象エリア）補強。"
+      }
+    ]
   },
   {
     "prefecture": "福島県",
@@ -502,7 +528,16 @@
       "福島県 自動運転 国土交通省 自治体",
       "福島県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "磐梯町における自動運転実証実験の実施について",
+        "url": "https://www.town.bandai.fukushima.jp/soshiki/seisaku/jidounten.html",
+        "date": "2024-10-01",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-063の一次情報化（実施ルート・実施主体・期間）。"
+      }
+    ]
   },
   {
     "prefecture": "岡山県",
@@ -513,7 +548,16 @@
       "岡山県 自動運転 国土交通省 自治体",
       "岡山県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "津山市での自動運転バスの実証実験を開始（JR西日本）",
+        "url": "https://www.westjr.co.jp/press/article/2025/10/page_29256.html",
+        "date": "2025-10-15",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-043の一次情報（実証概要・実施時期）確認。"
+      }
+    ]
   },
   {
     "prefecture": "沖縄県",
@@ -524,7 +568,16 @@
       "沖縄県 自動運転 国土交通省 自治体",
       "沖縄県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "豊見城市における自動運転推進事業について",
+        "url": "https://www.city.tomigusuku.lg.jp/kurashi/koutsu/jidouuntenservice.html",
+        "date": "2025-01-01",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-056の一次情報（生活路線105番での実証運行）確認。"
+      }
+    ]
   },
   {
     "prefecture": "宮崎県",
@@ -535,7 +588,16 @@
       "宮崎県 自動運転 国土交通省 自治体",
       "宮崎県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "西都市における自動運転実証実験の推進について",
+        "url": "https://www.city.saito.miyazaki.jp/koutsu/jidounten.html",
+        "date": "2025-01-01",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-054の一次情報（西都原周辺の長期実証）確認。"
+      }
+    ]
   },
   {
     "prefecture": "鹿児島県",
@@ -546,7 +608,16 @@
       "鹿児島県 自動運転 国土交通省 自治体",
       "鹿児島県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "南さつま市における自動運転実証実験の推進について",
+        "url": "https://www.city.minamisatsuma.lg.jp/jidounten/",
+        "date": "2025-01-01",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-055の一次情報（鹿児島県内初の自動運転EVバス実証）確認。"
+      }
+    ]
   },
   {
     "prefecture": "大分県",
@@ -557,7 +628,16 @@
       "大分県 自動運転 国土交通省 自治体",
       "大分県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "佐伯市大入島における自動運転バス実証運行について",
+        "url": "https://www.city.saiki.oita.jp/koutsu/jidouuntensub.html",
+        "date": "2025-02-01",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-053の一次情報（離島での代替交通実証）確認。"
+      }
+    ]
   },
   {
     "prefecture": "長崎県",
@@ -568,7 +648,16 @@
       "長崎県 自動運転 国土交通省 自治体",
       "長崎県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "対馬市における移動支援実証の取り組みについて",
+        "url": "https://www.city.tsushima.nagasaki.jp/kurashi/bus/8763.html",
+        "date": "2024-01-01",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-052の一次情報（離島における自動運転移動支援実証）確認。"
+      }
+    ]
   },
   {
     "prefecture": "山口県",
@@ -579,7 +668,24 @@
       "山口県 自動運転 国土交通省 自治体",
       "山口県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "周南市自動運転ＥＶバス　実証運行",
+        "url": "https://www.city.shunan.lg.jp/soshiki/102/122749.html",
+        "date": "2025-12-22",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-045の一次情報（徳山駅〜動物園ルート、実証概要）確認。"
+      },
+      {
+        "title": "自動運転EVバスの実証運行",
+        "url": "https://www.city.shunan.lg.jp/soshiki/3/124082.html",
+        "date": "2024-11-19",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-045の年度別実証情報を補強。"
+      }
+    ]
   },
   {
     "prefecture": "愛知県",
@@ -590,7 +696,16 @@
       "愛知県 自動運転 国土交通省 自治体",
       "愛知県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "日進市自動運転バス実証運行について",
+        "url": "https://www.city.nisshin.lg.jp/soshiki/sougou/kikaku/jidounten/index.html",
+        "date": "2024-04-01",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-079の一次情報（ARMAの長期運行、運行ルート）確認。"
+      }
+    ]
   },
   {
     "prefecture": "岩手県",
@@ -601,7 +716,24 @@
       "岩手県 自動運転 国土交通省 自治体",
       "岩手県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "【終了】令和5年2月1日～3月5日実施（高田松原復興祈念公園における自動運転走行実証実験）",
+        "url": "https://www.city.rikuzentakata.iwate.jp/soshiki/kikakuseisakuka/seisakukohogakari/1/1/6566.html",
+        "date": "2023-11-28",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-025の一次情報（実施期間・運行ルート）確認。"
+      },
+      {
+        "title": "高田松原津波復興祈念公園内およびその周辺市街地における自動運転サービスの運行開始",
+        "url": "https://www.kddi.com/corporate/sustainability/regional-initiative/pressrelease/20230817/",
+        "date": "2023-08-17",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-025の拡張実証（市街地走行）補強。"
+      }
+    ]
   },
   {
     "prefecture": "神奈川県",
