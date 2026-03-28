@@ -15,7 +15,20 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Validate data
+        run: node scripts/validate-data.mjs
+
   deploy:
+    needs: validate
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

@@ -17,7 +17,7 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2（乗務員乗車）、将来的なレベル4を目指す", refs: [2] },
     stakeholders: [
       { role: "運行管理・事業主体", name: "Boldly株式会社（旧SBドライブ株式会社）", refs: [1, 2] },
-      { role: "車両提供", name: "ソフトバンク株式会社（Navya ARMAの日本販売代理）", refs: [2] },
+      { role: "車両提供", name: "ソフトバンク株式会社", refs: [2] },
       { role: "車両製造", name: "Navya（フランス）", refs: [2, 3] },
       { role: "自治体・運行依頼", name: "茨城県境町", refs: [1] },
       { role: "事業連携", name: "マクニカ株式会社", refs: [3] }
@@ -72,7 +72,7 @@ const EXPERIMENTS = [
     stakeholders: [
       { role: "事業主体・バス事業者", name: "小田急電鉄株式会社", refs: [1, 2] },
       { role: "自動運転システム開発", name: "先進モビリティ株式会社", refs: [2, 3] },
-      { role: "協力機関", name: "東京都（道路使用許可）", refs: [1] },
+      { role: "協力機関", name: "東京都", refs: [1] },
       { role: "協力機関", name: "一般財団法人 日本自動車研究所（JARI）", refs: [3] }
     ],
     references: [
@@ -257,7 +257,7 @@ const EXPERIMENTS = [
     stakeholders: [
       { role: "事業主体（CooL4幹事）", name: "東京大学", refs: [1] },
       { role: "自治体", name: "千葉県柏市", refs: [1] },
-      { role: "支援", name: "経済産業省、国土交通省（RoAD to the L4）", refs: [2] }
+      { role: "支援", name: "経済産業省、国土交通省", refs: [2] }
     ],
     references: [
       { id: 1, title: "柏の葉地区における自動運転公道走行試験開始について", url: "https://www.city.kashiwa.lg.jp/", date: "2024-02-01", source: "柏市" },
@@ -373,7 +373,7 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2（運転士乗車）および レベル4（特定自動運行）", refs: [1, 2] },
     stakeholders: [
       { role: "事業主体", name: "羽田みらい開発株式会社", refs: [1] },
-      { role: "運行主体・システム", name: "BOLDLY株式会社、株式会社セネック、株式会社マクニカ", refs: [1] },
+      { role: "運行主体・システム", name: "Boldly株式会社、株式会社セネック、マクニカ株式会社", refs: [1] },
       { role: "自治体", name: "大田区", refs: [1, 2] }
     ],
     references: [
@@ -398,7 +398,7 @@ const EXPERIMENTS = [
     stakeholders: [
       { role: "事業主体", name: "塩尻市、一般財団法人塩尻市振興公社", refs: [1] },
       { role: "運行受託", name: "アルピコ交通株式会社", refs: [1] },
-      { role: "自動運転システム等", name: "A-Drive、アイサンテクノロジー、ティアフォー", refs: [1] }
+      { role: "自動運転システム等", name: "A-Drive、アイサンテクノロジー株式会社、株式会社ティアフォー", refs: [1] }
     ],
     references: [
       { id: 1, title: "各地の取り組み：塩尻市", url: "https://www.road-to-the-l4.go.jp/case/shiojiri/", date: "2025-05-29", source: "RoAD to the L4 プロジェクト" }
@@ -572,7 +572,7 @@ const EXPERIMENTS = [
     route: { value: "奥入瀬渓流エリア", refs: [1] },
     operationType: { value: "実証実験", refs: [1] },
     stakeholders: [
-      { role: "運行・システム", name: "WILLER株式会社、株式会社ティアフォー、BOLDLY株式会社 等", refs: [1] },
+      { role: "運行・システム", name: "WILLER株式会社、株式会社ティアフォー、Boldly株式会社", refs: [1] },
       { role: "自治体", name: "青森県", refs: [1] }
     ],
     references: [
@@ -616,7 +616,7 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2（実用化済み）、将来レベル4予定", refs: [1] },
     stakeholders: [
       { role: "運行主体", name: "JR東日本", refs: [1] },
-      { role: "システム", name: "先進モビリティ株式会社 等", refs: [1] }
+      { role: "システム", name: "先進モビリティ株式会社", refs: [1] }
     ],
     references: [
       { id: 1, title: "気仙沼線BRTにおける自動運転について", url: "https://www.jreast.co.jp/", date: "2024-01-01", source: "JR東日本" }
@@ -638,7 +638,7 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2運行（レベル4検証中）", refs: [1] },
     stakeholders: [
       { role: "自治体", name: "上小阿仁村", refs: [1] },
-      { role: "支援", name: "国土交通省、総務省 等", refs: [1] }
+      { role: "支援", name: "国土交通省、総務省", refs: [1] }
     ],
     references: [
       { id: 1, title: "上小阿仁村における自動運転サービスの実証", url: "https://www.mlit.go.jp/", date: "2024-01-01", source: "国土交通省" }
@@ -681,7 +681,7 @@ const EXPERIMENTS = [
     operationType: { value: "実証実験", refs: [1] },
     stakeholders: [
       { role: "自治体", name: "浪江町", refs: [1] },
-      { role: "企業", name: "日産自動車、日本郵便 等", refs: [1] }
+      { role: "企業", name: "日産自動車株式会社、日本郵便", refs: [1] }
     ],
     references: [
       { id: 1, title: "浪江町における自動運転実証実験", url: "https://www.nissan-global.com/", date: "2023-01-01", source: "日産自動車" }
@@ -702,7 +702,7 @@ const EXPERIMENTS = [
     route: { value: "JR前橋駅〜中央前橋駅間など", refs: [1] },
     operationType: { value: "レベル2（実証中・将来レベル4目標）", refs: [1] },
     stakeholders: [
-      { role: "産学官連携", name: "前橋市、群馬大学(CRANTS)、日本中央バス 等", refs: [1] }
+      { role: "産学官連携", name: "前橋市、群馬大学(CRANTS)、日本中央バス", refs: [1] }
     ],
     references: [
       { id: 1, title: "前橋市における自動運転の取り組み", url: "https://www.city.maebashi.gunma.jp/", date: "2023-01-01", source: "前橋市" }
@@ -723,7 +723,7 @@ const EXPERIMENTS = [
     route: { value: "奥日光低公害バス路線", refs: [1] },
     operationType: { value: "実証実験", refs: [1] },
     stakeholders: [
-      { role: "システム", name: "先進モビリティ株式会社 等", refs: [1] }
+      { role: "システム", name: "先進モビリティ株式会社", refs: [1] }
     ],
     references: [
       { id: 1, title: "栃木県 日光市 自動運転バス実証", url: "https://www.as-mobi.com/case/", date: "2024-01-01", source: "先進モビリティ株式会社" }
@@ -744,7 +744,7 @@ const EXPERIMENTS = [
     route: { value: "平塚駅周辺の路線バスルート", refs: [1] },
     operationType: { value: "レベル2（実証中）", refs: [1] },
     stakeholders: [
-      { role: "産官連携", name: "平塚市、神奈川中央交通、いすゞ自動車 等", refs: [1] }
+      { role: "産官連携", name: "平塚市、神奈川中央交通、いすゞ自動車", refs: [1] }
     ],
     references: [
       { id: 1, title: "神奈川県平塚市における自動運転実証実験", url: "https://www.isuzu.co.jp/", date: "2024-01-01", source: "いすゞ自動車" }
