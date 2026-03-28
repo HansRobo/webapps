@@ -3352,5 +3352,302 @@ const EXPERIMENTS = [
     references: [
       { id: 1, title: "資料3 自動運転社会実装推進事業（地域公共交通確保維持改善事業費補助金）について", url: "https://www.city.kai.yamanashi.jp/uploaded/attachment/5427.pdf", date: "2025-01-01", source: "甲斐市" }
     ]
+  },
+  {
+    id: "exp-160",
+    name: { value: "豊橋市 レイクタウン線ルート 自動運転バス実証走行", refs: [1] },
+    location: { value: "愛知県豊橋市（豊橋南プラザ〜大清水駅〜レイクタウン〜レイクヒルズ）", lat: 34.694, lng: 137.391, refs: [1] },
+    prefecture: { value: "愛知県", refs: [1] },
+    period: { value: "2026年1月20日〜2月21日（1/21・2/11・2/18運休）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "豊橋市が路線バス運転士不足への対応を目的に実施したレベル2自動運転バス実証。豊鉄バス「レイクタウン線」と同様のルートで1日5便を運行し、レベル4社会実装に向けた運行面・受容性の検証を行った。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス（乗車定員18人程度、予約席13席）", refs: [1] },
+    route: { value: "豊橋南プラザ〜大清水駅〜レイクタウン〜レイクヒルズ", refs: [1] },
+    operationType: { value: "レベル2（無料、予約優先・空席時当日乗車可）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "豊橋市（愛知県）", refs: [1] },
+      { role: "運行事業者", name: "豊鉄バス株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "自動運転社会実装推進事業（令和7年度 自動運転バス実証走行）", url: "https://www.city.toyohashi.lg.jp/61468.htm", date: "2026-02-22", source: "豊橋市" }
+    ]
+  },
+  {
+    id: "exp-161",
+    name: { value: "岡崎市 大型路線バスによる自動運転実証運行", refs: [1] },
+    location: { value: "愛知県岡崎市（名鉄東岡崎駅南口〜JR岡崎駅東口）", lat: 34.955, lng: 137.164, refs: [1] },
+    prefecture: { value: "愛知県", refs: [1] },
+    period: { value: "2025年11月30日〜12月20日（火曜日除く）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "岡崎市と名鉄バスが連携し、東海地方の市街地では初となる大型路線バスでの自動運転実証を実施。既存路線と同一経路・同一停留所でレベル2運行を行い、将来のレベル4社会実装に向けた走行安定性や受容性を検証した。",
+      refs: [1]
+    },
+    vehicleType: { value: "いすゞ自動車製 大型バス「エルガ」", refs: [1] },
+    route: { value: "県道483号（電車通り） 名鉄東岡崎駅南口〜JR岡崎駅東口（約3.5km）", refs: [1] },
+    operationType: { value: "レベル2（運転席有人、無料試乗予約制）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・実施主体", name: "岡崎市（愛知県）", refs: [1] },
+      { role: "運行主体", name: "名鉄バス株式会社", refs: [1] },
+      { role: "実証支援", name: "名鉄グループバスホールディングス株式会社、A-Drive株式会社、アイサンテクノロジー株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "自動運転バスの実証運行を実施しました", url: "https://www.city.okazaki.lg.jp/kurashi/kotsu/1012394/1012396/1013018.html", date: "2026-02-25", source: "岡崎市" }
+    ]
+  },
+  {
+    id: "exp-162",
+    name: { value: "豊川市 自動運転バス実証実験（イオンモール豊川〜豊川駅前）", refs: [1, 2] },
+    location: { value: "愛知県豊川市（イオンモール豊川〜豊川駅前）", lat: 34.823, lng: 137.371, refs: [1] },
+    prefecture: { value: "愛知県", refs: [1] },
+    period: { value: "2025年12月11日〜12月26日（途中運休あり）", refs: [1, 2] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "豊川市が運転手不足対策と運行ノウハウ蓄積を目的に実施した自動運転バス実証。イオンモール豊川〜豊川駅前間（片道約5.2km）でレベル2運行を計画し、一般向け試乗と社会受容性の検証を行った。実証開始日に接触事故が発生し、期間中の運休対応が実施された。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "J6 2.0（小型バス）", refs: [1] },
+    route: { value: "イオンモール豊川〜豊川体育館前西〜豊川市役所前〜イオン豊川店〜豊川駅前", refs: [1] },
+    operationType: { value: "レベル2（無料・予約制）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "豊川市（愛知県）", refs: [1, 2] }
+    ],
+    references: [
+      { id: 1, title: "自動運転バスの実証実験を実施します！（終了しました）", url: "https://www.city.toyokawa.lg.jp/recommend/26836.html", date: "2025-11-18", source: "豊川市" },
+      { id: 2, title: "自動運転バス実証実験の運休について", url: "https://www.city.toyokawa.lg.jp/shisei/koho_kocho/3/3/R7-12/27041.html", date: "2025-12-11", source: "豊川市" }
+    ]
+  },
+  {
+    id: "exp-163",
+    name: { value: "豊田市 土橋駅〜三河豊田駅間 自動運転バス実証運行", refs: [1, 2] },
+    location: { value: "愛知県豊田市（土橋駅南口〜三河豊田駅前）", lat: 35.073, lng: 137.155, refs: [1] },
+    prefecture: { value: "愛知県", refs: [1] },
+    period: { value: "2026年1月16日〜2月14日（期間中の土日）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "豊田市が既存路線バスの維持と自動運転レベル4実装に向けて実施した実証。土橋駅南口〜三河豊田駅前間を往復し、歩車混在環境や交差点の多い市街地で運行課題を検証した。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "大型路線バス（いすゞ ERGA）", refs: [1] },
+    route: { value: "土橋駅南口〜三河豊田駅前（片道約4.2km、往復約8.4km）", refs: [1] },
+    operationType: { value: "レベル2（運転士同乗、無料試乗）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・実施主体", name: "豊田市（愛知県）", refs: [1] },
+      { role: "運行事業者", name: "名鉄バス株式会社", refs: [1] },
+      { role: "事業協力", name: "MONET Technologies株式会社", refs: [2] }
+    ],
+    references: [
+      { id: 1, title: "自動運転バス実証運行を実施します", url: "https://www.city.toyota.aichi.jp/pressrelease/1063543/1063554.html", date: "2025-12-23", source: "豊田市" },
+      { id: 2, title: "豊田市における自動運転バス実証運行の開始について", url: "https://www.monet-technologies.com/news/2025/20251223", date: "2025-12-23", source: "MONET Technologies" }
+    ]
+  },
+  {
+    id: "exp-164",
+    name: { value: "小牧市 桃花台ニュータウン内 自動運転実証調査事業", refs: [1] },
+    location: { value: "愛知県小牧市（桃花台ニュータウン内、桃花台センター起終点）", lat: 35.289, lng: 136.912, refs: [1] },
+    prefecture: { value: "愛知県", refs: [1] },
+    period: { value: "2026年1月22日〜2月6日（土日実施、1/28・2/4・2/6の5便目運休。準備走行: 2026年1月5日〜）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "小牧市が、こまき巡回バス「こまくる」の将来的なサービス水準維持と運転手不足対策を目的に実施した自動運転実証調査。桃花台ニュータウン内で走行性・安全性・社会受容性を検証し、レベル4許認可に必要な条件整理やコスト検証を進めた。",
+      refs: [1]
+    },
+    vehicleType: { value: "Minibus ver2.0（乗車定員最大14名）", refs: [1] },
+    route: { value: "桃花台ニュータウン内（桃花台センター起終点、光ヶ丘第三公園前等）", refs: [1] },
+    operationType: { value: "レベル2（無料、事前予約推奨・空席時当日乗車可、運転手・補助員同乗）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "小牧市（愛知県）", refs: [1] },
+      { role: "支援業務受託", name: "NTTドコモビジネス株式会社 東海支社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "【実証調査終了】令和7年度自動運転実証調査事業の実施について", url: "https://www.city.komaki.aichi.jp/admin/soshiki/toshiseisakubu/toshiseibi/2/6/50134.html", date: "2026-03-12", source: "小牧市" },
+      { id: 2, title: "令和7年度自動運転実証調査事業 実施結果概要", url: "https://www.city.komaki.aichi.jp/material/files/group/88/r7jidouunnten_jisshikekka.pdf", date: "2026-03-12", source: "小牧市" }
+    ]
+  },
+  {
+    id: "exp-165",
+    name: { value: "高輪エリアにおける自動運転バス運行", refs: [1] },
+    location: { value: "東京都港区（高輪エリア）", lat: 35.636, lng: 139.736, refs: [1] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2026年3月〜", refs: [1] },
+    status: { value: "計画中", refs: [1] },
+    description: {
+      value: "東日本旅客鉄道とKDDIが実施する高輪エリアにおける自動運転バス運行に、アイサンテクノロジーとA-Driveが参画し、社会実装を推進。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス", refs: [1] },
+    route: { value: "東京都港区高輪エリア", refs: [1] },
+    operationType: { value: "レベル2〜（段階的に社会実装推進）", refs: [1] },
+    stakeholders: [
+      { role: "事業参画・社会実装推進", name: "アイサンテクノロジー株式会社", refs: [1] },
+      { role: "事業参画・社会実装推進", name: "A-Drive", refs: [1] },
+      { role: "実施主体", name: "東日本旅客鉄道株式会社（JR東日本）", refs: [1] },
+      { role: "実施主体", name: "KDDI株式会社", refs: [1] },
+      { role: "自治体", name: "港区（東京都）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "高輪エリアにおける自動運転バス運行に参画　アイサンテクノロジーとA-Driveがグループ連携で社会実装を推進", url: "https://aisan-mobility.com/info/20260327/", date: "2026-03-27", source: "アイサンテクノロジー ニュース" }
+    ]
+  },
+  {
+    id: "exp-166",
+    name: { value: "古賀市 「自動運転のるーと」運行", refs: [1] },
+    location: { value: "福岡県古賀市", lat: 33.733, lng: 130.468, refs: [1] },
+    prefecture: { value: "福岡県", refs: [1] },
+    period: { value: "2026年3月〜", refs: [1] },
+    status: { value: "計画中", refs: [1] },
+    description: {
+      value: "既存のオンデマンド交通と連携した自動運転モデル「自動運転のるーと」の運行。全国初の取り組みとして実施される。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス", refs: [1] },
+    route: { value: "福岡県古賀市内", refs: [1] },
+    operationType: { value: "レベル2〜", refs: [1] },
+    stakeholders: [
+      { role: "事業参画", name: "アイサンテクノロジー株式会社", refs: [1] },
+      { role: "事業参画", name: "A-Drive", refs: [1] },
+      { role: "自治体", name: "古賀市（福岡県）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "福岡県古賀市における「自動運転のるーと」運行に参画 ―既存オンデマンド交通と連携した自動運転モデル、全国初の取り組み―", url: "https://aisan-mobility.com/info/202603koga/", date: "2026-03-12", source: "アイサンテクノロジー ニュース" }
+    ]
+  },
+  {
+    id: "exp-167",
+    name: { value: "瑞穂町 自動運転バス運行", refs: [1] },
+    location: { value: "東京都瑞穂町", lat: 35.772, lng: 139.349, refs: [1] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2026年2月14日〜", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "将来的な自動運転バスの本格導入に向けた一歩として、地域住民に向けて最先端のモビリティ体験を提供することを目的として実施。内閣府の「第二世代交付金」の支援を受けて行われる。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転バス", refs: [1] },
+    route: { value: "東京都瑞穂町内", refs: [1] },
+    operationType: { value: "レベル2〜", refs: [1] },
+    stakeholders: [
+      { role: "事業参画", name: "アイサンテクノロジー株式会社", refs: [1] },
+      { role: "事業参画", name: "A-Drive", refs: [1] },
+      { role: "自治体・実施主体", name: "瑞穂町（東京都）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "東京都瑞穂町にて自動運転バス運行開始に参画～公共交通の未来を支える、高精度地図と運行支援技術～", url: "https://aisan-mobility.com/info/202602mizuho/", date: "2026-02-06", source: "アイサンテクノロジー ニュース" }
+    ]
+  },
+  {
+    id: "exp-168",
+    name: { value: "坂出市 坂出駅起終点 自動運転バス実証運行", refs: [1] },
+    location: { value: "香川県坂出市（坂出駅北口起終点、市内循環ルート）", lat: 34.316, lng: 133.856, refs: [1] },
+    prefecture: { value: "香川県", refs: [1] },
+    period: { value: "2025年11月15日〜12月10日（当初12/3までを延長）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "坂出市が、バス運転手不足への対応と公共交通の安定供給を目的に実施した自動運転バス実証。坂出駅を起終点に市内停留所を循環し、将来のレベル4実装に向けて技術実用性と社会受容性を検証した。",
+      refs: [1]
+    },
+    vehicleType: { value: "RoboBus（乗車定員10名程度、着席乗車）", refs: [1] },
+    route: { value: "坂出駅北口→百十四銀行東部支店前→パッケージプラザ前→かきのは前→みんなの動物病院前→マルナカ坂出店前→マイルドハート坂出前→回生病院北→市役所前→坂出駅北口", refs: [1] },
+    operationType: { value: "レベル2（無料、先着乗車、運転手乗務）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "坂出市（香川県）", refs: [1] },
+      { role: "コンソーシアム", name: "株式会社坂出自動車学校", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "自動運転バス実証運行を実施します", url: "https://www.city.sakaide.lg.jp/soshiki/seisaku/ad-bus.html", date: "2025-11-28", source: "坂出市" }
+    ]
+  },
+  {
+    id: "exp-169",
+    name: { value: "養父市 JR八鹿駅〜道の駅ようか但馬蔵 自動運転バス実証実験", refs: [1] },
+    location: { value: "兵庫県養父市（JR八鹿駅〜道の駅ようか但馬蔵）", lat: 35.404, lng: 134.770, refs: [1] },
+    prefecture: { value: "兵庫県", refs: [1] },
+    period: { value: "2025年11月19日〜2026年2月20日（平日のみ）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "養父市が高齢者等の移動手段確保と運転手不足対策を目的に実施した自動運転バス実証実験。JR八鹿駅〜道の駅ようか但馬蔵間で2台運行し、走行性・安全性の評価、社会実装可能なビジネスモデル構築、社会受容性向上に向けた検証を行った。",
+      refs: [1]
+    },
+    vehicleType: { value: "Auve Tech製 EV「MiCa」2台（1台あたり乗車定員7人、オペレーター込み8人）", refs: [1] },
+    route: { value: "JR八鹿駅→やぶ市民交流広場→公立八鹿病院→養父市役所→フレッシュバザール八鹿店→スーパーセンタートライアル養父店→道の駅ようか但馬蔵（片道約6.5km）", refs: [1] },
+    operationType: { value: "レベル2（無料、予約不要）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "養父市（兵庫県）", refs: [1] },
+      { role: "実施体制", name: "BOLDLY株式会社、全但バス株式会社、やぶ市観光協会", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "令和７年度「養父市自動運転バス実証実験」開始（養父市記者発表資料）", url: "https://www.city.yabu.hyogo.jp/material/files/group/2/20251110press3.pdf", date: "2025-11-10", source: "養父市" }
+    ]
+  },
+  {
+    id: "exp-170",
+    name: { value: "静岡市 清水港周辺地区 自動運転走行実証", refs: [1] },
+    location: { value: "静岡県静岡市清水区（清水港周辺地区）", lat: 35.012, lng: 138.490, refs: [1] },
+    prefecture: { value: "静岡県", refs: [1] },
+    period: { value: "2025年11月22日〜11月27日", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "静岡市が清水港振興株式会社などと連携し、清水港周辺地区で実施した自動運転走行実証。令和9年度の日の出地区レベル4実装を目標に、歩車混在空間での技術課題、事業採算性、運営体制を検証した。",
+      refs: [1]
+    },
+    vehicleType: { value: "ヤマハ発動機製 ヤマハグリーンスローモビリティ（2台運行）", refs: [1] },
+    route: { value: "清水港の港湾施設内および一部公道を含む清水港周辺ルート", refs: [1] },
+    operationType: { value: "レベル2（事前予約・当日予約制）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "静岡市（静岡県）", refs: [1] },
+      { role: "運行主体", name: "清水港振興株式会社", refs: [1] },
+      { role: "実証参画", name: "鈴与建設株式会社、大成建設株式会社、A-Drive株式会社、アイサンテクノロジー株式会社、損害保険ジャパン株式会社、SOMPOリスクマネジメント株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "清水港周辺地区において自動運転サービスの実装を目指し走行実証を行います", url: "https://prtimes.jp/main/html/rd/p/000000064.000159136.html", date: "2025-11-18", source: "SOMPOホールディングス株式会社（プレスリリース）" }
+    ]
+  },
+  {
+    id: "exp-171",
+    name: { value: "河内長野市 日東町・大師町エリア 自動運転運行実証", refs: [1] },
+    location: { value: "大阪府河内長野市（日東町・大師町エリア）", lat: 34.440, lng: 135.565, refs: [1] },
+    prefecture: { value: "大阪府", refs: [1] },
+    period: { value: "2025年1月24日〜（自動運転運行開始、毎週月・金）", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "河内長野市が国土交通省の自動運転社会実装推進事業を活用して実施した実証。日東町・大師町で電磁誘導方式による自動運転レベル2運行を開始し、遠隔監視体制や運行マニュアル、地域運営体制の整備を進めてレベル4を見据えた検証を実施した。",
+      refs: [1]
+    },
+    vehicleType: { value: "電磁誘導方式の自動運転車両（最高速度12km/h）", refs: [1] },
+    route: { value: "日東町・大師町 A/Bルート（総距離約5.5km）", refs: [1] },
+    operationType: { value: "レベル2（遠隔監視体制を含む実証運行）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "河内長野市（大阪府）", refs: [1] },
+      { role: "連携先", name: "イズミヤSC河内長野、社会福祉法人みなと寮、地域住民運営委員会", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "河内長野市未来技術社会実装事業成果報告", url: "https://www.city.kawachinagano.lg.jp/uploaded/attachment/41334.pdf", date: "2025-02-03", source: "河内長野市" }
+    ]
+  },
+  {
+    id: "exp-172",
+    name: { value: "多気町 VISON 自動運転EV「MiCa」運行実証", refs: [1, 2] },
+    location: { value: "三重県多気町（商業リゾート施設 VISON）", lat: 34.513, lng: 136.548, refs: [1, 2] },
+    prefecture: { value: "三重県", refs: [1] },
+    period: { value: "2023年12月19日〜2024年2月29日", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "多気町がBOLDLY、ヴィソン多気と協力して実施した自動運転実証。VISON内で将来のレベル4運行と事業モデル形成を目指し、モビリティレーンと一般車道を組み合わせたルートで走行し、観光地における安全性・運行体制・社会受容性を検証した。2024年10月には同エリアを対象にレベル4車両認可（走行環境条件付与）が公表された。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "Auve Tech製 自動運転EV「MiCa」", refs: [1, 2] },
+    route: { value: "VISON構内（自動運転専用レーン内および専用レーン外の一部道路）", refs: [1, 2] },
+    operationType: { value: "レベル2実証運行（無料、自由乗車・事前予約不要、14便/日予定）※2024年10月にレベル4車両認可", refs: [1, 2] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "多気町（三重県）", refs: [1, 2] },
+      { role: "実施協力", name: "BOLDLY株式会社、ヴィソン多気株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "国内初の「MiCa」のレベル4運行と事業モデル形成を目指す 「VISON」で自動運転EV「MiCa」を運行", url: "https://www.softbank.jp/drive/press/2023/20231213_01/", date: "2023-12-13", source: "ソフトバンク / BOLDLY" },
+      { id: 2, title: "自動運転車（レベル4）の車両認可を行いました", url: "https://wwwtb.mlit.go.jp/chubu/press/pdf/gian2024102501.pdf", date: "2024-10-25", source: "国土交通省 中部運輸局" }
+    ]
   }
 ];
