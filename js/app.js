@@ -1,7 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   const grid = document.getElementById("app-grid");
   const searchInput = document.getElementById("search");
+  const topAppBar = document.querySelector(".top-app-bar");
   let apps = [];
+
+  window.addEventListener("scroll", () => {
+    topAppBar.classList.toggle("scrolled", window.scrollY > 0);
+  }, { passive: true });
 
   fetch("manifest.json")
     .then((res) => {
@@ -13,8 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
       render(apps);
     })
     .catch(() => {
-      grid.innerHTML =
-        '<div class="empty-state"><div class="icon">⚠️</div><p>manifest.json の読み込みに失敗しました</p></div>';
+      grid.innerHTML = emptyState(
+        "error",
+        "読み込みエラー",
+        "manifest.json の読み込みに失敗しました"
+      );
     });
 
   searchInput.addEventListener("input", () => {
@@ -30,35 +38,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function render(list) {
     if (list.length === 0 && apps.length === 0) {
-      grid.innerHTML =
-        '<div class="empty-state"><div class="icon">📦</div><p>ミニアプリはまだ登録されていません</p></div>';
+      grid.innerHTML = emptyState(
+        "inbox",
+        "ミニアプリ未登録",
+        "manifest.json にアプリを追加すると、ここに表示されます"
+      );
       return;
     }
     if (list.length === 0) {
-      grid.innerHTML =
-        '<div class="empty-state"><div class="icon">🔍</div><p>一致するアプリが見つかりません</p></div>';
+      grid.innerHTML = emptyState(
+        "search_off",
+        "見つかりません",
+        "検索条件に一致するアプリがありません"
+      );
       return;
     }
-    grid.innerHTML = list.map((app) => createCard(app)).join("");
+    grid.innerHTML = list.map((app, i) => createCard(app, i)).join("");
   }
 
-  function createCard(app) {
+  function createCard(app, index) {
     const tags = (app.tags || [])
-      .map((t) => `<span class="tag">${escapeHtml(t)}</span>`)
+      .map((t) => `<span class="app-card__tag">${escapeHtml(t)}</span>`)
       .join("");
+    const delay = index * 60;
     return `
-      <a class="app-card" href="${escapeAttr(app.path)}">
-        <div class="icon">${escapeHtml(app.icon || "📱")}</div>
-        <div class="name">${escapeHtml(app.name)}</div>
-        <div class="description">${escapeHtml(app.description)}</div>
-        ${tags ? `<div class="tags">${tags}</div>` : ""}
+      <a class="app-card" href="${escapeAttr(app.path)}" style="animation-delay: ${delay}ms">
+        <div class="app-card__icon-container">${escapeHtml(app.icon || "📱")}</div>
+        <div class="app-card__name">${escapeHtml(app.name)}</div>
+        <div class="app-card__description">${escapeHtml(app.description)}</div>
+        ${tags ? `<div class="app-card__tags">${tags}</div>` : ""}
       </a>`;
   }
 
+  function emptyState(icon, title, body) {
+    return `
+      <div class="empty-state">
+        <div class="empty-state__icon">
+          <span class="material-symbols-outlined">${escapeHtml(icon)}</span>
+        </div>
+        <div class="empty-state__title">${escapeHtml(title)}</div>
+        <p class="empty-state__body">${escapeHtml(body)}</p>
+      </div>`;
+  }
+
+  const escapeEl = document.createElement("div");
   function escapeHtml(str) {
-    const d = document.createElement("div");
-    d.textContent = str;
-    return d.innerHTML;
+    escapeEl.textContent = str;
+    return escapeEl.innerHTML;
   }
 
   function escapeAttr(str) {

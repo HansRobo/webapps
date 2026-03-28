@@ -1,27 +1,127 @@
+/* ==========================================================================
+   Material 3 Expressive — Design Tokens
+   ========================================================================== */
+
 :root {
-  --color-bg: #f5f5f7;
-  --color-surface: #ffffff;
-  --color-text: #1d1d1f;
-  --color-text-secondary: #6e6e73;
-  --color-accent: #0071e3;
-  --color-border: #d2d2d7;
-  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --shadow-card-hover: 0 6px 20px rgba(0, 0, 0, 0.12);
-  --radius: 12px;
+  /* --- Color: Light Theme (M3 baseline purple) --- */
+  --md-sys-color-primary: #6442d6;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #e8ddff;
+  --md-sys-color-on-primary-container: #1e0060;
+  --md-sys-color-secondary: #605b71;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #e6dff9;
+  --md-sys-color-on-secondary-container: #1c192b;
+  --md-sys-color-tertiary: #7d5260;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #ffd9e3;
+  --md-sys-color-on-tertiary-container: #31101d;
+  --md-sys-color-error: #ba1a1a;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-error-container: #ffdad6;
+  --md-sys-color-background: #fefbff;
+  --md-sys-color-on-background: #1c1b1e;
+  --md-sys-color-surface: #fefbff;
+  --md-sys-color-on-surface: #1c1b1e;
+  --md-sys-color-surface-variant: #e7e0ec;
+  --md-sys-color-on-surface-variant: #49454e;
+  --md-sys-color-outline: #7a757f;
+  --md-sys-color-outline-variant: #cac4d0;
+  --md-sys-color-surface-container-lowest: #ffffff;
+  --md-sys-color-surface-container-low: #f7f2fa;
+  --md-sys-color-surface-container: #f3edf7;
+  --md-sys-color-surface-container-high: #ece6f0;
+  --md-sys-color-surface-container-highest: #e6e0e9;
+  --md-sys-color-inverse-surface: #313033;
+  --md-sys-color-inverse-on-surface: #f4eff4;
+  --md-sys-color-inverse-primary: #cfbcff;
+  --md-sys-color-scrim: #000000;
+
+  /* --- Shape --- */
+  --md-sys-shape-corner-none: 0px;
+  --md-sys-shape-corner-extra-small: 4px;
+  --md-sys-shape-corner-small: 8px;
+  --md-sys-shape-corner-medium: 12px;
+  --md-sys-shape-corner-large: 16px;
+  --md-sys-shape-corner-extra-large: 28px;
+  --md-sys-shape-corner-full: 9999px;
+
+  /* --- Elevation shadows --- */
+  --md-sys-elevation-1: 0px 1px 2px 0px rgba(0, 0, 0, 0.3),
+    0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+  --md-sys-elevation-2: 0px 1px 2px 0px rgba(0, 0, 0, 0.3),
+    0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+  --md-sys-elevation-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.15),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+
+  /* --- Motion (M3 Expressive emphasized) --- */
+  --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(
+    0.05,
+    0.7,
+    0.1,
+    1
+  );
+  --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --md-sys-motion-duration-short: 200ms;
+  --md-sys-motion-duration-medium: 400ms;
+  --md-sys-motion-duration-long: 600ms;
+
+  /* --- State layer opacity --- */
+  --md-sys-state-hover-opacity: 0.08;
+  --md-sys-state-focus-opacity: 0.12;
+  --md-sys-state-pressed-opacity: 0.12;
 }
 
+/* --- Color: Dark Theme --- */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #1c1c1e;
-    --color-surface: #2c2c2e;
-    --color-text: #f5f5f7;
-    --color-text-secondary: #98989d;
-    --color-accent: #2997ff;
-    --color-border: #38383a;
-    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.3);
-    --shadow-card-hover: 0 6px 20px rgba(0, 0, 0, 0.4);
+    --md-sys-color-primary: #cfbcff;
+    --md-sys-color-on-primary: #381e72;
+    --md-sys-color-primary-container: #4f378b;
+    --md-sys-color-on-primary-container: #e8ddff;
+    --md-sys-color-secondary: #ccc2dc;
+    --md-sys-color-on-secondary: #332d41;
+    --md-sys-color-secondary-container: #4a4458;
+    --md-sys-color-on-secondary-container: #e6dff9;
+    --md-sys-color-tertiary: #efb8c8;
+    --md-sys-color-on-tertiary: #492532;
+    --md-sys-color-tertiary-container: #633b48;
+    --md-sys-color-on-tertiary-container: #ffd9e3;
+    --md-sys-color-error: #ffb4ab;
+    --md-sys-color-on-error: #690005;
+    --md-sys-color-error-container: #93000a;
+    --md-sys-color-background: #1c1b1e;
+    --md-sys-color-on-background: #e6e1e5;
+    --md-sys-color-surface: #1c1b1e;
+    --md-sys-color-on-surface: #e6e1e5;
+    --md-sys-color-surface-variant: #49454e;
+    --md-sys-color-on-surface-variant: #cac4d0;
+    --md-sys-color-outline: #948f99;
+    --md-sys-color-outline-variant: #49454e;
+    --md-sys-color-surface-container-lowest: #111113;
+    --md-sys-color-surface-container-low: #1c1b1e;
+    --md-sys-color-surface-container: #211f26;
+    --md-sys-color-surface-container-high: #2b2930;
+    --md-sys-color-surface-container-highest: #36343b;
+    --md-sys-color-inverse-surface: #e6e1e5;
+    --md-sys-color-inverse-on-surface: #313033;
+    --md-sys-color-inverse-primary: #6750a4;
+    --md-sys-color-scrim: #000000;
+
+    --md-sys-elevation-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.4),
+      0px 1px 2px 0px rgba(0, 0, 0, 0.6);
+    --md-sys-elevation-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.4),
+      0px 1px 2px 0px rgba(0, 0, 0, 0.6);
+    --md-sys-elevation-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.4),
+      0px 1px 3px 0px rgba(0, 0, 0, 0.6);
   }
 }
+
+/* ==========================================================================
+   Base & Typography (M3 type scale)
+   ========================================================================== */
 
 *,
 *::before,
@@ -32,143 +132,365 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Hiragino Sans", "Noto Sans JP", sans-serif;
-  background: var(--color-bg);
-  color: var(--color-text);
+  font-family: "Noto Sans JP", "Roboto", sans-serif;
+  background: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
   line-height: 1.6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  -webkit-font-smoothing: antialiased;
 }
 
-header {
-  text-align: center;
-  padding: 3rem 1.5rem 2rem;
-}
-
-header h1 {
-  font-size: 2rem;
+.display-medium {
+  font-size: 45px;
+  line-height: 52px;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 
-header p {
-  color: var(--color-text-secondary);
-  margin-top: 0.5rem;
-  font-size: 1.05rem;
+.body-large {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
-.search-container {
-  max-width: 480px;
-  margin: 1.5rem auto 0;
+/* ==========================================================================
+   Top App Bar
+   ========================================================================== */
+
+.top-app-bar {
+  background: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  transition: box-shadow var(--md-sys-motion-duration-short)
+    var(--md-sys-motion-easing-standard);
 }
 
-.search-container input {
+.top-app-bar.scrolled {
+  background: var(--md-sys-color-surface-container);
+  box-shadow: var(--md-sys-elevation-2);
+}
+
+.top-app-bar__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.top-app-bar__icon {
+  font-size: 28px;
+  color: var(--md-sys-color-primary);
+}
+
+.top-app-bar__title {
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+.hero {
+  text-align: center;
+  padding: 64px 24px 40px;
+  background: var(--md-sys-color-surface-container-low);
+}
+
+.hero .display-medium {
+  color: var(--md-sys-color-on-surface);
+}
+
+.hero__subtitle {
+  color: var(--md-sys-color-on-surface-variant);
+  margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 40px 16px 32px;
+  }
+
+  .hero .display-medium {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+
+/* ==========================================================================
+   Search Bar (M3 Expressive)
+   ========================================================================== */
+
+.search-bar {
+  max-width: 520px;
+  margin: 28px auto 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar__icon {
+  position: absolute;
+  left: 16px;
+  font-size: 24px;
+  color: var(--md-sys-color-on-surface-variant);
+  pointer-events: none;
+}
+
+.search-bar__input {
   width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  font-size: 1rem;
-  background: var(--color-surface);
-  color: var(--color-text);
+  padding: 16px 16px 16px 52px;
+  border: none;
+  border-radius: var(--md-sys-shape-corner-extra-large);
+  font-size: 16px;
+  font-family: inherit;
+  background: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface);
   outline: none;
-  transition: border-color 0.2s;
+  transition: background var(--md-sys-motion-duration-short)
+      var(--md-sys-motion-easing-standard),
+    box-shadow var(--md-sys-motion-duration-short)
+      var(--md-sys-motion-easing-standard);
 }
 
-.search-container input:focus {
-  border-color: var(--color-accent);
+.search-bar__input::placeholder {
+  color: var(--md-sys-color-on-surface-variant);
 }
+
+.search-bar__input:focus {
+  background: var(--md-sys-color-surface-container-highest);
+  box-shadow: var(--md-sys-elevation-1);
+}
+
+/* ==========================================================================
+   Main Content
+   ========================================================================== */
 
 main {
   flex: 1;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 32px 24px 48px;
 }
+
+@media (max-width: 600px) {
+  main {
+    padding: 24px 16px 40px;
+  }
+}
+
+/* ==========================================================================
+   App Card Grid
+   ========================================================================== */
 
 #app-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
 }
 
+@media (max-width: 360px) {
+  #app-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   App Card (M3 Expressive — Filled Card)
+   ========================================================================== */
+
 .app-card {
-  display: block;
-  background: var(--color-surface);
-  border-radius: var(--radius);
-  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  background: var(--md-sys-color-surface-container-low);
+  border-radius: var(--md-sys-shape-corner-extra-large);
+  padding: 24px;
   text-decoration: none;
-  color: var(--color-text);
-  box-shadow: var(--shadow-card);
-  transition: transform 0.2s, box-shadow 0.2s;
+  color: var(--md-sys-color-on-surface);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--md-sys-motion-duration-medium)
+      var(--md-sys-motion-easing-emphasized),
+    box-shadow var(--md-sys-motion-duration-medium)
+      var(--md-sys-motion-easing-emphasized),
+    background var(--md-sys-motion-duration-short)
+      var(--md-sys-motion-easing-standard);
+  animation: card-enter var(--md-sys-motion-duration-medium)
+    var(--md-sys-motion-easing-emphasized-decelerate) both;
+}
+
+.app-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--md-sys-color-on-surface);
+  opacity: 0;
+  transition: opacity var(--md-sys-motion-duration-short)
+    var(--md-sys-motion-easing-standard);
+  pointer-events: none;
+}
+
+.app-card:hover::before {
+  opacity: var(--md-sys-state-hover-opacity);
+}
+
+.app-card:active::before {
+  opacity: var(--md-sys-state-pressed-opacity);
 }
 
 .app-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-card-hover);
+  box-shadow: var(--md-sys-elevation-2);
+  transform: translateY(-2px);
 }
 
-.app-card .icon {
-  font-size: 2.5rem;
-  margin-bottom: 0.75rem;
+.app-card:active {
+  transform: scale(0.98);
 }
 
-.app-card .name {
-  font-size: 1.15rem;
-  font-weight: 600;
+.app-card__icon-container {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--md-sys-shape-corner-large);
+  background: var(--md-sys-color-primary-container);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin-bottom: 16px;
+  transition: border-radius var(--md-sys-motion-duration-medium)
+    var(--md-sys-motion-easing-emphasized);
 }
 
-.app-card .description {
-  color: var(--color-text-secondary);
-  font-size: 0.9rem;
-  margin-top: 0.4rem;
+.app-card:hover .app-card__icon-container {
+  border-radius: var(--md-sys-shape-corner-extra-large);
 }
 
-.app-card .tags {
+.app-card__name {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--md-sys-color-on-surface);
+}
+
+.app-card__description {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-top: 4px;
+  flex: 1;
+}
+
+.app-card__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.75rem;
+  gap: 8px;
+  margin-top: 16px;
 }
 
-.app-card .tag {
-  font-size: 0.75rem;
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  background: var(--color-bg);
-  color: var(--color-text-secondary);
+.app-card__tag {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: var(--md-sys-shape-corner-full);
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  letter-spacing: 0.1px;
 }
+
+/* ==========================================================================
+   Empty State
+   ========================================================================== */
 
 .empty-state {
   text-align: center;
-  padding: 4rem 1rem;
-  color: var(--color-text-secondary);
+  padding: 80px 24px;
+  color: var(--md-sys-color-on-surface-variant);
+  grid-column: 1 / -1;
 }
 
-.empty-state .icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+.empty-state__icon {
+  width: 88px;
+  height: 88px;
+  border-radius: var(--md-sys-shape-corner-extra-large);
+  background: var(--md-sys-color-surface-container-high);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-size: 40px;
 }
 
-.empty-state p {
-  font-size: 1.05rem;
+.empty-state__title {
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+  margin-bottom: 8px;
 }
+
+.empty-state__body {
+  font-size: 14px;
+  line-height: 20px;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
 
 footer {
   text-align: center;
-  padding: 2rem 1.5rem;
-  color: var(--color-text-secondary);
-  font-size: 0.85rem;
-  border-top: 1px solid var(--color-border);
+  padding: 24px;
+  border-top: 1px solid var(--md-sys-color-outline-variant);
 }
 
-footer a {
-  color: var(--color-accent);
+.footer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--md-sys-color-primary);
   text-decoration: none;
+  padding: 10px 24px;
+  border-radius: var(--md-sys-shape-corner-full);
+  transition: background var(--md-sys-motion-duration-short)
+    var(--md-sys-motion-easing-standard);
 }
 
-footer a:hover {
-  text-decoration: underline;
+.footer__link:hover {
+  background: color-mix(
+    in srgb,
+    var(--md-sys-color-primary) calc(var(--md-sys-state-hover-opacity) * 100%),
+    transparent
+  );
+}
+
+.footer__link .material-symbols-outlined {
+  font-size: 18px;
+}
+
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

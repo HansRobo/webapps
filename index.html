@@ -3,29 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
     <title>WebApps - ミニアプリ ダッシュボード</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <header>
-      <h1>WebApps</h1>
-      <p>ミニアプリ ダッシュボード</p>
-      <div class="search-container">
+    <header class="top-app-bar">
+      <div class="top-app-bar__content">
+        <span class="material-symbols-outlined top-app-bar__icon">apps</span>
+        <h1 class="top-app-bar__title">WebApps</h1>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h2 class="display-medium">ミニアプリ ダッシュボード</h2>
+      <p class="body-large hero__subtitle">
+        さまざまなWebアプリを一覧・検索できます
+      </p>
+      <div class="search-bar">
+        <span class="material-symbols-outlined search-bar__icon">search</span>
         <input
           type="text"
           id="search"
+          class="search-bar__input"
           placeholder="アプリを検索..."
           autocomplete="off"
         />
       </div>
-    </header>
+    </section>
 
     <main>
       <div id="app-grid"></div>
     </main>
 
     <footer>
-      <a href="https://github.com/HansRobo/webapps">GitHub</a>
+      <a
+        href="https://github.com/HansRobo/webapps"
+        class="footer__link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="material-symbols-outlined">code</span>
+        GitHub でソースを見る
+      </a>
     </footer>
 
     <noscript>
