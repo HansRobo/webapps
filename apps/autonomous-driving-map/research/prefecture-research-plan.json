@@ -1,0 +1,1597 @@
+{
+  "generatedAt": "2026-03-28T04:00:50.413Z",
+  "weakRefYear": "2023-01-01",
+  "policy": {
+    "scope": "自動運転実証のみ",
+    "sourcePreference": "一次情報優先（go.jp / lg.jp / 企業公式）",
+    "includePlanned": true,
+    "dateWindow": "2023-01-01以降中心"
+  },
+  "batches": [
+    {
+      "batchId": "batch-01",
+      "prefectures": [
+        "東京都",
+        "滋賀県",
+        "茨城県",
+        "千葉県"
+      ]
+    },
+    {
+      "batchId": "batch-02",
+      "prefectures": [
+        "熊本県",
+        "静岡県",
+        "石川県",
+        "福岡県"
+      ]
+    },
+    {
+      "batchId": "batch-03",
+      "prefectures": [
+        "大阪府",
+        "福井県",
+        "山形県",
+        "山口県"
+      ]
+    },
+    {
+      "batchId": "batch-04",
+      "prefectures": [
+        "長崎県",
+        "北海道",
+        "岩手県",
+        "群馬県"
+      ]
+    },
+    {
+      "batchId": "batch-05",
+      "prefectures": [
+        "広島県",
+        "三重県",
+        "愛媛県",
+        "岡山県"
+      ]
+    },
+    {
+      "batchId": "batch-06",
+      "prefectures": [
+        "沖縄県",
+        "岐阜県",
+        "宮崎県",
+        "宮城県"
+      ]
+    },
+    {
+      "batchId": "batch-07",
+      "prefectures": [
+        "京都府",
+        "香川県",
+        "高知県",
+        "山梨県"
+      ]
+    },
+    {
+      "batchId": "batch-08",
+      "prefectures": [
+        "鹿児島県",
+        "秋田県",
+        "新潟県",
+        "神奈川県"
+      ]
+    },
+    {
+      "batchId": "batch-09",
+      "prefectures": [
+        "青森県",
+        "大分県",
+        "鳥取県",
+        "島根県"
+      ]
+    },
+    {
+      "batchId": "batch-10",
+      "prefectures": [
+        "徳島県",
+        "奈良県",
+        "富山県",
+        "福島県"
+      ]
+    },
+    {
+      "batchId": "batch-11",
+      "prefectures": [
+        "和歌山県",
+        "栃木県",
+        "愛知県",
+        "佐賀県"
+      ]
+    },
+    {
+      "batchId": "batch-12",
+      "prefectures": [
+        "埼玉県",
+        "長野県",
+        "兵庫県"
+      ]
+    }
+  ],
+  "prefectures": [
+    {
+      "prefecture": "東京都",
+      "count": 7,
+      "latest": "2026-01-01",
+      "weakRefs": 6,
+      "oldRefs": 3,
+      "totalRefs": 13,
+      "representativeExperiments": [
+        {
+          "id": "exp-003",
+          "name": "西新宿自動運転バス実証実験（小田急・先進モビリティ）",
+          "period": "2019年〜（複数回実施）",
+          "status": "完了"
+        },
+        {
+          "id": "exp-012",
+          "name": "ロボタクシー自動運転サービス計画（ホンダ・GM・Cruise）",
+          "period": "2026年初頭サービス開始予定",
+          "status": "計画中"
+        },
+        {
+          "id": "exp-013",
+          "name": "ロボタクシー試験運行計画（日産・Wayve・Uber）",
+          "period": "2026年後半試験運行開始予定",
+          "status": "計画中"
+        }
+      ],
+      "queries": [
+        "東京都 自動運転 実証実験 2023..2026",
+        "東京都 自動運転 レベル4 実証",
+        "東京都 自動運転 国土交通省 自治体",
+        "東京都 自動運転 バス タクシー 実証"
+      ],
+      "priority": 32,
+      "oldRefRatio": 23.1
+    },
+    {
+      "prefecture": "滋賀県",
+      "count": 2,
+      "latest": "2022-12-01",
+      "weakRefs": 4,
+      "oldRefs": 4,
+      "totalRefs": 4,
+      "representativeExperiments": [
+        {
+          "id": "exp-008",
+          "name": "奥永源寺地区自動運転移動サービス実証（日野自動車・東近江市）",
+          "period": "2020年10月〜2021年3月",
+          "status": "完了"
+        },
+        {
+          "id": "exp-081",
+          "name": "大津市 自動運転バス等の実証実験",
+          "period": "2022年12月〜2023年2月",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "滋賀県 自動運転 実証実験 2023..2026",
+        "滋賀県 自動運転 レベル4 実証",
+        "滋賀県 自動運転 国土交通省 自治体",
+        "滋賀県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 29,
+      "oldRefRatio": 100
+    },
+    {
+      "prefecture": "茨城県",
+      "count": 5,
+      "latest": "2026-03-01",
+      "weakRefs": 5,
+      "oldRefs": 3,
+      "totalRefs": 9,
+      "representativeExperiments": [
+        {
+          "id": "exp-001",
+          "name": "境町自動運転バス（NAVYA ARMA）定常運行",
+          "period": "2020年11月〜（継続中）",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-009",
+          "name": "ひたちBRT・大甕駅周辺 自動運転中型バスレベル4実証（RoAD to the L4）",
+          "period": "2024年11月〜（継続中）",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-023",
+          "name": "筑波大学循環 自動運転バス運行実証（アイサンテクノロジー等）",
+          "period": "2025年実施",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "茨城県 自動運転 実証実験 2023..2026",
+        "茨城県 自動運転 レベル4 実証",
+        "茨城県 自動運転 国土交通省 自治体",
+        "茨城県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 27,
+      "oldRefRatio": 33.3
+    },
+    {
+      "prefecture": "千葉県",
+      "count": 4,
+      "latest": "2026-02-01",
+      "weakRefs": 4,
+      "oldRefs": 4,
+      "totalRefs": 7,
+      "representativeExperiments": [
+        {
+          "id": "exp-005",
+          "name": "幕張新都心自動運転モビリティサービス実証（DeNA・日産）",
+          "period": "2018年10月〜2019年3月（複数年度実施）",
+          "status": "完了"
+        },
+        {
+          "id": "exp-010",
+          "name": "柏の葉キャンパス自動運転バス公道走行試験（CooL4）",
+          "period": "2024年2月〜",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-068",
+          "name": "横芝光町 自動運転バス実証調査",
+          "period": "〜2026年2月（終了）",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "千葉県 自動運転 実証実験 2023..2026",
+        "千葉県 自動運転 レベル4 実証",
+        "千葉県 自動運転 国土交通省 自治体",
+        "千葉県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 22,
+      "oldRefRatio": 57.1
+    },
+    {
+      "prefecture": "熊本県",
+      "count": 2,
+      "latest": "2025-03-01",
+      "weakRefs": 3,
+      "oldRefs": 3,
+      "totalRefs": 4,
+      "representativeExperiments": [
+        {
+          "id": "exp-007",
+          "name": "南小国町自動運転タクシー実証実験（みんなのタクシー）",
+          "period": "2020年〜2022年（複数年度）",
+          "status": "完了"
+        },
+        {
+          "id": "exp-099",
+          "name": "熊本市 熊本城周辺等 自動運転バス実証実験",
+          "period": "2025年3月〜",
+          "status": "実施中"
+        }
+      ],
+      "queries": [
+        "熊本県 自動運転 実証実験 2023..2026",
+        "熊本県 自動運転 レベル4 実証",
+        "熊本県 自動運転 国土交通省 自治体",
+        "熊本県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 21,
+      "oldRefRatio": 75
+    },
+    {
+      "prefecture": "静岡県",
+      "count": 2,
+      "latest": "2024-11-01",
+      "weakRefs": 3,
+      "oldRefs": 1,
+      "totalRefs": 3,
+      "representativeExperiments": [
+        {
+          "id": "exp-011",
+          "name": "新東名高速道路 自動運転トラック実証実験",
+          "period": "2024年11月〜",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-078",
+          "name": "磐田市 低速自動運転技術の実証実験",
+          "period": "過去実施",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "静岡県 自動運転 実証実験 2023..2026",
+        "静岡県 自動運転 レベル4 実証",
+        "静岡県 自動運転 国土交通省 自治体",
+        "静岡県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 21,
+      "oldRefRatio": 33.3
+    },
+    {
+      "prefecture": "石川県",
+      "count": 2,
+      "latest": "2025-03-28",
+      "weakRefs": 3,
+      "oldRefs": 3,
+      "totalRefs": 4,
+      "representativeExperiments": [
+        {
+          "id": "exp-006",
+          "name": "加賀市自動運転EV実証（ヤマハ発動機・加賀市）",
+          "period": "2021年〜（継続的に実施）",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-073",
+          "name": "小松市 小松駅〜小松空港 自動運転バス通年運行",
+          "period": "2024年3月〜（通年運行）",
+          "status": "実施中"
+        }
+      ],
+      "queries": [
+        "石川県 自動運転 実証実験 2023..2026",
+        "石川県 自動運転 レベル4 実証",
+        "石川県 自動運転 国土交通省 自治体",
+        "石川県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 21,
+      "oldRefRatio": 75
+    },
+    {
+      "prefecture": "福岡県",
+      "count": 4,
+      "latest": "2026-03-01",
+      "weakRefs": 4,
+      "oldRefs": 0,
+      "totalRefs": 4,
+      "representativeExperiments": [
+        {
+          "id": "exp-050",
+          "name": "福岡市 アイランドシティ自動運転実証（福岡県）",
+          "period": "2025年11月",
+          "status": "完了"
+        },
+        {
+          "id": "exp-096",
+          "name": "古賀市 AI予約制乗り合いバス「のるーと」自動運転実証",
+          "period": "2026年3月〜",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-110",
+          "name": "福岡市 大学キャンパス・ウォーターフロント実証",
+          "period": "2023年度〜2024年",
+          "status": "実施中"
+        }
+      ],
+      "queries": [
+        "福岡県 自動運転 実証実験 2023..2026",
+        "福岡県 自動運転 レベル4 実証",
+        "福岡県 自動運転 国土交通省 自治体",
+        "福岡県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 20,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "大阪府",
+      "count": 2,
+      "latest": "2024-03-01",
+      "weakRefs": 3,
+      "oldRefs": 0,
+      "totalRefs": 3,
+      "representativeExperiments": [
+        {
+          "id": "exp-038",
+          "name": "大阪・関西万博 舞洲・夢洲自動運転バス（大阪府）",
+          "period": "2024年3月〜2025年4月",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-083",
+          "name": "大阪市 Osaka Metro 森之宮エリア 自動運転バス実証実験",
+          "period": "継続中",
+          "status": "実施中"
+        }
+      ],
+      "queries": [
+        "大阪府 自動運転 実証実験 2023..2026",
+        "大阪府 自動運転 レベル4 実証",
+        "大阪府 自動運転 国土交通省 自治体",
+        "大阪府 自動運転 バス タクシー 実証"
+      ],
+      "priority": 19,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "福井県",
+      "count": 3,
+      "latest": "2025-10-01",
+      "weakRefs": 3,
+      "oldRefs": 1,
+      "totalRefs": 6,
+      "representativeExperiments": [
+        {
+          "id": "exp-002",
+          "name": "永平寺町自動運転サービス（ゆっくり号）レベル4認可",
+          "period": "2018年〜（2023年4月にレベル4へ移行）",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-074",
+          "name": "坂井市 自動運転実証事業「イータクプラス」",
+          "period": "2025年10月〜11月",
+          "status": "完了"
+        },
+        {
+          "id": "exp-105",
+          "name": "永平寺町 始まりの実証（産総研・パナソニック共同）",
+          "period": "2017年10月〜11月",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "福井県 自動運転 実証実験 2023..2026",
+        "福井県 自動運転 レベル4 実証",
+        "福井県 自動運転 国土交通省 自治体",
+        "福井県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 17,
+      "oldRefRatio": 16.7
+    },
+    {
+      "prefecture": "山形県",
+      "count": 2,
+      "latest": "2024-12-01",
+      "weakRefs": 2,
+      "oldRefs": 1,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-028",
+          "name": "高畠町 道の駅拠点 自動運転実証（山形県）",
+          "period": "過去実施",
+          "status": "完了"
+        },
+        {
+          "id": "exp-062",
+          "name": "長井市 自動運転バス実証実験",
+          "period": "2024年12月〜2025年1月",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "山形県 自動運転 実証実験 2023..2026",
+        "山形県 自動運転 レベル4 実証",
+        "山形県 自動運転 国土交通省 自治体",
+        "山形県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 16,
+      "oldRefRatio": 50
+    },
+    {
+      "prefecture": "山口県",
+      "count": 2,
+      "latest": "2025-01-01",
+      "weakRefs": 2,
+      "oldRefs": 1,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-045",
+          "name": "周南市 徳山駅〜動物園ルート実証（山口県）",
+          "period": "2025年度",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-091",
+          "name": "宇部市 楠こもれびの郷 自動運転サービス実証実験",
+          "period": "過去実施",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "山口県 自動運転 実証実験 2023..2026",
+        "山口県 自動運転 レベル4 実証",
+        "山口県 自動運転 国土交通省 自治体",
+        "山口県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 16,
+      "oldRefRatio": 50
+    },
+    {
+      "prefecture": "長崎県",
+      "count": 2,
+      "latest": "2024-01-01",
+      "weakRefs": 2,
+      "oldRefs": 1,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-052",
+          "name": "対馬市 離島自動運転ソリューション（長崎県）",
+          "period": "過去実施（継続検証中）",
+          "status": "完了"
+        },
+        {
+          "id": "exp-098",
+          "name": "対馬市 自動運転レベル2実証（対馬スマートシティ）",
+          "period": "2022年5月",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "長崎県 自動運転 実証実験 2023..2026",
+        "長崎県 自動運転 レベル4 実証",
+        "長崎県 自動運転 国土交通省 自治体",
+        "長崎県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 16,
+      "oldRefRatio": 50
+    },
+    {
+      "prefecture": "北海道",
+      "count": 2,
+      "latest": "2024-01-01",
+      "weakRefs": 2,
+      "oldRefs": 3,
+      "totalRefs": 4,
+      "representativeExperiments": [
+        {
+          "id": "exp-004",
+          "name": "上士幌町自動運転バス実証（Boldly・NAVYA ARMA）",
+          "period": "2019年10月〜2020年3月（複数年度実施）",
+          "status": "完了"
+        },
+        {
+          "id": "exp-057",
+          "name": "当別町 自動運転EVバス実証運行（マクニカ）",
+          "period": "継続中（冬季含む）",
+          "status": "実施中"
+        }
+      ],
+      "queries": [
+        "北海道 自動運転 実証実験 2023..2026",
+        "北海道 自動運転 レベル4 実証",
+        "北海道 自動運転 国土交通省 自治体",
+        "北海道 自動運転 バス タクシー 実証"
+      ],
+      "priority": 16,
+      "oldRefRatio": 75
+    },
+    {
+      "prefecture": "岩手県",
+      "count": 3,
+      "latest": "2024-03-01",
+      "weakRefs": 3,
+      "oldRefs": 0,
+      "totalRefs": 3,
+      "representativeExperiments": [
+        {
+          "id": "exp-025",
+          "name": "高田松原津波復興祈念公園 自動運転移動サービス（岩手県）",
+          "period": "過去実施〜",
+          "status": "完了"
+        },
+        {
+          "id": "exp-059",
+          "name": "盛岡市 MorioKart 実証実験（冬季デモ）",
+          "period": "2023年1月",
+          "status": "完了"
+        },
+        {
+          "id": "exp-112",
+          "name": "陸前高田市 まちなか再生エリア 利便性検証（2024）",
+          "period": "2024年度（予定合含む）",
+          "status": "実施中・一部計画中"
+        }
+      ],
+      "queries": [
+        "岩手県 自動運転 実証実験 2023..2026",
+        "岩手県 自動運転 レベル4 実証",
+        "岩手県 自動運転 国土交通省 自治体",
+        "岩手県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 15,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "群馬県",
+      "count": 3,
+      "latest": "2024-03-31",
+      "weakRefs": 3,
+      "oldRefs": 0,
+      "totalRefs": 3,
+      "representativeExperiments": [
+        {
+          "id": "exp-030",
+          "name": "前橋市 自動運転バス公道実証（群馬県）",
+          "period": "2018年度〜継続中",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-066",
+          "name": "渋川市 自動運転バス実証運行",
+          "period": "継続中",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-106",
+          "name": "前橋市 5G連携・顔認証等 高度化実証",
+          "period": "2022年度〜2023年度",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "群馬県 自動運転 実証実験 2023..2026",
+        "群馬県 自動運転 レベル4 実証",
+        "群馬県 自動運転 国土交通省 自治体",
+        "群馬県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 15,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "広島県",
+      "count": 3,
+      "latest": "2025-11-05",
+      "weakRefs": 3,
+      "oldRefs": 0,
+      "totalRefs": 4,
+      "representativeExperiments": [
+        {
+          "id": "exp-044",
+          "name": "福山市 レベル4社会実装に向けた実証（広島県）",
+          "period": "2025年度",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-090",
+          "name": "東広島市 自動運転・隊列走行BRT実証実験",
+          "period": "継続中",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-108",
+          "name": "福山市 レベル4実装に向けた公道実証プロジェクト",
+          "period": "2021年度〜継続中",
+          "status": "実施中"
+        }
+      ],
+      "queries": [
+        "広島県 自動運転 実証実験 2023..2026",
+        "広島県 自動運転 レベル4 実証",
+        "広島県 自動運転 国土交通省 自治体",
+        "広島県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 15,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "三重県",
+      "count": 3,
+      "latest": "2025-12-01",
+      "weakRefs": 3,
+      "oldRefs": 0,
+      "totalRefs": 3,
+      "representativeExperiments": [
+        {
+          "id": "exp-021",
+          "name": "桑名市 自動運転バス レベル4社会実装を見据えた検証・本番走行（アイサンテクノロジー）",
+          "period": "2019年度〜継続中",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-022",
+          "name": "伊勢神宮内宮エリア 自動運転バス実証運行（アイサンテクノロジー等）",
+          "period": "2025年12月運行",
+          "status": "完了"
+        },
+        {
+          "id": "exp-080",
+          "name": "四日市市 自動運転EVバス実証実験",
+          "period": "2024年11月",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "三重県 自動運転 実証実験 2023..2026",
+        "三重県 自動運転 レベル4 実証",
+        "三重県 自動運転 国土交通省 自治体",
+        "三重県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 15,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "愛媛県",
+      "count": 2,
+      "latest": "2026-01-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-048",
+          "name": "松山市 レベル4路線バス本格運行（愛媛県）",
+          "period": "2024年12月〜",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-094",
+          "name": "松山市 伊予鉄グループ 自動運転バス レベル4路線運行",
+          "period": "2024年12月〜・2026年以降本格運行開始",
+          "status": "実施中"
+        }
+      ],
+      "queries": [
+        "愛媛県 自動運転 実証実験 2023..2026",
+        "愛媛県 自動運転 レベル4 実証",
+        "愛媛県 自動運転 国土交通省 自治体",
+        "愛媛県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "岡山県",
+      "count": 2,
+      "latest": "2025-11-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-043",
+          "name": "津山市 地域公共交通自動運転実証（岡山県）",
+          "period": "2025年11月",
+          "status": "完了"
+        },
+        {
+          "id": "exp-089",
+          "name": "津山市 自動運転EVバス 実証運行",
+          "period": "2025年11月",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "岡山県 自動運転 実証実験 2023..2026",
+        "岡山県 自動運転 レベル4 実証",
+        "岡山県 自動運転 国土交通省 自治体",
+        "岡山県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "沖縄県",
+      "count": 2,
+      "latest": "2025-01-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-056",
+          "name": "豊見城市 有償実証・レベル4開発（沖縄県）",
+          "period": "2025年11月〜2026年2月",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-103",
+          "name": "豊見城市 生活路線バス（105番） 自動運転EVバス実証運行",
+          "period": "継続中",
+          "status": "実施中"
+        }
+      ],
+      "queries": [
+        "沖縄県 自動運転 実証実験 2023..2026",
+        "沖縄県 自動運転 レベル4 実証",
+        "沖縄県 自動運転 国土交通省 自治体",
+        "沖縄県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "岐阜県",
+      "count": 2,
+      "latest": "2024-01-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-036",
+          "name": "岐阜市 GIFU HEART BUS（岐阜県）",
+          "period": "2023年11月〜（5年間継続予定）",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-077",
+          "name": "中津川市周辺 東濃地域自動運転コンソーシアム",
+          "period": "進行中",
+          "status": "実施中"
+        }
+      ],
+      "queries": [
+        "岐阜県 自動運転 実証実験 2023..2026",
+        "岐阜県 自動運転 レベル4 実証",
+        "岐阜県 自動運転 国土交通省 自治体",
+        "岐阜県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "宮崎県",
+      "count": 2,
+      "latest": "2026-02-12",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-054",
+          "name": "西都市 宮崎県内初EVバス実証（宮崎県）",
+          "period": "2024年11月〜2026年3月",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-101",
+          "name": "西都市 妻エリア・西都原古墳群 自動運転実証実験",
+          "period": "2026年2月〜3月",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "宮崎県 自動運転 実証実験 2023..2026",
+        "宮崎県 自動運転 レベル4 実証",
+        "宮崎県 自動運転 国土交通省 自治体",
+        "宮崎県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "宮城県",
+      "count": 2,
+      "latest": "2025-11-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-026",
+          "name": "気仙沼線BRT 自動運転バス実用化（宮城県）",
+          "period": "2022年12月〜運行中",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-060",
+          "name": "仙台市 東部北（仙台港）自動運転ルート実証",
+          "period": "2025年11月〜12月",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "宮城県 自動運転 実証実験 2023..2026",
+        "宮城県 自動運転 レベル4 実証",
+        "宮城県 自動運転 国土交通省 自治体",
+        "宮城県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "京都府",
+      "count": 2,
+      "latest": "2026-03-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-037",
+          "name": "京田辺市 自動運転EVバス実証（京都府）",
+          "period": "2024年12月",
+          "status": "完了"
+        },
+        {
+          "id": "exp-082",
+          "name": "京都市 洛西ニュータウンエリア 自動運転実証実験",
+          "period": "2026年3月",
+          "status": "実施中"
+        }
+      ],
+      "queries": [
+        "京都府 自動運転 実証実験 2023..2026",
+        "京都府 自動運転 レベル4 実証",
+        "京都府 自動運転 国土交通省 自治体",
+        "京都府 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "香川県",
+      "count": 2,
+      "latest": "2025-01-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-047",
+          "name": "三豊市 信号協調EVバス実証（香川県）",
+          "period": "2025年度",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-093",
+          "name": "小豆島 自動運転バス走行実証",
+          "period": "2024年9月",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "香川県 自動運転 実証実験 2023..2026",
+        "香川県 自動運転 レベル4 実証",
+        "香川県 自動運転 国土交通省 自治体",
+        "香川県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "高知県",
+      "count": 2,
+      "latest": "2025-12-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-049",
+          "name": "高知市 都市部レベル4実証（高知県）",
+          "period": "2025年12月",
+          "status": "完了"
+        },
+        {
+          "id": "exp-095",
+          "name": "高知市 自動運転バス実証実験",
+          "period": "2025年12月",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "高知県 自動運転 実証実験 2023..2026",
+        "高知県 自動運転 レベル4 実証",
+        "高知県 自動運転 国土交通省 自治体",
+        "高知県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "山梨県",
+      "count": 2,
+      "latest": "2026-01-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-035",
+          "name": "富士吉田市 自動運転EVバス実証運行（山梨県）",
+          "period": "2026年1月〜継続中",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-075",
+          "name": "富士吉田市 自動運転バス有償実証運行",
+          "period": "2026年1月〜2月",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "山梨県 自動運転 実証実験 2023..2026",
+        "山梨県 自動運転 レベル4 実証",
+        "山梨県 自動運転 国土交通省 自治体",
+        "山梨県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "鹿児島県",
+      "count": 2,
+      "latest": "2026-01-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-055",
+          "name": "南さつま市 鹿児島県内初EVバス実証（鹿児島県）",
+          "period": "2024年12月",
+          "status": "完了"
+        },
+        {
+          "id": "exp-102",
+          "name": "南さつま市 自動運転EVバス 実証実験",
+          "period": "継続中（2026年1月等）",
+          "status": "実施中"
+        }
+      ],
+      "queries": [
+        "鹿児島県 自動運転 実証実験 2023..2026",
+        "鹿児島県 自動運転 レベル4 実証",
+        "鹿児島県 自動運転 国土交通省 自治体",
+        "鹿児島県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "秋田県",
+      "count": 2,
+      "latest": "2024-11-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-027",
+          "name": "上小阿仁村 自動運転サービス（秋田県）",
+          "period": "2019年11月〜本格運行中",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-061",
+          "name": "大館市 自動運転移動サービス実証",
+          "period": "2024年11月",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "秋田県 自動運転 実証実験 2023..2026",
+        "秋田県 自動運転 レベル4 実証",
+        "秋田県 自動運転 国土交通省 自治体",
+        "秋田県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "新潟県",
+      "count": 2,
+      "latest": "2024-01-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-033",
+          "name": "佐渡市 国内最長自動運転実証（新潟県）",
+          "period": "継続中",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-071",
+          "name": "佐渡市 自動運転サービス導入に向けた実証実験",
+          "period": "継続中",
+          "status": "実施中"
+        }
+      ],
+      "queries": [
+        "新潟県 自動運転 実証実験 2023..2026",
+        "新潟県 自動運転 レベル4 実証",
+        "新潟県 自動運転 国土交通省 自治体",
+        "新潟県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "神奈川県",
+      "count": 2,
+      "latest": "2025-11-20",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-032",
+          "name": "平塚市 路線バス自動運転実証（神奈川県）",
+          "period": "継続中",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-070",
+          "name": "横浜市 日産ロボタクシー実証実験",
+          "period": "2025年11月〜2026年1月",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "神奈川県 自動運転 実証実験 2023..2026",
+        "神奈川県 自動運転 レベル4 実証",
+        "神奈川県 自動運転 国土交通省 自治体",
+        "神奈川県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "青森県",
+      "count": 2,
+      "latest": "2025-10-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-024",
+          "name": "奥入瀬渓流 エコツアー自動運転実証（青森県）",
+          "period": "2024年10月",
+          "status": "完了"
+        },
+        {
+          "id": "exp-058",
+          "name": "むつ市 自動運転バス実証運行",
+          "period": "2025年11月",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "青森県 自動運転 実証実験 2023..2026",
+        "青森県 自動運転 レベル4 実証",
+        "青森県 自動運転 国土交通省 自治体",
+        "青森県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "大分県",
+      "count": 2,
+      "latest": "2025-02-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-053",
+          "name": "佐伯市 大入島コミュニティバス代替実証（大分県）",
+          "period": "2025年1月〜2月",
+          "status": "完了"
+        },
+        {
+          "id": "exp-100",
+          "name": "佐伯市 大入島 自動運転カート実証実験",
+          "period": "2025年1月〜2月",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "大分県 自動運転 実証実験 2023..2026",
+        "大分県 自動運転 レベル4 実証",
+        "大分県 自動運転 国土交通省 自治体",
+        "大分県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "鳥取県",
+      "count": 2,
+      "latest": "2025-12-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-041",
+          "name": "鳥取市 中心市街地自動運転バス実証（鳥取県）",
+          "period": "2025年12月",
+          "status": "完了"
+        },
+        {
+          "id": "exp-087",
+          "name": "鳥取市 次世代モビリティ実証",
+          "period": "継続中",
+          "status": "実施中"
+        }
+      ],
+      "queries": [
+        "鳥取県 自動運転 実証実験 2023..2026",
+        "鳥取県 自動運転 レベル4 実証",
+        "鳥取県 自動運転 国土交通省 自治体",
+        "鳥取県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "島根県",
+      "count": 2,
+      "latest": "2025-01-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-042",
+          "name": "美郷町 自動運転レベル4検証プロジェクト（島根県）",
+          "period": "2025年度",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-088",
+          "name": "松江市 自動運転バス実証実験",
+          "period": "過去実施",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "島根県 自動運転 実証実験 2023..2026",
+        "島根県 自動運転 レベル4 実証",
+        "島根県 自動運転 国土交通省 自治体",
+        "島根県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "徳島県",
+      "count": 2,
+      "latest": "2026-02-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-046",
+          "name": "鳴門市 ロボットタクシー実証運行（徳島県）",
+          "period": "2025年度〜2026年3月",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-092",
+          "name": "鳴門市・松茂町 自動運転タクシー 実証運行",
+          "period": "2026年2月〜3月",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "徳島県 自動運転 実証実験 2023..2026",
+        "徳島県 自動運転 レベル4 実証",
+        "徳島県 自動運転 国土交通省 自治体",
+        "徳島県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "奈良県",
+      "count": 2,
+      "latest": "2025-01-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-039",
+          "name": "明日香村 自動運転バス実証運行（奈良県）",
+          "period": "2025年1月",
+          "status": "完了"
+        },
+        {
+          "id": "exp-085",
+          "name": "三郷町・明日香村 自動運転バス実証実験",
+          "period": "2025年1月",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "奈良県 自動運転 実証実験 2023..2026",
+        "奈良県 自動運転 レベル4 実証",
+        "奈良県 自動運転 国土交通省 自治体",
+        "奈良県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "富山県",
+      "count": 2,
+      "latest": "2024-01-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-034",
+          "name": "富山市 婦中地域 自動運転実証実験（富山県）",
+          "period": "継続中",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-072",
+          "name": "富山市 婦中地域朝日地区 自動運転実証実験",
+          "period": "過去実施",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "富山県 自動運転 実証実験 2023..2026",
+        "富山県 自動運転 レベル4 実証",
+        "富山県 自動運転 国土交通省 自治体",
+        "富山県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "福島県",
+      "count": 2,
+      "latest": "2024-10-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-029",
+          "name": "浪江町 スマートモビリティと自動運転実証（福島県）",
+          "period": "2021年〜継続中",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-063",
+          "name": "磐梯町 自動運転バス公道実証",
+          "period": "2024年10月",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "福島県 自動運転 実証実験 2023..2026",
+        "福島県 自動運転 レベル4 実証",
+        "福島県 自動運転 国土交通省 自治体",
+        "福島県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "和歌山県",
+      "count": 2,
+      "latest": "2025-02-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-040",
+          "name": "和歌山市 運行・路車協調実証（和歌山県）",
+          "period": "2025年1月〜2月",
+          "status": "完了"
+        },
+        {
+          "id": "exp-086",
+          "name": "和歌山市 自動運転EVバス 実証運行",
+          "period": "継続中",
+          "status": "実施中"
+        }
+      ],
+      "queries": [
+        "和歌山県 自動運転 実証実験 2023..2026",
+        "和歌山県 自動運転 レベル4 実証",
+        "和歌山県 自動運転 国土交通省 自治体",
+        "和歌山県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 14,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "栃木県",
+      "count": 2,
+      "latest": "2024-01-01",
+      "weakRefs": 1,
+      "oldRefs": 1,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-031",
+          "name": "奥日光 自動運転大型EVバス実証（栃木県）",
+          "period": "2025年11月",
+          "status": "完了"
+        },
+        {
+          "id": "exp-065",
+          "name": "宇都宮市 ABCプロジェクト 自動運転バス実証",
+          "period": "過去実施",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "栃木県 自動運転 実証実験 2023..2026",
+        "栃木県 自動運転 レベル4 実証",
+        "栃木県 自動運転 国土交通省 自治体",
+        "栃木県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 11,
+      "oldRefRatio": 50
+    },
+    {
+      "prefecture": "愛知県",
+      "count": 3,
+      "latest": "2024-01-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 3,
+      "representativeExperiments": [
+        {
+          "id": "exp-018",
+          "name": "知多半島・中部国際空港アクセス 自動運転高速バス実証（先進モビリティ）",
+          "period": "2025年12月予定",
+          "status": "計画中"
+        },
+        {
+          "id": "exp-079",
+          "name": "日進市 自動運転バス（ARMA）公道実走実験",
+          "period": "継続中",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-109",
+          "name": "中部国際空港 常時運行に向けた空港内・周辺実証",
+          "period": "2022年〜継続中",
+          "status": "実施中"
+        }
+      ],
+      "queries": [
+        "愛知県 自動運転 実証実験 2023..2026",
+        "愛知県 自動運転 レベル4 実証",
+        "愛知県 自動運転 国土交通省 自治体",
+        "愛知県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 10,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "佐賀県",
+      "count": 3,
+      "latest": "2026-01-01",
+      "weakRefs": 2,
+      "oldRefs": 0,
+      "totalRefs": 3,
+      "representativeExperiments": [
+        {
+          "id": "exp-051",
+          "name": "佐賀市 SAGAサンライズパーク レベル4実証（佐賀県）",
+          "period": "2026年1月",
+          "status": "完了"
+        },
+        {
+          "id": "exp-097",
+          "name": "嬉野市 温泉街自動運転 実証実験",
+          "period": "継続中（秋季等）",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-111",
+          "name": "佐賀市 市街地回遊性向上実走調査",
+          "period": "2023年〜2024年",
+          "status": "実施中"
+        }
+      ],
+      "queries": [
+        "佐賀県 自動運転 実証実験 2023..2026",
+        "佐賀県 自動運転 レベル4 実証",
+        "佐賀県 自動運転 国土交通省 自治体",
+        "佐賀県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 10,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "埼玉県",
+      "count": 2,
+      "latest": "2025-05-29",
+      "weakRefs": 1,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-017",
+          "name": "和光市 自動運転バス実証（RoAD to the L4）",
+          "period": "2023年8月〜（社会実証・実装を段階的に継続）",
+          "status": "実施中"
+        },
+        {
+          "id": "exp-067",
+          "name": "さいたま市 自動運転バス実証実験（北浦和駅〜埼玉大学）",
+          "period": "継続中",
+          "status": "実施中"
+        }
+      ],
+      "queries": [
+        "埼玉県 自動運転 実証実験 2023..2026",
+        "埼玉県 自動運転 レベル4 実証",
+        "埼玉県 自動運転 国土交通省 自治体",
+        "埼玉県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 9,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "長野県",
+      "count": 2,
+      "latest": "2025-05-29",
+      "weakRefs": 1,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-016",
+          "name": "塩尻市 自動運転バス実証・社会実装（RoAD to the L4）",
+          "period": "2025年5月〜定常運行（レベル4実証は2026年3月予定）",
+          "status": "実施中・一部計画中"
+        },
+        {
+          "id": "exp-076",
+          "name": "上田市 自動運転EVバス実証運行",
+          "period": "2023年8月〜9月",
+          "status": "完了"
+        }
+      ],
+      "queries": [
+        "長野県 自動運転 実証実験 2023..2026",
+        "長野県 自動運転 レベル4 実証",
+        "長野県 自動運転 国土交通省 自治体",
+        "長野県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 9,
+      "oldRefRatio": 0
+    },
+    {
+      "prefecture": "兵庫県",
+      "count": 2,
+      "latest": "2024-01-01",
+      "weakRefs": 1,
+      "oldRefs": 0,
+      "totalRefs": 2,
+      "representativeExperiments": [
+        {
+          "id": "exp-019",
+          "name": "洲本市 日中・夜間自動運転移動サービス実証（先進モビリティ）",
+          "period": "2025年11月〜12月予定",
+          "status": "計画中"
+        },
+        {
+          "id": "exp-084",
+          "name": "三田市 自動運転バス実証実験",
+          "period": "継続中",
+          "status": "実施中"
+        }
+      ],
+      "queries": [
+        "兵庫県 自動運転 実証実験 2023..2026",
+        "兵庫県 自動運転 レベル4 実証",
+        "兵庫県 自動運転 国土交通省 自治体",
+        "兵庫県 自動運転 バス タクシー 実証"
+      ],
+      "priority": 9,
+      "oldRefRatio": 0
+    }
+  ]
+}

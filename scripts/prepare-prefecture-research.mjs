@@ -13,6 +13,7 @@ const ENUMS_PATH = resolve(ROOT, "apps/autonomous-driving-map/enums.js");
 const OUT_DIR = resolve(ROOT, "apps/autonomous-driving-map/research");
 const OUT_JSON = resolve(OUT_DIR, "prefecture-research-plan.json");
 const OUT_MD = resolve(OUT_DIR, "prefecture-research-plan.md");
+const OUT_CANDIDATES = resolve(OUT_DIR, "candidates.json");
 
 const WEAK_REF_YEAR = "2023-01-01";
 
@@ -175,6 +176,15 @@ function buildMarkdown(plan) {
   return lines.join("\n");
 }
 
+function buildCandidatesTemplate(plan) {
+  return plan.prefectures.map((row) => ({
+    prefecture: row.prefecture,
+    priority: row.priority,
+    queries: row.queries,
+    candidates: [],
+  }));
+}
+
 function main() {
   const experiments = loadExperiments();
   const enums = loadEnums();
@@ -189,13 +199,16 @@ function main() {
 
   const plan = buildPlan(experiments, enums);
   const markdown = buildMarkdown(plan);
+  const candidatesTemplate = buildCandidatesTemplate(plan);
 
   mkdirSync(OUT_DIR, { recursive: true });
   writeFileSync(OUT_JSON, `${JSON.stringify(plan, null, 2)}\n`, "utf-8");
   writeFileSync(OUT_MD, `${markdown}\n`, "utf-8");
+  writeFileSync(OUT_CANDIDATES, `${JSON.stringify(candidatesTemplate, null, 2)}\n`, "utf-8");
 
   console.log(`Wrote: ${OUT_JSON}`);
   console.log(`Wrote: ${OUT_MD}`);
+  console.log(`Wrote: ${OUT_CANDIDATES}`);
   console.log(`Prefectures: ${plan.prefectures.length}, batches: ${plan.batches.length}`);
 }
 
