@@ -3697,8 +3697,8 @@ const EXPERIMENTS = [
       value: "坂出市が、バス運転手不足への対応と公共交通の安定供給を目的に実施した自動運転バス実証。坂出駅を起終点に市内停留所を循環し、将来のレベル4実装に向けて技術実用性と社会受容性を検証した。",
       refs: [1]
     },
-    vehicle: { value: "PIX RoboBus", refs: [1] },
-    adSystem: { value: "PIX Moving", refs: [] },
+    vehicle: { value: "WeRideバス", refs: [1] },
+    adSystem: { value: "WeRide", refs: [] },
     route: { value: "坂出駅北口→百十四銀行東部支店前→パッケージプラザ前→かきのは前→みんなの動物病院前→マルナカ坂出店前→マイルドハート坂出前→回生病院北→市役所前→坂出駅北口", refs: [1] },
     operationType: { value: "レベル2（無料、先着乗車、運転手乗務）", refs: [1] },
     stakeholders: [
