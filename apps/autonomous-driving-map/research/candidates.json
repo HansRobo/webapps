@@ -184,7 +184,16 @@
       "北海道 自動運転 国土交通省 自治体",
       "北海道 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "北海道当別町とマクニカ、自動運転EVバスの冬季含めた長期間の実証運行を実施",
+        "url": "https://www.macnica.co.jp/public-relations/news/2025/148366/",
+        "date": "2025-09-26",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-057の一次情報化（冬季含む長期実証、ロイズタウン駅周辺の運行条件を補強）。"
+      }
+    ]
   },
   {
     "prefecture": "宮城県",
@@ -195,7 +204,24 @@
       "宮城県 自動運転 国土交通省 自治体",
       "宮城県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "自動運転実証事業の実施エリアを拡大します（発表資料）",
+        "url": "https://www.city.sendai.jp/sesakukoho/gaiyo/shichoshitsu/kaiken/2025/10/14unten2.html",
+        "date": "2025-10-15",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-120の一次情報化（青葉山に加え東部北・秋保エリア拡大、運行予定時期）。"
+      },
+      {
+        "title": "自動運転実証事業「青葉山グリーン回遊プロジェクト」自動運転レベル2の運行実験を実施します（発表資料）",
+        "url": "https://www.city.sendai.jp/sesakukoho/gaiyo/shichoshitsu/kaiken/2024/10/08zidouunten2.html",
+        "date": "2024-10-09",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-120の前年度実証条件（運行区間・レベル2）補強。"
+      }
+    ]
   },
   {
     "prefecture": "広島県",
@@ -206,7 +232,24 @@
       "広島県 自動運転 国土交通省 自治体",
       "広島県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "自動運転・隊列走行BRT実証実験／東広島市ホームページ",
+        "url": "https://www.city.higashihiroshima.lg.jp/soshiki/toshi/7/1_1/44126.html",
+        "date": "2025-11-07",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-090の一次情報化（年度継続、JR西条駅〜広島大学方面のBRT実証）。"
+      },
+      {
+        "title": "自動運転・隊列走行BRTの社会実装に向けた「自動運転EVバス」走行試験開始",
+        "url": "https://www.city.higashihiroshima.lg.jp/material/files/group/205/press.pdf",
+        "date": "2025-10-24",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-090の実施期間・体制・走行区間の詳細補強。"
+      }
+    ]
   },
   {
     "prefecture": "三重県",
@@ -217,7 +260,24 @@
       "三重県 自動運転 国土交通省 自治体",
       "三重県 自動運転 バス タクシー 実証"
     ],
-    "candidates": []
+    "candidates": [
+      {
+        "title": "自動運転バス実証実験｜伊勢市公式ホームページ",
+        "url": "https://www.city.ise.mie.jp/kurashi/koutsu/okage_bus/1019584.html",
+        "date": "2025-12-15",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-123の一次情報化（実施期間、実施区間、レベル2実証）。"
+      },
+      {
+        "title": "〖三重県伊勢市〗伊勢神宮内宮エリアで自動運転バスの運行に参画しました",
+        "url": "https://www.aisantec.co.jp/ir/information/2026/03/post-160.html",
+        "date": "2026-03-05",
+        "sourceType": "primary",
+        "decision": "update",
+        "note": "exp-123の事業者側一次情報（参画体制・実証背景）補強。"
+      }
+    ]
   },
   {
     "prefecture": "愛媛県",
