@@ -208,6 +208,7 @@ function validateExperiments(experiments, enums) {
       warn(id, "references が空または配列ではありません");
     } else {
       const refIds = new Set();
+      const refUrls = new Map(); // url -> first index
       for (const [i, ref] of exp.references.entries()) {
         const prefix = `references[${i}]`;
         if (typeof ref.id !== "number")
@@ -221,35 +222,44 @@ function validateExperiments(experiments, enums) {
           err(id, `${prefix}.title が空または文字列ではありません`);
         if (typeof ref.url !== "string" || ref.url.trim() === "")
           err(id, `${prefix}.url が空または文字列ではありません`);
+        else if (!/^https?:\/\//.test(ref.url))
+          err(id, `${prefix}.url "${ref.url}" は http:// または https:// で始まる URL ではありません`);
+        else if (refUrls.has(ref.url))
+          warn(id, `${prefix}.url "${ref.url}" は references[${refUrls.get(ref.url)}] と同じ URL です（重複参照）`);
+        else
+          refUrls.set(ref.url, i);
         if (typeof ref.date !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(ref.date))
           err(id, `${prefix}.date "${ref.date}" は YYYY-MM-DD 形式ではありません`);
         if (typeof ref.source !== "string" || ref.source.trim() === "")
           warn(id, `${prefix}.source が空または文字列ではありません`);
       }
 
-      for (const f of requiredValueFields) {
-        for (const r of (exp[f]?.refs ?? [])) {
+      // refs の存在チェック + refs 内重複チェック
+      function checkRefs(label, refs) {
+        const seen = new Set();
+        for (const r of refs) {
           if (!refIds.has(r))
-            err(id, `${f}.refs に参照番号 ${r} がありますが、references[].id に存在しません`);
+            err(id, `${label} に参照番号 ${r} がありますが、references[].id に存在しません`);
+          if (seen.has(r))
+            warn(id, `${label} に参照番号 ${r} が重複して含まれています`);
+          seen.add(r);
         }
       }
-      for (const [i, a] of adSystemItems.entries()) {
-        for (const r of (a.refs ?? [])) {
-          if (!refIds.has(r))
-            err(id, `adSystem[${i}].refs に参照番号 ${r} がありますが、references[].id に存在しません`);
-        }
-      }
-      for (const [i, v] of vehicleItems.entries()) {
-        for (const r of (v.refs ?? [])) {
-          if (!refIds.has(r))
-            err(id, `vehicle[${i}].refs に参照番号 ${r} がありますが、references[].id に存在しません`);
-        }
-      }
-      for (const [i, s] of (exp.stakeholders ?? []).entries()) {
-        for (const r of (s.refs ?? [])) {
-          if (!refIds.has(r))
-            err(id, `stakeholders[${i}].refs に参照番号 ${r} がありますが、references[].id に存在しません`);
-        }
+      for (const f of requiredValueFields) checkRefs(`${f}.refs`, exp[f]?.refs ?? []);
+      for (const [i, a] of adSystemItems.entries()) checkRefs(`adSystem[${i}].refs`, a.refs ?? []);
+      for (const [i, v] of vehicleItems.entries()) checkRefs(`vehicle[${i}].refs`, v.refs ?? []);
+      for (const [i, s] of (exp.stakeholders ?? []).entries()) checkRefs(`stakeholders[${i}].refs`, s.refs ?? []);
+
+      // 孤立参照チェック（どのフィールドのrefsにも引用されていないreference）
+      const citedIds = new Set([
+        ...requiredValueFields.flatMap((f) => exp[f]?.refs ?? []),
+        ...adSystemItems.flatMap((a) => a.refs ?? []),
+        ...vehicleItems.flatMap((v) => v.refs ?? []),
+        ...(exp.stakeholders ?? []).flatMap((s) => s.refs ?? []),
+      ]);
+      for (const ref of exp.references) {
+        if (typeof ref.id === "number" && !citedIds.has(ref.id))
+          warn(id, `references id=${ref.id}（"${ref.title}"）はどのフィールドの refs にも引用されていません`);
       }
     }
   }

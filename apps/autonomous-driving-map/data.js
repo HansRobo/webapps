@@ -1050,7 +1050,7 @@ const EXPERIMENTS = [
     status: { value: "完了", refs: [1] },
     description: {
       value: "中心市街地の活性化と移動手段確保のため、JR和歌山駅から和歌山城の間でEVバスを用いた実証実験を実施。信号連携や路車協調システムを用いた走行支援技術の検証を行った。",
-      refs: [1]
+      refs: [1, 2]
     },
     vehicle: { value: "NAVYA EVO", refs: [1] },
     adSystem: { value: "不明", refs: [] },
@@ -1244,14 +1244,14 @@ const EXPERIMENTS = [
   },
   {
     id: "exp-048",
-    name: { value: "松山市 レベル4路線バス本格運行（愛媛県）", refs: [1] },
+    name: { value: "松山市 高浜〜観光港 レベル4路線バス本格運行・EVモーターズ製（愛媛県）", refs: [1] },
     location: { value: "愛媛県松山市（松山観光港周辺）", lat: 33.882, lng: 132.709, refs: [1] },
     prefecture: { value: "愛媛県", refs: [1] },
-    period: { value: "2024年12月25日〜", refs: [1] },
-    status: { value: "実施中", refs: [1] },
+    period: { value: "2024年12月25日〜2025年10月", refs: [1, 2] },
+    status: { value: "完了", refs: [1, 2] },
     description: {
-      value: "伊予鉄グループが高浜駅〜松山観光港連絡バスで、全国初のレベル4路線バス本格運行を開始。完全キャッシュレスで毎日運行し、保安員配置と遠隔監視を組み合わせた運行体制を採用している。",
-      refs: [1]
+      value: "伊予鉄グループが高浜駅〜松山観光港連絡バスで、全国初のレベル4路線バス本格運行を開始。完全キャッシュレスで毎日運行し、保安員配置と遠隔監視を組み合わせた運行体制を採用。2025年10月、WeRide製車両による松山環状線・道後温泉路線への移行に伴い運行を終了した。",
+      refs: [1, 2]
     },
     vehicle: { value: "EVモーターズ・ジャパン F8 series4-Mini Bus", refs: [1] },
     adSystem: { value: "不明", refs: [] },
@@ -1264,7 +1264,8 @@ const EXPERIMENTS = [
       { role: "自治体", name: "松山市（愛媛県）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "全国初「自動運転レベル4 路線バス本格運行」について", url: "https://www.iyotetsu.co.jp/sp/topics/press/2024/1210_gbac.pdf", date: "2024-12-10", source: "伊予鉄グループ" }
+      { id: 1, title: "全国初「自動運転レベル4 路線バス本格運行」について", url: "https://www.iyotetsu.co.jp/sp/topics/press/2024/1210_gbac.pdf", date: "2024-12-10", source: "伊予鉄グループ" },
+      { id: 2, title: "自動運転バス・松山環状線〜道後温泉路線について", url: "https://www.iyotetsu.co.jp/sp/topics/press/2025/1027_gbam.pdf", date: "2025-10-27", source: "伊予鉄グループ" }
     ]
   },
   {
@@ -3745,10 +3746,10 @@ const EXPERIMENTS = [
     location: { value: "愛知県小牧市（桃花台ニュータウン内、桃花台センター起終点）", lat: 35.289, lng: 136.912, refs: [1] },
     prefecture: { value: "愛知県", refs: [1] },
     period: { value: "2026年1月22日〜2月6日（土日実施、1/28・2/4・2/6の5便目運休。準備走行: 2026年1月5日〜）", refs: [1] },
-    status: { value: "完了", refs: [1] },
+    status: { value: "完了", refs: [1, 2] },
     description: {
       value: "小牧市が、こまき巡回バス「こまくる」の将来的なサービス水準維持と運転手不足対策を目的に実施した自動運転実証調査。桃花台ニュータウン内で走行性・安全性・社会受容性を検証し、レベル4許認可に必要な条件整理やコスト検証を進めた。",
-      refs: [1]
+      refs: [1, 2]
     },
     vehicle: { value: "BYD J6", refs: [1] },
     adSystem: { value: "ティアフォー", refs: [1] },
@@ -4831,6 +4832,57 @@ const EXPERIMENTS = [
     ],
     references: [
       { id: 1, title: "常滑市中部国際空港島において自動運転の社会実装を見据えた実証実験を実施します", url: "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2020092101", date: "2020-09-21", source: "日本モビリティ株式会社 リリース" }
+    ]
+  },
+  {
+    id: "exp-214",
+    name: { value: "松山市 環状線・道後温泉 レベル4路線バス計画・WeRide製（愛媛県）", refs: [1] },
+    location: { value: "愛媛県松山市（松山市駅周辺・道後温泉エリア）", lat: 33.838, lng: 132.766, refs: [1] },
+    prefecture: { value: "愛媛県", refs: [1] },
+    period: { value: "2026年〜（開始時期未定・延期中）", refs: [1] },
+    status: { value: "計画中", refs: [1] },
+    description: {
+      value: "伊予鉄グループが、WeRide製の無人運転対応EVバス（ハンドルなし、11人乗り）を2台導入し、松山市駅発着の松山環状線（約7.4km・17停留所）と道後温泉路線（片道2.0km、踏切通過含む）でのレベル4路線バス本格運行を計画。国の「自動運転社会実装推進事業」に採択。当初2026年1月開始予定だったが技術・行政手続き等により延期が続き、開始時期は未定。",
+      refs: [1]
+    },
+    vehicle: { value: "WeRideバス", refs: [1] },
+    adSystem: { value: "WeRide", refs: [1] },
+    route: { value: "松山環状線（松山市駅発着・約7.4km・17停留所）・道後温泉路線（新設・片道2.0km）", refs: [1] },
+    operationType: { value: "レベル4（計画中）", refs: [1] },
+    stakeholders: [
+      { role: "運行主体", name: "伊予鉄バス株式会社", refs: [1] },
+      { role: "自動運転システム・車両提供", name: "WeRide（中国）", refs: [1] },
+      { role: "自動運転システム", name: "BOLDLY株式会社", refs: [1] },
+      { role: "協力自治体", name: "愛媛県", refs: [1] },
+      { role: "自治体", name: "松山市（愛媛県）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "自動運転バス・松山環状線〜道後温泉路線について", url: "https://www.iyotetsu.co.jp/sp/topics/press/2025/1027_gbam.pdf", date: "2025-10-27", source: "伊予鉄グループ" }
+    ]
+  },
+  {
+    id: "exp-215",
+    name: { value: "伊予市 双海地域 AuveTech MiCa 実証運行（愛媛県）", refs: [1] },
+    location: { value: "愛媛県伊予市（双海地域・JR伊予上灘駅周辺）", lat: 33.748, lng: 132.710, refs: [1] },
+    prefecture: { value: "愛媛県", refs: [1] },
+    period: { value: "2024年1月31日〜2024年3月末", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "伊予市双海地域の移動手段確保を目的に、エストニアAuve Tech社の新型自動運転EV「MiCa」を用いた実証運行を実施。JR伊予上灘駅を起点に翠小学校などを含む計15バス停（片道約5.5km）を1日5便運行。最高時速20kmで走行し、レベル4対応車両としての安全性・地域適合性を検証した。BOLDLYが運行管理を担当し、地元の植西運送が運行協力した。",
+      refs: [1]
+    },
+    vehicle: { value: "Auve Tech MiCa", refs: [1] },
+    adSystem: { value: "Auve Tech", refs: [1] },
+    route: { value: "JR伊予上灘駅〜翠小学校（双海地域、計15バス停、片道約5.5km）", refs: [1] },
+    operationType: { value: "レベル4対応車両による実証（最高時速20km）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "伊予市（愛媛県）", refs: [1] },
+      { role: "運行管理", name: "BOLDLY株式会社", refs: [1] },
+      { role: "運行協力", name: "植西運送株式会社", refs: [1] },
+      { role: "車両製造", name: "Auve Tech（エストニア）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "伊予市双海地域で新型自動運転EV「MiCa」の実証運行を開始", url: "https://prtimes.jp/main/html/rd/p/000000061.000084523.html", date: "2024-01-31", source: "BOLDLY株式会社（PR TIMES）" }
     ]
   }
 ];
