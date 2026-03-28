@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     statusFilterGroup: document.getElementById("statusFilterGroup"),
     levelFilterGroup: document.getElementById("levelFilterGroup"),
     vehicleFilterGroup: document.getElementById("vehicleFilterGroup"),
+    adSystemFilterGroup: document.getElementById("adSystemFilterGroup"),
     routeTagFilterGroup: document.getElementById("routeTagFilterGroup"),
     prefectureSelect: document.getElementById("prefectureSelect"),
     prefectureAddButton: document.getElementById("prefectureAddButton"),
@@ -77,7 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
     statuses: new Set(),
     prefectures: new Set(),
     levels: new Set(),
-    vehicleCategories: new Set(),
+    vehicles: new Set(),
+    adSystems: new Set(),
     routeTags: new Set(),
     yearFrom: null,
     yearTo: null,
@@ -127,7 +129,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function normalizeExperiment(raw) {
     const status = raw.status.value;
     const levels = extractLevels(raw.operationType.value);
-    const vehicleCategory = classifyVehicleCategory(raw.vehicleType.value);
     const years = extractYears(raw.period.value);
     const startYear = years.length ? Math.min(...years) : null;
     const endYear = years.length ? Math.max(...years) : null;
@@ -175,7 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
       references: raw.references,
       levels,
       primaryLevel: levels[0] || "その他",
-      vehicleCategory,
       startYear,
       endYear,
       ongoing,
@@ -201,15 +201,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return levels.sort();
   }
 
-  function classifyVehicleCategory(text) {
-    const value = String(text);
-    if (/タクシー|アルファード/.test(value)) return "タクシー";
-    if (/カート/.test(value)) return "小型カート";
-    if (/EV|電動|リーフ|シャトル/.test(value)) return "シャトルEV";
-    if (/バス|BRT|ポンチョ|ミニバン|ARMA|HAKOBUS/.test(value)) return "バス";
-    return "その他";
-  }
-
   function extractYears(text) {
     return [...new Set((String(text).match(/\b(20\d{2})\b/g) || []).map((y) => Number(y)))].filter((y) => y >= 2000 && y <= 2100);
   }
@@ -222,13 +213,15 @@ document.addEventListener("DOMContentLoaded", () => {
   function buildFilterChoices() {
     const statuses = [...new Set(experiments.map((exp) => exp.status))].sort((a, b) => (statusPriority[a] ?? 99) - (statusPriority[b] ?? 99));
     const levels = [...new Set(experiments.flatMap((exp) => exp.levels))].sort();
-    const vehicleCategories = [...new Set(experiments.map((exp) => exp.vehicleCategory))].sort();
+    const vehicles = [...new Set(experiments.map((exp) => exp.vehicle).filter((v) => v !== null))].sort((a, b) => a.localeCompare(b, "ja"));
+    const adSystems = [...new Set(experiments.map((exp) => exp.adSystem).filter((v) => v !== null))].sort((a, b) => a.localeCompare(b, "ja"));
     const prefectures = [...new Set(experiments.map((exp) => exp.prefecture))].sort();
     const years = [...new Set(experiments.map((exp) => exp.startYear).filter((v) => v !== null))].sort((a, b) => a - b);
 
     dom.statusFilterGroup.innerHTML = statuses.map((status) => renderToggleChip("statuses", status)).join("");
     dom.levelFilterGroup.innerHTML = levels.map((level) => renderToggleChip("levels", level)).join("");
-    dom.vehicleFilterGroup.innerHTML = vehicleCategories.map((type) => renderToggleChip("vehicleCategories", type)).join("");
+    dom.vehicleFilterGroup.innerHTML = vehicles.map((v) => renderToggleChip("vehicles", v)).join("");
+    dom.adSystemFilterGroup.innerHTML = adSystems.map((s) => renderToggleChip("adSystems", s)).join("");
     dom.routeTagFilterGroup.innerHTML = ROUTE_TAG_PATTERNS.map(({ tag }) => renderToggleChip("routeTags", tag)).join("");
 
     prefectures.forEach((prefecture) => {
@@ -268,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="map-popup__meta">
             <span class="status-badge" data-status="${escAttr(exp.status)}">${escHtml(exp.status)}</span>
             <span class="meta-chip">${escHtml(exp.primaryLevel)}</span>
-            <span class="meta-chip">${escHtml(exp.vehicleCategory)}</span>
+            ${exp.vehicle ? `<span class="meta-chip">${escHtml(exp.vehicle)}</span>` : ""}
           </div>
         </div>`,
         { maxWidth: 320 }
@@ -407,7 +400,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (kind === "statuses") state.statuses.delete(value);
     if (kind === "prefectures") state.prefectures.delete(value);
     if (kind === "levels") state.levels.delete(value);
-    if (kind === "vehicleCategories") state.vehicleCategories.delete(value);
+    if (kind === "vehicles") state.vehicles.delete(value);
+    if (kind === "adSystems") state.adSystems.delete(value);
     if (kind === "routeTags") state.routeTags.delete(value);
 
     dom.queryInput.value = state.query;
@@ -424,7 +418,8 @@ document.addEventListener("DOMContentLoaded", () => {
     state.statuses.clear();
     state.prefectures.clear();
     state.levels.clear();
-    state.vehicleCategories.clear();
+    state.vehicles.clear();
+    state.adSystems.clear();
     state.routeTags.clear();
     state.yearFrom = null;
     state.yearTo = null;
@@ -470,7 +465,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (state.statuses.size > 0 && !state.statuses.has(exp.status)) return false;
     if (state.prefectures.size > 0 && !state.prefectures.has(exp.prefecture)) return false;
     if (state.levels.size > 0 && !exp.levels.some((level) => state.levels.has(level))) return false;
-    if (state.vehicleCategories.size > 0 && !state.vehicleCategories.has(exp.vehicleCategory)) return false;
+    if (state.vehicles.size > 0 && !state.vehicles.has(exp.vehicle)) return false;
+    if (state.adSystems.size > 0 && !state.adSystems.has(exp.adSystem)) return false;
     if (state.routeTags.size > 0 && !exp.routeTags.some((tag) => state.routeTags.has(tag))) return false;
 
     if (state.yearFrom !== null || state.yearTo !== null) {
@@ -551,7 +547,8 @@ document.addEventListener("DOMContentLoaded", () => {
     badges.push(...[...state.statuses].map((v) => renderFilterBadge("ステータス", v, "statuses", v)));
     badges.push(...[...state.prefectures].map((v) => renderFilterBadge("都道府県", v, "prefectures", v)));
     badges.push(...[...state.levels].map((v) => renderFilterBadge("運行レベル", v, "levels", v)));
-    badges.push(...[...state.vehicleCategories].map((v) => renderFilterBadge("車種", v, "vehicleCategories", v)));
+    badges.push(...[...state.vehicles].map((v) => renderFilterBadge("使用車両", v, "vehicles", v)));
+    badges.push(...[...state.adSystems].map((v) => renderFilterBadge("ADシステム", v, "adSystems", v)));
     badges.push(...[...state.routeTags].map((v) => renderFilterBadge("ルート特性", v, "routeTags", v)));
     dom.activeFilters.innerHTML = badges.length ? badges.join("") : '<span class="muted-text">フィルタは未設定です</span>';
   }
@@ -576,7 +573,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="experiment-list-item__meta">
           <span class="status-badge" data-status="${escAttr(exp.status)}">${escHtml(exp.status)}</span>
           <span class="meta-chip">${escHtml(exp.primaryLevel)}</span>
-          <span class="meta-chip">${escHtml(exp.vehicleCategory)}</span>
+          ${exp.vehicle ? `<span class="meta-chip">${escHtml(exp.vehicle)}</span>` : ""}
         </div>
         <div class="experiment-list-item__period">${escHtml(exp.period)}</div>
       </li>`

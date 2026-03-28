@@ -3706,7 +3706,7 @@ const EXPERIMENTS = [
       refs: [1, 2]
     },
     vehicleType: { value: "J6 2.0（小型バス）", refs: [1] },
-    vehicle: { value: "BYD J6 2.0", refs: [] },
+    vehicle: { value: "BYD J6", refs: [] },
     adSystem: { value: "ティアフォー", refs: [] },
     route: { value: "イオンモール豊川〜豊川体育館前西〜豊川市役所前〜イオン豊川店〜豊川駅前", refs: [1] },
     operationType: { value: "レベル2（無料・予約制）", refs: [1] },
