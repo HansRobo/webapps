@@ -364,18 +364,15 @@ const EXPERIMENTS = [
     prefecture: { value: "東京都", refs: [1] },
     period: { value: "2020年9月〜（レベル2定常運行）、2024年8月〜（レベル4運行）", refs: [1, 2] },
     status: { value: "実施中", refs: [1] },
-    description: {
-      value: "新産業創造・発信拠点「羽田イノベーションシティ」内における自動運転バスの定常運行実証。民間事業のショーケースとして国内最多の実績を重ねており、NAVYA ARMAによるレベル4運行や、AuveTech MiCaによるレベル2運行を実施している。",
-      refs: [1, 2]
-    },
-    vehicleType: { value: "NAVYA ARMA（レベル4）、AuveTech MiCa（レベル2）", refs: [1] },
-    route: { value: "羽田イノベーションシティ内の研究開発施設・カンファレンスルーム・公園を結ぶ循環ルート（約0.8〜1km）", refs: [1] },
-    operationType: { value: "レベル2（運転士乗車）および レベル4（特定自動運行）", refs: [1, 2] },
     stakeholders: [
       { role: "事業主体", name: "羽田みらい開発株式会社", refs: [1] },
       { role: "運行主体・システム", name: "BOLDLY株式会社、株式会社セネック、マクニカ株式会社", refs: [1] },
       { role: "自治体", name: "大田区", refs: [1, 2] }
     ],
+    description: {
+      value: "新産業創造・発信拠点「羽田イノベーションシティ」内における自動運転バスの定常運行実証。民間事業のショーケースとして国内最多の実績を重ねており、2024年6月には民間初の自動運転レベル4運行許可を取得。NAVYA ARMAによるレベル4運行や、AuveTech MiCaによるレベル2運行を実施している。",
+      refs: [1, 2]
+    },
     references: [
       { id: 1, title: "各地の取り組み：大田区", url: "https://www.road-to-the-l4.go.jp/case/ota/haneda.html", date: "2025-05-29", source: "RoAD to the L4 プロジェクト" },
       { id: 2, title: "HICity 自動運転バス スケジュール", url: "https://haneda-innovation-city.com/bus_schedule/", date: "2024-01-01", source: "HANEDA INNOVATION CITY" }
@@ -1576,6 +1573,7 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2相当", refs: [1] },
     stakeholders: [
       { role: "車両提供・全体統括", name: "日産自動車株式会社", refs: [1] },
+      { role: "運行管理・システム", name: "BOLDLY株式会社", refs: [1] },
       { role: "自治体", name: "横浜市", refs: [1] },
       { role: "協力企業", name: "京浜急行電鉄", refs: [1] }
     ],
@@ -2587,6 +2585,98 @@ const EXPERIMENTS = [
     ],
     references: [
       { id: 1, title: "Shiga Smart Access滋賀県自動運転チャレンジ事業 自動運転バスの実証運行を開始します！", url: "https://www.pref.shiga.lg.jp/kensei/koho/e-shinbun/oshirase/347560.html", date: "2026-01-13", source: "滋賀県" }
+    ]
+  },
+  {
+    id: "exp-116",
+    name: { value: "弥彦村 自動運転バス「MiCa」定常運行", refs: [1] },
+    location: { value: "新潟県西蒲原郡弥彦村", lat: 37.703, lng: 138.824, refs: [1] },
+    prefecture: { value: "新潟県", refs: [1] },
+    period: { value: "2024年1月〜（通年運行）", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "弥彦村内において、エストニアAuve Tech社の新型自動運転EV「MiCa」を用いた通年運行を実施。観光地における移動の高度化と、住民の生活交通の維持を目的としている。BOLDLYが運行管理を担当。",
+      refs: [1]
+    },
+    vehicleType: { value: "Auve Tech MiCa", refs: [1] },
+    route: { value: "弥彦村内 循環ルート", refs: [1] },
+    operationType: { value: "レベル2（定常運行）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "弥彦村", refs: [1] },
+      { role: "運行管理", name: "BOLDLY株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "弥彦村で自動運転バス「MiCa」による通年運行を開始", url: "https://www.softbank.jp/drive/press/2024/20240130_01/", date: "2024-01-30", source: "ソフトバンク プレスリリース" }
+    ]
+  },
+  {
+    id: "exp-117",
+    name: { value: "横須賀市 大型路線バス自動運転実証", refs: [1] },
+    location: { value: "神奈川県横須賀市（YRP周辺）", lat: 35.219, lng: 139.689, refs: [1] },
+    prefecture: { value: "神奈川県", refs: [1] },
+    period: { value: "2025年12月〜2026年2月", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "ソフトバンク、京浜急行バス、横須賀市が実施した大型路線バスの実証実験。YRP野比駅と横須賀リサーチパーク（YRP）を結ぶ既存路線を走行。将来のレベル4実用化や隊列走行技術の導入を見据えた技術検証を行った。",
+      refs: [1]
+    },
+    vehicleType: { value: "大型路線バス", refs: [1] },
+    route: { value: "YRP野比駅〜横須賀リサーチパーク（YRP）", refs: [1] },
+    operationType: { value: "レベル2（将来のレベル4・隊列走行を見据えた検証）", refs: [1] },
+    stakeholders: [
+      { role: "事業主体・技術検証", name: "ソフトバンク株式会社", refs: [1] },
+      { role: "運行主体", name: "京浜急行バス株式会社", refs: [1] },
+      { role: "自治体", name: "横須賀市", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "自動運転レベル4の実用化に向け大型路線バスによる実証を開始", url: "https://www.softbank.jp/corp/news/press/sbkk/2025/20251216_01/", date: "2025-12-16", source: "ソフトバンク プレスリリース" }
+    ]
+  },
+  {
+    id: "exp-118",
+    name: { value: "慶應義塾大学SFC 交通理解AI実証実験", refs: [1] },
+    location: { value: "神奈川県藤沢市（慶應SFCキャンパス内）", lat: 35.388, lng: 139.428, refs: [1] },
+    prefecture: { value: "神奈川県", refs: [1] },
+    period: { value: "2024年10月〜", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "ソフトバンクが開発した「交通理解マルチモーダルAI」の実証実験。キャンパス内を走行する自動運転車が予期せぬ状況に遭遇した際、車外のAIサーバーが状況を判断して遠隔サポートする仕組みを検証。完全無人化に向けたエッジAIの有効性を確認している。",
+      refs: [1]
+    },
+    vehicleType: { value: "自動運転車両", refs: [1] },
+    route: { value: "慶應義塾大学 湘南藤沢キャンパス（SFC）構内", refs: [1] },
+    operationType: { value: "レベル4の無人化に向けたAI遠隔監視・サポート検証", refs: [1] },
+    stakeholders: [
+      { role: "技術開発・実施主体", name: "ソフトバンク株式会社", refs: [1] },
+      { role: "協力", name: "慶應義塾大学", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "自動運転向け「交通理解マルチモーダルAI」を開発し、SFCで実証を開始", url: "https://www.softbank.jp/corp/news/press/sbkk/2024/20241105_01/", date: "2024-11-05", source: "ソフトバンク プレスリリース" }
+    ]
+  },
+  {
+    id: "exp-119",
+    name: { value: "浜松自動運転やらまいかプロジェクト", refs: [1, 2] },
+    location: { value: "静岡県浜松市（庄内地区等）", lat: 34.757, lng: 137.648, refs: [1] },
+    prefecture: { value: "静岡県", refs: [1] },
+    period: { value: "2016年〜（継続的・段階的に実施）", refs: [1, 2] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "浜松市、スズキ、遠州鉄道、BOLDLY等が連携して進めるプロジェクト。スズキの小型車をベースとした自動運転車両を用い、スマートフォン予約連動や車内HMIを活用した利便性の高いモビリティサービスを検証している。BOLDLYの「Dispatcher」による運行管理を採用。",
+      refs: [1, 2]
+    },
+    vehicleType: { value: "スズキ ソリオ（自動運転仕様）", refs: [2] },
+    route: { value: "浜松市庄内地区等 路線網（片道約9km等）", refs: [1, 2] },
+    operationType: { value: "レベル2（Dispatcherによる遠隔監視・運行管理）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "浜松市", refs: [1] },
+      { role: "車両提供・技術協力", name: "スズキ株式会社", refs: [1, 2] },
+      { role: "運行主体", name: "遠州鉄道株式会社", refs: [1, 2] },
+      { role: "運行管理システム", name: "BOLDLY株式会社", refs: [1, 2] }
+    ],
+    references: [
+      { id: 1, title: "浜松自動運転やらまいかプロジェクト 実証実験の開始について", url: "https://www.softbank.jp/drive/press/2023/20231128_01/", date: "2023-11-28", source: "BOLDLY ニュースリリース" },
+      { id: 2, title: "浜松市、自動運転実証の第4回実験を開始", url: "https://prtimes.jp/main/html/rd/p/000000318.000039535.html", date: "2023-12-25", source: "PR TIMES" }
     ]
   }
 ];
