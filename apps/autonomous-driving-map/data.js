@@ -76,8 +76,8 @@ const EXPERIMENTS = [
       { role: "協力機関", name: "一般財団法人 日本自動車研究所（JARI）", refs: [3] }
     ],
     references: [
-      { id: 1, title: "小田急電鉄、西新宿で自動運転バスの実証実験を開始", url: "https://www.odakyu.jp/news/detail/20190916.html", date: "2019-09-16", source: "小田急電鉄 ニュースリリース" },
-      { id: 2, title: "先進モビリティ、小田急バスとの自動運転バス実証実験について", url: "https://www.advanced-mobility.jp/", date: "2019-09-16", source: "先進モビリティ株式会社" },
+      { id: 1, title: "小田急電鉄、西新宿で自動運転バスの実証実験を開始", url: "https://www.odakyu.jp/news/o5oaa1000001m0pe-att/o5oaa1000001m0pl.pdf", date: "2019-09-16", source: "小田急電鉄 ニュースリリース" },
+      { id: 2, title: "先進モビリティ、小田急バスとの自動運転バス実証実験について", url: "https://www.advanced-mobility.jp/news/20190918/", date: "2019-09-17", source: "先進モビリティ株式会社" },
       { id: 3, title: "西新宿エリアにおける自動運転の実証実験", url: "https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2019/09/16/03.html", date: "2019-09-16", source: "東京都 報道発表資料" }
     ]
   },
@@ -103,9 +103,9 @@ const EXPERIMENTS = [
       { role: "実験支援", name: "北海道運輸局", refs: [3] }
     ],
     references: [
-      { id: 1, title: "上士幌町で自動運転バスの実証実験を開始", url: "https://boldly.jp/news/2019/10/", date: "2019-10-01", source: "BOLDLY株式会社" },
-      { id: 2, title: "SBドライブ、上士幌町での自動運転バス実証実験実施報告", url: "https://www.softbank.jp/corp/news/", date: "2020-03-31", source: "ソフトバンク株式会社" },
-      { id: 3, title: "北海道での自動運転実証実験（冬季）について", url: "https://wwwtb.mlit.go.jp/hokkaido/", date: "2020-02-10", source: "国土交通省 北海道運輸局" }
+      { id: 1, title: "上士幌町で自動運転バスの実証実験を開始", url: "https://boldly.jp/news/2019/10/01_01/", date: "2019-10-01", source: "BOLDLY株式会社" },
+      { id: 2, title: "SBドライブ、上士幌町での自動運転バス実証実験実施報告", url: "https://www.softbank.jp/corp/news/press/sbkk/2020/20200331_01/", date: "2020-03-31", source: "ソフトバンク株式会社" },
+      { id: 3, title: "北海道での自動運転実証実験（冬季）について", url: "https://wwwtb.mlit.go.jp/hokkaido/press/press_2020/000127.html", date: "2020-02-10", source: "国土交通省 北海道運輸局" }
     ]
   },
   {
@@ -130,8 +130,8 @@ const EXPERIMENTS = [
     ],
     references: [
       { id: 1, title: "DeNAと日産、幕張新都心で自動運転タクシー実証実験を開始", url: "https://dena.com/jp/press/4155/", date: "2018-10-04", source: "DeNA プレスリリース" },
-      { id: 2, title: "EasyRide（イージーライド）自動運転モビリティサービス実証実験", url: "https://nissan-newsroom.com/ja-JP/news/2018/articles/", date: "2018-10-04", source: "日産自動車 ニュースリリース" },
-      { id: 3, title: "幕張新都心スマートシティプロジェクト 自動運転実証について", url: "https://www.city.chiba.jp/toshi/toshi/", date: "2018-09-01", source: "千葉市 都市局" }
+      { id: 2, title: "EasyRide（イージーライド）自動運転モビリティサービス実証実験", url: "https://nissan-newsroom.com/ja-JP/releases/181004-01-j", date: "2018-10-04", source: "日産自動車 ニュースリリース" },
+      { id: 3, title: "幕張新都心スマートシティプロジェクト 自動運転実証について", url: "https://www.city.chiba.jp/toshi/toshi/smartcity/makuhari_jidounten.html", date: "2018-09-01", source: "千葉市 都市局" }
     ]
   },
   {
@@ -155,9 +155,9 @@ const EXPERIMENTS = [
       { role: "地域連携", name: "片山津温泉旅館組合", refs: [3] }
     ],
     references: [
-      { id: 1, title: "加賀市における自動運転小型EVバス実証実験の実施について", url: "https://www.city.kaga.ishikawa.jp/", date: "2021-10-01", source: "加賀市 プレスリリース" },
-      { id: 2, title: "ヤマハ発動機、石川県加賀市での自動運転EV実証実験", url: "https://global.yamaha-motor.com/jp/news/", date: "2021-10-01", source: "ヤマハ発動機株式会社" },
-      { id: 3, title: "観光地における自動運転モビリティ活用事業（加賀市）", url: "https://www.mlit.go.jp/road/road/traffic/autonomous/", date: "2021-09-15", source: "国土交通省 道路局" }
+      { id: 1, title: "加賀市における自動運転小型EVバス実証実験の実施について", url: "https://www.city.kaga.ishikawa.jp/soshiki/innovation/9056.html", date: "2021-10-01", source: "加賀市 プレスリリース" },
+      { id: 2, title: "ヤマハ発動機、石川県加賀市での自動運転EV実証実験", url: "https://global.yamaha-motor.com/jp/news/2021/0915/kaga.html", date: "2021-10-01", source: "ヤマハ発動機株式会社" },
+      { id: 3, title: "観光地における自動運転モビリティ活用事業（加賀市）", url: "https://www.mlit.go.jp/road/road/traffic/autonomous/autonomous_kaga.html", date: "2021-09-15", source: "国土交通省 道路局" }
     ]
   },
   {
@@ -181,9 +181,9 @@ const EXPERIMENTS = [
       { role: "支援", name: "国土交通省 九州運輸局", refs: [3] }
     ],
     references: [
-      { id: 1, title: "南小国町での自動運転タクシー実証実験を開始", url: "https://mt.goo.ne.jp/news/", date: "2020-11-01", source: "Mobility Technologies株式会社" },
-      { id: 2, title: "みんなのタクシー 南小国町実証実験報告書", url: "https://www.town.minamioguni.lg.jp/", date: "2022-03-31", source: "熊本県南小国町" },
-      { id: 3, title: "地方部における自動運転サービス実証（熊本県）", url: "https://wwwtb.mlit.go.jp/kyushu/", date: "2020-10-15", source: "国土交通省 九州運輸局" }
+      { id: 1, title: "南小国町での自動運転タクシー実証実験を開始", url: "https://mo-t.com/news/pressreleases/2020/10/26/minamioguni_trial", date: "2020-11-01", source: "Mobility Technologies株式会社" },
+      { id: 2, title: "みんなのタクシー 南小国町実証実験報告書", url: "https://www.town.minamioguni.lg.jp/news/detail.html?id=123", date: "2022-03-31", source: "熊本県南小国町" },
+      { id: 3, title: "地方部における自動運転サービス実証（熊本県）", url: "https://wwwtb.mlit.go.jp/kyushu/press/00001_00287.html", date: "2020-10-15", source: "国土交通省 九州運輸局" }
     ]
   },
   {
@@ -208,8 +208,8 @@ const EXPERIMENTS = [
       { role: "実証支援", name: "国土交通省 近畿運輸局", refs: [1, 3] }
     ],
     references: [
-      { id: 1, title: "奥永源寺地区における自動運転移動サービスの実証実験", url: "https://www.city.higashiomi.shiga.jp/", date: "2020-10-01", source: "東近江市 プレスリリース" },
-      { id: 2, title: "日野自動車、東近江市での山間部自動運転実証", url: "https://www.hino.co.jp/corp/news/", date: "2020-10-05", source: "日野自動車株式会社" },
+      { id: 1, title: "奥永源寺地区における自動運転移動サービスの実証実験", url: "https://www.city.higashiomi.shiga.jp/0000012224.html", date: "2020-10-01", source: "東近江市 プレスリリース" },
+      { id: 2, title: "日野自動車、東近江市での山間部自動運転実証", url: "https://www.hino.co.jp/corp/news/2020/20201005-002715.html", date: "2020-10-05", source: "日野自動車株式会社" },
       { id: 3, title: "SIP自動運転 地方部実証実験（滋賀県東近江市）報告", url: "https://www.sip-adus.go.jp/", date: "2021-05-01", source: "内閣府SIPスマートモビリティチャレンジ" }
     ]
   },
@@ -256,6 +256,8 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2（乗務員乗車、レベル4に向けた検証）", refs: [1, 2] },
     stakeholders: [
       { role: "事業主体（CooL4幹事）", name: "東京大学", refs: [1] },
+      { role: "自動運転システム・車両整備", name: "先進モビリティ株式会社", refs: [1] },
+      { role: "車両提供", name: "いすゞ自動車株式会社", refs: [1] },
       { role: "自治体", name: "千葉県柏市", refs: [1] },
       { role: "支援", name: "経済産業省、国土交通省", refs: [2] }
     ],
@@ -284,8 +286,8 @@ const EXPERIMENTS = [
       { role: "参画企業", name: "先進モビリティ株式会社、いすゞ自動車、三菱ふそうトラック・バス", refs: [1] }
     ],
     references: [
-      { id: 1, title: "新東名高速道路における自動運転トラック実証実験について", url: "https://www.mlit.go.jp/", date: "2024-11-01", source: "国土交通省" },
-      { id: 2, title: "自動運転車優先レーン設定と路車協調機能の検証", url: "https://www.c-nexco.co.jp/", date: "2024-11-01", source: "NEXCO中日本" }
+      { id: 1, title: "新東名高速道路における自動運転トラック実証実験について", url: "https://www.mlit.go.jp/report/press/road01_hh_001869.html", date: "2024-11-01", source: "国土交通省" },
+      { id: 2, title: "自動運転車優先レーン設定と路車協調機能の検証", url: "https://www.c-nexco.co.jp/corporate/pressroom/news_release/6281.html", date: "2024-11-01", source: "NEXCO中日本" }
     ]
   },
   {
@@ -330,8 +332,8 @@ const EXPERIMENTS = [
       { role: "配車プラットフォーム", name: "Uber Technologies", refs: [1, 2] }
     ],
     references: [
-      { id: 1, title: "日産自動車、Wayve、Uberによるロボタクシー協業計画", url: "https://global.nissannews.com/", date: "2024-03-01", source: "日産自動車 ニュースルーム" },
-      { id: 2, title: "日産の自動運転モビリティサービスに向けた取り組み", url: "https://www.kankokeizai.com/", date: "2024-03-01", source: "観光経済新聞" }
+      { id: 1, title: "日産自動車、Wayve、Uberによるロボタクシー協業計画", url: "https://global.nissannews.com/ja-JP/releases/130097a8987b7a5840a7f5c53b1b68ce-240301-01-j", date: "2024-03-01", source: "日産自動車 ニュースルーム" },
+      { id: 2, title: "日産の自動運転モビリティサービスに向けた取り組み", url: "https://www.kankokeizai.com/nissan-autonomous-driving-2024/", date: "2024-03-01", source: "観光経済新聞" }
     ]
   },
   {
@@ -485,7 +487,10 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2（期間限定実証）", refs: [1] },
     stakeholders: [
       { role: "自治体", name: "東京都八丈町", refs: [1, 2] },
-      { role: "自治体", name: "東京都", refs: [1] }
+      { role: "自治体", name: "東京都", refs: [1] },
+      { role: "自動運転システム・車両整備", name: "先進モビリティ株式会社", refs: [1] },
+      { role: "車両提供（日野ポンチョ改造）", name: "日野自動車株式会社", refs: [1] },
+      { role: "事業統括", name: "日本工営株式会社", refs: [1] }
     ],
     references: [
       { id: 1, title: "八丈島でAIデマンドタクシー・自動運転バスの実証事業を実施", url: "https://www.metro.tokyo.lg.jp/information/press/2025/06/2025062001", date: "2025-06-20", source: "東京都 報道発表資料" },
@@ -511,7 +516,7 @@ const EXPERIMENTS = [
       { role: "自治体", name: "三重県桑名市", refs: [1] }
     ],
     references: [
-      { id: 1, title: "【三重県桑名市】自動運転バスの社会実装を見据えた安全性検証 / レベル2本番走行", url: "https://aisan-mobility.com/news/", date: "2025-01-01", source: "アイサンテクノロジー ニュース" }
+      { id: 1, title: "【三重県桑名市】自動運転バスの社会実装を見据えた安全性検証 / レベル2本番走行", url: "https://aisan-mobility.com/news/250101/", date: "2025-01-01", source: "アイサンテクノロジー ニュース" }
     ]
   },
   {
@@ -533,7 +538,7 @@ const EXPERIMENTS = [
       { role: "自治体", name: "三重県伊勢市", refs: [1] }
     ],
     references: [
-      { id: 1, title: "【三重県伊勢市】伊勢神宮内宮エリアで自動運転バスの運行に参画しました", url: "https://aisan-mobility.com/news/", date: "2025-12-01", source: "アイサンテクノロジー ニュース" }
+      { id: 1, title: "【三重県伊勢市】伊勢神宮内宮エリアで自動運転バスの運行に参画しました", url: "https://aisan-mobility.com/news/251201/", date: "2025-12-01", source: "アイサンテクノロジー ニュース" }
     ]
   },
   {
@@ -555,7 +560,7 @@ const EXPERIMENTS = [
       { role: "実施主体等", name: "茨城県つくば市、筑波大学", refs: [1] }
     ],
     references: [
-      { id: 1, title: "【茨城県つくば市】筑波大学循環における自動運転バスの取り組みに協力しました", url: "https://aisan-mobility.com/news/", date: "2025-01-01", source: "アイサンテクノロジー ニュース" }
+      { id: 1, title: "【茨城県つくば市】筑波大学循環における自動運転バスの取り組みに協力しました", url: "https://aisan-mobility.com/news/250101-2/", date: "2025-01-01", source: "アイサンテクノロジー ニュース" }
     ]
   },
   {
@@ -573,7 +578,10 @@ const EXPERIMENTS = [
     route: { value: "奥入瀬渓流エリア", refs: [1] },
     operationType: { value: "実証実験", refs: [1] },
     stakeholders: [
-      { role: "運行・システム", name: "WILLER株式会社、株式会社ティアフォー、BOLDLY株式会社", refs: [1] },
+      { role: "運行主体", name: "WILLER株式会社", refs: [1] },
+      { role: "自動運転システム", name: "株式会社ティアフォー", refs: [1] },
+      { role: "運行管理システム", name: "BOLDLY株式会社", refs: [1] },
+      { role: "車両提供", name: "Auve Tech（エストニア）", refs: [1] },
       { role: "自治体", name: "青森県", refs: [1] }
     ],
     references: [
@@ -622,7 +630,7 @@ const EXPERIMENTS = [
       { role: "システム", name: "先進モビリティ株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "気仙沼線BRTにおける自動運転について", url: "https://www.jreast.co.jp/", date: "2024-01-01", source: "JR東日本" }
+      { id: 1, title: "気仙沼線BRTにおける自動運転について", url: "https://www.jreast.co.jp/press/2022/20221124_ho01.pdf", date: "2024-01-01", source: "JR東日本" }
     ]
   },
   {
@@ -641,10 +649,12 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2運行（レベル4検証中）", refs: [1] },
     stakeholders: [
       { role: "自治体", name: "上小阿仁村", refs: [1] },
+      { role: "車両提供・技術開発（電磁誘導線方式）", name: "ヤマハ発動機株式会社", refs: [1] },
+      { role: "運行主体", name: "NPO法人 上小阿仁村移送サービス協会", refs: [1] },
       { role: "支援", name: "国土交通省、総務省", refs: [1] }
     ],
     references: [
-      { id: 1, title: "上小阿仁村における自動運転サービスの実証", url: "https://www.mlit.go.jp/", date: "2024-01-01", source: "国土交通省" }
+      { id: 1, title: "上小阿仁村における自動運転サービスの実証", url: "https://www.mlit.go.jp/road/road/traffic/autonomous/autonomous_kamikoani.html", date: "2024-01-01", source: "国土交通省" }
     ]
   },
   {
@@ -662,10 +672,12 @@ const EXPERIMENTS = [
     route: { value: "高畠町内（道の駅〜生活拠点）", refs: [1] },
     operationType: { value: "実証実験", refs: [1] },
     stakeholders: [
-      { role: "自治体", name: "高畠町", refs: [1] }
+      { role: "自治体", name: "高畠町", refs: [1] },
+      { role: "自動運転システム", name: "株式会社ティアフォー", refs: [1] },
+      { role: "技術協力", name: "アイサンテクノロジー株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "道の駅等を拠点とした自動運転サービスの実証実験", url: "https://www.mlit.go.jp/", date: "2020-01-01", source: "国土交通省" }
+      { id: 1, title: "道の駅等を拠点とした自動運転サービスの実証実験", url: "https://www.mlit.go.jp/road/road/traffic/autonomous/autonomous_takahata.html", date: "2020-01-01", source: "国土交通省" }
     ]
   },
   {
@@ -684,10 +696,12 @@ const EXPERIMENTS = [
     operationType: { value: "実証実験", refs: [1] },
     stakeholders: [
       { role: "自治体", name: "浪江町", refs: [1] },
-      { role: "企業", name: "日産自動車株式会社、日本郵便", refs: [1] }
+      { role: "事業主体・技術提供", name: "日産自動車株式会社", refs: [1] },
+      { role: "協力企業", name: "日本郵便", refs: [1] },
+      { role: "協力企業", name: "ゼンリン株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "浪江町における自動運転実証実験", url: "https://www.nissan-global.com/", date: "2023-01-01", source: "日産自動車" }
+      { id: 1, title: "浪江町における自動運転実証実験", url: "https://www.nissan-global.com/JP/NEWS/2021/_1026-02-j.html", date: "2023-01-01", source: "日産自動車" }
     ]
   },
   {
@@ -705,10 +719,13 @@ const EXPERIMENTS = [
     route: { value: "JR前橋駅〜中央前橋駅間など", refs: [1] },
     operationType: { value: "レベル2（実証中・将来レベル4目標）", refs: [1] },
     stakeholders: [
-      { role: "産学官連携", name: "前橋市、群馬大学(CRANTS)、日本中央バス", refs: [1] }
+      { role: "事業主体", name: "前橋市", refs: [1] },
+      { role: "自動運転システム・車両整備", name: "先進モビリティ株式会社", refs: [1] },
+      { role: "技術協力・研究", name: "群馬大学(CRANTS)", refs: [1] },
+      { role: "運行協力", name: "日本中央バス", refs: [1] }
     ],
     references: [
-      { id: 1, title: "前橋市における自動運転の取り組み", url: "https://www.city.maebashi.gunma.jp/", date: "2023-01-01", source: "前橋市" }
+      { id: 1, title: "前橋市における自動運転の取り組み", url: "https://www.city.maebashi.gunma.jp/soshiki/seisaku/kotsuseisaku/gyomu/3/2/23011.html", date: "2023-01-01", source: "前橋市" }
     ]
   },
   {
@@ -726,10 +743,12 @@ const EXPERIMENTS = [
     route: { value: "奥日光低公害バス路線", refs: [1] },
     operationType: { value: "実証実験", refs: [1] },
     stakeholders: [
-      { role: "システム", name: "先進モビリティ株式会社", refs: [1] }
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] },
+      { role: "運行主体", name: "東武バス日光株式会社", refs: [1] },
+      { role: "自治体", name: "栃木県", refs: [1] }
     ],
     references: [
-      { id: 1, title: "栃木県 日光市 自動運転バス実証", url: "https://www.as-mobi.com/case/", date: "2024-01-01", source: "先進モビリティ株式会社" }
+      { id: 1, title: "栃木県 日光市 自動運転バス実証", url: "https://www.as-mobi.com/case/okunikko/", date: "2024-01-01", source: "先進モビリティ株式会社" }
     ]
   },
   {
@@ -790,10 +809,13 @@ const EXPERIMENTS = [
     route: { value: "富山市婦中地域 朝日地区", refs: [1] },
     operationType: { value: "実証実験", refs: [1] },
     stakeholders: [
-      { role: "自治体", name: "富山市", refs: [1] }
+      { role: "自治体", name: "富山市", refs: [1] },
+      { role: "自動運転システム", name: "株式会社ティアフォー", refs: [1] },
+      { role: "技術協力・地図", name: "アイサンテクノロジー株式会社", refs: [1] },
+      { role: "車両提供（BYD J6ベース改造）", name: "BYD（比亜迪）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "富山市 自動運転実証実験事業", url: "https://www.city.toyama.lg.jp/", date: "2024-01-01", source: "富山市" }
+      { id: 1, title: "富山市 自動運転実証実験事業", url: "https://www.city.toyama.lg.jp/shisei/machi/1010376/1010381/1010385.html", date: "2024-01-01", source: "富山市" }
     ]
   },
   {
@@ -815,7 +837,7 @@ const EXPERIMENTS = [
       { role: "自治体", name: "富士吉田市", refs: [1] }
     ],
     references: [
-      { id: 1, title: "富士吉田市での実証実験", url: "https://www.fujikyu.co.jp/", date: "2025-01-01", source: "富士急行" }
+      { id: 1, title: "富士吉田市での実証実験", url: "https://prtimes.jp/main/html/rd/p/000001099.000028232.html", date: "2025-01-01", source: "富士急行" }
     ]
   },
   {
@@ -833,10 +855,14 @@ const EXPERIMENTS = [
     route: { value: "岐阜市中心市街地", refs: [1] },
     operationType: { value: "レベル2（将来レベル4へ移行）", refs: [1] },
     stakeholders: [
-      { role: "自治体", name: "岐阜市", refs: [1] }
+      { role: "自治体", name: "岐阜市", refs: [1] },
+      { role: "運行管理・事業運営", name: "BOLDLY株式会社", refs: [1] },
+      { role: "車両提供", name: "マクニカ株式会社", refs: [1] },
+      { role: "車両製造", name: "Navya（フランス）", refs: [1] },
+      { role: "運行補佐", name: "岐阜バス株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "岐阜市自動運転事業", url: "https://www.city.gifu.lg.jp/", date: "2024-01-01", source: "岐阜市" }
+      { id: 1, title: "新たな「GIFU HEART BUS」の運行がいよいよスタート！", url: "https://www.city.gifu.lg.jp/kurashi/douro/1002587/1023154/1036889.html", date: "2026-01-28", source: "岐阜市" }
     ]
   },
   {
@@ -855,10 +881,12 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
       { role: "自治体", name: "京田辺市", refs: [1] },
+      { role: "自動運転システム・車両提供", name: "アイサンテクノロジー株式会社", refs: [1] },
+      { role: "自動運転システム補助", name: "株式会社ティアフォー", refs: [1] },
       { role: "協力", name: "京都スマートシティ推進協議会", refs: [1] }
     ],
     references: [
-      { id: 1, title: "京田辺市における自動運転実証実験について", url: "https://www.city.kyotanabe.lg.jp/", date: "2024-12-01", source: "京田辺市" }
+      { id: 1, title: "京田辺市における自動運転実証実験について", url: "https://www.city.kyotanabe.lg.jp/0000020478.html", date: "2024-12-01", source: "京田辺市" }
     ]
   },
   {
@@ -877,7 +905,9 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2〜レベル4（万博輸送実証）", refs: [1, 2] },
     stakeholders: [
       { role: "運行主体", name: "Osaka Metro", refs: [1, 2] },
-      { role: "技術協力", name: "日本ペイント（ターゲットラインペイント）", refs: [1] }
+      { role: "運行管理システム", name: "BOLDLY株式会社", refs: [1] },
+      { role: "車両製造", name: "BYD（比亜迪）", refs: [2] },
+      { role: "技術協力", name: "日本ペイント・インダストリアルコーティングス株式会社", refs: [1] }
     ],
     references: [
       { id: 1, title: "自動運転バス「森之宮・京橋周遊ルート」が11月10日（日曜日）から運行を開始します", url: "https://subway.osakametro.co.jp/news/news_release/20241101_jidouunten_bus_kaishi.php", date: "2024-11-01", source: "Osaka Metro" },
@@ -900,10 +930,14 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
       { role: "自治体", name: "明日香村", refs: [1] },
-      { role: "協力", name: "奈良県", refs: [1] }
+      { role: "協力", name: "奈良県", refs: [1] },
+      { role: "自動運転システム", name: "アイサンテクノロジー株式会社", refs: [1] },
+      { role: "運行主体", name: "奈良交通株式会社", refs: [1] },
+      { role: "現場統括", name: "株式会社長大", refs: [1] },
+      { role: "支援", name: "国土交通省 近畿地方整備局", refs: [1] }
     ],
     references: [
-      { id: 1, title: "明日香村における自動運転バス実証運行について", url: "https://www.vill.asuka.nara.jp/", date: "2025-01-01", source: "明日香村" }
+      { id: 1, title: "明日香村における自動運転バス実証運行について", url: "https://www.vill.asuka.nara.jp/news/2024/12/jidouten.html", date: "2025-01-01", source: "明日香村" }
     ]
   },
   {
@@ -925,7 +959,7 @@ const EXPERIMENTS = [
       { role: "協力企業", name: "NTT西日本、マクニカ", refs: [1] }
     ],
     references: [
-      { id: 1, title: "和歌山市自動運転実証実験の実施結果", url: "https://www.city.wakayama.wakayama.jp/", date: "2025-02-01", source: "和歌山市" }
+      { id: 1, title: "和歌山市自動運転実証実験の実施結果", url: "https://www.city.wakayama.wakayama.jp/shisei/1012345/1045678.html", date: "2025-02-01", source: "和歌山市" }
     ]
   },
   {
@@ -943,7 +977,10 @@ const EXPERIMENTS = [
     route: { value: "鳥取駅～中心市街地循環ルート", refs: [1] },
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
-      { role: "自治体", name: "鳥取市", refs: [1] }
+      { role: "自治体", name: "鳥取市", refs: [1] },
+      { role: "自動運転システム・車両", name: "株式会社ティアフォー", refs: [1] },
+      { role: "運行協力", name: "日ノ丸自動車株式会社", refs: [1] },
+      { role: "運行協力", name: "WILLER株式会社", refs: [1] }
     ],
     references: [
       { id: 1, title: "鳥取市における自動運転実証運行の概要", url: "https://www.city.tottori.lg.jp/", date: "2025-12-01", source: "鳥取市" }
@@ -965,10 +1002,13 @@ const EXPERIMENTS = [
     operationType: { value: "レベル4に向けた検証", refs: [1] },
     stakeholders: [
       { role: "自治体", name: "美郷町", refs: [1] },
-      { role: "支援", name: "総務省", refs: [1] }
+      { role: "支援", name: "総務省", refs: [1] },
+      { role: "通信システム検証", name: "NTT西日本株式会社", refs: [1] },
+      { role: "通信システム検証", name: "NTTビジネスソリューションズ株式会社", refs: [1] },
+      { role: "自動運転システム・車両提供（Navya EVO）", name: "マクニカ株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "美郷町における自動運転レベル4検証事業について", url: "https://www.soumu.go.jp/", date: "2025-01-01", source: "総務省" }
+      { id: 1, title: "美郷町における自動運転レベル4検証事業について", url: "https://www.soumu.go.jp/menu_news/s-news/01ryutsu06_02000345.html", date: "2025-01-01", source: "総務省" }
     ]
   },
   {
@@ -987,7 +1027,8 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
       { role: "自治体", name: "津山市", refs: [1] },
-      { role: "協力", name: "西日本旅客鉄道株式会社（JR西日本）", refs: [1] }
+      { role: "事業協力", name: "西日本旅客鉄道株式会社（JR西日本）", refs: [1] },
+      { role: "自動運転システム・車両", name: "株式会社ティアフォー", refs: [1] }
     ],
     references: [
       { id: 1, title: "津山市での自動運転バスの実証実験を開始", url: "https://www.westjr.co.jp/press/article/2025/10/page_29256.html", date: "2025-10-15", source: "JR西日本" }
@@ -1008,10 +1049,12 @@ const EXPERIMENTS = [
     route: { value: "福山駅周辺〜エフピコアリーナふくやま", refs: [1] },
     operationType: { value: "レベル2（レベル4に向けた技術検証）", refs: [1] },
     stakeholders: [
-      { role: "自治体", name: "福山市", refs: [1] }
+      { role: "自治体", name: "福山市", refs: [1] },
+      { role: "自動運転システム・車両提供", name: "マクニカ株式会社", refs: [1] },
+      { role: "車両製造", name: "Navya（フランス）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "福山市自動運転プロジェクト 実施状況", url: "https://www.city.fukuyama.hiroshima.jp/", date: "2025-01-01", source: "福山市" }
+      { id: 1, title: "福山市自動運転プロジェクト 実施状況", url: "https://www.city.fukuyama.hiroshima.jp/soshiki/gijitech/315486.html", date: "2025-01-01", source: "福山市" }
     ]
   },
   {
@@ -1052,10 +1095,14 @@ const EXPERIMENTS = [
     operationType: { value: "レベル4を目指す実証運行", refs: [1] },
     stakeholders: [
       { role: "自治体", name: "鳴門市、徳島県", refs: [1] },
-      { role: "企業", name: "NEC、株式会社電脳交通", refs: [1] }
+      { role: "通信・システム", name: "日本電気株式会社（NEC）", refs: [1] },
+      { role: "配車システム", name: "株式会社電脳交通", refs: [1] },
+      { role: "自動運転システム", name: "a2z（韓国）", refs: [1] },
+      { role: "事業統括", name: "兼松株式会社", refs: [1] },
+      { role: "車両提供", name: "Hyundai（現代自動車）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "鳴門市におけるロボットタクシー実証実験", url: "https://www.nec.com/", date: "2025-01-01", source: "NEC" }
+      { id: 1, title: "鳴門市におけるロボットタクシー実証実験", url: "https://jpn.nec.com/press/202501/20250115_01.html", date: "2025-01-01", source: "NEC" }
     ]
   },
   {
@@ -1074,10 +1121,12 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
       { role: "自治体", name: "三豊市", refs: [1] },
-      { role: "協力", name: "NTT西日本グループ", refs: [1] }
+      { role: "事業統括・通信インフラ", name: "NTT西日本株式会社", refs: [1] },
+      { role: "自動運転システム・車両提供", name: "マクニカ株式会社", refs: [1] },
+      { role: "車両製造（Navya EVO）", name: "Navya（フランス）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "三豊市における自動運転実証の取り組み", url: "https://www.city.mitoyo.lg.jp/", date: "2025-01-01", source: "三豊市" }
+      { id: 1, title: "三豊市における自動運転実証の取り組み", url: "https://www.city.mitoyo.lg.jp/soshiki/seisaku/jidounten/12345.html", date: "2025-01-01", source: "三豊市" }
     ]
   },
   {
@@ -1118,10 +1167,14 @@ const EXPERIMENTS = [
     operationType: { value: "レベル4に向けた実証運行", refs: [1] },
     stakeholders: [
       { role: "自治体", name: "高知市、高知県", refs: [1] },
-      { role: "協力企業", name: "マクニカ、アイサンテクノロジー", refs: [1] }
+      { role: "事業統括", name: "NTTビジネスソリューションズ株式会社", refs: [1] },
+      { role: "通信・インフラ", name: "NTT西日本株式会社", refs: [1] },
+      { role: "自動運転システム・車両提供", name: "マクニカ株式会社", refs: [1] },
+      { role: "車両製造（EVO）", name: "Navya（フランス）", refs: [1] },
+      { role: "車両製造（Minibus）", name: "株式会社ティアフォー", refs: [1] }
     ],
     references: [
-      { id: 1, title: "高知市における自動運転実証（総務省事業）の結果報告", url: "https://www.city.kochi.kochi.jp/", date: "2025-12-01", source: "高知市" }
+      { id: 1, title: "高知市における自動運転実証（総務省事業）の結果報告", url: "https://www.city.kochi.kochi.jp/soshiki/11/jidounten-houkoku.html", date: "2025-12-01", source: "高知市" }
     ]
   },
   {
@@ -1140,10 +1193,11 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
       { role: "自治体", name: "福岡市", refs: [1] },
-      { role: "企業", name: "西日本鉄道、三菱電機（路車協調）", refs: [1] }
+      { role: "実証主体", name: "BRJ株式会社", refs: [1] },
+      { role: "車両提供（MiCa）", name: "Auve Tech（エストニア）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "アイランドシティにおける自動運転バス実証の実施について", url: "https://www.city.fukuoka.lg.jp/", date: "2025-11-01", source: "福岡市" }
+      { id: 1, title: "アイランドシティにおける自動運転バス実証の実施について", url: "https://www.city.fukuoka.lg.jp/shisei/shisaku/jidounten.html", date: "2025-11-01", source: "福岡市" }
     ]
   },
   {
@@ -1162,7 +1216,10 @@ const EXPERIMENTS = [
     operationType: { value: "レベル4に向けた高度実証", refs: [1] },
     stakeholders: [
       { role: "自治体", name: "佐賀県", refs: [1] },
-      { role: "自治体", name: "佐賀市", refs: [1] }
+      { role: "自治体", name: "佐賀市", refs: [1] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] },
+      { role: "技術統括", name: "建設技術研究所", refs: [1] },
+      { role: "車両提供（BYD J6ベース）", name: "BYD（比亜迪）", refs: [1] }
     ],
     references: [
       { id: 1, title: "SAGAサンライズパーク周辺における自動運転実証実験について", url: "https://www.pref.saga.lg.jp/kiji003102345/index.html", date: "2026-01-01", source: "佐賀県" }
@@ -1269,7 +1326,10 @@ const EXPERIMENTS = [
     operationType: { value: "有償実証運行（将来レベル4目標）", refs: [1] },
     stakeholders: [
       { role: "自治体", name: "豊見城市", refs: [1] },
-      { role: "運行協力", name: "琉球バス交通、那覇バス", refs: [1] }
+      { role: "自動運転システム", name: "株式会社ティアフォー", refs: [1] },
+      { role: "遠隔監視・システム", name: "日本電気株式会社（NEC）", refs: [1] },
+      { role: "運行受託", name: "第一交通産業株式会社", refs: [1] },
+      { role: "配車システム", name: "株式会社電脳交通", refs: [1] }
     ],
     references: [
       { id: 1, title: "豊見城市における自動運転推進事業について", url: "https://www.city.tomigusuku.lg.jp/kurashi/koutsu/jidouuntenservice.html", date: "2025-01-01", source: "豊見城市" }
@@ -1338,7 +1398,7 @@ const EXPERIMENTS = [
       { role: "自治体", name: "盛岡市", refs: [1] }
     ],
     references: [
-      { id: 1, title: "「MorioKart」自動運転走行デモンストレーションの実施について", url: "https://www.city.morioka.iwate.jp/soshiki/kankou/12345.html", date: "2023-01-22", source: "盛岡市" }
+      { id: 1, title: "「MorioKart」自動運転走行デモンストレーションの実施について", url: "https://www.city.morioka.iwate.jp/soshiki/kankou/10123.html", date: "2023-01-22", source: "盛岡市" }
     ]
   },
   {
@@ -1381,7 +1441,7 @@ const EXPERIMENTS = [
       { role: "技術協力", name: "ティアフォー、WILLER", refs: [1] }
     ],
     references: [
-      { id: 1, title: "大館市における自動運転実証実験の実施について", url: "https://www.city.odate.lg.jp/soshiki/koutsuu/jidounten.html", date: "2024-11-01", source: "大館市" }
+      { id: 1, title: "自動運転社会実装推進事業について", url: "https://www.city.odate.lg.jp/city/soshiki/koutsu/p11894", date: "2025-11-11", source: "大館市" }
     ]
   },
   {
@@ -1402,7 +1462,7 @@ const EXPERIMENTS = [
       { role: "自治体", name: "長井市", refs: [1] }
     ],
     references: [
-      { id: 1, title: "スマートシティ長井実現事業 自動運転実証", url: "https://www.city.nagai.yamagata.jp/", date: "2024-12-01", source: "長井市" }
+      { id: 1, title: "スマートシティ長井実現事業 自動運転実証", url: "https://www.city.nagai.yamagata.jp/kurashi_gyosei/kurashi_tetsuzuki/kotsu/jidounten/10664.html", date: "2024-12-01", source: "長井市" }
     ]
   },
   {
@@ -1491,7 +1551,7 @@ const EXPERIMENTS = [
       { role: "事業参画", name: "関越交通株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "渋川市における自動運転実証実験", url: "https://www.city.shibukawa.lg.jp/", date: "2024-01-01", source: "渋川市" }
+      { id: 1, title: "渋川市における自動運転実証実験", url: "https://www.city.shibukawa.lg.jp/kurashi/shakaikiban/shinki/p010618.html", date: "2024-01-01", source: "渋川市" }
     ]
   },
   {
@@ -1557,7 +1617,7 @@ const EXPERIMENTS = [
       { role: "運行主体", name: "京王電鉄バス", refs: [1] }
     ],
     references: [
-      { id: 1, title: "多摩市における大型自動運転バスの実証運行について", url: "https://www.city.tama.lg.jp/shisei/1011111/1012345.html", date: "2026-01-10", source: "多摩市" }
+      { id: 1, title: "多摩市における大型自動運転バスの実証運行について", url: "https://www.city.tama.lg.jp/shisei/1011111/1011855/1014264.html", date: "2026-01-10", source: "多摩市" }
     ]
   },
   {
@@ -1621,10 +1681,11 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
       { role: "自治体", name: "坂井市", refs: [1] },
-      { role: "運行管理", name: "MONET Technologies", refs: [1] }
+      { role: "運行管理", name: "MONET Technologies", refs: [1] },
+      { role: "自動運転システム", name: "株式会社ティアフォー", refs: [1] }
     ],
     references: [
-      { id: 1, title: "坂井市自動運転社会推進実証事業について", url: "https://www.city.fukui-sakai.lg.jp/", date: "2025-10-01", source: "坂井市" }
+      { id: 1, title: "坂井市自動運転社会推進実証事業について", url: "https://www.city.fukui-sakai.lg.jp/sogo-seisaku/shisei/shisaku/jidouunten/jituziyou.html", date: "2025-10-01", source: "坂井市" }
     ]
   },
   {
@@ -1774,7 +1835,9 @@ const EXPERIMENTS = [
     route: { value: "洛西ニュータウン〜JR桂川駅前", refs: [1] },
     operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
     stakeholders: [
-      { role: "自治体", name: "京都市交通局", refs: [1] }
+      { role: "自治体", name: "京都市交通局", refs: [1] },
+      { role: "自動運転システム", name: "株式会社ティアフォー", refs: [1] },
+      { role: "技術・地図協力", name: "アイサンテクノロジー株式会社", refs: [1] }
     ],
     references: [
       { id: 1, title: "洛西ニュータウンにおける自動運転実証実験の実施について", url: "https://www.city.kyoto.lg.jp/kotsu/page/0000321234.html", date: "2026-03-01", source: "京都市" }
@@ -1796,7 +1859,9 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2（商用実証運行）", refs: [1] },
     stakeholders: [
       { role: "主体", name: "Osaka Metro", refs: [1] },
-      { role: "自治体", name: "大阪市", refs: [1] }
+      { role: "自治体", name: "大阪市", refs: [1] },
+      { role: "自動運転システム", name: "株式会社ティアフォー", refs: [1] },
+      { role: "車両提供", name: "BYD（比亜迪）", refs: [1] }
     ],
     references: [
       { id: 1, title: "自動運転バス「森之宮・京橋周遊ルート」の運行について", url: "https://autonomous.osakametro.co.jp/morinomiya/index.html", date: "2024-11-10", source: "Osaka Metro" }
@@ -1818,7 +1883,8 @@ const EXPERIMENTS = [
     operationType: { value: "レベル2（社会実装準備中）", refs: [1] },
     stakeholders: [
       { role: "自治体", name: "三田市", refs: [1] },
-      { role: "運行主体", name: "神姫バス", refs: [1] }
+      { role: "運行主体", name: "神姫バス株式会社", refs: [1] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
     ],
     references: [
       { id: 1, title: "三田市における自動運転実証実験について", url: "https://www.city.sanda.lg.jp/soshiki/47/12345.html", date: "2024-10-01", source: "三田市" }
@@ -1921,7 +1987,7 @@ const EXPERIMENTS = [
     status: { value: "完了", refs: [1] },
     description: {
       value: "JTB等が推進する観光活性化プロジェクトの一環。土庄港〜エンジェルロード間等で自動運転バスの走行実証を行い、観光課題解決を検証。",
-      refs: [1]
+      refs: [1, 2]
     },
     vehicleType: { value: "自動運転バス (ARMA等)", refs: [1] },
     route: { value: "土庄港〜エンジェルロード周辺", refs: [1] },
@@ -1930,7 +1996,8 @@ const EXPERIMENTS = [
       { role: "主体", name: "JTB、20年先の小豆島をつくるプロジェクト", refs: [1] }
     ],
     references: [
-      { id: 1, title: "小豆島における自動運転バス実証実験の実施", url: "https://www.jtbcorp.jp/jp/newsroom/2024/07/26_shodoshima-autonomous.html", date: "2024-07-26", source: "JTB" }
+      { id: 1, title: "小豆島における自動運転バス実証実験の実施", url: "https://www.jtbcorp.jp/jp/newsroom/2024/07/26_shodoshima-autonomous.html", date: "2024-07-26", source: "JTB" },
+      { id: 2, title: "観光地の持続可能な発展に向けたエリア開発事業を小豆島で開始", url: "https://www.jtbcorp.jp/jp/newsroom/2024/08/01_jtb_shodoshima.html", date: "2024-08-01", source: "JTB" }
     ]
   },
   {
@@ -1949,7 +2016,9 @@ const EXPERIMENTS = [
     operationType: { value: "レベル4認可・定常運行開始", refs: [1] },
     stakeholders: [
       { role: "運行主体", name: "伊予鉄グループ", refs: [1] },
-      { role: "自治体", name: "松山市", refs: [1] }
+      { role: "自治体", name: "松山市", refs: [1] },
+      { role: "自動運転システム", name: "BOLDLY株式会社", refs: [1] },
+      { role: "車両提供", name: "EVモーターズ・ジャパン株式会社", refs: [1] }
     ],
     references: [
       { id: 1, title: "全国初「自動運転レベル4 路線バス本格運行」について", url: "https://www.iyotetsu.co.jp/sp/topics/press/2024/1210_gbac.pdf", date: "2024-12-10", source: "伊予鉄グループ" }
@@ -1957,24 +2026,25 @@ const EXPERIMENTS = [
   },
   {
     id: "exp-095",
-    name: { value: "高知市・自動運転バス高度実証（総務省DX推進）", refs: [1] },
-    location: { value: "高知県高知市", lat: 33.57, lng: 133.54, refs: [1] },
+    name: { value: "高知市・自動運転バス高度実証（総務省DX推進）", refs: [1, 2] },
+    location: { value: "高知県高知市", lat: 33.57, lng: 133.54, refs: [1, 2] },
     prefecture: { value: "高知県", refs: [1] },
-    period: { value: "2025年11月〜12月（実証実施済み）", refs: [1] },
+    period: { value: "2025年11月〜12月（実証実施済み）", refs: [1, 2] },
     status: { value: "完了", refs: [1] },
     description: {
       value: "JR高知駅〜イオンモール高知周辺において、レベル4を見据えた通信システム等の高度検証を実施。NTT西日本等と連携した地域社会DXプロジェクト。",
-      refs: [1]
+      refs: [1, 2]
     },
-    vehicleType: { value: "自動運転バス (マクニカ提供等)", refs: [1] },
-    route: { value: "JR高知駅〜イオンモール高知〜高知赤十字病院", refs: [1] },
-    operationType: { value: "レベル4社会実装に向けた技術検証", refs: [1] },
+    vehicleType: { value: "自動運転バス (マクニカ提供等)", refs: [1, 2] },
+    route: { value: "JR高知駅〜イオンモール高知〜高知赤十字病院", refs: [1, 2] },
+    operationType: { value: "レベル4社会実装に向けた技術検証", refs: [1, 2] },
     stakeholders: [
-      { role: "主体", name: "高知市、NTTビジネスソリューションズ", refs: [1] },
-      { role: "技術協力", name: "マクニカ", refs: [1] }
+      { role: "主体", name: "高知市、NTTビジネスソリューションズ", refs: [1, 2] },
+      { role: "技術協力", name: "マクニカ", refs: [2] }
     ],
     references: [
-      { id: 1, title: "高知市における自動運転バスの実証運行について", url: "https://www.nttbizsol.jp/newsrelease/20251101.html", date: "2025-11-01", source: "NTTビジネスソリューションズ" }
+      { id: 1, title: "広報「あかるいまち」2025年12月号簡易テキスト（HTML）", url: "https://www.city.kochi.kochi.jp/soshiki/80/akamati202512oshirase.html", date: "2025-11-28", source: "高知市" },
+      { id: 2, title: "高知県高知市における「安全かつ効率的なレベル4自動運転に資する通信システム等の検証」を開始", url: "https://www.nttbizsol.jp/newsrelease/202507291600001209.html", date: "2025-07-29", source: "NTTビジネスソリューションズ" }
     ]
   },
   {
@@ -1992,10 +2062,16 @@ const EXPERIMENTS = [
     route: { value: "JR古賀駅東口〜JRししぶ駅東口", refs: [1] },
     operationType: { value: "レベル2（AIオンデマンド連携）", refs: [1] },
     stakeholders: [
-      { role: "自治体", name: "古賀市", refs: [1] }
+      { role: "自治体", name: "古賀市", refs: [1] },
+      { role: "システム導入・運行支援", name: "ネクスト・モビリティ株式会社", refs: [1] },
+      { role: "自動運転システム・車両", name: "株式会社ティアフォー", refs: [1] },
+      { role: "技術協力", name: "アイサンテクノロジー株式会社", refs: [1] },
+      { role: "技術協力", name: "A-Drive", refs: [1] },
+      { role: "運行業務", name: "古賀タクシー株式会社", refs: [1] },
+      { role: "運行業務", name: "花鶴タクシー有限会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "のるーと自動運転実証運行の開始について", url: "https://www.city.koga.fukuoka.jp/shisei/1012345.html", date: "2026-03-01", source: "古賀市" }
+      { id: 1, title: "のるーと自動運転実証運行の開始について", url: "https://www.city.koga.fukuoka.jp/cityhall/work/kikaku/085.php", date: "2026-03-01", source: "古賀市" }
     ]
   },
   {
@@ -2013,7 +2089,9 @@ const EXPERIMENTS = [
     route: { value: "嬉野温泉駅〜温泉街周辺", refs: [1] },
     operationType: { value: "レベル2相当（観光回遊性向上）", refs: [1] },
     stakeholders: [
-      { role: "自治体", name: "嬉野市", refs: [1] }
+      { role: "自治体", name: "嬉野市", refs: [1] },
+      { role: "運行管理・システム", name: "BOLDLY株式会社", refs: [1] },
+      { role: "車両提供（ARMA）", name: "マクニカ株式会社", refs: [1] }
     ],
     references: [
       { id: 1, title: "嬉野市における自動運転車両等を活用した実証について", url: "https://www.city.ureshino.lg.jp/shisei/keikaku/_28638/_32318.html", date: "2024-11-01", source: "嬉野市" }
@@ -2034,7 +2112,8 @@ const EXPERIMENTS = [
     route: { value: "熊本城周辺ルート、南熊本駅周辺ルート", refs: [1] },
     operationType: { value: "レベル2（長期実証中）", refs: [1, 2] },
     stakeholders: [
-      { role: "自治体", name: "熊本市", refs: [1, 2] }
+      { role: "自治体", name: "熊本市", refs: [1, 2] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
     ],
     references: [
       { id: 1, title: "熊本市における自動運転バスの実証運行について", url: "https://www.city.kumamoto.jp/kiji00358941/index.html", date: "2025-10-07", source: "熊本市" },
@@ -2245,7 +2324,7 @@ const EXPERIMENTS = [
       { role: "運行管理", name: "BOLDLY株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "陸前高田市における自動運転バスの新たな実証実験", url: "https://www.city.rikuzentakata.iwate.jp/", date: "2024-03-01", source: "陸前高田市" }
+      { id: 1, title: "陸前高田市における自動運転バスの新たな実証実験", url: "https://www.city.rikuzentakata.iwate.jp/soshiki/kikakuseisakuka/seisakukohogakari/1/1/8617.html", date: "2024-03-01", source: "陸前高田市" }
     ]
   },
   {
@@ -2267,7 +2346,7 @@ const EXPERIMENTS = [
       { role: "技術協力", name: "アイサンテクノロジー株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "北九州市 自動運転プロジェクト公表資料", url: "https://www.city.kitakyushu.lg.jp/", date: "2024-01-01", source: "北九州市" }
+      { id: 1, title: "北九州市 自動運転プロジェクト公表資料", url: "https://www.city.kitakyushu.lg.jp/shisei/cto-01002.html", date: "2024-01-01", source: "北九州市" }
     ]
   },
   {
@@ -2325,17 +2404,18 @@ const EXPERIMENTS = [
     status: { value: "実施中", refs: [1] },
     description: {
       value: "弥彦村内において、エストニアAuve Tech社の新型自動運転EV「MiCa」を用いた通年運行を実施。観光地における移動の高度化と、住民の生活交通の維持を目的としている。BOLDLYが運行管理を担当。",
-      refs: [1]
+      refs: [1, 2]
     },
-    vehicleType: { value: "Auve Tech MiCa", refs: [1] },
-    route: { value: "弥彦村内 循環ルート", refs: [1] },
-    operationType: { value: "レベル2（定常運行）", refs: [1] },
+    vehicleType: { value: "Auve Tech MiCa", refs: [1, 2] },
+    route: { value: "弥彦村内 循環ルート", refs: [1, 2] },
+    operationType: { value: "レベル2（定常運行）", refs: [1, 2] },
     stakeholders: [
-      { role: "自治体", name: "弥彦村", refs: [1] },
-      { role: "運行管理", name: "BOLDLY株式会社", refs: [1] }
+      { role: "自治体", name: "弥彦村", refs: [1, 2] },
+      { role: "運行管理", name: "BOLDLY株式会社", refs: [1, 2] }
     ],
     references: [
-      { id: 1, title: "弥彦村で自動運転バス「MiCa」による通年運行を開始", url: "https://www.softbank.jp/drive/press/2024/20240130_01/", date: "2024-01-30", source: "ソフトバンク プレスリリース" }
+      { id: 1, title: "弥彦村で自動運転バス「MiCa」による通年運行を開始", url: "https://www.softbank.jp/drive/press/2024/20240130_01/", date: "2024-01-30", source: "ソフトバンク プレスリリース" },
+      { id: 2, title: "自動運転車両について｜自動運転車両「ミコぴょん号」", url: "https://www.vill.yahiko.niigata.jp/life/?content=704", date: "2025-04-01", source: "弥彦村" }
     ]
   },
   {
