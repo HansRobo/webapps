@@ -372,10 +372,8 @@
     WERIDE_BUS: "WeRideバス",
     // ヤマハ発動機
     HAKOBUS: "HAKOBUS",
-    YAMAHA_GREEN_SLOW_MOBILITY: "ヤマハグリーンスローモビリティ",
-    YAMAHA_LANDCAR: "ヤマハランドカー",
-    YAMAHA_GOLF_CAR: "ヤマハ ゴルフカー（公道仕様）",
     YAMAHA_AR07: "ヤマハ AR-07",
+    YAMAHA_AR05: "ヤマハ AR-05",
     YAMAHA_AR04: "ヤマハ AR-04",
     YAMAHA_G30S: "ヤマハ G30s",
     // 日野
