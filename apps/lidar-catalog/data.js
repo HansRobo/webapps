@@ -3,7 +3,9 @@
 // 設計ルール:
 //   1. manufacturer / category / scanningMethod / wavelength は必ず schema.js の定数を参照する
 //      → 文字列リテラルで enum 値を書かない（タイポが undefined になりバリデーションで検出される）
-//   2. specs 内の各フィールドは { value, refs } 形式（value: null は情報なし）
+//   2. specs 内の各フィールドは { value, refs } 形式
+//      - value は number / string / null / それらの配列を許可
+//      - 配列は候補列挙として扱う（例: [60, 120]）
 //   3. references の各エントリは { id, url, title, date, source, type } を必須とする
 //      date は "YYYY-MM" または "YYYY" 形式。type は SRC_TYPE.* を使用する。
 //

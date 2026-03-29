@@ -34,16 +34,13 @@ const CAT_BADGE_CLASS = {
 
 // 2D比較の軸オプション
 const COMPARE_AXES = [
-  { id: "maxRange",   label: "最大距離",       unit: "m",   type: "numeric", getter: item => item.raw.specs.maxRange?.value ?? null },
-  { id: "channels",   label: "チャンネル数",   unit: "ch",  type: "numeric", getter: item => {
-    const v = item.raw.specs.channels?.value;
-    return (v !== null && v !== undefined && !isNaN(Number(v))) ? Number(v) : null;
-  }},
-  { id: "fovH",       label: "FOV 水平",       unit: "°",   type: "numeric", getter: item => item.raw.specs.fovH?.value ?? null },
-  { id: "fovV",       label: "FOV 垂直",       unit: "°",   type: "numeric", getter: item => item.raw.specs.fovV?.value ?? null },
-  { id: "pointRate",  label: "点群レート",     unit: "kpt/s", type: "numeric", getter: item => item.raw.specs.pointRate?.value ?? null },
-  { id: "power",      label: "消費電力",       unit: "W",   type: "numeric", getter: item => item.raw.specs.power?.value ?? null },
-  { id: "weight",     label: "重量",           unit: "g",   type: "numeric", getter: item => item.raw.specs.weight?.value ?? null },
+  { id: "maxRange",   label: "最大距離",       unit: "m",   type: "numeric", getter: item => specValueToNumeric(item.raw.specs.maxRange?.value) },
+  { id: "channels",   label: "チャンネル数",   unit: "ch",  type: "numeric", getter: item => specValueToNumeric(item.raw.specs.channels?.value) },
+  { id: "fovH",       label: "FOV 水平",       unit: "°",   type: "numeric", getter: item => specValueToNumeric(item.raw.specs.fovH?.value) },
+  { id: "fovV",       label: "FOV 垂直",       unit: "°",   type: "numeric", getter: item => specValueToNumeric(item.raw.specs.fovV?.value) },
+  { id: "pointRate",  label: "点群レート",     unit: "kpt/s", type: "numeric", getter: item => specValueToNumeric(item.raw.specs.pointRate?.value) },
+  { id: "power",      label: "消費電力",       unit: "W",   type: "numeric", getter: item => specValueToNumeric(item.raw.specs.power?.value) },
+  { id: "weight",     label: "重量",           unit: "g",   type: "numeric", getter: item => specValueToNumeric(item.raw.specs.weight?.value) },
   { id: "manufacturer", label: "メーカー",     unit: "",    type: "category", getter: item => item.raw.manufacturer.name },
   { id: "scanMethod", label: "走査方式",       unit: "",    type: "category", getter: item => item.raw.scanningMethod.labelJa },
   { id: "wavelength", label: "波長",           unit: "",    type: "category", getter: item => item.raw.wavelength.label },
@@ -64,8 +61,8 @@ function normalize(lidar) {
     scanId: lidar.scanningMethod.id,
     waveId: lidar.wavelength.id,
     discontinued: !!lidar.discontinued,
-    maxRange: lidar.specs.maxRange?.value ?? null,
-    channels: lidar.specs.channels?.value ?? null,
+    maxRange: specValueToNumeric(lidar.specs.maxRange?.value),
+    channels: specValueToNumeric(lidar.specs.channels?.value),
     searchText: [
       lidar.name,
       lidar.manufacturer.name,
@@ -109,6 +106,38 @@ function esc(str) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+function formatSpecValue(value, joiner = " / ") {
+  if (value === null || value === undefined) {
+    return { text: "—", isMissing: true };
+  }
+  if (Array.isArray(value)) {
+    if (value.length === 0) return { text: "—", isMissing: true };
+    return {
+      text: value.map(v => v === null || v === undefined ? "不明" : String(v)).join(joiner),
+      isMissing: false,
+    };
+  }
+  return { text: String(value), isMissing: false };
+}
+
+function formatSpecDisplay(spec, { includeUnit = true } = {}) {
+  if (!spec) return { text: "—", isMissing: true };
+  const value = formatSpecValue(spec.value);
+  if (value.isMissing) return value;
+  const unit = includeUnit && spec.unit ? ` ${spec.unit}` : "";
+  return {
+    text: `${value.text}${unit}`,
+    isMissing: false,
+  };
+}
+
+function specValueToNumeric(value) {
+  if (Array.isArray(value)) return null;
+  if (value === null || value === undefined) return null;
+  const n = Number(value);
+  return Number.isFinite(n) ? n : null;
 }
 
 function countPill(n, unit = "件") {
@@ -406,19 +435,14 @@ function buildCard(item) {
   li.dataset.id = item.id;
 
   const catClass = CAT_BADGE_CLASS[item.categoryId] ?? "cat-research";
-  const rangeDisplay = item.maxRange !== null ? `${item.maxRange} m` : "—";
-  const chDisplay = (() => {
-    const v = item.raw.specs.channels?.value;
-    if (v === null || v === undefined) return "—";
-    return String(v);
-  })();
-  const fovDisplay = (() => {
-    const h = item.raw.specs.fovH?.value;
-    const v = item.raw.specs.fovV?.value;
-    if (h !== null && h !== undefined && v !== null && v !== undefined) return `${h}° × ${v}°`;
-    if (h !== null && h !== undefined) return `${h}°`;
-    return "—";
-  })();
+  const range = formatSpecDisplay(item.raw.specs.maxRange);
+  const ch = formatSpecDisplay(item.raw.specs.channels, { includeUnit: false });
+  const fovH = formatSpecDisplay(item.raw.specs.fovH, { includeUnit: false });
+  const fovV = formatSpecDisplay(item.raw.specs.fovV, { includeUnit: false });
+  const fovDisplay = (fovH.isMissing && fovV.isMissing)
+    ? "—"
+    : `${fovH.isMissing ? "—" : fovH.text + "°"} × ${fovV.isMissing ? "—" : fovV.text + "°"}`;
+  const power = formatSpecDisplay(item.raw.specs.power, { includeUnit: false });
 
   const wave = item.raw.wavelength;
   const waveHtml = wave.id !== "unknown"
@@ -441,21 +465,21 @@ function buildCard(item) {
       ${waveHtml}
     </div>
     <div class="lidar-card__specs">
-      <div class="spec-item${item.maxRange === null ? " spec-item--na" : ""}">
+      <div class="spec-item${range.isMissing ? " spec-item--na" : ""}">
         <div class="spec-item__label">最大距離</div>
-        <div class="spec-item__value">${rangeDisplay}</div>
+        <div class="spec-item__value">${range.text}</div>
       </div>
-      <div class="spec-item${chDisplay === "—" ? " spec-item--na" : ""}">
+      <div class="spec-item${ch.isMissing ? " spec-item--na" : ""}">
         <div class="spec-item__label">チャンネル数</div>
-        <div class="spec-item__value">${chDisplay}${chDisplay !== "—" ? '<span class="spec-item__unit"> ch</span>' : ""}</div>
+        <div class="spec-item__value">${ch.isMissing ? "—" : ch.text + '<span class="spec-item__unit"> ch</span>'}</div>
       </div>
       <div class="spec-item${fovDisplay === "—" ? " spec-item--na" : ""}">
         <div class="spec-item__label">FOV（H × V）</div>
         <div class="spec-item__value">${fovDisplay}</div>
       </div>
-      <div class="spec-item${item.raw.specs.power?.value === null ? " spec-item--na" : ""}">
+      <div class="spec-item${power.isMissing ? " spec-item--na" : ""}">
         <div class="spec-item__label">消費電力</div>
-        <div class="spec-item__value">${item.raw.specs.power?.value !== null && item.raw.specs.power?.value !== undefined ? item.raw.specs.power.value + '<span class="spec-item__unit"> W</span>' : "—"}</div>
+        <div class="spec-item__value">${power.isMissing ? "—" : power.text + '<span class="spec-item__unit"> W</span>'}</div>
       </div>
     </div>
   `;
@@ -700,12 +724,11 @@ function buildDetailBody(item) {
 
   function specRow(label, spec) {
     if (!spec) return `<tr><td>${label}</td><td class="spec-na">—</td></tr>`;
-    const val = spec.value;
-    if (val === null || val === undefined)
+    const display = formatSpecDisplay(spec);
+    if (display.isMissing)
       return `<tr><td>${label}</td><td class="spec-na">不明 / 非公開${refLinks(spec.refs)}</td></tr>`;
-    const unit = spec.unit ? ` ${spec.unit}` : "";
     const note = spec.note ? `<span class="spec-note">${esc(spec.note)}</span>` : "";
-    return `<tr><td>${label}</td><td>${esc(String(val))}${unit}${note}${refLinks(spec.refs)}</td></tr>`;
+    return `<tr><td>${label}</td><td>${esc(display.text)}${note}${refLinks(spec.refs)}</td></tr>`;
   }
 
   const s = r.specs;
@@ -1204,7 +1227,7 @@ function renderCategoryDetail(id) {
 
 function buildMiniCard(item) {
   const catClass = CAT_BADGE_CLASS[item.categoryId] ?? "cat-research";
-  const rangeDisplay = item.maxRange !== null ? `${item.maxRange} m` : "—";
+  const range = formatSpecDisplay(item.raw.specs.maxRange);
   return `
     <div class="lidar-card${item.discontinued ? " discontinued" : ""}"
          role="listitem" tabindex="0" data-id="${item.id}">
@@ -1222,9 +1245,9 @@ function buildMiniCard(item) {
         <span class="badge badge--scan">${esc(item.raw.scanningMethod.labelJa)}</span>
         ${item.raw.wavelength.id !== "unknown" ? `<span class="badge badge--wave-1550">${esc(item.raw.wavelength.label)}</span>` : ""}
       </div>
-      <div class="spec-item${item.maxRange === null ? " spec-item--na" : ""}">
+      <div class="spec-item${range.isMissing ? " spec-item--na" : ""}">
         <div class="spec-item__label">最大距離</div>
-        <div class="spec-item__value">${rangeDisplay}</div>
+        <div class="spec-item__value">${range.text}</div>
       </div>
     </div>`;
 }
@@ -1615,11 +1638,13 @@ function handleCompareHover(mx, my, clientX, clientY) {
     const yAxis = COMPARE_AXES.find(a => a.id === compareState.yAxisId);
     const xVal = xAxis?.getter(found);
     const yVal = yAxis?.getter(found);
+    const xText = formatSpecValue(xVal).text;
+    const yText = formatSpecValue(yVal).text;
     tooltip.querySelector(".compare-tooltip__name").textContent = found.raw.name;
     tooltip.querySelector(".compare-tooltip__mfr").textContent = found.raw.manufacturer.name;
     tooltip.querySelector(".compare-tooltip__vals").innerHTML = `
-      <span>${xAxis?.label}: ${xVal !== null && xVal !== undefined ? xVal + (xAxis.unit ? " " + xAxis.unit : "") : "不明"}</span>
-      <span>${yAxis?.label}: ${yVal !== null && yVal !== undefined ? yVal + (yAxis.unit ? " " + yAxis.unit : "") : "不明"}</span>
+      <span>${xAxis?.label}: ${xText}${xText !== "—" && xAxis?.unit ? " " + xAxis.unit : ""}</span>
+      <span>${yAxis?.label}: ${yText}${yText !== "—" && yAxis?.unit ? " " + yAxis.unit : ""}</span>
     `;
     const wrap = document.getElementById("compareCanvasWrap");
     const wW = wrap.clientWidth;

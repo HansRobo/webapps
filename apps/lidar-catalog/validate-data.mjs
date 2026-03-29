@@ -12,6 +12,7 @@
 //   4. 参考文献の必須フィールド・URLフォーマット
 //   5. refs 配列の参照整合性（references[].id に存在するか）
 //   6. 重複ID検出
+//   7. specs.*.value の配列（候補列挙）対応
 
 import { createRequire } from "module";
 import { fileURLToPath } from "url";
@@ -79,6 +80,17 @@ const OPTIONAL_SPEC_KEYS = [
   "powerMax",             // 最大消費電力（ヒーター・起動時含む）
   "precision",            // ばらつき（Precision/Repeatability）
 ];
+
+function isValidSpecLeaf(value) {
+  return value === null || typeof value === "number" || typeof value === "string";
+}
+
+function isValidSpecValue(value) {
+  if (Array.isArray(value)) {
+    return value.length > 0 && value.every(isValidSpecLeaf);
+  }
+  return isValidSpecLeaf(value);
+}
 
 // ────────────────────────────────────────────
 // バリデーション実行
@@ -157,6 +169,8 @@ for (const lidar of LIDARS) {
       } else {
         if (!Object.prototype.hasOwnProperty.call(spec, "value")) {
           err(`${prefix} specs.${key}: value プロパティが存在しない`);
+        } else if (!isValidSpecValue(spec.value)) {
+          err(`${prefix} specs.${key}: value が number|string|null またはそれらの配列でない`);
         }
         if (!Array.isArray(spec.refs)) {
           err(`${prefix} specs.${key}: refs が配列でない`);
@@ -169,6 +183,8 @@ for (const lidar of LIDARS) {
       if (spec === undefined) continue;
       if (!Object.prototype.hasOwnProperty.call(spec, "value")) {
         err(`${prefix} specs.${key}: value プロパティが存在しない`);
+      } else if (!isValidSpecValue(spec.value)) {
+        err(`${prefix} specs.${key}: value が number|string|null またはそれらの配列でない`);
       }
       if (!Array.isArray(spec.refs)) {
         err(`${prefix} specs.${key}: refs が配列でない`);
