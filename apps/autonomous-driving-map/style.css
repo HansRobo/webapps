@@ -530,6 +530,23 @@ body {
   display: none;
 }
 
+.data-disclaimer {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 56;
+  margin: 0;
+  max-width: min(620px, calc(100vw - 24px));
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--surface-border);
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  color: var(--text-sub);
+  font-size: 11px;
+  line-height: 1.45;
+  box-shadow: var(--shadow-low);
+}
+
 .detail-overlay {
   position: fixed;
   inset: 0;
@@ -819,6 +836,15 @@ body {
   .mobile-dock button.active {
     background: var(--accent-soft);
     color: var(--accent);
+  }
+
+  .data-disclaimer {
+    left: 10px;
+    right: 10px;
+    bottom: 68px;
+    max-width: none;
+    font-size: 10px;
+    line-height: 1.4;
   }
 
   .map-info-card {
