@@ -231,7 +231,7 @@ const EXPERIMENTS = [
       value: "東京大学を幹事とするCooL4コンソーシアムによる柏の葉地域での自動運転実証。2025年8月にレベル4車両認可、同年11月に特定自動運行許可を取得し、2026年1月から一部便でレベル4運行を開始した。",
       refs: [1, 2, 3]
     },
-    vehicle: { value: "いすゞ エルガミオ", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [1] },
     adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "東京大学柏キャンパス・シャトルバスルートの一部区間（特定自動運行区間あり）", refs: [1] },
     operationType: { value: "レベル2運行＋レベル4（特定自動運行）", refs: [1, 2, 3] },
