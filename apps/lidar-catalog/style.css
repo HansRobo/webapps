@@ -188,16 +188,16 @@ body {
 .app-layout {
   height: calc(100dvh - var(--header-total));
   display: grid;
-  grid-template-columns: minmax(260px, var(--left-panel-width)) minmax(0, 1fr);
-  gap: 10px;
-  padding: 10px;
+  grid-template-columns: minmax(244px, 316px) minmax(0, 1fr);
+  gap: 8px;
+  padding: 8px;
 }
 
 /* ── コントロールパネル ── */
 .control-panel {
   background: color-mix(in srgb, var(--surface) 96%, transparent);
   border: 1px solid var(--surface-border);
-  border-radius: 20px;
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   min-height: 0;
@@ -205,7 +205,7 @@ body {
 }
 
 .panel-header {
-  padding: 14px 14px 10px;
+  padding: 12px 12px 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -221,22 +221,22 @@ body {
 
 .panel-scroll {
   overflow-y: auto;
-  padding-bottom: 16px;
+  padding-bottom: 12px;
   flex: 1;
   min-height: 0;
 }
 
 /* ── 検索ボックス ── */
 .quick-search {
-  margin: 0 14px 10px;
-  height: 42px;
+  margin: 0 12px 8px;
+  height: 38px;
   display: grid;
   grid-template-columns: 22px 1fr;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   border: 1px solid var(--surface-border);
-  border-radius: 12px;
-  padding: 0 10px;
+  border-radius: 10px;
+  padding: 0 9px;
   background: var(--surface-soft);
   color: var(--text-sub);
   flex-shrink: 0;
@@ -247,21 +247,21 @@ body {
   background: transparent;
   color: var(--text-main);
   font: inherit;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 /* ── フィルタブロック ── */
-.filter-block { padding: 10px 14px 0; }
+.filter-block { padding: 8px 12px 0; }
 
 .filter-block__title {
-  font-size: 11px;
+  font-size: 10px;
   color: var(--text-sub);
   text-transform: uppercase;
-  letter-spacing: 0.7px;
-  margin-bottom: 8px;
+  letter-spacing: 0.6px;
+  margin-bottom: 6px;
 }
 
-.filter-block--checkbox { padding-top: 14px; }
+.filter-block--checkbox { padding-top: 12px; }
 
 .checkbox-label {
   display: inline-flex;
@@ -281,7 +281,7 @@ body {
 .chip-group, .active-filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 4px;
 }
 
 .chip-button {
@@ -331,6 +331,207 @@ body {
 }
 
 .filter-select:focus { border-color: var(--accent); }
+
+.control-panel .chip-button {
+  font-size: 11px;
+  padding: 4px 8px;
+  gap: 4px;
+}
+
+.country-flag-btn {
+  font-size: 18px;
+  padding: 2px 4px;
+  line-height: 1;
+}
+
+.control-panel .ghost-button {
+  font-size: 11px;
+  padding: 5px 9px;
+}
+
+.control-panel .filter-select--facet {
+  width: 100%;
+  font-size: 11px;
+  height: 32px;
+  border-radius: 9px;
+}
+
+.range-control {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.range-control__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--text-sub);
+}
+
+.range-control__slider-shell {
+  position: relative;
+  height: 36px;
+}
+
+.range-control__slider-shell::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 50%;
+  height: 4px;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-border) 88%, transparent);
+}
+
+.range-control__track,
+.range-control__fill {
+  position: absolute;
+  top: 50%;
+  height: 4px;
+  transform: translateY(-50%);
+  border-radius: 999px;
+}
+
+.range-control__track {
+  left: 2px;
+  right: 2px;
+  background: color-mix(in srgb, var(--surface-border) 88%, transparent);
+}
+
+.range-control__fill {
+  background: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.range-thumb {
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--surface);
+  background: var(--accent);
+  box-shadow: 0 1px 2px rgba(15, 30, 56, 0.2);
+  transform: translate(-50%, calc(-50% + var(--thumb-offset, 0px)));
+  z-index: 2;
+  cursor: grab;
+}
+
+.range-thumb:active {
+  cursor: grabbing;
+}
+
+.range-thumb--min {
+  --thumb-offset: -10px;
+}
+
+.range-thumb--max {
+  --thumb-offset: 10px;
+}
+
+.range-thumb:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 55%, white);
+  outline-offset: 2px;
+}
+
+.range-control__scale {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 9px;
+  line-height: 1.2;
+  color: var(--text-sub);
+}
+
+.range-control__scale span {
+  white-space: nowrap;
+}
+
+.filter-builder__toolbar {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 6px;
+}
+
+.filter-builder {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-builder__empty {
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--text-sub);
+  line-height: 1.5;
+  border: 1px dashed var(--surface-border);
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: var(--surface-soft);
+}
+
+.filter-rule {
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  background: var(--surface-soft);
+  padding: 8px;
+}
+
+.filter-rule__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.85fr) minmax(0, 1fr) auto;
+  gap: 6px;
+  align-items: center;
+}
+
+.filter-rule__row .filter-select {
+  width: 100%;
+  min-width: 0;
+}
+
+.filter-rule__value--static {
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 11px;
+  color: var(--text-sub);
+  border: 1px dashed var(--surface-border);
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--surface) 60%, transparent);
+}
+
+.filter-rule__number {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.filter-rule__unit {
+  font-size: 10px;
+  color: var(--text-sub);
+  flex-shrink: 0;
+}
+
+.filter-rule__remove {
+  white-space: nowrap;
+}
+
+@media (max-width: 960px) {
+  .filter-rule__row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .filter-rule__remove {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
 
 /* ── カタログメインエリア ── */
 .catalog-stage {

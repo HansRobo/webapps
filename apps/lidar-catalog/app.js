@@ -5,14 +5,6 @@
 // 定数・設定
 // ─────────────────────────────────────────────
 
-const RANGE_FILTERS = [
-  { id: "lt100",     label: "〜100 m",    test: v => v !== null && v < 100  },
-  { id: "100-200",   label: "100〜200 m", test: v => v !== null && v >= 100 && v <= 200 },
-  { id: "200-300",   label: "200〜300 m", test: v => v !== null && v > 200 && v <= 300 },
-  { id: "gt300",     label: "300 m〜",    test: v => v !== null && v > 300  },
-  { id: "unknown",   label: "不明",        test: v => v === null },
-];
-
 const SRC_TYPE_LABELS = {
   "product-page":  "公式製品ページ",
   "datasheet":     "データシート",
@@ -77,6 +69,47 @@ function normalize(lidar) {
 
 const ALL = LIDARS.map(normalize);
 
+const RANGE_DOMAIN = (() => {
+  const values = ALL.map(item => item.maxRange).filter(v => v !== null);
+  if (values.length === 0) return { min: 0, max: 0 };
+  return { min: Math.min(...values), max: Math.max(...values) };
+})();
+
+function waveNm(waveId) {
+  const n = parseInt(waveId);
+  return Number.isFinite(n) ? n : null;
+}
+
+function parseCountryList(countryField) {
+  if (!countryField) return [];
+  const spaceIdx = countryField.indexOf(" ");
+  if (spaceIdx === -1) return [{ key: countryField, flag: countryField, name: countryField }];
+  const flagsPart = countryField.slice(0, spaceIdx);
+  const namesPart = countryField.slice(spaceIdx + 1);
+  const names = namesPart.split("/");
+  const cps = Array.from(flagsPart);
+  return names.map((name, i) => {
+    const flag = (cps[i * 2] ?? "") + (cps[i * 2 + 1] ?? "");
+    return { key: `${flag} ${name.trim()}`, flag, name: name.trim() };
+  });
+}
+
+const ALL_COUNTRIES = (() => {
+  const seen = new Map();
+  for (const item of ALL) {
+    for (const c of parseCountryList(item.raw.manufacturer.country)) {
+      if (!seen.has(c.key)) seen.set(c.key, c);
+    }
+  }
+  return [...seen.values()].sort((a, b) => a.name.localeCompare(b.name, "ja"));
+})();
+
+const WAVE_NM_DOMAIN = (() => {
+  const values = ALL.map(item => waveNm(item.waveId)).filter(v => v !== null);
+  if (values.length === 0) return { min: 0, max: 0 };
+  return { min: Math.min(...values), max: Math.max(...values) };
+})();
+
 // 逆引きインデックス
 const BY_MFR  = {};
 const BY_SCAN = {};
@@ -95,6 +128,134 @@ const M_BY_ID    = Object.fromEntries(Object.values(M).map(m => [m.id, m]));
 const SCAN_BY_ID = Object.fromEntries(Object.values(SCAN).map(s => [s.id, s]));
 const WAVE_BY_ID = Object.fromEntries(Object.values(WAVE).map(w => [w.id, w]));
 const CAT_BY_ID  = Object.fromEntries(Object.values(CAT).map(c => [c.id, c]));
+
+// ─────────────────────────────────────────────
+// products フィルタ定義
+// ─────────────────────────────────────────────
+
+const FILTER_OPERATOR_OPTIONS = {
+  text: [
+    { id: "contains", label: "含む" },
+    { id: "notContains", label: "含まない" },
+    { id: "equals", label: "一致" },
+    { id: "notEquals", label: "不一致" },
+    { id: "startsWith", label: "先頭一致" },
+    { id: "endsWith", label: "末尾一致" },
+    { id: "empty", label: "空" },
+    { id: "notEmpty", label: "空でない" },
+  ],
+  enum: [
+    { id: "equals", label: "一致" },
+    { id: "notEquals", label: "不一致" },
+    { id: "empty", label: "空" },
+    { id: "notEmpty", label: "空でない" },
+  ],
+  number: [
+    { id: "equals", label: "=" },
+    { id: "notEquals", label: "≠" },
+    { id: "lt", label: "<" },
+    { id: "lte", label: "≤" },
+    { id: "gt", label: ">" },
+    { id: "gte", label: "≥" },
+    { id: "empty", label: "空" },
+    { id: "notEmpty", label: "空でない" },
+  ],
+  boolean: [
+    { id: "equals", label: "である" },
+    { id: "notEquals", label: "でない" },
+  ],
+};
+
+function buildEnumOptions(items, labelFn) {
+  return [...new Set(items)]
+    .map(value => ({ value, label: labelFn(value) }))
+    .sort((a, b) => a.label.localeCompare(b.label));
+}
+
+const FILTER_FIELDS = [
+  { id: "id", label: "製品ID", group: "基本情報", type: "text", getter: item => item.id },
+  { id: "name", label: "製品名", group: "基本情報", type: "text", getter: item => item.raw.name },
+  {
+    id: "manufacturer",
+    label: "メーカー",
+    group: "基本情報",
+    type: "enum",
+    getter: item => item.manufacturerId,
+    options: buildEnumOptions(ALL.map(item => item.manufacturerId), id => M_BY_ID[id]?.name ?? id),
+    valueLabel: value => M_BY_ID[value]?.name ?? value,
+  },
+  {
+    id: "manufacturerCountry",
+    label: "メーカー国",
+    group: "基本情報",
+    type: "text",
+    getter: item => item.raw.manufacturer.country,
+  },
+  {
+    id: "category",
+    label: "カテゴリ",
+    group: "基本情報",
+    type: "enum",
+    getter: item => item.categoryId,
+    options: buildEnumOptions(ALL.map(item => item.categoryId), id => CAT_BY_ID[id]?.labelJa ?? id),
+    valueLabel: value => CAT_BY_ID[value]?.labelJa ?? value,
+  },
+  {
+    id: "scanMethod",
+    label: "走査方式",
+    group: "基本情報",
+    type: "enum",
+    getter: item => item.scanId,
+    options: buildEnumOptions(ALL.map(item => item.scanId), id => SCAN_BY_ID[id]?.labelJa ?? id),
+    valueLabel: value => SCAN_BY_ID[value]?.labelJa ?? value,
+  },
+  { id: "wavelength", label: "波長", group: "基本情報", type: "number", unit: "nm", getter: item => waveNm(item.waveId) },
+  {
+    id: "discontinued",
+    label: "廃番・統合済み",
+    group: "基本情報",
+    type: "boolean",
+    getter: item => item.discontinued,
+    valueLabel: value => String(value) === "true" ? "はい" : "いいえ",
+  },
+  { id: "release", label: "リリース", group: "基本情報", type: "text", getter: item => item.raw.release?.value ?? null },
+  { id: "useCases", label: "用途", group: "基本情報", type: "text", getter: item => item.raw.useCases ?? null },
+
+  { id: "channels", label: "チャンネル数", group: "基本性能", type: "number", unit: "ch", getter: item => item.raw.specs.channels?.value ?? null },
+  { id: "maxRange", label: "最大検知距離", group: "基本性能", type: "number", unit: "m", getter: item => item.raw.specs.maxRange?.value ?? null },
+  { id: "peakRange", label: "ピーク距離", group: "基本性能", type: "number", unit: "m", getter: item => item.raw.specs.peakRange?.value ?? null },
+  { id: "minRange", label: "最小検知距離", group: "基本性能", type: "number", unit: "m", getter: item => item.raw.specs.minRange?.value ?? null },
+  { id: "accuracy", label: "精度", group: "基本性能", type: "text", getter: item => item.raw.specs.accuracy?.value ?? null },
+  { id: "precision", label: "ばらつき / Precision", group: "基本性能", type: "text", getter: item => item.raw.specs.precision?.value ?? null },
+
+  { id: "fovH", label: "FOV 水平", group: "光学・走査", type: "number", unit: "°", getter: item => item.raw.specs.fovH?.value ?? null },
+  { id: "fovV", label: "FOV 垂直", group: "光学・走査", type: "number", unit: "°", getter: item => item.raw.specs.fovV?.value ?? null },
+  { id: "resH", label: "角度分解能（水平）", group: "光学・走査", type: "text", getter: item => item.raw.specs.resH?.value ?? null },
+  { id: "resV", label: "角度分解能（垂直）", group: "光学・走査", type: "text", getter: item => item.raw.specs.resV?.value ?? null },
+  { id: "pointRate", label: "点群レート", group: "光学・走査", type: "number", unit: "pts/s", getter: item => item.raw.specs.pointRate?.value ?? null },
+  { id: "returnModes", label: "リターンモード", group: "光学・走査", type: "text", getter: item => item.raw.specs.returnModes?.value ?? null },
+  { id: "beamDivergence", label: "ビーム広がり角", group: "光学・走査", type: "text", getter: item => item.raw.specs.beamDivergence?.value ?? null },
+  { id: "sunlightImmunity", label: "耐外乱光性能", group: "光学・走査", type: "number", unit: "lux", getter: item => item.raw.specs.sunlightImmunity?.value ?? null },
+
+  { id: "interface", label: "インタフェース", group: "システム統合", type: "text", getter: item => item.raw.specs.interface?.value ?? null },
+  { id: "timeSynchronization", label: "時刻同期方式", group: "システム統合", type: "text", getter: item => item.raw.specs.timeSynchronization?.value ?? null },
+  { id: "imuBuiltIn", label: "内蔵IMU", group: "システム統合", type: "text", getter: item => item.raw.specs.imuBuiltIn?.value ?? null },
+  { id: "supportedSoftware", label: "ソフトウェアサポート", group: "システム統合", type: "text", getter: item => item.raw.specs.supportedSoftware?.value ?? null },
+
+  { id: "power", label: "消費電力", group: "物理仕様", type: "number", unit: "W", getter: item => item.raw.specs.power?.value ?? null },
+  { id: "powerMax", label: "最大消費電力", group: "物理仕様", type: "number", unit: "W", getter: item => item.raw.specs.powerMax?.value ?? null },
+  { id: "size", label: "サイズ", group: "物理仕様", type: "text", getter: item => item.raw.specs.size?.value ?? null },
+  { id: "weight", label: "重量", group: "物理仕様", type: "number", unit: "g", getter: item => item.raw.specs.weight?.value ?? null },
+  { id: "protection", label: "保護等級", group: "物理仕様", type: "text", getter: item => item.raw.specs.protection?.value ?? null },
+  { id: "operatingTemperature", label: "動作温度", group: "物理仕様", type: "text", getter: item => item.raw.specs.operatingTemperature?.value ?? null },
+  { id: "shockVibration", label: "耐衝撃・耐振動", group: "物理仕様", type: "text", getter: item => item.raw.specs.shockVibration?.value ?? null },
+];
+
+const FILTER_FIELD_BY_ID = Object.fromEntries(FILTER_FIELDS.map(field => [field.id, field]));
+const FILTER_FIELD_GROUPS = [...new Set(FILTER_FIELDS.map(field => field.group))].map(group => ({
+  group,
+  fields: FILTER_FIELDS.filter(field => field.group === group),
+}));
 
 // ─────────────────────────────────────────────
 // 共通ユーティリティ
@@ -247,12 +408,17 @@ const state = {
   query: "",
   categories: new Set(),
   scans: new Set(),
-  waves: new Set(),
+  countries: new Set(),
   manufacturers: new Set(),
-  ranges: new Set(),
+  rangeMin: "",
+  rangeMax: "",
+  waveMin: "",
+  waveMax: "",
+  rules: [],
   hideDiscontinued: false,
   sort: "default",
   activeId: null,
+  nextRuleId: 1,
   _eventsSetup: false,
 };
 
@@ -275,23 +441,71 @@ function renderProductsView() {
           <div class="panel-scroll">
             <section class="filter-block">
               <div class="filter-block__title">カテゴリ</div>
-              <div class="chip-group" id="categoryFilterGroup"></div>
+              <select id="categoryFilterSelect" class="filter-select filter-select--facet">
+                <option value="">すべて</option>
+              </select>
             </section>
             <section class="filter-block">
               <div class="filter-block__title">走査方式</div>
-              <div class="chip-group" id="scanFilterGroup"></div>
+              <select id="scanFilterSelect" class="filter-select filter-select--facet">
+                <option value="">すべて</option>
+              </select>
             </section>
             <section class="filter-block">
               <div class="filter-block__title">波長</div>
-              <div class="chip-group" id="waveFilterGroup"></div>
+              <div class="range-control">
+                <div class="range-control__head">
+                  <span id="waveFilterLabel">すべて</span>
+                  <button class="ghost-button" id="clearWaveButton" type="button">解除</button>
+                </div>
+                <div class="range-control__slider-shell" id="waveSlider">
+                  <div class="range-control__track"></div>
+                  <div class="range-control__fill" id="waveFill"></div>
+                  <button class="range-thumb range-thumb--min" id="waveMinThumb" type="button" aria-label="最小波長"></button>
+                  <button class="range-thumb range-thumb--max" id="waveMaxThumb" type="button" aria-label="最大波長"></button>
+                </div>
+                <div class="range-control__scale">
+                  <span id="waveMinValue">${WAVE_NM_DOMAIN.min} nm</span>
+                  <span id="waveMaxValue">${WAVE_NM_DOMAIN.max} nm</span>
+                </div>
+              </div>
             </section>
             <section class="filter-block">
               <div class="filter-block__title">メーカー</div>
               <div class="chip-group" id="manufacturerFilterGroup"></div>
             </section>
             <section class="filter-block">
+              <div class="filter-block__title">国</div>
+              <div class="chip-group" id="countryFilterGroup"></div>
+            </section>
+            <section class="filter-block">
               <div class="filter-block__title">最大検知距離</div>
-              <div class="chip-group" id="rangeFilterGroup"></div>
+              <div class="range-control">
+                <div class="range-control__head">
+                  <span id="rangeFilterLabel">すべて</span>
+                  <button class="ghost-button" id="clearRangeButton" type="button">解除</button>
+                </div>
+                <div class="range-control__slider-shell" id="rangeSlider">
+                  <div class="range-control__track"></div>
+                  <div class="range-control__fill" id="rangeFill"></div>
+                  <button class="range-thumb range-thumb--min" id="rangeMinThumb" type="button" aria-label="最小値"></button>
+                  <button class="range-thumb range-thumb--max" id="rangeMaxThumb" type="button" aria-label="最大値"></button>
+                </div>
+                <div class="range-control__scale">
+                  <span id="rangeMinValue">${RANGE_DOMAIN.min} m</span>
+                  <span id="rangeMaxValue">${RANGE_DOMAIN.max} m</span>
+                </div>
+              </div>
+            </section>
+            <section class="filter-block">
+              <div class="filter-block__title">全プロパティ</div>
+              <div class="filter-builder__toolbar">
+                <button class="ghost-button" id="addFilterRuleButton" type="button">条件を追加</button>
+              </div>
+              <div class="filter-builder" id="filterBuilder"></div>
+              <div class="filter-builder__empty" id="filterBuilderEmpty">
+                条件を追加して、製品の任意プロパティで絞り込めます。
+              </div>
             </section>
             <div class="filter-block filter-block--checkbox">
               <label class="checkbox-label">
@@ -329,32 +543,83 @@ function renderProductsView() {
     setupProductsEvents();
   }
 
-  // フィルタ状態を復元（chip の active クラス）
-  restoreChipActiveState();
-  renderAll();
+  // フィルタ状態をUIへ同期
+  syncFacetControls();
+  renderFilterBuilder();
+  renderProductResults();
 }
 
-function restoreChipActiveState() {
-  document.querySelectorAll("#categoryFilterGroup .chip-button").forEach(b => {
-    const cat = Object.values(CAT).find(c => c.labelJa === b.textContent);
-    if (cat) b.classList.toggle("active", state.categories.has(cat.id));
+function syncFacetControls() {
+  const categorySelect = document.getElementById("categoryFilterSelect");
+  const scanSelect = document.getElementById("scanFilterSelect");
+
+  if (categorySelect) categorySelect.value = state.categories.values().next().value ?? "";
+  if (scanSelect) scanSelect.value = state.scans.values().next().value ?? "";
+
+  const rangeBounds = getRenderedRangeBounds();
+  const rMinPct = rangeValueToPercent(rangeBounds.min);
+  const rMaxPct = rangeValueToPercent(rangeBounds.max);
+  const rangeMinThumb = document.getElementById("rangeMinThumb");
+  const rangeMaxThumb = document.getElementById("rangeMaxThumb");
+  const rangeFill = document.getElementById("rangeFill");
+  if (rangeMinThumb) {
+    rangeMinThumb.style.left = `${rMinPct}%`;
+    rangeMinThumb.setAttribute("aria-valuenow", String(rangeBounds.min));
+    rangeMinThumb.setAttribute("aria-valuemin", String(RANGE_DOMAIN.min));
+    rangeMinThumb.setAttribute("aria-valuemax", String(rangeBounds.max));
+  }
+  if (rangeMaxThumb) {
+    rangeMaxThumb.style.left = `${rMaxPct}%`;
+    rangeMaxThumb.setAttribute("aria-valuenow", String(rangeBounds.max));
+    rangeMaxThumb.setAttribute("aria-valuemin", String(rangeBounds.min));
+    rangeMaxThumb.setAttribute("aria-valuemax", String(RANGE_DOMAIN.max));
+  }
+  if (rangeFill) {
+    rangeFill.hidden = !rangeBounds.active;
+    rangeFill.style.left = `${rMinPct}%`;
+    rangeFill.style.width = `${Math.max(0, rMaxPct - rMinPct)}%`;
+  }
+  const rangeMinValue = document.getElementById("rangeMinValue");
+  const rangeMaxValue = document.getElementById("rangeMaxValue");
+  if (rangeMinValue) rangeMinValue.textContent = `${rangeBounds.min} m`;
+  if (rangeMaxValue) rangeMaxValue.textContent = `${rangeBounds.max} m`;
+  const rangeLabel = document.getElementById("rangeFilterLabel");
+  if (rangeLabel) rangeLabel.textContent = getRangeSummaryLabel();
+
+  const waveBounds = getRenderedWaveBounds();
+  const wMinPct = waveValueToPercent(waveBounds.min);
+  const wMaxPct = waveValueToPercent(waveBounds.max);
+  const waveMinThumb = document.getElementById("waveMinThumb");
+  const waveMaxThumb = document.getElementById("waveMaxThumb");
+  const waveFill = document.getElementById("waveFill");
+  if (waveMinThumb) {
+    waveMinThumb.style.left = `${wMinPct}%`;
+    waveMinThumb.setAttribute("aria-valuenow", String(waveBounds.min));
+    waveMinThumb.setAttribute("aria-valuemin", String(WAVE_NM_DOMAIN.min));
+    waveMinThumb.setAttribute("aria-valuemax", String(waveBounds.max));
+  }
+  if (waveMaxThumb) {
+    waveMaxThumb.style.left = `${wMaxPct}%`;
+    waveMaxThumb.setAttribute("aria-valuenow", String(waveBounds.max));
+    waveMaxThumb.setAttribute("aria-valuemin", String(waveBounds.min));
+    waveMaxThumb.setAttribute("aria-valuemax", String(WAVE_NM_DOMAIN.max));
+  }
+  if (waveFill) {
+    waveFill.hidden = !waveBounds.active;
+    waveFill.style.left = `${wMinPct}%`;
+    waveFill.style.width = `${Math.max(0, wMaxPct - wMinPct)}%`;
+  }
+  const waveMinValue = document.getElementById("waveMinValue");
+  const waveMaxValue = document.getElementById("waveMaxValue");
+  if (waveMinValue) waveMinValue.textContent = `${waveBounds.min} nm`;
+  if (waveMaxValue) waveMaxValue.textContent = `${waveBounds.max} nm`;
+  const waveLabel = document.getElementById("waveFilterLabel");
+  if (waveLabel) waveLabel.textContent = getWaveSummaryLabel();
+
+  document.querySelectorAll(".country-flag-btn").forEach(btn => {
+    btn.classList.toggle("active", state.countries.has(btn.dataset.countryKey));
   });
-  document.querySelectorAll("#scanFilterGroup .chip-button").forEach(b => {
-    const scan = Object.values(SCAN).find(s => s.labelJa === b.textContent);
-    if (scan) b.classList.toggle("active", state.scans.has(scan.id));
-  });
-  document.querySelectorAll("#waveFilterGroup .chip-button").forEach(b => {
-    const wave = Object.values(WAVE).find(w => w.label === b.textContent);
-    if (wave) b.classList.toggle("active", state.waves.has(wave.id));
-  });
-  document.querySelectorAll("#manufacturerFilterGroup .chip-button").forEach(b => {
-    const mfr = Object.values(M).find(m => m.name === b.textContent);
-    if (mfr) b.classList.toggle("active", state.manufacturers.has(mfr.id));
-  });
-  document.querySelectorAll("#rangeFilterGroup .chip-button").forEach(b => {
-    const rf = RANGE_FILTERS.find(r => r.label === b.textContent);
-    if (rf) b.classList.toggle("active", state.ranges.has(rf.id));
-  });
+
   const qInput = document.getElementById("queryInput");
   if (qInput) qInput.value = state.query;
   const hdCheck = document.getElementById("hideDiscontinued");
@@ -364,16 +629,31 @@ function restoreChipActiveState() {
 }
 
 function applyFilters() {
+  const rangeBounds = getNormalizedRangeBounds();
+  const waveBounds = getNormalizedWaveBounds();
   let result = ALL.filter(item => {
     if (state.hideDiscontinued && item.discontinued) return false;
-    if (state.query && !item.searchText.includes(state.query.toLowerCase())) return false;
+    if (state.query && !item.searchText.includes(normalizeText(state.query))) return false;
     if (state.categories.size > 0 && !state.categories.has(item.categoryId)) return false;
     if (state.scans.size > 0 && !state.scans.has(item.scanId)) return false;
-    if (state.waves.size > 0 && !state.waves.has(item.waveId)) return false;
     if (state.manufacturers.size > 0 && !state.manufacturers.has(item.manufacturerId)) return false;
-    if (state.ranges.size > 0) {
-      const rf = RANGE_FILTERS.filter(r => state.ranges.has(r.id));
-      if (!rf.some(r => r.test(item.maxRange))) return false;
+    if (state.countries.size > 0) {
+      const itemCountries = parseCountryList(item.raw.manufacturer.country).map(c => c.key);
+      if (!itemCountries.some(k => state.countries.has(k))) return false;
+    }
+    if (rangeBounds.min !== null || rangeBounds.max !== null) {
+      if (item.maxRange === null) return false;
+      if (rangeBounds.min !== null && item.maxRange < rangeBounds.min) return false;
+      if (rangeBounds.max !== null && item.maxRange > rangeBounds.max) return false;
+    }
+    if (waveBounds.min !== null || waveBounds.max !== null) {
+      const nm = waveNm(item.waveId);
+      if (nm === null) return false;
+      if (waveBounds.min !== null && nm < waveBounds.min) return false;
+      if (waveBounds.max !== null && nm > waveBounds.max) return false;
+    }
+    for (const rule of state.rules) {
+      if (!matchesFilterRule(item, rule)) return false;
     }
     return true;
   });
@@ -489,41 +769,39 @@ function buildCard(item) {
   return li;
 }
 
-function renderAll() {
+function renderProductResults() {
   const items = applyFilters();
   renderGrid(items);
   renderActiveFilters();
+  syncFacetControls();
 }
 
 function buildFilterChips() {
-  const usedCats = [...new Set(ALL.map(i => i.raw.category.id))];
-  const catGroup = document.getElementById("categoryFilterGroup");
-  catGroup.innerHTML = "";
-  for (const catId of usedCats) {
-    const cat = CAT_BY_ID[catId];
-    if (!cat) continue;
-    const btn = makeChipBtn(cat.labelJa, () => toggleFilter(state.categories, catId, btn));
-    catGroup.appendChild(btn);
+  const categorySelect = document.getElementById("categoryFilterSelect");
+  const scanSelect = document.getElementById("scanFilterSelect");
+
+  if (categorySelect) {
+    categorySelect.innerHTML = `
+      <option value="">すべて</option>
+      ${[...new Set(ALL.map(i => i.raw.category.id))]
+        .map(catId => CAT_BY_ID[catId])
+        .filter(Boolean)
+        .sort((a, b) => a.labelJa.localeCompare(b.labelJa))
+        .map(cat => `<option value="${esc(cat.id)}">${esc(cat.labelJa)}</option>`)
+        .join("")}
+    `;
   }
 
-  const usedScans = [...new Set(ALL.map(i => i.raw.scanningMethod.id))];
-  const scanGroup = document.getElementById("scanFilterGroup");
-  scanGroup.innerHTML = "";
-  for (const scanId of usedScans) {
-    const scan = SCAN_BY_ID[scanId];
-    if (!scan) continue;
-    const btn = makeChipBtn(scan.labelJa, () => toggleFilter(state.scans, scanId, btn));
-    scanGroup.appendChild(btn);
-  }
-
-  const usedWaves = [...new Set(ALL.map(i => i.raw.wavelength.id))];
-  const waveGroup = document.getElementById("waveFilterGroup");
-  waveGroup.innerHTML = "";
-  for (const waveId of usedWaves) {
-    const wave = WAVE_BY_ID[waveId];
-    if (!wave) continue;
-    const btn = makeChipBtn(wave.label, () => toggleFilter(state.waves, waveId, btn));
-    waveGroup.appendChild(btn);
+  if (scanSelect) {
+    scanSelect.innerHTML = `
+      <option value="">すべて</option>
+      ${[...new Set(ALL.map(i => i.raw.scanningMethod.id))]
+        .map(scanId => SCAN_BY_ID[scanId])
+        .filter(Boolean)
+        .sort((a, b) => a.labelJa.localeCompare(b.labelJa))
+        .map(scan => `<option value="${esc(scan.id)}">${esc(scan.labelJa)}</option>`)
+        .join("")}
+    `;
   }
 
   const usedMfrs = [...new Set(ALL.map(i => i.raw.manufacturer.id))].sort((a, b) =>
@@ -538,11 +816,17 @@ function buildFilterChips() {
     mfrGroup.appendChild(btn);
   }
 
-  const rangeGroup = document.getElementById("rangeFilterGroup");
-  rangeGroup.innerHTML = "";
-  for (const rf of RANGE_FILTERS) {
-    const btn = makeChipBtn(rf.label, () => toggleFilter(state.ranges, rf.id, btn));
-    rangeGroup.appendChild(btn);
+  const countryGroup = document.getElementById("countryFilterGroup");
+  countryGroup.innerHTML = "";
+  for (const c of ALL_COUNTRIES) {
+    const btn = document.createElement("button");
+    btn.className = "chip-button country-flag-btn";
+    btn.type = "button";
+    btn.textContent = c.flag;
+    btn.title = c.name;
+    btn.dataset.countryKey = c.key;
+    btn.classList.toggle("active", state.countries.has(c.key));
+    countryGroup.appendChild(btn);
   }
 }
 
@@ -558,21 +842,240 @@ function makeChipBtn(label, onClick) {
 function toggleFilter(set, key, btn) {
   if (set.has(key)) { set.delete(key); btn.classList.remove("active"); }
   else { set.add(key); btn.classList.add("active"); }
-  renderAll();
+  renderProductResults();
+}
+
+function setExclusiveFilter(set, key) {
+  set.clear();
+  if (key) set.add(key);
+}
+
+function parseRangeInputValue(value) {
+  if (value === "" || value === null || value === undefined) return null;
+  const numeric = Number(value);
+  return Number.isFinite(numeric) ? numeric : null;
+}
+
+function getNormalizedRangeBounds() {
+  const min = parseRangeInputValue(state.rangeMin);
+  const max = parseRangeInputValue(state.rangeMax);
+  if (min === null && max === null) return { min: null, max: null };
+  if (min !== null && max !== null && min > max) return { min: max, max: min };
+  if (min === RANGE_DOMAIN.min && max === RANGE_DOMAIN.max) return { min: null, max: null };
+  return { min, max };
+}
+
+function formatRangeSummaryLabel(bounds) {
+  if (bounds.min === null && bounds.max === null) return "すべて";
+  if (bounds.min !== null && bounds.max !== null) return `${bounds.min}〜${bounds.max} m`;
+  if (bounds.min !== null) return `${bounds.min} m以上`;
+  return `${bounds.max} m以下`;
+}
+
+function getRangeSummaryLabel() {
+  return formatRangeSummaryLabel(getNormalizedRangeBounds());
+}
+
+function rangeValueToPercent(value) {
+  if (RANGE_DOMAIN.max === RANGE_DOMAIN.min) return 0;
+  return ((value - RANGE_DOMAIN.min) / (RANGE_DOMAIN.max - RANGE_DOMAIN.min)) * 100;
+}
+
+function rangePercentToValue(percent) {
+  const clamped = Math.min(100, Math.max(0, percent));
+  const raw = RANGE_DOMAIN.min + (clamped / 100) * (RANGE_DOMAIN.max - RANGE_DOMAIN.min);
+  return Math.round(raw);
+}
+
+function setRangeBounds(minValue, maxValue) {
+  if (minValue === RANGE_DOMAIN.min && maxValue === RANGE_DOMAIN.max) {
+    state.rangeMin = "";
+    state.rangeMax = "";
+    return;
+  }
+  state.rangeMin = String(minValue);
+  state.rangeMax = String(maxValue);
+}
+
+function getRenderedRangeBounds() {
+  const bounds = getNormalizedRangeBounds();
+  return {
+    min: bounds.min ?? RANGE_DOMAIN.min,
+    max: bounds.max ?? RANGE_DOMAIN.max,
+    active: bounds.min !== null || bounds.max !== null,
+  };
+}
+
+function chooseRangeThumb(clientX) {
+  const bounds = getRenderedRangeBounds();
+  const shell = document.getElementById("rangeSlider");
+  if (!shell) return "min";
+  const rect = shell.getBoundingClientRect();
+  const value = rangePercentToValue(((clientX - rect.left) / rect.width) * 100);
+  const minDistance = Math.abs(value - bounds.min);
+  const maxDistance = Math.abs(value - bounds.max);
+  if (minDistance === maxDistance) {
+    return clientX < rect.left + rect.width / 2 ? "min" : "max";
+  }
+  return minDistance < maxDistance ? "min" : "max";
+}
+
+function updateRangeFromClientX(clientX, thumb) {
+  const shell = document.getElementById("rangeSlider");
+  if (!shell) return;
+  const rect = shell.getBoundingClientRect();
+  const value = rangePercentToValue(((clientX - rect.left) / rect.width) * 100);
+  const bounds = getRenderedRangeBounds();
+
+  if (thumb === "min") {
+    setRangeBounds(Math.min(value, bounds.max), bounds.max);
+  } else {
+    setRangeBounds(bounds.min, Math.max(value, bounds.min));
+  }
+}
+
+function handleRangeThumbKeydown(thumb, event) {
+  const bounds = getRenderedRangeBounds();
+  const current = thumb === "min" ? bounds.min : bounds.max;
+  const minLimit = RANGE_DOMAIN.min;
+  const maxLimit = RANGE_DOMAIN.max;
+  let next = current;
+
+  if (event.key === "ArrowLeft" || event.key === "ArrowDown") next -= 1;
+  else if (event.key === "ArrowRight" || event.key === "ArrowUp") next += 1;
+  else if (event.key === "PageDown") next -= 10;
+  else if (event.key === "PageUp") next += 10;
+  else if (event.key === "Home") next = thumb === "min" ? minLimit : bounds.min;
+  else if (event.key === "End") next = thumb === "min" ? bounds.max : maxLimit;
+  else return;
+
+  event.preventDefault();
+  next = Math.max(minLimit, Math.min(maxLimit, next));
+  if (thumb === "min") {
+    setRangeBounds(Math.min(next, bounds.max), bounds.max);
+  } else {
+    setRangeBounds(bounds.min, Math.max(next, bounds.min));
+  }
+  renderProductResults();
+}
+
+function getNormalizedWaveBounds() {
+  const min = parseRangeInputValue(state.waveMin);
+  const max = parseRangeInputValue(state.waveMax);
+  if (min === null && max === null) return { min: null, max: null };
+  if (min !== null && max !== null && min > max) return { min: max, max: min };
+  if (min === WAVE_NM_DOMAIN.min && max === WAVE_NM_DOMAIN.max) return { min: null, max: null };
+  return { min, max };
+}
+
+function getRenderedWaveBounds() {
+  const bounds = getNormalizedWaveBounds();
+  return {
+    min: bounds.min ?? WAVE_NM_DOMAIN.min,
+    max: bounds.max ?? WAVE_NM_DOMAIN.max,
+    active: bounds.min !== null || bounds.max !== null,
+  };
+}
+
+function setWaveBounds(minValue, maxValue) {
+  if (minValue === WAVE_NM_DOMAIN.min && maxValue === WAVE_NM_DOMAIN.max) {
+    state.waveMin = "";
+    state.waveMax = "";
+    return;
+  }
+  state.waveMin = String(minValue);
+  state.waveMax = String(maxValue);
+}
+
+function waveValueToPercent(value) {
+  if (WAVE_NM_DOMAIN.max === WAVE_NM_DOMAIN.min) return 0;
+  return ((value - WAVE_NM_DOMAIN.min) / (WAVE_NM_DOMAIN.max - WAVE_NM_DOMAIN.min)) * 100;
+}
+
+function wavePercentToValue(percent) {
+  const clamped = Math.min(100, Math.max(0, percent));
+  const raw = WAVE_NM_DOMAIN.min + (clamped / 100) * (WAVE_NM_DOMAIN.max - WAVE_NM_DOMAIN.min);
+  return Math.round(raw);
+}
+
+function formatWaveSummaryLabel(bounds) {
+  if (bounds.min === null && bounds.max === null) return "すべて";
+  if (bounds.min !== null && bounds.max !== null) return `${bounds.min}〜${bounds.max} nm`;
+  if (bounds.min !== null) return `${bounds.min} nm以上`;
+  return `${bounds.max} nm以下`;
+}
+
+function getWaveSummaryLabel() {
+  return formatWaveSummaryLabel(getNormalizedWaveBounds());
+}
+
+function chooseWaveThumb(clientX) {
+  const bounds = getRenderedWaveBounds();
+  const shell = document.getElementById("waveSlider");
+  if (!shell) return "min";
+  const rect = shell.getBoundingClientRect();
+  const value = wavePercentToValue(((clientX - rect.left) / rect.width) * 100);
+  const minDistance = Math.abs(value - bounds.min);
+  const maxDistance = Math.abs(value - bounds.max);
+  if (minDistance === maxDistance) {
+    return clientX < rect.left + rect.width / 2 ? "min" : "max";
+  }
+  return minDistance < maxDistance ? "min" : "max";
+}
+
+function updateWaveFromClientX(clientX, thumb) {
+  const shell = document.getElementById("waveSlider");
+  if (!shell) return;
+  const rect = shell.getBoundingClientRect();
+  const value = wavePercentToValue(((clientX - rect.left) / rect.width) * 100);
+  const bounds = getRenderedWaveBounds();
+  if (thumb === "min") {
+    setWaveBounds(Math.min(value, bounds.max), bounds.max);
+  } else {
+    setWaveBounds(bounds.min, Math.max(value, bounds.min));
+  }
+}
+
+function handleWaveThumbKeydown(thumb, event) {
+  const bounds = getRenderedWaveBounds();
+  const current = thumb === "min" ? bounds.min : bounds.max;
+  let next = current;
+
+  if (event.key === "ArrowLeft" || event.key === "ArrowDown") next -= 1;
+  else if (event.key === "ArrowRight" || event.key === "ArrowUp") next += 1;
+  else if (event.key === "PageDown") next -= 10;
+  else if (event.key === "PageUp") next += 10;
+  else if (event.key === "Home") next = thumb === "min" ? WAVE_NM_DOMAIN.min : bounds.min;
+  else if (event.key === "End") next = thumb === "min" ? bounds.max : WAVE_NM_DOMAIN.max;
+  else return;
+
+  event.preventDefault();
+  next = Math.max(WAVE_NM_DOMAIN.min, Math.min(WAVE_NM_DOMAIN.max, next));
+  if (thumb === "min") {
+    setWaveBounds(Math.min(next, bounds.max), bounds.max);
+  } else {
+    setWaveBounds(bounds.min, Math.max(next, bounds.min));
+  }
+  renderProductResults();
 }
 
 function clearAllFilters() {
   state.query = "";
   state.categories.clear();
   state.scans.clear();
-  state.waves.clear();
+  state.countries.clear();
   state.manufacturers.clear();
-  state.ranges.clear();
+  state.rangeMin = "";
+  state.rangeMax = "";
+  state.waveMin = "";
+  state.waveMax = "";
+  state.rules = [];
+  state.nextRuleId = 1;
   state.hideDiscontinued = false;
   document.getElementById("queryInput").value = "";
   document.getElementById("hideDiscontinued").checked = false;
-  document.querySelectorAll(".chip-button.active").forEach(b => b.classList.remove("active"));
-  renderAll();
+  renderFilterBuilder();
+  renderProductResults();
 }
 
 function renderActiveFilters() {
@@ -591,56 +1094,59 @@ function renderActiveFilters() {
   if (state.query) addChip(`"${state.query}"`, () => {
     state.query = "";
     document.getElementById("queryInput").value = "";
-    renderAll();
+    renderProductResults();
   });
   for (const id of state.categories) {
     const cat = CAT_BY_ID[id];
     if (cat) addChip(cat.labelJa, () => {
       state.categories.delete(id);
-      document.querySelectorAll("#categoryFilterGroup .chip-button").forEach(b => {
-        if (b.textContent === cat.labelJa) b.classList.remove("active");
-      });
-      renderAll();
+      renderProductResults();
     });
   }
   for (const id of state.scans) {
     const scan = SCAN_BY_ID[id];
     if (scan) addChip(scan.labelJa, () => {
       state.scans.delete(id);
-      document.querySelectorAll("#scanFilterGroup .chip-button").forEach(b => {
-        if (b.textContent === scan.labelJa) b.classList.remove("active");
-      });
-      renderAll();
-    });
-  }
-  for (const id of state.waves) {
-    const wave = WAVE_BY_ID[id];
-    if (wave) addChip(wave.label, () => {
-      state.waves.delete(id);
-      document.querySelectorAll("#waveFilterGroup .chip-button").forEach(b => {
-        if (b.textContent === wave.label) b.classList.remove("active");
-      });
-      renderAll();
+      renderProductResults();
     });
   }
   for (const id of state.manufacturers) {
     const mfr = M_BY_ID[id];
     if (mfr) addChip(mfr.name, () => {
       state.manufacturers.delete(id);
-      document.querySelectorAll("#manufacturerFilterGroup .chip-button").forEach(b => {
-        if (b.textContent === mfr.name) b.classList.remove("active");
-      });
-      renderAll();
+      renderProductResults();
     });
   }
-  for (const id of state.ranges) {
-    const rf = RANGE_FILTERS.find(r => r.id === id);
-    if (rf) addChip(`距離: ${rf.label}`, () => {
-      state.ranges.delete(id);
-      document.querySelectorAll("#rangeFilterGroup .chip-button").forEach(b => {
-        if (b.textContent === rf.label) b.classList.remove("active");
-      });
-      renderAll();
+  for (const key of state.countries) {
+    addChip(key, () => {
+      state.countries.delete(key);
+      renderProductResults();
+    });
+  }
+  const rangeBounds = getNormalizedRangeBounds();
+  if (rangeBounds.min !== null || rangeBounds.max !== null) {
+    addChip(`最大距離: ${formatRangeSummaryLabel(rangeBounds)}`, () => {
+      state.rangeMin = "";
+      state.rangeMax = "";
+      renderProductResults();
+    });
+  }
+  const waveBounds = getNormalizedWaveBounds();
+  if (waveBounds.min !== null || waveBounds.max !== null) {
+    addChip(`波長: ${formatWaveSummaryLabel(waveBounds)}`, () => {
+      state.waveMin = "";
+      state.waveMax = "";
+      renderProductResults();
+    });
+  }
+
+  for (const rule of state.rules) {
+    const label = formatFilterRuleLabel(rule);
+    if (!label) continue;
+    addChip(label, () => {
+      state.rules = state.rules.filter(r => r.id !== rule.id);
+      renderFilterBuilder();
+      renderProductResults();
     });
   }
 }
@@ -648,16 +1154,166 @@ function renderActiveFilters() {
 function setupProductsEvents() {
   if (state._eventsSetup) return;
   state._eventsSetup = true;
+  let rangePointer = null;
 
   document.getElementById("viewContainer").addEventListener("input", e => {
-    if (e.target.id === "queryInput") { state.query = e.target.value.trim(); renderAll(); }
+    if (e.target.id === "queryInput") {
+      state.query = e.target.value.trim();
+      renderProductResults();
+      return;
+    }
+    if (e.target.classList.contains("filter-rule__value")) {
+      const ruleId = Number(e.target.closest(".filter-rule")?.dataset.ruleId);
+      const rule = state.rules.find(r => r.id === ruleId);
+      if (!rule) return;
+      rule.value = e.target.value;
+      renderProductResults();
+    }
   });
   document.getElementById("viewContainer").addEventListener("change", e => {
-    if (e.target.id === "sortSelect") { state.sort = e.target.value; renderAll(); }
-    if (e.target.id === "hideDiscontinued") { state.hideDiscontinued = e.target.checked; renderAll(); }
+    if (e.target.id === "sortSelect") { state.sort = e.target.value; renderProductResults(); }
+    if (e.target.id === "hideDiscontinued") { state.hideDiscontinued = e.target.checked; renderProductResults(); }
+    if (e.target.id === "categoryFilterSelect") {
+      setExclusiveFilter(state.categories, e.target.value);
+      renderProductResults();
+      return;
+    }
+    if (e.target.id === "scanFilterSelect") {
+      setExclusiveFilter(state.scans, e.target.value);
+      renderProductResults();
+      return;
+    }
+    if (e.target.classList.contains("filter-rule__field")) {
+      const ruleId = Number(e.target.closest(".filter-rule")?.dataset.ruleId);
+      const rule = state.rules.find(r => r.id === ruleId);
+      if (!rule) return;
+      rule.fieldId = e.target.value;
+      rule.operator = getDefaultOperatorForField(rule.fieldId);
+      rule.value = "";
+      renderFilterBuilder();
+      renderProductResults();
+      return;
+    }
+    if (e.target.classList.contains("filter-rule__operator")) {
+      const ruleId = Number(e.target.closest(".filter-rule")?.dataset.ruleId);
+      const rule = state.rules.find(r => r.id === ruleId);
+      if (!rule) return;
+      rule.operator = e.target.value;
+      renderFilterBuilder();
+      renderProductResults();
+      return;
+    }
+    if (e.target.classList.contains("filter-rule__value")) {
+      const ruleId = Number(e.target.closest(".filter-rule")?.dataset.ruleId);
+      const rule = state.rules.find(r => r.id === ruleId);
+      if (!rule) return;
+      rule.value = e.target.value;
+      renderProductResults();
+      return;
+    }
   });
   document.getElementById("viewContainer").addEventListener("click", e => {
     if (e.target.closest("#clearFiltersButton")) clearAllFilters();
+    if (e.target.closest("#clearRangeButton")) {
+      state.rangeMin = "";
+      state.rangeMax = "";
+      renderProductResults();
+      return;
+    }
+    if (e.target.closest("#clearWaveButton")) {
+      state.waveMin = "";
+      state.waveMax = "";
+      renderProductResults();
+      return;
+    }
+    const countryBtn = e.target.closest(".country-flag-btn");
+    if (countryBtn) {
+      const key = countryBtn.dataset.countryKey;
+      if (state.countries.has(key)) state.countries.delete(key);
+      else state.countries.add(key);
+      renderProductResults();
+      return;
+    }
+    if (e.target.closest("#addFilterRuleButton")) {
+      addFilterRule();
+      renderFilterBuilder();
+      renderProductResults();
+      return;
+    }
+    const removeBtn = e.target.closest(".filter-rule__remove");
+    if (removeBtn) {
+      const ruleId = Number(removeBtn.closest(".filter-rule")?.dataset.ruleId);
+      state.rules = state.rules.filter(r => r.id !== ruleId);
+      renderFilterBuilder();
+      renderProductResults();
+    }
+  });
+
+  const rangeSlider = document.getElementById("rangeSlider");
+  rangeSlider?.addEventListener("pointerdown", e => {
+    const thumb = e.target.closest(".range-thumb");
+    const activeThumb = thumb?.id === "rangeMaxThumb"
+      ? "max"
+      : thumb?.id === "rangeMinThumb"
+        ? "min"
+        : chooseRangeThumb(e.clientX);
+    rangePointer = { thumb: activeThumb, pointerId: e.pointerId };
+    rangeSlider.setPointerCapture(e.pointerId);
+    updateRangeFromClientX(e.clientX, activeThumb);
+    renderProductResults();
+    e.preventDefault();
+  }, true);
+  rangeSlider?.addEventListener("pointermove", e => {
+    if (!rangePointer || rangePointer.pointerId !== e.pointerId) return;
+    updateRangeFromClientX(e.clientX, rangePointer.thumb);
+    syncFacetControls();
+  });
+  const endRangeDrag = e => {
+    if (!rangePointer || rangePointer.pointerId !== e.pointerId) return;
+    rangePointer = null;
+    try { rangeSlider?.releasePointerCapture(e.pointerId); } catch {}
+    renderProductResults();
+  };
+  rangeSlider?.addEventListener("pointerup", endRangeDrag);
+  rangeSlider?.addEventListener("pointercancel", endRangeDrag);
+  rangeSlider?.addEventListener("keydown", e => {
+    const thumb = e.target.closest(".range-thumb");
+    if (!thumb) return;
+    handleRangeThumbKeydown(thumb.id === "rangeMaxThumb" ? "max" : "min", e);
+  });
+
+  let wavePointer = null;
+  const waveSlider = document.getElementById("waveSlider");
+  waveSlider?.addEventListener("pointerdown", e => {
+    const thumb = e.target.closest(".range-thumb");
+    const activeThumb = thumb?.id === "waveMaxThumb"
+      ? "max"
+      : thumb?.id === "waveMinThumb"
+        ? "min"
+        : chooseWaveThumb(e.clientX);
+    wavePointer = { thumb: activeThumb, pointerId: e.pointerId };
+    waveSlider.setPointerCapture(e.pointerId);
+    updateWaveFromClientX(e.clientX, activeThumb);
+    renderProductResults();
+    e.preventDefault();
+  }, true);
+  waveSlider?.addEventListener("pointermove", e => {
+    if (!wavePointer || wavePointer.pointerId !== e.pointerId) return;
+    updateWaveFromClientX(e.clientX, wavePointer.thumb);
+    syncFacetControls();
+  });
+  const endWaveDrag = e => {
+    if (!wavePointer || wavePointer.pointerId !== e.pointerId) return;
+    wavePointer = null;
+    try { waveSlider?.releasePointerCapture(e.pointerId); } catch {}
+    renderProductResults();
+  };
+  waveSlider?.addEventListener("pointerup", endWaveDrag);
+  waveSlider?.addEventListener("pointercancel", endWaveDrag);
+  waveSlider?.addEventListener("keydown", e => {
+    const thumb = e.target.closest(".range-thumb");
+    if (!thumb) return;
+    handleWaveThumbKeydown(thumb.id === "waveMaxThumb" ? "max" : "min", e);
   });
 
   // モバイルドック（mobileDock は viewContainer 外なので直接バインド）
@@ -671,6 +1327,213 @@ function setupProductsEvents() {
     document.getElementById("mobileShowFilters")?.classList.remove("active");
     document.getElementById("mobileShowCatalog")?.classList.add("active");
   });
+}
+
+function addFilterRule(fieldId = "") {
+  state.rules.push({
+    id: state.nextRuleId++,
+    fieldId,
+    operator: fieldId ? getDefaultOperatorForField(fieldId) : "",
+    value: "",
+  });
+}
+
+function getDefaultOperatorForField(fieldId) {
+  const field = FILTER_FIELD_BY_ID[fieldId];
+  return field?.type === "text" ? "contains" : "equals";
+}
+
+function getOperatorsForField(field) {
+  return FILTER_OPERATOR_OPTIONS[field?.type] ?? FILTER_OPERATOR_OPTIONS.text;
+}
+
+function isValueRequired(field, operator) {
+  if (!field || !operator) return false;
+  return operator !== "empty" && operator !== "notEmpty";
+}
+
+function isEmptyFilterValue(value) {
+  if (value === null || value === undefined) return true;
+  if (Array.isArray(value)) return value.length === 0 || value.every(isEmptyFilterValue);
+  return String(value).trim() === "";
+}
+
+function normalizeText(value) {
+  return String(value).trim().toLowerCase();
+}
+
+function extractComparableValues(rawValue) {
+  return Array.isArray(rawValue) ? rawValue : [rawValue];
+}
+
+function matchesTextRule(rawValue, expected, operator) {
+  const needle = normalizeText(expected);
+  if (!needle && operator !== "empty" && operator !== "notEmpty") return true;
+  const values = extractComparableValues(rawValue);
+  const normalized = values
+    .filter(v => !isEmptyFilterValue(v))
+    .map(v => normalizeText(v));
+
+  if (operator === "contains") return normalized.some(v => v.includes(needle));
+  if (operator === "notContains") return normalized.every(v => !v.includes(needle));
+  if (operator === "equals") return normalized.some(v => v === needle);
+  if (operator === "notEquals") return normalized.every(v => v !== needle);
+  if (operator === "startsWith") return normalized.some(v => v.startsWith(needle));
+  if (operator === "endsWith") return normalized.some(v => v.endsWith(needle));
+  if (operator === "empty") return normalized.length === 0;
+  if (operator === "notEmpty") return normalized.length > 0;
+  return true;
+}
+
+function matchesNumberRule(rawValue, expected, operator) {
+  const needle = Number(expected);
+  if (!Number.isFinite(needle)) {
+    return operator === "empty" ? isEmptyFilterValue(rawValue) : false;
+  }
+  const values = extractComparableValues(rawValue)
+    .map(v => Number(v))
+    .filter(v => Number.isFinite(v));
+
+  if (operator === "empty") return values.length === 0;
+  if (operator === "notEmpty") return values.length > 0;
+  if (values.length === 0) return false;
+  if (operator === "equals") return values.some(v => v === needle);
+  if (operator === "notEquals") return values.every(v => v !== needle);
+  if (operator === "lt") return values.some(v => v < needle);
+  if (operator === "lte") return values.some(v => v <= needle);
+  if (operator === "gt") return values.some(v => v > needle);
+  if (operator === "gte") return values.some(v => v >= needle);
+  return true;
+}
+
+function matchesBooleanRule(rawValue, expected, operator) {
+  const needle = String(expected) === "true";
+  if (operator === "notEquals") return Boolean(rawValue) !== needle;
+  return Boolean(rawValue) === needle;
+}
+
+function matchesFilterRule(item, rule) {
+  const field = FILTER_FIELD_BY_ID[rule.fieldId];
+  if (!field || !rule.operator) return true;
+  if (isValueRequired(field, rule.operator) && isEmptyFilterValue(rule.value)) return true;
+  const rawValue = field.getter(item);
+
+  if (rule.operator === "empty") return isEmptyFilterValue(rawValue);
+  if (rule.operator === "notEmpty") return !isEmptyFilterValue(rawValue);
+
+  if (field.type === "number") {
+    return matchesNumberRule(rawValue, rule.value, rule.operator);
+  }
+  if (field.type === "boolean") {
+    return matchesBooleanRule(rawValue, rule.value, rule.operator);
+  }
+  if (field.type === "enum") {
+    return matchesTextRule(rawValue, rule.value, rule.operator);
+  }
+  return matchesTextRule(rawValue, rule.value, rule.operator);
+}
+
+function formatFilterRuleValue(rule, field) {
+  if (!field) return "";
+  if (field.type === "enum") return field.valueLabel?.(rule.value) ?? rule.value;
+  if (field.type === "boolean") return String(rule.value) === "true" ? "はい" : "いいえ";
+  return rule.value;
+}
+
+function formatFilterRuleLabel(rule) {
+  const field = FILTER_FIELD_BY_ID[rule.fieldId];
+  if (!field) return "";
+  const operator = getOperatorsForField(field).find(op => op.id === rule.operator);
+  if (!operator) return "";
+  if (isValueRequired(field, rule.operator) && isEmptyFilterValue(rule.value)) return "";
+  if (rule.operator === "empty" || rule.operator === "notEmpty") {
+    return `${field.label} ${operator.label}`;
+  }
+  const value = formatFilterRuleValue(rule, field);
+  return `${field.label} ${operator.label} ${value}`;
+}
+
+function renderFilterBuilder() {
+  const builder = document.getElementById("filterBuilder");
+  const empty = document.getElementById("filterBuilderEmpty");
+  if (!builder || !empty) return;
+
+  empty.hidden = state.rules.length > 0;
+  builder.innerHTML = state.rules.map(rule => renderFilterRuleRow(rule)).join("");
+}
+
+function renderFilterRuleRow(rule) {
+  const field = FILTER_FIELD_BY_ID[rule.fieldId];
+  const fieldOptions = `
+    <option value="">プロパティを選択</option>
+    ${FILTER_FIELD_GROUPS.map(group => `
+      <optgroup label="${esc(group.group)}">
+        ${group.fields.map(fieldDef => `
+          <option value="${esc(fieldDef.id)}"${fieldDef.id === rule.fieldId ? " selected" : ""}>${esc(fieldDef.label)}</option>
+        `).join("")}
+      </optgroup>
+    `).join("")}
+  `;
+
+  const operatorOptions = field
+    ? getOperatorsForField(field).map(op => `<option value="${esc(op.id)}"${op.id === rule.operator ? " selected" : ""}>${esc(op.label)}</option>`).join("")
+    : `<option value="">—</option>`;
+
+  const valueControl = renderFilterRuleValueControl(rule, field);
+
+  return `
+    <div class="filter-rule" data-rule-id="${rule.id}">
+      <div class="filter-rule__row">
+        <select class="filter-select filter-rule__field">
+          ${fieldOptions}
+        </select>
+        <select class="filter-select filter-rule__operator"${field ? "" : " disabled"}>
+          ${operatorOptions}
+        </select>
+        ${valueControl}
+        <button class="ghost-button filter-rule__remove" type="button">削除</button>
+      </div>
+    </div>
+  `;
+}
+
+function renderFilterRuleValueControl(rule, field) {
+  const needsValue = isValueRequired(field, rule.operator);
+  if (!field) {
+    return `<input class="filter-select filter-rule__value" type="text" placeholder="プロパティ選択後に入力" disabled />`;
+  }
+  if (!needsValue) {
+    return `<div class="filter-rule__value filter-rule__value--static">値不要</div>`;
+  }
+  if (field.type === "enum") {
+    const options = field.options.map(option => `
+      <option value="${esc(option.value)}"${String(option.value) === String(rule.value) ? " selected" : ""}>${esc(option.label)}</option>
+    `).join("");
+    return `
+      <select class="filter-select filter-rule__value">
+        <option value="">選択してください</option>
+        ${options}
+      </select>
+    `;
+  }
+  if (field.type === "boolean") {
+    return `
+      <select class="filter-select filter-rule__value">
+        <option value="true"${String(rule.value) === "true" ? " selected" : ""}>はい</option>
+        <option value="false"${String(rule.value) === "false" ? " selected" : ""}>いいえ</option>
+      </select>
+    `;
+  }
+  if (field.type === "number") {
+    const unit = field.unit ? ` ${esc(field.unit)}` : "";
+    return `
+      <label class="filter-rule__number">
+        <input class="filter-select filter-rule__value" type="number" step="any" value="${esc(rule.value)}" placeholder="数値を入力" />
+        ${unit ? `<span class="filter-rule__unit">${unit}</span>` : ""}
+      </label>
+    `;
+  }
+  return `<input class="filter-select filter-rule__value" type="text" value="${esc(rule.value)}" placeholder="値を入力" />`;
 }
 
 // ─────────────────────────────────────────────
