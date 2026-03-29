@@ -6,6 +6,13 @@
       "icon": "🚗",
       "path": "apps/autonomous-driving-map/index.html",
       "tags": ["自動運転", "地図", "モビリティ", "交通"]
+    },
+    {
+      "name": "LiDARカタログ",
+      "description": "LiDARセンサの比較データベース。走査方式・距離・FOVで絞り込み。一次情報付き。",
+      "icon": "📡",
+      "path": "apps/lidar-catalog/index.html",
+      "tags": ["LiDAR", "センサ", "自動運転", "ロボット", "ハードウェア"]
     }
   ]
 }
