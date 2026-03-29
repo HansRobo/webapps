@@ -503,21 +503,21 @@ const EXPERIMENTS = [
     name: { value: "知多半島・中部国際空港アクセス 自動運転高速バス実証（先進モビリティ）", refs: [1] },
     location: { value: "愛知県知多半島周辺（高速道路）", lat: 34.858, lng: 136.814, refs: [1] },
     prefecture: { value: "愛知県", refs: [1] },
-    period: { value: "2025年12月2日〜5日（実施済み）", refs: [1] },
+    period: { value: "2025年12月2日〜12月5日", refs: [1] },
     status: { value: "完了", refs: [1] },
     description: {
-      value: "中部国際空港へアクセスする高速道路において、大型観光バスタイプの車両による自動運転実証実験。大型観光バスでの高速道路実証は全国初となる見込み。",
+      value: "愛知県知多半島にて、中部国際空港へアクセスする高速道路で大型観光バスタイプ車両による自動運転高速バス実証を実施。先進モビリティ掲載の実験事例では、高速道路での大型観光バス実証は全国初とされる。",
       refs: [1]
     },
     vehicle: { value: "詳細不明", refs: [1] },
     adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "知多半島地域の高速道路（中部国際空港アクセスルート）", refs: [1] },
-    operationType: { value: "未定（実証実験）", refs: [1] },
+    operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
       { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "自動運転システムの実験事例：愛知県知多半島", url: "https://www.as-mobi.com/case/", date: "2024-01-01", source: "先進モビリティ株式会社" }
+      { id: 1, title: "実験事例：愛知県 知多半島", url: "https://www.as-mobi.com/case/", date: "2025-12-05", source: "先進モビリティ株式会社" }
     ]
   },
   {
@@ -528,18 +528,18 @@ const EXPERIMENTS = [
     period: { value: "2025年11月14日〜12月14日", refs: [1] },
     status: { value: "完了", refs: [1] },
     description: {
-      value: "住民の利便性向上と観光振興の両立を目的に実施。日中は中心市街地と高齢化が進む由良地区、夜間は温泉街と市街地を結ぶ2ルートで自動運転バスを試験運行。",
+      value: "兵庫県洲本市で2025年11月14日〜12月14日に実施。住民利便性向上と観光振興の両立を目的に、日中は中心市街地〜由良地区、夜間は温泉街〜市街地の2ルートで自動運転移動サービスを検証した。",
       refs: [1]
     },
     vehicle: { value: "詳細不明", refs: [1] },
     adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "洲本市中心市街地〜由良地区（日中）、温泉街〜市街地（夜間）の2ルート", refs: [1] },
-    operationType: { value: "未定（実証実験）", refs: [1] },
+    operationType: { value: "レベル2（実証実験）", refs: [1] },
     stakeholders: [
       { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "自動運転システムの実験事例：兵庫県洲本市", url: "https://www.as-mobi.com/case/", date: "2024-01-01", source: "先進モビリティ株式会社" }
+      { id: 1, title: "実験事例：兵庫県 洲本市", url: "https://www.as-mobi.com/case/", date: "2025-12-14", source: "先進モビリティ株式会社" }
     ]
   },
   {
@@ -689,25 +689,26 @@ const EXPERIMENTS = [
   },
   {
     id: "exp-026",
-    name: { value: "気仙沼線BRT 自動運転バス実用化（宮城県）", refs: [1] },
-    location: { value: "宮城県本吉郡南三陸町・登米市", lat: 38.650, lng: 141.450, refs: [1] },
-    prefecture: { value: "宮城県", refs: [1] },
-    period: { value: "2022年12月〜運行中", refs: [1] },
-    status: { value: "実施中", refs: [1] },
+    name: { value: "気仙沼線BRT 自動運転バス実用化（宮城県）", refs: [1, 2] },
+    location: { value: "宮城県本吉郡南三陸町・登米市", lat: 38.650, lng: 141.450, refs: [1, 2] },
+    prefecture: { value: "宮城県", refs: [1, 2] },
+    period: { value: "2022年12月〜運行中（2018年度から技術実証）", refs: [1, 2] },
+    status: { value: "実施中", refs: [1, 2] },
     description: {
-      value: "気仙沼線BRTの専用道において、磁気マーカーなどを活用し、ドライバーが乗務する形での自動運転を実用化。将来のレベル4（最高時速60km）認可も取得済み。",
-      refs: [1]
+      value: "JR東日本管内の気仙沼線BRTで、先進モビリティの自動運転システムを搭載した大型ハイブリッドバスにより、柳津〜陸前横山間の専用道で走行。2018年度からの実証を経て2022年12月に実用化し、将来のレベル4運行に向けた運用を継続している。",
+      refs: [1, 2]
     },
     vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "先進モビリティ", refs: [] },
-    route: { value: "気仙沼線BRT 柳津駅～陸前横山駅間（片道約4.8kmの専用道）", refs: [1] },
-    operationType: { value: "レベル2（実用化済み）、将来レベル4予定", refs: [1] },
+    adSystem: { value: "先進モビリティ", refs: [2] },
+    route: { value: "気仙沼線BRT 柳津駅〜陸前横山駅間（片道約4.8kmの専用道）", refs: [1, 2] },
+    operationType: { value: "レベル2（実用化済み）、将来レベル4予定", refs: [1, 2] },
     stakeholders: [
       { role: "運行主体", name: "東日本旅客鉄道株式会社（JR東日本）", refs: [1] },
-      { role: "システム", name: "先進モビリティ株式会社", refs: [1] }
+      { role: "システム", name: "先進モビリティ株式会社", refs: [1, 2] }
     ],
     references: [
-      { id: 1, title: "気仙沼BRT｜RoAD to the L4（気仙沼線BRT自動運転事例）", url: "https://www.road-to-the-l4.go.jp/case/memoirs/9311/", date: "2023-03-02", source: "国交省 RoAD to the L4" }
+      { id: 1, title: "気仙沼BRT｜RoAD to the L4（気仙沼線BRT自動運転事例）", url: "https://www.road-to-the-l4.go.jp/case/memoirs/9311/", date: "2023-03-02", source: "国交省 RoAD to the L4" },
+      { id: 2, title: "実験事例：JR東日本 気仙沼線BRT", url: "https://www.as-mobi.com/case/", date: "2026-03-29", source: "先進モビリティ株式会社" }
     ]
   },
   {
@@ -2045,7 +2046,7 @@ const EXPERIMENTS = [
     period: { value: "2020年度〜（路車協調実証継続中、FY24: 2024年11月1日〜12月18日）", refs: [1] },
     status: { value: "実施中", refs: [1] },
     description: {
-      value: "令和2年度から神姫バスと連携し、ウッディタウン地区で路車協調自動運転実証を継続。路側センサーが後続車接近を検知し自動運転バスへ伝達する技術を検証。将来的なレベル4実装を目指す。",
+      value: "2020年・2022年・2023年の実証を経て、令和2年度から神姫バスと連携した路車協調型の自動運転検証を継続。ウッディタウン地区で、磁気マーカー・ターゲットラインペイント・信号連携・スマートポールなどインフラ協調技術を検証し、将来的なレベル4実装を目指す。",
       refs: [1]
     },
     vehicle: { value: "いすゞ エルガミオ", refs: [1] },
@@ -2435,25 +2436,26 @@ const EXPERIMENTS = [
   },
   {
     id: "exp-109",
-    name: { value: "中部国際空港 常時運行に向けた空港内・周辺実証", refs: [1] },
-    location: { value: "愛知県常滑市（中部国際空港周辺）", lat: 34.862, lng: 136.812, refs: [1] },
-    prefecture: { value: "愛知県", refs: [1] },
-    period: { value: "2022年〜継続中", refs: [1] },
-    status: { value: "実施中", refs: [1] },
+    name: { value: "中部国際空港 常時運行に向けた空港内・周辺実証", refs: [1, 2] },
+    location: { value: "愛知県常滑市（中部国際空港周辺）", lat: 34.862, lng: 136.812, refs: [1, 2] },
+    prefecture: { value: "愛知県", refs: [1, 2] },
+    period: { value: "2022年〜継続中（2024年度実証含む）", refs: [1, 2] },
+    status: { value: "実施中", refs: [1, 2] },
     description: {
-      value: "空港アクセス向上と空港内作業の自動化を目指し、制限区域および空港島内一般道での実証を複数回実施。特に、大型・中型バスによる多人数輸送における、GNSSが届きにくいエリアでの精度検証を行っている。",
-      refs: [1]
+      value: "空港アクセス向上と空港内作業の自動化を目指し、制限区域および空港島内一般道での実証を継続。2024年度は愛知県発表の空港島・周辺地域実証を実施。2021年10月29日〜11月3日に行われた空港島制限区域と総合物流地区の2台同時運行実証とは別フェーズの継続案件として整理する。",
+      refs: [1, 2]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "先進モビリティ", refs: [1] },
-    route: { value: "中部国際空港内および空港島周辺", refs: [1] },
-    operationType: { value: "レベル2〜（段階的実証）", refs: [1] },
+    vehicle: { value: "詳細不明", refs: [1, 2] },
+    adSystem: { value: "先進モビリティ", refs: [1, 2] },
+    route: { value: "中部国際空港内および空港島周辺", refs: [1, 2] },
+    operationType: { value: "レベル2〜（段階的実証）", refs: [1, 2] },
     stakeholders: [
-      { role: "支援", name: "愛知県", refs: [1] },
-      { role: "システム", name: "先進モビリティ株式会社", refs: [1] }
+      { role: "支援", name: "愛知県", refs: [1, 2] },
+      { role: "システム", name: "先進モビリティ株式会社", refs: [1, 2] }
     ],
     references: [
-      { id: 1, title: "常滑市中部国際空港島及び周辺地域において自動運転実証実験を実施します（2024年度）", url: "https://www.pref.aichi.jp/press-release/jidounten/tokoname-2024.html", date: "2024-07-01", source: "愛知県" }
+      { id: 1, title: "常滑市中部国際空港島及び周辺地域において自動運転実証実験を実施します（2024年度）", url: "https://www.pref.aichi.jp/press-release/jidounten/tokoname-2024.html", date: "2024-07-01", source: "愛知県" },
+      { id: 2, title: "実験事例：中部国際空港（愛知県常滑市）", url: "https://www.as-mobi.com/case/", date: "2026-03-29", source: "先進モビリティ株式会社" }
     ]
   },
   {
@@ -4883,6 +4885,467 @@ const EXPERIMENTS = [
     ],
     references: [
       { id: 1, title: "伊予市双海地域で新型自動運転EV「MiCa」の実証運行を開始", url: "https://prtimes.jp/main/html/rd/p/000000061.000084523.html", date: "2024-01-31", source: "BOLDLY株式会社（PR TIMES）" }
+    ]
+  },
+  {
+    id: "exp-216",
+    name: { value: "呉市 自動運転バス走行実験（次世代モビリティ導入）", refs: [1, 2] },
+    location: { value: "広島県呉市（呉市役所〜呉駅周辺）", lat: 34.248, lng: 132.565, refs: [1] },
+    prefecture: { value: "広島県", refs: [1] },
+    period: { value: "2021年1月22日〜1月24日", refs: [1, 2] },
+    status: { value: "完了", refs: [1, 2] },
+    description: {
+      value: "呉市が「次世代モビリティ導入に向けた交通社会実験」の一環として実施した自動運転バス走行実験。先進モビリティ掲載では、呉市役所〜呉駅周回ルートでの公道走行社会実験として紹介されている。",
+      refs: [1, 2]
+    },
+    vehicle: { value: "詳細不明", refs: [2] },
+    adSystem: { value: "先進モビリティ", refs: [2] },
+    route: { value: "呉市役所〜呉駅の周回ルート", refs: [1, 2] },
+    operationType: { value: "レベル2（公道走行社会実験）", refs: [1, 2] },
+    stakeholders: [
+      { role: "自治体", name: "呉市（広島県）", refs: [1] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [2] }
+    ],
+    references: [
+      { id: 1, title: "くれワンダーランド構想（自動運転バス走行実験）", url: "https://www.city.kure.lg.jp/site/wonderland/index.html", date: "2021-01-24", source: "呉市" },
+      { id: 2, title: "実験事例：広島県 呉市", url: "https://www.as-mobi.com/case/", date: "2026-03-29", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-217",
+    name: { value: "江の島周辺 観光地公道 自動運転バス実証", refs: [1] },
+    location: { value: "神奈川県藤沢市（江の島周辺）", lat: 35.299, lng: 139.481, refs: [1] },
+    prefecture: { value: "神奈川県", refs: [1] },
+    period: { value: "2018年9月", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "小田急電鉄・江ノ島電鉄・神奈川県・SBドライブの協力のもと、江の島周辺の公道で実施された実証。先進モビリティ掲載では、人の往来が多い観光地での実証として紹介されている。",
+      refs: [1]
+    },
+    vehicle: { value: "詳細不明", refs: [1] },
+    adSystem: { value: "先進モビリティ", refs: [1] },
+    route: { value: "江の島周辺の一般公道", refs: [1] },
+    operationType: { value: "レベル2（観光地公道実証）", refs: [1] },
+    stakeholders: [
+      { role: "協力機関", name: "小田急電鉄株式会社、神奈川県、SBドライブ株式会社（現BOLDLY株式会社）", refs: [1] },
+      { role: "協力機関", name: "江ノ島電鉄株式会社", refs: [1] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "実験事例：神奈川県（江の島）", url: "https://www.as-mobi.com/case/", date: "2018-09-06", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-218",
+    name: { value: "福岡空港 ITSフォーラム 自動運転バスデモ（2018）", refs: [1, 2] },
+    location: { value: "福岡県福岡市（福岡空港）", lat: 33.585, lng: 130.451, refs: [1, 2] },
+    prefecture: { value: "福岡県", refs: [1, 2] },
+    period: { value: "2018年5月", refs: [1, 2] },
+    status: { value: "完了", refs: [1, 2] },
+    description: {
+      value: "第16回アジア太平洋地域ITSフォーラム2018福岡の一環として、福岡空港で実施された自動運転バスデモンストレーション。先進モビリティ掲載案件として整理。",
+      refs: [1, 2]
+    },
+    vehicle: { value: "詳細不明", refs: [1, 2] },
+    adSystem: { value: "先進モビリティ", refs: [1] },
+    route: { value: "福岡空港内デモルート（ITSAP関連）", refs: [1, 2] },
+    operationType: { value: "デモンストレーション（イベント実証）", refs: [1, 2] },
+    stakeholders: [
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] },
+      { role: "協力機関", name: "アジア太平洋地域ITSフォーラム2018福岡実行委員会", refs: [2] }
+    ],
+    references: [
+      { id: 1, title: "実験事例：福岡県（福岡空港 ITSAP）", url: "https://www.as-mobi.com/case/", date: "2018-05-01", source: "先進モビリティ株式会社" },
+      { id: 2, title: "福岡市の公道で自動走行デモンストレーションを実施", url: "https://www.nttdata.com/global/ja/news/services_info/2018/050801", date: "2018-05-08", source: "NTTデータ" }
+    ]
+  },
+  {
+    id: "exp-219",
+    name: { value: "栃木市 道の駅にしかた 自動運転サービス実証（2017）", refs: [1, 2] },
+    location: { value: "栃木県栃木市（道の駅にしかた）", lat: 36.398, lng: 139.692, refs: [1] },
+    prefecture: { value: "栃木県", refs: [1] },
+    period: { value: "2017年9月2日〜9月9日", refs: [1, 2] },
+    status: { value: "完了", refs: [1, 2] },
+    description: {
+      value: "国土交通省の「道の駅等を拠点とした自動運転サービス実証実験」で、全国最初の実験開始式を2017年9月2日に実施。道の駅にしかたを拠点に、モニター試乗を伴う実証を実施した。",
+      refs: [1, 2]
+    },
+    vehicle: { value: "詳細不明", refs: [1] },
+    adSystem: { value: "不明", refs: [1] },
+    route: { value: "道の駅にしかた周辺（道の駅〜市役所支所前等）", refs: [1] },
+    operationType: { value: "実証実験（道の駅拠点サービス）", refs: [1, 2] },
+    stakeholders: [
+      { role: "実証主体", name: "道の駅「にしかた」を拠点とした自動運転サービス地域実験協議会", refs: [1] },
+      { role: "自治体", name: "栃木市（栃木県）", refs: [1] },
+      { role: "支援", name: "国土交通省", refs: [1, 2] }
+    ],
+    references: [
+      { id: 1, title: "道の駅「にしかた」における自動運転サービス実証実験", url: "https://www.ktr.mlit.go.jp/road/chiiki/road_chiiki00000127.html", date: "2017-09-02", source: "国土交通省 関東地方整備局" },
+      { id: 2, title: "実験事例：栃木県（道の駅にしかた）", url: "https://www.as-mobi.com/case/", date: "2017-09-02", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-220",
+    name: { value: "沖縄SIPバス自動運転実証（南城市・石垣市・宜野湾市・北中城村）", refs: [1, 2] },
+    location: { value: "沖縄県（南城市・石垣市・宜野湾市・北中城村）", lat: 26.247, lng: 127.756, refs: [1, 2] },
+    prefecture: { value: "沖縄県", refs: [1, 2] },
+    period: { value: "2017年3月〜12月", refs: [1, 2] },
+    status: { value: "完了", refs: [1, 2] },
+    description: {
+      value: "SIP「自動走行システム」の沖縄実証として、2017年に南城市（3〜4月）・石垣市（6〜7月）・宜野湾市/北中城村（10〜12月）で段階的に実施されたバス自動運転実証。先進モビリティの実験事例掲載内容を主根拠に整理。",
+      refs: [1, 2]
+    },
+    vehicle: { value: "詳細不明", refs: [1, 2] },
+    adSystem: { value: "先進モビリティ", refs: [2] },
+    route: { value: "各地域の一般公道実証ルート（地域別に設定）", refs: [1, 2] },
+    operationType: { value: "レベル2（SIP公道実証）", refs: [1, 2] },
+    stakeholders: [
+      { role: "支援", name: "内閣府SIP自動運転推進委員会", refs: [1] },
+      { role: "自治体", name: "南城市（沖縄県）", refs: [2] },
+      { role: "自治体", name: "沖縄県", refs: [1, 2] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [2] }
+    ],
+    references: [
+      { id: 1, title: "沖縄における自動運転バスの実証実験の実施について", url: "https://www8.cao.go.jp/cstp/stmain/20190108adus_okinawa.html", date: "2019-01-08", source: "内閣府" },
+      { id: 2, title: "実験事例：沖縄県（南城市・石垣市・宜野湾市）", url: "https://www.as-mobi.com/case/", date: "2017-12-31", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-221",
+    name: { value: "羽田空港 制限区域内 自動運転バス実証（2019年1月）", refs: [1, 2] },
+    location: { value: "東京都大田区（羽田空港 制限区域）", lat: 35.549, lng: 139.779, refs: [1] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2019年1月15日〜1月25日", refs: [1, 2] },
+    status: { value: "完了", refs: [1, 2] },
+    description: {
+      value: "愛知製鋼・SBドライブ・先進モビリティ・全日本空輸・NIPPO・日本電気の6社連携で実施された、羽田空港制限区域内の自動運転バス実証。乗客・乗員輸送を想定した空港制限区域実証として実施された。",
+      refs: [1, 2]
+    },
+    vehicle: { value: "詳細不明", refs: [1, 2] },
+    adSystem: { value: "先進モビリティ", refs: [2] },
+    route: { value: "羽田空港 制限区域内 実証ルート", refs: [1, 2] },
+    operationType: { value: "レベル2（制限区域内実証）", refs: [1, 2] },
+    stakeholders: [
+      { role: "参画企業", name: "SBドライブ株式会社（現BOLDLY株式会社）、先進モビリティ株式会社、全日本空輸株式会社、日本電気株式会社（NEC）", refs: [1, 2] },
+      { role: "参画企業", name: "愛知製鋼株式会社、株式会社NIPPO", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "羽田空港の制限区域内で実施中の自動運転バスの実証実験", url: "https://travel.watch.impress.co.jp/docs/news/1165899.html", date: "2019-01-23", source: "トラベル Watch" },
+      { id: 2, title: "実験事例：羽田空港（制限区域）", url: "https://www.as-mobi.com/case/", date: "2019-01-25", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-222",
+    name: { value: "羽田空港 制限区域内 大型電気自動運転バス試験運用（2021年2月）", refs: [1, 2] },
+    location: { value: "東京都大田区（羽田空港 制限区域）", lat: 35.549, lng: 139.779, refs: [1] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2021年2月1日〜2月12日", refs: [1, 2] },
+    status: { value: "完了", refs: [1, 2] },
+    description: {
+      value: "羽田空港制限区域内で実施された従業員移動向けの大型電気自動運転バス試験運用。先進モビリティ掲載ではレベル3相当走行の事例として紹介され、2019年実証に続く運用フェーズの検証案件。",
+      refs: [1, 2]
+    },
+    vehicle: { value: "詳細不明", refs: [1, 2] },
+    adSystem: { value: "先進モビリティ", refs: [2] },
+    route: { value: "羽田空港 制限区域内 循環ルート", refs: [1, 2] },
+    operationType: { value: "レベル3相当（試験運用）", refs: [1, 2] },
+    stakeholders: [
+      { role: "参画企業", name: "全日本空輸株式会社、BOLDLY株式会社、先進モビリティ株式会社", refs: [1, 2] },
+      { role: "参画企業", name: "ビーワイディージャパン株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "ANA、羽田空港で自動運転バスを試験運用", url: "https://www.traicy.com/posts/20210201197484/", date: "2021-02-01", source: "TRAICY" },
+      { id: 2, title: "実験事例：羽田空港（制限区域）", url: "https://www.as-mobi.com/case/", date: "2021-02-12", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-223",
+    name: { value: "中部国際空港島 制限区域・物流地区 2台同時運行実証（2021）", refs: [1, 2] },
+    location: { value: "愛知県常滑市（中部国際空港島）", lat: 34.862, lng: 136.812, refs: [1, 2] },
+    prefecture: { value: "愛知県", refs: [1, 2] },
+    period: { value: "2021年10月29日〜11月3日", refs: [1, 2] },
+    status: { value: "完了", refs: [1, 2] },
+    description: {
+      value: "中部国際空港島で実施された自動運転社会実装モデル構築事業。空港内制限区域と総合物流地区で2台の自動運転バスを同時運行し、一部区間で運転席無人運行を検証。2020年度実証（exp-212）や2024年度継続実証（exp-109）とは別案件として整理。",
+      refs: [1, 2]
+    },
+    vehicle: { value: "詳細不明", refs: [1, 2] },
+    adSystem: { value: "先進モビリティ", refs: [2] },
+    route: { value: "中部国際空港島 制限区域・総合物流地区の周回ルート", refs: [1, 2] },
+    operationType: { value: "レベル2（一部区間運転席無人の実証）", refs: [1, 2] },
+    stakeholders: [
+      { role: "支援", name: "愛知県", refs: [1] },
+      { role: "システム", name: "先進モビリティ株式会社", refs: [2] }
+    ],
+    references: [
+      { id: 1, title: "中部国際空港で自動運転バスの実証実験へ", url: "https://response.jp/article/2021/10/19/350517.html", date: "2021-10-19", source: "Response" },
+      { id: 2, title: "実験事例：中部国際空港（愛知県常滑市）", url: "https://www.as-mobi.com/case/", date: "2021-11-03", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-224",
+    name: { value: "新東名高速道路 トラック隊列走行公道実証（2019-2020）", refs: [1, 2] },
+    location: { value: "静岡県（新東名高速道路 浜松いなさIC〜長泉沼津IC）", lat: 35.088, lng: 138.078, refs: [1] },
+    prefecture: { value: "静岡県", refs: [1] },
+    period: { value: "2019年6月25日〜2020年2月28日", refs: [1, 2] },
+    status: { value: "完了", refs: [1, 2] },
+    description: {
+      value: "国土交通省・経済産業省の事業として、新東名で実施されたトラック隊列走行の公道実証。後続車無人システム（後続車有人状態）を含む複数編成で、夜間・トンネルを含む長距離走行条件で技術検証を実施した。",
+      refs: [1, 2]
+    },
+    vehicle: { value: "詳細不明", refs: [1] },
+    adSystem: { value: "不明", refs: [1] },
+    route: { value: "新東名高速道路 浜松いなさIC〜長泉沼津IC", refs: [1] },
+    operationType: { value: "後続車無人システム（後続車有人状態）を含む隊列走行実証", refs: [1, 2] },
+    stakeholders: [
+      { role: "実証主体", name: "国土交通省、経済産業省", refs: [1] },
+      { role: "事業主体", name: "豊田通商株式会社", refs: [2] }
+    ],
+    references: [
+      { id: 1, title: "高速道路におけるトラック隊列走行の公道実証を実施します", url: "https://www.mlit.go.jp/report/press/jidosha07_hh_000306.html", date: "2019-06-07", source: "国土交通省" },
+      { id: 2, title: "実験事例：トラック隊列走行", url: "https://www.as-mobi.com/case/", date: "2020-02-28", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-225",
+    name: { value: "新東名高速道路 トラック後続車無人隊列走行実現（2021）", refs: [1, 2] },
+    location: { value: "静岡県（新東名高速道路 遠州森町PA〜浜松SA）", lat: 34.870, lng: 137.911, refs: [1] },
+    prefecture: { value: "静岡県", refs: [1] },
+    period: { value: "2021年2月22日（公道実証）", refs: [1, 2] },
+    status: { value: "完了", refs: [1, 2] },
+    description: {
+      value: "新東名高速道路の遠州森町PA〜浜松SA間で、後続車運転席を無人とした状態の隊列走行技術を実現。3台編成・時速80km・車間約9mで走行し、後続車助手席に保安要員を配置して検証した。",
+      refs: [1, 2]
+    },
+    vehicle: { value: "詳細不明", refs: [1] },
+    adSystem: { value: "不明", refs: [1] },
+    route: { value: "新東名高速道路 遠州森町PA〜浜松SA（約15km）", refs: [1] },
+    operationType: { value: "後続車無人隊列走行（保安要員同乗）", refs: [1, 2] },
+    stakeholders: [
+      { role: "実証主体", name: "国土交通省、経済産業省", refs: [1] },
+      { role: "事業主体", name: "豊田通商株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "高速道路におけるトラックの後続車無人隊列走行技術を実現しました", url: "https://www.mlit.go.jp/report/press/jidosha07_hh_000362.html", date: "2021-03-05", source: "国土交通省" },
+      { id: 2, title: "実験事例：トラック隊列走行", url: "https://www.as-mobi.com/case/", date: "2021-02-22", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-226",
+    name: { value: "横浜市栄区 中型自動運転バス実証（2021）", refs: [1, 2] },
+    location: { value: "神奈川県横浜市栄区", lat: 35.363, lng: 139.551, refs: [1] },
+    prefecture: { value: "神奈川県", refs: [1] },
+    period: { value: "2021年2月9日〜3月5日", refs: [1, 2] },
+    status: { value: "完了", refs: [1, 2] },
+    description: {
+      value: "横浜市栄区で実施された中型自動運転バス実証。先進モビリティ掲載の2021年実証で、2026年のズーラシア路線実証（exp-121）とは別案件。",
+      refs: [1, 2]
+    },
+    vehicle: { value: "詳細不明", refs: [1, 2] },
+    adSystem: { value: "先進モビリティ", refs: [2] },
+    route: { value: "横浜市栄区内 実証ルート", refs: [2] },
+    operationType: { value: "レベル2（中型バス実証）", refs: [1, 2] },
+    stakeholders: [
+      { role: "運行主体", name: "神奈川中央交通株式会社", refs: [1] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [2] }
+    ],
+    references: [
+      { id: 1, title: "神奈中 中型自動運転バス実証実験（2021年2月9日〜3月5日）", url: "https://www.youtube.com/watch?v=3Xp3VJTdPKY", date: "2021-03-04", source: "バスグラフィックTV" },
+      { id: 2, title: "実験事例：神奈川県 横浜市", url: "https://www.as-mobi.com/case/", date: "2021-03-05", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-227",
+    name: { value: "飯能市 中型バス5社共同 自動運転実証（2023）", refs: [1, 2] },
+    location: { value: "埼玉県飯能市（飯能駅南口〜美杉台ニュータウン）", lat: 35.851, lng: 139.327, refs: [1] },
+    prefecture: { value: "埼玉県", refs: [1] },
+    period: { value: "2023年7月", refs: [1, 2] },
+    status: { value: "完了", refs: [1, 2] },
+    description: {
+      value: "西武バス・先進モビリティ・日本ペイント・NEC・NECネクサソリューションズの5社共同で実施された中型バス実証。2021年の日本モビリティ案件（exp-203）とは別の共同実証として整理。",
+      refs: [1, 2]
+    },
+    vehicle: { value: "詳細不明", refs: [1, 2] },
+    adSystem: { value: "先進モビリティ", refs: [1, 2] },
+    route: { value: "飯能駅南口〜美杉台ニュータウン（西武バス路線）", refs: [1, 2] },
+    operationType: { value: "レベル2（共同実証）", refs: [1, 2] },
+    stakeholders: [
+      { role: "運行主体", name: "西武バス株式会社", refs: [1] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1, 2] },
+      { role: "協力機関", name: "日本電気株式会社（NEC）、NECネクサソリューションズ株式会社、日本ペイント・インダストリアルコーティングス株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "NEC、自動運転技術早期社会実装を目指した自動運転実証実験を5社共同で実施", url: "https://motor-fan.jp/article/34731/", date: "2023-07-13", source: "Motor-Fan" },
+      { id: 2, title: "実験事例：埼玉県 飯能市", url: "https://www.as-mobi.com/case/", date: "2023-07-31", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-228",
+    name: { value: "臨海副都心DIC 次世代モビリティまち体験 自動運転EVバス（2023）", refs: [1, 2] },
+    location: { value: "東京都江東区（臨海副都心・お台場）", lat: 35.629, lng: 139.779, refs: [1] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2023年1月18日〜1月29日", refs: [2] },
+    status: { value: "完了", refs: [1, 2] },
+    description: {
+      value: "東京都とDIC協議会が主催した「未来を乗りにおいでよ。次世代モビリティのまち体験」における自動運転EVバス走行。先進モビリティ掲載案件で、MONETの2024-2025公道実証（exp-209）とは別イベント実証。",
+      refs: [1, 2]
+    },
+    vehicle: { value: "詳細不明", refs: [1, 2] },
+    adSystem: { value: "先進モビリティ", refs: [1] },
+    route: { value: "臨海副都心（お台場）イベントルート", refs: [1, 2] },
+    operationType: { value: "イベント実証（体験運行）", refs: [1, 2] },
+    stakeholders: [
+      { role: "実証主体", name: "東京都", refs: [1, 2] },
+      { role: "実証主体", name: "Digital Innovation City協議会", refs: [1, 2] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "実験事例：お台場", url: "https://www.as-mobi.com/case/", date: "2023-01-29", source: "先進モビリティ株式会社" },
+      { id: 2, title: "臨海副都心での自動運転体験イベント（未来を乗りにおいでよ）", url: "https://prtimes.jp/main/html/rd/p/000000154.000027749.html", date: "2023-01-06", source: "WILLER株式会社（PR TIMES）" }
+    ]
+  },
+  {
+    id: "exp-229",
+    name: { value: "大津市 中型自動運転バス実証（2020年7月）", refs: [1, 2] },
+    location: { value: "滋賀県大津市", lat: 35.017, lng: 135.854, refs: [1] },
+    prefecture: { value: "滋賀県", refs: [1] },
+    period: { value: "2020年7月", refs: [1, 2] },
+    status: { value: "完了", refs: [1, 2] },
+    description: {
+      value: "産総研が受託した「専用空間における自動走行などを活用した端末交通システムの社会実装に向けた実証」関連で、大津市において実施された中型自動運転バス実証。2022-2023年の大津市案件（exp-081）とは別案件。",
+      refs: [1, 2]
+    },
+    vehicle: { value: "詳細不明", refs: [1, 2] },
+    adSystem: { value: "先進モビリティ", refs: [1] },
+    route: { value: "大津市内 実証ルート", refs: [1] },
+    operationType: { value: "レベル2（中型バス実証）", refs: [1, 2] },
+    stakeholders: [
+      { role: "自治体", name: "大津市（滋賀県）", refs: [1] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] },
+      { role: "支援", name: "国立研究開発法人 産業技術総合研究所（産総研）", refs: [2] }
+    ],
+    references: [
+      { id: 1, title: "実験事例：滋賀県 大津市", url: "https://www.as-mobi.com/case/", date: "2020-07-31", source: "先進モビリティ株式会社" },
+      { id: 2, title: "中型自動運転バスによる実証実験の開始", url: "https://www.aist.go.jp/aist_j/news/au20200710.html", date: "2020-07-10", source: "産業技術総合研究所" }
+    ]
+  },
+  {
+    id: "exp-230",
+    name: { value: "幕張新都心 ロボタク事業実証（MoveEz）", refs: [1] },
+    location: { value: "千葉県千葉市美浜区（幕張新都心）", lat: 35.648, lng: 140.039, refs: [1] },
+    prefecture: { value: "千葉県", refs: [1] },
+    period: { value: "2025年2月（2025年4月公表）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "MoveEzが幕張新都心で実施したロボタク実証。経済産業省「令和5年度補正 モビリティDX促進のための無人自動運転開発・実証支援事業」の枠組みで、配車アプリを利用した一般利用者向けサービス実証を行った。",
+      refs: [1]
+    },
+    vehicle: { value: "詳細不明", refs: [1] },
+    adSystem: { value: "MoveEz（マップレス自動運転）", refs: [1] },
+    route: { value: "幕張新都心エリア（詳細非公開）", refs: [1] },
+    operationType: { value: "配車アプリ連携の公道実証", refs: [1] },
+    stakeholders: [
+      { role: "実施主体", name: "株式会社ムービーズ（MoveEz）", refs: [1] },
+      { role: "支援事業", name: "経済産業省（モビリティDX補助事業）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "千葉県幕張新都心にてロボタク事業の実証実験を実施しました", url: "https://moveez-inc.com/2025/04/page331/", date: "2025-04-30", source: "株式会社ムービーズ" }
+    ]
+  },
+  {
+    id: "exp-231",
+    name: { value: "上士幌町 ロボタク運行実証（MoveEz、100kmエリア）", refs: [1] },
+    location: { value: "北海道上士幌町（市街地〜農村部・山間部）", lat: 43.213, lng: 143.387, refs: [1] },
+    prefecture: { value: "北海道", refs: [1] },
+    period: { value: "2025年10月〜（同年開始の運行実証）", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "MoveEzが上士幌町で開始した住民向けロボタク運行実証。一般道で総延長100km（往復含む）を対象に、マップレス技術を用いて短期間で運行体制を構築し、一般道60km/h走行を含む実証を実施した。",
+      refs: [1]
+    },
+    vehicle: { value: "詳細不明", refs: [1] },
+    adSystem: { value: "MoveEz（マップレス・全天候型）", refs: [1] },
+    route: { value: "市街地と農村部・山間部を結ぶ総延長100kmエリア", refs: [1] },
+    operationType: { value: "住民向けロボタク運行実証（一般道、最高60km/hを含む）", refs: [1] },
+    stakeholders: [
+      { role: "実施主体", name: "株式会社ムービーズ（MoveEz）", refs: [1] },
+      { role: "自治体協力", name: "上士幌町（北海道）", refs: [1] },
+      { role: "支援事業", name: "国土交通省（地域公共交通確保維持改善事業費補助金）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "ムービーズ、日本最長・最速のロボタク運行実証実験を北海道上士幌町で開始。", url: "https://moveez-inc.com/2025/10/page348/", date: "2025-10-02", source: "株式会社ムービーズ" }
+    ]
+  },
+  {
+    id: "exp-232",
+    name: { value: "上士幌町 雪道ロボタク自律走行実証（MoveEz）", refs: [1] },
+    location: { value: "北海道上士幌町（積雪・凍結を含む一般道）", lat: 43.213, lng: 143.387, refs: [1] },
+    prefecture: { value: "北海道", refs: [1] },
+    period: { value: "2026年1月5日〜1月27日", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "MoveEzが上士幌町で実施した雪道環境での自律型ロボタク実証。総走行距離650km以上、最高速度60km/hの一般道走行を含み、特別な雪道用再マッピングなしで安定走行を検証した。",
+      refs: [1]
+    },
+    vehicle: { value: "トヨタ アルファード（1台）", refs: [1] },
+    adSystem: { value: "MoveEz（マップレス・全天候型制御）", refs: [1] },
+    route: { value: "上士幌町内の積雪・凍結路面を含む実証ルート", refs: [1] },
+    operationType: { value: "自律型ロボタク実証（一般道、最高60km/h）", refs: [1] },
+    stakeholders: [
+      { role: "実施主体", name: "株式会社ムービーズ（MoveEz）", refs: [1] },
+      { role: "自治体協力", name: "上士幌町（北海道）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "上士幌町で、日本初となる公道の雪道における自律型ロボタク実証実験を実施", url: "https://moveez-inc.com/2026/01/page447/", date: "2026-01-27", source: "株式会社ムービーズ" }
+    ]
+  },
+  {
+    id: "exp-233",
+    name: { value: "東京臨海副都心 ロボタク実証（MoveEz・AD-URBAN）", refs: [1] },
+    location: { value: "東京都江東区（臨海副都心）", lat: 35.627, lng: 139.779, refs: [1] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2026年2月〜3月（不定期）", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "MoveEzが金沢大学等と連携して実施する東京臨海副都心でのロボタク実証。経済産業省のAD-URBAN関連事業の一環として、自動運転用地図生成とロボタク運行を担当し、社会実装に向けた検証を行う。",
+      refs: [1]
+    },
+    vehicle: { value: "詳細不明", refs: [1] },
+    adSystem: { value: "MoveEz（マップレス自動運転）", refs: [1] },
+    route: { value: "東京臨海副都心エリア（詳細非公開）", refs: [1] },
+    operationType: { value: "ロボタク公道実証（関係者対象）", refs: [1] },
+    stakeholders: [
+      { role: "実施主体", name: "株式会社ムービーズ（MoveEz）", refs: [1] },
+      { role: "連携機関", name: "国立大学法人金沢大学", refs: [1] },
+      { role: "委託元", name: "経済産業省（AD-URBAN関連事業）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "Autonomous Robot Taxi Startup MoveEz Conducts Field Test in the Tokyo Waterfront City Area", url: "https://moveez-inc.com/en/2026/03/page467/", date: "2026-03-10", source: "MoveEz, inc." }
+    ]
+  },
+  {
+    id: "exp-234",
+    name: { value: "横浜みなとみらい ロボタク×車内エンタメPoC（MoveEz）", refs: [1] },
+    location: { value: "神奈川県横浜市（みなとみらい）", lat: 35.455, lng: 139.636, refs: [1] },
+    prefecture: { value: "神奈川県", refs: [1] },
+    period: { value: "2026年4月3日〜4月5日", refs: [1] },
+    status: { value: "計画中", refs: [1] },
+    description: {
+      value: "MoveEzがS.RIDE、ソニー、ソニー・ミュージックソリューションズと連携して実施する、ロボタクと没入型車内エンターテインメントを組み合わせた実証。みなとみらいでレベル2車両を用い、一般参加者向けの体験型PoCを行う。",
+      refs: [1]
+    },
+    vehicle: { value: "レベル2自動運転実証車両（2台）", refs: [1] },
+    adSystem: { value: "MoveEz", refs: [1] },
+    route: { value: "みなとみらいイベント周辺（Kアリーナ・臨港パーク・赤レンガ倉庫方面）", refs: [1] },
+    operationType: { value: "レベル2（運転者同乗）による一般向け体験型PoC", refs: [1] },
+    stakeholders: [
+      { role: "実施主体", name: "株式会社ムービーズ（MoveEz）", refs: [1] },
+      { role: "共同実施", name: "S.RIDE株式会社", refs: [1] },
+      { role: "共同実施", name: "ソニー株式会社", refs: [1] },
+      { role: "共同実施", name: "株式会社ソニー・ミュージックソリューションズ", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "Autonomous Robot Taxi Startup MoveEz Conducts Field Test in Yokohama Minatomirai Area", url: "https://moveez-inc.com/en/2026/03/page477/", date: "2026-03-23", source: "MoveEz, inc." }
     ]
   }
 ];
