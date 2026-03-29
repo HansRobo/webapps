@@ -206,6 +206,13 @@
       pros: ["可動部なし（完全ソリッドステート）", "高フレームレート", "小型・堅牢", "短距離での高解像度"],
       cons: ["長距離性能が限定的", "コスト高（大型アレイ）", "クロストーク・多重反射の影響"],
     },
+    DIGITAL: {
+      id: "digital", label: "Digital Solid-State", labelJa: "デジタルソリッドステート",
+      icon: "developer_board",
+      descriptionJa: "受発光素子、信号処理、スキャン制御を高度にIC化・SoC化した方式。SPAD-SoCやVCSELなどのデジタル部品を組み合わせ、完全ソリッドステート化と高密度点群を両立する。RoboSenseのE/EMプラットフォームなどに代表される。",
+      pros: ["完全ソリッドステート化しやすい", "高集積で小型化しやすい", "高密度点群と高精度を両立しやすい", "量産時の設計自由度が高い"],
+      cons: ["専用SoC/光学設計が必要", "成熟度は従来方式より新しい", "メーカー独自性が強く一般化しにくい"],
+    },
     FMCW: {
       id: "fmcw", label: "FMCW / 4D LiDAR", labelJa: "FMCW / 4D LiDAR",
       icon: "graphic_eq",
@@ -330,6 +337,13 @@
       eyeSafety: "Class 1 アイセーフ（高出力でも安全）",
       detectorType: "InGaAs APD / Ge-on-Si",
       descriptionJa: "光通信（光ファイバー）で標準的に使われる波長帯。目の網膜に到達する前に角膜・水晶体で吸収されるため、高出力でもアイセーフティ（Class 1）を達成しやすい。高出力化により長距離性能を大幅に向上できる。受光素子にInGaAsが必要でコスト高だが、自動車グレードへの適用が進んでいる。",
+    },
+    NM865: {
+      id: "865nm", label: "865 nm",
+      colorHex: "#f59e0b",
+      eyeSafety: "Class 1 アイセーフ（シリコン受光系と相性が良い）",
+      detectorType: "シリコン APD / SPAD",
+      descriptionJa: "Ouster系のdigital lidarで採用される近赤外波長。シリコン系フォトディテクタで受光でき、量産性とコストのバランスに優れる。905nmよりも短波長側で、カメラグレードの近赤外データ取得に適している。",
     },
     UNKNOWN: {
       id: "unknown", label: "非公開 / 不明",
