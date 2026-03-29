@@ -391,6 +391,7 @@
     TAJIMA_NAO6J: "タジマ NAO-6J",
     TAJIMA_ECOM10: "タジマ eCOM-10",
     E_CITY_L6: "E-City L6",
+    DENA_SMALL_BUS_TYPE: "DeNA小型バスタイプ",
     DELIVERY_ROBOT: "自動配送ロボット",
     LARGE_ROUTE_BUS_GENERIC: "大型路線バス",
     SPECIAL_EQUIPMENT_VEHICLE: "特別装置自動車（ハンドル・ペダルなし）",

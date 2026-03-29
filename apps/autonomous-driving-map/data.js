@@ -557,7 +557,7 @@ const EXPERIMENTS = [
       value: "八丈島スマートモビリティサービス実証事業の一環。東京都・八丈町等が連携し、デジタル技術を活用した島内移動の効率化を目的に、AIデマンドタクシーと組み合わせた自動運転バスの実証を段階的に実施。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
+    vehicle: { value: "日野ポンチョ", refs: [2] },
     adSystem: { value: "先進モビリティ", refs: [] },
     route: { value: "樫立地区〜末吉地区（八丈島内）", refs: [1] },
     operationType: { value: "レベル2（期間限定実証）", refs: [1] },
@@ -569,7 +569,8 @@ const EXPERIMENTS = [
       { role: "事業統括", name: "日本工営株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "八丈島でAIデマンドタクシー・自動運転バスの実証事業を実施", url: "https://www.metro.tokyo.lg.jp/information/press/2025/06/2025062001", date: "2025-06-20", source: "東京都 報道発表資料" }
+      { id: 1, title: "八丈島でAIデマンドタクシー・自動運転バスの実証事業を実施", url: "https://www.metro.tokyo.lg.jp/information/press/2025/06/2025062001", date: "2025-06-20", source: "東京都 報道発表資料" },
+      { id: 2, title: "八丈島スマートモビリティサービス実証事業（自動運転バス）", url: "https://hachijo-mobility-tokyo.jp/autobus.html", date: "2025-07-19", source: "八丈島スマートモビリティサービス実証事業" }
     ]
   },
   {
@@ -726,7 +727,7 @@ const EXPERIMENTS = [
       value: "道の駅「かみこあに」を拠点に、診療所や役場を結ぶルートで自動運転サービスを全国初本格運行。電磁誘導線を利用した雪国対応型で、レベル4移行に向けた実証も継続。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
+    vehicle: { value: "ヤマハ AR-07", refs: [1] },
     adSystem: { value: "ヤマハ発動機", refs: [] },
     route: { value: "道の駅かみこあに〜周辺集落", refs: [1] },
     operationType: { value: "レベル2運行（レベル4検証中）", refs: [1] },
@@ -4976,10 +4977,10 @@ const EXPERIMENTS = [
     period: { value: "2017年9月2日〜9月9日", refs: [1, 2] },
     status: { value: "完了", refs: [1, 2] },
     description: {
-      value: "国土交通省の「道の駅等を拠点とした自動運転サービス実証実験」で、全国最初の実験開始式を2017年9月2日に実施。道の駅にしかたを拠点に、モニター試乗を伴う実証を実施した。",
+      value: "国土交通省の「道の駅等を拠点とした自動運転サービス実証実験」で、全国最初の実験開始式を2017年9月2日に実施。道の駅にしかたを拠点に、モニター試乗を伴う実証を実施した。関東地整ページの実験車両紹介ではDeNA・ヤマハ・先進モビリティ・アイサンテクノロジーの4種類が掲示されるが、当該実証の使用車両として明記されているのはDeNA小型バスタイプ。",
       refs: [1, 2]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
+    vehicle: { value: "DeNA小型バスタイプ", refs: [1] },
     adSystem: { value: "不明", refs: [1] },
     route: { value: "道の駅にしかた周辺（道の駅〜市役所支所前等）", refs: [1] },
     operationType: { value: "実証実験（道の駅拠点サービス）", refs: [1, 2] },
@@ -5368,7 +5369,7 @@ const EXPERIMENTS = [
       value: "軽井沢町・JR東日本・西武ホールディングスが共催する「軽井沢町環境WEEK」の一環として、自動運転EVバスの体験乗車を実施。軽井沢駅北口〜旧軽井沢ロータリー〜軽井沢駅北口の約3km周回ルートで、レベル2運行を検証した。",
       refs: [1]
     },
-    vehicle: { value: "詳細不明", refs: [1] },
+    vehicle: { value: "BYD J6", refs: [1] },
     adSystem: { value: "A-Drive", refs: [1] },
     route: { value: "軽井沢駅北口〜旧軽井沢ロータリー〜軽井沢駅北口（約3km周回）", refs: [1] },
     operationType: { value: "レベル2（体験乗車・予約制）", refs: [1] },
