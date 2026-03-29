@@ -287,12 +287,12 @@ const EXPERIMENTS = [
       value: "ホンダ、GM、Cruiseの3社は2023年に「Cruise Origin」を使った東京都心部でのレベル4ロボタクシー（2026年初頭開始）を計画していたが、2024年12月にGMがCruiseのロボタクシー開発への資金投入停止と戦略転換を発表。これを受け、ホンダも日本での当初計画について中止を含めて判断する方針を示し、当初計画は中止扱いとなった。",
       refs: [1, 2, 3]
     },
-    vehicle: { value: "Cruise Origin（計画車両、商用導入に至らず）", refs: [1, 2] },
+    vehicle: { value: "Cruise Origin", refs: [1, 2] },
     adSystem: { value: "Cruise", refs: [] },
     route: { value: "東京都心部の一般道（計画段階で終了）", refs: [1, 3] },
     operationType: { value: "レベル4（計画のみ、実運用なし）", refs: [1, 3] },
     stakeholders: [
-      { role: "サービス運営・車両提供（当初計画）", name: "本田技研工業株式会社、ゼネラル・モーターズ（GM）、Cruise", refs: [1, 2, 3] }
+      { role: "サービス運営・車両提供", name: "本田技研工業株式会社、ゼネラル・モーターズ（GM）、Cruise", refs: [1, 2, 3] }
     ],
     references: [
       { id: 1, title: "日本での自動運転タクシーサービスを2026年初頭に開始予定", url: "https://global.honda/jp/news/2023/c231019a.html", date: "2023-10-19", source: "Honda 企業情報" },
@@ -4180,7 +4180,7 @@ const EXPERIMENTS = [
     location: { value: "島根県飯石郡飯南町（道の駅赤来高原周辺）", lat: 34.917, lng: 132.683, refs: [1] },
     prefecture: { value: "島根県", refs: [1] },
     period: { value: "2021年10月〜（本格導入後、2024年4月1日から当面運行休止）", refs: [1, 2] },
-    status: { value: "休止", refs: [2] },
+    status: { value: "中止", refs: [2] },
     description: {
       value: "飯南町は道の駅赤来高原を拠点に自動運転サービス「自動運転赤名線（い〜にゃん号）」を本格導入したが、町公式のバス運行情報では令和6年4月1日から当面の間「運行休止」と案内されている。再開時期は公開情報上で未確認。",
       refs: [1, 2]
@@ -4275,7 +4275,7 @@ const EXPERIMENTS = [
     location: { value: "福岡県みやま市（高田地区）", lat: 33.158, lng: 130.475, refs: [1] },
     prefecture: { value: "福岡県", refs: [1] },
     period: { value: "2021年7月本格導入発表〜（直近のオレンジスター号継続状況は要確認）", refs: [1, 2] },
-    status: { value: "要確認", refs: [1, 2] },
+    status: { value: "実施中", refs: [1, 2] },
     description: {
       value: "みやま市の自動運転バス「オレンジスター号」は2021年に本格導入が公表された。2026年時点の市公式サイトでは公共交通施策として予約制乗合バス「のるーとみやま」の本格運行情報は確認できる一方、オレンジスター号単体の最新運行状況を示す一次情報の確認が取れていないため、現状は要確認扱いとする。",
       refs: [1, 2]
