@@ -452,26 +452,29 @@ const EXPERIMENTS = [
   },
   {
     id: "exp-016",
-    name: { value: "塩尻市 自動運転バス実証・社会実装（RoAD to the L4）", refs: [1] },
+    name: { value: "塩尻市 自動運転バス実証・社会実装（RoAD to the L4）", refs: [1, 2, 3, 4] },
     location: { value: "長野県塩尻市（塩尻駅〜市役所等）", lat: 36.114, lng: 137.953, refs: [1] },
     prefecture: { value: "長野県", refs: [1] },
-    period: { value: "2024年1月〜3月（レベル4実証）／2025年5月〜（レベル2定常運行）", refs: [1] },
-    status: { value: "実施中", refs: [1] },
+    period: { value: "2024年1月〜3月（レベル4実証）／2025年1月（特定自動運行・往路許可）／2025年5月〜（レベル2定常運行）／2026年3月（特定自動運行・往復許可）", refs: [1, 2, 3, 4] },
+    status: { value: "実施中", refs: [1, 3, 4] },
     description: {
-      value: "塩尻駅〜市役所周辺で、一般道の混在空間を対象に自動運転を段階的に導入。2024年にレベル4実証を行い、2025年5月からはレベル2で東西2ルートの定常運行を開始している。",
-      refs: [1]
+      value: "塩尻駅〜市役所周辺で、一般道の混在空間を対象に自動運転を段階的に導入。2024年にレベル4実証を行い、2025年1月に塩尻駅→市役所の往路で特定自動運行許可、2026年3月には往復区間で特定自動運行許可を取得。並行して2025年5月からはレベル2で東西2ルートの定常運行を開始している。",
+      refs: [1, 2, 3, 4]
     },
     vehicle: { value: "BYD J6", refs: [1] },
     adSystem: { value: "ティアフォー", refs: [] },
-    route: { value: "塩尻駅周辺〜市役所方面（東回り・西回り、各約5.5km）", refs: [1] },
-    operationType: { value: "レベル2（定常運行）および レベル4（一般道実証）", refs: [1] },
+    route: { value: "塩尻駅周辺〜市役所方面（東回り・西回り、各約5.5km）", refs: [1, 3, 4] },
+    operationType: { value: "レベル2（定常運行）および レベル4（一般道実証・特定自動運行）", refs: [1, 2, 3, 4] },
     stakeholders: [
-      { role: "事業主体", name: "塩尻市（長野県）、一般財団法人塩尻市振興公社", refs: [1] },
-      { role: "運行受託", name: "アルピコ交通株式会社", refs: [1] },
-      { role: "自動運転システム等", name: "A-Drive、アイサンテクノロジー株式会社、株式会社ティアフォー", refs: [1] }
+      { role: "事業主体", name: "塩尻市（長野県）、一般財団法人塩尻市振興公社", refs: [1, 2, 3, 4] },
+      { role: "運行受託", name: "アルピコ交通株式会社、アルピコタクシー株式会社", refs: [4] },
+      { role: "自動運転システム等", name: "A-Drive、アイサンテクノロジー株式会社、株式会社ティアフォー、損害保険ジャパン株式会社", refs: [1, 4] }
     ],
     references: [
-      { id: 1, title: "各地の取り組み：塩尻市", url: "https://www.road-to-the-l4.go.jp/case/shiojiri/", date: "2025-05-29", source: "RoAD to the L4 プロジェクト" }
+      { id: 1, title: "各地の取り組み：塩尻市", url: "https://www.road-to-the-l4.go.jp/case/shiojiri/", date: "2025-05-29", source: "RoAD to the L4 プロジェクト" },
+      { id: 2, title: "長野県塩尻市で特定自動運行(自動運転レベル4)の許可を取得しました", url: "https://a-drive.jp/2025/01/10/202501shiojiri_level4/", date: "2025-01-10", source: "A-Drive" },
+      { id: 3, title: "【長野県塩尻市】市内中心市街地で自動運転バスの定常運行を開始します", url: "https://a-drive.jp/2025/04/25/202504shiojiri/", date: "2025-04-25", source: "A-Drive" },
+      { id: 4, title: "長野県塩尻市で特定自動運行(自動運転レベル4)の許可を取得 ～塩尻駅から塩尻市役所間において一般向け試乗会を行います～", url: "https://a-drive.jp/2026/03/11/202602shiojiri/", date: "2026-03-11", source: "A-Drive" }
     ]
   },
   {
@@ -1601,7 +1604,7 @@ const EXPERIMENTS = [
       { role: "自治体", name: "長井市（山形県）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "自動運転バスの実証運行を行います！", url: "https://www.city.nagai.yamagata.jp/soshiki/chiikidukuri/101/209/14510.html", date: "2024-12-01", source: "長井市" }
+      { id: 1, title: "山形・長井市で自動運転バスの実証実験を実施「雪に対する課題などを解決し本導入に向けて努めたい」", url: "https://news.livedoor.com/article/detail/28269790/", date: "2025-03-04", source: "ライブドアニュース（マイナビニュース）" }
     ]
   },
   {
@@ -1695,7 +1698,7 @@ const EXPERIMENTS = [
       { role: "事業参画", name: "関越交通株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "渋川市内バス路線において自動運転化に向けた実証運行を行いました。（令和6年度）", url: "https://www.city.shibukawa.lg.jp/kurashi/koutsuu/koukyoukoutsuu/p011853.html", date: "2025-01-16", source: "渋川市" },
+      { id: 1, title: "渋川市において自動運転の実証実験を実施", url: "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2024020102", date: "2024-02-01", source: "日本モビリティ株式会社 リリース" },
       { id: 2, title: "渋川市において自動運転の実証実験を実施", url: "https://www.nichimobi.com/%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1/2024112501", date: "2024-11-25", source: "日本モビリティ株式会社 リリース" }
     ]
   },
@@ -1705,10 +1708,10 @@ const EXPERIMENTS = [
     location: { value: "埼玉県さいたま市", lat: 35.87, lng: 139.61, refs: [1] },
     prefecture: { value: "埼玉県", refs: [1] },
     period: { value: "2024年〜（実証継続中）", refs: [1] },
-    status: { value: "実施中", refs: [1] },
+    status: { value: "実施中", refs: [1, 3, 4] },
     description: {
-      value: "大型バスを用いた自動運転実証を路線バス（北浦03系統）において継続。運転士不足への対応と安全性向上を検証。",
-      refs: [1]
+      value: "大型バスを用いた自動運転実証を路線バス（北浦03系統）において継続。運転士不足への対応と安全性向上を検証。2025年11月には法定点検未実施に伴う運行中断が公表され、車両運用体制の見直しと再発防止対応が進められた。",
+      refs: [1, 2, 3, 4]
     },
     vehicle: { value: "いすゞ エルガ", refs: [1, 2] },
     adSystem: { value: "ティアフォー", refs: [2] },
@@ -1720,7 +1723,9 @@ const EXPERIMENTS = [
     ],
     references: [
       { id: 1, title: "さいたま市の自動運転バスの取組み", url: "https://www.city.saitama.lg.jp/001/010/018/014/p123358.html", date: "2024-10-01", source: "さいたま市" },
-      { id: 2, title: "令和7年度自動運転バス実証実験", url: "https://www.city.saitama.lg.jp/001/010/018/014/p123359.html", date: "2025-09-29", source: "さいたま市" }
+      { id: 2, title: "令和7年度自動運転バス実証実験", url: "https://www.city.saitama.lg.jp/001/010/018/014/p123359.html", date: "2025-09-29", source: "さいたま市" },
+      { id: 3, title: "さいたま市自動運転バス実証における運行中断について （当社の取り組みと今後の対応）", url: "https://a-drive.jp/2025/11/14/20251113saitama/", date: "2025-11-14", source: "A-Drive" },
+      { id: 4, title: "自動運転バス実証における運行中断について", url: "https://www.city.saitama.lg.jp/006/014/008/003/014/008/p125792.html", date: "2025-11-13", source: "さいたま市" }
     ]
   },
   {
@@ -1913,7 +1918,7 @@ const EXPERIMENTS = [
       { role: "自治体", name: "磐田市（静岡県）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "ヤマハ発動機 磐田市で低速自動運転車両の「最長走行ルート4.2kmの公道実証実験」を開始", url: "https://robotstart.info/2019/06/28/yamaha-iwata-autonomous.html", date: "2019-06-28", source: "ロボスタ" }
+      { id: 1, title: "ヤマハ発動機 磐田市で低速自動運転車両の「最長走行ルート4.2kmの公道実証実験」を開始", url: "https://robotstart.info/article/2019/06/28/159696.html", date: "2019-06-28", source: "ロボスタ" }
     ]
   },
   {
@@ -2759,11 +2764,11 @@ const EXPERIMENTS = [
     name: { value: "横浜市 ズーラシア路線 自動運転バス実証（横浜市・先進モビリティ）", refs: [1] },
     location: { value: "神奈川県横浜市（鶴ヶ峰駅〜よこはま動物園ズーラシア）", lat: 35.474, lng: 139.544, refs: [1] },
     prefecture: { value: "神奈川県", refs: [1] },
-    period: { value: "2026年1月17日〜22日（2024年9月から継続実証）", refs: [1] },
+    period: { value: "2026年1月17日〜22日（2024年9月から継続実証）", refs: [1, 2] },
     status: { value: "完了", refs: [1] },
     description: {
-      value: "総務省「地域デジタル基盤活用推進事業（自動運転レベル4検証タイプ）」採択案件。NTTドコモビジネス代表8社コンソーシアムが実施。ローカル5Gや路側インフラ（スマートポール・路側カメラ）を活用し、GPSが届きにくい場所や交通量の多い交差点での安全な自動運転走行支援・無線リソース最適化による遠隔監視を検証。2026年1月17〜22日に一般試乗（各試乗定員10名、日野ポンチョ2台）を実施。",
-      refs: [1]
+      value: "総務省「地域デジタル基盤活用推進事業（自動運転レベル4検証タイプ）」採択案件。NTTドコモビジネス代表8社コンソーシアムが実施。ローカル5Gや路側インフラ（スマートポール・路側カメラ）を活用し、GPSが届きにくい場所や交通量の多い交差点での安全な自動運転走行支援・無線リソース最適化による遠隔監視を検証。2026年1月17〜22日に一般試乗（各試乗定員10名、日野ポンチョ2台）を実施。A-Driveは横浜市および相鉄バスと連携して、持続可能な地域公共交通の実現に向けた取り組みに参画した。",
+      refs: [1, 2]
     },
     vehicle: { value: "日野ポンチョ", refs: [1] },
     adSystem: { value: "先進モビリティ", refs: [1] },
@@ -2778,10 +2783,12 @@ const EXPERIMENTS = [
       { role: "通信技術", name: "ドコモ・テクノロジ株式会社", refs: [1] },
       { role: "運行事業者", name: "相鉄バス株式会社", refs: [1] },
       { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] },
+      { role: "事業参画", name: "A-Drive", refs: [2] },
       { role: "自治体", name: "横浜市（神奈川県）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "横浜市におけるローカル5G等を活用した自動運転走行支援実証", url: "https://www.city.yokohama.lg.jp/city-info/koho-kocho/press/keizai/2025/mobility20260116.html", date: "2026-01-16", source: "横浜市" }
+      { id: 1, title: "横浜市におけるローカル5G等を活用した自動運転走行支援実証", url: "https://www.city.yokohama.lg.jp/city-info/koho-kocho/press/keizai/2025/mobility20260116.html", date: "2026-01-16", source: "横浜市" },
+      { id: 2, title: "【横浜市】持続可能な地域公共交通の実現に向けた自動運転バスの取り組みについて", url: "https://a-drive.jp/2026/01/07/202601yokohama/", date: "2026-01-07", source: "A-Drive" }
     ]
   },
   {
@@ -3057,16 +3064,16 @@ const EXPERIMENTS = [
     name: { value: "千歳市 自動運転バス実証実験", refs: [1] },
     location: { value: "北海道千歳市（千歳駅前西口〜本社ターミナル等）", lat: 42.823, lng: 141.651, refs: [1] },
     prefecture: { value: "北海道", refs: [1] },
-    period: { value: "2025年11月4日〜2026年1月13日（試乗: 11月4日〜12月6日）", refs: [1] },
+    period: { value: "2025年11月4日〜2026年1月13日（試乗: 11月4日〜12月6日）", refs: [1, 2] },
     status: { value: "完了", refs: [1] },
     description: {
-      value: "千歳市が地域公共交通の維持確保を目的に実施した自動運転バス実証。路線バス同等規模の車両で、冬期走行を含むレベル2実証を行った。A-Driveが代表企業、アイサンテクノロジーがシステムを提供した。",
-      refs: [1]
+      value: "千歳市が地域公共交通の維持確保を目的に実施した自動運転バス実証。路線バス同等規模の車両で、冬期走行を含むレベル2実証を行った。A-Driveが代表企業、アイサンテクノロジーがシステムを提供した。豪雪・寒冷地における安定走行モデルの検証も進め、通信安定性確保と積雪状況を反映した走行制御の有効性を評価した。",
+      refs: [1, 2]
     },
     vehicle: { value: "いすゞ エルガ", refs: [1] },
     adSystem: { value: "A-Drive", refs: [1] },
-    route: { value: "千歳駅前西口〜本社ターミナル等の市内ルート", refs: [1] },
-    operationType: { value: "レベル2（運転手同乗・必要時介入）", refs: [1] },
+    route: { value: "千歳駅前西口〜本社ターミナル等の市内ルート", refs: [1, 2] },
+    operationType: { value: "レベル2（運転手同乗・必要時介入）", refs: [1, 2] },
     stakeholders: [
       { role: "自治体・事業主体", name: "千歳市（北海道）", refs: [1] },
       { role: "代表企業", name: "A-Drive", refs: [1] },
@@ -3074,7 +3081,8 @@ const EXPERIMENTS = [
       { role: "バス運行", name: "北海道中央バス・千歳相互観光バス・道南バス・十勝バス", refs: [1] }
     ],
     references: [
-      { id: 1, title: "自動運転バス実証実験", url: "https://www.city.chitose.lg.jp/c10/1002552/1002612/1004152.html", date: "2025-10-23", source: "千歳市" }
+      { id: 1, title: "自動運転バス実証実験", url: "https://www.city.chitose.lg.jp/c10/1002552/1002612/1004152.html", date: "2025-10-23", source: "千歳市" },
+      { id: 2, title: "豪雪・寒冷地における自動運転バスの安定走行モデル検証を千歳市で開始 ～通信の安定性確保と積雪状況を反映した柔軟な走行制御により 豪雪・寒冷地における安全な自動運転の実現をめざす～", url: "https://a-drive.jp/2026/01/14/chitose/", date: "2026-01-14", source: "A-Drive" }
     ]
   },
   {
@@ -3357,7 +3365,7 @@ const EXPERIMENTS = [
       { role: "受託・運行支援", name: "日本工営株式会社", refs: [1] }
     ],
     references: [
-      { id: 1, title: "都内3地区（杉並区、多摩市、瑞穂町）において自動運転バスを運行します！", url: "https://www.metro.tokyo.lg.jp/tosei/hodohappyo/press/2024/10/30/05.html", date: "2024-10-30", source: "東京都" },
+      { id: 1, title: "都内3地区（杉並区、多摩市、瑞穂町）において自動運転バスを運行します！", url: "https://www.metro.tokyo.lg.jp/information/press/2024/10/2024103005", date: "2024-10-30", source: "東京都" },
       { id: 2, title: "東京都実証実験参画のお知らせ", url: "https://a-drive.jp/2024/11/08/%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%AE%9F%E8%A8%BC%E5%AE%9F%E9%A8%93%E5%8F%82%E7%94%BB%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B/", date: "2024-11-08", source: "A-Drive" }
     ]
   },
@@ -4114,7 +4122,7 @@ const EXPERIMENTS = [
       { role: "連携", name: "大阪府", refs: [2] }
     ],
     references: [
-      { id: 1, title: "令和6年度 自動運転レベル4に向けた取り組み", url: "https://www.city.shijonawate.lg.jp/soshiki/33/67800.html", date: "2024-10-01", source: "四條畷市公式HP" },
+      { id: 1, title: "令和6年度 自動運転レベル4に向けた取り組み", url: "https://www.city.shijonawate.lg.jp/page/33-67800.html", date: "2024-10-01", source: "四條畷市公式HP" },
       { id: 2, title: "大阪府スマートシティ戦略推進補助金の採択結果等について", url: "https://www.pref.osaka.lg.jp/o060030/digital_gyosei/kekka/index.html", date: "2024-01-01", source: "大阪府公式HP" }
     ]
   },
@@ -4277,7 +4285,7 @@ const EXPERIMENTS = [
     ],
     references: [
       { id: 1, title: "中山間地域における道の駅等を拠点とした自動運転サービス 福岡県みやま市で本格導入へ（九州初）", url: "https://www.qsr.mlit.go.jp/press_release/r3/21071201.html", date: "2021-07-19", source: "国土交通省九州地方整備局" },
-      { id: 2, title: "エネルギーとしあわせの見えるまちづくり", url: "https://www.city.miyama.lg.jp/s031/kurashi/050/020/20200109141000.html", date: "2020-01-01", source: "みやま市公式HP" }
+      { id: 2, title: "エネルギーとしあわせの見えるまちづくり", url: "https://www.city.miyama.lg.jp/s031/kurashi/taisaku/040/030/20200109141000.html", date: "2020-01-01", source: "みやま市公式HP" }
     ]
   },
   {
@@ -4394,7 +4402,7 @@ const EXPERIMENTS = [
     ],
     references: [
       { id: 1, title: "レベル4自動運転技術の許認可取得に向けて実証〜自動運転バス試乗体験や出発式を京田辺市と木津川市で実施〜", url: "https://prtimes.jp/main/html/rd/p/000000226.000050415.html", date: "2025-12-19", source: "アイサンテクノロジー株式会社" },
-      { id: 2, title: "自動運転EVバス試乗体験会", url: "https://www.city.kyotanabe.lg.jp/0000023185.html", date: "2026-01-24", source: "京田辺市公式HP" }
+      { id: 2, title: "京田辺市・木津川市で自動運転バスの試乗体験会【終了】", url: "https://www.pref.kyoto.jp/bunkaga/news/kkautobus.html", date: "2026-01-24", source: "京都府" }
     ]
   },
   {
@@ -5241,12 +5249,12 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "MoveEz（マップレス自動運転）", refs: [1] },
+    adSystem: { value: "MoveEz", refs: [1] },
     route: { value: "幕張新都心エリア（詳細非公開）", refs: [1] },
     operationType: { value: "配車アプリ連携の公道実証", refs: [1] },
     stakeholders: [
       { role: "実施主体", name: "株式会社ムービーズ（MoveEz）", refs: [1] },
-      { role: "支援事業", name: "経済産業省（モビリティDX補助事業）", refs: [1] }
+      { role: "支援事業", name: "経済産業省", refs: [1] }
     ],
     references: [
       { id: 1, title: "千葉県幕張新都心にてロボタク事業の実証実験を実施しました", url: "https://moveez-inc.com/2025/04/page331/", date: "2025-04-30", source: "株式会社ムービーズ" }
@@ -5264,13 +5272,13 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "MoveEz（マップレス・全天候型）", refs: [1] },
+    adSystem: { value: "MoveEz", refs: [1] },
     route: { value: "市街地と農村部・山間部を結ぶ総延長100kmエリア", refs: [1] },
     operationType: { value: "住民向けロボタク運行実証（一般道、最高60km/hを含む）", refs: [1] },
     stakeholders: [
       { role: "実施主体", name: "株式会社ムービーズ（MoveEz）", refs: [1] },
       { role: "自治体協力", name: "上士幌町（北海道）", refs: [1] },
-      { role: "支援事業", name: "国土交通省（地域公共交通確保維持改善事業費補助金）", refs: [1] }
+      { role: "支援事業", name: "国土交通省", refs: [1] }
     ],
     references: [
       { id: 1, title: "ムービーズ、日本最長・最速のロボタク運行実証実験を北海道上士幌町で開始。", url: "https://moveez-inc.com/2025/10/page348/", date: "2025-10-02", source: "株式会社ムービーズ" }
@@ -5287,8 +5295,8 @@ const EXPERIMENTS = [
       value: "MoveEzが上士幌町で実施した雪道環境での自律型ロボタク実証。総走行距離650km以上、最高速度60km/hの一般道走行を含み、特別な雪道用再マッピングなしで安定走行を検証した。",
       refs: [1]
     },
-    vehicle: { value: "トヨタ アルファード（1台）", refs: [1] },
-    adSystem: { value: "MoveEz（マップレス・全天候型制御）", refs: [1] },
+    vehicle: { value: "トヨタ アルファード", refs: [1] },
+    adSystem: { value: "MoveEz", refs: [1] },
     route: { value: "上士幌町内の積雪・凍結路面を含む実証ルート", refs: [1] },
     operationType: { value: "自律型ロボタク実証（一般道、最高60km/h）", refs: [1] },
     stakeholders: [
@@ -5311,13 +5319,13 @@ const EXPERIMENTS = [
       refs: [1]
     },
     vehicle: { value: "詳細不明", refs: [1] },
-    adSystem: { value: "MoveEz（マップレス自動運転）", refs: [1] },
+    adSystem: { value: "MoveEz", refs: [1] },
     route: { value: "東京臨海副都心エリア（詳細非公開）", refs: [1] },
     operationType: { value: "ロボタク公道実証（関係者対象）", refs: [1] },
     stakeholders: [
       { role: "実施主体", name: "株式会社ムービーズ（MoveEz）", refs: [1] },
       { role: "連携機関", name: "国立大学法人金沢大学", refs: [1] },
-      { role: "委託元", name: "経済産業省（AD-URBAN関連事業）", refs: [1] }
+      { role: "委託元", name: "経済産業省", refs: [1] }
     ],
     references: [
       { id: 1, title: "Autonomous Robot Taxi Startup MoveEz Conducts Field Test in the Tokyo Waterfront City Area", url: "https://moveez-inc.com/en/2026/03/page467/", date: "2026-03-10", source: "MoveEz, inc." }
@@ -5334,7 +5342,7 @@ const EXPERIMENTS = [
       value: "MoveEzがS.RIDE、ソニー、ソニー・ミュージックソリューションズと連携して実施する、ロボタクと没入型車内エンターテインメントを組み合わせた実証。みなとみらいでレベル2車両を用い、一般参加者向けの体験型PoCを行う。",
       refs: [1]
     },
-    vehicle: { value: "レベル2自動運転実証車両（2台）", refs: [1] },
+    vehicle: { value: "詳細不明", refs: [1] },
     adSystem: { value: "MoveEz", refs: [1] },
     route: { value: "みなとみらいイベント周辺（Kアリーナ・臨港パーク・赤レンガ倉庫方面）", refs: [1] },
     operationType: { value: "レベル2（運転者同乗）による一般向け体験型PoC", refs: [1] },
@@ -5346,6 +5354,59 @@ const EXPERIMENTS = [
     ],
     references: [
       { id: 1, title: "Autonomous Robot Taxi Startup MoveEz Conducts Field Test in Yokohama Minatomirai Area", url: "https://moveez-inc.com/en/2026/03/page477/", date: "2026-03-23", source: "MoveEz, inc." }
+    ]
+  },
+  {
+    id: "exp-235",
+    name: { value: "軽井沢町 環境WEEK 自動運転EVバス体験乗車", refs: [1] },
+    location: { value: "長野県軽井沢町（軽井沢駅北口〜旧軽井沢ロータリー）", lat: 36.342, lng: 138.635, refs: [1] },
+    prefecture: { value: "長野県", refs: [1] },
+    period: { value: "2025年6月28日〜7月4日", refs: [1] },
+    status: { value: "完了", refs: [1] },
+    description: {
+      value: "軽井沢町・JR東日本・西武ホールディングスが共催する「軽井沢町環境WEEK」の一環として、自動運転EVバスの体験乗車を実施。軽井沢駅北口〜旧軽井沢ロータリー〜軽井沢駅北口の約3km周回ルートで、レベル2運行を検証した。",
+      refs: [1]
+    },
+    vehicle: { value: "詳細不明", refs: [1] },
+    adSystem: { value: "A-Drive", refs: [1] },
+    route: { value: "軽井沢駅北口〜旧軽井沢ロータリー〜軽井沢駅北口（約3km周回）", refs: [1] },
+    operationType: { value: "レベル2（体験乗車・予約制）", refs: [1] },
+    stakeholders: [
+      { role: "事業主体", name: "東日本旅客鉄道株式会社（JR東日本）、株式会社西武ホールディングス", refs: [1] },
+      { role: "自治体", name: "軽井沢町（長野県）", refs: [1] },
+      { role: "運行主体", name: "西武観光バス株式会社", refs: [1] },
+      { role: "事業参画", name: "A-Drive", refs: [1] },
+      { role: "高精度地図提供", name: "アイサンテクノロジー株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "長野県軽井沢町「環境WEEK」において自動運転EVバスの体験乗車に参画いたします", url: "https://a-drive.jp/2025/05/29/202506karuizawa/", date: "2025-05-29", source: "A-Drive" }
+    ]
+  },
+  {
+    id: "exp-236",
+    name: { value: "西新宿エリア 自動運転バス通年運行（東京都庁-新宿駅）", refs: [1, 2] },
+    location: { value: "東京都新宿区（新宿駅西口〜都庁周辺）", lat: 35.692, lng: 139.691, refs: [1] },
+    prefecture: { value: "東京都", refs: [1] },
+    period: { value: "2025年2月22日〜（土・日・祝運行）", refs: [1] },
+    status: { value: "実施中", refs: [1] },
+    description: {
+      value: "東京都が西新宿エリアの先行社会実装として開始した自動運転バスの通年運行。A-Driveが車両・システム手配や運用支援、アイサンテクノロジーが車両・システム総合調整と3D地図提供で参画し、将来のレベル4運行を見据えた有償・予約制運行を実施する。",
+      refs: [1, 2, 3]
+    },
+    vehicle: { value: "詳細不明", refs: [1] },
+    adSystem: { value: "A-Drive", refs: [1] },
+    route: { value: "新宿駅西口（地下ロータリー）〜都庁第一本庁舎〜都庁第二本庁舎〜新宿駅西口", refs: [1, 3] },
+    operationType: { value: "レベル2（有償・事前予約制）、将来のレベル4社会実装を目指す", refs: [1, 2] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "東京都", refs: [1, 2] },
+      { role: "運行主体", name: "京王電鉄バス株式会社、京王バス株式会社", refs: [1, 3] },
+      { role: "事業参画", name: "A-Drive", refs: [1] },
+      { role: "高精度地図提供", name: "アイサンテクノロジー株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "【東京都庁-新宿駅】自動運転バス通年運行実施のお知らせ", url: "https://a-drive.jp/2025/02/21/202502tokyo/", date: "2025-02-21", source: "A-Drive" },
+      { id: 2, title: "西新宿エリアを自動運転の「推進区域」として設定し、早期の社会実装を支援していきます！", url: "https://www.spt.metro.tokyo.lg.jp/tosei/hodohappyo/press/2025/01/31/02.html", date: "2025-01-31", source: "東京都" },
+      { id: 3, title: "西新宿エリアでの自動運転バス通年運行について", url: "https://www.keio-bus.com/news/e0d70ada9b1ef0cd3535.pdf", date: "2025-02-21", source: "京王電鉄バス株式会社" }
     ]
   }
 ];

@@ -438,6 +438,7 @@
     NTT_DOCOMO: "NTTドコモ",
     JTEKT: "ジェイテクト",
     KCCS: "KCCS",
+    MOVEEZ: "MoveEz",
     UNKNOWN: "不明",
   };
 
