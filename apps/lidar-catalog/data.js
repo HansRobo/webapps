@@ -1843,7 +1843,7 @@ const LIDARS = [
     wavelength: WAVE.UNKNOWN,
     discontinued: false,
     specs: {
-      channels:   { value: null,         unit: "ch",       refs: [] },
+      channels:   { value: 32,           unit: "ch",       refs: [1] },
       maxRange:   { value: 150,          unit: "m",        note: "@ 10% reflectivity", refs: [1] },
       peakRange:  { value: null,         unit: "m",        refs: [] },
       fovH:       { value: 120,          unit: "°",        refs: [1] },
@@ -1887,7 +1887,7 @@ const LIDARS = [
     wavelength: WAVE.NM905,
     discontinued: false,
     specs: {
-      channels:   { value: null,         unit: "ch",       refs: [] },
+      channels:   { value: 125,          unit: "ch",       refs: [1] },
       maxRange:   { value: 200,          unit: "m",        note: "@ 10% reflectivity", refs: [1] },
       peakRange:  { value: null,         unit: "m",        refs: [] },
       fovH:       { value: 120,          unit: "°",        refs: [1] },
@@ -1999,7 +1999,7 @@ const LIDARS = [
     wavelength: WAVE.NM940,
     discontinued: false,
     specs: {
-      channels:   { value: null,         unit: "ch",       refs: [] },
+      channels:   { value: 500,          unit: "ch",       note: "equivalent beam count", refs: [1] },
       maxRange:   { value: 300,          unit: "m",        note: "@ 10% reflectivity", refs: [1] },
       peakRange:  { value: null,         unit: "m",        refs: [] },
       fovH:       { value: 120,          unit: "°",        refs: [1] },
@@ -2165,7 +2165,7 @@ const LIDARS = [
     wavelength: WAVE.NM905,
     discontinued: false,
     specs: {
-      channels:   { value: null,         unit: "ch",       refs: [] },
+      channels:   { value: "126/251",    unit: "ch",       refs: [1] },
       maxRange:   { value: 200,          unit: "m",        note: "@ 10% reflectivity", refs: [1] },
       peakRange:  { value: null,         unit: "m",        refs: [] },
       fovH:       { value: 120,          unit: "°",        refs: [1] },
@@ -2296,7 +2296,7 @@ const LIDARS = [
     wavelength: WAVE.UNKNOWN,
     discontinued: false,
     specs: {
-      channels:   { value: 32,           unit: "ch",       refs: [1] },
+      channels:   { value: 16,           unit: "ch",       refs: [1] },
       maxRange:   { value: 150,          unit: "m",        note: "@ 10% reflectivity", refs: [1] },
       peakRange:  { value: null,         unit: "m",        refs: [] },
       fovH:       { value: 360,          unit: "°",        refs: [1] },
@@ -2484,7 +2484,7 @@ const LIDARS = [
     wavelength: WAVE.NM1550,
     discontinued: false,
     specs: {
-      channels:   { value: null,         unit: "ch",       refs: [] },
+      channels:   { value: 1,            unit: "ch",       refs: [1] },
       maxRange:   { value: 250,          unit: "m",        note: "@ 10% reflectivity", refs: [1, 2] },
       peakRange:  { value: 500,          unit: "m",        note: "Simultaneous long-range measurements", refs: [1, 2] },
       fovH:       { value: 150,          unit: "°",        refs: [1, 2] },
@@ -3081,7 +3081,7 @@ const LIDARS = [
     wavelength: WAVE.UNKNOWN,
     discontinued: false,
     specs: {
-      channels:   { value: null,         unit: "ch",       refs: [] },
+      channels:   { value: 1,            unit: "ch",       refs: [1] },
       maxRange:   { value: 10,           unit: "m",        refs: [1] },
       peakRange:  { value: null,         unit: "m",        refs: [] },
       fovH:       { value: 270,          unit: "°",        refs: [1] },
@@ -3179,7 +3179,7 @@ const LIDARS = [
     wavelength: WAVE.UNKNOWN,
     discontinued: false,
     specs: {
-      channels:   { value: null,         unit: "ch",       refs: [] },
+      channels:   { value: 1,            unit: "ch",       refs: [1] },
       maxRange:   { value: 25,           unit: "m",        refs: [1] },
       peakRange:  { value: null,         unit: "m",        refs: [] },
       fovH:       { value: 270,          unit: "°",        refs: [1] },
@@ -3210,7 +3210,7 @@ const LIDARS = [
     wavelength: WAVE.UNKNOWN,
     discontinued: false,
     specs: {
-      channels:   { value: null,         unit: "ch",       refs: [] },
+      channels:   { value: 1,            unit: "ch",       refs: [1] },
       maxRange:   { value: 9,            unit: "m",        note: "安全保護範囲", refs: [1] },
       peakRange:  { value: null,         unit: "m",        refs: [] },
       fovH:       { value: 275,          unit: "°",        refs: [1] },
