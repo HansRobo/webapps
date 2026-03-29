@@ -5353,7 +5353,7 @@ const EXPERIMENTS = [
       { role: "共同実施", name: "株式会社ソニー・ミュージックソリューションズ", refs: [1] }
     ],
     references: [
-      { id: 1, title: "Autonomous Robot Taxi Startup MoveEz Conducts Field Test in Yokohama Minatomirai Area", url: "https://moveez-inc.com/en/2026/03/page477/", date: "2026-03-23", source: "MoveEz, inc." }
+      { id: 1, title: "ロボットタクシーのムービーズ、横浜・みなとみらい地区での実証実験を実施", url: "https://moveez-inc.com/2026/03/page507/", date: "2026-03-23", source: "株式会社ムービーズ" }
     ]
   },
   {
