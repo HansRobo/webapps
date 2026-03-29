@@ -11,22 +11,29 @@ import vm from "vm";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
-const DATA_PATH = resolve(ROOT, "apps/autonomous-driving-map/data.js");
-const ENUMS_PATH = resolve(ROOT, "apps/autonomous-driving-map/enums.js");
-
-function loadExperiments() {
-  const src = readFileSync(DATA_PATH, "utf-8");
-  // constはサンドボックスオブジェクトのプロパティにならないため、
-  // グローバル変数として扱われるようvar宣言に置き換えてから実行する
-  const patched = src.replace(/^\s*const\s+EXPERIMENTS\s*=/m, "var EXPERIMENTS =");
-  const sandbox = { EXPERIMENTS: undefined };
-  vm.runInNewContext(patched, sandbox);
-  return sandbox.EXPERIMENTS;
-}
+const DATA_PATH   = resolve(ROOT, "apps/autonomous-driving-map/data.js");
+const SCHEMA_PATH = resolve(ROOT, "apps/autonomous-driving-map/schema.js");
 
 const require = createRequire(import.meta.url);
-function loadEnums() {
-  return require(ENUMS_PATH);
+
+function loadSchema() {
+  return require(SCHEMA_PATH);
+}
+
+function loadExperiments(schema) {
+  const src = readFileSync(DATA_PATH, "utf-8");
+  // constはサンドボックスオブジェクトのプロパティにならないため、var宣言に置き換えてから実行する
+  const patched = src.replace(/\bconst\s+EXPERIMENTS\s*=/, "var EXPERIMENTS =");
+  // schema.js の定数（STATUS/PREF/VEH/ADS）をサンドボックスに注入する
+  const sandbox = {
+    EXPERIMENTS: undefined,
+    STATUS: schema.STATUS,
+    PREF:   schema.PREF,
+    VEH:    schema.VEH,
+    ADS:    schema.ADS,
+  };
+  vm.runInNewContext(patched, sandbox);
+  return sandbox.EXPERIMENTS;
 }
 
 function levenshtein(a, b) {
@@ -61,24 +68,26 @@ function normalizeOrgName(name) {
     .trim();
 }
 
-function validateExperiments(experiments, enums) {
+function validateExperiments(experiments, schema) {
   const errors = [];
   const warnings = [];
   const err = (id, msg) => errors.push(`[ERROR] ${id}: ${msg}`);
   const warn = (id, msg) => warnings.push(`[WARN]  ${id}: ${msg}`);
-  const requiredValueFields = [
-    "name",
-    "location",
-    "prefecture",
-    "period",
-    "status",
-    "description",
-    "route",
-    "operationType",
-  ];
-  const knownRoles = Array.isArray(enums.STAKEHOLDER_ROLES) ? enums.STAKEHOLDER_ROLES : [];
-  const knownAdSystems = Object.values(enums.AD_SYSTEMS ?? {});
-  const knownVehicles = Object.values(enums.VEHICLES ?? {});
+
+  // schema.js の enum オブジェクトから Set を構築（同一性チェック用）
+  const validStatuses = new Set(Object.values(schema.STATUS));
+  const validPrefs    = new Set(Object.values(schema.PREF));
+  const validVehs     = new Set(Object.values(schema.VEH));
+  const validAds      = new Set(Object.values(schema.ADS));
+
+  // 文字列値フィールド（value が string のもの）
+  const stringValueFields = ["name", "location", "period", "description", "route", "operationType"];
+  // enum オブジェクト参照フィールド（value がオブジェクトのもの）
+  const enumValueFields = ["status", "prefecture"];
+
+  const knownRoles = Array.isArray(schema.KNOWN_ROLES) ? schema.KNOWN_ROLES : [];
+  const knownOrgs  = Array.isArray(schema.KNOWN_ORGS)  ? schema.KNOWN_ORGS  : [];
+
   const roleNormToKnown = new Map();
   for (const r of knownRoles) {
     const n = normalizeRole(r);
@@ -86,7 +95,6 @@ function validateExperiments(experiments, enums) {
     roleNormToKnown.get(n).push(r);
   }
 
-  const knownOrgs = Array.isArray(enums.ORGANIZATIONS) ? enums.ORGANIZATIONS : [];
   const orgNormToKnown = new Map();
   for (const o of knownOrgs) {
     const n = normalizeOrgName(o);
@@ -94,6 +102,7 @@ function validateExperiments(experiments, enums) {
     orgNormToKnown.get(n).push(o);
   }
 
+  // ID 重複チェック
   const seenIds = new Set();
   for (const exp of experiments) {
     if (!exp.id) { err("(不明)", "idフィールドがありません"); continue; }
@@ -104,7 +113,8 @@ function validateExperiments(experiments, enums) {
   for (const exp of experiments) {
     const id = exp.id ?? "(不明)";
 
-    for (const f of requiredValueFields) {
+    // 文字列値フィールドのチェック
+    for (const f of stringValueFields) {
       if (!exp[f]) { err(id, `フィールド "${f}" がありません`); continue; }
       if (typeof exp[f].value !== "string" || exp[f].value.trim() === "")
         err(id, `${f}.value が空または文字列ではありません`);
@@ -114,6 +124,16 @@ function validateExperiments(experiments, enums) {
         err(id, `${f}.refs に数値以外の値が含まれています`);
     }
 
+    // enum オブジェクト参照フィールドのチェック
+    for (const f of enumValueFields) {
+      if (!exp[f]) { err(id, `フィールド "${f}" がありません`); continue; }
+      if (!Array.isArray(exp[f].refs))
+        err(id, `${f}.refs が配列ではありません`);
+      else if (exp[f].refs.some((r) => typeof r !== "number"))
+        err(id, `${f}.refs に数値以外の値が含まれています`);
+    }
+
+    // GPS 範囲チェック
     if (exp.location) {
       const { lat, lng } = exp.location;
       if (typeof lat !== "number" || lat < 24 || lat > 46)
@@ -122,44 +142,55 @@ function validateExperiments(experiments, enums) {
         err(id, `location.lng "${lng}" は日本の経度範囲 [122, 154] 外です`);
     }
 
-    if (exp.status?.value && !enums.STATUS.includes(exp.status.value))
-      err(id, `status.value "${exp.status.value}" は許可されたenum値ではありません。許可値: ${enums.STATUS.join(", ")}`);
+    // status: schema.js の STATUS オブジェクトへの参照かチェック
+    if (exp.status?.value !== undefined) {
+      if (!validStatuses.has(exp.status.value))
+        err(id, `status.value が STATUS に存在しないオブジェクトです（文字列リテラルを使っていませんか？）: ${JSON.stringify(exp.status.value)}`);
+    }
 
-    if (exp.prefecture?.value && !enums.PREFECTURES.includes(exp.prefecture.value))
-      err(id, `prefecture.value "${exp.prefecture.value}" は47都道府県に含まれません`);
+    // prefecture: schema.js の PREF オブジェクトへの参照かチェック
+    if (exp.prefecture?.value !== undefined) {
+      if (!validPrefs.has(exp.prefecture.value))
+        err(id, `prefecture.value が PREF に存在しないオブジェクトです: ${JSON.stringify(exp.prefecture.value)}`);
+    }
 
+    // adSystem のチェック
     const adSystemItems = Array.isArray(exp.adSystem) ? exp.adSystem : exp.adSystem ? [exp.adSystem] : [];
     if (adSystemItems.length === 0) {
       err(id, 'フィールド "adSystem" がありません');
     } else {
       for (const a of adSystemItems) {
-        if (typeof a.value !== "string" || a.value.trim() === "")
-          err(id, `adSystem.value が空または文字列ではありません`);
+        if (!a || typeof a !== "object" || !("value" in a)) {
+          err(id, "adSystem エントリが {value, refs} 形式ではありません"); continue;
+        }
         if (!Array.isArray(a.refs))
-          err(id, `adSystem.refs が配列ではありません`);
+          err(id, "adSystem.refs が配列ではありません");
         else if (a.refs.some((r) => typeof r !== "number"))
-          err(id, `adSystem.refs に数値以外の値が含まれています`);
-        if (a.value && !knownAdSystems.includes(a.value))
-          err(id, `adSystem.value "${a.value}" は許可されたenum値ではありません。許可値: ${knownAdSystems.join(", ")}`);
+          err(id, "adSystem.refs に数値以外の値が含まれています");
+        if (a.value !== undefined && !validAds.has(a.value))
+          err(id, `adSystem.value が ADS に存在しないオブジェクトです（文字列リテラルを使っていませんか？）: ${JSON.stringify(a.value)}`);
       }
     }
 
+    // vehicle のチェック
     const vehicleItems = Array.isArray(exp.vehicle) ? exp.vehicle : exp.vehicle ? [exp.vehicle] : [];
     if (vehicleItems.length === 0) {
       err(id, 'フィールド "vehicle" がありません');
     } else {
       for (const v of vehicleItems) {
-        if (typeof v.value !== "string" || v.value.trim() === "")
-          err(id, `vehicle.value が空または文字列ではありません`);
+        if (!v || typeof v !== "object" || !("value" in v)) {
+          err(id, "vehicle エントリが {value, refs} 形式ではありません"); continue;
+        }
         if (!Array.isArray(v.refs))
-          err(id, `vehicle.refs が配列ではありません`);
+          err(id, "vehicle.refs が配列ではありません");
         else if (v.refs.some((r) => typeof r !== "number"))
-          err(id, `vehicle.refs に数値以外の値が含まれています`);
-        if (v.value && !knownVehicles.includes(v.value))
-          err(id, `vehicle.value "${v.value}" は許可されたenum値ではありません。許可値: ${knownVehicles.join(", ")}`);
+          err(id, "vehicle.refs に数値以外の値が含まれています");
+        if (v.value !== undefined && !validVehs.has(v.value))
+          err(id, `vehicle.value が VEH に存在しないオブジェクトです（文字列リテラルを使っていませんか？）: ${JSON.stringify(v.value)}`);
       }
     }
 
+    // stakeholders のチェック
     if (!Array.isArray(exp.stakeholders) || exp.stakeholders.length === 0) {
       warn(id, "stakeholders が空または配列ではありません");
     } else {
@@ -183,8 +214,6 @@ function validateExperiments(experiments, enums) {
         }
 
         if (s.name) {
-          // 組織名は enums.js の正規表記（正式名称）で管理する。
-          // 複数組織は「、」区切りで個別照合する。
           const orgs = s.name.split("、").map((o) => o.trim());
           for (const org of orgs) {
             if (!knownOrgs.includes(org)) {
@@ -194,9 +223,6 @@ function validateExperiments(experiments, enums) {
                 err(id, `${prefix}.name 内 "${org}" は既存表記 "${normalizedMatches[0]}" と表記ゆれがあります（正規表記に統一してください）`);
               } else if (normalizedMatches.length > 1) {
                 err(id, `${prefix}.name 内 "${org}" は既存表記に複数候補があります: ${normalizedMatches.join(" / ")}`);
-              } else {
-                // 新規組織名はここでは警告しない。
-                // 既存表記との正規化一致のみを「表記ゆれ候補」として扱う。
               }
             }
           }
@@ -204,11 +230,12 @@ function validateExperiments(experiments, enums) {
       }
     }
 
+    // references のチェック
     if (!Array.isArray(exp.references) || exp.references.length === 0) {
       warn(id, "references が空または配列ではありません");
     } else {
       const refIds = new Set();
-      const refUrls = new Map(); // url -> first index
+      const refUrls = new Map();
       for (const [i, ref] of exp.references.entries()) {
         const prefix = `references[${i}]`;
         if (typeof ref.id !== "number")
@@ -234,7 +261,6 @@ function validateExperiments(experiments, enums) {
           warn(id, `${prefix}.source が空または文字列ではありません`);
       }
 
-      // refs の存在チェック + refs 内重複チェック
       function checkRefs(label, refs) {
         const seen = new Set();
         for (const r of refs) {
@@ -245,14 +271,13 @@ function validateExperiments(experiments, enums) {
           seen.add(r);
         }
       }
-      for (const f of requiredValueFields) checkRefs(`${f}.refs`, exp[f]?.refs ?? []);
+      for (const f of [...stringValueFields, ...enumValueFields]) checkRefs(`${f}.refs`, exp[f]?.refs ?? []);
       for (const [i, a] of adSystemItems.entries()) checkRefs(`adSystem[${i}].refs`, a.refs ?? []);
       for (const [i, v] of vehicleItems.entries()) checkRefs(`vehicle[${i}].refs`, v.refs ?? []);
       for (const [i, s] of (exp.stakeholders ?? []).entries()) checkRefs(`stakeholders[${i}].refs`, s.refs ?? []);
 
-      // 孤立参照チェック（どのフィールドのrefsにも引用されていないreference）
       const citedIds = new Set([
-        ...requiredValueFields.flatMap((f) => exp[f]?.refs ?? []),
+        ...[...stringValueFields, ...enumValueFields].flatMap((f) => exp[f]?.refs ?? []),
         ...adSystemItems.flatMap((a) => a.refs ?? []),
         ...vehicleItems.flatMap((v) => v.refs ?? []),
         ...(exp.stakeholders ?? []).flatMap((s) => s.refs ?? []),
@@ -268,19 +293,19 @@ function validateExperiments(experiments, enums) {
 }
 
 function main() {
-  let experiments, enums;
+  let schema, experiments;
 
   try {
-    experiments = loadExperiments();
+    schema = loadSchema();
   } catch (e) {
-    console.error(`[FATAL] data.js の読み込みに失敗しました: ${e.message}`);
+    console.error(`[FATAL] schema.js の読み込みに失敗しました: ${e.message}`);
     process.exit(1);
   }
 
   try {
-    enums = loadEnums();
+    experiments = loadExperiments(schema);
   } catch (e) {
-    console.error(`[FATAL] enums.js の読み込みに失敗しました: ${e.message}`);
+    console.error(`[FATAL] data.js の読み込みに失敗しました: ${e.message}`);
     process.exit(1);
   }
 
@@ -291,7 +316,7 @@ function main() {
 
   console.log(`バリデーション開始: ${experiments.length} 件の実験データ\n`);
 
-  const { errors, warnings } = validateExperiments(experiments, enums);
+  const { errors, warnings } = validateExperiments(experiments, schema);
 
   if (warnings.length > 0) {
     warnings.forEach((w) => console.warn(w));
