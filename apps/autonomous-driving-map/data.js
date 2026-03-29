@@ -278,25 +278,26 @@ const EXPERIMENTS = [
   },
   {
     id: "exp-012",
-    name: { value: "ロボタクシー自動運転サービス計画（ホンダ・GM・Cruise）", refs: [1, 2] },
+    name: { value: "ロボタクシー自動運転サービス計画（ホンダ・GM・Cruise、計画中止）", refs: [1, 2, 3] },
     location: { value: "東京都内中心部", lat: 35.681, lng: 139.767, refs: [1] },
     prefecture: { value: "東京都", refs: [1] },
-    period: { value: "2026年初頭サービス開始予定", refs: [1, 2] },
-    status: { value: "計画中", refs: [1] },
+    period: { value: "2023年10月発表〜2024年12月（2026年初頭開始計画は中止判断へ）", refs: [1, 2, 3] },
+    status: { value: "中止", refs: [2, 3] },
     description: {
-      value: "ホンダ、GM、Cruiseの3社が共同で立ち上げる、運転席を持たない自動運転専用車両「Cruise Origin」を用いた配車サービス。スマートフォンのアプリで配車から決済まで完結する完全自動運転（レベル4）のタクシーサービスを目指す。数十台規模から開始し、段階的に500台規模への拡大を計画。",
-      refs: [1, 2]
+      value: "ホンダ、GM、Cruiseの3社は2023年に「Cruise Origin」を使った東京都心部でのレベル4ロボタクシー（2026年初頭開始）を計画していたが、2024年12月にGMがCruiseのロボタクシー開発への資金投入停止と戦略転換を発表。これを受け、ホンダも日本での当初計画について中止を含めて判断する方針を示し、当初計画は中止扱いとなった。",
+      refs: [1, 2, 3]
     },
-    vehicle: { value: "Cruise Origin", refs: [1, 2] },
+    vehicle: { value: "Cruise Origin（計画車両、商用導入に至らず）", refs: [1, 2] },
     adSystem: { value: "Cruise", refs: [] },
-    route: { value: "東京都心部の一般道（詳細未定）", refs: [1] },
-    operationType: { value: "レベル4（完全自動運転・無人タクシー）", refs: [1, 2] },
+    route: { value: "東京都心部の一般道（計画段階で終了）", refs: [1, 3] },
+    operationType: { value: "レベル4（計画のみ、実運用なし）", refs: [1, 3] },
     stakeholders: [
-      { role: "サービス運営・車両提供", name: "本田技研工業株式会社、ゼネラル・モーターズ（GM）、Cruise", refs: [1, 2] }
+      { role: "サービス運営・車両提供（当初計画）", name: "本田技研工業株式会社、ゼネラル・モーターズ（GM）、Cruise", refs: [1, 2, 3] }
     ],
     references: [
       { id: 1, title: "日本での自動運転タクシーサービスを2026年初頭に開始予定", url: "https://global.honda/jp/news/2023/c231019a.html", date: "2023-10-19", source: "Honda 企業情報" },
-      { id: 2, title: "ホンダやGMなど、自動運転タクシーサービスを2026年初頭に開始", url: "https://www.jetro.go.jp/biznews/2023/10/d7cfe8f5bd22e589.html", date: "2023-10-20", source: "JETRO" }
+      { id: 2, title: "GM to refocus autonomous driving development on personal vehicles", url: "https://investor.gm.com/news-releases/news-release-details/gm-refocus-autonomous-driving-development-personal-vehicles/", date: "2024-12-10", source: "GM News Release" },
+      { id: 3, title: "ホンダ、ＧＭとの日本での自動運転タクシーサービス中止含め判断へ", url: "https://www.bloomberg.co.jp/news/articles/2024-12-11/SOB2VXT0AFB400", date: "2024-12-11", source: "Bloomberg" }
     ]
   },
   {
@@ -4175,24 +4176,25 @@ const EXPERIMENTS = [
   },
   {
     id: "exp-181",
-    name: { value: "飯南町 道の駅赤来高原 自動運転サービス", refs: [1] },
+    name: { value: "飯南町 道の駅赤来高原 自動運転サービス（い〜にゃん号）", refs: [1, 2] },
     location: { value: "島根県飯石郡飯南町（道の駅赤来高原周辺）", lat: 34.917, lng: 132.683, refs: [1] },
     prefecture: { value: "島根県", refs: [1] },
-    period: { value: "2021年10月〜（本格運行中）", refs: [1] },
-    status: { value: "実施中", refs: [1] },
+    period: { value: "2021年10月〜（本格導入後、2024年4月1日から当面運行休止）", refs: [1, 2] },
+    status: { value: "休止", refs: [2] },
     description: {
-      value: "飯南町が道の駅赤来高原を拠点に、中山間地域の移動課題解決を目指して自動運転サービスを本格運行。中国地方初の本格的自動運転サービスとして2021年10月4日に開始。ヤマハ発動機製車両（定員6名、時速12km/h）を使用し月火木土日に運行（一般200円/回）。人口減少・高齢化が進む地域で、道の駅を交通結節点とした持続可能な移動サービスモデル。",
-      refs: [1]
+      value: "飯南町は道の駅赤来高原を拠点に自動運転サービス「自動運転赤名線（い〜にゃん号）」を本格導入したが、町公式のバス運行情報では令和6年4月1日から当面の間「運行休止」と案内されている。再開時期は公開情報上で未確認。",
+      refs: [1, 2]
     },
     vehicle: { value: "ヤマハ G30s", refs: [1] },
     adSystem: { value: "不明", refs: [] },
-    route: { value: "道の駅「赤来高原」〜瀬戸山城登山口〜福島邸〜地元商店等〜赤名駅〜飯南町役場（全長約2.7km/周）", refs: [1] },
-    operationType: { value: "社会実装（定常運行）", refs: [1] },
+    route: { value: "道の駅「赤来高原」周辺（赤名線、休止前ルート）", refs: [1, 2] },
+    operationType: { value: "社会実装後に運行休止中", refs: [2] },
     stakeholders: [
       { role: "自治体・事業主体", name: "飯南町（島根県）", refs: [1] }
     ],
     references: [
-      { id: 1, title: "中山間地域における道の駅等を拠点とした自動運転サービス 道の駅「赤来高原」（島根県飯南町）で本格導入へ", url: "https://www.mlit.go.jp/report/press/road01_hh_001492.html", date: "2021-09-17", source: "国土交通省" }
+      { id: 1, title: "中山間地域における道の駅等を拠点とした自動運転サービス 道の駅「赤来高原」（島根県飯南町）で本格導入へ", url: "https://www.mlit.go.jp/report/press/road01_hh_001492.html", date: "2021-09-17", source: "国土交通省" },
+      { id: 2, title: "バス運行情報（自動運転赤名線は令和6年4月1日から当面運行休止）", url: "https://www.iinan.jp/soshiki/8/4764.html", date: "2025-02-27", source: "飯南町公式ホームページ" }
     ]
   },
   {
@@ -4272,22 +4274,22 @@ const EXPERIMENTS = [
     name: { value: "みやま市 自動運転バス「オレンジスター号」", refs: [1, 2] },
     location: { value: "福岡県みやま市（高田地区）", lat: 33.158, lng: 130.475, refs: [1] },
     prefecture: { value: "福岡県", refs: [1] },
-    period: { value: "2023年度〜（段階的に実施、社会実装を目指す）", refs: [1, 2] },
-    status: { value: "実施中", refs: [1] },
+    period: { value: "2021年7月本格導入発表〜（直近のオレンジスター号継続状況は要確認）", refs: [1, 2] },
+    status: { value: "要確認", refs: [1, 2] },
     description: {
-      value: "みやま市が高田地区で自動運転バス「オレンジスター号」を運行。地域住民の日常的な移動手段として、自動運転バスの社会実装を段階的に推進。みやま市はスマートシティの取組の一環として、エネルギーと交通の両面でのスマート化を目指している。",
+      value: "みやま市の自動運転バス「オレンジスター号」は2021年に本格導入が公表された。2026年時点の市公式サイトでは公共交通施策として予約制乗合バス「のるーとみやま」の本格運行情報は確認できる一方、オレンジスター号単体の最新運行状況を示す一次情報の確認が取れていないため、現状は要確認扱いとする。",
       refs: [1, 2]
     },
     vehicle: { value: "ヤマハ G30s", refs: [1] },
     adSystem: { value: "不明", refs: [] },
-    route: { value: "高田地区内ルート", refs: [1] },
-    operationType: { value: "実証運行（社会実装を目指し段階的に実施）", refs: [1] },
+    route: { value: "高田地区内ルート（最新運行情報は要確認）", refs: [1, 2] },
+    operationType: { value: "本格導入発表済み（現行の運行実態は要確認）", refs: [1, 2] },
     stakeholders: [
       { role: "自治体・事業主体", name: "みやま市（福岡県）", refs: [1] }
     ],
     references: [
       { id: 1, title: "中山間地域における道の駅等を拠点とした自動運転サービス 福岡県みやま市で本格導入へ（九州初）", url: "https://www.qsr.mlit.go.jp/press_release/r3/21071201.html", date: "2021-07-19", source: "国土交通省九州地方整備局" },
-      { id: 2, title: "エネルギーとしあわせの見えるまちづくり", url: "https://www.city.miyama.lg.jp/s031/kurashi/taisaku/040/030/20200109141000.html", date: "2020-01-01", source: "みやま市公式HP" }
+      { id: 2, title: "予約制乗合バス「のるーとみやま」本格運行開始のお知らせ", url: "https://www.city.miyama.lg.jp/s068/kurashi/140/010/20250722152703.html", date: "2026-02-24", source: "みやま市公式HP" }
     ]
   },
   {
