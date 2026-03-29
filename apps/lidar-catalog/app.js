@@ -728,23 +728,48 @@ function buildDetailBody(item) {
       </table>
     </div>
     <div class="detail-section">
-      <div class="detail-section__title"><span class="material-symbols-outlined">tune</span>スペック詳細</div>
+      <div class="detail-section__title"><span class="material-symbols-outlined">tune</span>基本性能</div>
       <table class="specs-table">
         ${specRow("チャンネル数", s.channels)}
         ${specRow("最大距離", s.maxRange)}
         ${specRow("ピーク距離（参考）", s.peakRange)}
+        ${specRow("最小検知距離", s.minRange)}
+        ${specRow("精度", s.accuracy)}
+        ${s.precision ? specRow("ばらつき（Precision）", s.precision) : ""}
+      </table>
+    </div>
+    <div class="detail-section">
+      <div class="detail-section__title"><span class="material-symbols-outlined">radar</span>光学・走査</div>
+      <table class="specs-table">
         ${specRow("FOV 水平", s.fovH)}
         ${specRow("FOV 垂直", s.fovV)}
         ${specRow("角度分解能（水平）", s.resH)}
         ${specRow("角度分解能（垂直）", s.resV)}
         ${specRow("点群レート", s.pointRate)}
-        ${specRow("精度", s.accuracy)}
-        ${specRow("最小検知距離", s.minRange)}
+        ${s.returnModes ? specRow("リターンモード", s.returnModes) : ""}
+        ${s.beamDivergence ? specRow("ビーム広がり角", s.beamDivergence) : ""}
+        ${s.sunlightImmunity ? specRow("耐外乱光性能", s.sunlightImmunity) : ""}
+      </table>
+    </div>
+    <div class="detail-section">
+      <div class="detail-section__title"><span class="material-symbols-outlined">settings_ethernet</span>システム統合</div>
+      <table class="specs-table">
+        ${specRow("インタフェース", s.interface)}
+        ${s.timeSynchronization ? specRow("時刻同期方式", s.timeSynchronization) : ""}
+        ${s.imuBuiltIn ? specRow("内蔵IMU", s.imuBuiltIn) : ""}
+        ${s.supportedSoftware ? specRow("ソフトウェアサポート", s.supportedSoftware) : ""}
+      </table>
+    </div>
+    <div class="detail-section">
+      <div class="detail-section__title"><span class="material-symbols-outlined">straighten</span>物理仕様</div>
+      <table class="specs-table">
         ${specRow("消費電力", s.power)}
+        ${s.powerMax ? specRow("最大消費電力", s.powerMax) : ""}
         ${specRow("サイズ", s.size)}
         ${specRow("重量", s.weight)}
         ${specRow("保護等級", s.protection)}
-        ${specRow("インタフェース", s.interface)}
+        ${s.operatingTemperature ? specRow("動作温度", s.operatingTemperature) : ""}
+        ${s.shockVibration ? specRow("耐衝撃・耐振動", s.shockVibration) : ""}
       </table>
     </div>
   `;

@@ -66,6 +66,20 @@ const REQUIRED_SPEC_KEYS = [
   "power", "size", "weight", "protection", "interface",
 ];
 
+// オプショナルスペックキー（存在する場合のみ構造を検証）
+const OPTIONAL_SPEC_KEYS = [
+  "returnModes",          // リターンモード（Single/Dual/Triple）
+  "beamDivergence",       // ビーム広がり角
+  "sunlightImmunity",     // 耐外乱光性能（lux）
+  "timeSynchronization",  // 時刻同期方式（PTP/gPTP/NTP/PPS+NMEA）
+  "imuBuiltIn",           // 内蔵IMU
+  "supportedSoftware",    // ソフトウェアサポート（ROS 1/2, Autoware等）
+  "operatingTemperature", // 動作温度範囲
+  "shockVibration",       // 耐衝撃・耐振動
+  "powerMax",             // 最大消費電力（ヒーター・起動時含む）
+  "precision",            // ばらつき（Precision/Repeatability）
+];
+
 // ────────────────────────────────────────────
 // バリデーション実行
 // ────────────────────────────────────────────
@@ -149,6 +163,17 @@ for (const lidar of LIDARS) {
         }
       }
     }
+    // オプショナルキーの構造検証（存在する場合のみ）
+    for (const key of OPTIONAL_SPEC_KEYS) {
+      const spec = lidar.specs[key];
+      if (spec === undefined) continue;
+      if (!Object.prototype.hasOwnProperty.call(spec, "value")) {
+        err(`${prefix} specs.${key}: value プロパティが存在しない`);
+      }
+      if (!Array.isArray(spec.refs)) {
+        err(`${prefix} specs.${key}: refs が配列でない`);
+      }
+    }
   }
 
   // --- 参考文献 ---
@@ -181,7 +206,8 @@ for (const lidar of LIDARS) {
   }
 
   // refs → references[].id 整合性チェック
-  for (const key of REQUIRED_SPEC_KEYS) {
+  const ALL_SPEC_KEYS = [...REQUIRED_SPEC_KEYS, ...OPTIONAL_SPEC_KEYS];
+  for (const key of ALL_SPEC_KEYS) {
     const spec = lidar.specs?.[key];
     if (!spec?.refs) continue;
     for (const refId of spec.refs) {
@@ -204,7 +230,7 @@ console.log("\n── Step 4: 出典なしスペック集計（要補完候補�
 const missingRefs = {};
 for (const lidar of LIDARS) {
   if (!lidar.specs) continue;
-  for (const key of REQUIRED_SPEC_KEYS) {
+  for (const key of [...REQUIRED_SPEC_KEYS, ...OPTIONAL_SPEC_KEYS]) {
     const spec = lidar.specs[key];
     if (!spec) continue;
     if (spec.value !== null && spec.value !== undefined && (!spec.refs || spec.refs.length === 0)) {
