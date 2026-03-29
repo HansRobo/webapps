@@ -20,6 +20,14 @@
       url: "https://www.aeva.com/",
       notes: "元Appleエンジニア創業。FMCWパイオニア。NikonとZFが出資。",
     },
+    BARAJA: {
+      id: "baraja",
+      name: "Baraja",
+      nameJa: "Baraja",
+      country: "🇦🇺 オーストラリア",
+      url: "https://www.baraja.com/",
+      notes: "Spectrum-Scan™で波長可変レーザーを使うソリッドステートLiDAR専業。",
+    },
     DENSO: {
       id: "denso",
       name: "Denso",
@@ -246,6 +254,13 @@
       descriptionJa: "LiDAR単体センサではなく、カメラ・ミリ波レーダー・既存LiDAR等のデータをソフトウェアで融合・処理するプラットフォーム型製品。ハードウェアに依存せず任意のセンサ構成に対応。",
       pros: ["ハードウェア非依存", "既存センサの活用", "柔軟なシステム構成", "コスト削減"],
       cons: ["専用ハードウェアより遅延が生じる場合", "センサ品質に依存"],
+    },
+    SPECTRUM_SCAN: {
+      id: "spectrum-scan", label: "Spectrum-Scan", labelJa: "Spectrum-Scan",
+      icon: "auto_fix_high",
+      descriptionJa: "Barajaが開発した、波長可変レーザーとプリズム光学を使うソリッドステート走査方式。fast axis の機械回転を使わず、ソフトウェアで解像度やビーム操向を柔軟に制御できる。",
+      pros: ["fast axis がソリッドステート", "高解像度をソフトウェアで調整可能", "干渉耐性が高い", "車載・産業の高耐久要求に適合"],
+      cons: ["専用の光学・制御設計が必要", "採用製品がまだ少ない", "一般的なToF/MEMSより独自性が強い"],
     },
   };
 
