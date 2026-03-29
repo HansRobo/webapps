@@ -324,6 +324,20 @@
       detectorType: "シリコン APD / SPAD",
       descriptionJa: "LiDAR市場で最も広く普及している近赤外波長。シリコン系フォトディテクタ（APD/SPAD）で受光でき、コスト・量産性に優れる。レンズや光学部品も豊富。高出力化するとアイセーフティ確保が難しくなるため、出力に制限がある。",
     },
+    NM830: {
+      id: "830nm", label: "830 nm",
+      colorHex: "#fb923c",
+      eyeSafety: "Class 1 アイセーフ",
+      detectorType: "シリコン APD / SPAD",
+      descriptionJa: "Hokuyoの近距離・PoE系2D LiDARで採用される近赤外波長。シリコン系フォトディテクタと相性がよく、屋内インタラクティブ用途や短距離センシングで使いやすい。",
+    },
+    NM785: {
+      id: "785nm", label: "785 nm",
+      colorHex: "#facc15",
+      eyeSafety: "Class 1 アイセーフ",
+      detectorType: "シリコン APD / SPAD",
+      descriptionJa: "Hokuyoの旧来2D LiDARで使われる近赤外波長。可視光に近い短波長側で、室内研究・教育用途のコンパクトな測域センサと相性がよい。",
+    },
     NM940: {
       id: "940nm", label: "940 nm",
       colorHex: "#e11d48",
