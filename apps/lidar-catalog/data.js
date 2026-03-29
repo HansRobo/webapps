@@ -1531,6 +1531,51 @@ const LIDARS = [
   },
 
   // ════════════════════════════════════════════
+  // Denso
+  // ════════════════════════════════════════════
+  {
+    id: "denso-spad-lidar",
+    manufacturer: M.DENSO,
+    name: "SPAD LiDAR Platform",
+    category: CAT.AUTO_LONG,
+    scanningMethod: SCAN.DIGITAL,
+    wavelength: WAVE.UNKNOWN,
+    discontinued: false,
+    specs: {
+      channels:   { value: null,        unit: "ch",       refs: [] },
+      maxRange:   { value: null,        unit: "m",        refs: [] },
+      peakRange:  { value: null,        unit: "m",        refs: [] },
+      fovH:       { value: null,        unit: "°",        refs: [] },
+      fovV:       { value: null,        unit: "°",        refs: [] },
+      resH:       { value: null,        unit: null,       refs: [] },
+      resV:       { value: null,        unit: null,       refs: [] },
+      pointRate:  { value: 3000000,     unit: "pts/s",    note: "10 fps, 300万点以上", refs: [1] },
+      power:      { value: null,        unit: "W",        refs: [] },
+      powerMax:   { value: null,        unit: "W",        refs: [] },
+      size:       { value: null,        unit: null,       refs: [] },
+      weight:     { value: null,        unit: null,       refs: [] },
+      accuracy:   { value: null,        unit: null,       refs: [] },
+      minRange:   { value: null,        unit: "m",        refs: [] },
+      protection: { value: null,        unit: null,       refs: [] },
+      interface:  { value: null,        unit: null,       refs: [] },
+      returnModes:         { value: null, unit: null,    refs: [] },
+      beamDivergence:      { value: null, unit: null,    refs: [] },
+      sunlightImmunity:    { value: null, unit: "lux",   refs: [] },
+      timeSynchronization: { value: null, unit: null,    refs: [] },
+      imuBuiltIn:          { value: null, unit: null,    refs: [] },
+      supportedSoftware:   { value: null, unit: null,    refs: [] },
+      operatingTemperature: { value: null, unit: null,   refs: [] },
+      shockVibration:      { value: null, unit: null,    refs: [] },
+      precision:           { value: null, unit: null,    refs: [] },
+    },
+    release: { value: "2025年目標の次世代LiDARプラットフォーム（発表: 2023年1月）", refs: [1] },
+    useCases: "車載の前方・側方・後方監視、インフラ監視、工場自動化向けの次世代SPAD LiDARプラットフォーム。",
+    references: [
+      { id: 1, url: "https://www.amd.com/ja/newsroom/press-releases/2023-01-25-amd-lidar.html", title: "AMD、アダプティブ・コンピューティング・テクノロジーにより デンソーの次世代LiDARシステムを実現", date: "2023-01", source: "AMD", type: SRC_TYPE.PRESS_RELEASE },
+    ],
+  },
+
+  // ════════════════════════════════════════════
   // Livox Technology
   // ════════════════════════════════════════════
   {
