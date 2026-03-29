@@ -36,10 +36,10 @@ const EXPERIMENTS = [
     period: { value: "2018年〜（2023年3月にレベル4車両認可、同年5月に特定自動運行サービス開始）", refs: [1, 2, 3] },
     status: { value: "実施中", refs: [1] },
     description: {
-      value: "廃線跡を活用した専用道路「永平寺参ろーど」での自動運転移動サービス。2023年3月30日に国内初のレベル4車両認可を取得し、同年5月21日から運転者を配置しないレベル4サービスを開始した。",
-      refs: [1, 2, 3]
+      value: "廃線跡を活用した専用道路「永平寺参ろーど」での自動運転移動サービス。2023年3月30日に国内初のレベル4車両認可を取得し、同年5月21日から運転者を配置しないレベル4サービスを開始した。特定自動運行計画では7人乗りのAR-07ベース車両4台（うち1台は予備車両）を使用する。",
+      refs: [1, 2, 3, 4]
     },
-    vehicle: { value: "ヤマハグリーンスローモビリティ", refs: [2] },
+    vehicle: { value: "ヤマハ AR-07", refs: [4] },
     adSystem: { value: "産総研", refs: [] },
     route: { value: "永平寺参ろーど 約2km（専用道）、最高速度12km/h", refs: [1, 2] },
     operationType: { value: "レベル4（特定自動運行、運転者なし）", refs: [1, 3] },
@@ -53,7 +53,8 @@ const EXPERIMENTS = [
     references: [
       { id: 1, title: "国内初！運転者を必要としない自動運転車（レベル４）の認可について", url: "https://www.mlit.go.jp/report/press/jidosha07_hh_000442.html", date: "2023-03-31", source: "国土交通省" },
       { id: 2, title: "国内初の自動運転レベル4車両認可を取得（福井県永平寺町）", url: "https://www.yamaha-motor.co.jp/gsm/topics/eiheiji2.html", date: "2023-03-30", source: "ヤマハ発動機" },
-      { id: 3, title: "国内初！運転者を配置しないレベル４での自動運転移動サービスの開始について", url: "https://www.mlit.go.jp/report/press/jidosha07_hh_000448.html", date: "2023-05-12", source: "国土交通省" }
+      { id: 3, title: "国内初！運転者を配置しないレベル４での自動運転移動サービスの開始について", url: "https://www.mlit.go.jp/report/press/jidosha07_hh_000448.html", date: "2023-05-12", source: "国土交通省" },
+      { id: 4, title: "国内初の自動運転レベル4運行認可を取得（福井県永平寺町）", url: "https://www.yamaha-motor.co.jp/gsm/topics/eiheiji3.html", date: "2023-05-11", source: "ヤマハ発動機" }
     ]
   },
   {
