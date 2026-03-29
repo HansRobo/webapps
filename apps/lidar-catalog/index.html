@@ -33,83 +33,40 @@
           <p class="top-app-bar__subtitle">センサ比較データベース（一次情報付き）</p>
         </div>
       </div>
+      <nav class="main-nav" id="mainNav" aria-label="メインナビゲーション">
+        <a href="#/products" class="nav-tab" data-view="products">
+          <span class="material-symbols-outlined">sensors</span>
+          <span class="nav-tab__label">製品</span>
+        </a>
+        <a href="#/manufacturers" class="nav-tab" data-view="manufacturers">
+          <span class="material-symbols-outlined">business</span>
+          <span class="nav-tab__label">メーカー</span>
+        </a>
+        <a href="#/scan-methods" class="nav-tab" data-view="scan-methods">
+          <span class="material-symbols-outlined">radar</span>
+          <span class="nav-tab__label">走査方式</span>
+        </a>
+        <a href="#/wavelengths" class="nav-tab" data-view="wavelengths">
+          <span class="material-symbols-outlined">waves</span>
+          <span class="nav-tab__label">波長</span>
+        </a>
+        <a href="#/categories" class="nav-tab" data-view="categories">
+          <span class="material-symbols-outlined">category</span>
+          <span class="nav-tab__label">カテゴリ</span>
+        </a>
+        <a href="#/compare" class="nav-tab" data-view="compare">
+          <span class="material-symbols-outlined">bubble_chart</span>
+          <span class="nav-tab__label">2D比較</span>
+        </a>
+        <a href="#/graph" class="nav-tab" data-view="graph">
+          <span class="material-symbols-outlined">hub</span>
+          <span class="nav-tab__label">グラフ</span>
+        </a>
+      </nav>
     </header>
 
-    <div class="app-layout">
-      <!-- ────────── フィルタパネル ────────── -->
-      <aside class="control-panel" id="controlPanel">
-        <div class="panel-header">
-          <h2>絞り込み</h2>
-          <button class="ghost-button" id="clearFiltersButton" type="button">全解除</button>
-        </div>
-
-        <div class="quick-search">
-          <span class="material-symbols-outlined">search</span>
-          <input id="queryInput" type="search" placeholder="製品名・メーカーで検索" autocomplete="off" />
-        </div>
-
-        <div class="panel-scroll">
-          <section class="filter-block">
-            <div class="filter-block__title">カテゴリ</div>
-            <div class="chip-group" id="categoryFilterGroup"></div>
-          </section>
-
-          <section class="filter-block">
-            <div class="filter-block__title">走査方式</div>
-            <div class="chip-group" id="scanFilterGroup"></div>
-          </section>
-
-          <section class="filter-block">
-            <div class="filter-block__title">波長</div>
-            <div class="chip-group" id="waveFilterGroup"></div>
-          </section>
-
-          <section class="filter-block">
-            <div class="filter-block__title">メーカー</div>
-            <div class="chip-group" id="manufacturerFilterGroup"></div>
-          </section>
-
-          <section class="filter-block">
-            <div class="filter-block__title">最大検知距離</div>
-            <div class="chip-group" id="rangeFilterGroup"></div>
-          </section>
-
-          <div class="filter-block filter-block--checkbox">
-            <label class="checkbox-label">
-              <input type="checkbox" id="hideDiscontinued" />
-              <span>廃番・統合済み製品を除外</span>
-            </label>
-          </div>
-        </div>
-      </aside>
-
-      <!-- ────────── カタログメインエリア ────────── -->
-      <main class="catalog-stage" id="catalogStage">
-        <div class="catalog-header">
-          <div class="catalog-stats">
-            <span class="count-pill" id="resultCount">0件</span>
-            <span class="catalog-stats__total" id="totalCount"></span>
-          </div>
-          <div class="sort-row">
-            <label for="sortSelect">並び替え</label>
-            <select id="sortSelect" class="filter-select">
-              <option value="default">メーカー順</option>
-              <option value="range-desc">最大距離（遠い順）</option>
-              <option value="range-asc">最大距離（近い順）</option>
-              <option value="name-asc">製品名順</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="active-filters" id="activeFilters"></div>
-
-        <div class="empty-hint" id="emptyHint" hidden>
-          条件に一致するLiDARが見つかりません。フィルタを一部解除するか、キーワードを変更してください。
-        </div>
-
-        <div class="lidar-grid" id="lidarGrid" role="list"></div>
-      </main>
-    </div>
+    <!-- ビューコンテナ: ルーターが各ビューをここに描画 -->
+    <div id="viewContainer"></div>
 
     <!-- ────────── モバイルドック ────────── -->
     <div class="mobile-dock" id="mobileDock">
@@ -123,7 +80,7 @@
       </button>
     </div>
 
-    <p class="data-disclaimer">
+    <p class="data-disclaimer" id="dataDisclaimer">
       ※掲載スペックは公開情報に基づきます。最新・正確な情報はメーカー公式サイト（一次情報）をご確認ください。
     </p>
 

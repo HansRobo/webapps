@@ -107,6 +107,43 @@ references: [
 
 ---
 
+## ルーティング構造（リデザイン後）
+
+アプリはハッシュベースルーターで複数ビューを切り替える構造になっています。
+
+| ルート | 内容 |
+|--------|------|
+| `#/products` | 製品カタログ（フィルタ・グリッド） |
+| `#/manufacturers` / `#/manufacturers/:id` | メーカー一覧 / 詳細 |
+| `#/scan-methods` / `#/scan-methods/:id` | 走査方式一覧 / 詳細 |
+| `#/wavelengths` / `#/wavelengths/:id` | 波長一覧 / 詳細 |
+| `#/categories` / `#/categories/:id` | カテゴリ一覧 / 詳細 |
+| `#/compare` | 2D比較ビュー（軸選択式散布図） |
+| `#/graph` | 関係性グラフビュー（力学シミュレーション） |
+
+### schema.js の新フィールドについて
+
+**SCAN エントリ**には以下のオプショナルフィールドが追加されています:
+- `icon`: Material Symbolsのアイコン名
+- `descriptionJa`: 走査方式の説明文（日本語）
+- `pros`: メリットの配列
+- `cons`: デメリットの配列
+
+**WAVE エントリ**:
+- `colorHex`: 波長を表すカラーコード
+- `eyeSafety`: アイセーフティ情報
+- `detectorType`: 検出器タイプ
+- `descriptionJa`: 説明文（日本語）
+
+**CAT エントリ**:
+- `icon`: Material Symbolsのアイコン名
+- `typicalRange`: 典型的な検知距離範囲
+- `descriptionJa`: カテゴリの説明文（日本語）
+
+新しいSCAN/CAT/WAVEエントリを追加する際は、上記フィールドを一緒に記述することを推奨します。
+
+---
+
 ## バリデーションコマンド
 
 ```bash
