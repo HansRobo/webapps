@@ -455,19 +455,19 @@ body {
   padding: 3px 8px;
 }
 
-.status-badge[data-status="実施中"],
-.status-badge[data-status="実施中・一部計画中"],
-.status-badge[data-status="実施中・開発中"] {
+.status-badge[data-status="active"],
+.status-badge[data-status="active-planned"],
+.status-badge[data-status="active-dev"] {
   background: var(--ok-bg);
   color: var(--ok-fg);
 }
 
-.status-badge[data-status="完了"] {
+.status-badge[data-status="completed"] {
   background: var(--done-bg);
   color: var(--done-fg);
 }
 
-.status-badge[data-status="計画中"] {
+.status-badge[data-status="planned"] {
   background: var(--plan-bg);
   color: var(--plan-fg);
 }
