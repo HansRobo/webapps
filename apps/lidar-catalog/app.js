@@ -256,12 +256,11 @@ const state = {
   _eventsSetup: false,
 };
 
-let _productsViewRendered = false;
-
 function renderProductsView() {
   const container = document.getElementById("viewContainer");
+  const needsShell = !document.getElementById("lidarGrid") || !document.getElementById("controlPanel");
 
-  if (!_productsViewRendered) {
+  if (needsShell) {
     container.innerHTML = `
       <div class="app-layout">
         <aside class="control-panel" id="controlPanel">
@@ -326,7 +325,6 @@ function renderProductsView() {
         </main>
       </div>
     `;
-    _productsViewRendered = true;
     buildFilterChips();
     setupProductsEvents();
   }
