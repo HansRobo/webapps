@@ -5694,5 +5694,106 @@ const EXPERIMENTS = [
     references: [
       { id: 1, title: "愛知県豊田市で、当社の自動運転バスが走行します！", url: "https://www.as-mobi.com/news/?ca=3", date: "2023-11-30", source: "先進モビリティ株式会社" }
     ]
+  },
+  {
+    id: "exp-249",
+    name: { value: "西新宿自動運転タクシー実証（5G・JPN TAXI）", refs: [1, 2] },
+    location: { value: "東京都新宿区（京王プラザホテル〜新宿中央公園〜KDDI新宿ビル周辺）", lat: 35.692, lng: 139.691, refs: [1, 2] },
+    prefecture: { value: PREF.TOKYO, refs: [1] },
+    period: { value: "2020年11月5日〜12月23日", refs: [1, 2] },
+    status: { value: STATUS.COMPLETED, refs: [1, 2] },
+    description: {
+      value: "ティアフォーが株式会社Mobility Technologies、損害保険ジャパン株式会社、KDDI株式会社、アイサンテクノロジー株式会社などと連携して実施した、西新宿エリアでの5G活用自動運転タクシー実証。11月は京王プラザホテル〜新宿中央公園間の走行、12月は複数拠点・複数ルートでの運行を通じて、都市部での遠隔監視や運行設計の課題を検証した。",
+      refs: [1, 2]
+    },
+    vehicle: { value: VEH.TOYOTA_JPN_TAXI, refs: [1, 2] },
+    adSystem: { value: ADS.TIER_IV, refs: [1, 2] },
+    route: { value: "京王プラザホテル〜新宿中央公園〜東京都庁第二庁舎ロータリー〜KDDI新宿ビル周辺", refs: [1, 2] },
+    operationType: { value: "レベル2（乗務員同乗）、一部遠隔監視走行あり", refs: [1, 2] },
+    stakeholders: [
+      { role: "事業主体", name: "株式会社ティアフォー", refs: [1, 2] },
+      { role: "協力機関", name: "株式会社Mobility Technologies", refs: [1, 2] },
+      { role: "協力機関", name: "損害保険ジャパン株式会社", refs: [1, 2] },
+      { role: "協力機関", name: "KDDI株式会社", refs: [1, 2] },
+      { role: "協力機関", name: "アイサンテクノロジー株式会社", refs: [1, 2] },
+      { role: "協力機関", name: "一般社団法人新宿副都心エリア環境改善委員会", refs: [1] },
+      { role: "協力機関", name: "東京都", refs: [2] }
+    ],
+    references: [
+      { id: 1, title: "西新宿エリアで５Ｇを活用した自動運転タクシーの実証実験（フェーズⅡ）を始動 〜環境改善委員会と西新宿版スマートシティ推進に向けた連携協定を締結します〜", url: "https://goinc.jp/news/pr/2020/10/09/71e9codwjcnysx23cyzjjs", date: "2020-10-09", source: "GO株式会社" },
+      { id: 2, title: "西新宿における自動運転実証実験の振り返り", url: "https://tech.tier4.jp/entry/2021/02/03/160000", date: "2021-02-03", source: "TIER IV Tech Blog" }
+    ]
+  },
+  {
+    id: "exp-250",
+    name: { value: "お台場ロボットタクシー プレサービス実証（2024年11月）", refs: [1, 2] },
+    location: { value: "東京都江東区（お台場・東京テレポート駅周辺）", lat: 35.625, lng: 139.775, refs: [1, 2] },
+    prefecture: { value: PREF.TOKYO, refs: [1, 2] },
+    period: { value: "2024年11月", refs: [1, 2] },
+    status: { value: STATUS.COMPLETED, refs: [1, 2] },
+    description: {
+      value: "ティアフォーが東京都お台場の複数拠点間で実施したロボットタクシーのプレサービス実証。既存の交通事業と共存可能なサービス化に向け、音声入力による目的地指定やODD拡張の有効性を検証した。",
+      refs: [1, 2]
+    },
+    vehicle: { value: VEH.TOYOTA_JPN_TAXI, refs: [1, 2] },
+    adSystem: { value: ADS.TIER_IV, refs: [1, 2] },
+    route: { value: "お台場の複数拠点間（東京テレポート駅周辺）", refs: [1, 2] },
+    operationType: { value: "レベル2（乗務員同乗）、プレサービス実証", refs: [1, 2] },
+    stakeholders: [
+      { role: "事業主体", name: "株式会社ティアフォー", refs: [1, 2] },
+      { role: "協力機関", name: "東京都", refs: [1, 2] }
+    ],
+    references: [
+      { id: 1, title: "ティアフォー、東京都内の限定区画でロボットタクシーによるサービス実証を開始　2024年11月から広域で事業化へ", url: "https://prtimes.jp/main/html/rd/p/000000067.000040119.html", date: "2024-05-20", source: "株式会社ティアフォー / PR TIMES" },
+      { id: 2, title: "ティアフォー、お台場と西新宿でロボットタクシーのプレサービス実証を実施", url: "https://prtimes.jp/main/html/rd/p/000000084.000040119.html", date: "2025-02-18", source: "株式会社ティアフォー / PR TIMES" }
+    ]
+  },
+  {
+    id: "exp-251",
+    name: { value: "西新宿ロボットタクシー プレサービス実証（2024年12月）", refs: [1, 2] },
+    location: { value: "東京都新宿区（西新宿・新宿駅西口周辺）", lat: 35.692, lng: 139.691, refs: [1, 2] },
+    prefecture: { value: PREF.TOKYO, refs: [1, 2] },
+    period: { value: "2024年12月", refs: [1, 2] },
+    status: { value: STATUS.COMPLETED, refs: [1, 2] },
+    description: {
+      value: "ティアフォーが西新宿で実施したロボットタクシーのプレサービス実証。利用者が配車アプリで目的地を選択し、交通量の多い都市部での運行設計領域拡張と導入プロセスを検証した。",
+      refs: [1, 2]
+    },
+    vehicle: { value: VEH.TOYOTA_JPN_TAXI, refs: [1, 2] },
+    adSystem: { value: ADS.TIER_IV, refs: [1, 2] },
+    route: { value: "新宿駅西口地区の複数目的地間（7目的地）", refs: [1, 2] },
+    operationType: { value: "レベル2（乗務員同乗）、プレサービス実証", refs: [1, 2] },
+    stakeholders: [
+      { role: "事業主体", name: "株式会社ティアフォー", refs: [1, 2] },
+      { role: "協力機関", name: "東京都", refs: [1, 2] },
+      { role: "協力機関", name: "一般社団法人新宿副都心エリア環境改善委員会", refs: [2] }
+    ],
+    references: [
+      { id: 1, title: "ティアフォー、東京都内の限定区画でロボットタクシーによるサービス実証を開始　2024年11月から広域で事業化へ", url: "https://prtimes.jp/main/html/rd/p/000000067.000040119.html", date: "2024-05-20", source: "株式会社ティアフォー / PR TIMES" },
+      { id: 2, title: "ティアフォー、お台場と西新宿でロボットタクシーのプレサービス実証を実施", url: "https://prtimes.jp/main/html/rd/p/000000084.000040119.html", date: "2025-02-18", source: "株式会社ティアフォー / PR TIMES" }
+    ]
+  },
+  {
+    id: "exp-252",
+    name: { value: "国会定期便 自動運転実証（ティアフォー）", refs: [1] },
+    location: { value: "東京都千代田区（経済産業省〜国会定期便ルート）", lat: 35.675, lng: 139.753, refs: [1] },
+    prefecture: { value: PREF.TOKYO, refs: [1] },
+    period: { value: "2025年11月20日〜12月19日", refs: [1] },
+    status: { value: STATUS.COMPLETED, refs: [1] },
+    description: {
+      value: "ティアフォーが経済産業省の国会定期便で実施した自動運転実証。スズキ・ソリオを用い、都心部の複雑な環境で自動運転移動サービスの技術課題と公共調達モデルの可能性を検証した。",
+      refs: [1]
+    },
+    vehicle: { value: VEH.SUZUKI_SOLIO, refs: [1] },
+    adSystem: { value: ADS.TIER_IV, refs: [1] },
+    route: { value: "経済産業省〜衆議院第一・第二議員会館〜参議院議員会館 約3.5km", refs: [1] },
+    operationType: { value: "レベル2（実証走行）", refs: [1] },
+    stakeholders: [
+      { role: "実証主体", name: "経済産業省", refs: [1] },
+      { role: "自動運転システム", name: "株式会社ティアフォー", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "ティアフォー、公共調達の先行モデル構築に向けて国会定期便での自動運転実証を開始", url: "https://prtimes.jp/main/html/rd/p/000000108.000040119.html", date: "2025-11-20", source: "株式会社ティアフォー / PR TIMES" }
+    ]
   }
 ];
