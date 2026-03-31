@@ -1186,7 +1186,7 @@ const EXPERIMENTS = [
       value: "山口県と連携し、2027年度の社会実装を目指して取り組むプロジェクト。JR徳山駅から徳山動物園までのルートで夜間走行や信号連携の検証を行い、2024年度・2025年度に段階的な実証運行を実施した。",
       refs: [1, 2]
     },
-    vehicle: { value: VEH.UNKNOWN, refs: [1, 2] },
+    vehicle: { value: VEH.BYD_K9, refs: [1, 2] },
     adSystem: { value: ADS.UNKNOWN, refs: [] },
     route: { value: "JR徳山駅〜徳山動物園（約2km）", refs: [1, 2] },
     operationType: { value: "レベル2（実証実験）", refs: [1, 2] },
@@ -5412,6 +5412,287 @@ const EXPERIMENTS = [
       { id: 1, title: "【東京都庁-新宿駅】自動運転バス通年運行実施のお知らせ", url: "https://a-drive.jp/2025/02/21/202502tokyo/", date: "2025-02-21", source: "A-Drive" },
       { id: 2, title: "西新宿エリアを自動運転の「推進区域」として設定し、早期の社会実装を支援していきます！", url: "https://www.spt.metro.tokyo.lg.jp/tosei/hodohappyo/press/2025/01/31/02.html", date: "2025-01-31", source: "東京都" },
       { id: 3, title: "西新宿エリアでの自動運転バス通年運行について", url: "https://www.keio-bus.com/news/e0d70ada9b1ef0cd3535.pdf", date: "2025-02-21", source: "京王電鉄バス株式会社" }
+    ]
+  }
+  ,
+  {
+    id: "exp-237",
+    name: { value: "栃木県下野市 自動運転バス実証運行（自治医大駅〜自治医大附属病院前）", refs: [1] },
+    location: { value: "栃木県下野市（JR自治医大駅〜自治医大附属病院前）", lat: 36.393, lng: 139.861, refs: [1] },
+    prefecture: { value: PREF.TOCHIGI, refs: [1] },
+    period: { value: "2024年1月16日〜2月19日", refs: [1] },
+    status: { value: STATUS.COMPLETED, refs: [1] },
+    description: {
+      value: "下野市が実施した自動運転バス実証運行の第1期。JR自治医大駅と自治医大附属病院前を結ぶ路線で、将来的な完全無人化運行を見据えた走行検証と利用者受容性の把握を目的に実施した。",
+      refs: [1]
+    },
+    vehicle: { value: VEH.ISUZU_ERGA_MIO, refs: [1] },
+    adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
+    route: { value: "JR自治医大駅⇔自治医大附属病院前", refs: [1] },
+    operationType: { value: "レベル2（予約不要）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "下野市（栃木県）", refs: [1] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "栃木県で、当社の自動運転バスが走行します！", url: "https://www.as-mobi.com/news/?ca=3", date: "2024-01-09", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-238",
+    name: { value: "栃木県下野市 自動運転バス実証運行（2期目）", refs: [1] },
+    location: { value: "栃木県下野市（JR自治医大駅〜自治医大附属病院前）", lat: 36.393, lng: 139.861, refs: [1] },
+    prefecture: { value: PREF.TOCHIGI, refs: [1] },
+    period: { value: "2025年1月28日〜2月28日", refs: [1] },
+    status: { value: STATUS.COMPLETED, refs: [1] },
+    description: {
+      value: "下野市の自動運転バス実証の2期目。前年に続き同一路線で実施し、レベル4運行に向けた課題整理と運行検証を進めた。",
+      refs: [1]
+    },
+    vehicle: { value: VEH.ISUZU_ERGA_MIO, refs: [1] },
+    adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
+    route: { value: "JR自治医大駅⇔自治医大附属病院前", refs: [1] },
+    operationType: { value: "レベル2（予約不要）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "下野市（栃木県）", refs: [1] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "栃木県下野市にて２期目の自動運転バス実証実験に参画、L4運行に向け前進", url: "https://www.as-mobi.com/news/?ca=3", date: "2025-01-28", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-239",
+    name: { value: "山梨県 自動運転バス実証（甲府駅周辺・ゆめソーラー館やまなし）", refs: [1] },
+    location: { value: "山梨県甲府市（甲府駅南口・甲府市役所周回／甲府駅〜ゆめソーラー館やまなし）", lat: 35.663, lng: 138.568, refs: [1] },
+    prefecture: { value: PREF.YAMANASHI, refs: [1] },
+    period: { value: "2024年1月27日〜3月1日", refs: [1] },
+    status: { value: STATUS.COMPLETED, refs: [1] },
+    description: {
+      value: "山梨県が実施した自動運転バス実証。社会受容性向上のための試乗体験会と、レベル4相当の運行を目指した技術立証の2本立てで検証を行った。",
+      refs: [1]
+    },
+    vehicle: { value: VEH.UNKNOWN, refs: [1] },
+    adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
+    route: { value: "甲府駅南口・甲府市役所周回ルート / 甲府駅〜ゆめソーラー館やまなし", refs: [1] },
+    operationType: { value: "レベル2（試乗体験会・技術立証）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "山梨県", refs: [1] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "山梨県で、当社の自動運転バスが走行します！", url: "https://www.as-mobi.com/news/?ca=3", date: "2024-01-09", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-240",
+    name: { value: "中部国際空港・常滑市 自動運転バス実証（2024年1月）", refs: [1] },
+    location: { value: "愛知県常滑市（中部国際空港島・空港周辺）", lat: 34.862, lng: 136.812, refs: [1] },
+    prefecture: { value: PREF.AICHI, refs: [1] },
+    period: { value: "2024年1月26日〜", refs: [1] },
+    status: { value: STATUS.COMPLETED, refs: [1] },
+    description: {
+      value: "常滑市の公道と中部国際空港内で実施された自動運転バス実証。空港利用者・従業員の移動や、空港島周辺での走行検証を通じて常時運行の可能性を検証した。",
+      refs: [1]
+    },
+    vehicle: { value: VEH.UNKNOWN, refs: [1] },
+    adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
+    route: { value: "常滑市の公道および中部国際空港島内", refs: [1] },
+    operationType: { value: "レベル2（社会実装モデル構築に向けた実証）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "愛知県", refs: [1] },
+      { role: "事業主体", name: "常滑市（愛知県）", refs: [1] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "愛知県常滑市の公道と中部国際空港内を当社のバスが走行します！", url: "https://www.as-mobi.com/news/?ca=3", date: "2024-01-26", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-241",
+    name: { value: "横浜市 ズーラシア路線 自動運転バス実証（2024年3月）", refs: [1] },
+    location: { value: "神奈川県横浜市（よこはま動物園ズーラシア）", lat: 35.474, lng: 139.544, refs: [1] },
+    prefecture: { value: PREF.KANAGAWA, refs: [1] },
+    period: { value: "2024年3月29日〜4月5日", refs: [1] },
+    status: { value: STATUS.COMPLETED, refs: [1] },
+    description: {
+      value: "横浜市経済局の産業振興支援の一環として実施されたズーラシア路線の自動運転バス実証第1弾。動物園の来園導線で一般公道を走行し、混雑環境での安全性を確認した。",
+      refs: [1]
+    },
+    vehicle: { value: VEH.HINO_PONCHO, refs: [1] },
+    adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
+    route: { value: "よこはま動物園（ズーラシア）正門5番バス停〜北門バス停〜正門バス停", refs: [1] },
+    operationType: { value: "レベル2（事前予約不要、一般利用）", refs: [1] },
+    stakeholders: [
+      { role: "自治体", name: "横浜市（神奈川県）", refs: [1] },
+      { role: "事業主体", name: "横浜市経済局", refs: [1] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "神奈川県 横浜市で、当社の自動運転バスが走行します！", url: "https://www.as-mobi.com/news/?ca=3", date: "2024-02-16", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-242",
+    name: { value: "横浜市 ズーラシア路線 自動運転バス実証（2024年9月）", refs: [1] },
+    location: { value: "神奈川県横浜市（よこはま動物園ズーラシア）", lat: 35.474, lng: 139.544, refs: [1] },
+    prefecture: { value: PREF.KANAGAWA, refs: [1] },
+    period: { value: "2024年9月30日〜10月8日", refs: [1] },
+    status: { value: STATUS.COMPLETED, refs: [1] },
+    description: {
+      value: "NTTコミュニケーションズを代表機関とするコンソーシアムが実施したズーラシア路線の自動運転バス実証第2弾。先端通信技術と路車協調システムを用いて、混雑エリアでの自動運転の実現可能性を検証した。",
+      refs: [1]
+    },
+    vehicle: { value: VEH.HINO_PONCHO, refs: [1] },
+    adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
+    route: { value: "よこはま動物園ズーラシア 正門5番バス停〜北門バス停〜正門5番バス停", refs: [1] },
+    operationType: { value: "レベル2（先端通信技術・路車協調検証）", refs: [1] },
+    stakeholders: [
+      { role: "代表機関", name: "NTTコミュニケーションズ株式会社", refs: [1] },
+      { role: "運行主体", name: "相鉄バス株式会社", refs: [1] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "先進モビリティ、よこはま動物園ズーラシアでの実証実験に自動運転バスを提供", url: "https://www.as-mobi.com/news/?ca=3", date: "2024-09-30", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-243",
+    name: { value: "愛知県名古屋市 NAGOYA 自動運転バス実証（2024）", refs: [1] },
+    location: { value: "愛知県名古屋市（Aichi Sky Expo周辺）", lat: 34.880, lng: 136.828, refs: [1] },
+    prefecture: { value: PREF.AICHI, refs: [1] },
+    period: { value: "2024年6月19日〜6月21日", refs: [1] },
+    status: { value: STATUS.COMPLETED, refs: [1] },
+    description: {
+      value: "人とくるまのテクノロジー展 2024 NAGOYA にあわせて実施された自動運転バスの実証。展示会来場者向けの走行を通じて、都市部イベント時の移動手段としての適用性を検証した。",
+      refs: [1]
+    },
+    vehicle: { value: VEH.BYD_J6, refs: [1] },
+    adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
+    route: { value: "Aichi Sky Expo 周辺の実証ルート", refs: [1] },
+    operationType: { value: "レベル2（イベント連携実証）", refs: [1] },
+    stakeholders: [
+      { role: "事業主体", name: "先進モビリティ株式会社", refs: [1] },
+      { role: "開催地", name: "名古屋市（愛知県）", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "NAGOYA 2024年6月の自動運転バス実証実験について", url: "https://www.as-mobi.com/news/?ca=3", date: "2024-06-19", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-244",
+    name: { value: "大阪府岸和田市 自動運転バス実証運行（山手地域）", refs: [1] },
+    location: { value: "大阪府岸和田市（道の駅愛彩ランド〜牛滝温泉 四季まつり）", lat: 34.445, lng: 135.455, refs: [1] },
+    prefecture: { value: PREF.OSAKA, refs: [1] },
+    period: { value: "2024年11月28日〜12月2日", refs: [1] },
+    status: { value: STATUS.COMPLETED, refs: [1] },
+    description: {
+      value: "岸和田市スマートモビリティ実証実験実行委員会が実施した山手地域の自動運転バス実証運行。道の駅愛彩ランドと牛滝温泉 四季まつりを結ぶ区間で、レベル2の自動運転可能性を検証した。",
+      refs: [1]
+    },
+    vehicle: { value: VEH.BYD_J6, refs: [1] },
+    adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
+    route: { value: "道の駅愛彩ランド〜牛滝温泉 四季まつり", refs: [1] },
+    operationType: { value: "レベル2（実証運行）", refs: [1] },
+    stakeholders: [
+      { role: "実施主体", name: "岸和田市スマートモビリティ実証実験実行委員会", refs: [1] },
+      { role: "自治体", name: "岸和田市（大阪府）", refs: [1] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "大阪府岸和田市で当社の自動運転バスが走行します！", url: "https://www.as-mobi.com/news/?ca=3", date: "2024-10-07", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-245",
+    name: { value: "静岡県沼津市 自動運転バス実証（沼津駅南口〜沼津港）", refs: [1] },
+    location: { value: "静岡県沼津市（沼津駅南口〜沼津港）", lat: 35.095, lng: 138.863, refs: [1] },
+    prefecture: { value: PREF.SHIZUOKA, refs: [1] },
+    period: { value: "2024年12月7日〜15日", refs: [1] },
+    status: { value: STATUS.COMPLETED, refs: [1] },
+    description: {
+      value: "沼津市が実施した自動運転バスの実証実験。沼津駅南口と沼津港を結ぶルートで、都市部観光地における自動運転の実装可能性を検証した。",
+      refs: [1]
+    },
+    vehicle: { value: VEH.BYD_J6, refs: [1] },
+    adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
+    route: { value: "沼津駅南口〜沼津港", refs: [1] },
+    operationType: { value: "レベル2（実証実験）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "沼津市（静岡県）", refs: [1] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "静岡県沼津市で当社の自動運転バスが走行します！", url: "https://www.as-mobi.com/news/?ca=3", date: "2024-11-25", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-246",
+    name: { value: "愛知県岡崎市 自動運転バス実証運行（2024年11月）", refs: [1] },
+    location: { value: "愛知県岡崎市（東岡崎駅〜中央総合公園〜東岡崎駅）", lat: 34.955, lng: 137.164, refs: [1] },
+    prefecture: { value: PREF.AICHI, refs: [1] },
+    period: { value: "2024年11月24日〜29日", refs: [1] },
+    status: { value: STATUS.COMPLETED, refs: [1] },
+    description: {
+      value: "岡崎市が実施した自動運転バスの実証運行。市役所西庁舎ロータリーや図書館交流プラザりぶらを経由するルートで、公共交通の補完と社会受容性の検証を行った。",
+      refs: [1]
+    },
+    vehicle: { value: VEH.UNKNOWN, refs: [1] },
+    adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
+    route: { value: "東岡崎駅〜中央総合公園〜東岡崎駅（岡崎市役所、岡崎げんき館前経由）", refs: [1] },
+    operationType: { value: "レベル2（実証運行）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "岡崎市（愛知県）", refs: [1] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "愛知県岡崎市で当社の自動運転バスが走行します！", url: "https://www.as-mobi.com/news/?ca=3", date: "2024-11-27", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-247",
+    name: { value: "静岡県三島市・長泉町 自動運転バス実証運行（2023年12月）", refs: [1] },
+    location: { value: "静岡県三島市〜長泉町（三島駅北口〜下土狩駅）", lat: 35.122, lng: 138.912, refs: [1] },
+    prefecture: { value: PREF.SHIZUOKA, refs: [1] },
+    period: { value: "2023年12月1日〜12月4日", refs: [1] },
+    status: { value: STATUS.COMPLETED, refs: [1] },
+    description: {
+      value: "三島駅北口から長泉町下土狩駅間で実施された自動運転レベル2の実証運行。複数の自治体と地域交通事業者、大学が連携し、地域に適合した新たなモビリティ形成を検証した。",
+      refs: [1]
+    },
+    vehicle: { value: VEH.UNKNOWN, refs: [1] },
+    adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
+    route: { value: "三島駅北口〜下土狩駅", refs: [1] },
+    operationType: { value: "レベル2（事前予約制）", refs: [1] },
+    stakeholders: [
+      { role: "事業主体", name: "富士山南東スマートフロンティア推進協議会", refs: [1] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "三島駅北口⇔下土狩駅間で、当社の自動運転バスが走行します！", url: "https://www.as-mobi.com/news/?ca=3", date: "2023-10-27", source: "先進モビリティ株式会社" }
+    ]
+  },
+  {
+    id: "exp-248",
+    name: { value: "愛知県豊田市 自動運転バス実証運行（2023年11月）", refs: [1] },
+    location: { value: "愛知県豊田市", lat: 35.083, lng: 137.156, refs: [1] },
+    prefecture: { value: PREF.AICHI, refs: [1] },
+    period: { value: "2023年11月30日〜12月28日", refs: [1] },
+    status: { value: STATUS.COMPLETED, refs: [1] },
+    description: {
+      value: "豊田市が実施した自動運転バスの実証実験。市内での定常利用を見据えた走行検証を行い、将来の地域公共交通への適用可能性を検証した。",
+      refs: [1]
+    },
+    vehicle: { value: VEH.UNKNOWN, refs: [1] },
+    adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
+    route: { value: "豊田市内の実証ルート", refs: [1] },
+    operationType: { value: "レベル2（実証実験）", refs: [1] },
+    stakeholders: [
+      { role: "自治体・事業主体", name: "豊田市（愛知県）", refs: [1] },
+      { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
+    ],
+    references: [
+      { id: 1, title: "愛知県豊田市で、当社の自動運転バスが走行します！", url: "https://www.as-mobi.com/news/?ca=3", date: "2023-11-30", source: "先進モビリティ株式会社" }
     ]
   }
 ];
