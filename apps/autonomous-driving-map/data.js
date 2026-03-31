@@ -827,10 +827,10 @@ const EXPERIMENTS = [
     period: { value: "2025年11月4日〜30日", refs: [1] },
     status: { value: STATUS.COMPLETED, refs: [1] },
     description: {
-      value: "奥日光低公害バス路線の一部における将来的なレベル4実装を目指して、大型EVバス（着席定員27名）を用いた社会実装に向けた実証実験を実施。",
-      refs: [1]
+      value: "奥日光低公害バス路線の一部における将来的なレベル4実装を目指して、BYD K8の大型EVバス（着席定員27名）を用いた社会実装に向けた実証実験を実施。",
+      refs: [1, 2]
     },
-    vehicle: { value: VEH.UNKNOWN, refs: [1] },
+    vehicle: { value: VEH.BYD_K8, refs: [2] },
     adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [] },
     route: { value: "奥日光低公害バス路線", refs: [1] },
     operationType: { value: "実証実験", refs: [1] },
@@ -840,7 +840,8 @@ const EXPERIMENTS = [
       { role: "自治体", name: "栃木県", refs: [1] }
     ],
     references: [
-      { id: 1, title: "自動運転バスに乗ろう＠日光市（奥日光大型EVバス実証）", url: "https://www.pref.tochigi.lg.jp/h03/houdou/nikkojidouuntenten.html", date: "2025-11-04", source: "栃木県" }
+      { id: 1, title: "自動運転バスに乗ろう＠日光市（奥日光大型EVバス実証）", url: "https://www.pref.tochigi.lg.jp/h03/houdou/nikkojidouuntenten.html", date: "2025-11-04", source: "栃木県" },
+      { id: 2, title: "自動運転バスに乗ろう＠日光市 告知画像", url: "https://www.pref.tochigi.lg.jp/h03/houdou/documents/20251015095325.jpg", date: "2025-11-04", source: "栃木県" }
     ]
   },
   {
