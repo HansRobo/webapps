@@ -1548,7 +1548,7 @@ const LIDARS = [
     discontinued: false,
     specs: {
       channels:   { value: null,        unit: "ch",       refs: [] },
-      maxRange:   { value: null,        unit: "m",        refs: [] },
+      maxRange:   { value: ">200",          unit: "m",        note: "more than 200 meters ahead", refs: [2] },
       peakRange:  { value: null,        unit: "m",        refs: [] },
       fovH:       { value: null,        unit: "°",        refs: [] },
       fovV:       { value: null,        unit: "°",        refs: [] },
@@ -1577,6 +1577,8 @@ const LIDARS = [
     useCases: "車載の前方・側方・後方監視、インフラ監視、工場自動化向けの次世代SPAD LiDARプラットフォーム。",
     references: [
       { id: 1, url: "https://www.amd.com/ja/newsroom/press-releases/2023-01-25-amd-lidar.html", title: "AMD、アダプティブ・コンピューティング・テクノロジーにより デンソーの次世代LiDARシステムを実現", date: "2023-01", source: "AMD", type: SRC_TYPE.PRESS_RELEASE },
+      { id: 2, url: "https://www.denso.com/global/en/news/newsroom/2021/20210409-g01/", title: "DENSO Develops Advanced Driver Assistance Products for New Lexus LS, Toyota Mirai", date: "2026-04", source: "DENSO", type: SRC_TYPE.PRESS_RELEASE },
+      { id: 3, url: "https://www.denso.com/global/en/innovation/technology/lidar/", title: "DENSO LiDAR Technology", date: "2026-04", source: "DENSO", type: SRC_TYPE.PRODUCT_PAGE },
     ],
   },
 
@@ -2664,7 +2666,7 @@ const LIDARS = [
     discontinued: false,
     specs: {
       channels:   { value: null,         unit: "ch",       refs: [] },
-      maxRange:   { value: null,         unit: "m",        refs: [] },
+      maxRange:   { value: ">250",       unit: "m",        note: "Range to 10% reflective Lambertian target, >90% detection probability", refs: [2] },
       peakRange:  { value: null,         unit: "m",        refs: [] },
       fovH:       { value: 120,          unit: "°",        refs: [1] },
       fovV:       { value: 30,           unit: "°",        note: "±0.5°", refs: [1] },
@@ -2960,15 +2962,15 @@ const LIDARS = [
     discontinued: false,
     specs: {
       channels:   { value: null,         unit: "ch",       refs: [] },
-      maxRange:   { value: null,         unit: "m",        refs: [] },
+      maxRange:   { value: 200,          unit: "m",        note: "@ 10% reflectivity", refs: [1] },
       peakRange:  { value: null,         unit: "m",        refs: [] },
-      fovH:       { value: null,         unit: "°",        refs: [] },
-      fovV:       { value: null,         unit: "°",        refs: [] },
-      resH:       { value: null,         unit: null,       refs: [] },
-      resV:       { value: null,         unit: null,       refs: [] },
-      pointRate:  { value: 4500000,      unit: "pts/s",    note: "SCALA 2比「約50倍の点群密度」", refs: [1] },
+      fovH:       { value: 120,         unit: "°",        refs: [1] },
+      fovV:       { value: 26,          unit: "°",        refs: [1] },
+      resH:       { value: "0.05°",     unit: null,       refs: [1] },
+      resV:       { value: "0.05°",     unit: null,       refs: [1] },
+      pointRate:  { value: 12500000,    unit: "pts/s",    note: "10 fps", refs: [1] },
       power:      { value: null,         unit: "W",        refs: [] },
-      size:       { value: null,         unit: null,       refs: [] },
+      size:       { value: "186 x 46 x 128 mm", unit: null, refs: [1] },
       weight:     { value: null,         unit: null,       refs: [] },
       accuracy:   { value: "±2 cm",      unit: null,       refs: [1] },
       minRange:   { value: null,         unit: "m",        refs: [] },
@@ -3164,7 +3166,7 @@ const LIDARS = [
     discontinued: false,
     specs: {
       channels:   { value: null,         unit: "ch",       refs: [] },
-      maxRange:   { value: null,         unit: "m",        refs: [] },
+      maxRange:   { value: 35,           unit: "m",        refs: [1] },
       peakRange:  { value: null,         unit: "m",        refs: [] },
       fovH:       { value: 210,          unit: "°",        refs: [1] },
       fovV:       { value: 40,           unit: "°",        refs: [1] },
@@ -3182,7 +3184,7 @@ const LIDARS = [
     release: { value: null, refs: [] },
     useCases: "3D産業用LiDAR。低反射率物体の検知強化。",
     references: [
-      { id: 1, url: "https://www.hokuyo-aut.co.jp/", title: "Hokuyo Automatic 公式サイト", date: "2026-03", source: "Hokuyo Automatic", type: SRC_TYPE.PRODUCT_PAGE },
+      { id: 1, url: "https://www.hokuyo-aut.co.jp/search/single.php?serial=165", title: "YVT-35LX-F0/FK Product Page", date: "2026-04", source: "Hokuyo Automatic", type: SRC_TYPE.PRODUCT_PAGE },
     ],
   },
 
