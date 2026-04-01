@@ -57,7 +57,7 @@ const LIDARS = [
     release: { value: "2022年後半量産開始（発表: 2021年8月）", refs: [1] },
     useCases: "車載 ADAS・前方監視。理想汽車など多数のOEMに採用。",
     references: [
-      { id: 1, url: "https://www.hesaitech.com/product/at128/", title: "AT128 Product Page", date: "2026-03", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
+      { id: 1, url: "https://www.hesaitech.com/product/at128/", title: "AT128 Product Page", date: "2026-04", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
     ],
   },
   {
@@ -76,9 +76,9 @@ const LIDARS = [
       fovV:       { value: 25.6,         unit: "°",        refs: [1] },
       resH:       { value: "0.05°",      unit: null,       refs: [1] },
       resV:       { value: "0.05°",      unit: null,       refs: [1] },
-      pointRate:  { value: 12288000,     unit: "pts/s",    refs: [1] },
+      pointRate:  { value: 12288000,     unit: "pts/s",    note: "2400×512 point cloud", refs: [1] },
       power:      { value: 25,           unit: "W",        refs: [1] },
-      size:       { value: "W 160 x D 110 x H 45 mm", unit: null, refs: [1] },
+      size:       { value: "W 160 x D 100 x H 45 mm", unit: null, refs: [1] },
       weight:     { value: 950,          unit: "g",        refs: [1] },
       accuracy:   { value: null,         unit: null,       refs: [] },
       minRange:   { value: null,         unit: "m",        refs: [] },
@@ -91,10 +91,10 @@ const LIDARS = [
       imuBuiltIn:          { value: "あり",         unit: null, refs: [1] },
       beamDivergence:      { value: "0.05° × 0.05°", unit: null, refs: [1] },
     },
-    release: { value: "2024年1月発表（CES 2024）", refs: [1] },
+    release: { value: "2024-01-08（CES 2024）", refs: [1] },
     useCases: "L3/L4自動運転フラッグシップ。超高解像度512本スキャニング。",
     references: [
-      { id: 1, url: "https://www.hesaitech.com/cn/news/1086", title: "AT512 Press Release", date: "2026-03", source: "Hesai Technology", type: SRC_TYPE.PRESS_RELEASE },
+      { id: 1, url: "https://www.hesaitech.com/cn/news/1086", title: "AT512 Press Release", date: "2026-04", source: "Hesai Technology", type: SRC_TYPE.PRESS_RELEASE },
     ],
   },
   {
@@ -128,10 +128,10 @@ const LIDARS = [
       imuBuiltIn:          { value: "あり",         unit: null, refs: [1] },
       beamDivergence:      { value: "約 0.1°",      unit: null, refs: [1] },
     },
-    release: { value: "2024年発表", refs: [1] },
+    release: { value: "2025-04-21", refs: [1] },
     useCases: "フロントガラス内側専用。薄型・低消費電力。ET25の後継機的位置づけ。",
     references: [
-      { id: 1, url: "https://www.hesaitech.com/product/etx/", title: "ETX Product Page", date: "2026-03", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
+      { id: 1, url: "https://www.hesaitech.com/product/etx/", title: "ETX Product Page", date: "2026-04", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
     ],
   },
   {
@@ -144,25 +144,25 @@ const LIDARS = [
     discontinued: false,
     specs: {
       channels:   { value: null,         unit: "ch",       refs: [] },
-      maxRange:   { value: 100,          unit: "m",        refs: [1] },
+      maxRange:   { value: 30,           unit: "m",        note: "@ 10% reflectivity", refs: [1] },
       peakRange:  { value: null,         unit: "m",        refs: [] },
-      fovH:       { value: 100,          unit: "°",        refs: [1] },
-      fovV:       { value: 75,           unit: "°",        refs: [1] },
-      resH:       { value: "160 pixels", unit: null,       refs: [1] },
-      resV:       { value: "120 pixels", unit: null,       refs: [1] },
-      pointRate:  { value: 192000,       unit: "pts/s",    refs: [1] },
-      power:      { value: null,         unit: "W",        refs: [] },
-      size:       { value: null,         unit: null,       refs: [] },
-      weight:     { value: null,         unit: null,       refs: [] },
+      fovH:       { value: 180,          unit: "°",        refs: [1] },
+      fovV:       { value: 140,          unit: "°",        refs: [1] },
+      resH:       { value: "0.6°",       unit: null,       refs: [1] },
+      resV:       { value: "0.6°",       unit: null,       refs: [1] },
+      pointRate:  { value: 492000,       unit: "pts/s",    refs: [1] },
+      power:      { value: "<6",         unit: "W",        refs: [1] },
+      size:       { value: "W 60 x D 39 x H 55 mm", unit: null, refs: [1] },
+      weight:     { value: 160,          unit: "g",        refs: [1] },
       accuracy:   { value: null,         unit: null,       refs: [] },
       minRange:   { value: null,         unit: "m",        refs: [] },
-      protection: { value: null,         unit: null,       refs: [] },
+      protection: { value: "IP6K7, IP6K9K", unit: null,   refs: [1] },
       interface:  { value: null,         unit: null,       refs: [] },
     },
-    release: { value: "2024年発表", refs: [1] },
+    release: { value: "2025-04-21", refs: [1] },
     useCases: "死角検知・近距離センシング。可動部なしの完全ソリッドステート。",
     references: [
-      { id: 1, url: "https://www.hesaitech.com/product/ftx/", title: "FTX Product Page", date: "2026-03", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
+      { id: 1, url: "https://www.hesaitech.com/product/ftx/", title: "FTX Product Page", date: "2026-04", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
     ],
   },
   {
@@ -190,10 +190,10 @@ const LIDARS = [
       protection: { value: null,        unit: null,       refs: [] },
       interface:  { value: null,        unit: null,       refs: [] },
     },
-    release: { value: "2025年1月発表（CES 2025）", refs: [1] },
+    release: { value: "2025-04-21", refs: [1] },
     useCases: "最先端ADAS・ロボタクシー・ロボトラック向けの超高密度前方監視。",
     references: [
-      { id: 1, url: "https://www.hesaitech.com/product/at1440-360/", title: "AT1440/360 Product Page", date: "2026-03", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
+      { id: 1, url: "https://www.hesaitech.com/product/at1440-360/", title: "AT1440/360 Product Page", date: "2026-04", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
     ],
   },
   {
@@ -221,10 +221,10 @@ const LIDARS = [
       protection: { value: null,        unit: null,       refs: [] },
       interface:  { value: null,        unit: null,       refs: [] },
     },
-    release: { value: "2025年1月発表", refs: [1] },
+    release: { value: "2025-04-21", refs: [1] },
     useCases: "AT1440/360 系の派生バリアント。高密度前方監視・ロボタクシー向け。",
     references: [
-      { id: 1, url: "https://www.hesaitech.com/product/at1440-360/", title: "AT1440/360 Product Page", date: "2026-03", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
+      { id: 1, url: "https://www.hesaitech.com/product/at1440-360/", title: "AT1440/360 Product Page", date: "2026-04", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
     ],
   },
   {
@@ -252,10 +252,10 @@ const LIDARS = [
       protection: { value: null,        unit: null,       refs: [] },
       interface:  { value: null,        unit: null,       refs: [] },
     },
-    release: { value: "2024年11月", refs: [1] },
+    release: { value: "2024-04-22", refs: [1] },
     useCases: "小型化した前方監視向け長距離センサ。AT128の後継系。",
     references: [
-      { id: 1, url: "https://www.hesaitech.com/product/atx/", title: "ATX Product Page", date: "2026-03", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
+      { id: 1, url: "https://www.hesaitech.com/product/atx/", title: "ATX Product Page", date: "2026-04", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
     ],
   },
   {
@@ -283,10 +283,10 @@ const LIDARS = [
       protection: { value: null,        unit: null,       refs: [] },
       interface:  { value: null,        unit: null,       refs: [] },
     },
-    release: { value: "2024年11月", refs: [1] },
+    release: { value: "2024-04-22", refs: [1] },
     useCases: "ATX の上位バリアント。より高密度な前方監視向け。",
     references: [
-      { id: 1, url: "https://www.hesaitech.com/product/atx/", title: "ATX Product Page", date: "2026-03", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
+      { id: 1, url: "https://www.hesaitech.com/product/atx/", title: "ATX Product Page", date: "2026-04", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
     ],
   },
   {
@@ -314,11 +314,12 @@ const LIDARS = [
       protection: { value: "IP6K7, IP6K9K", unit: null,   refs: [1] },
       interface:  { value: null,        unit: null,       refs: [] },
       imuBuiltIn: { value: "Built inside", unit: null,    refs: [1] },
+      supportedSoftware: { value: "LidarUtilities (Windows / Ubuntu 20.04 / Ubuntu 22.04)", unit: null, refs: [1] },
     },
-    release: { value: "2025年1月（CES 2025）", refs: [1] },
+    release: { value: "2025-01-08（CES 2025）", refs: [1] },
     useCases: "ロボティクス・産業用途の小型3D LiDAR。AGV/AMR/ロボット芝刈り機。",
     references: [
-      { id: 1, url: "https://www.hesaitech.com/product/jt16/", title: "JT16 Product Page", date: "2026-03", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
+      { id: 1, url: "https://www.hesaitech.com/product/jt16/", title: "JT16 Product Page", date: "2026-04", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
     ],
   },
   {
@@ -346,10 +347,10 @@ const LIDARS = [
       protection: { value: null,        unit: null,       refs: [] },
       interface:  { value: null,        unit: null,       refs: [] },
     },
-    release: { value: "2025年1月（CES 2025）", refs: [1] },
+    release: { value: "2025-01-08（CES 2025）", refs: [1] },
     useCases: "ロボティクス・産業用途の超広角3D LiDAR。無盲点の全周囲認識。",
     references: [
-      { id: 1, url: "https://www.hesaitech.com/product/jt128/", title: "JT128/64P Product Page", date: "2026-03", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
+      { id: 1, url: "https://www.hesaitech.com/product/jt128/", title: "JT128/64P Product Page", date: "2026-04", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
     ],
   },
   {
@@ -377,10 +378,10 @@ const LIDARS = [
       protection: { value: null,        unit: null,       refs: [] },
       interface:  { value: null,        unit: null,       refs: [] },
     },
-    release: { value: "2025年1月（CES 2025）", refs: [1] },
+    release: { value: "2025-01-08（CES 2025）", refs: [1] },
     useCases: "JT128 の 64チャンネル構成バリアント。ロボット・産業機器向け。",
     references: [
-      { id: 1, url: "https://www.hesaitech.com/product/jt128/", title: "JT128/64P Product Page", date: "2026-03", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
+      { id: 1, url: "https://www.hesaitech.com/product/jt128/", title: "JT128/64P Product Page", date: "2026-04", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
     ],
   },
   {
@@ -407,11 +408,12 @@ const LIDARS = [
       minRange:   { value: null,        unit: "m",        refs: [] },
       protection: { value: "IP6K7, IP6K9K", unit: null,   refs: [1] },
       interface:  { value: null,        unit: null,       refs: [] },
+      returnModes: { value: "Single / Dual", unit: null,  refs: [1] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "2024-09-18", refs: [1] },
     useCases: "360° 全周囲の長距離車載センサ。ロボタクシー・ロボトラック向け。",
     references: [
-      { id: 1, url: "https://www.hesaitech.com/product/ot128/", title: "OT128 Product Page", date: "2026-03", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
+      { id: 1, url: "https://www.hesaitech.com/product/ot128/", title: "OT128 Product Page", date: "2026-04", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
     ],
   },
   {
@@ -439,10 +441,10 @@ const LIDARS = [
       protection: { value: "IP6K7, IP6K9K", unit: null,   refs: [1] },
       interface:  { value: null,        unit: null,       refs: [] },
     },
-    release: { value: "2024-11", refs: [1] },
+    release: { value: "2023-04-25", refs: [1] },
     useCases: "360° 超広角の死角検知・近距離センシング。量産車両の周辺認識向け。",
     references: [
-      { id: 1, url: "https://www.hesaitech.com/product/qt128/", title: "QT128 Product Page", date: "2026-03", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
+      { id: 1, url: "https://www.hesaitech.com/product/qt128/", title: "QT128 Product Page", date: "2026-04", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
     ],
   },
   {
@@ -469,11 +471,12 @@ const LIDARS = [
       minRange:   { value: null,        unit: "m",        refs: [] },
       protection: { value: null,        unit: null,       refs: [] },
       interface:  { value: null,        unit: null,       refs: [] },
+      precision:  { value: "0.5 cm 1σ",  unit: null,       refs: [1] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "2020年", refs: [1] },
     useCases: "サービスロボット・空間認識・倉庫物流向けの高精度ミッドレンジ。",
     references: [
-      { id: 1, url: "https://www.hesaitech.com/product/xt16-32-32m/", title: "XT16/32/32M Product Page", date: "2026-03", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
+      { id: 1, url: "https://www.hesaitech.com/product/xt16-32-32m/", title: "XT16/32/32M Product Page", date: "2026-04", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
     ],
   },
   {
@@ -500,11 +503,12 @@ const LIDARS = [
       minRange:   { value: 0.05,       unit: "m",        refs: [1] },
       protection: { value: null,       unit: null,       refs: [] },
       interface:  { value: null,       unit: null,       refs: [] },
+      precision:  { value: "0.5 cm 1σ", unit: null,       refs: [1] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "2020年", refs: [1] },
     useCases: "サービスロボット・空間認識・倉庫物流向けの低チャネル構成。",
     references: [
-      { id: 1, url: "https://www.hesaitech.com/product/xt16-32-32m/", title: "XT16/32/32M Product Page", date: "2026-03", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
+      { id: 1, url: "https://www.hesaitech.com/product/xt16-32-32m/", title: "XT16/32/32M Product Page", date: "2026-04", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
     ],
   },
   {
@@ -538,7 +542,7 @@ const LIDARS = [
     release: { value: "2020年9月", refs: [1] },
     useCases: "L4/L5自動運転開発・ロボタクシー・自動運転トラック",
     references: [
-      { id: 1, url: "https://www.hesaitech.com/product/pandar128/", title: "Pandar128 Product Page", date: "2026-03", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
+      { id: 1, url: "https://www.hesaitech.com/product/pandar128/", title: "Pandar128 Product Page", date: "2026-04", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
     ],
   },
   {
@@ -565,11 +569,12 @@ const LIDARS = [
       minRange:   { value: 0.05,        unit: "m",        refs: [1] },
       protection: { value: null,        unit: null,       refs: [] },
       interface:  { value: null,        unit: null,       refs: [] },
+      precision:  { value: "0.5 cm 1σ",  unit: null,       refs: [1] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "2020年", refs: [1] },
     useCases: "サービスロボット・空間認識・倉庫物流向けの中距離 32ch 構成。",
     references: [
-      { id: 1, url: "https://www.hesaitech.com/product/xt16-32-32m/", title: "XT16/32/32M Product Page", date: "2026-03", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
+      { id: 1, url: "https://www.hesaitech.com/product/xt16-32-32m/", title: "XT16/32/32M Product Page", date: "2026-04", source: "Hesai Technology", type: SRC_TYPE.PRODUCT_PAGE },
     ],
   },
 
