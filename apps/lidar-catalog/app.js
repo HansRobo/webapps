@@ -257,6 +257,663 @@ const FILTER_FIELD_GROUPS = [...new Set(FILTER_FIELDS.map(field => field.group))
   fields: FILTER_FIELDS.filter(field => field.group === group),
 }));
 
+const PARAMETER_FIELD_IDS = [
+  "channels",
+  "maxRange",
+  "peakRange",
+  "minRange",
+  "accuracy",
+  "precision",
+  "fovH",
+  "fovV",
+  "resH",
+  "resV",
+  "pointRate",
+  "returnModes",
+  "beamDivergence",
+  "sunlightImmunity",
+  "interface",
+  "timeSynchronization",
+  "imuBuiltIn",
+  "supportedSoftware",
+  "power",
+  "powerMax",
+  "size",
+  "weight",
+  "protection",
+  "operatingTemperature",
+  "shockVibration",
+];
+
+const PARAMETER_GROUP_ORDER = ["基本性能", "光学・走査", "システム統合", "物理仕様"];
+
+const PARAMETER_TEXT_OVERRIDES = {
+  channels: "レーザー本数や受光系の数を表します。点群密度や角度分解能に関係します。",
+  maxRange: "10%反射率などの条件付き最大距離です。比較時は条件の表記に注意します。",
+  peakRange: "高反射率条件などで到達しうる参考距離です。最大距離とは条件が異なることがあります。",
+  minRange: "近距離での死角や測距開始距離の目安です。短いほど近接対象に強くなります。",
+  accuracy: "距離精度の目安です。単位や条件表記がメーカーごとに異なります。",
+  precision: "再現性やばらつきの目安です。Accuracy と区別して読む必要があります。",
+  fovH: "水平にどれだけ広く見えるかを示します。車載前方監視では重要な比較軸です。",
+  fovV: "垂直方向の見える範囲です。路面や高低差の取り込みに効きます。",
+  resH: "水平角度分解能です。小さいほど細かい対象を区別しやすくなります。",
+  resV: "垂直角度分解能です。小さいほど上下方向の密度が上がります。",
+  pointRate: "1秒あたりの点群生成数です。高いほど密度の高い点群を得やすくなります。",
+  returnModes: "Single / Dual / Triple などの戻り光取得モードです。用途に応じて見ます。",
+  beamDivergence: "レーザーの広がり角です。小さいほど遠方でスポットを絞りやすくなります。",
+  sunlightImmunity: "外乱光に対する耐性の目安です。高いほど屋外条件に強い傾向があります。",
+  interface: "Ethernet や CAN などの通信インタフェースです。車両・機器統合時に重要です。",
+  timeSynchronization: "PTP / gPTP などの時刻同期方式です。複数センサ統合で重要になります。",
+  imuBuiltIn: "内蔵 IMU の有無や仕様です。自己位置推定や補正に関係します。",
+  supportedSoftware: "ROS や SDK などのソフトウェア対応です。開発環境の相性に直結します。",
+  power: "通常動作時の消費電力です。放熱や電源設計に影響します。",
+  powerMax: "最大消費電力です。起動時やヒーター込みの上限確認に使います。",
+  size: "外形寸法です。搭載スペースやブラケット設計に関わります。",
+  weight: "重量です。車両搭載や可動部への負荷を考えるときに見ます。",
+  protection: "IP 等級などの保護性能です。防塵・防水の観点で重要です。",
+  operatingTemperature: "動作温度範囲です。車載・屋外用途では特に重要です。",
+  shockVibration: "耐衝撃・耐振動の規格です。車載や産業用途で確認します。",
+};
+
+const PARAMETER_FIELDS = PARAMETER_FIELD_IDS
+  .map(id => FILTER_FIELD_BY_ID[id])
+  .filter(Boolean)
+  .map(field => ({
+    ...field,
+    summary: PARAMETER_TEXT_OVERRIDES[field.id] ?? "",
+  }));
+
+const PARAMETER_BY_ID = Object.fromEntries(PARAMETER_FIELDS.map(field => [field.id, field]));
+
+const PARAMETER_FACETS = [
+  { id: "all", label: "全製品", getter: () => ({ key: "all", label: "全製品" }) },
+  { id: "manufacturer", label: "メーカー", getter: item => ({ key: item.manufacturerId, label: item.raw.manufacturer.name }) },
+  { id: "category", label: "カテゴリ", getter: item => ({ key: item.categoryId, label: item.raw.category.labelJa }) },
+  { id: "scanMethod", label: "走査方式", getter: item => ({ key: item.scanId, label: item.raw.scanningMethod.labelJa }) },
+  { id: "wavelength", label: "波長", getter: item => ({ key: item.waveId, label: item.raw.wavelength.label }) },
+];
+
+const PARAMETER_FACET_BY_ID = Object.fromEntries(PARAMETER_FACETS.map(f => [f.id, f]));
+
+const PARAMETER_GROUP_LABELS = {
+  "基本性能": {
+    icon: "tune",
+    description: "LiDAR の用途適合を判断する中核指標です。距離、分解能、点群量のバランスを見ます。",
+  },
+  "光学・走査": {
+    icon: "radar",
+    description: "視野、分解能、戻り光取得など、実際の点群の出方に直結する項目です。",
+  },
+  "システム統合": {
+    icon: "settings_ethernet",
+    description: "車両・ロボットへの組み込みや時刻同期、開発環境の相性を確認する項目です。",
+  },
+  "物理仕様": {
+    icon: "straighten",
+    description: "搭載性、筐体設計、耐環境性など、量産導入時に効く項目です。",
+  },
+};
+
+const PARAMETER_GROUP_ICON_FALLBACK = "schema";
+
+const CHART_PALETTE = [
+  "#0d5fd8",
+  "#18a58a",
+  "#e07a2f",
+  "#8b5cf6",
+  "#d94f70",
+  "#2ca7ff",
+  "#7a6cf0",
+  "#0f9f8f",
+];
+
+function getParameterMeta(id) {
+  return PARAMETER_BY_ID[id] ?? null;
+}
+
+function getParameterGroupMeta(group) {
+  return PARAMETER_GROUP_LABELS[group] ?? { icon: PARAMETER_GROUP_ICON_FALLBACK, description: "" };
+}
+
+function getParameterValue(item, field) {
+  return item.raw.specs?.[field.id]?.value ?? null;
+}
+
+function getParameterDisplayText(item, field) {
+  const spec = item.raw.specs?.[field.id];
+  if (!spec) return null;
+  const display = formatSpecDisplay(spec, { includeUnit: field.type === "number" });
+  return display.isMissing ? null : display.text;
+}
+
+function getNumericParameterValue(item, field) {
+  const value = getParameterValue(item, field);
+  return specValueToNumeric(value);
+}
+
+function getFacetEntry(item, facetId) {
+  const facet = PARAMETER_FACET_BY_ID[facetId] ?? PARAMETER_FACET_BY_ID.all;
+  return facet.getter(item);
+}
+
+function getFacetGroups(items, facetId, limit = 6) {
+  const facet = PARAMETER_FACET_BY_ID[facetId] ?? PARAMETER_FACET_BY_ID.all;
+  const counts = new Map();
+  for (const item of items) {
+    const entry = facet.getter(item);
+    const key = entry.key ?? "unknown";
+    const prev = counts.get(key) ?? { key, label: entry.label ?? String(key), count: 0 };
+    prev.count++;
+    counts.set(key, prev);
+  }
+
+  const sorted = [...counts.values()].sort((a, b) => b.count - a.count || a.label.localeCompare(b.label, "ja"));
+  if (sorted.length === 0) {
+    return [{ key: "all", label: "全製品", count: items.length, color: CHART_PALETTE[0] }];
+  }
+
+  const visible = sorted.slice(0, Math.max(1, limit - 1));
+  const hidden = sorted.slice(Math.max(1, limit - 1));
+  if (hidden.length > 0) {
+    visible.push({
+      key: "__other__",
+      label: "その他",
+      count: hidden.reduce((sum, entry) => sum + entry.count, 0),
+      color: "#9aa7bd",
+      hiddenItems: hidden,
+    });
+  }
+
+  return visible.map((entry, index) => ({
+    ...entry,
+    color: entry.color ?? CHART_PALETTE[index % CHART_PALETTE.length],
+  }));
+}
+
+function buildHistogramBuckets(values, desiredBins = 8) {
+  if (values.length === 0) return [];
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  if (min === max) {
+    return [{ label: formatAxisRange(min, max), min, max, count: values.length, entries: values }];
+  }
+
+  const bins = Math.max(4, Math.min(desiredBins, Math.ceil(Math.sqrt(values.length))));
+  const width = (max - min) / bins;
+  const buckets = Array.from({ length: bins }, (_, index) => ({
+    label: "",
+    min: min + index * width,
+    max: index === bins - 1 ? max : min + (index + 1) * width,
+    count: 0,
+    values: [],
+  }));
+
+  for (const value of values) {
+    let idx = Math.floor((value - min) / width);
+    if (!Number.isFinite(idx)) idx = 0;
+    if (idx < 0) idx = 0;
+    if (idx >= bins) idx = bins - 1;
+    buckets[idx].count++;
+    buckets[idx].values.push(value);
+  }
+
+  for (const bucket of buckets) {
+    bucket.label = formatAxisRange(bucket.min, bucket.max);
+  }
+  return buckets;
+}
+
+function formatAxisRange(min, max) {
+  if (!Number.isFinite(min) || !Number.isFinite(max)) return "—";
+  if (min === max) return formatAxisValue(min);
+  return `${formatAxisValue(min)}–${formatAxisValue(max)}`;
+}
+
+function formatAxisValue(value) {
+  if (!Number.isFinite(value)) return "—";
+  if (Math.abs(value) >= 1000) return String(Math.round(value));
+  if (Math.abs(value) >= 100) return String(Math.round(value));
+  if (Math.abs(value) >= 10) return String(Math.round(value * 10) / 10);
+  return String(Math.round(value * 100) / 100);
+}
+
+function buildTextBuckets(items, field) {
+  const counts = new Map();
+  for (const item of items) {
+    const text = getParameterDisplayText(item, field);
+    if (!text) continue;
+    counts.set(text, (counts.get(text) ?? 0) + 1);
+  }
+  const sorted = [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "ja"));
+  if (sorted.length <= 12) {
+    return sorted.map(([label, count]) => ({ label, count }));
+  }
+  const visible = sorted.slice(0, 11).map(([label, count]) => ({ label, count }));
+  const other = sorted.slice(11).reduce((sum, [, count]) => sum + count, 0);
+  visible.push({ label: "その他", count: other });
+  return visible;
+}
+
+function calcSummaryStats(values) {
+  if (values.length === 0) return null;
+  const sorted = [...values].sort((a, b) => a - b);
+  const sum = values.reduce((acc, value) => acc + value, 0);
+  const median = sorted.length % 2 === 1
+    ? sorted[(sorted.length - 1) / 2]
+    : (sorted[sorted.length / 2 - 1] + sorted[sorted.length / 2]) / 2;
+  return {
+    count: values.length,
+    min: sorted[0],
+    max: sorted[sorted.length - 1],
+    mean: sum / values.length,
+    median,
+  };
+}
+
+function sampleRepresentativeItems(field, items) {
+  const numericItems = items
+    .map(item => ({ item, value: getNumericParameterValue(item, field) }))
+    .filter(entry => entry.value !== null)
+    .sort((a, b) => a.value - b.value);
+
+  if (field.type === "number") {
+    if (numericItems.length === 0) return [];
+    if (numericItems.length <= 3) return numericItems.map(entry => entry.item);
+    const picks = [
+      numericItems[0],
+      numericItems[Math.floor((numericItems.length - 1) / 2)],
+      numericItems[numericItems.length - 1],
+    ];
+    const quartiles = [
+      numericItems[Math.floor((numericItems.length - 1) * 0.25)],
+      numericItems[Math.floor((numericItems.length - 1) * 0.75)],
+    ];
+    return [...new Map([...picks, ...quartiles].map(entry => [entry.item.id, entry.item])).values()].slice(0, 6);
+  }
+
+  const textCounts = new Map();
+  for (const item of items) {
+    const text = getParameterDisplayText(item, field);
+    if (!text) continue;
+    textCounts.set(text, (textCounts.get(text) ?? 0) + 1);
+  }
+  const popularValues = [...textCounts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 3).map(([label]) => label);
+  const picked = [];
+  for (const label of popularValues) {
+    const match = items.find(item => getParameterDisplayText(item, field) === label);
+    if (match && !picked.some(item => item.id === match.id)) picked.push(match);
+  }
+  for (const item of items) {
+    if (!picked.some(p => p.id === item.id) && picked.length < 6) picked.push(item);
+  }
+  return picked;
+}
+
+function renderChartLegend(facetGroups) {
+  return `
+    <div class="parameter-chart__legend">
+      ${facetGroups.map(group => `
+        <div class="parameter-chart__legend-item">
+          <span class="parameter-chart__legend-dot" style="background:${group.color}"></span>
+          <span>${esc(group.label)}</span>
+          <strong>${group.count}</strong>
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
+
+function renderStackedBars(buckets, facetGroups, { bucketLabelClass = "", xAxisLabel = "" } = {}) {
+  const maxCount = Math.max(1, ...buckets.map(bucket => bucket.count));
+  const chartBars = buckets.map(bucket => {
+    const segments = facetGroups
+      .map(group => ({
+        ...group,
+        count: bucket.counts?.[group.key] ?? 0,
+      }))
+      .filter(segment => segment.count > 0);
+    const total = bucket.count || 0;
+    const barSegments = segments.map(segment => `
+      <div class="parameter-chart__segment"
+           title="${esc(bucket.label)} / ${esc(segment.label)}: ${segment.count}"
+           style="flex:${segment.count};background:${segment.color}"></div>
+    `).join("");
+    return `
+      <div class="parameter-chart__bar-wrap">
+        <div class="parameter-chart__bar"
+             style="height:${Math.max(4, Math.round((bucket.count / maxCount) * 160))}px">
+          <div class="parameter-chart__stack">${barSegments}</div>
+        </div>
+        <div class="parameter-chart__bar-label ${bucketLabelClass}">${esc(bucket.label)}</div>
+        <div class="parameter-chart__bar-count">${total}</div>
+      </div>
+    `;
+  }).join("");
+
+  return `
+    <div class="parameter-chart">
+      <div class="parameter-chart__bars">
+        ${chartBars}
+      </div>
+      ${xAxisLabel ? `<div class="parameter-chart__axis">${esc(xAxisLabel)}</div>` : ""}
+      ${renderChartLegend(facetGroups)}
+    </div>
+  `;
+}
+
+function renderParameterDistribution(field, items, facetId) {
+  const visibleItems = items.filter(item => {
+    if (field.type === "number") return getNumericParameterValue(item, field) !== null;
+    return getParameterDisplayText(item, field) !== null;
+  });
+
+  if (visibleItems.length === 0) {
+    return `<div class="parameter-empty">このパラメータは現在のデータセットでは値がありません。</div>`;
+  }
+
+  const facetGroups = getFacetGroups(visibleItems, facetId);
+  const facetMap = new Map(facetGroups.map(group => [group.key, group]));
+
+  if (field.type === "number") {
+    const numericItems = visibleItems.map(item => ({
+      item,
+      value: getNumericParameterValue(item, field),
+      facet: getFacetEntry(item, facetId),
+    })).filter(entry => entry.value !== null);
+
+    const buckets = buildHistogramBuckets(numericItems.map(entry => entry.value));
+    if (buckets.length === 0) return `<div class="parameter-empty">このパラメータの数値分布を作成できませんでした。</div>`;
+
+    if (buckets.length === 1) {
+      buckets[0].counts = Object.fromEntries(facetGroups.map(group => [group.key, 0]));
+      for (const entry of numericItems) {
+        const key = facetMap.has(entry.facet.key) ? entry.facet.key : "__other__";
+        buckets[0].counts[key] = (buckets[0].counts[key] ?? 0) + 1;
+      }
+    } else {
+      const min = buckets[0].min;
+      const max = buckets[buckets.length - 1].max;
+      const width = (max - min) / buckets.length || 1;
+      for (const bucket of buckets) {
+        bucket.counts = Object.fromEntries(facetGroups.map(group => [group.key, 0]));
+      }
+      for (const entry of numericItems) {
+        let idx = Math.floor((entry.value - min) / width);
+        if (!Number.isFinite(idx)) idx = 0;
+        if (idx < 0) idx = 0;
+        if (idx >= buckets.length) idx = buckets.length - 1;
+        const key = facetMap.has(entry.facet.key) ? entry.facet.key : "__other__";
+        buckets[idx].counts[key] = (buckets[idx].counts[key] ?? 0) + 1;
+        buckets[idx].count = (buckets[idx].count ?? 0) + 1;
+      }
+      for (const bucket of buckets) {
+        if (typeof bucket.count !== "number") {
+          bucket.count = Object.values(bucket.counts).reduce((sum, value) => sum + value, 0);
+        }
+      }
+    }
+
+    return renderStackedBars(
+      buckets.map(bucket => ({
+        label: bucket.label,
+        count: bucket.count,
+        counts: bucket.counts,
+      })),
+      facetGroups,
+      { xAxisLabel: `数値分布 ${field.unit ? `(${field.unit})` : ""}`.trim() }
+    );
+  }
+
+  const textBuckets = buildTextBuckets(visibleItems, field);
+  const buckets = textBuckets.map(bucket => ({
+    label: bucket.label,
+    count: bucket.count,
+    counts: Object.fromEntries(facetGroups.map(group => [group.key, 0])),
+  }));
+  for (const item of visibleItems) {
+    const text = getParameterDisplayText(item, field);
+    if (!text) continue;
+    const bucket = buckets.find(entry => entry.label === text) ?? buckets.find(entry => entry.label === "その他");
+    if (!bucket) continue;
+    const facet = getFacetEntry(item, facetId);
+    const key = facetMap.has(facet.key) ? facet.key : "__other__";
+    bucket.counts[key] = (bucket.counts[key] ?? 0) + 1;
+  }
+  for (const bucket of buckets) {
+    bucket.count = Object.values(bucket.counts).reduce((sum, value) => sum + value, 0);
+  }
+
+  return renderStackedBars(buckets, facetGroups, { bucketLabelClass: "parameter-chart__bar-label--text" });
+}
+
+function buildParameterDetailSummary(field, items) {
+  const numericValues = field.type === "number"
+    ? items.map(item => getNumericParameterValue(item, field)).filter(value => value !== null)
+    : [];
+  const stats = numericValues.length > 0 ? calcSummaryStats(numericValues) : null;
+  const total = items.length;
+  const covered = field.type === "number"
+    ? numericValues.length
+    : items.filter(item => getParameterDisplayText(item, field) !== null).length;
+  const coveragePct = total === 0 ? 0 : Math.round((covered / total) * 100);
+
+  if (field.type === "number" && stats) {
+    return `
+      <div class="parameter-summary-grid">
+        <div class="parameter-summary-card"><span>有効値</span><strong>${stats.count}件</strong></div>
+        <div class="parameter-summary-card"><span>中央値</span><strong>${formatAxisValue(stats.median)}${field.unit ? ` ${field.unit}` : ""}</strong></div>
+        <div class="parameter-summary-card"><span>最小</span><strong>${formatAxisValue(stats.min)}${field.unit ? ` ${field.unit}` : ""}</strong></div>
+        <div class="parameter-summary-card"><span>最大</span><strong>${formatAxisValue(stats.max)}${field.unit ? ` ${field.unit}` : ""}</strong></div>
+        <div class="parameter-summary-card"><span>平均</span><strong>${formatAxisValue(stats.mean)}${field.unit ? ` ${field.unit}` : ""}</strong></div>
+        <div class="parameter-summary-card"><span>カバー率</span><strong>${coveragePct}%</strong></div>
+      </div>
+    `;
+  }
+
+  const buckets = buildTextBuckets(items, field);
+  const top = buckets.slice(0, 3).map(bucket => `${bucket.label} (${bucket.count}件)`).join(" / ");
+  return `
+    <div class="parameter-summary-grid">
+      <div class="parameter-summary-card"><span>有効値</span><strong>${covered}件</strong></div>
+      <div class="parameter-summary-card"><span>カバー率</span><strong>${coveragePct}%</strong></div>
+      <div class="parameter-summary-card parameter-summary-card--wide"><span>上位の表記</span><strong>${top || "—"}</strong></div>
+    </div>
+  `;
+}
+
+function buildParameterCards(field, items) {
+  return items
+    .map(item => {
+      const value = field.type === "number" ? getNumericParameterValue(item, field) : getParameterDisplayText(item, field);
+      if (value === null) return null;
+      const display = field.type === "number"
+        ? `${formatAxisValue(value)}${field.unit ? ` ${field.unit}` : ""}`
+        : value;
+      return `
+        <a href="#/products/${item.id}" class="entity-card parameter-product-card">
+          <div class="entity-card__top">
+            <div class="entity-card__icon">
+              <span class="material-symbols-outlined">sensors</span>
+            </div>
+            <div>
+              <div class="entity-card__name">${esc(item.raw.name)}</div>
+              <div class="entity-card__name-sub">${esc(item.raw.manufacturer.name)}</div>
+            </div>
+          </div>
+          <div class="entity-card__desc">${esc(display)}</div>
+          <div class="entity-card__stats">
+            <span class="entity-card__stat"><strong>${esc(item.raw.category.labelJa)}</strong></span>
+            <span class="entity-card__stat">${esc(item.raw.scanningMethod.labelJa)}</span>
+          </div>
+        </a>
+      `;
+    })
+    .filter(Boolean)
+    .slice(0, 6)
+    .join("");
+}
+
+function renderParametersGrid() {
+  const container = document.getElementById("viewContainer");
+  const cards = PARAMETER_GROUP_ORDER.map(group => {
+    const groupMeta = getParameterGroupMeta(group);
+    const params = PARAMETER_FIELDS.filter(field => field.group === group);
+    return `
+      <section class="entity-view__section parameter-group-block">
+        <div class="entity-view__section-head">
+          <div class="entity-view__section-title-wrap">
+            <div class="entity-view__section-title"><span class="material-symbols-outlined">${groupMeta.icon}</span>${esc(group)}</div>
+            <p class="entity-view__section-sub">${esc(groupMeta.description)}</p>
+          </div>
+          <span class="count-pill">${params.length}項目</span>
+        </div>
+        <div class="entity-grid parameter-grid">
+          ${params.map(field => {
+            const covered = ALL.filter(item => getParameterValue(item, field) !== null && getParameterValue(item, field) !== undefined).length;
+            return `
+              <a href="#/parameters/${field.id}" class="entity-card parameter-card">
+                <div class="entity-card__top">
+                  <div class="entity-card__icon parameter-card__icon">
+                    <span class="material-symbols-outlined">${field.type === "number" ? "show_chart" : "text_fields"}</span>
+                  </div>
+                  <div>
+                    <div class="entity-card__name">${esc(field.label)}</div>
+                    <div class="entity-card__name-sub">${esc(field.group)}</div>
+                  </div>
+                </div>
+                <div class="entity-card__desc">${esc(field.summary || "この項目の説明ページです。")}</div>
+                <div class="entity-card__stats">
+                  <span class="entity-card__stat"><strong>${covered}</strong> / ${ALL.length}</span>
+                  <span class="entity-card__stat">${esc(field.unit ?? "text")}</span>
+                </div>
+              </a>
+            `;
+          }).join("")}
+        </div>
+      </section>
+    `;
+  }).join("");
+
+  container.innerHTML = `
+    <div class="entity-detail parameter-list-page">
+      <a href="#/products" class="entity-detail__back">
+        <span class="material-symbols-outlined">arrow_back</span>製品一覧へ
+      </a>
+      <div class="entity-detail__body">
+        <div class="entity-detail__hero">
+          <div class="entity-detail__hero-icon">
+            <span class="material-symbols-outlined">tune</span>
+          </div>
+          <div>
+            <h2 class="entity-detail__hero-title">パラメータ説明</h2>
+            <p class="entity-detail__hero-sub">主要スペック項目を、意味・分布・代表製品つきで確認できます。</p>
+          </div>
+        </div>
+        <div class="parameter-intro">
+          <p class="entity-detail__desc">各ページでは、そのパラメータが何を表すか、どのように読むか、そして全体の分布がどうなっているかを確認できます。</p>
+          <div class="parameter-facet-hint">
+            <span>集計切替</span>
+            <strong>全製品 / メーカー / カテゴリ / 走査方式 / 波長</strong>
+          </div>
+        </div>
+        ${cards}
+      </div>
+    </div>
+  `;
+}
+
+function renderParameterDetail(id) {
+  const field = getParameterMeta(id);
+  if (!field) { window.location.hash = "#/parameters"; return; }
+  const products = ALL.filter(item => getParameterValue(item, field) !== null && getParameterValue(item, field) !== undefined);
+  const facetId = PARAMETER_FACETS.some(facet => facet.id === "category") ? "category" : "all";
+  const groupMeta = getParameterGroupMeta(field.group);
+  const relatedFields = PARAMETER_FIELDS.filter(other => other.group === field.group && other.id !== field.id).slice(0, 4);
+  const representativeItems = sampleRepresentativeItems(field, products);
+
+  const summaries = buildParameterDetailSummary(field, products);
+  const distribution = renderParameterDistribution(field, products, facetId);
+
+  const container = document.getElementById("viewContainer");
+  container.innerHTML = `
+    <div class="entity-detail parameter-detail">
+      <a href="#/parameters" class="entity-detail__back">
+        <span class="material-symbols-outlined">arrow_back</span>パラメータ一覧へ
+      </a>
+      <div class="entity-detail__body">
+        <div class="entity-detail__hero">
+          <div class="entity-detail__hero-icon">
+            <span class="material-symbols-outlined">${groupMeta.icon}</span>
+          </div>
+          <div>
+            <h2 class="entity-detail__hero-title">${esc(field.label)}</h2>
+            <p class="entity-detail__hero-sub">${esc(field.group)}${field.unit ? ` · 単位: ${esc(field.unit)}` : ""}</p>
+          </div>
+        </div>
+
+        <div class="parameter-detail__summary">
+          <div class="parameter-detail__summary-text">
+            <p class="entity-detail__desc">${esc(field.summary || groupMeta.description || "このパラメータの説明ページです。")}</p>
+            <div class="parameter-detail__chips">
+              <span class="badge badge--scan">${esc(field.type === "number" ? "数値パラメータ" : "文字列パラメータ")}</span>
+              <span class="badge badge--wave-1550">${esc(field.group)}</span>
+            </div>
+          </div>
+          <div class="parameter-detail__summary-note">
+            <strong>見方</strong>
+            <span>公開条件や測定方法がメーカーごとに異なる場合があります。必ず一次情報の注記も確認してください。</span>
+          </div>
+        </div>
+
+        <div class="entity-detail__section">
+          <div class="entity-detail__section-title"><span class="material-symbols-outlined">insights</span>概要</div>
+          ${summaries}
+        </div>
+
+        <div class="entity-detail__section">
+          <div class="entity-detail__section-title"><span class="material-symbols-outlined">bar_chart</span>分布</div>
+          <div class="parameter-facet-switcher" id="parameterFacetSwitcher">
+            ${PARAMETER_FACETS.map(facet => `
+              <button type="button" class="parameter-facet-switcher__btn${facet.id === facetId ? " active" : ""}" data-facet="${facet.id}">${esc(facet.label)}</button>
+            `).join("")}
+          </div>
+          <div id="parameterDistribution">${distribution}</div>
+        </div>
+
+        <div class="entity-detail__section">
+          <div class="entity-detail__section-title"><span class="material-symbols-outlined">sensors</span>代表製品</div>
+          <div class="entity-grid parameter-products-grid">
+            ${buildParameterCards(field, representativeItems)}
+          </div>
+        </div>
+
+        ${relatedFields.length > 0 ? `
+        <div class="entity-detail__section">
+          <div class="entity-detail__section-title"><span class="material-symbols-outlined">link</span>同じグループの他の項目</div>
+          <div class="related-chips">
+            ${relatedFields.map(other => `<a href="#/parameters/${other.id}" class="chip-button">${esc(other.label)}</a>`).join("")}
+          </div>
+        </div>` : ""}
+
+        <div class="entity-detail__section">
+          <div class="entity-detail__section-title"><span class="material-symbols-outlined">info</span>対象製品数</div>
+          <p class="entity-detail__desc">${products.length}件の製品に値があります。欠損値は分布から除外しています。</p>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const facetSwitchers = container.querySelectorAll(".parameter-facet-switcher__btn");
+  const distributionRoot = container.querySelector("#parameterDistribution");
+  facetSwitchers.forEach(button => {
+    button.addEventListener("click", () => {
+      const nextFacet = button.dataset.facet ?? "all";
+      facetSwitchers.forEach(btn => btn.classList.toggle("active", btn === button));
+      distributionRoot.innerHTML = renderParameterDistribution(field, products, nextFacet);
+    });
+  });
+}
+
 // ─────────────────────────────────────────────
 // 共通ユーティリティ
 // ─────────────────────────────────────────────
@@ -370,6 +1027,8 @@ const Router = {
     { pattern: /^#\/wavelengths$/,         view: "wavelengths",   handler: () => renderWavelengthsGrid() },
     { pattern: /^#\/categories\/(.+)$/,    view: "categories",    handler: (m) => renderCategoryDetail(m[1]) },
     { pattern: /^#\/categories$/,          view: "categories",    handler: () => renderCategoriesGrid() },
+    { pattern: /^#\/parameters\/(.+)$/,     view: "parameters",    handler: (m) => renderParameterDetail(m[1]) },
+    { pattern: /^#\/parameters$/,          view: "parameters",    handler: () => renderParametersGrid() },
     { pattern: /^#\/compare$/,             view: "compare",       handler: (_, query) => renderCompareView(query) },
     { pattern: /^#\/graph$/,               view: "graph",         handler: (_, query) => renderGraphView(query) },
   ],
@@ -1613,13 +2272,16 @@ function buildDetailBody(item) {
     return links ? `<span class="ref-sup">${links}</span>` : "";
   }
 
-  function specRow(label, spec) {
-    if (!spec) return `<tr><td>${label}</td><td class="spec-na">—</td></tr>`;
+  function specRow(label, spec, fieldId = null) {
+    const labelHtml = fieldId && PARAMETER_BY_ID[fieldId]
+      ? `<a class="spec-link" href="#/parameters/${fieldId}">${esc(label)}</a>`
+      : esc(label);
+    if (!spec) return `<tr><td>${labelHtml}</td><td class="spec-na">—</td></tr>`;
     const display = formatSpecDisplay(spec);
     if (display.isMissing)
-      return `<tr><td>${label}</td><td class="spec-na">不明 / 非公開${refLinks(spec.refs)}</td></tr>`;
+      return `<tr><td>${labelHtml}</td><td class="spec-na">不明 / 非公開${refLinks(spec.refs)}</td></tr>`;
     const note = spec.note ? `<span class="spec-note">${esc(spec.note)}</span>` : "";
-    return `<tr><td>${label}</td><td>${esc(display.text)}${note}${refLinks(spec.refs)}</td></tr>`;
+    return `<tr><td>${labelHtml}</td><td>${esc(display.text)}${note}${refLinks(spec.refs)}</td></tr>`;
   }
 
   const s = r.specs;
@@ -1644,46 +2306,46 @@ function buildDetailBody(item) {
     <div class="detail-section">
       <div class="detail-section__title"><span class="material-symbols-outlined">tune</span>基本性能</div>
       <table class="specs-table">
-        ${specRow("チャンネル数", s.channels)}
-        ${specRow("最大距離", s.maxRange)}
-        ${specRow("ピーク距離（参考）", s.peakRange)}
-        ${specRow("最小検知距離", s.minRange)}
-        ${specRow("精度", s.accuracy)}
-        ${s.precision ? specRow("ばらつき（Precision）", s.precision) : ""}
+        ${specRow("チャンネル数", s.channels, "channels")}
+        ${specRow("最大距離", s.maxRange, "maxRange")}
+        ${specRow("ピーク距離（参考）", s.peakRange, "peakRange")}
+        ${specRow("最小検知距離", s.minRange, "minRange")}
+        ${specRow("精度", s.accuracy, "accuracy")}
+        ${s.precision ? specRow("ばらつき（Precision）", s.precision, "precision") : ""}
       </table>
     </div>
     <div class="detail-section">
       <div class="detail-section__title"><span class="material-symbols-outlined">radar</span>光学・走査</div>
       <table class="specs-table">
-        ${specRow("FOV 水平", s.fovH)}
-        ${specRow("FOV 垂直", s.fovV)}
-        ${specRow("角度分解能（水平）", s.resH)}
-        ${specRow("角度分解能（垂直）", s.resV)}
-        ${specRow("点群レート", s.pointRate)}
-        ${s.returnModes ? specRow("リターンモード", s.returnModes) : ""}
-        ${s.beamDivergence ? specRow("ビーム広がり角", s.beamDivergence) : ""}
-        ${s.sunlightImmunity ? specRow("耐外乱光性能", s.sunlightImmunity) : ""}
+        ${specRow("FOV 水平", s.fovH, "fovH")}
+        ${specRow("FOV 垂直", s.fovV, "fovV")}
+        ${specRow("角度分解能（水平）", s.resH, "resH")}
+        ${specRow("角度分解能（垂直）", s.resV, "resV")}
+        ${specRow("点群レート", s.pointRate, "pointRate")}
+        ${s.returnModes ? specRow("リターンモード", s.returnModes, "returnModes") : ""}
+        ${s.beamDivergence ? specRow("ビーム広がり角", s.beamDivergence, "beamDivergence") : ""}
+        ${s.sunlightImmunity ? specRow("耐外乱光性能", s.sunlightImmunity, "sunlightImmunity") : ""}
       </table>
     </div>
     <div class="detail-section">
       <div class="detail-section__title"><span class="material-symbols-outlined">settings_ethernet</span>システム統合</div>
       <table class="specs-table">
-        ${specRow("インタフェース", s.interface)}
-        ${s.timeSynchronization ? specRow("時刻同期方式", s.timeSynchronization) : ""}
-        ${s.imuBuiltIn ? specRow("内蔵IMU", s.imuBuiltIn) : ""}
-        ${s.supportedSoftware ? specRow("ソフトウェアサポート", s.supportedSoftware) : ""}
+        ${specRow("インタフェース", s.interface, "interface")}
+        ${s.timeSynchronization ? specRow("時刻同期方式", s.timeSynchronization, "timeSynchronization") : ""}
+        ${s.imuBuiltIn ? specRow("内蔵IMU", s.imuBuiltIn, "imuBuiltIn") : ""}
+        ${s.supportedSoftware ? specRow("ソフトウェアサポート", s.supportedSoftware, "supportedSoftware") : ""}
       </table>
     </div>
     <div class="detail-section">
       <div class="detail-section__title"><span class="material-symbols-outlined">straighten</span>物理仕様</div>
       <table class="specs-table">
-        ${specRow("消費電力", s.power)}
-        ${s.powerMax ? specRow("最大消費電力", s.powerMax) : ""}
-        ${specRow("サイズ", s.size)}
-        ${specRow("重量", s.weight)}
-        ${specRow("保護等級", s.protection)}
-        ${s.operatingTemperature ? specRow("動作温度", s.operatingTemperature) : ""}
-        ${s.shockVibration ? specRow("耐衝撃・耐振動", s.shockVibration) : ""}
+        ${specRow("消費電力", s.power, "power")}
+        ${s.powerMax ? specRow("最大消費電力", s.powerMax, "powerMax") : ""}
+        ${specRow("サイズ", s.size, "size")}
+        ${specRow("重量", s.weight, "weight")}
+        ${specRow("保護等級", s.protection, "protection")}
+        ${s.operatingTemperature ? specRow("動作温度", s.operatingTemperature, "operatingTemperature") : ""}
+        ${s.shockVibration ? specRow("耐衝撃・耐振動", s.shockVibration, "shockVibration") : ""}
       </table>
     </div>
   `;
