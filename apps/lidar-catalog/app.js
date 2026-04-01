@@ -326,6 +326,34 @@ function renderDistributionBars(items, keyFn, labelFn, colorClass = "") {
   }</div>`;
 }
 
+function parseHashRoute(hash) {
+  const raw = String(hash ?? "");
+  const qIndex = raw.indexOf("?");
+  const path = qIndex === -1 ? raw : raw.slice(0, qIndex);
+  const query = new URLSearchParams(qIndex === -1 ? "" : raw.slice(qIndex + 1));
+  return { path: path || "#/products", query };
+}
+
+function buildHashRoute(path, params = {}) {
+  const query = new URLSearchParams();
+  for (const [key, value] of Object.entries(params)) {
+    if (value === undefined || value === null || value === "") continue;
+    query.set(key, String(value));
+  }
+  const queryString = query.toString();
+  return queryString ? path + "?" + queryString : path;
+}
+
+function replaceHashSilently(hash) {
+  const next = hash.startsWith("#") ? hash : "#" + hash;
+  if (location.hash === next) return;
+  try {
+    history.replaceState(null, "", next);
+  } catch {
+    location.hash = next;
+  }
+}
+
 // ─────────────────────────────────────────────
 // ルーター
 // ─────────────────────────────────────────────
@@ -342,16 +370,17 @@ const Router = {
     { pattern: /^#\/wavelengths$/,         view: "wavelengths",   handler: () => renderWavelengthsGrid() },
     { pattern: /^#\/categories\/(.+)$/,    view: "categories",    handler: (m) => renderCategoryDetail(m[1]) },
     { pattern: /^#\/categories$/,          view: "categories",    handler: () => renderCategoriesGrid() },
-    { pattern: /^#\/compare$/,             view: "compare",       handler: () => renderCompareView() },
-    { pattern: /^#\/graph$/,               view: "graph",         handler: () => renderGraphView() },
+    { pattern: /^#\/compare$/,             view: "compare",       handler: (_, query) => renderCompareView(query) },
+    { pattern: /^#\/graph$/,               view: "graph",         handler: (_, query) => renderGraphView(query) },
   ],
 
   currentView: null,
 
   navigate(hash) {
     if (!hash || hash === "#" || hash === "") hash = "#/products";
+    const { path, query } = parseHashRoute(hash);
     for (const route of this.routes) {
-      const match = hash.match(route.pattern);
+      const match = path.match(route.pattern);
       if (match) {
         this.updateNav(route.view);
         // products以外はドロワーを閉じる
@@ -362,11 +391,12 @@ const Router = {
         const disclaimer = document.getElementById("dataDisclaimer");
         if (disclaimer) disclaimer.hidden = route.view !== "products";
         this.currentView = route.view;
-        route.handler(match);
+        route.handler(match, query);
         return;
       }
     }
-    window.location.hash = "#/products";
+    replaceHashSilently("#/products");
+    this.navigate("#/products");
   },
 
   updateNav(activeView) {
@@ -2142,7 +2172,29 @@ const compareState = {
   _ro: null,
 };
 
-function renderCompareView() {
+function compareStateToQueryParams() {
+  const params = {};
+  if (compareState.xAxisId !== "maxRange") params.x = compareState.xAxisId;
+  if (compareState.yAxisId !== "channels") params.y = compareState.yAxisId;
+  if (compareState.colorBy !== "category") params.colorBy = compareState.colorBy;
+  return params;
+}
+
+function applyCompareQuery(query) {
+  const axisIds = new Set(COMPARE_AXES.map(a => a.id));
+  const colorByOptions = new Set(["category", "manufacturer", "scan", "wave"]);
+  compareState.xAxisId = axisIds.has(query.get("x")) ? query.get("x") : "maxRange";
+  compareState.yAxisId = axisIds.has(query.get("y")) ? query.get("y") : "channels";
+  compareState.colorBy = colorByOptions.has(query.get("colorBy")) ? query.get("colorBy") : "category";
+  compareState.hoveredItem = null;
+}
+
+function syncCompareUrl() {
+  replaceHashSilently(buildHashRoute("#/compare", compareStateToQueryParams()));
+}
+
+function renderCompareView(query = new URLSearchParams()) {
+  applyCompareQuery(query);
   const container = document.getElementById("viewContainer");
 
   const axisOptions = COMPARE_AXES.map(a =>
@@ -2189,9 +2241,9 @@ function renderCompareView() {
   ySel.value = compareState.yAxisId;
   cSel.value = compareState.colorBy;
 
-  xSel.addEventListener("change", () => { compareState.xAxisId = xSel.value; drawCompare(); });
-  ySel.addEventListener("change", () => { compareState.yAxisId = ySel.value; drawCompare(); });
-  cSel.addEventListener("change", () => { compareState.colorBy = cSel.value; drawCompare(); });
+  xSel.addEventListener("change", () => { compareState.xAxisId = xSel.value; drawCompare(); syncCompareUrl(); });
+  ySel.addEventListener("change", () => { compareState.yAxisId = ySel.value; drawCompare(); syncCompareUrl(); });
+  cSel.addEventListener("change", () => { compareState.colorBy = cSel.value; drawCompare(); syncCompareUrl(); });
 
   const canvas = document.getElementById("compareCanvas");
   const wrap = document.getElementById("compareCanvasWrap");
@@ -2223,6 +2275,7 @@ function renderCompareView() {
   canvas.style.cursor = "crosshair";
 
   drawCompare();
+  syncCompareUrl();
 }
 
 function getCompareColorPalette(colorBy) {
@@ -2555,7 +2608,38 @@ const GRAPH_NODE_COLORS = {
   category:     "#e11d48",
 };
 
-function renderGraphView() {
+function graphStateToQueryParams() {
+  const params = {};
+  if (!graphState.showEdges.manufacturer) params.mfr = "0";
+  if (!graphState.showEdges.scan) params.scan = "0";
+  if (graphState.showEdges.wave) params.wave = "1";
+  if (graphState.showEdges.category) params.cat = "1";
+  const springValue = Math.round(graphState.springStrength * 100);
+  if (springValue !== 3) params.spring = String(springValue);
+  return params;
+}
+
+function applyGraphQuery(query) {
+  graphState.showEdges.manufacturer = query.get("mfr") !== "0";
+  graphState.showEdges.scan = query.get("scan") !== "0";
+  graphState.showEdges.wave = query.get("wave") === "1";
+  graphState.showEdges.category = query.get("cat") === "1";
+
+  const spring = Number.parseInt(query.get("spring") ?? "", 10);
+  graphState.springStrength = Number.isFinite(spring) ? Math.max(1, Math.min(20, spring)) / 100 : 0.03;
+
+  graphState.dragging = null;
+  graphState.panning = false;
+  graphState.panStart = null;
+  _graphHovered = null;
+}
+
+function syncGraphUrl() {
+  replaceHashSilently(buildHashRoute("#/graph", graphStateToQueryParams()));
+}
+
+function renderGraphView(query = new URLSearchParams()) {
+  applyGraphQuery(query);
   const container = document.getElementById("viewContainer");
   container.innerHTML = `
     <div class="graph-view">
@@ -2601,35 +2685,47 @@ function renderGraphView() {
       </div>
     </div>`;
 
+  document.getElementById("edgeMfr").checked = graphState.showEdges.manufacturer;
+  document.getElementById("edgeScan").checked = graphState.showEdges.scan;
+  document.getElementById("edgeWave").checked = graphState.showEdges.wave;
+  document.getElementById("edgeCat").checked = graphState.showEdges.category;
+  document.getElementById("springStrength").value = String(Math.round(graphState.springStrength * 100));
+
   // イベント
   document.getElementById("edgeMfr").addEventListener("change", e => {
     graphState.showEdges.manufacturer = e.target.checked;
     buildGraphEdges();
     wakeGraphSim();
+    syncGraphUrl();
   });
   document.getElementById("edgeScan").addEventListener("change", e => {
     graphState.showEdges.scan = e.target.checked;
     buildGraphEdges();
     wakeGraphSim();
+    syncGraphUrl();
   });
   document.getElementById("edgeWave").addEventListener("change", e => {
     graphState.showEdges.wave = e.target.checked;
     buildGraphEdges();
     wakeGraphSim();
+    syncGraphUrl();
   });
   document.getElementById("edgeCat").addEventListener("change", e => {
     graphState.showEdges.category = e.target.checked;
     buildGraphEdges();
     wakeGraphSim();
+    syncGraphUrl();
   });
   document.getElementById("springStrength").addEventListener("input", e => {
     graphState.springStrength = Number(e.target.value) / 100;
     wakeGraphSim();
+    syncGraphUrl();
   });
   document.getElementById("graphReset").addEventListener("click", () => {
     initGraphNodes();
     buildGraphEdges();
     wakeGraphSim();
+    syncGraphUrl();
   });
 
   const canvas = document.getElementById("graphCanvas");
@@ -2657,6 +2753,7 @@ function renderGraphView() {
   initGraphNodes();
   buildGraphEdges();
   startGraphSim();
+  syncGraphUrl();
 }
 
 function initGraphNodes() {
