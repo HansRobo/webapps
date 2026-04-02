@@ -656,6 +656,61 @@ function renderStackedBars(buckets, facetGroups, { bucketLabelClass = "", xAxisL
   `;
 }
 
+function renderDotPlot(points, facetGroups, { xAxisLabel = "" } = {}) {
+  if (points.length === 0) {
+    return `<div class="parameter-empty">このパラメータの数値分布を作成できませんでした。</div>`;
+  }
+
+  const values = points.map(point => point.value);
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const facetMap = new Map(facetGroups.map(group => [group.key, group]));
+  const slotCount = Math.min(96, Math.max(24, Math.round(Math.sqrt(points.length) * 8)));
+  const slotWidth = 100 / slotCount;
+  const slotOccupancy = Array.from({ length: slotCount }, () => 0);
+  const sortedPoints = [...points].sort((a, b) => a.value - b.value || a.label.localeCompare(b.label, "ja"));
+
+  const dots = sortedPoints.map(point => {
+    const percent = min === max ? 50 : ((point.value - min) / (max - min)) * 100;
+    const slot = Math.min(slotCount - 1, Math.max(0, Math.floor(percent / slotWidth)));
+    const lane = slotOccupancy[slot]++;
+    const facetKey = facetMap.has(point.facet.key) ? point.facet.key : "__other__";
+    const facet = facetMap.get(facetKey) ?? facetGroups[0];
+    const axisLabel = `${formatAxisValue(point.value)}${point.unit ? ` ${point.unit}` : ""}`;
+    return `
+      <span class="parameter-dotplot__dot"
+            title="${esc(axisLabel)} / ${esc(facet.label)}"
+            aria-label="${esc(axisLabel)} / ${esc(facet.label)}"
+            style="left:${percent}%; bottom:${10 + (lane * 13)}px; --dot-color:${facet.color};"></span>
+    `;
+  }).join("");
+
+  const maxLane = Math.max(0, ...slotOccupancy.map(count => count - 1));
+  const plotHeight = Math.max(92, 32 + ((maxLane + 1) * 13));
+  const minLabel = `${formatAxisValue(min)}${points[0].unit ? ` ${points[0].unit}` : ""}`;
+  const maxLabel = `${formatAxisValue(max)}${points[0].unit ? ` ${points[0].unit}` : ""}`;
+
+  return `
+    <div class="parameter-chart parameter-dotplot">
+      <div class="parameter-dotplot__plot" style="height:${plotHeight}px">
+        <div class="parameter-dotplot__baseline"></div>
+        ${dots}
+      </div>
+      <div class="parameter-dotplot__axis">
+        ${min === max
+          ? `<span class="parameter-dotplot__axis-label parameter-dotplot__axis-label--single">${esc(minLabel)}</span>`
+          : `
+            <span class="parameter-dotplot__axis-label parameter-dotplot__axis-label--min">${esc(minLabel)}</span>
+            <span class="parameter-dotplot__axis-label parameter-dotplot__axis-label--max">${esc(maxLabel)}</span>
+          `
+        }
+      </div>
+      ${xAxisLabel ? `<div class="parameter-chart__axis">${esc(xAxisLabel)}</div>` : ""}
+      ${renderChartLegend(facetGroups)}
+    </div>
+  `;
+}
+
 function renderParameterDistribution(field, items, facetId) {
   const visibleItems = items.filter(item => getParameterDisplayText(item, field) !== null);
 
@@ -695,51 +750,20 @@ function renderParameterDistribution(field, items, facetId) {
       return renderStackedBars(buckets, facetGroups, { bucketLabelClass: "parameter-chart__bar-label--text" });
     }
 
-    const buckets = buildHistogramBuckets(numericItems.map(entry => entry.value));
-    if (buckets.length === 0) return `<div class="parameter-empty">このパラメータの数値分布を作成できませんでした。</div>`;
-
-    if (buckets.length === 1) {
-      buckets[0].counts = Object.fromEntries(facetGroups.map(group => [group.key, 0]));
-      for (const entry of numericItems) {
-        const key = facetMap.has(entry.facet.key) ? entry.facet.key : "__other__";
-        buckets[0].counts[key] = (buckets[0].counts[key] ?? 0) + 1;
-      }
-    } else {
-      const min = buckets[0].min;
-      const max = buckets[buckets.length - 1].max;
-      const width = (max - min) / buckets.length || 1;
-      for (const bucket of buckets) {
-        bucket.counts = Object.fromEntries(facetGroups.map(group => [group.key, 0]));
-      }
-      for (const entry of numericItems) {
-        let idx = Math.floor((entry.value - min) / width);
-        if (!Number.isFinite(idx)) idx = 0;
-        if (idx < 0) idx = 0;
-        if (idx >= buckets.length) idx = buckets.length - 1;
-        const key = facetMap.has(entry.facet.key) ? entry.facet.key : "__other__";
-        buckets[idx].counts[key] = (buckets[idx].counts[key] ?? 0) + 1;
-        buckets[idx].count = (buckets[idx].count ?? 0) + 1;
-      }
-      for (const bucket of buckets) {
-        if (typeof bucket.count !== "number") {
-          bucket.count = Object.values(bucket.counts).reduce((sum, value) => sum + value, 0);
-        }
-      }
-    }
-
-    const chart = renderStackedBars(
-      buckets.map(bucket => ({
-        label: bucket.label,
-        count: bucket.count,
-        counts: bucket.counts,
+    const plot = renderDotPlot(
+      numericItems.map(entry => ({
+        value: entry.value,
+        facet: entry.facet,
+        label: entry.facet.label,
+        unit: field.unit ?? "",
       })),
       facetGroups,
       { xAxisLabel: `数値分布 ${field.unit ? `(${field.unit})` : ""}`.trim() }
     );
     const excludedCount = visibleItems.length - numericItems.length;
     return excludedCount > 0
-      ? `${chart}<div class="parameter-empty">条件付き表現のため ${excludedCount} 件は数値分布から除外しました。</div>`
-      : chart;
+      ? `${plot}<div class="parameter-empty">条件付き表現のため ${excludedCount} 件は数値分布から除外しました。</div>`
+      : plot;
   }
 
   const textBuckets = buildTextBuckets(visibleItems, field);

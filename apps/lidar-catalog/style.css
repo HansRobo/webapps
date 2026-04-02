@@ -1408,6 +1408,56 @@ body {
   background: color-mix(in srgb, var(--surface) 96%, transparent);
 }
 
+.parameter-dotplot__plot {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--surface-border);
+  background:
+    linear-gradient(to bottom, color-mix(in srgb, var(--surface-soft) 76%, transparent), transparent),
+    var(--surface-soft);
+}
+
+.parameter-dotplot__baseline {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 18px;
+  height: 1px;
+  background: color-mix(in srgb, var(--surface-border) 80%, transparent);
+}
+
+.parameter-dotplot__dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  transform: translateX(-50%);
+  background: var(--dot-color);
+  border: 2px solid color-mix(in srgb, var(--surface) 88%, transparent);
+  box-shadow: 0 2px 6px rgba(15, 30, 56, 0.15);
+}
+
+.parameter-dotplot__axis {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  color: var(--text-sub);
+}
+
+.parameter-dotplot__axis-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.parameter-dotplot__axis-label--single {
+  width: 100%;
+  text-align: center;
+}
+
 .parameter-chart__bars {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(58px, 1fr));
