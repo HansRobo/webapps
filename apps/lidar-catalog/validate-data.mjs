@@ -1,19 +1,4 @@
 #!/usr/bin/env node
-// validate-data.mjs — データ構造・enum整合性バリデーター
-//
-// 使い方:
-//   node apps/lidar-catalog/validate-data.mjs
-//   node apps/lidar-catalog/validate-data.mjs --verbose
-//
-// 検証内容:
-//   1. スキーマ定義（M/SCAN/CAT/WAVE/SRC_TYPE）の正当性
-//   2. 各LiDARエントリのフィールド型・必須項目チェック
-//   3. manufacturer/category/scanningMethod/wavelength が schema.js の定数オブジェクト参照であること
-//   4. 参考文献の必須フィールド・URLフォーマット
-//   5. refs 配列の参照整合性（references[].id に存在するか）
-//   6. 重複ID検出
-//   7. specs.*.value の配列（候補列挙）対応
-
 import { createRequire } from "module";
 import { fileURLToPath } from "url";
 import path from "path";
@@ -76,6 +61,13 @@ const OPTIONAL_SPEC_KEYS = [
 ];
 
 const ALL_SPEC_KEYS = new Set([...REQUIRED_SPEC_KEYS, ...OPTIONAL_SPEC_KEYS]);
+
+const SPEC_LEAF_KEYS = new Set(["value", "refs", "unit", "note", "joiner", "numericValue"]);
+
+const M_KEYS    = new Set(["id", "name", "nameJa", "country", "url", "notes"]);
+const SCAN_KEYS = new Set(["id", "label", "labelJa", "icon", "descriptionJa", "pros", "cons"]);
+const CAT_KEYS  = new Set(["id", "label", "labelJa", "icon", "typicalRange", "descriptionJa"]);
+const WAVE_KEYS = new Set(["id", "label", "colorHex", "eyeSafety", "detectorType", "descriptionJa", "note"]);
 
 const NUMERIC_HINT_KEYS = new Set([
   "channels",
@@ -152,7 +144,7 @@ function warnNumericNormalization(prefix, key, value) {
 }
 
 function validateSpecValue(prefix, key, spec) {
-  if (!Object.prototype.hasOwnProperty.call(spec, "value")) {
+  if (!Object.hasOwn(spec, "value")) {
     err(`${prefix} specs.${key}: value プロパティが存在しない`);
     return;
   }
@@ -218,27 +210,47 @@ function validateSpecCommon(prefix, key, spec, required = false) {
     }
   }
 
-  if (Object.prototype.hasOwnProperty.call(spec, "unit") && spec.unit !== null && typeof spec.unit !== "string") {
+  if (Object.hasOwn(spec, "unit") && spec.unit !== null && typeof spec.unit !== "string") {
     err(`${prefix} specs.${key}: unit が文字列または null でない`);
   }
-  if (Object.prototype.hasOwnProperty.call(spec, "note") && typeof spec.note !== "string") {
+  if (Object.hasOwn(spec, "note") && typeof spec.note !== "string") {
     err(`${prefix} specs.${key}: note が文字列でない`);
   }
-  if (Object.prototype.hasOwnProperty.call(spec, "joiner") && typeof spec.joiner !== "string") {
+  if (Object.hasOwn(spec, "joiner") && typeof spec.joiner !== "string") {
     err(`${prefix} specs.${key}: joiner が文字列でない`);
   }
-  if (Object.prototype.hasOwnProperty.call(spec, "numericValue") && typeof spec.numericValue !== "number") {
+  if (Object.hasOwn(spec, "numericValue") && typeof spec.numericValue !== "number") {
     err(`${prefix} specs.${key}: numericValue が数値でない`);
   }
 
-  const unknownKeys = Object.keys(spec).filter((k) => !["value", "refs", "unit", "note", "joiner", "numericValue"].includes(k));
-  for (const unknownKey of unknownKeys) {
+  for (const unknownKey of Object.keys(spec).filter((k) => !SPEC_LEAF_KEYS.has(k))) {
     warn(`${prefix} specs.${key}: 未知のプロパティ "${unknownKey}"`);
   }
 
   if (spec.joiner !== undefined && !Array.isArray(spec.value)) {
     warn(`${prefix} specs.${key}: joiner があるが value は配列ではない`);
   }
+}
+
+function validateSchemaEntry(prefix, obj, { idPattern, requiredStrings = [], warnStrings = [], allowedKeys, extra } = {}) {
+  if (!isPlainObject(obj)) {
+    err(`${prefix}: object でない`);
+    return false;
+  }
+  if (idPattern !== undefined && obj.id !== idPattern) {
+    warn(`${prefix}: id がキー名と一致しない (${obj.id})`);
+  }
+  for (const field of requiredStrings) {
+    if (!isNonEmptyString(obj[field])) err(`${prefix}: ${field} が未定義`);
+  }
+  for (const field of warnStrings) {
+    if (!isNonEmptyString(obj[field])) warn(`${prefix}: ${field} が未定義`);
+  }
+  for (const prop of Object.keys(obj)) {
+    if (!allowedKeys.has(prop)) warn(`${prefix}: 未知のプロパティ "${prop}"`);
+  }
+  extra?.(prefix, obj);
+  return true;
 }
 
 function validateReference(prefix, ref, refIds) {
@@ -271,7 +283,6 @@ function validateReference(prefix, ref, refIds) {
   }
 }
 
-// schema定数のすべての有効オブジェクト参照を収集
 const validManufacturers = new Set(Object.values(M));
 const validScans = new Set(Object.values(SCAN));
 const validCats = new Set(Object.values(CAT));
@@ -289,81 +300,49 @@ console.log(`   データ: ${LIDARS.length}件のLiDARエントリ\n`);
 // 1. スキーマ基本チェック
 console.log("── Step 1: スキーマ定義チェック");
 for (const [key, mfr] of Object.entries(M)) {
-  if (!isPlainObject(mfr)) {
-    err(`M.${key}: object でない`);
-    continue;
-  }
-  if (mfr.id !== key.toLowerCase()) warn(`M.${key}: id がキー名と一致しない (${mfr.id})`);
-  if (!isNonEmptyString(mfr.id)) err(`M.${key}: id が未定義`);
-  if (!isNonEmptyString(mfr.name)) err(`M.${key}: name が未定義`);
-  if (!isNonEmptyString(mfr.nameJa)) err(`M.${key}: nameJa が未定義`);
-  if (!isNonEmptyString(mfr.country)) err(`M.${key}: country が未定義`);
-  if (!isValidHttpUrl(mfr.url)) err(`M.${key}: url が http(s) の絶対URLでない (${mfr.url})`);
-  if (!isNonEmptyString(mfr.notes)) warn(`M.${key}: notes が未定義`);
-  for (const prop of Object.keys(mfr)) {
-    if (!["id", "name", "nameJa", "country", "url", "notes"].includes(prop)) {
-      warn(`M.${key}: 未知のプロパティ "${prop}"`);
-    }
-  }
-  ok(`M.${key} OK`);
+  const valid = validateSchemaEntry(`M.${key}`, mfr, {
+    idPattern: key.toLowerCase(),
+    requiredStrings: ["id", "name", "nameJa", "country"],
+    warnStrings: ["notes"],
+    allowedKeys: M_KEYS,
+    extra: (p, o) => {
+      if (!isValidHttpUrl(o.url)) err(`${p}: url が http(s) の絶対URLでない (${o.url})`);
+    },
+  });
+  if (valid) ok(`M.${key} OK`);
 }
 for (const [key, scan] of Object.entries(SCAN)) {
-  if (!isPlainObject(scan)) {
-    err(`SCAN.${key}: object でない`);
-    continue;
-  }
-  if (scan.id !== key.toLowerCase().replace(/_/g, "-")) warn(`SCAN.${key}: id がキー名と一致しない (${scan.id})`);
-  if (!isNonEmptyString(scan.id)) err(`SCAN.${key}: id が未定義`);
-  if (!isNonEmptyString(scan.label)) err(`SCAN.${key}: label が未定義`);
-  if (!isNonEmptyString(scan.labelJa)) err(`SCAN.${key}: labelJa が未定義`);
-  if (!isNonEmptyString(scan.icon)) err(`SCAN.${key}: icon が未定義`);
-  if (!isNonEmptyString(scan.descriptionJa)) err(`SCAN.${key}: descriptionJa が未定義`);
-  validateStringArray(`SCAN.${key}`, "pros", scan.pros, true);
-  validateStringArray(`SCAN.${key}`, "cons", scan.cons, true);
-  for (const prop of Object.keys(scan)) {
-    if (!["id", "label", "labelJa", "icon", "descriptionJa", "pros", "cons"].includes(prop)) {
-      warn(`SCAN.${key}: 未知のプロパティ "${prop}"`);
-    }
-  }
-  ok(`SCAN.${key} OK`);
+  const valid = validateSchemaEntry(`SCAN.${key}`, scan, {
+    idPattern: key.toLowerCase().replace(/_/g, "-"),
+    requiredStrings: ["id", "label", "labelJa", "icon", "descriptionJa"],
+    allowedKeys: SCAN_KEYS,
+    extra: (p, o) => {
+      validateStringArray(p, "pros", o.pros, true);
+      validateStringArray(p, "cons", o.cons, true);
+    },
+  });
+  if (valid) ok(`SCAN.${key} OK`);
 }
 for (const [key, cat] of Object.entries(CAT)) {
-  if (!isPlainObject(cat)) {
-    err(`CAT.${key}: object でない`);
-    continue;
-  }
-  if (cat.id !== key.toLowerCase().replace(/_/g, "-")) warn(`CAT.${key}: id がキー名と一致しない (${cat.id})`);
-  if (!isNonEmptyString(cat.id)) err(`CAT.${key}: id が未定義`);
-  if (!isNonEmptyString(cat.label)) err(`CAT.${key}: label が未定義`);
-  if (!isNonEmptyString(cat.labelJa)) err(`CAT.${key}: labelJa が未定義`);
-  if (!isNonEmptyString(cat.icon)) err(`CAT.${key}: icon が未定義`);
-  if (!isNonEmptyString(cat.typicalRange)) err(`CAT.${key}: typicalRange が未定義`);
-  if (!isNonEmptyString(cat.descriptionJa)) err(`CAT.${key}: descriptionJa が未定義`);
-  for (const prop of Object.keys(cat)) {
-    if (!["id", "label", "labelJa", "icon", "typicalRange", "descriptionJa"].includes(prop)) {
-      warn(`CAT.${key}: 未知のプロパティ "${prop}"`);
-    }
-  }
-  ok(`CAT.${key} OK`);
+  const valid = validateSchemaEntry(`CAT.${key}`, cat, {
+    idPattern: key.toLowerCase().replace(/_/g, "-"),
+    requiredStrings: ["id", "label", "labelJa", "icon", "typicalRange", "descriptionJa"],
+    allowedKeys: CAT_KEYS,
+  });
+  if (valid) ok(`CAT.${key} OK`);
 }
 for (const [key, wave] of Object.entries(WAVE)) {
-  if (!isPlainObject(wave)) {
-    err(`WAVE.${key}: object でない`);
-    continue;
-  }
-  if (!isNonEmptyString(wave.id)) err(`WAVE.${key}: id が未定義`);
-  if (!isNonEmptyString(wave.label)) err(`WAVE.${key}: label が未定義`);
-  if (!isNonEmptyString(wave.colorHex) || !/^#[0-9a-fA-F]{6}$/.test(wave.colorHex)) err(`WAVE.${key}: colorHex が #RRGGBB 形式でない`);
-  if (!isNonEmptyString(wave.eyeSafety)) err(`WAVE.${key}: eyeSafety が未定義`);
-  if (!isNonEmptyString(wave.detectorType)) err(`WAVE.${key}: detectorType が未定義`);
-  if (!isNonEmptyString(wave.descriptionJa)) err(`WAVE.${key}: descriptionJa が未定義`);
-  if (Object.prototype.hasOwnProperty.call(wave, "note") && !isNonEmptyString(wave.note)) err(`WAVE.${key}: note が文字列でない`);
-  for (const prop of Object.keys(wave)) {
-    if (!["id", "label", "colorHex", "eyeSafety", "detectorType", "descriptionJa", "note"].includes(prop)) {
-      warn(`WAVE.${key}: 未知のプロパティ "${prop}"`);
-    }
-  }
-  ok(`WAVE.${key} OK`);
+  const valid = validateSchemaEntry(`WAVE.${key}`, wave, {
+    requiredStrings: ["id", "label", "eyeSafety", "detectorType", "descriptionJa"],
+    allowedKeys: WAVE_KEYS,
+    extra: (p, o) => {
+      if (!isNonEmptyString(o.colorHex) || !/^#[0-9a-fA-F]{6}$/.test(o.colorHex)) {
+        err(`${p}: colorHex が #RRGGBB 形式でない`);
+      }
+      if (Object.hasOwn(o, "note") && !isNonEmptyString(o.note)) err(`${p}: note が文字列でない`);
+    },
+  });
+  if (valid) ok(`WAVE.${key} OK`);
 }
 for (const [key, srcType] of Object.entries(SRC_TYPE)) {
   if (!isNonEmptyString(srcType)) err(`SRC_TYPE.${key}: 値が文字列でない`);
