@@ -3464,6 +3464,20 @@ const LIDARS = [
 
 ];
 
+function normalizeProtectionValue(value) {
+  if (value == null || Array.isArray(value)) return value;
+  return String(value)
+    .split(/[;,]/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
+for (const lidar of LIDARS) {
+  const protection = lidar?.specs?.protection;
+  if (!protection || protection.value == null) continue;
+  protection.value = normalizeProtectionValue(protection.value);
+}
+
 // ブラウザ・Node.js 両対応のエクスポート
 if (typeof module !== "undefined") {
   module.exports = { LIDARS };

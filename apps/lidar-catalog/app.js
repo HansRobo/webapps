@@ -1024,9 +1024,9 @@ function formatSpecValue(value, joiner = " / ") {
   return { text: String(value), isMissing: false };
 }
 
-function formatSpecDisplay(spec, { includeUnit = true } = {}) {
+function formatSpecDisplay(spec, { includeUnit = true, joiner = null } = {}) {
   if (!spec) return { text: "—", isMissing: true };
-  const value = formatSpecValue(spec.value, spec.joiner ?? " / ");
+  const value = formatSpecValue(spec.value, joiner ?? spec.joiner ?? " / ");
   if (value.isMissing) return value;
   const unit = includeUnit && spec.unit ? ` ${spec.unit}` : "";
   return {
@@ -2386,7 +2386,7 @@ function buildDetailBody(item) {
     if (!spec) return `<tr><td>${labelHtml}</td><td class="spec-na">—</td></tr>`;
     const display = fieldId === "beamDivergence"
       ? formatBeamDivergenceDisplay(spec)
-      : formatSpecDisplay(spec);
+      : formatSpecDisplay(spec, { joiner: fieldId === "protection" ? ", " : null });
     if (display.isMissing)
       return `<tr><td>${labelHtml}</td><td class="spec-na">不明 / 非公開${refLinks(spec.refs)}</td></tr>`;
     const note = spec.note ? `<span class="spec-note">${esc(spec.note)}</span>` : "";
