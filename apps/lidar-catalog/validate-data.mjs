@@ -79,6 +79,7 @@ const OPTIONAL_SPEC_KEYS = [
   "shockVibration",       // 耐衝撃・耐振動
   "powerMax",             // 最大消費電力（ヒーター・起動時含む）
   "precision",            // ばらつき（Precision/Repeatability）
+  "numericValue",         // 正規化済み数値（accuracy/precision の mm 値）
 ];
 
 function isValidSpecLeaf(value) {

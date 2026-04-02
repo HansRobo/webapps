@@ -225,8 +225,8 @@ const FILTER_FIELDS = [
   { id: "maxRange", label: "最大検知距離", group: "基本性能", type: "number", unit: "m", getter: item => item.raw.specs.maxRange?.value ?? null },
   { id: "peakRange", label: "ピーク距離", group: "基本性能", type: "number", unit: "m", getter: item => item.raw.specs.peakRange?.value ?? null },
   { id: "minRange", label: "最小検知距離", group: "基本性能", type: "number", unit: "m", getter: item => item.raw.specs.minRange?.value ?? null },
-  { id: "accuracy", label: "精度", group: "基本性能", type: "text", getter: item => item.raw.specs.accuracy?.value ?? null },
-  { id: "precision", label: "ばらつき / Precision", group: "基本性能", type: "text", getter: item => item.raw.specs.precision?.value ?? null },
+  { id: "accuracy", label: "精度", group: "基本性能", type: "number", unit: "mm", getter: item => getAccuracyPrecisionNumericValue(item.raw.specs.accuracy) },
+  { id: "precision", label: "ばらつき / Precision", group: "基本性能", type: "number", unit: "mm", getter: item => getAccuracyPrecisionNumericValue(item.raw.specs.precision) },
 
   { id: "fovH", label: "FOV 水平", group: "光学・走査", type: "number", unit: "°", getter: item => item.raw.specs.fovH?.value ?? null },
   { id: "fovV", label: "FOV 垂直", group: "光学・走査", type: "number", unit: "°", getter: item => item.raw.specs.fovV?.value ?? null },
@@ -379,6 +379,52 @@ function getParameterValue(item, field) {
   return item.raw.specs?.[field.id]?.value ?? null;
 }
 
+function getNormalizedSpecNumericValue(spec) {
+  if (!spec) return null;
+  if (typeof spec.numericValue === "number" && Number.isFinite(spec.numericValue)) {
+    return spec.numericValue;
+  }
+  return specValueToNumeric(spec.value);
+}
+
+function getAccuracyPrecisionNumericValue(spec) {
+  if (!spec) return null;
+  const normalized = getNormalizedSpecNumericValue(spec);
+  if (normalized !== null) return normalized;
+
+  const raw = spec.value;
+  if (typeof raw !== "string") return null;
+  const text = raw.trim();
+  const cmToMm = n => Number(n) * 10;
+  const mm = n => Number(n);
+  let match;
+
+  if ((match = text.match(/^±\s*([0-9]+(?:\.[0-9]+)?)\s*(mm|cm)$/i))) {
+    return match[2].toLowerCase() === "cm" ? cmToMm(match[1]) : mm(match[1]);
+  }
+  if ((match = text.match(/^<?\s*([0-9]+(?:\.[0-9]+)?)\s*(mm|cm)$/i))) {
+    return match[2].toLowerCase() === "cm" ? cmToMm(match[1]) : mm(match[1]);
+  }
+  if ((match = text.match(/^([0-9]+(?:\.[0-9]+)?)\s*(mm|cm)\s*(?:\((?:1σ|typical)\)|1σ|@.*)?$/i))) {
+    return match[2].toLowerCase() === "cm" ? cmToMm(match[1]) : mm(match[1]);
+  }
+  if ((match = text.match(/^([0-9]+(?:\.[0-9]+)?)\s*(mm|cm)@1σ$/i))) {
+    return match[2].toLowerCase() === "cm" ? cmToMm(match[1]) : mm(match[1]);
+  }
+  if ((match = text.match(/^1σ\s*@\s*[0-9.]+m\s*[≤<]\s*([0-9]+(?:\.[0-9]+)?)\s*(mm|cm)$/i))) {
+    return match[2].toLowerCase() === "cm" ? cmToMm(match[1]) : mm(match[1]);
+  }
+  if ((match = text.match(/^1σ\s*@\s*[0-9.]+m\s*([0-9]+(?:\.[0-9]+)?)\s*(mm|cm)$/i))) {
+    return match[2].toLowerCase() === "cm" ? cmToMm(match[1]) : mm(match[1]);
+  }
+  if ((match = text.match(/^0\.5\s*cm\s*1σ$/i) || text.match(/^0\.5\s*cm@1σ$/i))) {
+    return 5;
+  }
+  if (text === "1 cm@1σ" || text === "1 cm (typical)") return 10;
+  if (text === "2 cm (1σ)") return 20;
+  return null;
+}
+
 function getParameterDisplayText(item, field) {
   const spec = item.raw.specs?.[field.id];
   if (!spec) return null;
@@ -387,8 +433,12 @@ function getParameterDisplayText(item, field) {
 }
 
 function getNumericParameterValue(item, field) {
-  const value = getParameterValue(item, field);
-  return specValueToNumeric(value);
+  const spec = item.raw.specs?.[field.id];
+  if (!spec) return null;
+  if (field.id === "accuracy" || field.id === "precision") {
+    return getAccuracyPrecisionNumericValue(spec);
+  }
+  return specValueToNumeric(spec.value);
 }
 
 function getFacetEntry(item, facetId) {
@@ -602,10 +652,7 @@ function renderStackedBars(buckets, facetGroups, { bucketLabelClass = "", xAxisL
 }
 
 function renderParameterDistribution(field, items, facetId) {
-  const visibleItems = items.filter(item => {
-    if (field.type === "number") return getNumericParameterValue(item, field) !== null;
-    return getParameterDisplayText(item, field) !== null;
-  });
+  const visibleItems = items.filter(item => getParameterDisplayText(item, field) !== null);
 
   if (visibleItems.length === 0) {
     return `<div class="parameter-empty">このパラメータは現在のデータセットでは値がありません。</div>`;
@@ -620,6 +667,28 @@ function renderParameterDistribution(field, items, facetId) {
       value: getNumericParameterValue(item, field),
       facet: getFacetEntry(item, facetId),
     })).filter(entry => entry.value !== null);
+
+    if (numericItems.length === 0) {
+      const textBuckets = buildTextBuckets(visibleItems, field);
+      const buckets = textBuckets.map(bucket => ({
+        label: bucket.label,
+        count: bucket.count,
+        counts: Object.fromEntries(facetGroups.map(group => [group.key, 0])),
+      }));
+      for (const item of visibleItems) {
+        const text = getParameterDisplayText(item, field);
+        if (!text) continue;
+        const bucket = buckets.find(entry => entry.label === text) ?? buckets.find(entry => entry.label === "その他");
+        if (!bucket) continue;
+        const facet = getFacetEntry(item, facetId);
+        const key = facetMap.has(facet.key) ? facet.key : "__other__";
+        bucket.counts[key] = (bucket.counts[key] ?? 0) + 1;
+      }
+      for (const bucket of buckets) {
+        bucket.count = Object.values(bucket.counts).reduce((sum, value) => sum + value, 0);
+      }
+      return renderStackedBars(buckets, facetGroups, { bucketLabelClass: "parameter-chart__bar-label--text" });
+    }
 
     const buckets = buildHistogramBuckets(numericItems.map(entry => entry.value));
     if (buckets.length === 0) return `<div class="parameter-empty">このパラメータの数値分布を作成できませんでした。</div>`;
@@ -653,7 +722,7 @@ function renderParameterDistribution(field, items, facetId) {
       }
     }
 
-    return renderStackedBars(
+    const chart = renderStackedBars(
       buckets.map(bucket => ({
         label: bucket.label,
         count: bucket.count,
@@ -662,6 +731,10 @@ function renderParameterDistribution(field, items, facetId) {
       facetGroups,
       { xAxisLabel: `数値分布 ${field.unit ? `(${field.unit})` : ""}`.trim() }
     );
+    const excludedCount = visibleItems.length - numericItems.length;
+    return excludedCount > 0
+      ? `${chart}<div class="parameter-empty">条件付き表現のため ${excludedCount} 件は数値分布から除外しました。</div>`
+      : chart;
   }
 
   const textBuckets = buildTextBuckets(visibleItems, field);
@@ -691,21 +764,22 @@ function buildParameterDetailSummary(field, items) {
     ? items.map(item => getNumericParameterValue(item, field)).filter(value => value !== null)
     : [];
   const stats = numericValues.length > 0 ? calcSummaryStats(numericValues) : null;
-  const total = items.length;
+  const total = items.filter(item => getParameterDisplayText(item, field) !== null).length;
   const covered = field.type === "number"
     ? numericValues.length
-    : items.filter(item => getParameterDisplayText(item, field) !== null).length;
+    : total;
   const coveragePct = total === 0 ? 0 : Math.round((covered / total) * 100);
 
   if (field.type === "number" && stats) {
     return `
       <div class="parameter-summary-grid">
-        <div class="parameter-summary-card"><span>有効値</span><strong>${stats.count}件</strong></div>
+        <div class="parameter-summary-card"><span>数値化済み</span><strong>${stats.count}件</strong></div>
+        <div class="parameter-summary-card"><span>対象総数</span><strong>${total}件</strong></div>
         <div class="parameter-summary-card"><span>中央値</span><strong>${formatAxisValue(stats.median)}${field.unit ? ` ${field.unit}` : ""}</strong></div>
         <div class="parameter-summary-card"><span>最小</span><strong>${formatAxisValue(stats.min)}${field.unit ? ` ${field.unit}` : ""}</strong></div>
         <div class="parameter-summary-card"><span>最大</span><strong>${formatAxisValue(stats.max)}${field.unit ? ` ${field.unit}` : ""}</strong></div>
         <div class="parameter-summary-card"><span>平均</span><strong>${formatAxisValue(stats.mean)}${field.unit ? ` ${field.unit}` : ""}</strong></div>
-        <div class="parameter-summary-card"><span>カバー率</span><strong>${coveragePct}%</strong></div>
+        <div class="parameter-summary-card"><span>数値カバー率</span><strong>${coveragePct}%</strong></div>
       </div>
     `;
   }
@@ -724,11 +798,14 @@ function buildParameterDetailSummary(field, items) {
 function buildParameterCards(field, items) {
   return items
     .map(item => {
-      const value = field.type === "number" ? getNumericParameterValue(item, field) : getParameterDisplayText(item, field);
+      const numericValue = field.type === "number" ? getNumericParameterValue(item, field) : null;
+      const value = field.type === "number"
+        ? (numericValue !== null
+          ? `${formatAxisValue(numericValue)}${field.unit ? ` ${field.unit}` : ""}`
+          : getParameterDisplayText(item, field))
+        : getParameterDisplayText(item, field);
       if (value === null) return null;
-      const display = field.type === "number"
-        ? `${formatAxisValue(value)}${field.unit ? ` ${field.unit}` : ""}`
-        : value;
+      const display = value;
       return `
         <a href="#/products/${item.id}" class="entity-card parameter-product-card">
           <div class="entity-card__top">
