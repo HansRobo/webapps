@@ -40,6 +40,59 @@ const { LIDARS } = require(path.join(__dirname, "data.js"));
 let errors = 0;
 let warnings = 0;
 
+const ALLOWED_TOP_LEVEL_KEYS = new Set([
+  "id",
+  "manufacturer",
+  "name",
+  "category",
+  "scanningMethod",
+  "wavelength",
+  "discontinued",
+  "specs",
+  "release",
+  "useCases",
+  "references",
+]);
+
+const REQUIRED_REFERENCE_KEYS = new Set(["id", "url", "title", "date", "source", "type"]);
+
+const REQUIRED_SPEC_KEYS = [
+  "channels", "maxRange", "peakRange", "fovH", "fovV",
+  "resH", "resV", "pointRate", "accuracy", "minRange",
+  "power", "size", "weight", "protection", "interface",
+];
+
+const OPTIONAL_SPEC_KEYS = [
+  "returnModes",
+  "beamDivergence",
+  "sunlightImmunity",
+  "timeSynchronization",
+  "imuBuiltIn",
+  "supportedSoftware",
+  "operatingTemperature",
+  "shockVibration",
+  "powerMax",
+  "precision",
+];
+
+const ALL_SPEC_KEYS = new Set([...REQUIRED_SPEC_KEYS, ...OPTIONAL_SPEC_KEYS]);
+
+const NUMERIC_HINT_KEYS = new Set([
+  "channels",
+  "maxRange",
+  "peakRange",
+  "fovH",
+  "fovV",
+  "resH",
+  "resV",
+  "pointRate",
+  "minRange",
+  "sunlightImmunity",
+  "powerMax",
+]);
+const STRING_ARRAY_HINT_KEYS = new Set(["timeSynchronization", "protection"]);
+const NUMBER_ARRAY_HINT_KEYS = new Set(["beamDivergence"]);
+
 function err(msg) {
   console.error(`  ✗ ERROR: ${msg}`);
   errors++;
@@ -54,44 +107,176 @@ function ok(msg) {
   if (verbose) console.log(`  ✓ ${msg}`);
 }
 
+function isPlainObject(value) {
+  return value !== null && typeof value === "object" && !Array.isArray(value);
+}
+
+function isNonEmptyString(value) {
+  return typeof value === "string" && value.trim().length > 0;
+}
+
+function isPositiveInteger(value) {
+  return Number.isInteger(value) && value > 0;
+}
+
+function isValidHttpUrl(value) {
+  if (typeof value !== "string" || value.trim() === "") return false;
+  try {
+    const parsed = new URL(value);
+    return parsed.protocol === "https:" || parsed.protocol === "http:";
+  } catch {
+    return false;
+  }
+}
+
+function isYYYYMM(value) {
+  return typeof value === "string" && /^\d{4}-(0[1-9]|1[0-2])$/.test(value);
+}
+
+function validateStringArray(prefix, fieldName, value, required = false) {
+  if (value === undefined || value === null) {
+    if (required) err(`${prefix} ${fieldName} が未定義`);
+    return;
+  }
+  if (!Array.isArray(value) || value.length === 0 || !value.every(isNonEmptyString)) {
+    err(`${prefix} ${fieldName} は空でない文字列配列である必要がある`);
+  }
+}
+
+function warnNumericNormalization(prefix, key, value) {
+  const text = typeof value === "string" ? value : JSON.stringify(value);
+  warn(
+    `${prefix} specs.${key}: 数値系フィールドに文字列表現が入っている (${text})。` +
+    `可能なら value を数値/数値配列へ正規化し、補足説明は note に逃がすこと`
+  );
+}
+
+function validateSpecValue(prefix, key, spec) {
+  if (!Object.prototype.hasOwnProperty.call(spec, "value")) {
+    err(`${prefix} specs.${key}: value プロパティが存在しない`);
+    return;
+  }
+
+  const value = spec.value;
+  if (value === null) {
+    return;
+  }
+
+  if (typeof value === "number") {
+    if (!Number.isFinite(value)) err(`${prefix} specs.${key}: 数値が有限ではない`);
+    if (NUMERIC_HINT_KEYS.has(key) && value < 0) err(`${prefix} specs.${key}: 数値が負である`);
+    return;
+  }
+
+  if (typeof value === "string") {
+    if (NUMERIC_HINT_KEYS.has(key)) warnNumericNormalization(prefix, key, value);
+    return;
+  }
+
+  if (Array.isArray(value)) {
+    if (value.length === 0) {
+      err(`${prefix} specs.${key}: 配列は空にできない`);
+      return;
+    }
+    if (NUMBER_ARRAY_HINT_KEYS.has(key) && !value.every((item) => typeof item === "number" && Number.isFinite(item))) {
+      warnNumericNormalization(prefix, key, value);
+    }
+    if (STRING_ARRAY_HINT_KEYS.has(key) && !value.every(isNonEmptyString)) {
+      err(`${prefix} specs.${key}: 文字列配列である必要がある`);
+    }
+    return;
+  }
+
+  err(`${prefix} specs.${key}: value が number|string|null またはそれらの配列でない`);
+}
+
+function validateSpecCommon(prefix, key, spec, required = false) {
+  if (spec === undefined) {
+    if (required) {
+      warn(`${prefix} specs.${key} が未定義（null の場合でも { value: null, refs: [] } を明示すること）`);
+    }
+    return;
+  }
+
+  if (!isPlainObject(spec)) {
+    err(`${prefix} specs.${key}: spec が object でない`);
+    return;
+  }
+
+  validateSpecValue(prefix, key, spec);
+
+  if (!Array.isArray(spec.refs)) {
+    err(`${prefix} specs.${key}: refs が配列でない`);
+  } else {
+    for (const refId of spec.refs) {
+      if (!isPositiveInteger(refId)) {
+        err(`${prefix} specs.${key}.refs の要素が正の整数でない`);
+      }
+    }
+    if (new Set(spec.refs).size !== spec.refs.length) {
+      warn(`${prefix} specs.${key}.refs に重複がある`);
+    }
+  }
+
+  if (Object.prototype.hasOwnProperty.call(spec, "unit") && spec.unit !== null && typeof spec.unit !== "string") {
+    err(`${prefix} specs.${key}: unit が文字列または null でない`);
+  }
+  if (Object.prototype.hasOwnProperty.call(spec, "note") && typeof spec.note !== "string") {
+    err(`${prefix} specs.${key}: note が文字列でない`);
+  }
+  if (Object.prototype.hasOwnProperty.call(spec, "joiner") && typeof spec.joiner !== "string") {
+    err(`${prefix} specs.${key}: joiner が文字列でない`);
+  }
+  if (Object.prototype.hasOwnProperty.call(spec, "numericValue") && typeof spec.numericValue !== "number") {
+    err(`${prefix} specs.${key}: numericValue が数値でない`);
+  }
+
+  const unknownKeys = Object.keys(spec).filter((k) => !["value", "refs", "unit", "note", "joiner", "numericValue"].includes(k));
+  for (const unknownKey of unknownKeys) {
+    warn(`${prefix} specs.${key}: 未知のプロパティ "${unknownKey}"`);
+  }
+
+  if (spec.joiner !== undefined && !Array.isArray(spec.value)) {
+    warn(`${prefix} specs.${key}: joiner があるが value は配列ではない`);
+  }
+}
+
+function validateReference(prefix, ref, refIds) {
+  if (!isPlainObject(ref)) {
+    err(`${prefix} reference が object でない`);
+    return;
+  }
+
+  const refPrefix = `${prefix} references[${ref.id ?? "NO_ID"}]`;
+
+  if (!isPositiveInteger(ref.id)) err(`${refPrefix}: id が正の整数でない`);
+  else if (refIds.has(ref.id)) err(`${refPrefix}: 重複した参考文献ID ${ref.id}`);
+  else refIds.add(ref.id);
+
+  if (!isValidHttpUrl(ref.url)) {
+    err(`${refPrefix}: url が http(s) の絶対URLでない → "${ref.url}"`);
+  }
+  if (!isNonEmptyString(ref.title)) err(`${refPrefix}: title が未定義`);
+  if (!isNonEmptyString(ref.source)) err(`${refPrefix}: source が未定義`);
+  if (!isYYYYMM(ref.date) && !(typeof ref.date === "string" && /^\d{4}$/.test(ref.date))) {
+    err(`${refPrefix}: date が "YYYY" または "YYYY-MM" 形式でない`);
+  }
+  if (!isNonEmptyString(ref.type)) err(`${refPrefix}: type が未定義`);
+  else if (!validSrcTypes.has(ref.type)) warn(`${refPrefix}: type "${ref.type}" が SRC_TYPE.* に存在しない`);
+
+  for (const key of Object.keys(ref)) {
+    if (!REQUIRED_REFERENCE_KEYS.has(key)) {
+      warn(`${refPrefix}: 未知のプロパティ "${key}"`);
+    }
+  }
+}
+
 // schema定数のすべての有効オブジェクト参照を収集
 const validManufacturers = new Set(Object.values(M));
 const validScans = new Set(Object.values(SCAN));
 const validCats = new Set(Object.values(CAT));
 const validWaves = new Set(Object.values(WAVE));
 const validSrcTypes = new Set(Object.values(SRC_TYPE));
-
-const REQUIRED_SPEC_KEYS = [
-  "channels", "maxRange", "peakRange", "fovH", "fovV",
-  "resH", "resV", "pointRate", "accuracy", "minRange",
-  "power", "size", "weight", "protection", "interface",
-];
-
-// オプショナルスペックキー（存在する場合のみ構造を検証）
-const OPTIONAL_SPEC_KEYS = [
-  "returnModes",          // リターンモード（Single/Dual/Triple）
-  "beamDivergence",       // ビーム広がり角
-  "sunlightImmunity",     // 耐外乱光性能（lux）
-  "timeSynchronization",  // 時刻同期方式（PTP/gPTP/NTP/PPS+NMEA）
-  "imuBuiltIn",           // 内蔵IMU
-  "supportedSoftware",    // ソフトウェアサポート（ROS 1/2, Autoware等）
-  "operatingTemperature", // 動作温度範囲
-  "shockVibration",       // 耐衝撃・耐振動
-  "powerMax",             // 最大消費電力（ヒーター・起動時含む）
-  "precision",            // ばらつき（Precision/Repeatability）
-  "numericValue",         // 正規化済み数値（accuracy/precision の mm 値）
-];
-
-function isValidSpecLeaf(value) {
-  return value === null || typeof value === "number" || typeof value === "string";
-}
-
-function isValidSpecValue(value) {
-  if (Array.isArray(value)) {
-    return value.length > 0 && value.every(isValidSpecLeaf);
-  }
-  return isValidSpecLeaf(value);
-}
 
 // ────────────────────────────────────────────
 // バリデーション実行
@@ -104,24 +289,85 @@ console.log(`   データ: ${LIDARS.length}件のLiDARエントリ\n`);
 // 1. スキーマ基本チェック
 console.log("── Step 1: スキーマ定義チェック");
 for (const [key, mfr] of Object.entries(M)) {
-  if (!mfr.id)      err(`M.${key}: id が未定義`);
-  if (!mfr.name)    err(`M.${key}: name が未定義`);
-  if (!mfr.country) err(`M.${key}: country が未定義`);
-  if (!mfr.url)     err(`M.${key}: url が未定義`);
-  else if (!mfr.url.startsWith("https://")) warn(`M.${key}: url が https:// で始まっていない (${mfr.url})`);
-  else ok(`M.${key} OK`);
+  if (!isPlainObject(mfr)) {
+    err(`M.${key}: object でない`);
+    continue;
+  }
+  if (mfr.id !== key.toLowerCase()) warn(`M.${key}: id がキー名と一致しない (${mfr.id})`);
+  if (!isNonEmptyString(mfr.id)) err(`M.${key}: id が未定義`);
+  if (!isNonEmptyString(mfr.name)) err(`M.${key}: name が未定義`);
+  if (!isNonEmptyString(mfr.nameJa)) err(`M.${key}: nameJa が未定義`);
+  if (!isNonEmptyString(mfr.country)) err(`M.${key}: country が未定義`);
+  if (!isValidHttpUrl(mfr.url)) err(`M.${key}: url が http(s) の絶対URLでない (${mfr.url})`);
+  if (!isNonEmptyString(mfr.notes)) warn(`M.${key}: notes が未定義`);
+  for (const prop of Object.keys(mfr)) {
+    if (!["id", "name", "nameJa", "country", "url", "notes"].includes(prop)) {
+      warn(`M.${key}: 未知のプロパティ "${prop}"`);
+    }
+  }
+  ok(`M.${key} OK`);
 }
 for (const [key, scan] of Object.entries(SCAN)) {
-  if (!scan.id)      err(`SCAN.${key}: id が未定義`);
-  if (!scan.label)   err(`SCAN.${key}: label が未定義`);
-  if (!scan.labelJa) err(`SCAN.${key}: labelJa が未定義`);
-  else ok(`SCAN.${key} OK`);
+  if (!isPlainObject(scan)) {
+    err(`SCAN.${key}: object でない`);
+    continue;
+  }
+  if (scan.id !== key.toLowerCase().replace(/_/g, "-")) warn(`SCAN.${key}: id がキー名と一致しない (${scan.id})`);
+  if (!isNonEmptyString(scan.id)) err(`SCAN.${key}: id が未定義`);
+  if (!isNonEmptyString(scan.label)) err(`SCAN.${key}: label が未定義`);
+  if (!isNonEmptyString(scan.labelJa)) err(`SCAN.${key}: labelJa が未定義`);
+  if (!isNonEmptyString(scan.icon)) err(`SCAN.${key}: icon が未定義`);
+  if (!isNonEmptyString(scan.descriptionJa)) err(`SCAN.${key}: descriptionJa が未定義`);
+  validateStringArray(`SCAN.${key}`, "pros", scan.pros, true);
+  validateStringArray(`SCAN.${key}`, "cons", scan.cons, true);
+  for (const prop of Object.keys(scan)) {
+    if (!["id", "label", "labelJa", "icon", "descriptionJa", "pros", "cons"].includes(prop)) {
+      warn(`SCAN.${key}: 未知のプロパティ "${prop}"`);
+    }
+  }
+  ok(`SCAN.${key} OK`);
 }
 for (const [key, cat] of Object.entries(CAT)) {
-  if (!cat.id)       err(`CAT.${key}: id が未定義`);
-  if (!cat.label)    err(`CAT.${key}: label が未定義`);
-  if (!cat.labelJa)  err(`CAT.${key}: labelJa が未定義`);
-  else ok(`CAT.${key} OK`);
+  if (!isPlainObject(cat)) {
+    err(`CAT.${key}: object でない`);
+    continue;
+  }
+  if (cat.id !== key.toLowerCase().replace(/_/g, "-")) warn(`CAT.${key}: id がキー名と一致しない (${cat.id})`);
+  if (!isNonEmptyString(cat.id)) err(`CAT.${key}: id が未定義`);
+  if (!isNonEmptyString(cat.label)) err(`CAT.${key}: label が未定義`);
+  if (!isNonEmptyString(cat.labelJa)) err(`CAT.${key}: labelJa が未定義`);
+  if (!isNonEmptyString(cat.icon)) err(`CAT.${key}: icon が未定義`);
+  if (!isNonEmptyString(cat.typicalRange)) err(`CAT.${key}: typicalRange が未定義`);
+  if (!isNonEmptyString(cat.descriptionJa)) err(`CAT.${key}: descriptionJa が未定義`);
+  for (const prop of Object.keys(cat)) {
+    if (!["id", "label", "labelJa", "icon", "typicalRange", "descriptionJa"].includes(prop)) {
+      warn(`CAT.${key}: 未知のプロパティ "${prop}"`);
+    }
+  }
+  ok(`CAT.${key} OK`);
+}
+for (const [key, wave] of Object.entries(WAVE)) {
+  if (!isPlainObject(wave)) {
+    err(`WAVE.${key}: object でない`);
+    continue;
+  }
+  if (!isNonEmptyString(wave.id)) err(`WAVE.${key}: id が未定義`);
+  if (!isNonEmptyString(wave.label)) err(`WAVE.${key}: label が未定義`);
+  if (!isNonEmptyString(wave.colorHex) || !/^#[0-9a-fA-F]{6}$/.test(wave.colorHex)) err(`WAVE.${key}: colorHex が #RRGGBB 形式でない`);
+  if (!isNonEmptyString(wave.eyeSafety)) err(`WAVE.${key}: eyeSafety が未定義`);
+  if (!isNonEmptyString(wave.detectorType)) err(`WAVE.${key}: detectorType が未定義`);
+  if (!isNonEmptyString(wave.descriptionJa)) err(`WAVE.${key}: descriptionJa が未定義`);
+  if (Object.prototype.hasOwnProperty.call(wave, "note") && !isNonEmptyString(wave.note)) err(`WAVE.${key}: note が文字列でない`);
+  for (const prop of Object.keys(wave)) {
+    if (!["id", "label", "colorHex", "eyeSafety", "detectorType", "descriptionJa", "note"].includes(prop)) {
+      warn(`WAVE.${key}: 未知のプロパティ "${prop}"`);
+    }
+  }
+  ok(`WAVE.${key} OK`);
+}
+for (const [key, srcType] of Object.entries(SRC_TYPE)) {
+  if (!isNonEmptyString(srcType)) err(`SRC_TYPE.${key}: 値が文字列でない`);
+  else ok(`SRC_TYPE.${key} OK`);
 }
 
 // 2. 重複IDチェック
@@ -139,9 +385,17 @@ console.log("\n── Step 3: 各エントリ検証");
 for (const lidar of LIDARS) {
   const prefix = `[${lidar.id ?? "NO_ID"}]`;
 
+  for (const key of Object.keys(lidar)) {
+    if (!ALLOWED_TOP_LEVEL_KEYS.has(key)) {
+      warn(`${prefix} 未知のトップレベルプロパティ "${key}"`);
+    }
+  }
+
   // --- enum参照チェック（最重要）---
   if (!validManufacturers.has(lidar.manufacturer)) {
     err(`${prefix} manufacturer が schema.js の M.* 定数を参照していない（文字列リテラル等の使用が疑われる）`);
+  } else if (lidar.manufacturer.id !== lidar.manufacturer.id?.toLowerCase()) {
+    warn(`${prefix} manufacturer.id の形式を確認してください (${lidar.manufacturer.id})`);
   } else ok(`${prefix} manufacturer OK → ${lidar.manufacturer.name}`);
 
   if (!validCats.has(lidar.category)) {
@@ -157,39 +411,26 @@ for (const lidar of LIDARS) {
   } else ok(`${prefix} wavelength OK → ${lidar.wavelength.id}`);
 
   // --- 必須フィールド ---
+  if (!isNonEmptyString(lidar.id)) err(`${prefix} id が文字列でない`);
   if (typeof lidar.discontinued !== "boolean") err(`${prefix} discontinued が boolean でない`);
-  if (!lidar.name || typeof lidar.name !== "string") err(`${prefix} name が文字列でない`);
-  if (!lidar.specs || typeof lidar.specs !== "object") err(`${prefix} specs が object でない`);
+  if (!isNonEmptyString(lidar.name)) err(`${prefix} name が文字列でない`);
+  if (!isNonEmptyString(lidar.useCases)) err(`${prefix} useCases が文字列でない`);
+  if (!isPlainObject(lidar.specs)) err(`${prefix} specs が object でない`);
+  if (!isPlainObject(lidar.release)) err(`${prefix} release が object でない`);
 
   // --- specsフィールド ---
-  if (lidar.specs) {
-    for (const key of REQUIRED_SPEC_KEYS) {
-      const spec = lidar.specs[key];
-      if (spec === undefined) {
-        warn(`${prefix} specs.${key} が未定義（null の場合でも { value: null, refs: [] } を明示すること）`);
-      } else {
-        if (!Object.prototype.hasOwnProperty.call(spec, "value")) {
-          err(`${prefix} specs.${key}: value プロパティが存在しない`);
-        } else if (!isValidSpecValue(spec.value)) {
-          err(`${prefix} specs.${key}: value が number|string|null またはそれらの配列でない`);
-        }
-        if (!Array.isArray(spec.refs)) {
-          err(`${prefix} specs.${key}: refs が配列でない`);
-        }
+  if (isPlainObject(lidar.specs)) {
+    for (const key of Object.keys(lidar.specs)) {
+      if (!ALL_SPEC_KEYS.has(key)) {
+        warn(`${prefix} specs.${key}: 未知のスペックキー`);
       }
     }
-    // オプショナルキーの構造検証（存在する場合のみ）
+
+    for (const key of REQUIRED_SPEC_KEYS) {
+      validateSpecCommon(prefix, key, lidar.specs[key], true);
+    }
     for (const key of OPTIONAL_SPEC_KEYS) {
-      const spec = lidar.specs[key];
-      if (spec === undefined) continue;
-      if (!Object.prototype.hasOwnProperty.call(spec, "value")) {
-        err(`${prefix} specs.${key}: value プロパティが存在しない`);
-      } else if (!isValidSpecValue(spec.value)) {
-        err(`${prefix} specs.${key}: value が number|string|null またはそれらの配列でない`);
-      }
-      if (!Array.isArray(spec.refs)) {
-        err(`${prefix} specs.${key}: refs が配列でない`);
-      }
+      validateSpecCommon(prefix, key, lidar.specs[key], false);
     }
   }
 
@@ -205,25 +446,10 @@ for (const lidar of LIDARS) {
 
   const refIds = new Set();
   for (const ref of lidar.references) {
-    const rp = `${prefix} references[${ref.id}]`;
-    if (ref.id === undefined) err(`${rp}: id が未定義`);
-    if (refIds.has(ref.id)) err(`${rp}: 重複した参考文献ID ${ref.id}`);
-    else refIds.add(ref.id);
-
-    if (!ref.url) err(`${rp}: url が未定義`);
-    else if (!ref.url.startsWith("https://") && !ref.url.startsWith("http://")) {
-      err(`${rp}: url が http(s) スキームでない → "${ref.url}"`);
-    }
-
-    if (!ref.title) err(`${rp}: title が未定義`);
-    if (!ref.source) err(`${rp}: source が未定義`);
-    if (!ref.date) warn(`${rp}: date が未定義（情報確認日を "YYYY-MM" 形式で記録すること）`);
-    if (!ref.type) warn(`${rp}: type が未定義（SRC_TYPE.* を使用すること）`);
-    else if (!validSrcTypes.has(ref.type)) warn(`${rp}: type "${ref.type}" が SRC_TYPE.* に存在しない`);
+    validateReference(prefix, ref, refIds);
   }
 
   // refs → references[].id 整合性チェック
-  const ALL_SPEC_KEYS = [...REQUIRED_SPEC_KEYS, ...OPTIONAL_SPEC_KEYS];
   for (const key of ALL_SPEC_KEYS) {
     const spec = lidar.specs?.[key];
     if (!spec?.refs) continue;
@@ -233,12 +459,22 @@ for (const lidar of LIDARS) {
       }
     }
   }
-  if (lidar.release?.refs) {
-    for (const refId of lidar.release.refs) {
-      if (!refIds.has(refId)) {
-        err(`${prefix} release.refs[${refId}]: references に id=${refId} が存在しない`);
+  if (isPlainObject(lidar.release)) {
+    if (lidar.release.value !== null && !isNonEmptyString(lidar.release.value)) err(`${prefix} release.value が文字列または null でない`);
+    if (!Array.isArray(lidar.release.refs)) {
+      err(`${prefix} release.refs が配列でない`);
+    } else {
+      for (const refId of lidar.release.refs) {
+        if (!refIds.has(refId)) {
+          err(`${prefix} release.refs[${refId}]: references に id=${refId} が存在しない`);
+        }
       }
     }
+    for (const key of Object.keys(lidar.release)) {
+      if (!["value", "refs"].includes(key)) warn(`${prefix} release: 未知のプロパティ "${key}"`);
+    }
+  } else if (lidar.release !== undefined) {
+    err(`${prefix} release が object でない`);
   }
 }
 
@@ -247,7 +483,7 @@ console.log("\n── Step 4: 出典なしスペック集計（要補完候補�
 const missingRefs = {};
 for (const lidar of LIDARS) {
   if (!lidar.specs) continue;
-  for (const key of [...REQUIRED_SPEC_KEYS, ...OPTIONAL_SPEC_KEYS]) {
+  for (const key of ALL_SPEC_KEYS) {
     const spec = lidar.specs[key];
     if (!spec) continue;
     if (spec.value !== null && spec.value !== undefined && (!spec.refs || spec.refs.length === 0)) {
