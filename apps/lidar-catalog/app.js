@@ -30,6 +30,7 @@ const COMPARE_AXES = [
   { id: "channels",   label: "チャンネル数",   unit: "ch",  type: "numeric", getter: item => specValueToNumeric(item.raw.specs.channels?.value) },
   { id: "fovH",       label: "FOV 水平",       unit: "°",   type: "numeric", getter: item => specValueToNumeric(item.raw.specs.fovH?.value) },
   { id: "fovV",       label: "FOV 垂直",       unit: "°",   type: "numeric", getter: item => specValueToNumeric(item.raw.specs.fovV?.value) },
+  { id: "beamDivergence", label: "ビーム広がり角", unit: "°", type: "numeric", getter: item => specValueToNumeric(item.raw.specs.beamDivergence?.value) },
   { id: "pointRate",  label: "点群レート",     unit: "kpt/s", type: "numeric", getter: item => specValueToNumeric(item.raw.specs.pointRate?.value) },
   { id: "power",      label: "消費電力",       unit: "W",   type: "numeric", getter: item => specValueToNumeric(item.raw.specs.power?.value) },
   { id: "weight",     label: "重量",           unit: "g",   type: "numeric", getter: item => specValueToNumeric(item.raw.specs.weight?.value) },
@@ -234,7 +235,7 @@ const FILTER_FIELDS = [
   { id: "resV", label: "角度分解能（垂直）", group: "光学・走査", type: "text", getter: item => item.raw.specs.resV?.value ?? null },
   { id: "pointRate", label: "点群レート", group: "光学・走査", type: "number", unit: "pts/s", getter: item => item.raw.specs.pointRate?.value ?? null },
   { id: "returnModes", label: "リターンモード", group: "光学・走査", type: "text", getter: item => item.raw.specs.returnModes?.value ?? null },
-  { id: "beamDivergence", label: "ビーム広がり角", group: "光学・走査", type: "text", getter: item => item.raw.specs.beamDivergence?.value ?? null },
+  { id: "beamDivergence", label: "ビーム広がり角", group: "光学・走査", type: "number", unit: "°", getter: item => item.raw.specs.beamDivergence?.value ?? null },
   { id: "sunlightImmunity", label: "耐外乱光性能", group: "光学・走査", type: "number", unit: "lux", getter: item => item.raw.specs.sunlightImmunity?.value ?? null },
 
   { id: "interface", label: "インタフェース", group: "システム統合", type: "text", getter: item => item.raw.specs.interface?.value ?? null },
@@ -300,7 +301,7 @@ const PARAMETER_TEXT_OVERRIDES = {
   resV: "垂直角度分解能です。小さいほど上下方向の密度が上がります。",
   pointRate: "1秒あたりの点群生成数です。高いほど密度の高い点群を得やすくなります。",
   returnModes: "Single / Dual / Triple などの戻り光取得モードです。用途に応じて見ます。",
-  beamDivergence: "レーザーの広がり角です。小さいほど遠方でスポットを絞りやすくなります。",
+  beamDivergence: "レーザーの広がり角です。水平・垂直の2成分で表す場合があります。",
   sunlightImmunity: "外乱光に対する耐性の目安です。高いほど屋外条件に強い傾向があります。",
   interface: "Ethernet や CAN などの通信インタフェースです。車両・機器統合時に重要です。",
   timeSynchronization: "PTP / gPTP などの時刻同期方式です。複数センサ統合で重要になります。",
@@ -428,6 +429,10 @@ function getAccuracyPrecisionNumericValue(spec) {
 function getParameterDisplayText(item, field) {
   const spec = item.raw.specs?.[field.id];
   if (!spec) return null;
+  if (field.id === "beamDivergence") {
+    const display = formatBeamDivergenceDisplay(spec, { includeUnit: field.type === "number" });
+    return display.isMissing ? null : display.text;
+  }
   const display = formatSpecDisplay(spec, { includeUnit: field.type === "number" });
   return display.isMissing ? null : display.text;
 }
@@ -798,14 +803,16 @@ function buildParameterDetailSummary(field, items) {
 function buildParameterCards(field, items) {
   return items
     .map(item => {
-      const numericValue = field.type === "number" ? getNumericParameterValue(item, field) : null;
-      const value = field.type === "number"
-        ? (numericValue !== null
+      let value;
+      if (field.id === "beamDivergence" || field.type !== "number") {
+        value = getParameterDisplayText(item, field);
+      } else {
+        const numericValue = getNumericParameterValue(item, field);
+        value = numericValue !== null
           ? `${formatAxisValue(numericValue)}${field.unit ? ` ${field.unit}` : ""}`
-          : getParameterDisplayText(item, field))
-        : getParameterDisplayText(item, field);
+          : getParameterDisplayText(item, field);
+      }
       if (value === null) return null;
-      const display = value;
       return `
         <a href="#/products/${item.id}" class="entity-card parameter-product-card">
           <div class="entity-card__top">
@@ -817,7 +824,7 @@ function buildParameterCards(field, items) {
               <div class="entity-card__name-sub">${esc(item.raw.manufacturer.name)}</div>
             </div>
           </div>
-          <div class="entity-card__desc">${esc(display)}</div>
+          <div class="entity-card__desc">${esc(value)}</div>
           <div class="entity-card__stats">
             <span class="entity-card__stat"><strong>${esc(item.raw.category.labelJa)}</strong></span>
             <span class="entity-card__stat">${esc(item.raw.scanningMethod.labelJa)}</span>
@@ -1019,7 +1026,7 @@ function formatSpecValue(value, joiner = " / ") {
 
 function formatSpecDisplay(spec, { includeUnit = true } = {}) {
   if (!spec) return { text: "—", isMissing: true };
-  const value = formatSpecValue(spec.value);
+  const value = formatSpecValue(spec.value, spec.joiner ?? " / ");
   if (value.isMissing) return value;
   const unit = includeUnit && spec.unit ? ` ${spec.unit}` : "";
   return {
@@ -1028,9 +1035,32 @@ function formatSpecDisplay(spec, { includeUnit = true } = {}) {
   };
 }
 
+function formatBeamDivergenceDisplay(spec, { includeUnit = true } = {}) {
+  if (!spec) return { text: "—", isMissing: true };
+  const raw = spec.value;
+  if (raw == null) return { text: "—", isMissing: true };
+
+  const horizontal = Array.isArray(raw) ? (raw[0] ?? null) : raw;
+  const vertical   = Array.isArray(raw) ? (raw[1] ?? null) : raw;
+
+  const formatPart = (label, value) => {
+    if (value == null) return `${label} —`;
+    return `${label} ${String(value)}${includeUnit && spec.unit ? spec.unit : ""}`;
+  };
+
+  const text = `${formatPart("水平", horizontal)} / ${formatPart("垂直", vertical)}`;
+  return { text, isMissing: false };
+}
+
 function specValueToNumeric(value) {
-  if (Array.isArray(value)) return null;
   if (value === null || value === undefined) return null;
+  if (Array.isArray(value)) {
+    const numericValues = value
+      .map(v => Number(v))
+      .filter(v => Number.isFinite(v));
+    if (numericValues.length === 0) return null;
+    return Math.max(...numericValues);
+  }
   const n = Number(value);
   return Number.isFinite(n) ? n : null;
 }
@@ -2354,7 +2384,9 @@ function buildDetailBody(item) {
       ? `<a class="spec-link" href="#/parameters/${fieldId}">${esc(label)}</a>`
       : esc(label);
     if (!spec) return `<tr><td>${labelHtml}</td><td class="spec-na">—</td></tr>`;
-    const display = formatSpecDisplay(spec);
+    const display = fieldId === "beamDivergence"
+      ? formatBeamDivergenceDisplay(spec)
+      : formatSpecDisplay(spec);
     if (display.isMissing)
       return `<tr><td>${labelHtml}</td><td class="spec-na">不明 / 非公開${refLinks(spec.refs)}</td></tr>`;
     const note = spec.note ? `<span class="spec-note">${esc(spec.note)}</span>` : "";
