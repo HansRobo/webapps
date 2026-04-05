@@ -3308,8 +3308,8 @@ const EXPERIMENTS = [
       period: { value: "2025年4月14日週〜", refs: [1, 2] },
       status: { value: STATUS.ACTIVE, refs: [1] },
       description: {
-        value: "GO、Waymo、日本交通が東京都心7区で開始した公道走行。日本交通の乗務員による手動運転でデータを収集し、Waymo Driverの日本向け適応を進める実証。",
-        refs: [1, 2]
+        value: "GO、Waymo、日本交通が東京都心7区で開始した公道走行。日本交通の乗務員による手動運転でデータを収集し、Waymo Driverの日本向け適応を進める実証。2026年4月にはシステムが日本語に正式対応し、商用化に向けたテストを加速させている。",
+        refs: [1, 2, 3]
       },
       vehicle: { value: VEH.JAGUAR_I_PACE, refs: [1, 2] },
       adSystem: { value: ADS.WAYMO, refs: [1, 2] },
@@ -3320,7 +3320,8 @@ const EXPERIMENTS = [
       ],
       references: [
         { id: 1, title: "GO、Waymo、日本交通　今週より東京都心7区でWaymo車両の走行を開始", url: "https://goinc.jp/news/info/2025/04/14/4zfkopprkigxqcfyiltgxd/", date: "2025-04-14", source: "GO株式会社" },
-        { id: 2, title: "Waymo 日本版", url: "https://waymo.com/intl/jp/waymo-in-japan/", date: "2025-04-14", source: "Waymo" }
+        { id: 2, title: "Waymo 日本版", url: "https://waymo.com/intl/jp/waymo-in-japan/", date: "2025-04-14", source: "Waymo" },
+        { id: 3, title: "Waymoの自動運転AI、日本語に正式対応。都内でのテストを加速", url: "https://jidounten-lab.com/u_waymo-japanese-support", date: "2026-04-02", source: "自動運転ラボ" }
       ]
     },
   {
@@ -5865,31 +5866,6 @@ const EXPERIMENTS = [
       references: [
         { id: 1, title: "T2、自動運転トラックによる関東〜関西間500kmの無介入走行に成功", url: "https://t2.auto/news/20260315/", date: "2026-03-15", source: "株式会社T2" },
         { id: 2, title: "自動運転トラックを活用した荷主企業等との幹線輸送実証を開始", url: "https://www.unicharm.co.jp/ja/news/2026/0401-01.html", date: "2026-04-01", source: "ユニ・チャーム株式会社" }
-      ]
-    },
-    {
-      id: "exp-256",
-      name: { value: "Waymo・日本交通・GO 自動運転タクシー東京都内走行テスト", refs: [1] },
-      location: { value: "東京都中央区・千代田区（日本橋・丸の内周辺）", lat: 35.683, lng: 139.774, refs: [1] },
-      prefecture: { value: PREF.TOKYO, refs: [1] },
-      period: { value: "2025年4月〜（継続中）", refs: [1] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
-      description: {
-        value: "米Waymoが日本交通、GOと提携し、東京都内での自動運転タクシーの商用化に向けた走行環境適応テストを実施。2026年4月にはシステムが日本語に対応。現在はセーフティドライバー同乗のレベル2でデータを収集している。",
-        refs: [1, 2]
-      },
-      vehicle: { value: VEH.JAGUAR_I_PACE, refs: [1] },
-      adSystem: { value: ADS.WAYMO, refs: [1] },
-      route: { value: "東京都心部（公道）", refs: [1] },
-      operationType: { value: "レベル2（走行テスト）", refs: [1] },
-      stakeholders: [
-        { role: "自動運転システム", name: "Waymo", refs: [1] },
-        { role: "事業協力", name: "日本交通株式会社", refs: [1] },
-        { role: "事業協力", name: "GO株式会社", refs: [1] }
-      ],
-      references: [
-        { id: 1, title: "Waymo、東京での自動運転走行テストを開始。日本交通・GOと連携", url: "https://goinc.jp/news/2025/04/waymo-tokyo-test/", date: "2025-04-10", source: "GO株式会社" },
-        { id: 2, title: "Waymoの自動運転AI、日本語に正式対応。都内でのテストを加速", url: "https://jidounten-lab.com/u_waymo-japanese-support", date: "2026-04-02", source: "自動運転ラボ" }
       ]
     }
 ];
