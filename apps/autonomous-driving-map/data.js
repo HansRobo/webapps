@@ -5791,5 +5791,105 @@ const EXPERIMENTS = [
       references: [
         { id: 1, title: "ティアフォー、公共調達の先行モデル構築に向けて国会定期便での自動運転実証を開始", url: "https://prtimes.jp/main/html/rd/p/000000108.000040119.html", date: "2025-11-20", source: "株式会社ティアフォー / PR TIMES" }
       ]
+    },
+    {
+      id: "exp-253",
+      name: { value: "柏の葉キャンパス自動運転レベル4（特定自動運行）シャトルバス営業運行", refs: [1] },
+      location: { value: "千葉県柏市（柏の葉キャンパス駅〜東京大学柏キャンパス）", lat: 35.894, lng: 139.952, refs: [1] },
+      prefecture: { value: PREF.CHIBA, refs: [1] },
+      period: { value: "2026年1月13日〜（営業運行）", refs: [1] },
+      status: { value: STATUS.ACTIVE, refs: [1] },
+      description: {
+        value: "東京都市圏の一般公道で初となる、路線バスによるレベル4（特定自動運行）の営業運行。約2.6kmのルートのうち約700m区間でレベル4走行を実施。インフラ協調システムを活用し安全性を確保している。",
+        refs: [1, 2]
+      },
+      vehicle: { value: VEH.ISUZU_ERGA_MIO, refs: [1] },
+      adSystem: { value: ADS.TIER_IV, refs: [1] },
+      route: { value: "柏の葉キャンパス駅〜東京大学柏キャンパス 約2.6km", refs: [1] },
+      operationType: { value: "レベル4（特定自動運行）・レベル2混合", refs: [1] },
+      stakeholders: [
+        { role: "運行管理・事業主体", name: "東武バスセントラル株式会社", refs: [1] },
+        { role: "自治体", name: "柏市（千葉県）", refs: [1] },
+        { role: "代表機関", name: "東京大学", refs: [1] },
+        { role: "自動運転システム開発", name: "株式会社ティアフォー", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "柏の葉キャンパス地区でレベル4自動運転シャトルバスの営業運行を開始", url: "https://www.u-tokyo.ac.jp/focus/ja/press/z0111_00001.html", date: "2026-01-13", source: "東京大学" },
+        { id: 2, title: "RoAD to the L4 プロジェクト：柏の葉における実証", url: "https://www.meti.go.jp/policy/mono_info_service/mono/automobile/automated_driving/road_to_the_l4.html", date: "2026-01", source: "経済産業省" }
+      ]
+    },
+    {
+      id: "exp-254",
+      name: { value: "二俣川駅・左近山団地ルート自動運転バス実証実験", refs: [1] },
+      location: { value: "神奈川県横浜市（二俣川駅〜左近山団地）", lat: 35.462, lng: 139.532, refs: [1] },
+      prefecture: { value: PREF.KANAGAWA, refs: [1] },
+      period: { value: "2026年1月20日〜2026年2月（実証走行）", refs: [1] },
+      status: { value: STATUS.COMPLETED, refs: [1] },
+      description: {
+        value: "既存の路線バスルート（二俣川駅〜左近山団地）において、大型の自動運転EVバスを用いた実証実験を実施。一般利用者を乗せた営業運行に近い形での検証を行った。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.BYD_J6, refs: [1] },
+      adSystem: { value: ADS.TIER_IV, refs: [1] },
+      route: { value: "二俣川駅〜左近山団地 約3km", refs: [1] },
+      operationType: { value: "レベル2（実証走行）", refs: [1] },
+      stakeholders: [
+        { role: "運行管理・事業主体", name: "相鉄バス株式会社", refs: [1] },
+        { role: "自治体", name: "横浜市（神奈川県）", refs: [1] },
+        { role: "技術協力", name: "群馬大学(CRANTS)", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "二俣川駅〜左近山団地間での自動運転バス実証実験について", url: "https://www.sotetsu.co.jp/news/bus/info-bus-2026-01-10/", date: "2026-01-10", source: "相鉄バス株式会社" }
+      ]
+    },
+    {
+      id: "exp-255",
+      name: { value: "T2 大型自動運転トラック 幹線輸送500km完走実証", refs: [1] },
+      location: { value: "東京都〜大阪府（高速道路本線）", lat: 35.689, lng: 139.692, refs: [1] },
+      prefecture: { value: PREF.TOKYO, refs: [1] },
+      period: { value: "2026年3月", refs: [1] },
+      status: { value: STATUS.COMPLETED, refs: [1] },
+      description: {
+        value: "自動運転物流スタートアップのT2が、自社開発のレベル2自動運転システムを搭載した大型トラックを用い、関東〜関西間の高速道路本線約500kmを無介入で完走。物流実務への適用を目指し、ユニ・チャーム等の実際の荷物を輸送した。",
+        refs: [1, 2]
+      },
+      vehicle: { value: VEH.LARGE_TRUCK_GENERIC, refs: [1] },
+      adSystem: { value: ADS.T2, refs: [1] },
+      route: { value: "関東〜関西間 高速道路本線 約500km", refs: [1] },
+      operationType: { value: "レベル2（無介入走行検証）", refs: [1] },
+      stakeholders: [
+        { role: "自動運転システム開発", name: "株式会社T2", refs: [1] },
+        { role: "協力企業", name: "ユニ・チャーム株式会社", refs: [2] },
+        { role: "協力企業", name: "キユーソー流通システム株式会社", refs: [2] }
+      ],
+      references: [
+        { id: 1, title: "T2、自動運転トラックによる関東〜関西間500kmの無介入走行に成功", url: "https://t2.auto/news/20260315/", date: "2026-03-15", source: "株式会社T2" },
+        { id: 2, title: "自動運転トラックを活用した荷主企業等との幹線輸送実証を開始", url: "https://www.unicharm.co.jp/ja/news/2026/0401-01.html", date: "2026-04-01", source: "ユニ・チャーム株式会社" }
+      ]
+    },
+    {
+      id: "exp-256",
+      name: { value: "Waymo・日本交通・GO 自動運転タクシー東京都内走行テスト", refs: [1] },
+      location: { value: "東京都中央区・千代田区（日本橋・丸の内周辺）", lat: 35.683, lng: 139.774, refs: [1] },
+      prefecture: { value: PREF.TOKYO, refs: [1] },
+      period: { value: "2025年4月〜（継続中）", refs: [1] },
+      status: { value: STATUS.ACTIVE, refs: [1] },
+      description: {
+        value: "米Waymoが日本交通、GOと提携し、東京都内での自動運転タクシーの商用化に向けた走行環境適応テストを実施。2026年4月にはシステムが日本語に対応。現在はセーフティドライバー同乗のレベル2でデータを収集している。",
+        refs: [1, 2]
+      },
+      vehicle: { value: VEH.JAGUAR_I_PACE, refs: [1] },
+      adSystem: { value: ADS.WAYMO, refs: [1] },
+      route: { value: "東京都心部（公道）", refs: [1] },
+      operationType: { value: "レベル2（走行テスト）", refs: [1] },
+      stakeholders: [
+        { role: "自動運転システム", name: "Waymo", refs: [1] },
+        { role: "事業協力", name: "日本交通株式会社", refs: [1] },
+        { role: "事業協力", name: "GO株式会社", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "Waymo、東京での自動運転走行テストを開始。日本交通・GOと連携", url: "https://goinc.jp/news/2025/04/waymo-tokyo-test/", date: "2025-04-10", source: "GO株式会社" },
+        { id: 2, title: "Waymoの自動運転AI、日本語に正式対応。都内でのテストを加速", url: "https://jidounten-lab.com/u_waymo-japanese-support", date: "2026-04-02", source: "自動運転ラボ" }
+      ]
     }
 ];
