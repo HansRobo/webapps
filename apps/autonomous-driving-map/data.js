@@ -448,25 +448,27 @@ const EXPERIMENTS = [
       name: { value: "羽田イノベーションシティ 自動運転バス実証（大田区）", refs: [1, 2] },
       location: { value: "東京都大田区（羽田イノベーションシティ内）", lat: 35.548, lng: 139.754, refs: [1] },
       prefecture: { value: PREF.TOKYO, refs: [1] },
-      period: { value: "2020年9月〜（2023年10月にレベル4車両認可、2024年8月からレベル4運行）", refs: [1, 2] },
+      period: { value: "2020年9月〜（2023年10月にレベル4車両認可、2024年6月に特定自動運行許可、2024年8月からレベル4営業運行）", refs: [1, 2, 3] },
       status: { value: STATUS.ACTIVE, refs: [1] },
-      lv4Approval: { value: LV4_APPROVAL.VEHICLE_AUTHORIZED, refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.OPERATION_PERMITTED, refs: [3] },
       stakeholders: [
-        { role: "事業主体", name: "羽田みらい開発株式会社", refs: [1] },
-        { role: "運行主体・システム", name: "BOLDLY株式会社、株式会社セネック、マクニカ株式会社", refs: [1] },
+        { role: "事業主体", name: "羽田みらい開発株式会社", refs: [1, 3] },
+        { role: "運行主体・システム", name: "BOLDLY株式会社、株式会社セネック、マクニカ株式会社", refs: [1, 3] },
+        { role: "施設建設", name: "鹿島建設株式会社", refs: [3] },
         { role: "自治体", name: "大田区（東京都）", refs: [1, 2] }
       ],
       description: {
-        value: "新産業創造・発信拠点「羽田イノベーションシティ」内における自動運転バス運行。2023年10月にレベル4車両認可を取得し、NAVYA ARMAによる特定ルート運行を継続している。",
-        refs: [1, 2]
+        value: "新産業創造・発信拠点「羽田イノベーションシティ」内における自動運転バス運行。2023年10月にレベル4車両認可を取得し、2024年6月21日に東京都公安委員会から特定自動運行許可（民間事業者として国内初）を取得。2024年8月1日よりNAVYA ARMAによるレベル4営業運行を開始。",
+        refs: [1, 2, 3]
       },
       vehicle: { value: VEH.NAVYA_ARMA, refs: [1] },
       adSystem: { value: ADS.NAVYA, refs: [1] },
-      route: { value: "羽田イノベーションシティ内の循環ルート", refs: [1] },
-      operationType: { value: "レベル2（運転士乗車）および レベル4（特定自動運行）", refs: [1, 2] },
+      route: { value: "羽田イノベーションシティ内の循環ルート（約800m）", refs: [3] },
+      operationType: { value: "レベル4（特定自動運行・民間初）", refs: [3] },
       references: [
         { id: 1, title: "関東で初めて自動運転車（レベル4）の認可を行いました", url: "https://wwwtb.mlit.go.jp/kanto/content/000304988.pdf", date: "2023-10-20", source: "国土交通省 関東運輸局" },
-        { id: 2, title: "各地の取り組み：大田区", url: "https://www.road-to-the-l4.go.jp/case/ota/haneda.html", date: "2025-05-29", source: "RoAD to the L4 プロジェクト" }
+        { id: 2, title: "各地の取り組み：大田区", url: "https://www.road-to-the-l4.go.jp/case/ota/haneda.html", date: "2025-05-29", source: "RoAD to the L4 プロジェクト" },
+        { id: 3, title: "民間初、自動運転レベル4の運行許可を取得", url: "https://www.kajima.co.jp/news/press/202406/26a1-j.htm", date: "2024-06-26", source: "鹿島建設株式会社" }
       ]
     },
   {
