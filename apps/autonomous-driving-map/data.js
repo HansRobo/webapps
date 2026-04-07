@@ -967,16 +967,16 @@ const EXPERIMENTS = [
       name: { value: "岐阜市 GIFU HEART BUS（岐阜県）", refs: [1] },
       location: { value: "岐阜県岐阜市（中心市街地）", lat: 35.413, lng: 136.756, refs: [1] },
       prefecture: { value: PREF.GIFU, refs: [1] },
-      period: { value: "2023年11月〜（5年間継続予定）", refs: [1] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
+      period: { value: "2023年11月〜2026年1月（NAVYA ARMA運行期間）", refs: [1] },
+      status: { value: STATUS.COMPLETED, refs: [1] },
       description: {
-        value: "中心市街地における「GIFU HEART BUS」の運行を継続的に実施。2026年には高度なセンサーとAI技術を搭載した新型車両を導入し、レベル4移行を見据えたデータ蓄積を行っている。",
+        value: "中心市街地における「GIFU HEART BUS」の運行を継続的に実施。NAVYA ARMAを用いてレベル2で運行。5年間継続事業の一環として実施され、2026年1月に新型WeRide車両へのバトンタッチで役割を終えた。",
         refs: [1]
       },
       vehicle: { value: VEH.NAVYA_ARMA, refs: [1] },
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "岐阜市中心市街地", refs: [1] },
-      operationType: { value: "レベル2（将来レベル4へ移行）", refs: [1] },
+      operationType: { value: "レベル2", refs: [1] },
       lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "岐阜市（岐阜県）", refs: [1] },
@@ -5748,6 +5748,34 @@ const EXPERIMENTS = [
       references: [
         { id: 1, title: "T2、自動運転トラックによる関東〜関西間500kmの無介入走行に成功", url: "https://t2.auto/news/20260315/", date: "2026-03-15", source: "株式会社T2" },
         { id: 2, title: "自動運転トラックを活用した荷主企業等との幹線輸送実証を開始", url: "https://www.unicharm.co.jp/ja/news/2026/0401-01.html", date: "2026-04-01", source: "ユニ・チャーム株式会社" }
+      ]
+    },
+  {
+      id: "exp-256",
+      name: { value: "岐阜市 GIFU HEART BUS WeRide新型車両（レベル4移行準備）", refs: [1, 2] },
+      location: { value: "岐阜県岐阜市（中心市街地・中心部ルート）", lat: 35.413, lng: 136.756, refs: [1] },
+      prefecture: { value: PREF.GIFU, refs: [1] },
+      period: { value: "2026年1月17日〜", refs: [1] },
+      status: { value: STATUS.ACTIVE, refs: [1] },
+      description: {
+        value: "岐阜市が中心市街地で運行する「GIFU HEART BUS」の次世代車両として、WeRide（中国）製Level 4対応EVバス（GOLDENDRAGON RoboBus改造）を2026年1月17日より導入。まずレベル2で100%自動走行を積み重ね、必要な許認可（車両認可・特定自動運行許可）を取得した上でレベル4へ移行予定。実現すれば中心市街地でのレベル4運行は全国初となる。",
+        refs: [1, 2]
+      },
+      vehicle: { value: VEH.WERIDE_BUS, refs: [1, 2] },
+      adSystem: { value: ADS.WERIDE, refs: [2] },
+      route: { value: "岐阜市中心部ルート（JR岐阜駅〜市役所周辺 約5km）", refs: [1] },
+      operationType: { value: "レベル2（許認可取得後にレベル4移行予定）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "自治体", name: "岐阜市（岐阜県）", refs: [1] },
+        { role: "運行管理・事業運営", name: "BOLDLY株式会社", refs: [1, 2] },
+        { role: "車両製造・自動運転システム", name: "WeRide（中国）", refs: [2] },
+        { role: "車両輸入・提供", name: "マクニカ株式会社", refs: [2] },
+        { role: "運行補佐", name: "岐阜バス株式会社", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "新たな「GIFU HEART BUS」の運行がいよいよスタート！", url: "https://www.city.gifu.lg.jp/kurashi/douro/1002587/1023154/1036889.html", date: "2026-01-17", source: "岐阜市" },
+        { id: 2, title: "自動運転EVバスのWeRide製新型車両に岐阜市で試乗", url: "https://blog.evsmart.net/autonomous/weride-autonomous-ev-bus-gifu-test-ride-report/", date: "2026-01-23", source: "EVsmartブログ" }
       ]
     }
 ];
