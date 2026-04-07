@@ -38,6 +38,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const experiments = EXPERIMENTS.map((raw) => normalizeExperiment(raw));
   const experimentById = new Map(experiments.map((exp) => [exp.id, exp]));
 
+  // ── 逆引きインデックス ──
+  const VEH_BY_ID = Object.fromEntries(Object.values(VEH).map((v) => [v.id, v]));
+  const ADS_BY_ID = Object.fromEntries(Object.values(ADS).map((a) => [a.id, a]));
+  const PREF_BY_ID = Object.fromEntries(Object.values(PREF).map((p) => [p.id, p]));
+  const STATUS_BY_ID = Object.fromEntries(Object.values(STATUS).map((s) => [s.id, s]));
+  const VEH_LABEL_TO_OBJ = Object.fromEntries(Object.values(VEH).map((v) => [v.label, v]));
+  const ADS_LABEL_TO_OBJ = Object.fromEntries(Object.values(ADS).map((a) => [a.label, a]));
+  const PREF_LABEL_TO_OBJ = Object.fromEntries(Object.values(PREF).map((p) => [p.label, p]));
+
+  const BY_VEH = {};
+  const BY_ADS = {};
+  const BY_PREF = {};
+  for (const exp of experiments) {
+    const prefLabel = exp.prefecture;
+    if (prefLabel) (BY_PREF[prefLabel] ??= []).push(exp);
+    for (const v of exp.vehicles) (BY_VEH[v] ??= []).push(exp);
+    for (const a of exp.adSystems) (BY_ADS[a] ??= []).push(exp);
+  }
+
   const dom = {
     queryInput: document.getElementById("queryInput"),
     orgQueryInput: document.getElementById("orgQueryInput"),
@@ -126,9 +145,10 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeMarkers();
   bindEvents();
   setMobilePanel("results");
-  renderAll();
 
   map.on("moveend zoomend", updateMapBoundsCount);
+
+  Router.init();
 
   function normalizeExperiment(raw) {
     // STATUS/PREF/VEH/ADS は schema.js のオブジェクト参照 → .label で表示文字列を取得
@@ -749,5 +769,397 @@ document.addEventListener("DOMContentLoaded", () => {
             .join("")}
         </ul>
       </div>`;
+  }
+
+  // ════════════════════════════════════════════════
+  // ルーター & エンティティページ
+  // ════════════════════════════════════════════════
+
+  let prefDetailMap = null;
+
+  const Router = {
+    routes: [
+      { pattern: /^#\/vehicles\/(.+)$/,    view: "vehicles",    handler: (m) => renderVehicleDetail(decodeURIComponent(m[1])) },
+      { pattern: /^#\/vehicles$/,          view: "vehicles",    handler: () => renderVehiclesGrid() },
+      { pattern: /^#\/ad-systems\/(.+)$/,  view: "ad-systems",  handler: (m) => renderAdSystemDetail(decodeURIComponent(m[1])) },
+      { pattern: /^#\/ad-systems$/,        view: "ad-systems",  handler: () => renderAdSystemsGrid() },
+      { pattern: /^#\/prefectures\/(.+)$/, view: "prefectures", handler: (m) => renderPrefectureDetail(decodeURIComponent(m[1])) },
+      { pattern: /^#\/prefectures$/,       view: "prefectures", handler: () => renderPrefecturesGrid() },
+      { pattern: /^#\/map$/,               view: "map",         handler: () => showMapView() },
+    ],
+    navigate(hash) {
+      if (!hash || hash === "#" || hash === "#/") hash = "#/map";
+      for (const route of this.routes) {
+        const match = hash.match(route.pattern);
+        if (match) {
+          this.switchView(route.view);
+          this.updateNav(route.view);
+          route.handler(match);
+          return;
+        }
+      }
+      location.hash = "#/map";
+    },
+    switchView(view) {
+      const isMap = view === "map";
+      document.querySelector(".app-layout").style.display = isMap ? "" : "none";
+      document.getElementById("mobileDock").style.display = isMap ? "" : "none";
+      document.getElementById("dataDisclaimer").style.display = isMap ? "" : "none";
+      document.getElementById("viewContainer").style.display = isMap ? "none" : "";
+      if (!isMap) closeDetailPanel();
+      if (!isMap && prefDetailMap) {
+        prefDetailMap.remove();
+        prefDetailMap = null;
+      }
+    },
+    updateNav(activeView) {
+      document.querySelectorAll(".nav-tab").forEach((tab) => {
+        tab.classList.toggle("active", tab.dataset.view === activeView);
+      });
+    },
+    init() {
+      window.addEventListener("hashchange", () => this.navigate(location.hash));
+      this.navigate(location.hash);
+    },
+  };
+
+  function showMapView() {
+    setMobilePanel("results");
+    renderAll();
+    requestAnimationFrame(() => map.invalidateSize());
+  }
+
+  // ── 共通ヘルパー ──
+
+  function renderDistributionBars(exps, keyFn, labelFn) {
+    const counts = {};
+    for (const exp of exps) {
+      const key = keyFn(exp);
+      if (key) counts[key] = (counts[key] ?? 0) + 1;
+    }
+    const total = exps.length || 1;
+    const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+    return `<div class="distribution-bar-list">${sorted
+      .map(([key, count]) => {
+        const pct = Math.round((count / total) * 100);
+        return `<div class="distribution-bar-item">
+          <div class="distribution-bar-item__label">${escHtml(labelFn(key))}</div>
+          <div class="distribution-bar-item__bar-wrap">
+            <div class="distribution-bar-item__bar" style="width:${pct}%"></div>
+          </div>
+          <div class="distribution-bar-item__count">${count}件</div>
+        </div>`;
+      })
+      .join("")}</div>`;
+  }
+
+  function buildExperimentMiniCard(exp) {
+    return `<div class="entity-card experiment-mini-card" data-exp-id="${escAttr(exp.id)}" role="button" tabindex="0">
+      <div class="entity-card__top">
+        <span class="status-badge" data-status="${escAttr(exp.statusId)}">${escHtml(exp.status)}</span>
+        <div>
+          <div class="entity-card__name">${escHtml(exp.name)}</div>
+          <div class="entity-card__name-sub">${escHtml(exp.location)}</div>
+        </div>
+      </div>
+      <div class="entity-card__stats">
+        <span class="entity-card__stat">${escHtml(exp.prefecture)}</span>
+        <span class="entity-card__stat">${escHtml(exp.period)}</span>
+      </div>
+    </div>`;
+  }
+
+  function bindMiniCardEvents(container) {
+    container.querySelectorAll(".experiment-mini-card").forEach((card) => {
+      const activate = () => {
+        const id = card.dataset.expId;
+        location.hash = "#/map";
+        requestAnimationFrame(() => selectExperiment(id));
+      };
+      card.addEventListener("click", activate);
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); activate(); }
+      });
+    });
+  }
+
+  function relatedChips(labels, lookupFn, baseHref) {
+    if (!labels.length) return '<span style="color:var(--text-sub);font-size:12px">なし</span>';
+    return labels
+      .map((label) => {
+        const obj = lookupFn(label);
+        return obj
+          ? `<a href="#/${baseHref}/${encodeURIComponent(obj.id)}" class="chip-button">${escHtml(label)}</a>`
+          : `<span class="chip-button">${escHtml(label)}</span>`;
+      })
+      .join("");
+  }
+
+  // ── 車両ビュー ──
+
+  function renderVehiclesGrid() {
+    const vehicles = Object.values(VEH)
+      .map((v) => ({ ...v, exps: BY_VEH[v.label] ?? [] }))
+      .filter((v) => v.exps.length > 0)
+      .sort((a, b) => b.exps.length - a.exps.length);
+
+    const vc = document.getElementById("viewContainer");
+    vc.innerHTML = `<div class="entity-view">
+      <div class="entity-view__header">
+        <h2>使用車両一覧</h2>
+        <span class="count-pill">${vehicles.length}種</span>
+      </div>
+      <div class="entity-grid">
+        ${vehicles
+          .map(
+            (v) => `
+          <a href="#/vehicles/${encodeURIComponent(v.id)}" class="entity-card">
+            <div class="entity-card__top">
+              <div class="entity-card__icon"><span class="material-symbols-outlined">directions_bus</span></div>
+              <div><div class="entity-card__name">${escHtml(v.label)}</div></div>
+            </div>
+            <div class="entity-card__stats">
+              <span class="entity-card__stat"><strong>${v.exps.length}</strong> 実験</span>
+              <span class="entity-card__stat"><strong>${new Set(v.exps.map((e) => e.prefecture)).size}</strong> 都道府県</span>
+            </div>
+          </a>`
+          )
+          .join("")}
+      </div>
+    </div>`;
+  }
+
+  function renderVehicleDetail(id) {
+    const veh = VEH_BY_ID[id];
+    if (!veh) { location.hash = "#/vehicles"; return; }
+    const exps = BY_VEH[veh.label] ?? [];
+    const adsSeen = [...new Set(exps.flatMap((e) => e.adSystems))].sort();
+    const prefsSeen = [...new Set(exps.map((e) => e.prefecture))].sort();
+
+    const vc = document.getElementById("viewContainer");
+    vc.innerHTML = `<div class="entity-detail">
+      <a href="#/vehicles" class="entity-detail__back">
+        <span class="material-symbols-outlined">arrow_back</span>車両一覧へ
+      </a>
+      <div class="entity-detail__body">
+        <div class="entity-detail__hero">
+          <div class="entity-detail__hero-icon"><span class="material-symbols-outlined">directions_bus</span></div>
+          <div>
+            <h2 class="entity-detail__hero-title">${escHtml(veh.label)}</h2>
+            <p class="entity-detail__hero-sub">${exps.length}件の実証実験で使用</p>
+          </div>
+        </div>
+
+        <div class="entity-detail__section">
+          <div class="entity-detail__section-title"><span class="material-symbols-outlined">smart_toy</span>使用ADシステム</div>
+          <div class="related-chips">${relatedChips(adsSeen, (l) => ADS_LABEL_TO_OBJ[l], "ad-systems")}</div>
+        </div>
+
+        <div class="entity-detail__section">
+          <div class="entity-detail__section-title"><span class="material-symbols-outlined">location_city</span>実施都道府県</div>
+          <div class="related-chips">${relatedChips(prefsSeen, (l) => PREF_LABEL_TO_OBJ[l], "prefectures")}</div>
+        </div>
+
+        <div class="entity-detail__section">
+          <div class="entity-detail__section-title"><span class="material-symbols-outlined">bar_chart</span>ステータス分布</div>
+          ${renderDistributionBars(exps, (e) => e.statusId, (sid) => STATUS_BY_ID[sid]?.label ?? sid)}
+        </div>
+
+        <div class="entity-detail__section">
+          <div class="entity-detail__section-title"><span class="material-symbols-outlined">science</span>実証実験一覧（${exps.length}件）</div>
+          <div class="entity-grid">${exps.map((e) => buildExperimentMiniCard(e)).join("")}</div>
+        </div>
+      </div>
+    </div>`;
+    bindMiniCardEvents(vc);
+  }
+
+  // ── ADシステムビュー ──
+
+  function renderAdSystemsGrid() {
+    const systems = Object.values(ADS)
+      .map((a) => ({ ...a, exps: BY_ADS[a.label] ?? [] }))
+      .filter((a) => a.exps.length > 0)
+      .sort((a, b) => b.exps.length - a.exps.length);
+
+    const vc = document.getElementById("viewContainer");
+    vc.innerHTML = `<div class="entity-view">
+      <div class="entity-view__header">
+        <h2>自動運転システム一覧</h2>
+        <span class="count-pill">${systems.length}社</span>
+      </div>
+      <div class="entity-grid">
+        ${systems
+          .map(
+            (a) => `
+          <a href="#/ad-systems/${encodeURIComponent(a.id)}" class="entity-card">
+            <div class="entity-card__top">
+              <div class="entity-card__icon"><span class="material-symbols-outlined">smart_toy</span></div>
+              <div><div class="entity-card__name">${escHtml(a.label)}</div></div>
+            </div>
+            <div class="entity-card__stats">
+              <span class="entity-card__stat"><strong>${a.exps.length}</strong> 実験</span>
+              <span class="entity-card__stat"><strong>${new Set(a.exps.flatMap((e) => e.vehicles)).size}</strong> 車両</span>
+            </div>
+          </a>`
+          )
+          .join("")}
+      </div>
+    </div>`;
+  }
+
+  function renderAdSystemDetail(id) {
+    const ads = ADS_BY_ID[id];
+    if (!ads) { location.hash = "#/ad-systems"; return; }
+    const exps = BY_ADS[ads.label] ?? [];
+    const vehsSeen = [...new Set(exps.flatMap((e) => e.vehicles))].sort();
+    const prefsSeen = [...new Set(exps.map((e) => e.prefecture))].sort();
+
+    const vc = document.getElementById("viewContainer");
+    vc.innerHTML = `<div class="entity-detail">
+      <a href="#/ad-systems" class="entity-detail__back">
+        <span class="material-symbols-outlined">arrow_back</span>ADシステム一覧へ
+      </a>
+      <div class="entity-detail__body">
+        <div class="entity-detail__hero">
+          <div class="entity-detail__hero-icon"><span class="material-symbols-outlined">smart_toy</span></div>
+          <div>
+            <h2 class="entity-detail__hero-title">${escHtml(ads.label)}</h2>
+            <p class="entity-detail__hero-sub">${exps.length}件の実証実験で採用</p>
+          </div>
+        </div>
+
+        <div class="entity-detail__section">
+          <div class="entity-detail__section-title"><span class="material-symbols-outlined">directions_bus</span>使用車両</div>
+          <div class="related-chips">${relatedChips(vehsSeen, (l) => VEH_LABEL_TO_OBJ[l], "vehicles")}</div>
+        </div>
+
+        <div class="entity-detail__section">
+          <div class="entity-detail__section-title"><span class="material-symbols-outlined">location_city</span>実施都道府県</div>
+          <div class="related-chips">${relatedChips(prefsSeen, (l) => PREF_LABEL_TO_OBJ[l], "prefectures")}</div>
+        </div>
+
+        <div class="entity-detail__section">
+          <div class="entity-detail__section-title"><span class="material-symbols-outlined">bar_chart</span>ステータス分布</div>
+          ${renderDistributionBars(exps, (e) => e.statusId, (sid) => STATUS_BY_ID[sid]?.label ?? sid)}
+        </div>
+
+        <div class="entity-detail__section">
+          <div class="entity-detail__section-title"><span class="material-symbols-outlined">science</span>実証実験一覧（${exps.length}件）</div>
+          <div class="entity-grid">${exps.map((e) => buildExperimentMiniCard(e)).join("")}</div>
+        </div>
+      </div>
+    </div>`;
+    bindMiniCardEvents(vc);
+  }
+
+  // ── 都道府県ビュー ──
+
+  function renderPrefecturesGrid() {
+    const prefs = Object.values(PREF)
+      .map((p) => ({ ...p, exps: BY_PREF[p.label] ?? [] }))
+      .filter((p) => p.exps.length > 0)
+      .sort((a, b) => b.exps.length - a.exps.length);
+
+    const vc = document.getElementById("viewContainer");
+    vc.innerHTML = `<div class="entity-view">
+      <div class="entity-view__header">
+        <h2>都道府県別一覧</h2>
+        <span class="count-pill">${prefs.length}都道府県</span>
+      </div>
+      <div class="entity-grid">
+        ${prefs
+          .map((p) => {
+            const activeCount = p.exps.filter((e) => e.statusId === "active" || e.statusId === "active-planned" || e.statusId === "active-dev").length;
+            return `
+          <a href="#/prefectures/${encodeURIComponent(p.id)}" class="entity-card">
+            <div class="entity-card__top">
+              <div class="entity-card__icon"><span class="material-symbols-outlined">location_city</span></div>
+              <div><div class="entity-card__name">${escHtml(p.label)}</div></div>
+            </div>
+            <div class="entity-card__stats">
+              <span class="entity-card__stat"><strong>${p.exps.length}</strong> 実験</span>
+              ${activeCount > 0 ? `<span class="entity-card__stat"><strong>${activeCount}</strong> 実施中</span>` : ""}
+            </div>
+          </a>`;
+          })
+          .join("")}
+      </div>
+    </div>`;
+  }
+
+  function renderPrefectureDetail(id) {
+    const pref = PREF_BY_ID[id];
+    if (!pref) { location.hash = "#/prefectures"; return; }
+    const exps = BY_PREF[pref.label] ?? [];
+    const vehsSeen = [...new Set(exps.flatMap((e) => e.vehicles))].sort();
+    const adsSeen = [...new Set(exps.flatMap((e) => e.adSystems))].sort();
+
+    const vc = document.getElementById("viewContainer");
+    vc.innerHTML = `<div class="entity-detail">
+      <a href="#/prefectures" class="entity-detail__back">
+        <span class="material-symbols-outlined">arrow_back</span>都道府県一覧へ
+      </a>
+      <div class="entity-detail__body">
+        <div class="entity-detail__hero">
+          <div class="entity-detail__hero-icon"><span class="material-symbols-outlined">location_city</span></div>
+          <div>
+            <h2 class="entity-detail__hero-title">${escHtml(pref.label)}</h2>
+            <p class="entity-detail__hero-sub">${exps.length}件の実証実験</p>
+          </div>
+        </div>
+
+        <div class="entity-detail__section">
+          <div class="entity-detail__section-title"><span class="material-symbols-outlined">map</span>実験地点マップ</div>
+          <div id="prefDetailMap" class="pref-mini-map"></div>
+        </div>
+
+        <div class="entity-detail__section">
+          <div class="entity-detail__section-title"><span class="material-symbols-outlined">directions_bus</span>使用車両</div>
+          <div class="related-chips">${relatedChips(vehsSeen, (l) => VEH_LABEL_TO_OBJ[l], "vehicles")}</div>
+        </div>
+
+        <div class="entity-detail__section">
+          <div class="entity-detail__section-title"><span class="material-symbols-outlined">smart_toy</span>ADシステム</div>
+          <div class="related-chips">${relatedChips(adsSeen, (l) => ADS_LABEL_TO_OBJ[l], "ad-systems")}</div>
+        </div>
+
+        <div class="entity-detail__section">
+          <div class="entity-detail__section-title"><span class="material-symbols-outlined">bar_chart</span>ステータス分布</div>
+          ${renderDistributionBars(exps, (e) => e.statusId, (sid) => STATUS_BY_ID[sid]?.label ?? sid)}
+        </div>
+
+        <div class="entity-detail__section">
+          <div class="entity-detail__section-title"><span class="material-symbols-outlined">science</span>実証実験一覧（${exps.length}件）</div>
+          <div class="entity-grid">${exps.map((e) => buildExperimentMiniCard(e)).join("")}</div>
+        </div>
+      </div>
+    </div>`;
+
+    // ミニマップ描画
+    requestAnimationFrame(() => {
+      const mapEl = document.getElementById("prefDetailMap");
+      if (!mapEl) return;
+      prefDetailMap = L.map(mapEl, { zoomControl: true, scrollWheelZoom: false });
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 18,
+      }).addTo(prefDetailMap);
+      const points = exps.filter((e) => e.lat && e.lng).map((e) => [e.lat, e.lng]);
+      if (points.length > 0) {
+        prefDetailMap.fitBounds(L.latLngBounds(points), { padding: [30, 30] });
+        exps.forEach((e) => {
+          if (e.lat && e.lng) {
+            L.marker([e.lat, e.lng])
+              .addTo(prefDetailMap)
+              .bindPopup(`<div class="map-popup"><div class="map-popup__name">${escHtml(e.name)}</div><div class="map-popup__location">${escHtml(e.location)}</div></div>`);
+          }
+        });
+      } else {
+        prefDetailMap.setView([36.5, 137.0], 6);
+      }
+    });
+
+    bindMiniCardEvents(vc);
   }
 });

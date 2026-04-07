@@ -17,6 +17,8 @@
   --shadow-low: 0 2px 8px rgba(17, 32, 58, 0.08);
   --shadow-mid: 0 8px 24px rgba(17, 32, 58, 0.14);
   --topbar-height: 68px;
+  --nav-height: 44px;
+  --header-total: calc(var(--topbar-height) + var(--nav-height));
   --left-panel-width: 370px;
   --right-panel-width: 390px;
 }
@@ -64,21 +66,66 @@ body {
 }
 
 .top-app-bar {
-  height: var(--topbar-height);
   position: sticky;
   top: 0;
   z-index: 30;
   border-bottom: 1px solid var(--surface-border);
   background: color-mix(in srgb, var(--surface) 88%, transparent);
   backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
 }
 
 .top-app-bar__content {
-  height: 100%;
+  height: var(--topbar-height);
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 0 14px;
+}
+
+.main-nav {
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 10px;
+  border-top: 1px solid var(--surface-border);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.main-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--text-sub);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.nav-tab .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.nav-tab:hover {
+  background: color-mix(in srgb, var(--text-main) 7%, transparent);
+  color: var(--text-main);
+}
+
+.nav-tab.active {
+  background: var(--accent-soft);
+  color: var(--accent);
 }
 
 .top-app-bar__back {
@@ -117,7 +164,7 @@ body {
 }
 
 .app-layout {
-  height: calc(100dvh - var(--topbar-height));
+  height: calc(100dvh - var(--header-total));
   display: grid;
   grid-template-columns: minmax(280px, var(--left-panel-width)) minmax(0, 1fr) minmax(280px, var(--right-panel-width));
   gap: 10px;
@@ -791,7 +838,7 @@ body {
 @media (max-width: 900px) {
   .app-layout {
     display: block;
-    height: calc(100dvh - var(--topbar-height));
+    height: calc(100dvh - var(--header-total));
     padding: 0;
   }
 
@@ -884,6 +931,30 @@ body {
   }
 }
 
+@media (max-width: 900px) {
+  .nav-tab__label {
+    display: none;
+  }
+
+  .nav-tab {
+    padding: 6px 10px;
+  }
+
+  #viewContainer {
+    height: calc(100dvh - var(--header-total));
+    overflow-y: auto;
+  }
+
+  .entity-view,
+  .entity-detail {
+    min-height: calc(100dvh - var(--header-total));
+  }
+
+  .entity-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 520px) {
   .detail-field {
     grid-template-columns: 1fr;
@@ -895,4 +966,308 @@ body {
     padding-left: 14px;
     padding-right: 14px;
   }
+
+  .entity-detail__hero {
+    flex-direction: column;
+  }
+}
+
+/* ────────────────────────────────────────────────────
+   Entity views: 一覧グリッドと詳細ページ
+──────────────────────────────────────────────────── */
+
+#viewContainer {
+  height: calc(100dvh - var(--header-total));
+  overflow-y: auto;
+}
+
+.entity-view {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px 40px;
+}
+
+.entity-view__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.entity-view__header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.entity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.entity-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid var(--surface-border);
+  background: var(--surface);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow-low);
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+  cursor: pointer;
+}
+
+.entity-card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--surface-border));
+  box-shadow: var(--shadow-mid);
+}
+
+.entity-card__top {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.entity-card__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.entity-card__icon .material-symbols-outlined {
+  font-size: 22px;
+}
+
+.entity-card__name {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.entity-card__name-sub {
+  font-size: 11px;
+  color: var(--text-sub);
+  margin-top: 2px;
+}
+
+.entity-card__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.entity-card__stat {
+  font-size: 11px;
+  color: var(--text-sub);
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  border: 1px solid var(--surface-border);
+}
+
+.entity-card__stat strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ── Entity Detail ── */
+
+.entity-detail {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 20px 40px;
+}
+
+.entity-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-sub);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding: 6px 12px 6px 8px;
+  border-radius: 999px;
+  transition: background 140ms ease, color 140ms ease;
+}
+
+.entity-detail__back:hover {
+  background: color-mix(in srgb, var(--text-main) 8%, transparent);
+  color: var(--text-main);
+}
+
+.entity-detail__back .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.entity-detail__body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.entity-detail__hero {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 24px;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  box-shadow: var(--shadow-low);
+}
+
+.entity-detail__hero-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.entity-detail__hero-icon .material-symbols-outlined {
+  font-size: 30px;
+}
+
+.entity-detail__hero-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.entity-detail__hero-sub {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--text-sub);
+}
+
+.entity-detail__section {
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  box-shadow: var(--shadow-low);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.entity-detail__section-title {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.entity-detail__section-title .material-symbols-outlined {
+  font-size: 16px;
+}
+
+/* ── Related Chips ── */
+
+.related-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.related-chips .chip-button {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ── Distribution Bars ── */
+
+.distribution-bar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.distribution-bar-item {
+  display: grid;
+  grid-template-columns: 120px 1fr 42px;
+  align-items: center;
+  gap: 10px;
+}
+
+.distribution-bar-item__label {
+  font-size: 12px;
+  color: var(--text-sub);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.distribution-bar-item__bar-wrap {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  border: 1px solid var(--surface-border);
+  overflow: hidden;
+}
+
+.distribution-bar-item__bar {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent);
+  transition: width 400ms ease;
+}
+
+.distribution-bar-item__count {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-sub);
+  text-align: right;
+}
+
+/* ── Experiment mini card (for entity detail pages) ── */
+
+.experiment-mini-card {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 12px 14px;
+}
+
+.experiment-mini-card:hover {
+  transform: translateY(-1px);
+}
+
+.experiment-mini-card .entity-card__top {
+  margin-bottom: 6px;
+}
+
+/* ── Prefecture mini map ── */
+
+.pref-mini-map {
+  height: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--surface-border);
+}
+
+.pref-mini-map .leaflet-container {
+  border-radius: 12px;
 }

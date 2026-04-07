@@ -36,6 +36,24 @@
           <p class="top-app-bar__subtitle">探索中心のマルチフィルタビュー</p>
         </div>
       </div>
+      <nav class="main-nav" id="mainNav" aria-label="メインナビゲーション">
+        <a href="#/map" class="nav-tab" data-view="map">
+          <span class="material-symbols-outlined">map</span>
+          <span class="nav-tab__label">マップ</span>
+        </a>
+        <a href="#/vehicles" class="nav-tab" data-view="vehicles">
+          <span class="material-symbols-outlined">directions_bus</span>
+          <span class="nav-tab__label">車両</span>
+        </a>
+        <a href="#/ad-systems" class="nav-tab" data-view="ad-systems">
+          <span class="material-symbols-outlined">smart_toy</span>
+          <span class="nav-tab__label">ADシステム</span>
+        </a>
+        <a href="#/prefectures" class="nav-tab" data-view="prefectures">
+          <span class="material-symbols-outlined">location_city</span>
+          <span class="nav-tab__label">都道府県</span>
+        </a>
+      </nav>
     </header>
 
     <div class="app-layout">
@@ -164,6 +182,8 @@
         <ul class="experiment-list" id="experimentList" role="list"></ul>
       </aside>
     </div>
+
+    <div id="viewContainer" style="display:none"></div>
 
     <div class="mobile-dock" id="mobileDock">
       <button id="mobileShowFilters" type="button">
