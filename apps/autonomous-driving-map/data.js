@@ -5207,7 +5207,7 @@ const EXPERIMENTS = [
         value: "MoveEzが幕張新都心で実施したロボタク実証。経済産業省「令和5年度補正 モビリティDX促進のための無人自動運転開発・実証支援事業」の枠組みで、配車アプリを利用した一般利用者向けサービス実証を行った。",
         refs: [1]
       },
-      vehicle: { value: VEH.ROBOTAXI_GENERIC, refs: [1] },
+      vehicle: { value: VEH.TOYOTA_ALPHARD, refs: [1] },
       adSystem: { value: ADS.MOVEEZ, refs: [1] },
       route: { value: "幕張新都心エリア（詳細非公開）", refs: [1] },
       operationType: { value: "配車アプリ連携の公道実証", refs: [1] },
@@ -5231,7 +5231,7 @@ const EXPERIMENTS = [
         value: "MoveEzが上士幌町で開始した住民向けロボタク運行実証。一般道で総延長100km（往復含む）を対象に、マップレス技術を用いて短期間で運行体制を構築し、一般道60km/h走行を含む実証を実施した。",
         refs: [1]
       },
-      vehicle: { value: VEH.ROBOTAXI_GENERIC, refs: [1] },
+      vehicle: { value: VEH.TOYOTA_ALPHARD, refs: [1] },
       adSystem: { value: ADS.MOVEEZ, refs: [1] },
       route: { value: "市街地と農村部・山間部を結ぶ総延長100kmエリア", refs: [1] },
       operationType: { value: "住民向けロボタク運行実証（一般道、最高60km/hを含む）", refs: [1] },
@@ -5280,7 +5280,7 @@ const EXPERIMENTS = [
         value: "MoveEzが金沢大学等と連携して実施する東京臨海副都心でのロボタク実証。経済産業省のAD-URBAN関連事業の一環として、自動運転用地図生成とロボタク運行を担当し、社会実装に向けた検証を行う。",
         refs: [1]
       },
-      vehicle: { value: VEH.ROBOTAXI_GENERIC, refs: [1] },
+      vehicle: { value: VEH.TOYOTA_ALPHARD, refs: [1] },
       adSystem: { value: ADS.MOVEEZ, refs: [1] },
       route: { value: "東京臨海副都心エリア（詳細非公開）", refs: [1] },
       operationType: { value: "ロボタク公道実証（関係者対象）", refs: [1] },
@@ -5305,7 +5305,7 @@ const EXPERIMENTS = [
         value: "MoveEzがS.RIDE、ソニー、ソニー・ミュージックソリューションズと連携して実施する、ロボタクと没入型車内エンターテインメントを組み合わせた実証。みなとみらいでレベル2車両を用い、一般参加者向けの体験型PoCを行う。",
         refs: [1]
       },
-      vehicle: { value: VEH.ROBOTAXI_GENERIC, refs: [1] },
+      vehicle: { value: VEH.TOYOTA_ALPHARD, refs: [1] },
       adSystem: { value: ADS.MOVEEZ, refs: [1] },
       route: { value: "みなとみらいイベント周辺（Kアリーナ・臨港パーク・赤レンガ倉庫方面）", refs: [1] },
       operationType: { value: "レベル2（運転者同乗）による一般向け体験型PoC", refs: [1] },
