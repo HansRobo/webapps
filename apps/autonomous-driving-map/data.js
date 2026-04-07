@@ -616,7 +616,7 @@ const EXPERIMENTS = [
       stakeholders: [
         { role: "自動運転技術提供", name: "アイサンテクノロジー株式会社", refs: [1, 2] },
         { role: "自治体", name: "桑名市（三重県）", refs: [1, 2] },
-        { role: "バス事業者（2025年3月〜）", name: "三重交通株式会社", refs: [2] }
+        { role: "バス事業者", name: "三重交通株式会社", refs: [2] }
       ],
       references: [
         { id: 1, title: "【三重県桑名市】自動運転バスの社会実装を見据えた安全性検証 / レベル2本番走行", url: "https://aisan-mobility.com/202501kuwana/", date: "2025-01-01", source: "アイサンテクノロジー" },
@@ -820,9 +820,9 @@ const EXPERIMENTS = [
         { role: "事業主体", name: "前橋市（群馬県）", refs: [1, 4] },
         { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [2, 3] },
         { role: "自動運転システム・車両整備", name: "先進モビリティ株式会社", refs: [1] },
-        { role: "技術協力・研究（第3フェーズ主体）", name: "群馬大学(CRANTS)", refs: [1, 4] },
+        { role: "技術協力・研究", name: "群馬大学(CRANTS)", refs: [1, 4] },
         { role: "運行協力", name: "日本中央バス株式会社", refs: [1] },
-        { role: "システム（第3フェーズ）", name: "日本電気株式会社（NEC）", refs: [4] }
+        { role: "システム", name: "日本電気株式会社（NEC）", refs: [4] }
       ],
       references: [
         { id: 1, title: "前橋市における自動運転バス実証実験", url: "https://maebashimobility.jp/630", date: "2023-01-01", source: "前橋交通モビリティポータル" },
@@ -2468,7 +2468,7 @@ const EXPERIMENTS = [
       lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "支援・共催", name: "愛知県", refs: [1, 2] },
-        { role: "事業主体（2024年〜）", name: "常滑市（愛知県）", refs: [3] },
+        { role: "事業主体", name: "常滑市（愛知県）", refs: [3] },
         { role: "システム", name: "先進モビリティ株式会社", refs: [1, 2, 3] }
       ],
       references: [
@@ -2804,8 +2804,8 @@ const EXPERIMENTS = [
       operationType: { value: "レベル2（インフラ協調型・遠隔監視検証）", refs: [1] },
       lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
-        { role: "代表機関（第2弾）", name: "NTTドコモビジネス株式会社", refs: [1] },
-        { role: "代表機関（第1弾）", name: "NTTコミュニケーションズ株式会社", refs: [3] },
+        { role: "代表機関", name: "NTTドコモビジネス株式会社", refs: [1] },
+        { role: "代表機関", name: "NTTコミュニケーションズ株式会社", refs: [3] },
         { role: "通信技術", name: "NTTアドバンステクノロジ株式会社", refs: [1] },
         { role: "経営研究・システム", name: "株式会社NTTデータ経営研究所", refs: [1] },
         { role: "路側インフラ", name: "スタンレー電気株式会社", refs: [1] },
@@ -5005,9 +5005,9 @@ const EXPERIMENTS = [
       lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "参画企業", name: "全日本空輸株式会社", refs: [1, 2, 3] },
-        { role: "参画企業", name: "BOLDLY株式会社（旧SBドライブ株式会社）", refs: [1, 2, 3] },
+        { role: "参画企業", name: "BOLDLY株式会社", refs: [1, 2, 3] },
         { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [2, 3] },
-        { role: "参画企業（第1期）", name: "愛知製鋼株式会社、日本電気株式会社（NEC）、株式会社NIPPO", refs: [1] },
+        { role: "参画企業", name: "愛知製鋼株式会社、日本電気株式会社（NEC）、株式会社NIPPO", refs: [1] },
         { role: "参画企業", name: "ビーワイディージャパン株式会社", refs: [2] }
       ],
       references: [
