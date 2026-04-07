@@ -21,6 +21,16 @@
   };
 
   // ─────────────────────────────────────────────
+  // LV4_APPROVAL: レベル4認可状態
+  // 日本の法制度では車両認可（国交省/地方運輸局）と特定自動運行許可（公安委員会）の2段階がある
+  // ─────────────────────────────────────────────
+  const LV4_APPROVAL = {
+    NONE:                { id: "none",                label: "未取得" },
+    VEHICLE_AUTHORIZED:  { id: "vehicle-authorized",  label: "車両認可済" },
+    OPERATION_PERMITTED: { id: "operation-permitted", label: "特定自動運行許可済" },
+  };
+
+  // ─────────────────────────────────────────────
   // PREF: 都道府県（47都道府県）
   // ─────────────────────────────────────────────
   const PREF = {
@@ -880,6 +890,7 @@
   ];
 
   exports.STATUS = STATUS;
+  exports.LV4_APPROVAL = LV4_APPROVAL;
   exports.PREF = PREF;
   exports.VEH = VEH;
   exports.ADS = ADS;

@@ -14,6 +14,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [2] },
       route: { value: "境町役場〜イオンタウン境間 約3km、最高速度19km/h", refs: [1] },
       operationType: { value: "レベル2（乗務員乗車）、将来的なレベル4を目指す", refs: [2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "運行管理・事業主体", name: "BOLDLY株式会社", refs: [1, 2] },
         { role: "車両提供", name: "ソフトバンク株式会社", refs: [2] },
@@ -41,6 +42,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.AIST, refs: [4] },
       route: { value: "永平寺参ろーど 約2km（専用道）、最高速度12km/h", refs: [1, 2] },
       operationType: { value: "レベル4（特定自動運行、運転者なし）", refs: [1, 3] },
+      lv4Approval: { value: LV4_APPROVAL.OPERATION_PERMITTED, refs: [1, 3] },
       stakeholders: [
         { role: "自治体・事業主体", name: "永平寺町（福井県）", refs: [1] },
         { role: "申請者", name: "国立研究開発法人 産業技術総合研究所（産総研）", refs: [1] },
@@ -70,6 +72,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [2, 3] },
       route: { value: "新宿駅西口〜西新宿周辺 約1.5km", refs: [1] },
       operationType: { value: "レベル2（乗務員乗車）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業主体・バス事業者", name: "小田急電鉄株式会社", refs: [1, 2] },
         { role: "自動運転システム開発", name: "先進モビリティ株式会社", refs: [2, 3] },
@@ -97,6 +100,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1, 3] },
       route: { value: "上士幌町内の町道（約630m区間を含む）", refs: [1, 2] },
       operationType: { value: "レベル2定常運行＋レベル4実証（特定自動運行）", refs: [1, 2, 3] },
+      lv4Approval: { value: LV4_APPROVAL.OPERATION_PERMITTED, refs: [2, 3] },
       stakeholders: [
         { role: "運行管理", name: "BOLDLY株式会社", refs: [1, 3] },
         { role: "自治体・事業主体", name: "上士幌町（北海道）", refs: [1] },
@@ -124,6 +128,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NISSAN, refs: [1] },
       route: { value: "幕張メッセ周辺〜アパホテル・IMM Hotel間 約2km", refs: [1] },
       operationType: { value: "レベル2（安全監視員同乗）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "サービス開発・運行管理", name: "株式会社ディー・エヌ・エー（DeNA）", refs: [1, 2] },
         { role: "車両提供・技術協力", name: "日産自動車株式会社", refs: [2, 3] },
@@ -151,6 +156,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.YAMAHA, refs: [2, 3] },
       route: { value: "片山津温泉総湯〜各旅館・柴山潟周辺 約1.5km循環", refs: [1, 3] },
       operationType: { value: "レベル2〜3相当（乗務員乗車、限定エリア）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "車両開発・自動運転システム", name: "ヤマハ発動機株式会社", refs: [2, 3] },
         { role: "自治体・事業主体", name: "加賀市（石川県）", refs: [1] },
@@ -178,6 +184,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [2] },
       route: { value: "奥永源寺渓流の里〜杠葉尾バス停間 約10km（山岳道路）", refs: [1] },
       operationType: { value: "レベル2（乗務員乗車）、山間部急勾配・急カーブ対応", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "車両提供・技術開発", name: "日野自動車株式会社", refs: [2] },
         { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [2] },
@@ -205,6 +212,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [2] },
       route: { value: "道の駅日立おさかなセンター〜JR常陸多賀駅（約8.7km、うち専用道約6.1km）", refs: [2] },
       operationType: { value: "レベル4（乗務員乗車型・営業運行）", refs: [1, 2, 3] },
+      lv4Approval: { value: LV4_APPROVAL.OPERATION_PERMITTED, refs: [1, 2, 3] },
       stakeholders: [
         { role: "運行主体", name: "茨城交通株式会社", refs: [1, 2] },
         { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [2] },
@@ -233,6 +241,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "柏の葉キャンパス駅〜東京大学柏キャンパス 約2.6km（うち約700m区間レベル4）", refs: [1] },
       operationType: { value: "レベル2運行＋レベル4（特定自動運行）", refs: [1, 2, 3] },
+      lv4Approval: { value: LV4_APPROVAL.OPERATION_PERMITTED, refs: [1] },
       stakeholders: [
         { role: "事業主体（CooL4幹事）", name: "東京大学", refs: [2, 4] },
         { role: "運行主体", name: "東武バスセントラル株式会社", refs: [1] },
@@ -264,6 +273,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [3] },
       route: { value: "新東名高速道路 駿河湾沼津SA〜浜松SA間（約115km）", refs: [1] },
       operationType: { value: "深夜帯 自動運転車優先レーン走行（レベル4に向けた検証）", refs: [1, 2, 3, 4] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "実証主体", name: "国土交通省、国土技術政策総合研究所", refs: [1] },
         { role: "道路管理者・支援", name: "中日本高速道路株式会社（NEXCO中日本）", refs: [1, 2] },
@@ -291,6 +301,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.CRUISE, refs: [1, 2] },
       route: { value: "東京都心部の一般道（計画段階で終了）", refs: [1, 3] },
       operationType: { value: "レベル4（計画のみ、実運用なし）", refs: [1, 3] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "サービス運営・車両提供", name: "本田技研工業株式会社、ゼネラル・モーターズ（GM）、Cruise", refs: [1, 2, 3] }
       ],
@@ -315,6 +326,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.WAYVE, refs: [1, 2] },
       route: { value: "東京都内一般道（想定）", refs: [1] },
       operationType: { value: "レベル2〜（初期はドライバー同乗、将来的にレベル4化）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "車両提供・全体統括", name: "日産自動車株式会社", refs: [1, 2] },
         { role: "自動運転AI技術", name: "Wayve", refs: [1, 2] },
@@ -340,6 +352,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1, 2] },
       route: { value: "お台場エリア一般道", refs: [1] },
       operationType: { value: "レベル2〜（段階的にレベル4を目指す）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "車両提供・全体統括", name: "トヨタ自動車株式会社", refs: [1, 2] },
         { role: "自動運転システム開発", name: "株式会社ティアフォー", refs: [1, 2] }
@@ -364,6 +377,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.MAY_MOBILITY, refs: [4] },
       route: { value: "有明・台場・青海（第1期: 5停留所）／有明・お台場・豊洲（第2期: 11停留所）", refs: [2, 4] },
       operationType: { value: "レベル2（運転士同乗）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "運行主体", name: "MONET Technologies株式会社", refs: [1, 2] },
         { role: "車両提供", name: "トヨタ自動車株式会社", refs: [1] },
@@ -392,6 +406,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.MAY_MOBILITY, refs: [1] },
       route: { value: "NTT中央研修センター構内", refs: [1] },
       operationType: { value: "実証実験（遠隔監視機能を含む）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "共同実施", name: "日本電信電話株式会社（NTT）", refs: [1] },
         { role: "共同実施・自動運転システム", name: "May Mobility", refs: [1] },
@@ -417,6 +432,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.MAY_MOBILITY, refs: [1] },
       route: { value: "名古屋駅（スパイラルタワーズ）→愛知芸術文化センター→STATION Ai（ループ）", refs: [1, 2] },
       operationType: { value: "レベル2（運転士同乗、無料・予約制）", refs: [2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "愛知県", refs: [1, 2] },
         { role: "自動運転システム", name: "May Mobility", refs: [1] },
@@ -434,6 +450,7 @@ const EXPERIMENTS = [
       prefecture: { value: PREF.TOKYO, refs: [1] },
       period: { value: "2020年9月〜（2023年10月にレベル4車両認可、2024年8月からレベル4運行）", refs: [1, 2] },
       status: { value: STATUS.ACTIVE, refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.VEHICLE_AUTHORIZED, refs: [1] },
       stakeholders: [
         { role: "事業主体", name: "羽田みらい開発株式会社", refs: [1] },
         { role: "運行主体・システム", name: "BOLDLY株式会社、株式会社セネック、マクニカ株式会社", refs: [1] },
@@ -467,6 +484,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "塩尻駅周辺〜市役所方面（東回り・西回り、各約5.5km）", refs: [1, 3, 4] },
       operationType: { value: "レベル2（定常運行）および レベル4（一般道実証・特定自動運行）", refs: [1, 2, 3, 4] },
+      lv4Approval: { value: LV4_APPROVAL.OPERATION_PERMITTED, refs: [2, 4] },
       stakeholders: [
         { role: "事業主体", name: "塩尻市（長野県）、一般財団法人塩尻市振興公社", refs: [1, 2, 3, 4] },
         { role: "運行受託", name: "アルピコ交通株式会社、アルピコタクシー株式会社", refs: [4] },
@@ -494,6 +512,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "和光市駅北口〜和光北インター周辺（約4.7km）", refs: [1] },
       operationType: { value: "レベル2（運転士乗車、バス専用車線および一部一般車線）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業主体", name: "和光市（埼玉県）", refs: [1] },
         { role: "運行主体", name: "東武バスウエスト株式会社", refs: [1] },
@@ -518,6 +537,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "知多半島地域の高速道路（中部国際空港アクセスルート）", refs: [1] },
       operationType: { value: "レベル2（実証実験）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
       ],
@@ -540,6 +560,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "洲本市中心市街地〜由良地区（日中）、温泉街〜市街地（夜間）の2ルート", refs: [1] },
       operationType: { value: "レベル2（実証実験）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
       ],
@@ -562,6 +583,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [2, 3] },
       route: { value: "八丈島空港〜中心市街地〜底土港（繁忙期）/ 樫立地区〜末吉地区（南部ルート）", refs: [1, 3] },
       operationType: { value: "レベル2（期間限定実証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "八丈町（東京都）", refs: [1, 3] },
         { role: "自治体", name: "東京都", refs: [1, 3] },
@@ -590,6 +612,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "桑名市内 一般道（2025年3月：桑名駅〜なばなの里 国内最長級ルート含む）", refs: [1, 2] },
       operationType: { value: "レベル2（本番走行）、将来のレベル4運用を目指す", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自動運転技術提供", name: "アイサンテクノロジー株式会社", refs: [1, 2] },
         { role: "自治体", name: "桑名市（三重県）", refs: [1, 2] },
@@ -615,6 +638,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "近鉄五十鈴川駅〜内宮（宇治橋前）", refs: [1] },
       operationType: { value: "実証実験", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "運行事業者", name: "三重交通株式会社", refs: [1] },
         { role: "自治体", name: "伊勢市（三重県）", refs: [1] }
@@ -638,6 +662,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "筑波大学循環ルート", refs: [1] },
       operationType: { value: "実証実験", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "技術協力", name: "アイサンテクノロジー株式会社", refs: [1] },
         { role: "実施主体等", name: "つくば市（茨城県）、筑波大学", refs: [1] }
@@ -661,6 +686,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "奥入瀬渓流エリア", refs: [1] },
       operationType: { value: "実証実験", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "運行主体", name: "WILLER株式会社", refs: [1] },
         { role: "自動運転システム", name: "株式会社ティアフォー", refs: [1] },
@@ -687,6 +713,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [2] },
       route: { value: "気仙沼線BRT 柳津駅〜陸前横山駅間（片道約4.8kmの専用道）", refs: [1, 2] },
       operationType: { value: "レベル2（実用化済み）、将来レベル4予定", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "運行主体", name: "東日本旅客鉄道株式会社（JR東日本）", refs: [1] },
         { role: "システム", name: "先進モビリティ株式会社", refs: [1, 2] }
@@ -711,6 +738,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.YAMAHA, refs: [1] },
       route: { value: "道の駅かみこあに〜周辺集落", refs: [1] },
       operationType: { value: "レベル2運行（レベル4検証中）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "上小阿仁村（秋田県）", refs: [1] },
         { role: "車両提供・技術開発", name: "ヤマハ発動機株式会社", refs: [1] },
@@ -736,6 +764,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "高畠町内（道の駅〜生活拠点）", refs: [1] },
       operationType: { value: "実証実験", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "高畠町（山形県）", refs: [1] },
         { role: "自動運転システム", name: "株式会社ティアフォー", refs: [1] },
@@ -760,6 +789,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NISSAN, refs: [1] },
       route: { value: "浪江町内", refs: [1] },
       operationType: { value: "実証実験", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "浪江町（福島県）", refs: [1] },
         { role: "事業主体・技術提供", name: "日産自動車株式会社", refs: [1] },
@@ -785,6 +815,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "JR前橋駅〜中央前橋駅シャトルルート 約1km（第3フェーズ）、他ルート含む", refs: [1, 4] },
       operationType: { value: "レベル2（実証中・将来レベル4目標）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業主体", name: "前橋市（群馬県）", refs: [1, 4] },
         { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [2, 3] },
@@ -815,6 +846,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [2] },
       route: { value: "奥日光低公害バス路線", refs: [1] },
       operationType: { value: "実証実験", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] },
         { role: "運行主体", name: "東武バス日光株式会社", refs: [1] },
@@ -840,6 +872,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [2] },
       route: { value: "平塚駅周辺の路線バスルート", refs: [1] },
       operationType: { value: "レベル2（実証中）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "平塚市（神奈川県）", refs: [1, 2] },
         { role: "運行主体", name: "神奈川中央交通株式会社", refs: [1, 2] },
@@ -867,6 +900,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "佐渡島内ルート（全長約36km）", refs: [1] },
       operationType: { value: "レベル4社会実装に向けた実証", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "企業", name: "WILLER株式会社、株式会社ティアフォー、大成建設株式会社", refs: [1] },
         { role: "企業", name: "新潟交通佐渡株式会社", refs: [1] }
@@ -890,6 +924,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "富山市婦中地域 朝日地区", refs: [1] },
       operationType: { value: "実証実験", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "富山市（富山県）", refs: [1] },
         { role: "自動運転システム", name: "株式会社ティアフォー", refs: [1] },
@@ -915,6 +950,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "富士吉田市内循環ルート（富士みち循環ルート・約7km）", refs: [1] },
       operationType: { value: "レベル2（無償実証運行）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "企業", name: "富士急行株式会社", refs: [1] },
         { role: "運行管理", name: "BOLDLY株式会社", refs: [1] },
@@ -939,6 +975,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "岐阜市中心市街地", refs: [1] },
       operationType: { value: "レベル2（将来レベル4へ移行）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "岐阜市（岐阜県）", refs: [1] },
         { role: "運行管理・事業運営", name: "BOLDLY株式会社", refs: [1] },
@@ -966,6 +1003,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "三山木駅を起点に多々羅公民館・同志社山手地区を経由するループ（約5.15km）", refs: [1] },
       operationType: { value: "レベル2（実証実験）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "京田辺市（京都府）", refs: [1] },
         { role: "協力", name: "京都府", refs: [1] },
@@ -994,6 +1032,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.UNKNOWN, refs: [1, 2] },
       route: { value: "舞洲・夢洲エリア（万博会場周辺）", refs: [1] },
       operationType: { value: "レベル2〜レベル4（万博輸送実証）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.OPERATION_PERMITTED, refs: [2] },
       stakeholders: [
         { role: "運行主体", name: "大阪市高速電気軌道株式会社", refs: [1, 2] },
         { role: "運行管理システム", name: "BOLDLY株式会社", refs: [1] },
@@ -1020,6 +1059,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "近鉄飛鳥駅〜高松塚古墳〜キトラ古墳", refs: [1] },
       operationType: { value: "レベル2（実証実験）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "明日香村（奈良県）", refs: [1] },
         { role: "協力", name: "奈良県", refs: [1] },
@@ -1047,6 +1087,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.UNKNOWN, refs: [1] },
       route: { value: "JR和歌山駅〜和歌山城公園（循環約5.3km）", refs: [1] },
       operationType: { value: "レベル2（将来レベル4相当を目指す）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "和歌山市（和歌山県）", refs: [1] },
         { role: "事業統括", name: "NTTビジネスソリューションズ株式会社", refs: [1] },
@@ -1074,6 +1115,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "鳥取駅～中心市街地循環ルート", refs: [1] },
       operationType: { value: "レベル2（実証実験）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "鳥取市（鳥取県）", refs: [1] },
         { role: "自動運転システム・車両", name: "株式会社ティアフォー", refs: [1] },
@@ -1099,6 +1141,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "美郷町内 指定ルート", refs: [1] },
       operationType: { value: "レベル4に向けた検証", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "美郷町（島根県）", refs: [1] },
         { role: "支援", name: "総務省", refs: [1] },
@@ -1125,6 +1168,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "JR津山駅〜津山リージョンセンター", refs: [1] },
       operationType: { value: "レベル2（実証実験）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "津山市（岡山県）", refs: [1] },
         { role: "事業協力", name: "西日本旅客鉄道株式会社（JR西日本）", refs: [1] },
@@ -1149,6 +1193,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.UNKNOWN, refs: [1, 2] },
       route: { value: "JR徳山駅〜徳山動物園（約2km）", refs: [1, 2] },
       operationType: { value: "レベル2（実証実験）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "周南市（山口県）、山口県", refs: [1, 2] }
       ],
@@ -1172,6 +1217,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.A2Z, refs: [1] },
       route: { value: "鳴門市内 指定エリア", refs: [1] },
       operationType: { value: "レベル4を目指す実証運行", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "鳴門市（徳島県）、徳島県", refs: [1] },
         { role: "通信・システム", name: "日本電気株式会社（NEC）", refs: [1] },
@@ -1199,6 +1245,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "三豊市内（駅〜主要施設）", refs: [1] },
       operationType: { value: "レベル2（実証実験）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "三豊市（香川県）", refs: [1] },
         { role: "事業統括・通信インフラ", name: "NTT西日本株式会社", refs: [1] },
@@ -1224,6 +1271,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.UNKNOWN, refs: [1] },
       route: { value: "伊予鉄道高浜駅〜松山観光港（往復約1.6km）", refs: [1] },
       operationType: { value: "レベル4（路線バス本格運行）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.OPERATION_PERMITTED, refs: [1] },
       stakeholders: [
         { role: "運行主体", name: "伊予鉄バス株式会社", refs: [1] },
         { role: "自動運転システム", name: "BOLDLY株式会社", refs: [1] },
@@ -1250,6 +1298,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.AUVE_TECH, refs: [1] },
       route: { value: "アイランドシティ（香椎照葉エリア）循環ルート", refs: [1] },
       operationType: { value: "レベル2（実証実験）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "福岡市（福岡県）", refs: [1] },
         { role: "実証主体", name: "BRJ株式会社", refs: [1] },
@@ -1274,6 +1323,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "佐賀駅バスセンター〜SAGAサンライズパーク周辺", refs: [1] },
       operationType: { value: "レベル4に向けた高度実証", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "佐賀県", refs: [1] },
         { role: "自治体", name: "佐賀市（佐賀県）", refs: [1] },
@@ -1300,6 +1350,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.MEIJI_MIAD, refs: [1] },
       route: { value: "バリュースタジアムタケスエ大浦店〜上対馬高校手前（往復約1.6km）", refs: [1] },
       operationType: { value: "レベル2（最大時速20km/h）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "車両・事業主体", name: "シダックス株式会社", refs: [1] },
         { role: "ADシステム開発・運行管理", name: "明治大学 自動運転社会総合研究所", refs: [1] },
@@ -1325,6 +1376,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.YAMAHA, refs: [1] },
       route: { value: "荒網代西区公民館前〜荒網代東（コミュニティバス路線の一部、約1.2km）", refs: [1] },
       operationType: { value: "レベル2（実用化検証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "佐伯市（大分県）", refs: [1] },
         { role: "車両・自動運転システム提供", name: "ヤマハ発動機株式会社", refs: [1] }
@@ -1348,6 +1400,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.UNKNOWN, refs: [1] },
       route: { value: "西都市中心部・西都原古墳群周辺", refs: [1] },
       operationType: { value: "レベル2（実証中）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "西都市（宮崎県）", refs: [1] },
         { role: "自治体", name: "宮崎県", refs: [1] }
@@ -1371,6 +1424,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "南さつま市役所前〜薩南病院〜上園公園前〜南さつま市役所（循環）", refs: [1] },
       operationType: { value: "レベル2（実証実験）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "南さつま市（鹿児島県）", refs: [1] },
         { role: "自動運転車両提供・運行支援", name: "株式会社マクニカ", refs: [1] },
@@ -1395,6 +1449,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NIHON_MOBILITY, refs: [1] },
       route: { value: "豊見城市内 生活路線（105番線等）", refs: [1] },
       operationType: { value: "有償実証運行（将来レベル4目標）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "豊見城市（沖縄県）", refs: [1] },
         { role: "自動運転システム", name: "株式会社ティアフォー", refs: [1] },
@@ -1421,6 +1476,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "JRロイズタウン駅〜道の駅とうべつ周辺", refs: [1] },
       operationType: { value: "レベル2（長期実証中）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "当別町（北海道）", refs: [1] },
         { role: "協力", name: "株式会社マクニカ", refs: [1, 2] }
@@ -1445,6 +1501,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "むつ来さまい館〜むつ総合病院〜下北駅", refs: [1] },
       operationType: { value: "レベル2（実証実験）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "むつ市（青森県）", refs: [1] },
         { role: "技術協力", name: "株式会社ティアフォー", refs: [1] }
@@ -1468,6 +1525,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.YAMAHA, refs: [1] },
       route: { value: "盛岡城跡公園周辺 指定エリア", refs: [1] },
       operationType: { value: "技術デモンストレーション", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "盛岡市（岩手県）", refs: [1] },
         { role: "事業運営", name: "株式会社フロムいわて", refs: [1] }
@@ -1491,6 +1549,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "仙台港・東部北エリア 循環ルート", refs: [1] },
       operationType: { value: "レベル2（将来レベル4へ移行準備）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "仙台市（宮城県）", refs: [1] }
       ],
@@ -1513,6 +1572,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "JR大館駅周辺 循環ルート", refs: [1] },
       operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "大館市（秋田県）", refs: [1] },
         { role: "技術協力", name: "株式会社ティアフォー、WILLER株式会社", refs: [1] }
@@ -1536,6 +1596,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "交流施設「くるんと」〜市役所等 循環", refs: [1] },
       operationType: { value: "レベル2（実証実験）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "長井市（山形県）", refs: [1] }
       ],
@@ -1558,6 +1619,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "JR磐梯町駅〜道の駅ばんだい〜慧日寺", refs: [1] },
       operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "磐梯町（福島県）", refs: [1] },
         { role: "技術協力", name: "株式会社ティアフォー、アイサンテクノロジー株式会社", refs: [1] }
@@ -1581,6 +1643,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "常陸太田市 中心市街地ルート", refs: [1] },
       operationType: { value: "定常運行（将来レベル4認可取得済）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "常陸太田市（茨城県）", refs: [1] },
         { role: "協力", name: "株式会社マクニカ", refs: [1] }
@@ -1604,6 +1667,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.UNKNOWN, refs: [1] },
       route: { value: "宇都宮市内（西川田エリア等）", refs: [1] },
       operationType: { value: "レベル2（本格実装準備中）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "栃木県", refs: [1] },
         { role: "自治体", name: "宇都宮市（栃木県）", refs: [1] }
@@ -1627,6 +1691,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NIHON_MOBILITY, refs: [2] },
       route: { value: "渋川市街地 循環ルート", refs: [1] },
       operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "渋川市（群馬県）", refs: [1] },
         { role: "自治体", name: "群馬県", refs: [1] },
@@ -1653,6 +1718,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [2] },
       route: { value: "北浦和駅西口〜埼玉大学", refs: [1] },
       operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "さいたま市（埼玉県）", refs: [1] },
         { role: "運行協力", name: "国際興業バス", refs: [1] }
@@ -1679,6 +1745,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "横芝光町内 循環ルート", refs: [1] },
       operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "横芝光町（千葉県）", refs: [1] },
         { role: "運行協力", name: "BOLDLY株式会社", refs: [1] }
@@ -1702,6 +1769,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.A_DRIVE, refs: [1] },
       route: { value: "多摩センター駅〜鶴牧エリア 循環", refs: [1] },
       operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "多摩市（東京都）", refs: [1] },
         { role: "運行主体", name: "京王電鉄バス株式会社", refs: [1] }
@@ -1725,6 +1793,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NISSAN, refs: [1] },
       route: { value: "みなとみらい・桜木町・関内エリア", refs: [1] },
       operationType: { value: "レベル2相当（将来レベル4目標）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "主体・車両提供", name: "日産自動車株式会社", refs: [1] },
         { role: "遠隔監視システム", name: "BOLDLY株式会社", refs: [1] },
@@ -1751,6 +1820,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [2] },
       route: { value: "JR小松駅〜小松空港（片道約4.4km）", refs: [1, 2] },
       operationType: { value: "レベル2通年運行（レベル4社会実装準備中）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "小松市（石川県）", refs: [1, 2] },
         { role: "運行管理", name: "BOLDLY株式会社", refs: [2] },
@@ -1777,6 +1847,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.MAY_MOBILITY, refs: [3] },
       route: { value: "春江地区 循環ルート", refs: [1] },
       operationType: { value: "レベル2（実証実験）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "坂井市（福井県）", refs: [1] },
         { role: "運行管理・配車システム", name: "MONET Technologies株式会社", refs: [1, 2] },
@@ -1803,6 +1874,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "HIOKI本社〜JR神畑駅周辺", refs: [1] },
       operationType: { value: "レベル2（実証実験）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "主体", name: "日置電機株式会社", refs: [1] },
         { role: "自治体", name: "上田市（長野県）", refs: [1] }
@@ -1826,6 +1898,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "中津川駅〜周辺観光エリア等", refs: [1] },
       operationType: { value: "実証調査・技術検証", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "中津川市（岐阜県）、恵那市等", refs: [1] },
         { role: "協力", name: "岐阜県", refs: [1] }
@@ -1849,6 +1922,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.YAMAHA, refs: [1] },
       route: { value: "JR御厨駅周辺 公道ルート", refs: [1] },
       operationType: { value: "レベル2相当（技術検証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "主体", name: "ヤマハ発動機株式会社", refs: [1] },
         { role: "自治体", name: "磐田市（静岡県）", refs: [1] }
@@ -1872,6 +1946,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "日進市役所〜東山地区 循環ルート", refs: [1] },
       operationType: { value: "レベル2（長期実証中）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "日進市（愛知県）", refs: [1] },
         { role: "運行主体", name: "名鉄バス株式会社、BOLDLY株式会社", refs: [1] }
@@ -1895,6 +1970,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "近鉄四日市駅周辺 中央通りルート", refs: [1] },
       operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "四日市市（三重県）", refs: [1] },
         { role: "協力", name: "株式会社マクニカ、三重交通株式会社", refs: [1] }
@@ -1918,6 +1994,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "JR大津駅〜びわ湖大津プリンスホテル周辺", refs: [1] },
       operationType: { value: "レベル2相当", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "大津市（滋賀県）", refs: [1] },
         { role: "運行主体", name: "京阪バス株式会社", refs: [1] }
@@ -1941,6 +2018,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [2] },
       route: { value: "洛西ニュータウン〜JR桂川駅前", refs: [1] },
       operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "代表機関", name: "NTTドコモビジネス株式会社", refs: [2] },
         { role: "運行主体", name: "京都市交通局", refs: [1] },
@@ -1969,6 +2047,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "森之宮・京橋周遊ルート", refs: [1] },
       operationType: { value: "レベル2（商用実証運行）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "主体", name: "大阪市高速電気軌道株式会社", refs: [1] },
         { role: "自治体", name: "大阪市（大阪府）", refs: [1] },
@@ -1994,6 +2073,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "ウッディタウン〜JR新三田駅周辺", refs: [1] },
       operationType: { value: "レベル2（社会実装準備中）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "三田市（兵庫県）", refs: [1] },
         { role: "運行主体", name: "神姫バス株式会社", refs: [1] },
@@ -2018,6 +2098,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "松江駅〜テクノアークしまね（平成テクノ線）", refs: [1] },
       operationType: { value: "レベル2（実証実験）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "代表機関", name: "ソフトバンク株式会社", refs: [1] },
         { role: "自治体", name: "松江市（島根県）", refs: [1] },
@@ -2047,6 +2128,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [2, 3] },
       route: { value: "JR西条駅周辺〜広島大学東広島キャンパス（ブールバール、中央公園前〜鏡山公園入口〜池ノ上〜広大中央口、約12km周回）", refs: [1, 2] },
       operationType: { value: "レベル2（自動運転・隊列走行BRT実証、2027年度レベル4認可目標）", refs: [1, 2, 3] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "東広島市（広島県）", refs: [1, 2] },
         { role: "支援自治体", name: "広島県", refs: [2] },
@@ -2078,6 +2160,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NTT_DOCOMO, refs: [1] },
       route: { value: "楠こもれびの郷 周辺ルート", refs: [1] },
       operationType: { value: "レベル2（中山間地モデル）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "宇部市（山口県）", refs: [1] }
       ],
@@ -2100,6 +2183,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.A2Z, refs: [1] },
       route: { value: "鳴門市西部・松茂町エリア", refs: [1] },
       operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "徳島県、鳴門市（徳島県）、松茂町（徳島県）", refs: [1] },
         { role: "協力", name: "日本電気株式会社（NEC）、株式会社電脳交通", refs: [1] },
@@ -2125,6 +2209,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "土庄港高速艇ターミナル〜エンジェルロード公園", refs: [1] },
       operationType: { value: "レベル2（観光実証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "主体", name: "JTB、20年先の小豆島をつくるプロジェクト", refs: [1] },
         { role: "自治体", name: "香川県土庄町", refs: [1] },
@@ -2158,6 +2243,7 @@ const EXPERIMENTS = [
       ],
       route: { value: "JR高知駅〜イオンモール高知〜高知赤十字病院（片道約1.1km）", refs: [1, 2] },
       operationType: { value: "レベル4社会実装に向けた技術検証", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "高知市（高知県）、高知県", refs: [1, 2, 3] },
         { role: "事業統括", name: "NTTビジネスソリューションズ株式会社", refs: [1, 2, 3] },
@@ -2187,6 +2273,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "JR古賀駅東口〜市役所前〜庄公民館前〜花鶴丘団地〜JRししぶ駅東口", refs: [1] },
       operationType: { value: "レベル2（AIオンデマンド連携）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "古賀市（福岡県）", refs: [1] },
         { role: "システム導入・運行支援", name: "ネクスト・モビリティ株式会社", refs: [1] },
@@ -2219,6 +2306,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "嬉野温泉駅西口〜和多屋別荘前〜井手酒造前〜嬉野交流センター〜嬉野温泉バスセンター〜萬象閣敷島前〜和楽園前（循環）", refs: [1] },
       operationType: { value: "レベル2相当（観光回遊性向上）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "嬉野市（佐賀県）", refs: [1] },
         { role: "運行管理・システム", name: "BOLDLY株式会社", refs: [1] },
@@ -2243,6 +2331,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "熊本城周辺ルート（花畑広場〜熊本城・市役所エリア）、南熊本駅周辺ルート（南熊本駅〜本荘通り〜花畑広場）", refs: [1, 2] },
       operationType: { value: "レベル2（複数フェーズ実証）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "熊本市（熊本県）", refs: [1, 2] },
         { role: "事業主体", name: "住友商事株式会社", refs: [2] },
@@ -2271,6 +2360,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.AUVE_TECH, refs: [1] },
       route: { value: "境町内循環ルート（第4期拡充エリア含む）", refs: [1] },
       operationType: { value: "レベル2（定常運行）、将来のレベル4実装に向けた検証", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業主体", name: "境町（茨城県）", refs: [1] },
         { role: "運行管理・システム", name: "BOLDLY株式会社", refs: [1] },
@@ -2296,6 +2386,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.AIST, refs: [1] },
       route: { value: "永平寺参ろーど 約1.4km", refs: [1] },
       operationType: { value: "レベル2（遠隔監視型、最初期検証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "研究開発", name: "国立研究開発法人 産業技術総合研究所（産総研）", refs: [1] },
         { role: "車両提供", name: "パナソニック株式会社", refs: [1] },
@@ -2320,6 +2411,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "柏の葉キャンパス駅〜東京大学柏キャンパス 約2.6km（公道2.3km + キャンパス内0.3km）", refs: [1] },
       operationType: { value: "レベル2（初期公道検証・有償営業運行）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "主催", name: "柏ITS推進協議会", refs: [1] },
         { role: "研究機関", name: "東京大学", refs: [1] },
@@ -2347,6 +2439,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "福山駅〜エフピコアリーナふくやま（シャトル、約30分）", refs: [1] },
       operationType: { value: "レベル2〜レベル4に向けた段階的実証", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業主体", name: "福山市（広島県）", refs: [1] },
         { role: "技術支援・車両提供", name: "マクニカ株式会社", refs: [1] },
@@ -2372,6 +2465,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1, 2] },
       route: { value: "中部国際空港島内および常滑市公道", refs: [1, 2, 3] },
       operationType: { value: "レベル2〜（段階的実証）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "支援・共催", name: "愛知県", refs: [1, 2] },
         { role: "事業主体（2024年〜）", name: "常滑市（愛知県）", refs: [3] },
@@ -2398,6 +2492,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "九大伊都キャンパス内、博多港周辺エリア", refs: [1] },
       operationType: { value: "レベル2（MaaS連携実証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業協力", name: "九州大学", refs: [1] },
         { role: "自治体", name: "福岡市（福岡県）", refs: [1] },
@@ -2422,6 +2517,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "佐賀駅バスセンター〜SAGAサンライズパーク（市文化会館前）", refs: [1] },
       operationType: { value: "レベル4相当（7割区間）・レベル2（残り区間）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "佐賀市（佐賀県）", refs: [1] },
         { role: "運行協力", name: "佐賀市交通局", refs: [1] }
@@ -2445,6 +2541,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "高田松原津波復興祈念公園内および周辺市街地（アバッセ周辺）", refs: [1, 2, 3] },
       operationType: { value: "レベル2（公園〜市街地拡大実証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "陸前高田市（岩手県）", refs: [1, 2, 3] },
         { role: "運営主体・3D地図", name: "アイサンテクノロジー株式会社", refs: [1] },
@@ -2475,6 +2572,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "響灘地区・東田地区 各拠点ルート", refs: [1] },
       operationType: { value: "レベル2（複数拠点展開）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "北九州市（福岡県）", refs: [1] },
         { role: "技術協力", name: "アイサンテクノロジー株式会社", refs: [1] }
@@ -2498,6 +2596,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "新木場駅前〜日本科学未来館（片道約30分）", refs: [1] },
       operationType: { value: "レベル2（運転手同乗）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "東京都", refs: [1] },
         { role: "運行主体", name: "東京都交通局", refs: [1] },
@@ -2522,6 +2621,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "彦根駅〜彦根市役所前〜彦根城前（彦根城ルート）", refs: [1] },
       operationType: { value: "レベル2相当（実証運行）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "滋賀県", refs: [1] },
         { role: "自治体", name: "彦根市（滋賀県）", refs: [1] },
@@ -2546,6 +2646,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.AUVE_TECH, refs: [1, 2] },
       route: { value: "北吉田ルート（片道約5.7km）・井田ルートの2ルート", refs: [1, 2] },
       operationType: { value: "レベル2（定常運行）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "弥彦村（新潟県）", refs: [1, 2] },
         { role: "運行管理", name: "BOLDLY株式会社", refs: [1, 2] },
@@ -2571,6 +2672,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.SOFTBANK, refs: [1] },
       route: { value: "YRP野比駅〜横須賀リサーチパーク（光の丘2番）", refs: [1] },
       operationType: { value: "レベル2（将来のレベル4・隊列走行を見据えた検証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業主体・技術検証", name: "ソフトバンク株式会社", refs: [1] },
         { role: "運行主体", name: "京浜急行バス株式会社", refs: [1] },
@@ -2595,6 +2697,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.SOFTBANK, refs: [1] },
       route: { value: "慶應義塾大学 湘南藤沢キャンパス（SFC）構内", refs: [1] },
       operationType: { value: "レベル4の無人化に向けたAI遠隔監視・サポート検証", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "技術開発・実施主体", name: "ソフトバンク株式会社", refs: [1] },
         { role: "自動運転実証", name: "MONETテクノロジーズ株式会社", refs: [1] },
@@ -2619,6 +2722,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.SUZUKI, refs: [2] },
       route: { value: "浜松市庄内地区等 路線網（片道約9.1km等）", refs: [1, 2] },
       operationType: { value: "レベル2（Dispatcherによる遠隔監視・運行管理）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "浜松市（静岡県）", refs: [1] },
         { role: "車両提供・技術協力", name: "スズキ株式会社", refs: [1, 2] },
@@ -2645,6 +2749,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.AISANTEC, refs: [1] },
       route: { value: "国際センター駅〜仙台城跡（約2.4km）", refs: [1] },
       operationType: { value: "レベル2（将来のレベル4実装に向けた実証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "仙台市（宮城県）", refs: [1] },
         { role: "自動運転技術", name: "アイサンテクノロジー株式会社", refs: [1] },
@@ -2669,6 +2774,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NTT_DOCOMO, refs: [1] },
       route: { value: "東部北：三井アウトレットパーク仙台港〜仙台港エリア（片道約10km）/ 秋保：山間部（片道約29km）", refs: [1] },
       operationType: { value: "レベル2（将来のレベル4実装に向けた実証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "仙台市（宮城県）", refs: [1] },
         { role: "代表機関", name: "NTTドコモビジネス株式会社", refs: [1] },
@@ -2696,6 +2802,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "鶴ヶ峰駅〜よこはま動物園ズーラシア間 路線バスルート（第1弾はズーラシア園内ルート）", refs: [1, 3] },
       operationType: { value: "レベル2（インフラ協調型・遠隔監視検証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "代表機関（第2弾）", name: "NTTドコモビジネス株式会社", refs: [1] },
         { role: "代表機関（第1弾）", name: "NTTコミュニケーションズ株式会社", refs: [3] },
@@ -2730,6 +2837,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "堺駅前〜堺東駅前（大小路筋）約1.5km", refs: [1] },
       operationType: { value: "レベル2（将来のレベル4化に向けた検証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "堺市（大阪府）", refs: [1] },
         { role: "システム・車両協力", name: "先進モビリティ株式会社", refs: [1] }
@@ -2753,6 +2861,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.AISANTEC, refs: [2] },
       route: { value: "近鉄五十鈴川駅〜内宮（宇治橋前）片道約2.5km", refs: [1, 2] },
       operationType: { value: "レベル2（観光地実証）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業主体・運行計画策定", name: "アイサンテクノロジー株式会社", refs: [2] },
         { role: "自動運転導入コンサルティング", name: "A-Drive", refs: [2] },
@@ -2779,6 +2888,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "新富士駅富士山口駅前広場〜富士駅北口（片道約2km往復）", refs: [1] },
       operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "富士市（静岡県）", refs: [1] },
         { role: "自動運転システム・車両", name: "株式会社ティアフォー", refs: [1] },
@@ -2804,6 +2914,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "和泉多摩川駅〜六郷さくら通り〜多摩川住宅（約5.1km周回）", refs: [1] },
       operationType: { value: "レベル2（遠隔監視型・インフラ協調）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "代表機関", name: "東日本電信電話株式会社（NTT東日本）", refs: [1] },
         { role: "自動運転システム・車両", name: "株式会社ティアフォー", refs: [1] },
@@ -2834,6 +2945,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "羽田コネクターライン：大師橋駅〜天空橋駅（都県境をまたぐ）/ KAWASAKI病院ライン：川崎駅〜川崎市立川崎病院", refs: [1] },
       operationType: { value: "レベル2（レベル4実装に向けた段階的実証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "川崎市（神奈川県）", refs: [1] },
         { role: "自動運転システム・車両（中型）", name: "株式会社ティアフォー", refs: [1] },
@@ -2861,6 +2973,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "西宮市内 甲子園エリア（実証ルート）", refs: [1] },
       operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "西宮市（兵庫県）", refs: [1] },
         { role: "事業主体・運行", name: "阪神電気鉄道株式会社・阪神バス株式会社", refs: [1] },
@@ -2886,6 +2999,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.AUVE_TECH, refs: [1] },
       route: { value: "秋の定山渓満喫ルート・湯けむりナイトルート", refs: [1] },
       operationType: { value: "レベル2（オペレーター同乗）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "札幌市（北海道）", refs: [1] }
       ],
@@ -2908,6 +3022,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.AISANTEC, refs: [1] },
       route: { value: "ガイドウェイバス志段味線 実証区間", refs: [1] },
       operationType: { value: "レベル2（乗務員乗車の実証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "名古屋市（愛知県）", refs: [1] }
       ],
@@ -2930,6 +3045,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "相模原駅周辺 実証ルート", refs: [1] },
       operationType: { value: "レベル2（プレ実証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "相模原市（神奈川県）", refs: [1] }
       ],
@@ -2952,6 +3068,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NISSAN, refs: [1] },
       route: { value: "神戸酒心館周辺を含む灘五郷エリア周回ルート", refs: [1] },
       operationType: { value: "レベル2（一般試乗を伴う実証運行）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "神戸市（兵庫県）", refs: [1] },
         { role: "事業協力", name: "日産自動車株式会社", refs: [1] }
@@ -2975,6 +3092,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.A_DRIVE, refs: [1] },
       route: { value: "千歳駅前西口〜本社ターミナル等の市内ルート", refs: [1, 2] },
       operationType: { value: "レベル2（運転手同乗・必要時介入）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "千歳市（北海道）", refs: [1] },
         { role: "代表企業", name: "A-Drive", refs: [1] },
@@ -3001,6 +3119,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [2] },
       route: { value: "苫小牧駅前〜ぷらっとみなと市場等、イベント会場周辺ルート", refs: [1] },
       operationType: { value: "レベル2〜4（年度により異なる：R6年度はレベル4）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "苫小牧市（北海道）", refs: [1] },
         { role: "運行委託", name: "BOLDLY株式会社", refs: [1] }
@@ -3025,6 +3144,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.KCCS, refs: [1] },
       route: { value: "石狩市内の指定エリア（石狩新港地域・緑苑台東地区）", refs: [1] },
       operationType: { value: "遠隔監視型の自動走行実証（限定エリア）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・協力", name: "石狩市（北海道）", refs: [1] },
         { role: "事業主体", name: "京セラコミュニケーションシステム株式会社", refs: [1] }
@@ -3048,6 +3168,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "コスモール大樹〜尾田地区往復便、市街地循環便", refs: [1] },
       operationType: { value: "道の駅拠点型自動運転サービス実証", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業主体", name: "内閣府、国土交通省", refs: [1] },
         { role: "自治体", name: "大樹町（北海道）", refs: [1] }
@@ -3071,6 +3192,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.UD_TRUCKS, refs: [1, 2, 3] },
       route: { value: "中斜里製糖工場と集積施設を結ぶルート（一部公道含む）", refs: [1, 2, 3] },
       operationType: { value: "レベル4技術の実証走行（限定ルート）", refs: [1, 2, 3] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業主体", name: "UDトラックス株式会社、日本通運株式会社、ホクレン農業協同組合連合会", refs: [1, 2, 3] },
         { role: "自治体・協力", name: "斜里町（北海道）", refs: [1] }
@@ -3096,6 +3218,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "自由ヶ丘地区コミュニティ・センター〜JR赤間駅南口", refs: [1] },
       operationType: { value: "レベル2（運転手同乗・手動介入可能）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "宗像市（福岡県）", refs: [1] }
       ],
@@ -3118,6 +3241,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.A_DRIVE, refs: [2] },
       route: { value: "JR木津駅東口発着〜木津城山台〜京大農場周回ルート（所要約20分）", refs: [1] },
       operationType: { value: "レベル2（1:N遠隔監視検証を含む実証）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・主体", name: "京都府", refs: [1, 2, 3] },
         { role: "自治体・連携", name: "木津川市（京都府）、京田辺市（京都府）、精華町（京都府）", refs: [1, 2, 3] },
@@ -3147,6 +3271,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.JTEKT, refs: [1] },
       route: { value: "羽田空港地域内の実証ルート", refs: [1] },
       operationType: { value: "レベル4相当を目指す実証走行", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "管理法人", name: "国立研究開発法人新エネルギー・産業技術総合開発機構（NEDO）", refs: [1] },
         { role: "推進", name: "内閣府SIP自動運転", refs: [1] }
@@ -3170,6 +3295,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "丸の内仲通り 往復約200m（バス停1箇所）", refs: [1] },
       operationType: { value: "レベル4対応車両による試乗実証（監視付き）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業主体", name: "ソフトバンク株式会社、三菱地所株式会社、SBドライブ株式会社（現BOLDLY株式会社）", refs: [1] }
       ],
@@ -3192,6 +3318,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.MAY_MOBILITY, refs: [1] },
       route: { value: "竹芝エリア内 実証ルート", refs: [1] },
       operationType: { value: "レベル4解禁を見据えた運行業務無人化実証", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業主体", name: "ソフトバンク株式会社", refs: [1] }
       ],
@@ -3214,6 +3341,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.WAYMO, refs: [1, 2] },
       route: { value: "港区・新宿区・渋谷区・千代田区・中央区・品川区・江東区の公道", refs: [1, 2] },
       operationType: { value: "手動運転によるデータ収集・技術適応実証", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業主体", name: "GO株式会社、Waymo、日本交通株式会社", refs: [1, 2] }
       ],
@@ -3238,6 +3366,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ZMP, refs: [1] },
       route: { value: "大手町フィナンシャルシティ グランキューブ〜六本木ヒルズ（約5.3km）", refs: [1] },
       operationType: { value: "公道営業実証（監視付き自動運転）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業主体", name: "日の丸交通株式会社、株式会社ZMP", refs: [1] },
         { role: "協賛・協力", name: "三菱地所株式会社、森ビル株式会社", refs: [1] }
@@ -3261,6 +3390,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.A_DRIVE, refs: [2] },
       route: { value: "荻窪駅南側地域周回ルート（約2.5km）", refs: [1] },
       operationType: { value: "レベル2（運転手同乗・自動運転検証）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "東京都、杉並区", refs: [1] },
         { role: "自動運転・事業実施", name: "A-Drive", refs: [2] },
@@ -3286,6 +3416,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [2] },
       route: { value: "けいはんなプラザ〜KICK周辺（往復約3km、精華大通り付近の片道約1.5km区間を含む）", refs: [1, 2] },
       operationType: { value: "レベル2（部分運転自動化）・1:N遠隔監視実証", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "精華町（京都府）、京都府", refs: [1, 2] },
         { role: "代表機関", name: "アイサンテクノロジー株式会社", refs: [1, 2] },
@@ -3313,6 +3444,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1, 2] },
       route: { value: "東京都23区・武蔵野市・三鷹市およびその周辺の公道（千代田区、中央区、港区、新宿区、文京区、台東区、墨田区、江東区、品川区、目黒区、大田区、世田谷区、渋谷区、中野区、杉並区、豊島区、北区、荒川区、板橋区、練馬区、足立区、葛飾区、江戸川区、武蔵野市、三鷹市）", refs: [1, 2] },
       operationType: { value: "自動運転向けデータ収集・走行環境マッピング実証", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業主体", name: "日本交通株式会社", refs: [1, 2] },
         { role: "技術提供", name: "株式会社ティアフォー", refs: [1, 2] }
@@ -3337,6 +3469,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "JR三郷駅ー立野南二丁目ーFSS35キャンパスー立野南二丁目ーJR三郷駅", refs: [1] },
       operationType: { value: "実証運行（無料・事前予約優先）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "三郷町（奈良県）、奈良県", refs: [1] },
         { role: "技術・運行協力", name: "アイサンテクノロジー株式会社", refs: [1] }
@@ -3360,6 +3493,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "TAKANAWA GATEWAY CITY周回（約5分/1日12便）および TAKANAWA GATEWAY CITY〜ウォーターズ竹芝（約65分/1日4便）", refs: [1] },
       operationType: { value: "レベル2（一般乗車可能な実証運行）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "共同実証企画主体", name: "東日本旅客鉄道株式会社（JR東日本）、KDDI株式会社", refs: [1] },
         { role: "技術協力", name: "アイサンテクノロジー株式会社、A-Drive、株式会社ティアフォー", refs: [1, 2] }
@@ -3384,6 +3518,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [2] },
       route: { value: "石畑・殿ケ谷コース（ジョイフル本田方面）約7.5kmの一部区間", refs: [2] },
       operationType: { value: "レベル2（1日6便、無料・事前予約制）", refs: [2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "瑞穂町（東京都）", refs: [1, 2] },
         { role: "運行・技術協力", name: "A-Drive、アイサンテクノロジー株式会社、立川バス株式会社", refs: [2] }
@@ -3408,6 +3543,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "高尾駅北口〜高尾台住宅（住01系統相当、片道約2.6km）", refs: [1, 2] },
       operationType: { value: "レベル2（運転手搭乗型、無料実証運行）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "実施主体", name: "東京都", refs: [1] },
         { role: "協力自治体", name: "八王子市（東京都）", refs: [1, 2] },
@@ -3433,6 +3569,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.WERIDE, refs: [1] },
       route: { value: "JR米子駅〜鳥取大学附属病院間（往復約3km）", refs: [1] },
       operationType: { value: "レベル2（無料・予約不要）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "米子市（鳥取県）", refs: [1] }
       ],
@@ -3455,6 +3592,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "小山駅西口〜ハーヴェストウォーク〜小山温泉思川（片道約20分）", refs: [1] },
       operationType: { value: "レベル2（有償・事前予約制）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "小山市（栃木県）", refs: [1] },
         { role: "運行事業者", name: "関東自動車株式会社", refs: [1] }
@@ -3478,6 +3616,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.SAITAMA_UNIV, refs: [2] },
       route: { value: "北部シャトル便＋周遊便（JR深谷駅北口起終点、全線合計約37km）", refs: [1, 2] },
       operationType: { value: "レベル2（定時定路線での営業運行）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "深谷市（埼玉県）", refs: [1, 2] },
         { role: "技術協力", name: "埼玉工業大学", refs: [1, 2] }
@@ -3502,6 +3641,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.AUVE_TECH, refs: [1] },
       route: { value: "茅ヶ崎市立病院〜松風台 往復ルート（市立病院発着）", refs: [1] },
       operationType: { value: "レベル2（運転士同乗、モニター予約制）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "茅ヶ崎市（神奈川県）", refs: [1, 2] },
         { role: "受託事業者", name: "BOLDLY株式会社", refs: [1] }
@@ -3526,6 +3666,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "越前たけふ駅〜市役所〜越前武生駅（循環約4.9km）", refs: [1] },
       operationType: { value: "レベル2（有償試乗）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "越前市（福井県）", refs: [1] },
         { role: "実施協力", name: "福井鉄道株式会社、株式会社ティアフォー、A-Drive", refs: [1] }
@@ -3549,6 +3690,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "甲斐市民バス医大線の一部区間（山梨交通敷島営業所〜JR竜王駅南口）", refs: [1] },
       operationType: { value: "実証運行（無償、9時〜17時予定）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "甲斐市（山梨県）", refs: [1] }
       ],
@@ -3571,6 +3713,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "豊橋南プラザ〜大清水駅〜レイクタウン〜レイクヒルズ", refs: [1] },
       operationType: { value: "レベル2（無料、予約優先・空席時当日乗車可）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "豊橋市（愛知県）", refs: [1] },
         { role: "運行事業者", name: "豊鉄バス株式会社", refs: [1] }
@@ -3594,6 +3737,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "県道483号（電車通り） 名鉄東岡崎駅南口〜JR岡崎駅東口（約3.5km）", refs: [1] },
       operationType: { value: "レベル2（運転席有人、無料試乗予約制）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・実施主体", name: "岡崎市（愛知県）", refs: [1] },
         { role: "運行主体", name: "名鉄バス株式会社", refs: [1] },
@@ -3619,6 +3763,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "イオンモール豊川〜豊川体育館前西〜豊川市役所前〜イオン豊川店〜豊川駅前", refs: [1] },
       operationType: { value: "レベル2（無料・予約制）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "豊川市（愛知県）", refs: [1, 2] }
       ],
@@ -3642,6 +3787,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.MAY_MOBILITY, refs: [1, 2] },
       route: { value: "名鉄三河線土橋駅（豊田市土橋町）〜愛知環状鉄道三河豊田駅（豊田市山之手）間（定時定路線・オンデマンド路線の2形態）", refs: [1] },
       operationType: { value: "レベル2（無料・定時定路線＋オンデマンド）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・実施主体", name: "豊田市（愛知県）", refs: [1] },
         { role: "運行事業者", name: "名鉄バス株式会社", refs: [1] },
@@ -3667,6 +3813,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "桃花台ニュータウン内（桃花台センター起終点、光ヶ丘第三公園前等）", refs: [1] },
       operationType: { value: "レベル2（無料、事前予約推奨・空席時当日乗車可、運転手・補助員同乗）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "小牧市（愛知県）", refs: [1] },
         { role: "支援業務受託", name: "NTTドコモビジネス株式会社 東海支社", refs: [1] }
@@ -3691,6 +3838,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "TAKANAWA GATEWAY CITY〜竹芝エリア間", refs: [1] },
       operationType: { value: "レベル2〜（段階的に社会実装推進）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業参画・社会実装推進", name: "アイサンテクノロジー株式会社", refs: [1] },
         { role: "事業参画・社会実装推進", name: "A-Drive", refs: [1] },
@@ -3717,6 +3865,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.WERIDE, refs: [1] },
       route: { value: "坂出駅北口→百十四銀行東部支店前→パッケージプラザ前→かきのは前→みんなの動物病院前→マルナカ坂出店前→マイルドハート坂出前→回生病院北→市役所前→坂出駅北口", refs: [1] },
       operationType: { value: "レベル2（無料、先着乗車、運転手乗務）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "坂出市（香川県）", refs: [1] },
         { role: "コンソーシアム", name: "株式会社坂出自動車学校", refs: [1] }
@@ -3740,6 +3889,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.AUVE_TECH, refs: [1] },
       route: { value: "JR八鹿駅→やぶ市民交流広場→公立八鹿病院→養父市役所→フレッシュバザール八鹿店→スーパーセンタートライアル養父店→道の駅ようか但馬蔵（片道約6.5km）", refs: [1] },
       operationType: { value: "レベル2（無料、予約不要）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "養父市（兵庫県）", refs: [1] },
         { role: "実施体制", name: "BOLDLY株式会社、全但バス株式会社、やぶ市観光協会", refs: [1] }
@@ -3766,6 +3916,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.AISANTEC, refs: [2] },
       route: { value: "エスパルスドリームプラザ本館〜水上バス日の出のりば〜清水マリンビル〜清水マリンパーキング〜エスパルスドリームプラザ新館を回遊するルート（港湾施設内＋公道 約1.4km）", refs: [2] },
       operationType: { value: "レベル2（事前予約・当日予約制、無料）", refs: [2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "静岡市（静岡県）", refs: [1, 2] },
         { role: "運行主体", name: "清水港振興株式会社", refs: [1, 2] },
@@ -3796,6 +3947,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.UNKNOWN, refs: [1] },
       route: { value: "日東町・大師町 A/Bルート（総距離約5.5km）", refs: [1] },
       operationType: { value: "レベル2（遠隔監視体制を含む実証運行）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "河内長野市（大阪府）", refs: [1] },
         { role: "連携先", name: "イズミヤSC河内長野、社会福祉法人みなと寮、地域住民運営委員会", refs: [1] }
@@ -3819,6 +3971,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.AUVE_TECH, refs: [1, 2] },
       route: { value: "VISON構内（自動運転専用レーン内および専用レーン外の一部道路）", refs: [1, 2] },
       operationType: { value: "レベル2実証運行（無料、自由乗車・事前予約不要、14便/日予定）※2024年10月にレベル4車両認可", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.VEHICLE_AUTHORIZED, refs: [2] },
       stakeholders: [
         { role: "自治体・事業主体", name: "多気町（三重県）", refs: [1, 2] },
         { role: "実施協力", name: "BOLDLY株式会社、ヴィソン多気株式会社", refs: [1] }
@@ -3843,6 +3996,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1, 2] },
       route: { value: "村内デマンド型（フルデマンド乗合運行）", refs: [1] },
       operationType: { value: "レベル2相当→レベル4を目指す（2025年中にレベル4試験走行計画）", refs: [1, 3] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "更別村（北海道）", refs: [1] },
         { role: "レベル4試験走行実施主体", name: "ソーシャルナレッジバンク合同会社（SKB）", refs: [3] },
@@ -3870,6 +4024,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "小樽国際インフォメーションセンター〜色内大通り・堺町本通り〜道道17号小樽港線通り（臨港線）〜小樽国際インフォメーションセンター、循環3.7km", refs: [1] },
       operationType: { value: "レベル2（オペレータ乗車、1日7便、定員8名/便）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "小樽市（北海道）", refs: [1] },
         { role: "車両提供・運行技術", name: "株式会社マクニカ", refs: [1, 2] },
@@ -3895,6 +4050,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "町役場〜道の駅ひがしかわ「道草館」等を通る1周約2.6km", refs: [1] },
       operationType: { value: "レベル2相当（オペレータ乗車、信号交差点以外は無介入自動走行）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "東川町（北海道）", refs: [1] },
         { role: "運行業務", name: "BOLDLY株式会社", refs: [1] },
@@ -3920,6 +4076,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAGOYA_UNIV, refs: [1] },
       route: { value: "高蔵寺ニュータウン石尾台地区内（停留所128か所）", refs: [1] },
       operationType: { value: "レベル2（定常運行）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "春日井市（愛知県）", refs: [1] },
         { role: "運営主体", name: "NPO法人石尾台おでかけサービス協議会", refs: [1] },
@@ -3946,6 +4103,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.PIX_MOVING, refs: [1] },
       route: { value: "いつきのみや歴史体験館〜古代伊勢道西端（往復約8分）", refs: [1] },
       operationType: { value: "実証運行（体験乗車、時速約5km）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "明和町（三重県）", refs: [1] },
         { role: "事業推進", name: "三重県", refs: [1] },
@@ -3971,6 +4129,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.UNKNOWN, refs: [1] },
       route: { value: "田原地区 丘陵住宅地〜商業施設・公共施設周辺", refs: [1] },
       operationType: { value: "レベル4実証（段階的実施）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "四條畷市（大阪府）", refs: [1] },
         { role: "連携", name: "大阪府", refs: [2] }
@@ -3995,6 +4154,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "千里ニュータウン内循環ルート", refs: [1] },
       operationType: { value: "実証運行（体験乗車）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "豊中市（大阪府）", refs: [1] }
       ],
@@ -4017,6 +4177,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.UNKNOWN, refs: [2] },
       route: { value: "おおひがしルート・あたみルートの2ルート（太地町内）", refs: [2] },
       operationType: { value: "社会実装（定常運行）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "太地町（和歌山県）", refs: [1] }
       ],
@@ -4040,6 +4201,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.UNKNOWN, refs: [1] },
       route: { value: "道の駅「赤来高原」周辺（赤名線、休止前ルート）", refs: [1, 2] },
       operationType: { value: "社会実装後に運行休止中", refs: [2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "飯南町（島根県）", refs: [1] }
       ],
@@ -4063,6 +4225,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "那賀町役場相生庁舎〜阿井交流センター前〜那賀町役場鷲敷庁舎（国道195号線、1往復約50分）", refs: [1] },
       operationType: { value: "実証実験（レベル2）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "那賀町（徳島県）", refs: [1] },
         { role: "自動運転システム・車両", name: "アイサンテクノロジー株式会社", refs: [1] }
@@ -4086,6 +4249,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "JR伊予上灘駅〜ふたみシーサイド公園〜翠小学校（双海地域公道、片道約8km）", refs: [1] },
       operationType: { value: "実証実験（自動運転×ヘルスケア連携）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "伊予市（愛媛県）", refs: [1] },
         { role: "代表企業・運行", name: "BOLDLY株式会社", refs: [1] },
@@ -4110,6 +4274,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.UNKNOWN, refs: [1] },
       route: { value: "JR江川崎駅〜道の駅よって西土佐（西土佐地区）", refs: [1] },
       operationType: { value: "実証実験（鉄道連携フィーダー交通）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "四万十市（高知県）", refs: [1] },
         { role: "鉄道連携", name: "JR四国", refs: [1] },
@@ -4135,6 +4300,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.UNKNOWN, refs: [1] },
       route: { value: "高田地区内ルート（最新運行情報は要確認）", refs: [1, 2] },
       operationType: { value: "本格導入発表済み（現行の運行実態は要確認）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "みやま市（福岡県）", refs: [1] }
       ],
@@ -4158,6 +4324,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.UNKNOWN, refs: [1] },
       route: { value: "道の駅芦北でこぽん周辺ルート", refs: [1] },
       operationType: { value: "実証実験", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "芦北町（熊本県）", refs: [1] }
       ],
@@ -4180,6 +4347,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.UNKNOWN, refs: [1] },
       route: { value: "美浜アメリカンビレッジ周辺（観光・商業エリア内）", refs: [1] },
       operationType: { value: "実証運行（観光地・商業エリア内低速自動運転）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "北谷町（沖縄県）", refs: [1] }
       ],
@@ -4203,6 +4371,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1] },
       route: { value: "斎場御嶽周辺（駐車場〜斎場御嶽入口）", refs: [1] },
       operationType: { value: "実証実験（観光地アクセス向上）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "南城市（沖縄県）", refs: [1] }
       ],
@@ -4225,6 +4394,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "多摩センター〜聖蹟桜ヶ丘周辺（詳細ルート調整中）", refs: [1] },
       operationType: { value: "実証実験（大型路線バス自動運転）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "高精度地図提供", name: "アイサンテクノロジー株式会社", refs: [1, 2] },
         { role: "バス事業者", name: "京王電鉄バス株式会社", refs: [1] },
@@ -4250,6 +4420,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "けいはんな学研都市内（京田辺市・木津川市間）", refs: [1] },
       operationType: { value: "実証実験（複数自治体連携、EVバス自動運転）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "高精度地図提供", name: "アイサンテクノロジー株式会社", refs: [1, 2] },
         { role: "協力自治体", name: "京田辺市（京都府）", refs: [1] },
@@ -4275,6 +4446,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "関電トンネル（扇沢〜黒部ダム間 約6.1km、GPS不可区間）", refs: [1] },
       operationType: { value: "実証実験（GPS不可トンネル内自動運転）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "高精度地図提供", name: "アイサンテクノロジー株式会社", refs: [1] },
         { role: "トンネル管理・施設提供", name: "関西電力株式会社", refs: [1] },
@@ -4300,6 +4472,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "GLP ALFALINK相模原構内 全周約1.3km", refs: [1] },
       operationType: { value: "レベル4（運転者不要の自動運転車認可）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.VEHICLE_AUTHORIZED, refs: [1] },
       stakeholders: [
         { role: "申請者・運行主体", name: "株式会社ティアフォー", refs: [1] },
         { role: "施設提供", name: "日本GLP株式会社", refs: [1] },
@@ -4324,6 +4497,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NIHON_MOBILITY, refs: [1] },
       route: { value: "新宿駅西口（地下）〜都庁第一本庁舎〜都庁第二本庁舎〜新宿駅西口", refs: [1] },
       operationType: { value: "レベル2（運転士同乗）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [1] },
         { role: "運行主体", name: "京王電鉄バス株式会社、京王バス株式会社", refs: [1] }
@@ -4347,6 +4521,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NIHON_MOBILITY, refs: [1] },
       route: { value: "グランドニッコー淡路〜交流の翼港、グランドニッコー淡路〜海岸北口ゲート", refs: [1] },
       operationType: { value: "レベル2（公園内一部レベル4相当）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [1] },
         { role: "自治体・事業主体", name: "兵庫県企業庁", refs: [1] }
@@ -4373,6 +4548,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NIHON_MOBILITY, refs: [1] },
       route: { value: "Aルート：くれない専用駐車場〜四万川ダム大型駐車場、Bルート：奥四万湖周回", refs: [1] },
       operationType: { value: "レベル2（運転士同乗）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [1] },
         { role: "自治体", name: "中之条町（群馬県）", refs: [1] }
@@ -4396,6 +4572,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NIHON_MOBILITY, refs: [1] },
       route: { value: "町田木曽住宅地域内（22か所の乗降地点間）", refs: [1] },
       operationType: { value: "レベル2（予約制オンデマンド実証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [1] },
         { role: "事業主体", name: "東京都住宅供給公社（JKK東京）", refs: [1] }
@@ -4419,6 +4596,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NIHON_MOBILITY, refs: [1] },
       route: { value: "二俣川駅南口バス停〜左近山第5バス停（往復約9km）", refs: [1] },
       operationType: { value: "レベル2（運転士同乗）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [1] },
         { role: "運行主体", name: "相鉄バス株式会社", refs: [1] }
@@ -4445,6 +4623,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NIHON_MOBILITY, refs: [1] },
       route: { value: "沼津駅〜沼津港", refs: [1] },
       operationType: { value: "レベル3実証（運用上は安全要員配置）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [1] },
         { role: "自治体", name: "沼津市（静岡県）", refs: [1] }
@@ -4468,6 +4647,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NIHON_MOBILITY, refs: [1] },
       route: { value: "飯能駅南口〜美杉台ニュータウン（片道約2.5km）", refs: [1] },
       operationType: { value: "営業運行形態の公道実証（遠隔監視活用）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [1] },
         { role: "運行主体", name: "西武バス株式会社", refs: [1] }
@@ -4491,6 +4671,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NIHON_MOBILITY, refs: [1] },
       route: { value: "ゆめタウン〜大盤団地バス停", refs: [1] },
       operationType: { value: "レベル2（運転士同乗）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [1] },
         { role: "自治体", name: "江田島市（広島県）", refs: [1] }
@@ -4514,6 +4695,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NIHON_MOBILITY, refs: [1] },
       route: { value: "神湊（底土）港〜八丈島空港〜八重根港", refs: [1] },
       operationType: { value: "レベル2（運転手搭乗）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [1] },
         { role: "事業連携", name: "パシフィックコンサルタンツ株式会社", refs: [1] },
@@ -4538,6 +4720,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NAVYA, refs: [1, 2] },
       route: { value: "厳原地方合同庁舎〜厳原港まつり会場（往復約700m）", refs: [1] },
       operationType: { value: "レベル2（運転手・保安要員同乗）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "実証主体", name: "明治大学 自動運転社会総合研究所、対馬市（長崎県）、SBドライブ株式会社（現BOLDLY株式会社）", refs: [1, 2, 3] },
         { role: "車両製造", name: "Navya（フランス）", refs: [1, 2] }
@@ -4563,6 +4746,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.UNKNOWN, refs: [1] },
       route: { value: "香川県小豆島内の一般公道（詳細区間非公表）", refs: [1, 3] },
       operationType: { value: "公道実証（運転手同乗）", refs: [1, 3] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "実証主体", name: "明治大学 自動運転社会総合研究所、群馬大学(CRANTS)、香川大学", refs: [1, 2, 3] }
       ],
@@ -4587,6 +4771,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.UD_TRUCKS, refs: [1, 2] },
       route: { value: "神戸製鋼 加古川製鉄所構内の搬送ルート", refs: [1, 2] },
       operationType: { value: "限定領域でのレベル4自動運転実証（構内搬送）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "共同実証", name: "UDトラックス株式会社、株式会社神戸製鋼所", refs: [1, 2, 3] }
       ],
@@ -4611,6 +4796,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.NIHON_MOBILITY, refs: [1] },
       route: { value: "第1セントレアビルを起点とした中部国際空港島内周回ルート", refs: [1] },
       operationType: { value: "レベル2（運転士乗車）・一部遠隔型実証", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自動運転システム提供", name: "日本モビリティ株式会社", refs: [1] },
         { role: "車両所有", name: "国立大学法人群馬大学", refs: [1] },
@@ -4635,6 +4821,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.WERIDE, refs: [1] },
       route: { value: "松山環状線（松山市駅発着・約7.4km・17停留所）・道後温泉路線（新設・片道2.0km）", refs: [1] },
       operationType: { value: "レベル4（計画中）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "運行主体", name: "伊予鉄バス株式会社", refs: [1] },
         { role: "自動運転システム・車両提供", name: "WeRide（中国）", refs: [1] },
@@ -4661,6 +4848,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.AUVE_TECH, refs: [1] },
       route: { value: "JR伊予上灘駅〜翠小学校（双海地域、計15バス停、片道約5.5km）", refs: [1] },
       operationType: { value: "レベル4対応車両による実証（最高時速20km）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "伊予市（愛媛県）", refs: [1] },
         { role: "運行管理", name: "BOLDLY株式会社", refs: [1] },
@@ -4686,6 +4874,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [2] },
       route: { value: "呉市役所〜呉駅の周回ルート", refs: [1, 2] },
       operationType: { value: "レベル2（公道走行社会実験）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "呉市（広島県）", refs: [1] },
         { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [2] }
@@ -4710,6 +4899,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "江の島周辺の一般公道", refs: [1] },
       operationType: { value: "レベル2（観光地公道実証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "協力機関", name: "小田急電鉄株式会社、神奈川県、SBドライブ株式会社（現BOLDLY株式会社）", refs: [1] },
         { role: "協力機関", name: "江ノ島電鉄株式会社", refs: [1] },
@@ -4734,6 +4924,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "福岡空港内デモルート（ITSAP関連）", refs: [1, 2] },
       operationType: { value: "デモンストレーション（イベント実証）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] },
         { role: "協力機関", name: "アジア太平洋地域ITSフォーラム2018福岡実行委員会", refs: [2] }
@@ -4758,6 +4949,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.UNKNOWN, refs: [1] },
       route: { value: "道の駅にしかた周辺（道の駅〜市役所支所前等）", refs: [1] },
       operationType: { value: "実証実験（道の駅拠点サービス）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "実証主体", name: "道の駅「にしかた」を拠点とした自動運転サービス地域実験協議会", refs: [1] },
         { role: "自治体", name: "栃木市（栃木県）", refs: [1] },
@@ -4783,6 +4975,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [2] },
       route: { value: "各地域の一般公道実証ルート（地域別に設定）", refs: [1, 2] },
       operationType: { value: "レベル2（SIP公道実証）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "支援", name: "内閣府SIP自動運転推進委員会", refs: [1] },
         { role: "自治体", name: "南城市（沖縄県）", refs: [2] },
@@ -4809,6 +5002,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [2, 3] },
       route: { value: "羽田空港 制限区域内 実証ルート", refs: [1, 2] },
       operationType: { value: "レベル2（2019年）・レベル3相当（2021年）", refs: [1, 2, 3] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "参画企業", name: "全日本空輸株式会社", refs: [1, 2, 3] },
         { role: "参画企業", name: "BOLDLY株式会社（旧SBドライブ株式会社）", refs: [1, 2, 3] },
@@ -4837,6 +5031,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [2] },
       route: { value: "中部国際空港島 制限区域・総合物流地区の周回ルート", refs: [1, 2] },
       operationType: { value: "レベル2（一部区間運転席無人の実証）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "支援", name: "愛知県", refs: [1] },
         { role: "システム", name: "先進モビリティ株式会社", refs: [2] }
@@ -4861,6 +5056,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.UNKNOWN, refs: [1] },
       route: { value: "新東名高速道路 浜松いなさIC〜長泉沼津IC", refs: [1] },
       operationType: { value: "後続車無人システム（後続車有人状態）を含む隊列走行実証", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "実証主体", name: "国土交通省、経済産業省", refs: [1] },
         { role: "事業主体", name: "豊田通商株式会社", refs: [2] }
@@ -4885,6 +5081,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.UNKNOWN, refs: [1] },
       route: { value: "新東名高速道路 遠州森町PA〜浜松SA（約15km）", refs: [1] },
       operationType: { value: "後続車無人隊列走行（保安要員同乗）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "実証主体", name: "国土交通省、経済産業省", refs: [1] },
         { role: "事業主体", name: "豊田通商株式会社", refs: [1] }
@@ -4909,6 +5106,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [2] },
       route: { value: "横浜市栄区内 実証ルート", refs: [2] },
       operationType: { value: "レベル2（中型バス実証）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "運行主体", name: "神奈川中央交通株式会社", refs: [1] },
         { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [2] }
@@ -4933,6 +5131,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1, 2] },
       route: { value: "飯能駅南口〜美杉台ニュータウン（西武バス路線）", refs: [1, 2] },
       operationType: { value: "レベル2（共同実証）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "運行主体", name: "西武バス株式会社", refs: [1] },
         { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1, 2] },
@@ -4958,6 +5157,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "臨海副都心（お台場）イベントルート", refs: [1, 2] },
       operationType: { value: "イベント実証（体験運行）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "実証主体", name: "東京都", refs: [1, 2] },
         { role: "実証主体", name: "Digital Innovation City協議会", refs: [1, 2] },
@@ -4983,6 +5183,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "大津市内 実証ルート", refs: [1] },
       operationType: { value: "レベル2（中型バス実証）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "大津市（滋賀県）", refs: [1] },
         { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] },
@@ -5008,6 +5209,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.MOVEEZ, refs: [1] },
       route: { value: "幕張新都心エリア（詳細非公開）", refs: [1] },
       operationType: { value: "配車アプリ連携の公道実証", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "実施主体", name: "株式会社ムービーズ（MoveEz）", refs: [1] },
         { role: "支援事業", name: "経済産業省", refs: [1] }
@@ -5031,6 +5233,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.MOVEEZ, refs: [1] },
       route: { value: "市街地と農村部・山間部を結ぶ総延長100kmエリア", refs: [1] },
       operationType: { value: "住民向けロボタク運行実証（一般道、最高60km/hを含む）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "実施主体", name: "株式会社ムービーズ（MoveEz）", refs: [1] },
         { role: "自治体協力", name: "上士幌町（北海道）", refs: [1] },
@@ -5055,6 +5258,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.MOVEEZ, refs: [1] },
       route: { value: "上士幌町内の積雪・凍結路面を含む実証ルート", refs: [1] },
       operationType: { value: "自律型ロボタク実証（一般道、最高60km/h）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "実施主体", name: "株式会社ムービーズ（MoveEz）", refs: [1] },
         { role: "自治体協力", name: "上士幌町（北海道）", refs: [1] }
@@ -5078,6 +5282,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.MOVEEZ, refs: [1] },
       route: { value: "東京臨海副都心エリア（詳細非公開）", refs: [1] },
       operationType: { value: "ロボタク公道実証（関係者対象）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "実施主体", name: "株式会社ムービーズ（MoveEz）", refs: [1] },
         { role: "連携機関", name: "国立大学法人金沢大学", refs: [1] },
@@ -5102,6 +5307,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.MOVEEZ, refs: [1] },
       route: { value: "みなとみらいイベント周辺（Kアリーナ・臨港パーク・赤レンガ倉庫方面）", refs: [1] },
       operationType: { value: "レベル2（運転者同乗）による一般向け体験型PoC", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "実施主体", name: "株式会社ムービーズ（MoveEz）", refs: [1] },
         { role: "共同実施", name: "S.RIDE株式会社", refs: [1] },
@@ -5127,6 +5333,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.A_DRIVE, refs: [1] },
       route: { value: "軽井沢駅北口〜旧軽井沢ロータリー〜軽井沢駅北口（約3km周回）", refs: [1] },
       operationType: { value: "レベル2（体験乗車・予約制）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業主体", name: "東日本旅客鉄道株式会社（JR東日本）、株式会社西武ホールディングス", refs: [1] },
         { role: "自治体", name: "軽井沢町（長野県）", refs: [1] },
@@ -5153,6 +5360,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "新宿駅西口（地下ロータリー）〜都庁第一本庁舎〜都庁第二本庁舎〜新宿駅西口", refs: [1, 3] },
       operationType: { value: "レベル2（有償・事前予約制）、将来のレベル4社会実装を目指す", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "東京都", refs: [1, 2] },
         { role: "運行主体", name: "京王電鉄バス株式会社、京王バス株式会社", refs: [1, 3] },
@@ -5180,6 +5388,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "JR自治医大駅⇔自治医大附属病院前", refs: [1] },
       operationType: { value: "レベル2（予約不要）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "下野市（栃木県）", refs: [1, 2] },
         { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1, 2] }
@@ -5204,6 +5413,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "甲府駅南口・甲府市役所周回ルート / 甲府駅〜ゆめソーラー館やまなし", refs: [1] },
       operationType: { value: "レベル2（試乗体験会・技術立証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "山梨県", refs: [1] },
         { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
@@ -5227,6 +5437,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "よこはま動物園（ズーラシア）正門5番バス停〜北門バス停〜正門バス停", refs: [1] },
       operationType: { value: "レベル2（事前予約不要、一般利用）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "横浜市（神奈川県）", refs: [1] },
         { role: "事業主体", name: "横浜市経済局", refs: [1] },
@@ -5251,6 +5462,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "Aichi Sky Expo 周辺の実証ルート", refs: [1] },
       operationType: { value: "レベル2（イベント連携実証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業主体", name: "先進モビリティ株式会社", refs: [1] },
         { role: "開催地", name: "名古屋市（愛知県）", refs: [1] }
@@ -5274,6 +5486,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "道の駅愛彩ランド〜牛滝温泉 四季まつり", refs: [1] },
       operationType: { value: "レベル2（実証運行）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "実施主体", name: "岸和田市スマートモビリティ実証実験実行委員会", refs: [1] },
         { role: "自治体", name: "岸和田市（大阪府）", refs: [1] },
@@ -5298,6 +5511,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "沼津駅南口〜沼津港", refs: [1] },
       operationType: { value: "レベル2（実証実験）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "沼津市（静岡県）", refs: [1] },
         { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
@@ -5321,6 +5535,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "東岡崎駅〜中央総合公園〜東岡崎駅（岡崎市役所、岡崎げんき館前経由）", refs: [1] },
       operationType: { value: "レベル2（実証運行）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "岡崎市（愛知県）", refs: [1] },
         { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
@@ -5344,6 +5559,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "三島駅北口〜下土狩駅", refs: [1] },
       operationType: { value: "レベル2（事前予約制）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業主体", name: "富士山南東スマートフロンティア推進協議会", refs: [1] },
         { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
@@ -5367,6 +5583,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
       route: { value: "豊田市内の実証ルート", refs: [1] },
       operationType: { value: "レベル2（実証実験）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体・事業主体", name: "豊田市（愛知県）", refs: [1] },
         { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
@@ -5390,6 +5607,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1, 2] },
       route: { value: "京王プラザホテル〜新宿中央公園〜東京都庁第二庁舎ロータリー〜KDDI新宿ビル周辺", refs: [1, 2] },
       operationType: { value: "レベル2（乗務員同乗）、一部遠隔監視走行あり", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業主体", name: "株式会社ティアフォー", refs: [1, 2] },
         { role: "協力機関", name: "株式会社Mobility Technologies", refs: [1, 2] },
@@ -5419,6 +5637,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1, 2] },
       route: { value: "お台場の複数拠点間（東京テレポート駅周辺）", refs: [1, 2] },
       operationType: { value: "レベル2（乗務員同乗）、プレサービス実証", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業主体", name: "株式会社ティアフォー", refs: [1, 2] },
         { role: "協力機関", name: "東京都", refs: [1, 2] }
@@ -5443,6 +5662,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1, 2] },
       route: { value: "新宿駅西口地区の複数目的地間（7目的地）", refs: [1, 2] },
       operationType: { value: "レベル2（乗務員同乗）、プレサービス実証", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "事業主体", name: "株式会社ティアフォー", refs: [1, 2] },
         { role: "協力機関", name: "東京都", refs: [1, 2] },
@@ -5468,6 +5688,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "経済産業省〜衆議院第一・第二議員会館〜参議院議員会館 約3.5km", refs: [1] },
       operationType: { value: "レベル2（実証走行）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "実証主体", name: "経済産業省", refs: [1] },
         { role: "自動運転システム", name: "株式会社ティアフォー", refs: [1] }
@@ -5491,6 +5712,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.TIER_IV, refs: [1] },
       route: { value: "二俣川駅〜左近山団地 約3km", refs: [1] },
       operationType: { value: "レベル2（実証走行）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "運行管理・事業主体", name: "相鉄バス株式会社", refs: [1] },
         { role: "自治体", name: "横浜市（神奈川県）", refs: [1] },
@@ -5515,6 +5737,7 @@ const EXPERIMENTS = [
       adSystem: { value: ADS.T2, refs: [1] },
       route: { value: "関東〜関西間 高速道路本線 約500km", refs: [1] },
       operationType: { value: "レベル2（無介入走行検証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自動運転システム開発", name: "株式会社T2", refs: [1] },
         { role: "協力企業", name: "ユニ・チャーム株式会社", refs: [2] },

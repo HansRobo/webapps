@@ -419,6 +419,31 @@ body {
   color: var(--accent);
 }
 
+.lv4-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: #fff3e0;
+  color: #c84c00;
+}
+
+.lv4-badge[data-lv4="operation-permitted"] {
+  background: #e8f5e9;
+  color: #1b5e20;
+}
+
+@media (prefers-color-scheme: dark) {
+  .lv4-badge {
+    background: rgba(200, 76, 0, 0.2);
+    color: #ffb74d;
+  }
+  .lv4-badge[data-lv4="operation-permitted"] {
+    background: rgba(27, 94, 32, 0.3);
+    color: #81c784;
+  }
+}
+
 .experiment-list-item__period {
   font-size: 11px;
   color: var(--text-sub);

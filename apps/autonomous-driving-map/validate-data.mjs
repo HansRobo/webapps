@@ -21,7 +21,7 @@ const verbose = process.argv.includes("--verbose");
 // ─── schema.js 読み込み ─────────────────────────────────────────────────────
 
 const schema = require(join(__dir, "schema.js"));
-const { STATUS, PREF, VEH, ADS, KNOWN_ORGS, KNOWN_ROLES } = schema;
+const { STATUS, LV4_APPROVAL, PREF, VEH, ADS, KNOWN_ORGS, KNOWN_ROLES } = schema;
 
 // ─── data.js 読み込み（Node.js 環境での globals 注入） ───────────────────────
 
@@ -68,6 +68,7 @@ function checkEnumDef(enumObj, name) {
 }
 
 checkEnumDef(STATUS, "STATUS");
+checkEnumDef(LV4_APPROVAL, "LV4_APPROVAL");
 checkEnumDef(PREF, "PREF");
 checkEnumDef(VEH, "VEH");
 checkEnumDef(ADS, "ADS");
@@ -76,15 +77,16 @@ checkEnumDef(ADS, "ADS");
 
 console.log("\n── Step 2: エントリ構造チェック ──");
 
-const validStatuses = new Set(Object.values(STATUS));
-const validPrefs    = new Set(Object.values(PREF));
-const validVehs     = new Set(Object.values(VEH));
-const validAds      = new Set(Object.values(ADS));
+const validStatuses    = new Set(Object.values(STATUS));
+const validLv4Approvals = new Set(Object.values(LV4_APPROVAL));
+const validPrefs       = new Set(Object.values(PREF));
+const validVehs        = new Set(Object.values(VEH));
+const validAds         = new Set(Object.values(ADS));
 
 const experimentIds = new Set();
 
 const REQUIRED_FIELDS = ["id", "name", "location", "prefecture", "period", "status",
-  "description", "vehicle", "adSystem", "route", "operationType", "stakeholders", "references"];
+  "description", "vehicle", "adSystem", "route", "operationType", "lv4Approval", "stakeholders", "references"];
 
 // eslint-disable-next-line no-undef
 const experiments = typeof EXPERIMENTS !== "undefined" ? EXPERIMENTS : [];
@@ -151,6 +153,16 @@ for (const exp of experiments) {
       }
       if (!Array.isArray(a.refs)) err(`${tag}: adSystem.refs が配列ではありません`);
     }
+  }
+
+  // lv4Approval のチェック
+  if (exp.lv4Approval && typeof exp.lv4Approval === "object" && "value" in exp.lv4Approval) {
+    if (!validLv4Approvals.has(exp.lv4Approval.value)) {
+      err(`${tag}: lv4Approval.value が LV4_APPROVAL に存在しないオブジェクトです: ${JSON.stringify(exp.lv4Approval.value)}`);
+    }
+    if (!Array.isArray(exp.lv4Approval.refs)) err(`${tag}: lv4Approval.refs が配列ではありません`);
+  } else {
+    err(`${tag}: lv4Approval が {value, refs} 形式ではありません`);
   }
 }
 

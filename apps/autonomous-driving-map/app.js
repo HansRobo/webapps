@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     advancedFilters: document.getElementById("advancedFilters"),
     statusFilterGroup: document.getElementById("statusFilterGroup"),
     levelFilterGroup: document.getElementById("levelFilterGroup"),
+    lv4ApprovalFilterGroup: document.getElementById("lv4ApprovalFilterGroup"),
     vehicleFilterGroup: document.getElementById("vehicleFilterGroup"),
     adSystemFilterGroup: document.getElementById("adSystemFilterGroup"),
     routeTagFilterGroup: document.getElementById("routeTagFilterGroup"),
@@ -80,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
     statuses: new Set(),
     prefectures: new Set(),
     levels: new Set(),
+    lv4Approvals: new Set(),
     vehicles: new Set(),
     adSystems: new Set(),
     routeTags: new Set(),
@@ -134,6 +136,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const status = statusObj?.label ?? String(statusObj ?? "");
     const statusId = statusObj?.id ?? "";
     const levels = extractLevels(raw.operationType.value);
+    const lv4ApprovalId = raw.lv4Approval?.value?.id ?? "none";
+    const lv4Approval = raw.lv4Approval?.value?.label ?? "未取得";
     const years = extractYears(raw.period.value);
     const startYear = years.length ? Math.min(...years) : null;
     const endYear = years.length ? Math.max(...years) : null;
@@ -160,6 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
       municipalities.join(" "),
       vehicles.join(" "),
       adSystems.join(" "),
+      lv4Approval,
     ]
       .join(" ")
       .toLowerCase();
@@ -185,6 +190,8 @@ document.addEventListener("DOMContentLoaded", () => {
       references: raw.references,
       levels,
       primaryLevel: levels[0] || "その他",
+      lv4Approval,
+      lv4ApprovalId,
       startYear,
       endYear,
       ongoing,
@@ -229,6 +236,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     dom.statusFilterGroup.innerHTML = statuses.map((status) => renderToggleChip("statuses", status)).join("");
     dom.levelFilterGroup.innerHTML = levels.map((level) => renderToggleChip("levels", level)).join("");
+    const lv4Approvals = [...new Set(experiments.map((exp) => exp.lv4Approval))].filter((v) => v !== "未取得").sort();
+    dom.lv4ApprovalFilterGroup.innerHTML = lv4Approvals.map((v) => renderToggleChip("lv4Approvals", v)).join("");
     dom.vehicleFilterGroup.innerHTML = vehicles.map((v) => renderToggleChip("vehicles", v)).join("");
     dom.adSystemFilterGroup.innerHTML = adSystems.map((s) => renderToggleChip("adSystems", s)).join("");
     dom.routeTagFilterGroup.innerHTML = ROUTE_TAG_PATTERNS.map(({ tag }) => renderToggleChip("routeTags", tag)).join("");
@@ -270,6 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="map-popup__meta">
             <span class="status-badge" data-status="${escAttr(exp.statusId)}">${escHtml(exp.status)}</span>
             <span class="meta-chip">${escHtml(exp.primaryLevel)}</span>
+            ${exp.lv4ApprovalId !== "none" ? `<span class="lv4-badge" data-lv4="${escAttr(exp.lv4ApprovalId)}">${escHtml(exp.lv4Approval)}</span>` : ""}
             ${exp.vehicles.map((v) => `<span class="meta-chip">${escHtml(v)}</span>`).join("")}
           </div>
         </div>`,
@@ -409,6 +419,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (kind === "statuses") state.statuses.delete(value);
     if (kind === "prefectures") state.prefectures.delete(value);
     if (kind === "levels") state.levels.delete(value);
+    if (kind === "lv4Approvals") state.lv4Approvals.delete(value);
     if (kind === "vehicles") state.vehicles.delete(value);
     if (kind === "adSystems") state.adSystems.delete(value);
     if (kind === "routeTags") state.routeTags.delete(value);
@@ -427,6 +438,7 @@ document.addEventListener("DOMContentLoaded", () => {
     state.statuses.clear();
     state.prefectures.clear();
     state.levels.clear();
+    state.lv4Approvals.clear();
     state.vehicles.clear();
     state.adSystems.clear();
     state.routeTags.clear();
@@ -474,6 +486,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (state.statuses.size > 0 && !state.statuses.has(exp.status)) return false;
     if (state.prefectures.size > 0 && !state.prefectures.has(exp.prefecture)) return false;
     if (state.levels.size > 0 && !exp.levels.some((level) => state.levels.has(level))) return false;
+    if (state.lv4Approvals.size > 0 && !state.lv4Approvals.has(exp.lv4Approval)) return false;
     if (state.vehicles.size > 0 && !exp.vehicles.some((v) => state.vehicles.has(v))) return false;
     if (state.adSystems.size > 0 && !exp.adSystems.some((s) => state.adSystems.has(s))) return false;
     if (state.routeTags.size > 0 && !exp.routeTags.some((tag) => state.routeTags.has(tag))) return false;
@@ -556,6 +569,7 @@ document.addEventListener("DOMContentLoaded", () => {
     badges.push(...[...state.statuses].map((v) => renderFilterBadge("ステータス", v, "statuses", v)));
     badges.push(...[...state.prefectures].map((v) => renderFilterBadge("都道府県", v, "prefectures", v)));
     badges.push(...[...state.levels].map((v) => renderFilterBadge("運行レベル", v, "levels", v)));
+    badges.push(...[...state.lv4Approvals].map((v) => renderFilterBadge("Lv4認可", v, "lv4Approvals", v)));
     badges.push(...[...state.vehicles].map((v) => renderFilterBadge("使用車両", v, "vehicles", v)));
     badges.push(...[...state.adSystems].map((v) => renderFilterBadge("ADシステム", v, "adSystems", v)));
     badges.push(...[...state.routeTags].map((v) => renderFilterBadge("ルート特性", v, "routeTags", v)));
@@ -582,6 +596,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="experiment-list-item__meta">
           <span class="status-badge" data-status="${escAttr(exp.statusId)}">${escHtml(exp.status)}</span>
           <span class="meta-chip">${escHtml(exp.primaryLevel)}</span>
+          ${exp.lv4ApprovalId !== "none" ? `<span class="lv4-badge" data-lv4="${escAttr(exp.lv4ApprovalId)}">${escHtml(exp.lv4Approval)}</span>` : ""}
           ${exp.vehicle ? `<span class="meta-chip">${escHtml(exp.vehicle)}</span>` : ""}
         </div>
         <div class="experiment-list-item__period">${escHtml(exp.period)}</div>
@@ -679,6 +694,15 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="detail-section__title"><span class="material-symbols-outlined">info</span>基本情報</div>
         ${field("実施期間", exp.period)}
         ${field("運行形態", exp.operationType)}
+        <div class="detail-field">
+          <span class="detail-field__label">Lv4認可状態</span>
+          <span class="detail-field__value">
+            ${exp.lv4Approval.value?.id !== "none"
+              ? `<span class="lv4-badge" data-lv4="${escAttr(exp.lv4Approval.value?.id)}">${escHtml(exp.lv4Approval.value?.label)}</span>`
+              : escHtml(exp.lv4Approval.value?.label ?? "未取得")}
+            ${refLink(exp.lv4Approval.refs)}
+          </span>
+        </div>
         ${(Array.isArray(exp.vehicle) ? exp.vehicle : exp.vehicle ? [exp.vehicle] : []).map((v) => `<div class="detail-field"><span class="detail-field__label">車両名</span><span class="detail-field__value">${escHtml(v.value?.label ?? String(v.value ?? ""))}${refLink(v.refs ?? [])}</span></div>`).join("")}
         ${(Array.isArray(exp.adSystem) ? exp.adSystem : exp.adSystem ? [exp.adSystem] : []).filter((a) => a.value).map((a) => `<div class="detail-field"><span class="detail-field__label">自動運転システム</span><span class="detail-field__value">${escHtml(a.value?.label ?? String(a.value ?? ""))}${refLink(a.refs ?? [])}</span></div>`).join("")}
         ${field("ルート", exp.route)}
