@@ -148,8 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   map.on("moveend zoomend", updateMapBoundsCount);
 
-  Router.init();
-
   function normalizeExperiment(raw) {
     // STATUS/PREF/VEH/ADS は schema.js のオブジェクト参照 → .label で表示文字列を取得
     const statusObj = raw.status.value;
@@ -777,6 +775,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let prefDetailMap = null;
 
+  // Router定義後に init() を呼び出すため、ここで変数を宣言
   const Router = {
     routes: [
       { pattern: /^#\/vehicles\/(.+)$/,    view: "vehicles",    handler: (m) => renderVehicleDetail(decodeURIComponent(m[1])) },
@@ -1162,4 +1161,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bindMiniCardEvents(vc);
   }
+
+  Router.init();
 });
