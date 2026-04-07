@@ -27,10 +27,11 @@ function loadExperiments(schema) {
   // schema.js の定数（STATUS/PREF/VEH/ADS）をサンドボックスに注入する
   const sandbox = {
     EXPERIMENTS: undefined,
-    STATUS: schema.STATUS,
-    PREF:   schema.PREF,
-    VEH:    schema.VEH,
-    ADS:    schema.ADS,
+    STATUS:       schema.STATUS,
+    LV4_APPROVAL: schema.LV4_APPROVAL,
+    PREF:         schema.PREF,
+    VEH:          schema.VEH,
+    ADS:          schema.ADS,
   };
   vm.runInNewContext(patched, sandbox);
   return sandbox.EXPERIMENTS;
@@ -75,15 +76,16 @@ function validateExperiments(experiments, schema) {
   const warn = (id, msg) => warnings.push(`[WARN]  ${id}: ${msg}`);
 
   // schema.js の enum オブジェクトから Set を構築（同一性チェック用）
-  const validStatuses = new Set(Object.values(schema.STATUS));
-  const validPrefs    = new Set(Object.values(schema.PREF));
-  const validVehs     = new Set(Object.values(schema.VEH));
-  const validAds      = new Set(Object.values(schema.ADS));
+  const validStatuses      = new Set(Object.values(schema.STATUS));
+  const validLv4Approvals  = new Set(Object.values(schema.LV4_APPROVAL));
+  const validPrefs         = new Set(Object.values(schema.PREF));
+  const validVehs          = new Set(Object.values(schema.VEH));
+  const validAds           = new Set(Object.values(schema.ADS));
 
   // 文字列値フィールド（value が string のもの）
   const stringValueFields = ["name", "location", "period", "description", "route", "operationType"];
   // enum オブジェクト参照フィールド（value がオブジェクトのもの）
-  const enumValueFields = ["status", "prefecture"];
+  const enumValueFields = ["status", "prefecture", "lv4Approval"];
 
   const knownRoles = Array.isArray(schema.KNOWN_ROLES) ? schema.KNOWN_ROLES : [];
   const knownOrgs  = Array.isArray(schema.KNOWN_ORGS)  ? schema.KNOWN_ORGS  : [];
@@ -152,6 +154,12 @@ function validateExperiments(experiments, schema) {
     if (exp.prefecture?.value !== undefined) {
       if (!validPrefs.has(exp.prefecture.value))
         err(id, `prefecture.value が PREF に存在しないオブジェクトです: ${JSON.stringify(exp.prefecture.value)}`);
+    }
+
+    // lv4Approval: schema.js の LV4_APPROVAL オブジェクトへの参照かチェック
+    if (exp.lv4Approval?.value !== undefined) {
+      if (!validLv4Approvals.has(exp.lv4Approval.value))
+        err(id, `lv4Approval.value が LV4_APPROVAL に存在しないオブジェクトです: ${JSON.stringify(exp.lv4Approval.value)}`);
     }
 
     // adSystem のチェック
