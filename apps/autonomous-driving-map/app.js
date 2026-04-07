@@ -57,6 +57,12 @@ document.addEventListener("DOMContentLoaded", () => {
     for (const a of exp.adSystems) (BY_ADS[a] ??= []).push(exp);
   }
 
+  const LV4_BY_ID = Object.fromEntries(Object.values(LV4_APPROVAL).map((l) => [l.id, l]));
+  const BY_LV4 = {};
+  for (const exp of experiments) {
+    (BY_LV4[exp.lv4Approval] ??= []).push(exp);
+  }
+
   const dom = {
     queryInput: document.getElementById("queryInput"),
     orgQueryInput: document.getElementById("orgQueryInput"),
@@ -782,9 +788,10 @@ document.addEventListener("DOMContentLoaded", () => {
       { pattern: /^#\/vehicles$/,          view: "vehicles",    handler: () => renderVehiclesGrid() },
       { pattern: /^#\/ad-systems\/(.+)$/,  view: "ad-systems",  handler: (m) => renderAdSystemDetail(decodeURIComponent(m[1])) },
       { pattern: /^#\/ad-systems$/,        view: "ad-systems",  handler: () => renderAdSystemsGrid() },
-      { pattern: /^#\/prefectures\/(.+)$/, view: "prefectures", handler: (m) => renderPrefectureDetail(decodeURIComponent(m[1])) },
-      { pattern: /^#\/prefectures$/,       view: "prefectures", handler: () => renderPrefecturesGrid() },
-      { pattern: /^#\/map$/,               view: "map",         handler: () => showMapView() },
+      { pattern: /^#\/prefectures\/(.+)$/, view: "prefectures",  handler: (m) => renderPrefectureDetail(decodeURIComponent(m[1])) },
+      { pattern: /^#\/prefectures$/,       view: "prefectures",  handler: () => renderPrefecturesGrid() },
+      { pattern: /^#\/lv4-approval$/,      view: "lv4-approval", handler: () => renderLv4ApprovalOverview() },
+      { pattern: /^#\/map$/,               view: "map",          handler: () => showMapView() },
     ],
     navigate(hash) {
       if (!hash || hash === "#" || hash === "#/") hash = "#/map";
@@ -1158,6 +1165,96 @@ document.addEventListener("DOMContentLoaded", () => {
         prefDetailMap.setView([36.5, 137.0], 6);
       }
     });
+
+    bindMiniCardEvents(vc);
+  }
+
+  // ── Lv4認可ビュー ──
+
+  function renderLv4ApprovalOverview() {
+    const opPermitted = LV4_APPROVAL.OPERATION_PERMITTED;
+    const vehAuth = LV4_APPROVAL.VEHICLE_AUTHORIZED;
+    const none = LV4_APPROVAL.NONE;
+
+    const opExps = BY_LV4[opPermitted.label] ?? [];
+    const vehExps = BY_LV4[vehAuth.label] ?? [];
+    const noneExps = BY_LV4[none.label] ?? [];
+    const approvedCount = opExps.length + vehExps.length;
+
+    const pipelineStages = [
+      { ...none,        count: noneExps.length,  icon: "radio_button_unchecked" },
+      { ...vehAuth,     count: vehExps.length,   icon: "pending" },
+      { ...opPermitted, count: opExps.length,    icon: "check_circle" },
+    ];
+
+    const pipelineHtml = `<div class="lv4-pipeline">
+      ${pipelineStages.map((s, i) => `
+        <div class="lv4-pipeline__stage" data-lv4="${escAttr(s.id)}">
+          <span class="material-symbols-outlined lv4-pipeline__icon">${escHtml(s.icon)}</span>
+          <div class="lv4-pipeline__label">${escHtml(s.label)}</div>
+          <div class="lv4-pipeline__count">${s.count}件</div>
+        </div>
+        ${i < pipelineStages.length - 1 ? '<span class="material-symbols-outlined lv4-pipeline__arrow">arrow_forward</span>' : ""}
+      `).join("")}
+    </div>`;
+
+    const activeStages = [
+      { lv4: opPermitted, exps: opExps },
+      { lv4: vehAuth,     exps: vehExps },
+    ];
+
+    const stageSectionsHtml = activeStages.map(({ lv4, exps }) => `
+      <div class="lv4-stage">
+        <div class="lv4-stage__header">
+          <div class="lv4-stage__header-left">
+            <span class="lv4-badge" data-lv4="${escAttr(lv4.id)}">${escHtml(lv4.label)}</span>
+            <span class="count-pill">${exps.length}件</span>
+          </div>
+        </div>
+        ${exps.length > 0 ? `
+        <div class="lv4-stage__body">
+          <div class="entity-detail__section">
+            <div class="entity-detail__section-title"><span class="material-symbols-outlined">bar_chart</span>都道府県分布</div>
+            ${renderDistributionBars(exps, (e) => e.prefecture, (p) => p)}
+          </div>
+          <div class="entity-detail__section">
+            <div class="entity-detail__section-title"><span class="material-symbols-outlined">science</span>実証実験一覧（${exps.length}件）</div>
+            <div class="entity-grid">${exps.map((e) => buildExperimentMiniCard(e)).join("")}</div>
+          </div>
+        </div>` : ""}
+      </div>
+    `).join("");
+
+    const noneSection = `<div class="lv4-stage lv4-stage--none">
+      <div class="lv4-stage__header">
+        <div class="lv4-stage__header-left">
+          <span class="lv4-badge" data-lv4="none">${escHtml(none.label)}</span>
+          <span class="count-pill">${noneExps.length}件</span>
+        </div>
+        <span class="lv4-stage__note">Lv4認可未取得の実験はマップからご確認ください</span>
+      </div>
+    </div>`;
+
+    const vc = document.getElementById("viewContainer");
+    vc.innerHTML = `<div class="entity-detail">
+      <div class="entity-detail__body">
+        <div class="entity-detail__hero">
+          <div class="entity-detail__hero-icon"><span class="material-symbols-outlined">verified</span></div>
+          <div>
+            <h2 class="entity-detail__hero-title">Lv4認可状況</h2>
+            <p class="entity-detail__hero-sub">認可取得済 ${approvedCount}件（車両認可 ${vehExps.length}件 ／ 特定自動運行許可 ${opExps.length}件）</p>
+          </div>
+        </div>
+
+        <div class="entity-detail__section">
+          <div class="entity-detail__section-title"><span class="material-symbols-outlined">timeline</span>認可プロセス</div>
+          ${pipelineHtml}
+        </div>
+
+        ${stageSectionsHtml}
+        ${noneSection}
+      </div>
+    </div>`;
 
     bindMiniCardEvents(vc);
   }

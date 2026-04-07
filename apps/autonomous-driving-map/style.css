@@ -1271,3 +1271,139 @@ body {
 .pref-mini-map .leaflet-container {
   border-radius: 12px;
 }
+
+/* ── Lv4認可パイプライン ── */
+
+.lv4-pipeline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.lv4-pipeline__stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: var(--surface2);
+  border: 1px solid var(--surface-border);
+  min-width: 120px;
+  flex: 1;
+}
+
+.lv4-pipeline__stage[data-lv4="vehicle-authorized"] {
+  background: #fff3e0;
+  border-color: #ffcc80;
+}
+
+.lv4-pipeline__stage[data-lv4="operation-permitted"] {
+  background: #e8f5e9;
+  border-color: #a5d6a7;
+}
+
+.lv4-pipeline__icon {
+  font-size: 28px;
+  color: var(--text-sub);
+}
+
+.lv4-pipeline__stage[data-lv4="vehicle-authorized"] .lv4-pipeline__icon {
+  color: #c84c00;
+}
+
+.lv4-pipeline__stage[data-lv4="operation-permitted"] .lv4-pipeline__icon {
+  color: #1b5e20;
+}
+
+.lv4-pipeline__label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-main);
+  text-align: center;
+}
+
+.lv4-pipeline__count {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.lv4-pipeline__arrow {
+  font-size: 20px;
+  color: var(--text-sub);
+  flex-shrink: 0;
+}
+
+/* ── Lv4認可ステージセクション ── */
+
+.lv4-stage {
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.lv4-stage__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px 20px;
+  background: var(--surface2);
+}
+
+.lv4-stage__header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lv4-stage__note {
+  font-size: 12px;
+  color: var(--text-sub);
+}
+
+.lv4-stage__body {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.lv4-stage--none .lv4-stage__header {
+  background: var(--surface1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .lv4-pipeline__stage[data-lv4="vehicle-authorized"] {
+    background: rgba(200, 76, 0, 0.15);
+    border-color: rgba(200, 76, 0, 0.3);
+  }
+  .lv4-pipeline__stage[data-lv4="operation-permitted"] {
+    background: rgba(27, 94, 32, 0.2);
+    border-color: rgba(27, 94, 32, 0.35);
+  }
+  .lv4-pipeline__stage[data-lv4="vehicle-authorized"] .lv4-pipeline__icon {
+    color: #ffb74d;
+  }
+  .lv4-pipeline__stage[data-lv4="operation-permitted"] .lv4-pipeline__icon {
+    color: #81c784;
+  }
+}
+
+@media (max-width: 600px) {
+  .lv4-pipeline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .lv4-pipeline__arrow {
+    transform: rotate(90deg);
+    align-self: center;
+  }
+  .lv4-pipeline__stage {
+    min-width: unset;
+  }
+}
