@@ -101,6 +101,9 @@
     // EVモーターズ・ジャパン
     EV_MOTORS_JAPAN_F8_MINI:{ id: "ev-motors-japan-f8-mini",label: "EVモーターズ・ジャパン F8 series4-Mini Bus" },
     EV_MOTORS_JAPAN_F8_CITY:{ id: "ev-motors-japan-f8-city",label: "EVモーターズ・ジャパン F8シリーズ2" },
+    // Honda
+    HONDA_CR_V:             { id: "honda-cr-v",             label: "Honda CR-V" },
+    HONDA_N_VAN_E:          { id: "honda-n-van-e",          label: "Honda N-VAN e:" },
     // Hyundai
     HYUNDAI_IONIQ5:         { id: "hyundai-ioniq5",         label: "Hyundai IONIQ5" },
     // いすゞ
@@ -202,6 +205,7 @@
     // 自動車メーカー（自社AD開発）
     NISSAN:           { id: "nissan",            label: "日産" },
     SUZUKI:           { id: "suzuki",            label: "スズキ" },
+    HONDA:            { id: "honda",             label: "Honda / 本田技術研究所" },
     UD_TRUCKS:        { id: "ud-trucks",         label: "UDトラックス" },
     YAMAHA:           { id: "yamaha",            label: "ヤマハ発動機" },
     // その他IT・インフラ系
@@ -331,6 +335,7 @@
     "富士急行株式会社",
     "片山津温泉旅館組合",
     "本田技研工業株式会社",
+    "株式会社本田技術研究所",
     "名鉄バス株式会社",
     "琉球バス交通株式会社",
     "関西電力株式会社",
@@ -496,6 +501,7 @@
     "NTTコミュニケーションズ株式会社",
     "筑波大学",
     "東京大学",
+    "東京工科大学",
     "東京都",
     "東京都交通局",
     "東北大学",
@@ -511,6 +517,7 @@
     "福井県",
     "北海道運輸局",
     "岡崎市（愛知県）",
+    "小田原市（神奈川県）",
     "富士山南東スマートフロンティア推進協議会",
     "岸和田市スマートモビリティ実証実験実行委員会",
     "相鉄バス株式会社",
