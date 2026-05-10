@@ -2013,13 +2013,13 @@ const EXPERIMENTS = [
       period: { value: "2026年3月24日〜29日（実証実施）", refs: [1] },
       status: { value: STATUS.COMPLETED, refs: [1] },
       description: {
-        value: "政令指定都市の公営交通として初となる、小型EV自動運転バスによる実証。洛西バスターミナル〜JR桂川駅前（片道約3.8km）を6日間無料運行（事前予約制）し、2028年度のレベル4実装を目指す。NTTドコモビジネスが事業代表機関、先進モビリティが自動運転システム担当。",
-        refs: [1, 2]
+        value: "政令指定都市の公営交通として初となる、小型EV自動運転バスによる実証。2026年3月24日〜29日の市民試乗体験では、洛西ニュータウン周回（1周約6.9km）を自動運転レベル2で走行し、洛西バスターミナル〜JR桂川駅前（片道約3.8km）は次年度の自動運転化を見据えて手動運転で接続した。NTTドコモビジネスが事業代表機関、先進モビリティが自動運転システム担当。",
+        refs: [1, 2, 3]
       },
       vehicle: { value: VEH.EV_MOTORS_JAPAN_F8_CITY, refs: [1, 2] },
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [2] },
-      route: { value: "洛西ニュータウン〜JR桂川駅前", refs: [1] },
-      operationType: { value: "レベル2（将来レベル4目標）", refs: [1] },
+      route: { value: "JR桂川駅前〜洛西バスターミナル〜洛西ニュータウン周回（周回約6.9km、接続区間片道約3.8km）", refs: [1, 3] },
+      operationType: { value: "レベル2（洛西ニュータウン周回）・接続区間は手動運転（将来レベル4目標）", refs: [1, 3] },
       lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "代表機関", name: "NTTドコモビジネス株式会社", refs: [2] },
@@ -2031,7 +2031,8 @@ const EXPERIMENTS = [
       ],
       references: [
         { id: 1, title: "洛西から新たな公共交通をつくる〜2028年度自動運転レベル4実装へ〜", url: "https://www.city.kyoto.lg.jp/tokei/page/0000349587.html", date: "2026-01-01", source: "京都市" },
-        { id: 2, title: "京都市において自動運転バスの実証実験を開始", url: "https://www.atpress.ne.jp/news/575856", date: "2026-02-20", source: "NTTドコモビジネス株式会社" }
+        { id: 2, title: "京都市において自動運転バスの実証実験を開始", url: "https://www.atpress.ne.jp/news/575856", date: "2026-02-20", source: "NTTドコモビジネス株式会社" },
+        { id: 3, title: "京都市 自動運転バスの導入に向けた取組", url: "https://www.city.kyoto.lg.jp/tokei/page/0000351867.html", date: "2026-04-09", source: "京都市" }
       ]
     },
   {
@@ -5777,5 +5778,58 @@ const EXPERIMENTS = [
         { id: 1, title: "新たな「GIFU HEART BUS」の運行がいよいよスタート！", url: "https://www.city.gifu.lg.jp/kurashi/douro/1002587/1023154/1036889.html", date: "2026-01-17", source: "岐阜市" },
         { id: 2, title: "自動運転EVバスのWeRide製新型車両に岐阜市で試乗", url: "https://blog.evsmart.net/autonomous/weride-autonomous-ev-bus-gifu-test-ride-report/", date: "2026-01-23", source: "EVsmartブログ" }
       ]
-    }
+    },
+
+  {
+      id: "exp-257",
+      name: { value: "小田原市 Honda CI 自動運転技術実証（西湘テクノパーク周辺）", refs: [1] },
+      location: { value: "神奈川県小田原市橘地域（西湘テクノパーク周辺）", lat: 35.302, lng: 139.187, refs: [1] },
+      prefecture: { value: PREF.KANAGAWA, refs: [1] },
+      period: { value: "2026年2月2日〜", refs: [1] },
+      status: { value: STATUS.ACTIVE, refs: [1] },
+      description: {
+        value: "小田原市、神奈川県、株式会社本田技術研究所が2025年3月31日に締結した協定に基づく自動運転技術実証。Honda CIを搭載したCR-VとN-VAN e:を用い、橘地域の西湘テクノパーク周辺で安全監視員が運転席に乗車した状態で走行し、20km/hから順次60km/hまで速度を上げながら都市交通課題解決に向けた技術検証を行う。",
+        refs: [1]
+      },
+      vehicle: [
+        { value: VEH.HONDA_CR_V, refs: [1] },
+        { value: VEH.HONDA_N_VAN_E, refs: [1] }
+      ],
+      adSystem: { value: ADS.HONDA, refs: [1] },
+      route: { value: "小田原市橘地域・西湘テクノパーク周辺", refs: [1] },
+      operationType: { value: "自動運転技術実証（安全監視員が運転席に乗車）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "自治体", name: "小田原市（神奈川県）", refs: [1] },
+        { role: "自治体", name: "神奈川県", refs: [1] },
+        { role: "自動運転技術", name: "株式会社本田技術研究所", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "自動運転技術の実証実験について", url: "https://www.city.odawara.kanagawa.jp/field/c-planning/traffic/trafficdemo/p40735.html", date: "2026-02-20", source: "小田原市" }
+      ]
+    },
+    {
+      id: "exp-258",
+      name: { value: "東京工科大学 八王子キャンパス 自動運転スクールバス実証", refs: [1] },
+      location: { value: "東京都八王子市（東京工科大学八王子キャンパス、JR八王子みなみ野駅〜キャンパス間）", lat: 35.626, lng: 139.340, refs: [1] },
+      prefecture: { value: PREF.TOKYO, refs: [1] },
+      period: { value: "2026年3月7日〜", refs: [1] },
+      status: { value: STATUS.ACTIVE, refs: [1] },
+      description: {
+        value: "東京工科大学未来モビリティ研究センターが中心となり、JR八王子みなみ野駅〜八王子キャンパス間の学園スクールバス自動運転化に向けて開始した実証。2026年3月7日に八王子キャンパスで出発式を実施し、八王子市とのAI/DX包括連携協定も踏まえ、市内教育機関や地域交通への展開を見据えている。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.UNKNOWN, refs: [1] },
+      adSystem: { value: ADS.UNKNOWN, refs: [1] },
+      route: { value: "JR八王子みなみ野駅〜東京工科大学八王子キャンパス", refs: [1] },
+      operationType: { value: "自動運転スクールバス実証（レベル不明）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "研究機関", name: "東京工科大学", refs: [1] },
+        { role: "自治体・連携", name: "八王子市（東京都）", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "自動運転スクールバスの実証実験 出発式を実施", url: "https://www.teu.ac.jp/information/2026.html?id=66", date: "2026-03-26", source: "東京工科大学" }
+      ]
+    },
 ];
