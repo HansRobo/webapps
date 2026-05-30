@@ -107,6 +107,7 @@
           </div>
           <div class="map-legend">
             <span class="legend-item"><span class="legend-dot legend-dot--done"></span>登頂済み</span>
+            <span class="legend-item"><span class="legend-dot legend-dot--planned"></span>計画中</span>
             <span class="legend-item"><span class="legend-dot legend-dot--todo"></span>未登頂</span>
           </div>
         </div>
@@ -140,7 +141,12 @@
     <section class="timeline-view" id="timelineView" hidden>
       <div class="timeline-head">
         <h2>登頂タイムライン</h2>
-        <div class="timeline-summary" id="timelineSummary"></div>
+        <div class="timeline-head__right">
+          <span class="timeline-summary" id="timelineSummary"></span>
+          <button class="chip-button" id="addPlanBtn" type="button">
+            <span class="material-symbols-outlined">add</span>計画を追加
+          </button>
+        </div>
       </div>
       <div class="timeline-body" id="timelineBody"></div>
     </section>
@@ -178,6 +184,28 @@
           </button>
         </div>
         <div class="detail-panel__body" id="detailBody"></div>
+      </div>
+    </div>
+
+    <!-- 計画追加ピッカー -->
+    <div class="detail-overlay" id="planPickerOverlay" role="dialog" aria-modal="true" aria-labelledby="planPickerTitle" hidden>
+      <div class="detail-panel detail-panel--narrow">
+        <div class="detail-panel__header">
+          <div class="detail-panel__title-area">
+            <h2 class="detail-panel__title" id="planPickerTitle">計画に追加</h2>
+            <p class="detail-panel__location">登る予定の山を選んで計画中にします。タップで切替。</p>
+          </div>
+          <button class="icon-button" id="closePlanPicker" aria-label="閉じる">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <div class="detail-panel__body">
+          <div class="quick-search">
+            <span class="material-symbols-outlined">search</span>
+            <input id="planPickerSearch" type="search" placeholder="山名・読みで検索" autocomplete="off" />
+          </div>
+          <ul class="plan-picker-list" id="planPickerList" role="list"></ul>
+        </div>
       </div>
     </div>
 
