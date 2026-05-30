@@ -56,6 +56,11 @@ document.addEventListener("DOMContentLoaded", () => {
     filteredCountMain: document.getElementById("filteredCountMain"),
     emptyHint: document.getElementById("emptyHint"),
     mountainList: document.getElementById("mountainList"),
+    viewSwitch: document.getElementById("viewSwitch"),
+    mapView: document.getElementById("mapView"),
+    timelineView: document.getElementById("timelineView"),
+    timelineBody: document.getElementById("timelineBody"),
+    timelineSummary: document.getElementById("timelineSummary"),
     ascendedCount: document.getElementById("ascendedCount"),
     progressFill: document.getElementById("progressFill"),
     detailOverlay: document.getElementById("detailOverlay"),
@@ -94,6 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
     sortBy: "no",
     selectedId: null,
     mobilePanel: "results",
+    view: "map",
   };
 
   // ── ストア初期化 ──
@@ -234,6 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     dom.mountainList.innerHTML = filtered.map(renderListItem).join("");
     renderProgress();
+    if (state.view === "timeline") renderTimeline();
   }
 
   function renderListItem(m) {
@@ -273,6 +280,94 @@ document.addEventListener("DOMContentLoaded", () => {
     const ascended = mountains.filter((m) => AscentStore.isAscended(m.id)).length;
     dom.ascendedCount.textContent = String(ascended);
     dom.progressFill.style.width = `${(ascended / TOTAL) * 100}%`;
+  }
+
+  // ════════════════ タイムラインビュー ════════════════
+  function buildTimelineEvents() {
+    const events = [];
+    const all = AscentStore.getAll();
+    for (const [id, rec] of Object.entries(all)) {
+      const m = mountainById.get(id);
+      if (!m) continue;
+      rec.history.forEach((h) => events.push({ m, date: h.date, note: h.note, url: h.url }));
+    }
+    // 日付ありを新しい順、日付なしは末尾
+    events.sort((a, b) => {
+      if (a.date && b.date) return b.date.localeCompare(a.date);
+      if (a.date) return -1;
+      if (b.date) return 1;
+      return a.m.no - b.m.no;
+    });
+    return events;
+  }
+
+  function renderTimeline() {
+    const events = buildTimelineEvents();
+    const peaks = new Set(events.map((e) => e.m.id)).size;
+    dom.timelineSummary.textContent = events.length
+      ? `延べ ${events.length} 回 ・ ${peaks} 座`
+      : "";
+
+    if (!events.length) {
+      dom.timelineBody.innerHTML =
+        `<p class="timeline-empty">まだ登頂記録がありません。マップで山を選んで登頂日を記録すると、ここに時系列で表示されます。</p>`;
+      return;
+    }
+
+    let html = "";
+    let currentYear = null;
+    for (const e of events) {
+      const year = e.date ? e.date.slice(0, 4) : "日付不明";
+      if (year !== currentYear) {
+        if (currentYear !== null) html += `</div>`;
+        html += `<div class="timeline-year-label">${escHtml(year)}${e.date ? "年" : ""}</div><div class="timeline-group">`;
+        currentYear = year;
+      }
+      const m = e.m;
+      const link = e.url
+        ? `<a class="timeline-item__link" href="${escAttr(e.url)}" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined">hiking</span>記録</a>`
+        : "";
+      html += `<div class="timeline-item" data-id="${m.id}" role="button" tabindex="0">
+        <div class="timeline-item__date">${e.date ? escHtml(formatDate(e.date)) : "日付不明"}</div>
+        <div class="timeline-item__dot"></div>
+        <div class="timeline-item__card">
+          <div class="timeline-item__head">
+            <span class="timeline-item__no">${m.no}</span>
+            <span class="timeline-item__name">${escHtml(m.name)}</span>
+            <span class="meta-chip"><span class="material-symbols-outlined">straighten</span>${m.elevation.toLocaleString()}m</span>
+            <span class="meta-chip">${escHtml(m.regionLabel)}</span>
+          </div>
+          ${e.note ? `<div class="timeline-item__note">${escHtml(e.note)}</div>` : ""}
+          ${link}
+        </div>
+      </div>`;
+    }
+    if (currentYear !== null) html += `</div>`;
+    dom.timelineBody.innerHTML = html;
+  }
+
+  function formatDate(iso) {
+    const [y, mo, d] = iso.split("-");
+    if (!mo) return `${y}`;
+    if (!d) return `${y}/${mo}`;
+    return `${y}/${mo}/${d}`;
+  }
+
+  function setView(view) {
+    state.view = view;
+    document.body.dataset.view = view;
+    dom.mapView.hidden = view !== "map";
+    dom.timelineView.hidden = view !== "timeline";
+    dom.viewSwitch.querySelectorAll(".view-switch__btn").forEach((btn) => {
+      const active = btn.dataset.view === view;
+      btn.classList.toggle("active", active);
+      btn.setAttribute("aria-selected", active ? "true" : "false");
+    });
+    if (view === "map") {
+      setTimeout(() => map.invalidateSize(), 0);
+    } else {
+      renderTimeline();
+    }
   }
 
   // ════════════════ 詳細＋登頂記録エディタ ════════════════
@@ -464,6 +559,27 @@ document.addEventListener("DOMContentLoaded", () => {
     if (li) openDetail(li.dataset.id);
   });
 
+  // ビュー切替
+  dom.viewSwitch.addEventListener("click", (e) => {
+    const btn = e.target.closest(".view-switch__btn");
+    if (btn) setView(btn.dataset.view);
+  });
+
+  // タイムラインの項目クリックで詳細を開く
+  dom.timelineBody.addEventListener("click", (e) => {
+    if (e.target.closest("a")) return;
+    const item = e.target.closest(".timeline-item");
+    if (item) openDetail(item.dataset.id);
+  });
+  dom.timelineBody.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter" && e.key !== " ") return;
+    const item = e.target.closest(".timeline-item");
+    if (item) {
+      e.preventDefault();
+      openDetail(item.dataset.id);
+    }
+  });
+
   dom.closeDetail.addEventListener("click", closeDetail);
   dom.detailOverlay.addEventListener("click", (e) => {
     if (e.target === dom.detailOverlay) closeDetail();
@@ -646,6 +762,7 @@ B) PAT + curl の場合（TOKEN は gist スコープ付き PAT）:
   buildFilters();
   renderPrefectureChips();
   setMobilePanel("results");
+  setView("map");
   dom.agentPrompt.textContent = buildAgentPrompt();
   render();
 

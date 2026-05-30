@@ -51,6 +51,10 @@ body {
   height: 100%;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 body {
   font-family: "M PLUS 1p", sans-serif;
   color: var(--text-main);
@@ -167,6 +171,200 @@ body {
   border-radius: 999px;
   background: linear-gradient(90deg, var(--accent), #4fb37a);
   transition: width 320ms ease;
+}
+
+/* ════ ビュー切替 ════ */
+.view-switch {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  border: 1px solid var(--surface-border);
+}
+
+.view-switch__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 13px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-sub);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 140ms ease, color 140ms ease;
+}
+
+.view-switch__btn .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.view-switch__btn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ════ タイムラインビュー ════ */
+.timeline-view {
+  height: calc(100vh - var(--topbar-height));
+  overflow-y: auto;
+  padding: 24px 16px 56px;
+}
+
+.timeline-head {
+  max-width: 760px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.timeline-head h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.timeline-summary {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.timeline-body {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.timeline-empty {
+  color: var(--text-sub);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.timeline-year-label {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--accent);
+  margin: 16px 0 10px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 82px 22px 1fr;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.timeline-item__date {
+  text-align: right;
+  font-size: 12px;
+  color: var(--text-sub);
+  padding-top: 13px;
+  white-space: nowrap;
+}
+
+.timeline-item__dot {
+  position: relative;
+}
+
+.timeline-item__dot::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--surface-border);
+  transform: translateX(-50%);
+}
+
+.timeline-item__dot::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 13px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--surface);
+  box-shadow: 0 0 0 1px var(--surface-border);
+  transform: translate(-50%, -50%);
+}
+
+.timeline-item__card {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  transition: border-color 140ms ease, transform 140ms ease;
+}
+
+.timeline-item:hover .timeline-item__card {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.timeline-item__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.timeline-item__no {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.timeline-item__name {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.timeline-item__note {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.6;
+}
+
+.timeline-item__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+  padding: 3px 10px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.timeline-item__link:hover {
+  background: var(--accent-soft);
+}
+
+.timeline-item__link .material-symbols-outlined {
+  font-size: 15px;
 }
 
 /* ════ レイアウト ════ */
@@ -1006,6 +1204,20 @@ body {
 
   .progress-wrap {
     min-width: 120px;
+  }
+
+  .view-switch__btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  body[data-view="timeline"] .mobile-dock {
+    display: none;
+  }
+
+  .timeline-item {
+    grid-template-columns: 64px 18px 1fr;
+    gap: 6px;
   }
 
   .app-layout {

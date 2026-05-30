@@ -35,6 +35,14 @@
           <h1 class="top-app-bar__title">日本百名山マップ</h1>
           <p class="top-app-bar__subtitle">登頂記録を地図で管理</p>
         </div>
+        <div class="view-switch" id="viewSwitch" role="tablist" aria-label="表示切替">
+          <button class="view-switch__btn active" data-view="map" type="button" role="tab" aria-selected="true">
+            <span class="material-symbols-outlined">map</span>マップ
+          </button>
+          <button class="view-switch__btn" data-view="timeline" type="button" role="tab" aria-selected="false">
+            <span class="material-symbols-outlined">timeline</span>タイムライン
+          </button>
+        </div>
         <div class="progress-wrap" id="progressWrap">
           <div class="progress-text"><strong id="ascendedCount">0</strong> / 100 座 登頂</div>
           <div class="progress-bar"><div class="progress-bar__fill" id="progressFill"></div></div>
@@ -45,7 +53,7 @@
       </div>
     </header>
 
-    <div class="app-layout">
+    <div class="app-layout" id="mapView">
       <aside class="control-panel" id="controlPanel">
         <div class="panel-header">
           <h2>絞り込み</h2>
@@ -128,6 +136,14 @@
         <ul class="mountain-list" id="mountainList" role="list"></ul>
       </aside>
     </div>
+
+    <section class="timeline-view" id="timelineView" hidden>
+      <div class="timeline-head">
+        <h2>登頂タイムライン</h2>
+        <div class="timeline-summary" id="timelineSummary"></div>
+      </div>
+      <div class="timeline-body" id="timelineBody"></div>
+    </section>
 
     <div class="mobile-dock" id="mobileDock">
       <button id="mobileShowFilters" type="button">
