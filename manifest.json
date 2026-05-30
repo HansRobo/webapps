@@ -13,6 +13,13 @@
       "icon": "📡",
       "path": "apps/lidar-catalog/index.html",
       "tags": ["LiDAR", "センサ", "自動運転", "ロボット", "ハードウェア"]
+    },
+    {
+      "name": "日本百名山マップ",
+      "description": "深田久弥の日本百名山を地図で一覧。登頂記録（登頂日・メモ・複数回履歴）を管理。",
+      "icon": "⛰️",
+      "path": "apps/hyakumeizan-map/index.html",
+      "tags": ["登山", "百名山", "地図", "アウトドア", "登頂記録"]
     }
   ]
 }
