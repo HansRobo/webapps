@@ -29,7 +29,19 @@ document.addEventListener("DOMContentLoaded", () => {
       regionLabel: m.region.label,
     }])
   );
-  const listById = new Map(MOUNTAIN_LISTS.map((l) => [l.id, l]));
+  // 「全て」モード: カタログ全山を北→南で並べた仮想リスト。
+  // lists.js には持たずカタログから派生させるため、山を追加しても同期不要（メンテフリー）。
+  const ALL_LIST = {
+    id: "all",
+    label: "全ての名山",
+    shortLabel: "全ての名山",
+    source: "全リスト統合（日本百名山〜三百名山・花の百名山ほか）",
+    members: [...MOUNTAIN_CATALOG]
+      .sort((a, b) => b.lat - a.lat || a.id.localeCompare(b.id))
+      .map((m, i) => ({ m, no: i + 1 })),
+  };
+  const ALL_LISTS = [...MOUNTAIN_LISTS, ALL_LIST];
+  const listById = new Map(ALL_LISTS.map((l) => [l.id, l]));
 
   // ── アクティブリストに依存する状態（リスト切替で再構築する） ──
   let activeList = null;
@@ -341,6 +353,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ════════════════ タイムラインビュー ════════════════
+  // タイムラインはアクティブリストの山の記録・計画のみを対象にする（マップ・一覧と同じ絞り込み）。
+  // 全リスト横断の履歴を見たいときは「全て」リストを選ぶ。
   function buildTimelineEvents() {
     const events = [];
     const all = AscentStore.getAll();
@@ -499,7 +513,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function buildListSelect() {
-    dom.listSelect.innerHTML = MOUNTAIN_LISTS
+    dom.listSelect.innerHTML = ALL_LISTS
       .map((l) => `<option value="${escAttr(l.id)}">${escHtml(l.label)}</option>`)
       .join("");
   }
