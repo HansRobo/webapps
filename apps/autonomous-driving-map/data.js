@@ -702,27 +702,28 @@ const EXPERIMENTS = [
     },
   {
       id: "exp-026",
-      name: { value: "気仙沼線BRT 自動運転バス実用化（宮城県）", refs: [1, 2] },
-      location: { value: "宮城県本吉郡南三陸町・登米市", lat: 38.650, lng: 141.450, refs: [1, 2] },
-      prefecture: { value: PREF.MIYAGI, refs: [1, 2] },
-      period: { value: "2022年12月〜運行中（2018年度から技術実証）", refs: [1, 2] },
-      status: { value: STATUS.ACTIVE, refs: [1, 2] },
+      name: { value: "気仙沼線BRT 自動運転バス実用化・レベル4走行（宮城県）", refs: [1, 2, 3] },
+      location: { value: "宮城県登米市・本吉郡南三陸町（気仙沼線BRT専用道）", lat: 38.650, lng: 141.450, refs: [1, 2, 3] },
+      prefecture: { value: PREF.MIYAGI, refs: [1, 2, 3] },
+      period: { value: "2022年12月〜運行中（2026年5月29日〜7月4日の金・土にレベル4走行）", refs: [1, 2, 3] },
+      status: { value: STATUS.ACTIVE, refs: [1, 2, 3] },
       description: {
-        value: "JR東日本管内の気仙沼線BRTで、先進モビリティの自動運転システムを搭載した大型ハイブリッドバスにより、柳津〜陸前横山間の専用道で走行。2018年度からの実証を経て2022年12月に実用化し、将来のレベル4運行に向けた運用を継続している。",
-        refs: [1, 2]
+        value: "JR東日本管内の気仙沼線BRTで、先進モビリティの自動運転システムを搭載した大型ハイブリッドバスにより専用道を走行。2018年度からの実証を経て2022年12月にレベル2実用化を開始し、2025年度に走行環境条件の付与と特定自動運行許可を取得。2026年5月29日から7月4日までの金・土に、柳津駅〜水尻川AP間約15.5kmで最高速度約60km/hの乗務員乗車型レベル4走行を実施する。",
+        refs: [1, 2, 3]
       },
-      vehicle: { value: VEH.LARGE_ROUTE_BUS_GENERIC, refs: [1] },
+      vehicle: { value: VEH.LARGE_ROUTE_BUS_GENERIC, refs: [1, 3] },
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [2] },
-      route: { value: "気仙沼線BRT 柳津駅〜陸前横山駅間（片道約4.8kmの専用道）", refs: [1, 2] },
-      operationType: { value: "レベル2（実用化済み）、将来レベル4予定", refs: [1, 2] },
-      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      route: { value: "気仙沼線BRT 柳津駅〜水尻川AP間（片道約15.5kmの専用道、折返し区間は手動運転）", refs: [3] },
+      operationType: { value: "レベル4（乗務員乗車型、特定条件下・専用道区間）／通常運行はレベル2実用化済み", refs: [1, 2, 3] },
+      lv4Approval: { value: LV4_APPROVAL.OPERATION_PERMITTED, refs: [3] },
       stakeholders: [
-        { role: "運行主体", name: "東日本旅客鉄道株式会社（JR東日本）", refs: [1] },
+        { role: "運行主体", name: "東日本旅客鉄道株式会社（JR東日本）", refs: [1, 3] },
         { role: "システム", name: "先進モビリティ株式会社", refs: [1, 2] }
       ],
       references: [
         { id: 1, title: "気仙沼BRT｜RoAD to the L4（気仙沼線BRT自動運転事例）", url: "https://www.road-to-the-l4.go.jp/case/memoirs/9311/", date: "2023-03-02", source: "国交省 RoAD to the L4" },
-        { id: 2, title: "実験事例：JR東日本 気仙沼線BRT", url: "https://www.as-mobi.com/case/", date: "2026-03-29", source: "先進モビリティ株式会社" }
+        { id: 2, title: "実験事例：JR東日本 気仙沼線BRT", url: "https://www.as-mobi.com/case/", date: "2026-03-29", source: "先進モビリティ株式会社" },
+        { id: 3, title: "気仙沼線BRT 自動運転レベル4走行を実施します", url: "https://www.jreast.co.jp/press/2026/20260508_ho02.pdf", date: "2026-05-08", source: "東日本旅客鉄道株式会社（JR東日本）" }
       ]
     },
   {
@@ -2586,27 +2587,28 @@ const EXPERIMENTS = [
     },
   {
       id: "exp-114",
-      name: { value: "都営バス 新木場駅前〜日本科学未来館 自動運転実証", refs: [1] },
-      location: { value: "東京都江東区（新木場駅前〜日本科学未来館）", lat: 35.65, lng: 139.79, refs: [1] },
-      prefecture: { value: PREF.TOKYO, refs: [1] },
-      period: { value: "2026年3月1日〜3月13日（予定）", refs: [1] },
-      status: { value: STATUS.CANCELLED, refs: [1] },
+      name: { value: "都営バス 新木場駅前〜日本科学未来館 自動運転実証", refs: [1, 2] },
+      location: { value: "東京都江東区（新木場駅前〜日本科学未来館）", lat: 35.65, lng: 139.79, refs: [1, 2] },
+      prefecture: { value: PREF.TOKYO, refs: [1, 2] },
+      period: { value: "2026年6月21日〜6月29日（6月23日運休）", refs: [2] },
+      status: { value: STATUS.PLANNED, refs: [2] },
       description: {
-        value: "東京都交通局が、既存の都営バス路線の一部を活用して大型バスによる自動運転実証を計画。予約制の無料乗車（1便20名）で運用予定だったが、2026年2月27日に同種の自動運転システムを使用した別実証で事故が発生したため延期。2026年3月9日に2025年度内の実施見送りが決定した。",
-        refs: [1]
+        value: "東京都交通局が、既存の都営バス路線の一部を活用して大型バスによる自動運転実証を計画。2026年3月実施予定分は同種の自動運転システムを使用した別実証での事故を受けて見送られたが、2026年5月25日に実施時期を再告知し、同年6月21日から29日まで予約制の無料乗車（1便20名）で1日4往復・8便を運行する予定。",
+        refs: [1, 2]
       },
-      vehicle: { value: VEH.ISUZU_ERGA, refs: [1] },
-      adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
-      route: { value: "新木場駅前〜日本科学未来館（片道約30分）", refs: [1] },
-      operationType: { value: "レベル2（運転手同乗）", refs: [1] },
+      vehicle: { value: VEH.ISUZU_ERGA, refs: [1, 2] },
+      adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1, 2] },
+      route: { value: "新木場駅前〜日本科学未来館（片道約30分、1日4往復・8便）", refs: [1, 2] },
+      operationType: { value: "レベル2（運転手同乗）", refs: [1, 2] },
       lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
-        { role: "自治体", name: "東京都", refs: [1] },
-        { role: "運行主体", name: "東京都交通局", refs: [1] },
-        { role: "車両提供", name: "いすゞ自動車株式会社", refs: [1] }
+        { role: "自治体", name: "東京都", refs: [1, 2] },
+        { role: "運行主体", name: "東京都交通局", refs: [1, 2] },
+        { role: "車両提供", name: "いすゞ自動車株式会社", refs: [1, 2] }
       ],
       references: [
-        { id: 1, title: "都営バスで自動運転の実証実験を行います", url: "https://www.metro.tokyo.lg.jp/information/press/2026/01/2026012306", date: "2026-01-23", source: "東京都 報道発表資料" }
+        { id: 1, title: "都営バスで自動運転の実証実験を行います", url: "https://www.metro.tokyo.lg.jp/information/press/2026/01/2026012306", date: "2026-01-23", source: "東京都 報道発表資料" },
+        { id: 2, title: "都営バスで自動運転の実証実験を行います！", url: "https://www.kotsu.metro.tokyo.jp/pickup_information/news/bus/2026/bus_p_2026052512670_h.html", date: "2026-05-25", source: "東京都交通局" }
       ]
     },
   {
@@ -5830,6 +5832,34 @@ const EXPERIMENTS = [
       ],
       references: [
         { id: 1, title: "自動運転スクールバスの実証実験 出発式を実施", url: "https://www.teu.ac.jp/information/2026.html?id=66", date: "2026-03-26", source: "東京工科大学" }
+      ]
+    },
+    {
+      id: "exp-259",
+      name: { value: "愛・地球博記念公園 自動運転園内バス実証（園内バス西ルート）", refs: [1, 2] },
+      location: { value: "愛知県長久手市（愛・地球博記念公園／モリコロパーク）", lat: 35.173, lng: 137.089, refs: [1, 2] },
+      prefecture: { value: PREF.AICHI, refs: [1, 2] },
+      period: { value: "2026年1月28日〜3月31日", refs: [1, 2] },
+      status: { value: STATUS.COMPLETED, refs: [1, 2] },
+      description: {
+        value: "愛知県が愛・地球博記念公園の園内バス西ルートで実施した自動運転園内バス導入実証。BOLDLYを幹事とする4社体制でWeRide製RoboBus 2台を使用し、歩車混在空間でのレベル2自動運転、園内バスとしての定時運行、将来的な運転席無人（レベル4相当）実装に向けた運用課題を検証した。成果報告では一般乗車364便、乗車実績3,102人、全区間自動の運行区間約5.1kmが示された。",
+        refs: [1, 2]
+      },
+      vehicle: { value: VEH.WERIDE_BUS, refs: [1, 2] },
+      adSystem: { value: ADS.WERIDE, refs: [1, 2] },
+      route: { value: "愛・地球博記念公園 園内バス西ルート 約5.1km", refs: [1, 2] },
+      operationType: { value: "レベル2（中型EVバス、将来の運転席無人・レベル4相当実装に向けた検証）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "自治体・事業主体", name: "愛知県", refs: [1] },
+        { role: "事業統括", name: "BOLDLY株式会社", refs: [1, 2] },
+        { role: "運行支援", name: "名鉄バス株式会社", refs: [1, 2] },
+        { role: "車両提供・自動運転システム", name: "WeRide（中国）", refs: [1, 2] },
+        { role: "乗客サポート", name: "株式会社ワークシステムサービス", refs: [1, 2] }
+      ],
+      references: [
+        { id: 1, title: "愛・地球博記念公園における自動運転園内バスの実証実験について", url: "https://www.pref.aichi.jp/press-release/jidounten/morikoro-2025.html", date: "2026-01-21", source: "愛知県" },
+        { id: 2, title: "2025年度 愛・地球博記念公園での自動運転導入実証事業 業務実施成果報告書", url: "https://www.pref.aichi.jp/uploaded/attachment/611497.pdf", date: "2026-03-31", source: "BOLDLY株式会社" }
       ]
     },
 ];
