@@ -233,13 +233,22 @@ document.addEventListener("DOMContentLoaded", () => {
       .join("");
   }
 
+  // 山名・別表記・読みのいずれかに小文字クエリ q が含まれるか（q は小文字前提）。
+  function mountainMatchesQuery(m, q) {
+    return m.name.toLowerCase().includes(q) ||
+      m.aliases.some((a) => a.toLowerCase().includes(q)) ||
+      m.reading.toLowerCase().includes(q);
+  }
+
+  // 別表記を「（A・B）」形式で表示（無ければ空文字）。
+  function formatAliases(aliases) {
+    return aliases.length ? `（${aliases.join("・")}）` : "";
+  }
+
   // ════════════════ フィルタ＆ソート ════════════════
   function matches(m) {
     if (state.query) {
-      const q = state.query.toLowerCase();
-      if (!m.name.toLowerCase().includes(q) &&
-          !m.aliases.some((a) => a.toLowerCase().includes(q)) &&
-          !m.reading.toLowerCase().includes(q)) return false;
+      if (!mountainMatchesQuery(m, state.query.toLowerCase())) return false;
     }
     if (state.ascent.size && !state.ascent.has(AscentStore.status(m.id))) return false;
     if (state.regions.size && !state.regions.has(m.regionId)) return false;
@@ -545,7 +554,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const planned = status === "planned";
     dom.detailStatus.className = `status-badge status-badge--${status}`;
     dom.detailStatus.textContent = STATUS_LABEL[status];
-    dom.detailTitle.textContent = `${m.no}. ${m.name}${m.aliases.length ? `（${m.aliases.join("・")}）` : ""}`;
+    dom.detailTitle.textContent = `${m.no}. ${m.name}${formatAliases(m.aliases)}`;
     dom.detailLocation.textContent = `${m.reading}　${m.prefLabels.join("・")}`;
 
     const history = AscentStore.getEntry(m.id).history;
@@ -749,13 +758,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const q = dom.planPickerSearch.value.trim().toLowerCase();
     const list = mountains
       .filter((m) => AscentStore.status(m.id) !== "done")
-      .filter(
-        (m) =>
-          !q ||
-          m.name.toLowerCase().includes(q) ||
-          m.aliases.some((a) => a.toLowerCase().includes(q)) ||
-          m.reading.toLowerCase().includes(q)
-      );
+      .filter((m) => !q || mountainMatchesQuery(m, q));
     dom.planPickerList.innerHTML =
       list
         .map((m) => {
@@ -907,12 +910,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── AI 一括入力プロンプト（自己完結・リポジトリ不要） ──
   function buildAgentPrompt() {
     const filename = (typeof HYAKUMEIZAN_CONFIG !== "undefined" && HYAKUMEIZAN_CONFIG.GIST_FILENAME) || "hyakumeizan-ascents.json";
-    // 記録は山ID単位で全リスト共通のため、現在のリストに限らずカタログ全体を列挙する。
-    const idList = MOUNTAIN_CATALOG
-      .map((m) => {
-        const c = catalogById.get(m.id);
-        return `${m.id}  ${m.name}${c.aliases.length ? `（${c.aliases.join("・")}）` : ""}  ${c.prefLabels.join("・")}  ${m.elevation}m`;
-      })
+    // 記録は山ID単位で全リスト共通のため、現在のリストに限らずカタログ全体（正規化済み）を列挙する。
+    const idList = Array.from(catalogById.values())
+      .map((c) => `${c.id}  ${c.name}${formatAliases(c.aliases)}  ${c.prefLabels.join("・")}  ${c.elevation}m`)
       .join("\n");
     return `あなたはコーディングエージェントです。私の登山記録をもとに「百名山マップ」アプリの登頂記録 Gist を更新してください。
 
