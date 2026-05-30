@@ -388,7 +388,15 @@ document.addEventListener("DOMContentLoaded", () => {
     return `${y}/${mo}/${d}`;
   }
 
-  function setView(view) {
+  const VIEWS = ["map", "timeline"];
+
+  function viewFromHash() {
+    const v = location.hash.replace(/^#\/?/, "");
+    return VIEWS.includes(v) ? v : "map";
+  }
+
+  function setView(view, pushHash = true) {
+    if (!VIEWS.includes(view)) view = "map";
     state.view = view;
     document.body.dataset.view = view;
     dom.mapView.hidden = view !== "map";
@@ -403,7 +411,11 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       renderTimeline();
     }
+    const want = `#/${view}`;
+    if (pushHash && location.hash !== want) location.hash = want;
   }
+
+  window.addEventListener("hashchange", () => setView(viewFromHash(), false));
 
   // ════════════════ 詳細＋登頂記録エディタ ════════════════
   function openDetail(id) {
@@ -873,7 +885,7 @@ B) PAT + curl の場合（TOKEN は gist スコープ付き PAT）:
   buildFilters();
   renderPrefectureChips();
   setMobilePanel("results");
-  setView("map");
+  setView(viewFromHash());
   dom.agentPrompt.textContent = buildAgentPrompt();
   render();
 
