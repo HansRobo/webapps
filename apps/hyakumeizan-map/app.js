@@ -100,28 +100,40 @@ document.addEventListener("DOMContentLoaded", () => {
   AscentStore.init();
 
   // ════════════════ 地図 ════════════════
-  const map = L.map("map", { zoomControl: true, attributionControl: true }).setView([37.8, 138.5], 5);
+  const map = L.map("map", { zoomControl: true, attributionControl: true }).setView([37.5, 138.0], 6);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 18,
   }).addTo(map);
 
+  // 初期表示は全100座が収まる範囲にフィット（周辺諸国まで写り込まないようにする）
+  const dataBounds = L.latLngBounds(mountains.map((m) => [m.lat, m.lng]));
+  map.fitBounds(dataBounds, { padding: [28, 28], maxZoom: 7 });
+
   const markerById = new Map();
 
-  function markerStyle(done) {
-    return {
-      radius: 7,
-      weight: 2,
-      color: "#ffffff",
-      fillColor: done ? "#1f9d4d" : "#8a97a8",
-      fillOpacity: 0.95,
-    };
+  // 登頂状態で色分けした山頂マーク（三角アイコン）。白縁＋影で地図上の視認性を確保する。
+  const MARK_DONE = "#e8590c"; // 登頂済み: 鮮やかな朱
+  const MARK_TODO = "#1f3a5f"; // 未登頂: 濃紺
+
+  function peakIcon(done) {
+    const fill = done ? MARK_DONE : MARK_TODO;
+    return L.divIcon({
+      className: `peak-marker ${done ? "peak-marker--done" : "peak-marker--todo"}`,
+      html: `<svg width="28" height="26" viewBox="0 0 28 26" aria-hidden="true">
+        <path d="M14 2 L26 23 H2 Z" fill="${fill}" stroke="#ffffff" stroke-width="2.2" stroke-linejoin="round"/>
+        ${done ? '<path d="M14 2 L18.2 9.3 L14 11.8 L9.8 9.3 Z" fill="#ffffff" fill-opacity="0.9"/>' : ""}
+      </svg>`,
+      iconSize: [28, 26],
+      iconAnchor: [14, 23], // 三角の底辺中央（山の麓）を座標に合わせる
+      popupAnchor: [0, -22],
+    });
   }
 
   function buildMarkers() {
     for (const m of mountains) {
       const done = AscentStore.isAscended(m.id);
-      const marker = L.circleMarker([m.lat, m.lng], markerStyle(done));
+      const marker = L.marker([m.lat, m.lng], { icon: peakIcon(done), title: m.name });
       marker.on("click", () => openDetail(m.id));
       markerById.set(m.id, marker);
     }
@@ -129,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function refreshMarker(id) {
     const marker = markerById.get(id);
-    if (marker) marker.setStyle(markerStyle(AscentStore.isAscended(id)));
+    if (marker) marker.setIcon(peakIcon(AscentStore.isAscended(id)));
   }
 
   // ════════════════ フィルタUI構築 ════════════════

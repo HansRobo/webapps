@@ -414,19 +414,41 @@ body {
 }
 
 .legend-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  box-shadow: 0 0 0 1px var(--surface-border);
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 12px solid #888;
+  filter: drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.6));
 }
 
 .legend-dot--done {
-  background: #1f9d4d;
+  border-bottom-color: #e8590c;
 }
 
 .legend-dot--todo {
-  background: #8a97a8;
+  border-bottom-color: #1f3a5f;
+}
+
+/* 山頂マーク（Leaflet divIcon のデフォルト枠・背景を打ち消す） */
+.peak-marker {
+  background: transparent;
+  border: none;
+}
+
+.peak-marker svg {
+  display: block;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
+}
+
+.peak-marker--todo {
+  opacity: 0.92;
+}
+
+.peak-marker:hover svg {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.55));
+  transform: scale(1.12);
+  transform-origin: 50% 88%;
 }
 
 /* ════ 一覧 ════ */
