@@ -212,6 +212,40 @@ body {
   color: #fff;
 }
 
+/* ════ リスト選択 ════ */
+.list-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px 3px 12px;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  border: 1px solid var(--surface-border);
+}
+
+.list-switch__icon {
+  font-size: 18px;
+  color: var(--accent);
+}
+
+.list-switch__select {
+  border: none;
+  background: transparent;
+  color: var(--text-main);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 4px 2px;
+  max-width: 200px;
+}
+
+.list-switch__select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
 /* ════ タイムラインビュー ════ */
 .timeline-view {
   height: calc(100vh - var(--topbar-height));
@@ -1353,6 +1387,23 @@ body {
 
   .view-switch__btn {
     padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .top-app-bar__subtitle {
+    display: none;
+  }
+
+  .list-switch {
+    padding: 3px 6px;
+  }
+
+  .list-switch__icon {
+    display: none;
+  }
+
+  .list-switch__select {
+    max-width: 120px;
     font-size: 12px;
   }
 
