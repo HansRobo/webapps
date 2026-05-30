@@ -1,9 +1,11 @@
 // 日本百名山マップ 登頂記録ストア
 //
 // 永続化レイヤー。記録データ構造:
-//   { [mountainId]: { history: [ { date: "YYYY-MM-DD" | null, note: string, url: string }, ... ] } }
-//   登頂済み = history.length > 0（date が null でも「登頂済み・日付不明」を表現できる）
-//   url は登山記録（YAMAP 等）への任意リンク
+//   { [mountainId]: { history: [ { date, note, url }, ... ], planned: boolean } }
+//   状態の優先順位: 登頂済み(history.length>0) > 計画中(planned) > 未登頂
+//   - date が null でも「登頂済み・日付不明」を表現できる
+//   - planned は「これから登る予定」フラグ（登頂済みになると表示上は登頂済みが優先）
+//   - url は登山記録（YAMAP 等）への任意リンク
 //
 // 優先順位:
 //   1. localStorage（訪問者自身の記録 / 主ストア）
@@ -39,7 +41,8 @@ const AscentStore = (function () {
         note: h && h.note ? String(h.note) : "",
         url: h && h.url ? String(h.url) : "",
       }));
-      if (history.length) out[id] = { history };
+      const planned = !!(val && val.planned);
+      if (history.length || planned) out[id] = { history, planned };
     }
     return out;
   }
@@ -123,11 +126,38 @@ const AscentStore = (function () {
     },
 
     getEntry(id) {
-      return records[id] || { history: [] };
+      return records[id] || { history: [], planned: false };
     },
 
     isAscended(id) {
       return !!(records[id] && records[id].history.length);
+    },
+
+    isPlanned(id) {
+      const e = records[id];
+      return !!(e && e.planned && !e.history.length);
+    },
+
+    /** 山の状態を返す: "done" | "planned" | "todo" */
+    status(id) {
+      const e = records[id];
+      if (e && e.history.length) return "done";
+      if (e && e.planned) return "planned";
+      return "todo";
+    },
+
+    /** 計画中フラグの設定。 */
+    setPlanned(id, planned) {
+      if (planned) {
+        const e = records[id] || (records[id] = { history: [], planned: false });
+        e.planned = true;
+      } else {
+        const e = records[id];
+        if (!e) return;
+        e.planned = false;
+        if (!e.history.length) delete records[id];
+      }
+      persist();
     },
 
     /** 最新（最も新しい日付）の登頂日を返す。日付不明・未登頂は null。 */
@@ -155,17 +185,21 @@ const AscentStore = (function () {
       const entry = records[id];
       if (!entry) return;
       entry.history.splice(index, 1);
-      if (!entry.history.length) delete records[id];
+      if (!entry.history.length && !entry.planned) delete records[id];
       persist();
     },
 
-    /** 登頂済みトグル。true で日付不明エントリを1件作成、false で全履歴を削除。 */
+    /** 登頂済みトグル。true で日付不明エントリを1件作成、false で全履歴を削除（計画中も解除）。 */
     setAscended(id, ascended) {
       if (ascended) {
         if (!this.isAscended(id)) this.addAscent(id, { date: null, note: "" });
       } else {
-        delete records[id];
-        persist();
+        const entry = records[id];
+        if (entry) {
+          entry.history = [];
+          delete records[id];
+          persist();
+        }
       }
     },
 
