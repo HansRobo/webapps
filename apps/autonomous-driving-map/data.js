@@ -5862,4 +5862,55 @@ const EXPERIMENTS = [
         { id: 2, title: "2025年度 愛・地球博記念公園での自動運転導入実証事業 業務実施成果報告書", url: "https://www.pref.aichi.jp/uploaded/attachment/611497.pdf", date: "2026-03-31", source: "BOLDLY株式会社" }
       ]
     },
+    {
+      id: "exp-260",
+      name: { value: "丸の内シャトルルート 自動運転バス実証実験", refs: [1] },
+      location: { value: "東京都千代田区（大手町・丸の内・有楽町エリア）", lat: 35.681, lng: 139.765, refs: [1] },
+      prefecture: { value: PREF.TOKYO, refs: [1] },
+      period: { value: "2026年6月23日〜7月2日", refs: [1] },
+      status: { value: STATUS.PLANNED, refs: [1] },
+      description: {
+        value: "東京都が推進する自動運転サービス導入に向けた走行環境整備プロジェクトの一環として、大丸有エリアの無料循環バス「丸の内シャトル」と同様のルートで初めて実施する自動運転バス実証。BYD J6を用いて、事前予約不要・無料で乗車できるレベル2運行を行い、都市部での社会実装に向けた課題と対策を検証する。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.BYD_J6, refs: [1] },
+      adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
+      route: { value: "丸の内シャトル運行ルート（大手町・丸の内・有楽町エリア、約40〜50分間隔）", refs: [1] },
+      operationType: { value: "レベル2（乗車無料・事前予約不要）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "実施主体", name: "東京都 都市整備局", refs: [1] },
+        { role: "車両提供", name: "先進モビリティ株式会社", refs: [1] },
+        { role: "運行支援", name: "日の丸自動車興業株式会社", refs: [1] },
+        { role: "協力", name: "一般社団法人 大手町・丸の内・有楽町地区まちづくり協議会", refs: [1] },
+        { role: "協力", name: "千代田区（東京都）", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "丸の内シャトルルートにおける自動運転（レベル2）バス実証実験", url: "https://tokyo-omy.jp/press-release/press-release-2484/", date: "2026-05-11", source: "大丸有INDEX" }
+      ]
+    },
+    {
+      id: "exp-261",
+      name: { value: "大阪市内路線バス25号系統 自動運転バス実証計画", refs: [1] },
+      location: { value: "大阪府大阪市（地下鉄住之江公園〜住吉車庫）", lat: 34.609, lng: 135.482, refs: [1] },
+      prefecture: { value: PREF.OSAKA, refs: [1] },
+      period: { value: "実施時期未定", refs: [1] },
+      status: { value: STATUS.PLANNED, refs: [1] },
+      description: {
+        value: "Osaka Metroが大阪市の支援を受け、万博会場内外や森之宮・京橋地区等で蓄積した知見を大阪市内の既存路線バスへ展開する実証計画。大阪シティバス25号系統で、市街地における自動運転システムの検証・開発、信号協調等のインフラ設備を活用した検証、実証運行に取り組む。実施時期等の詳細は今後公表予定。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.UNKNOWN, refs: [1] },
+      adSystem: { value: ADS.UNKNOWN, refs: [1] },
+      route: { value: "大阪シティバス25号系統（地下鉄住之江公園〜住吉車庫）", refs: [1] },
+      operationType: { value: "市街地での自動運転システム・信号協調等の検証、実証運行（詳細未定）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "主体", name: "大阪市高速電気軌道株式会社", refs: [1] },
+        { role: "支援自治体", name: "大阪市（大阪府）", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "大阪市内路線バスにおける自動運転バス実証実験について", url: "https://autonomous.osakametro.co.jp/news/2026/02/375/", date: "2026-02-19", source: "Osaka Metro" }
+      ]
+    },
 ];
