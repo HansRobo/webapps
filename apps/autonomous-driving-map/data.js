@@ -202,11 +202,11 @@ const EXPERIMENTS = [
       name: { value: "日立市 ひたちBRT 中型自動運転バス レベル4営業運行（RoAD to the L4）", refs: [1, 2] },
       location: { value: "茨城県日立市（ひたちBRT専用道、JR大甕駅周辺）", lat: 36.513, lng: 140.628, refs: [1] },
       prefecture: { value: PREF.IBARAKI, refs: [1] },
-      period: { value: "2025年2月3日〜（2025年5月にBRT専用道全線でレベル4営業運行開始）", refs: [1, 2, 3] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
+      period: { value: "2025年2月3日〜（2026年4月1日から営業運行休止中）", refs: [1, 2, 3, 4] },
+      status: { value: STATUS.SUSPENDED, refs: [4] },
       description: {
-        value: "経済産業省・国土交通省のRoAD to the L4テーマ2の一環として、ひたちBRTで中型バスによるレベル4営業運行を実施。2025年2月に営業運行を開始し、同年5月には専用道区間全線でレベル4運行に拡張した。",
-        refs: [1, 2, 3]
+        value: "経済産業省・国土交通省のRoAD to the L4テーマ2の一環として、ひたちBRTで中型バスによるレベル4営業運行を実施。2025年2月に営業運行を開始し、同年5月には専用道区間全線でレベル4運行に拡張した。日立市公式サイトによると、2026年4月1日から営業運行を休止している。",
+        refs: [1, 2, 3, 4]
       },
       vehicle: { value: VEH.ISUZU_ERGA_MIO, refs: [2] },
       adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [2] },
@@ -223,7 +223,8 @@ const EXPERIMENTS = [
       references: [
         { id: 1, title: "国内初！レベル4自動運転の中型バス「ひたちBRT自動運転バス」の運行サービスが開始されました", url: "https://www.meti.go.jp/press/2024/02/20250203003/20250203003.html", date: "2025-02-03", source: "経済産業省" },
         { id: 2, title: "各地の取り組み：日立市", url: "https://www.road-to-the-l4.go.jp/case/hitachi/index2.html", date: "2025-05-29", source: "RoAD to the L4 プロジェクト" },
-        { id: 3, title: "ひたちBRTバス専用道全線でのレベル4自動運転開始について", url: "https://www.aist.go.jp/aist_j/news/announce/au20250520_2.html", date: "2025-05-20", source: "産業技術総合研究所" }
+        { id: 3, title: "ひたちBRTバス専用道全線でのレベル4自動運転開始について", url: "https://www.aist.go.jp/aist_j/news/announce/au20250520_2.html", date: "2025-05-20", source: "産業技術総合研究所" },
+        { id: 4, title: "ひたちBRTで自動運転バスの営業運行がスタートします！（2026年4月1日より、運行を休止しています）", url: "https://www.city.hitachi.lg.jp/machizukuri_kankyo/kotsu_doro/1002832/1015631.html", date: "2026-04-02", source: "日立市" }
       ]
     },
   {
@@ -1738,11 +1739,11 @@ const EXPERIMENTS = [
       name: { value: "横芝光町・自動運転小型EVバス通年運行", refs: [1] },
       location: { value: "千葉県横芝光町", lat: 35.67, lng: 140.48, refs: [1] },
       prefecture: { value: PREF.CHIBA, refs: [1] },
-      period: { value: "2024年2月〜（通年運行中）", refs: [1] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
+      period: { value: "2024年2月〜2026年2月27日（3年間の事業終了）", refs: [1, 2] },
+      status: { value: STATUS.COMPLETED, refs: [2] },
       description: {
-        value: "人口減少下での生活交通維持を目的とし、自動運転小型EVバスの通年運行を開始。将来のレベル4移行を見据えた運用体制を構築。",
-        refs: [1]
+        value: "人口減少下での生活交通維持を目的とし、自動運転小型EVバスの通年運行を開始。公道での自動運転実証走行を含む3年間の事業は2026年2月27日に終了した。",
+        refs: [1, 2]
       },
       vehicle: { value: VEH.BYD_J6, refs: [1] },
       adSystem: { value: ADS.TIER_IV, refs: [1] },
@@ -1754,7 +1755,8 @@ const EXPERIMENTS = [
         { role: "運行協力", name: "BOLDLY株式会社", refs: [1] }
       ],
       references: [
-        { id: 1, title: "千葉県横芝光町で自動運転バスの通年運行を開始", url: "https://prtimes.jp/main/html/rd/p/000000062.000084523.html", date: "2024-02-02", source: "BOLDLY株式会社" }
+        { id: 1, title: "千葉県横芝光町で自動運転バスの通年運行を開始", url: "https://prtimes.jp/main/html/rd/p/000000062.000084523.html", date: "2024-02-02", source: "BOLDLY株式会社" },
+        { id: 2, title: "横芝光町で自動運転バスを活用した実証調査走行を開始！", url: "https://www.town.yokoshibahikari.chiba.jp/soshiki/3/22446.html", date: "2026-04-08", source: "横芝光町" }
       ]
     },
   {
@@ -1763,9 +1765,9 @@ const EXPERIMENTS = [
       location: { value: "東京都多摩市", lat: 35.62, lng: 139.42, refs: [1] },
       prefecture: { value: PREF.TOKYO, refs: [1] },
       period: { value: "2026年1月〜2月（実証実施）", refs: [1] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
+      status: { value: STATUS.COMPLETED, refs: [1] },
       description: {
-        value: "都内初となる「大型バス」を用いた自動運転実証。路線バスの乗務員不足解消を目指し、多摩センター駅周辺で技術検証を実施。",
+        value: "都内初となる「大型バス」を用いた自動運転実証。路線バスの乗務員不足解消を目指し、多摩センター駅周辺で技術検証を実施し、2026年2月1日に終了した。延べ938人が乗車し、自動運転による走行割合は96.8％だった。",
         refs: [1]
       },
       vehicle: { value: VEH.ISUZU_ERGA, refs: [1] },
@@ -1778,7 +1780,7 @@ const EXPERIMENTS = [
         { role: "運行主体", name: "京王電鉄バス株式会社", refs: [1] }
       ],
       references: [
-        { id: 1, title: "自動運転バスが走るまちに！", url: "https://www.city.tama.lg.jp/kurashi/bus/minibus/1019026.html", date: "2026-01-10", source: "多摩市" }
+        { id: 1, title: "【終了しました】多摩市大型自動運転バス実証運行（R7年度事業）", url: "https://www.city.tama.lg.jp/kurashi/bus/minibus/1019026.html", date: "2026-05-21", source: "多摩市" }
       ]
     },
   {

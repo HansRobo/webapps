@@ -17,6 +17,7 @@
     PLANNED:        { id: "planned",        label: "計画中" },
     ACTIVE_PLANNED: { id: "active-planned", label: "実施中・一部計画中" },
     ACTIVE_DEV:     { id: "active-dev",     label: "実施中・開発中" },
+    SUSPENDED:      { id: "suspended",      label: "休止中" },
     CANCELLED:      { id: "cancelled",      label: "中止" },
   };
 
