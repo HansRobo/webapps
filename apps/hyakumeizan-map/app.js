@@ -15,32 +15,66 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/>/g, "&gt;");
   }
 
-  // ── 山データの正規化 ──
-  const mountains = MOUNTAINS.map((m) => ({
-    ...m,
-    prefLabels: m.prefectures.map((p) => p.label),
-    prefIds: m.prefectures.map((p) => p.id),
-    regionId: m.region.id,
-    regionLabel: m.region.label,
-  }));
-  const mountainById = new Map(mountains.map((m) => [m.id, m]));
-  const TOTAL = mountains.length;
   const STATUS_LABEL = { done: "登頂済み", planned: "計画中", todo: "未登頂" };
-
-  // 出現する都道府県・山域（データ駆動でフィルタ生成）
-  const regionsInData = (() => {
-    const order = Object.values(REGION).map((r) => r.id);
-    const present = new Set(mountains.map((m) => m.regionId));
-    return Object.values(REGION).filter((r) => present.has(r.id))
-      .sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
-  })();
-  const prefsInData = (() => {
-    const order = Object.values(PREF).map((p) => p.id);
-    const present = new Set(mountains.flatMap((m) => m.prefIds));
-    return Object.values(PREF).filter((p) => present.has(p.id))
-      .sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
-  })();
   const ELEV_THRESHOLDS = [1000, 1500, 2000, 2500, 3000];
+
+  // ── カタログを一度だけ正規化（リスト非依存・不変） ──
+  const catalogById = new Map(
+    MOUNTAIN_CATALOG.map((m) => [m.id, {
+      ...m,
+      aliases: m.aliases || [],
+      prefLabels: m.prefectures.map((p) => p.label),
+      prefIds: m.prefectures.map((p) => p.id),
+      regionId: m.region.id,
+      regionLabel: m.region.label,
+    }])
+  );
+  // 「全て」モード: カタログ全山を北→南で並べた仮想リスト。
+  // lists.js には持たずカタログから派生させるため、山を追加しても同期不要（メンテフリー）。
+  const ALL_LIST = {
+    id: "all",
+    label: "全ての名山",
+    shortLabel: "全ての名山",
+    source: "全リスト統合（日本百名山〜三百名山・花の百名山ほか）",
+    members: [...MOUNTAIN_CATALOG]
+      .sort((a, b) => b.lat - a.lat || a.id.localeCompare(b.id))
+      .map((m, i) => ({ m, no: i + 1 })),
+  };
+  const ALL_LISTS = [...MOUNTAIN_LISTS, ALL_LIST];
+  const listById = new Map(ALL_LISTS.map((l) => [l.id, l]));
+
+  // ── アクティブリストに依存する状態（リスト切替で再構築する） ──
+  let activeList = null;
+  let mountains = [];          // アクティブリストの山（per-list no を付与）
+  let mountainById = new Map();
+  let TOTAL = 0;
+  let regionsInData = [];
+  let prefsInData = [];
+
+  // アクティブリストを構築し、依存状態を再生成する。
+  function buildActiveList(listId) {
+    activeList = listById.get(listId) || listById.get(DEFAULT_LIST_ID);
+    state.listId = activeList.id;
+
+    mountains = activeList.members.map((mem) => {
+      const base = catalogById.get(mem.m.id);
+      if (!base) throw new Error(`list ${activeList.id}: unknown catalog member`);
+      return { ...base, no: mem.no }; // per-list no を注入。m.no を使う既存描画はそのまま動く
+    });
+    mountainById = new Map(mountains.map((m) => [m.id, m]));
+    TOTAL = mountains.length;
+
+    // 出現する山域・都道府県（データ駆動でフィルタ生成）
+    const rOrder = Object.values(REGION).map((r) => r.id);
+    const rPresent = new Set(mountains.map((m) => m.regionId));
+    regionsInData = Object.values(REGION).filter((r) => rPresent.has(r.id))
+      .sort((a, b) => rOrder.indexOf(a.id) - rOrder.indexOf(b.id));
+
+    const pOrder = Object.values(PREF).map((p) => p.id);
+    const pPresent = new Set(mountains.flatMap((m) => m.prefIds));
+    prefsInData = Object.values(PREF).filter((p) => pPresent.has(p.id))
+      .sort((a, b) => pOrder.indexOf(a.id) - pOrder.indexOf(b.id));
+  }
 
   const dom = {
     queryInput: document.getElementById("queryInput"),
@@ -69,6 +103,10 @@ document.addEventListener("DOMContentLoaded", () => {
     planPickerList: document.getElementById("planPickerList"),
     ascendedCount: document.getElementById("ascendedCount"),
     progressFill: document.getElementById("progressFill"),
+    progressTotal: document.getElementById("progressTotal"),
+    appTitle: document.getElementById("appTitle"),
+    resultsHeading: document.getElementById("resultsHeading"),
+    listSelect: document.getElementById("listSelect"),
     detailOverlay: document.getElementById("detailOverlay"),
     detailTitle: document.getElementById("detailTitle"),
     detailStatus: document.getElementById("detailStatus"),
@@ -97,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const state = {
     query: "",
-    ascent: new Set(),       // "done" | "todo"
+    ascent: new Set(),       // "done" | "planned" | "todo"
     regions: new Set(),      // region id
     prefectures: new Set(),  // pref id
     elevFrom: null,
@@ -106,6 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     selectedId: null,
     mobilePanel: "results",
     view: "map",
+    listId: DEFAULT_LIST_ID, // アクティブな百名山リスト
   };
 
   // ── ストア初期化 ──
@@ -118,11 +157,14 @@ document.addEventListener("DOMContentLoaded", () => {
     maxZoom: 18,
   }).addTo(map);
 
-  // 初期表示は全100座が収まる範囲にフィット（周辺諸国まで写り込まないようにする）
-  const dataBounds = L.latLngBounds(mountains.map((m) => [m.lat, m.lng]));
-  map.fitBounds(dataBounds, { padding: [28, 28], maxZoom: 7 });
-
   const markerById = new Map();
+
+  // アクティブリストの全山が収まる範囲に地図をフィット（周辺諸国まで写り込まないようにする）
+  function fitToActiveList() {
+    if (!mountains.length) return;
+    const bounds = L.latLngBounds(mountains.map((m) => [m.lat, m.lng]));
+    map.fitBounds(bounds, { padding: [28, 28], maxZoom: 7 });
+  }
 
   // 状態で色分けした山頂マーク（三角アイコン）。白縁＋影で地図上の視認性を確保する。
   const MARK_FILL = {
@@ -162,6 +204,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (marker) marker.setIcon(peakIcon(AscentStore.status(id)));
   }
 
+  // アクティブリストに合わせてマーカーを全消し→再生成し、表示範囲をフィットする。
+  function rebuildMarkersForList() {
+    for (const marker of markerById.values()) {
+      if (map.hasLayer(marker)) map.removeLayer(marker);
+    }
+    markerById.clear();
+    buildMarkers();
+    fitToActiveList();
+  }
+
   // ════════════════ フィルタUI構築 ════════════════
   function renderToggleChip(group, value, label) {
     const active = state[group].has(value);
@@ -193,13 +245,22 @@ document.addEventListener("DOMContentLoaded", () => {
       .join("");
   }
 
+  // 山名・別表記・読みのいずれかに小文字クエリ q が含まれるか（q は小文字前提）。
+  function mountainMatchesQuery(m, q) {
+    return m.name.toLowerCase().includes(q) ||
+      m.aliases.some((a) => a.toLowerCase().includes(q)) ||
+      m.reading.toLowerCase().includes(q);
+  }
+
+  // 別表記を「（A・B）」形式で表示（無ければ空文字）。
+  function formatAliases(aliases) {
+    return aliases.length ? `（${aliases.join("・")}）` : "";
+  }
+
   // ════════════════ フィルタ＆ソート ════════════════
   function matches(m) {
     if (state.query) {
-      const q = state.query.toLowerCase();
-      if (!m.name.toLowerCase().includes(q) &&
-          !(m.alias || "").toLowerCase().includes(q) &&
-          !m.reading.toLowerCase().includes(q)) return false;
+      if (!mountainMatchesQuery(m, state.query.toLowerCase())) return false;
     }
     if (state.ascent.size && !state.ascent.has(AscentStore.status(m.id))) return false;
     if (state.regions.size && !state.regions.has(m.regionId)) return false;
@@ -292,6 +353,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ════════════════ タイムラインビュー ════════════════
+  // タイムラインはアクティブリストの山の記録・計画のみを対象にする（マップ・一覧と同じ絞り込み）。
+  // 全リスト横断の履歴を見たいときは「全て」リストを選ぶ。
   function buildTimelineEvents() {
     const events = [];
     const all = AscentStore.getAll();
@@ -390,9 +453,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const VIEWS = ["map", "timeline"];
 
-  function viewFromHash() {
-    const v = location.hash.replace(/^#\/?/, "");
-    return VIEWS.includes(v) ? v : "map";
+  // ハッシュ #/<listId>/<view> を解釈する。
+  // 後方互換: #/map・#/timeline（旧形式）は listId をデフォルトに補完する。
+  function parseHash() {
+    const raw = location.hash.replace(/^#\/?/, "");
+    const parts = raw.split("/").filter(Boolean);
+    let listId = DEFAULT_LIST_ID;
+    let view = "map";
+    if (parts.length === 1) {
+      if (VIEWS.includes(parts[0])) view = parts[0];          // 旧 #/map, #/timeline
+      else if (listById.has(parts[0])) listId = parts[0];     // #/<listId>
+    } else if (parts.length >= 2) {
+      if (listById.has(parts[0])) listId = parts[0];
+      if (VIEWS.includes(parts[1])) view = parts[1];
+    }
+    return { listId, view };
+  }
+
+  function writeHash() {
+    const want = `#/${state.listId}/${state.view}`;
+    if (location.hash !== want) location.hash = want;
   }
 
   function setView(view, pushHash = true) {
@@ -411,11 +491,60 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       renderTimeline();
     }
-    const want = `#/${view}`;
-    if (pushHash && location.hash !== want) location.hash = want;
+    if (pushHash) writeHash();
   }
 
-  window.addEventListener("hashchange", () => setView(viewFromHash(), false));
+  window.addEventListener("hashchange", () => {
+    const { listId, view } = parseHash();
+    if (listId !== state.listId) switchList(listId, { pushHash: false });
+    setView(view, false);
+  });
+
+  // ════════════════ リスト切替 ════════════════
+  // タイトル・進捗分母・一覧見出し・select の選択状態をアクティブリストに合わせる。
+  function applyListChrome() {
+    const l = activeList;
+    const shortLabel = l.shortLabel || l.label;
+    document.title = `${l.label}マップ - 登頂記録`;
+    dom.appTitle.textContent = `${l.label}マップ`;
+    dom.progressTotal.textContent = String(TOTAL);
+    dom.resultsHeading.textContent = `${shortLabel}一覧`;
+    if (dom.listSelect.value !== l.id) dom.listSelect.value = l.id;
+  }
+
+  function buildListSelect() {
+    dom.listSelect.innerHTML = ALL_LISTS
+      .map((l) => `<option value="${escAttr(l.id)}">${escHtml(l.label)}</option>`)
+      .join("");
+  }
+
+  // 新リストに存在しない都道府県・山域フィルタだけを掃除する（他フィルタは保持）。
+  function sanitizeFiltersAgainstActiveList() {
+    const validRegions = new Set(regionsInData.map((r) => r.id));
+    const validPrefs = new Set(prefsInData.map((p) => p.id));
+    for (const id of [...state.regions]) if (!validRegions.has(id)) state.regions.delete(id);
+    for (const id of [...state.prefectures]) if (!validPrefs.has(id)) state.prefectures.delete(id);
+  }
+
+  // 開いているモーダルを閉じる（選択中の山が新リストに無い可能性 / no 表示が変わるため）。
+  function reconcileOpenOverlaysForListSwitch() {
+    if (!dom.detailOverlay.hidden) closeDetail();
+    if (!dom.planPickerOverlay.hidden) dom.planPickerOverlay.hidden = true;
+  }
+
+  function switchList(listId, { pushHash = true } = {}) {
+    const target = listById.has(listId) ? listId : DEFAULT_LIST_ID;
+    if (target === state.listId && mountains.length) return; // no-op
+    reconcileOpenOverlaysForListSwitch();
+    buildActiveList(target);
+    sanitizeFiltersAgainstActiveList();
+    rebuildMarkersForList();
+    buildFilters();
+    renderPrefectureChips();
+    applyListChrome();
+    render();
+    if (pushHash) writeHash();
+  }
 
   // ════════════════ 詳細＋登頂記録エディタ ════════════════
   function openDetail(id) {
@@ -439,7 +568,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const planned = status === "planned";
     dom.detailStatus.className = `status-badge status-badge--${status}`;
     dom.detailStatus.textContent = STATUS_LABEL[status];
-    dom.detailTitle.textContent = `${m.no}. ${m.name}${m.alias ? `（${m.alias}）` : ""}`;
+    dom.detailTitle.textContent = `${m.no}. ${m.name}${formatAliases(m.aliases)}`;
     dom.detailLocation.textContent = `${m.reading}　${m.prefLabels.join("・")}`;
 
     const history = AscentStore.getEntry(m.id).history;
@@ -620,6 +749,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btn) setView(btn.dataset.view);
   });
 
+  // リスト切替
+  dom.listSelect.addEventListener("change", () => switchList(dom.listSelect.value));
+
   // タイムラインの項目クリックで詳細を開く（計画を外すボタンは別処理）
   dom.timelineBody.addEventListener("click", (e) => {
     const rm = e.target.closest("[data-plan-remove]");
@@ -640,13 +772,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const q = dom.planPickerSearch.value.trim().toLowerCase();
     const list = mountains
       .filter((m) => AscentStore.status(m.id) !== "done")
-      .filter(
-        (m) =>
-          !q ||
-          m.name.toLowerCase().includes(q) ||
-          (m.alias || "").toLowerCase().includes(q) ||
-          m.reading.toLowerCase().includes(q)
-      );
+      .filter((m) => !q || mountainMatchesQuery(m, q));
     dom.planPickerList.innerHTML =
       list
         .map((m) => {
@@ -798,13 +924,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── AI 一括入力プロンプト（自己完結・リポジトリ不要） ──
   function buildAgentPrompt() {
     const filename = (typeof HYAKUMEIZAN_CONFIG !== "undefined" && HYAKUMEIZAN_CONFIG.GIST_FILENAME) || "hyakumeizan-ascents.json";
-    const idList = mountains
-      .map((m) => `${m.id}  ${m.name}${m.alias ? `（${m.alias}）` : ""}  ${m.prefLabels.join("・")}  ${m.elevation}m`)
+    // 記録は山ID単位で全リスト共通のため、現在のリストに限らずカタログ全体（正規化済み）を列挙する。
+    const idList = Array.from(catalogById.values())
+      .map((c) => `${c.id}  ${c.name}${formatAliases(c.aliases)}  ${c.prefLabels.join("・")}  ${c.elevation}m`)
       .join("\n");
-    return `あなたはコーディングエージェントです。私の登山記録をもとに「日本百名山マップ」アプリの登頂記録 Gist を更新してください。
+    return `あなたはコーディングエージェントです。私の登山記録をもとに「百名山マップ」アプリの登頂記録 Gist を更新してください。
 
 # ゴール
-私の登山記録（YAMAP・ヤマレコ・手元のメモなど。具体的な URL や内容はこのあと私が伝えます）から日本百名山への登頂を抽出し、下記スキーマの JSON を作って、私の GitHub Gist 内のファイル「${filename}」を上書き更新してください（同名ファイルの Gist が無ければ public で新規作成）。
+私の登山記録（YAMAP・ヤマレコ・手元のメモなど。具体的な URL や内容はこのあと私が伝えます）から日本の名山（百名山・二百名山・三百名山・花の百名山ほか）への登頂を抽出し、下記スキーマの JSON を作って、私の GitHub Gist 内のファイル「${filename}」を上書き更新してください（同名ファイルの Gist が無ければ public で新規作成）。登頂記録は山ID単位で全リスト共通です。
 
 # ファイルのデータスキーマ
 「${filename}」の中身は、山ID をキーとする JSON オブジェクトです:
@@ -821,7 +948,7 @@ document.addEventListener("DOMContentLoaded", () => {
 - 登っていない山はキーごと省略する。
 - ファイルの中身はこのオブジェクトそのもの（他のキーで包まない）。
 
-# 山ID 一覧（山名 → ID の対応。これだけで判定できます）
+# 山ID 一覧（山名 → ID の対応。全リスト横断の山カタログ。これだけで判定できます）
 ${idList}
 
 # 判定上の注意（同名・別座の取り違えに注意）
@@ -848,7 +975,7 @@ B) PAT + curl の場合（TOKEN は gist スコープ付き PAT）:
        | python3 -c "import sys,json;[print(g['id']) for g in json.load(sys.stdin) if '${filename}' in g.get('files',{})]"
      curl -X PATCH -H "Authorization: Bearer $TOKEN" https://api.github.com/gists/<ID> --data @body.json
 
-更新できたら、「日本百名山マップ」アプリの同期パネルで同じ PAT を保存し「クラウドから取得」を押すと記録が反映されます。`;
+更新できたら、「百名山マップ」アプリの同期パネルで同じ PAT を保存し「クラウドから取得」を押すと記録が反映されます。`;
   }
 
   dom.copyPrompt.addEventListener("click", async () => {
@@ -881,11 +1008,16 @@ B) PAT + curl の場合（TOKEN は gist スコープ付き PAT）:
   dom.mobileHidePanels.addEventListener("click", () => setMobilePanel("map"));
 
   // ── 初期化 ──
-  buildMarkers();
+  const initial = parseHash();
+  buildListSelect();
+  buildActiveList(initial.listId);
+  rebuildMarkersForList();      // マーカー生成 + アクティブリストへフィット
+  applyListChrome();
   buildFilters();
   renderPrefectureChips();
   setMobilePanel("results");
-  setView(viewFromHash());
+  setView(initial.view, false);
+  writeHash();                  // 旧 #/map 等を #/<listId>/<view> の正規形に揃える
   dom.agentPrompt.textContent = buildAgentPrompt();
   render();
 
