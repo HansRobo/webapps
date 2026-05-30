@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const catalogById = new Map(
     MOUNTAIN_CATALOG.map((m) => [m.id, {
       ...m,
+      aliases: m.aliases || [],
       prefLabels: m.prefectures.map((p) => p.label),
       prefIds: m.prefectures.map((p) => p.id),
       regionId: m.region.id,
@@ -44,8 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
     state.listId = activeList.id;
 
     mountains = activeList.members.map((mem) => {
-      const base = catalogById.get(mem.id);
-      if (!base) throw new Error(`list ${activeList.id}: unknown catalog id ${mem.id}`);
+      const base = catalogById.get(mem.m.id);
+      if (!base) throw new Error(`list ${activeList.id}: unknown catalog member`);
       return { ...base, no: mem.no }; // per-list no を注入。m.no を使う既存描画はそのまま動く
     });
     mountainById = new Map(mountains.map((m) => [m.id, m]));
@@ -237,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (state.query) {
       const q = state.query.toLowerCase();
       if (!m.name.toLowerCase().includes(q) &&
-          !(m.alias || "").toLowerCase().includes(q) &&
+          !m.aliases.some((a) => a.toLowerCase().includes(q)) &&
           !m.reading.toLowerCase().includes(q)) return false;
     }
     if (state.ascent.size && !state.ascent.has(AscentStore.status(m.id))) return false;
@@ -544,7 +545,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const planned = status === "planned";
     dom.detailStatus.className = `status-badge status-badge--${status}`;
     dom.detailStatus.textContent = STATUS_LABEL[status];
-    dom.detailTitle.textContent = `${m.no}. ${m.name}${m.alias ? `（${m.alias}）` : ""}`;
+    dom.detailTitle.textContent = `${m.no}. ${m.name}${m.aliases.length ? `（${m.aliases.join("・")}）` : ""}`;
     dom.detailLocation.textContent = `${m.reading}　${m.prefLabels.join("・")}`;
 
     const history = AscentStore.getEntry(m.id).history;
@@ -752,7 +753,7 @@ document.addEventListener("DOMContentLoaded", () => {
         (m) =>
           !q ||
           m.name.toLowerCase().includes(q) ||
-          (m.alias || "").toLowerCase().includes(q) ||
+          m.aliases.some((a) => a.toLowerCase().includes(q)) ||
           m.reading.toLowerCase().includes(q)
       );
     dom.planPickerList.innerHTML =
@@ -910,7 +911,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const idList = MOUNTAIN_CATALOG
       .map((m) => {
         const c = catalogById.get(m.id);
-        return `${m.id}  ${m.name}${m.alias ? `（${m.alias}）` : ""}  ${c.prefLabels.join("・")}  ${m.elevation}m`;
+        return `${m.id}  ${m.name}${c.aliases.length ? `（${c.aliases.join("・")}）` : ""}  ${c.prefLabels.join("・")}  ${m.elevation}m`;
       })
       .join("\n");
     return `あなたはコーディングエージェントです。私の登山記録をもとに「百名山マップ」アプリの登頂記録 Gist を更新してください。
