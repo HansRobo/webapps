@@ -21,8 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
     "active-planned": 1,
     "active-dev": 2,
     "planned": 3,
-    "completed": 4,
-    "cancelled": 5,
+    "suspended": 4,
+    "completed": 5,
+    "cancelled": 6,
   };
 
   const ROUTE_TAG_PATTERNS = [

@@ -539,7 +539,8 @@ body {
   color: var(--done-fg);
 }
 
-.status-badge[data-status="planned"] {
+.status-badge[data-status="planned"],
+.status-badge[data-status="suspended"] {
   background: var(--plan-bg);
   color: var(--plan-fg);
 }
