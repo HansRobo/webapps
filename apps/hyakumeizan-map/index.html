@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>日本百名山マップ - 登頂記録</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;500;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XMQZP3GPCC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XMQZP3GPCC");
+    </script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="top-app-bar">
+      <div class="top-app-bar__content">
+        <a href="../../index.html" class="top-app-bar__back" aria-label="ダッシュボードへ戻る">
+          <span class="material-symbols-outlined">arrow_back</span>
+        </a>
+        <span class="material-symbols-outlined top-app-bar__icon">landscape</span>
+        <div class="top-app-bar__title-wrap">
+          <h1 class="top-app-bar__title">日本百名山マップ</h1>
+          <p class="top-app-bar__subtitle">登頂記録を地図で管理</p>
+        </div>
+        <div class="view-switch" id="viewSwitch" role="tablist" aria-label="表示切替">
+          <button class="view-switch__btn active" data-view="map" type="button" role="tab" aria-selected="true">
+            <span class="material-symbols-outlined">map</span>マップ
+          </button>
+          <button class="view-switch__btn" data-view="timeline" type="button" role="tab" aria-selected="false">
+            <span class="material-symbols-outlined">timeline</span>タイムライン
+          </button>
+        </div>
+        <div class="progress-wrap" id="progressWrap">
+          <div class="progress-text"><strong id="ascendedCount">0</strong> / 100 座 登頂</div>
+          <div class="progress-bar"><div class="progress-bar__fill" id="progressFill"></div></div>
+        </div>
+        <button class="icon-button" id="openSync" type="button" aria-label="同期・設定">
+          <span class="material-symbols-outlined">cloud_sync</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="app-layout" id="mapView">
+      <aside class="control-panel" id="controlPanel">
+        <div class="panel-header">
+          <h2>絞り込み</h2>
+          <button class="ghost-button" id="clearFiltersButton" type="button">全解除</button>
+        </div>
+
+        <div class="quick-search">
+          <span class="material-symbols-outlined">search</span>
+          <input id="queryInput" type="search" placeholder="山名・読みで検索" autocomplete="off" />
+        </div>
+
+        <section class="filter-block">
+          <div class="filter-block__title">登頂状態</div>
+          <div class="chip-group" id="ascentFilterGroup"></div>
+        </section>
+
+        <section class="filter-block">
+          <div class="filter-block__title">山域</div>
+          <div class="chip-group" id="regionFilterGroup"></div>
+        </section>
+
+        <section class="filter-block">
+          <div class="filter-block__title">都道府県</div>
+          <div class="filter-combo">
+            <select id="prefectureSelect" class="filter-select">
+              <option value="">都道府県（すべて）</option>
+            </select>
+            <button class="chip-button" type="button" id="prefectureAddButton">追加</button>
+          </div>
+          <div class="selected-chip-wrap" id="prefectureSelected"></div>
+        </section>
+
+        <section class="filter-block">
+          <div class="filter-block__title">標高</div>
+          <div class="range-grid">
+            <select id="elevFromSelect" class="filter-select">
+              <option value="">下限なし</option>
+            </select>
+            <select id="elevToSelect" class="filter-select">
+              <option value="">上限なし</option>
+            </select>
+          </div>
+        </section>
+      </aside>
+
+      <main class="map-stage">
+        <div class="map-info-card">
+          <div>
+            <div class="map-info-card__label">表示中</div>
+            <div class="map-info-card__value" id="filteredCountMain">0座</div>
+          </div>
+          <div class="map-legend">
+            <span class="legend-item"><span class="legend-dot legend-dot--done"></span>登頂済み</span>
+            <span class="legend-item"><span class="legend-dot legend-dot--todo"></span>未登頂</span>
+          </div>
+        </div>
+        <div id="map"></div>
+      </main>
+
+      <aside class="results-panel" id="resultsPanel">
+        <div class="panel-header">
+          <h2>百名山一覧</h2>
+          <span class="count-pill" id="resultCount">0座</span>
+        </div>
+
+        <div class="sort-row">
+          <label for="sortSelect">並び替え</label>
+          <select id="sortSelect" class="filter-select">
+            <option value="no">番号順</option>
+            <option value="elevation-desc">標高が高い順</option>
+            <option value="elevation-asc">標高が低い順</option>
+            <option value="reading">五十音順</option>
+            <option value="ascent-recent">登頂日が新しい順</option>
+          </select>
+        </div>
+
+        <div class="empty-hint" id="emptyHint" hidden>
+          条件に一致する山がありません。フィルタを一部解除するか、キーワードを短くしてください。
+        </div>
+        <ul class="mountain-list" id="mountainList" role="list"></ul>
+      </aside>
+    </div>
+
+    <section class="timeline-view" id="timelineView" hidden>
+      <div class="timeline-head">
+        <h2>登頂タイムライン</h2>
+        <div class="timeline-summary" id="timelineSummary"></div>
+      </div>
+      <div class="timeline-body" id="timelineBody"></div>
+    </section>
+
+    <div class="mobile-dock" id="mobileDock">
+      <button id="mobileShowFilters" type="button">
+        <span class="material-symbols-outlined">tune</span>
+        フィルタ
+      </button>
+      <button id="mobileShowResults" type="button" class="active">
+        <span class="material-symbols-outlined">format_list_bulleted</span>
+        一覧
+      </button>
+      <button id="mobileHidePanels" type="button">
+        <span class="material-symbols-outlined">map</span>
+        地図
+      </button>
+    </div>
+
+    <p class="data-disclaimer">
+      ※標高・座標は国土地理院等の一般的な山岳データに基づく代表値で、山頂位置はおおよそです。登頂計画には必ず最新の地形図・登山地図をご確認ください。
+    </p>
+
+    <!-- 山の詳細＆登頂記録エディタ -->
+    <div class="detail-overlay" id="detailOverlay" role="dialog" aria-modal="true" aria-labelledby="detailTitle" hidden>
+      <div class="detail-panel" id="detailPanel">
+        <div class="detail-panel__header">
+          <div class="detail-panel__title-area">
+            <span class="status-badge" id="detailStatus"></span>
+            <h2 class="detail-panel__title" id="detailTitle"></h2>
+            <p class="detail-panel__location" id="detailLocation"></p>
+          </div>
+          <button class="icon-button" id="closeDetail" aria-label="閉じる">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <div class="detail-panel__body" id="detailBody"></div>
+      </div>
+    </div>
+
+    <!-- 同期・設定モーダル -->
+    <div class="detail-overlay" id="syncOverlay" role="dialog" aria-modal="true" aria-labelledby="syncTitle" hidden>
+      <div class="detail-panel detail-panel--narrow">
+        <div class="detail-panel__header">
+          <div class="detail-panel__title-area">
+            <h2 class="detail-panel__title" id="syncTitle">同期・バックアップ</h2>
+            <p class="detail-panel__location">登頂記録はこの端末のブラウザ（localStorage）に保存されます。</p>
+          </div>
+          <button class="icon-button" id="closeSync" aria-label="閉じる">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <div class="detail-panel__body">
+          <section class="sync-block">
+            <h3>GitHub Gist 同期</h3>
+            <p class="sync-hint">
+              Personal Access Token（gist スコープ）を貼り付けると、
+              <code id="gistFilenameLabel">hyakumeizan-ascents.json</code>
+              という名前の Gist に読み書き同期します。トークンはこの端末にのみ保存されます。
+            </p>
+            <a
+              class="token-create-link"
+              id="createTokenLink"
+              href="https://github.com/settings/tokens/new?scopes=gist&description=%E6%97%A5%E6%9C%AC%E7%99%BE%E5%90%8D%E5%B1%B1%E3%83%9E%E3%83%83%E3%83%97"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="material-symbols-outlined">open_in_new</span>
+              gist 権限付き PAT を作成（GitHub）
+            </a>
+            <div class="token-row">
+              <input id="tokenInput" type="password" placeholder="ghp_..." autocomplete="off" />
+              <button class="chip-button" id="saveToken" type="button">保存</button>
+            </div>
+            <div class="sync-actions">
+              <button class="primary-button" id="pushGist" type="button">
+                <span class="material-symbols-outlined">cloud_upload</span>クラウドへ保存
+              </button>
+              <button class="primary-button primary-button--ghost" id="pullGist" type="button">
+                <span class="material-symbols-outlined">cloud_download</span>クラウドから取得
+              </button>
+            </div>
+            <p class="sync-status" id="syncStatus" aria-live="polite"></p>
+          </section>
+
+          <section class="sync-block">
+            <h3>JSON バックアップ</h3>
+            <div class="sync-actions">
+              <button class="primary-button primary-button--ghost" id="exportJson" type="button">
+                <span class="material-symbols-outlined">download</span>エクスポート
+              </button>
+              <button class="primary-button primary-button--ghost" id="importJsonBtn" type="button">
+                <span class="material-symbols-outlined">upload</span>インポート
+              </button>
+              <input id="importJsonFile" type="file" accept="application/json,.json" hidden />
+            </div>
+          </section>
+
+          <section class="sync-block">
+            <details class="prompt-details">
+              <summary>
+                <span class="material-symbols-outlined">smart_toy</span>
+                自分の登山記録から AI で一括入力するプロンプト
+              </summary>
+              <p class="sync-hint">
+                YAMAP・ヤマレコ等の自分の記録URLと、このプロンプトをコーディングエージェント（Claude Code 等）に貼り付けると、
+                あなたの Gist <code>hyakumeizan-ascents.json</code> を自動更新できます。更新後はこのパネルの「クラウドから取得」で反映されます。
+              </p>
+              <div class="prompt-toolbar">
+                <button class="chip-button" id="copyPrompt" type="button">
+                  <span class="material-symbols-outlined">content_copy</span>プロンプトをコピー
+                </button>
+                <span class="copy-feedback" id="copyFeedback" aria-live="polite"></span>
+              </div>
+              <pre class="agent-prompt" id="agentPrompt"></pre>
+            </details>
+          </section>
+
+          <section class="sync-block">
+            <h3>オーナーの記録に戻す</h3>
+            <p class="sync-hint">この端末の記録を消去し、公開されているオーナーの登頂記録（デフォルト）に戻します。</p>
+            <button class="primary-button primary-button--danger" id="resetOwner" type="button">
+              <span class="material-symbols-outlined">restart_alt</span>デフォルトに戻す
+            </button>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="schema.js"></script>
+    <script src="data.js"></script>
+    <script src="config.js"></script>
+    <script src="store.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
