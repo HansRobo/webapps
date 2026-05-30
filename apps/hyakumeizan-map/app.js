@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }));
   const mountainById = new Map(mountains.map((m) => [m.id, m]));
   const TOTAL = mountains.length;
+  const STATUS_LABEL = { done: "登頂済み", planned: "計画中", todo: "未登頂" };
 
   // 出現する都道府県・山域（データ駆動でフィルタ生成）
   const regionsInData = (() => {
@@ -61,6 +62,11 @@ document.addEventListener("DOMContentLoaded", () => {
     timelineView: document.getElementById("timelineView"),
     timelineBody: document.getElementById("timelineBody"),
     timelineSummary: document.getElementById("timelineSummary"),
+    addPlanBtn: document.getElementById("addPlanBtn"),
+    planPickerOverlay: document.getElementById("planPickerOverlay"),
+    closePlanPicker: document.getElementById("closePlanPicker"),
+    planPickerSearch: document.getElementById("planPickerSearch"),
+    planPickerList: document.getElementById("planPickerList"),
     ascendedCount: document.getElementById("ascendedCount"),
     progressFill: document.getElementById("progressFill"),
     detailOverlay: document.getElementById("detailOverlay"),
@@ -118,17 +124,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const markerById = new Map();
 
-  // 登頂状態で色分けした山頂マーク（三角アイコン）。白縁＋影で地図上の視認性を確保する。
-  const MARK_DONE = "#e8590c"; // 登頂済み: 鮮やかな朱
-  const MARK_TODO = "#1f3a5f"; // 未登頂: 濃紺
+  // 状態で色分けした山頂マーク（三角アイコン）。白縁＋影で地図上の視認性を確保する。
+  const MARK_FILL = {
+    done: "#e8590c",    // 登頂済み: 鮮やかな朱
+    planned: "#1f9e57", // 計画中: 緑
+    todo: "#1f3a5f",    // 未登頂: 濃紺
+  };
 
-  function peakIcon(done) {
-    const fill = done ? MARK_DONE : MARK_TODO;
+  function peakIcon(status) {
+    const fill = MARK_FILL[status] || MARK_FILL.todo;
+    // 内側マーク: 登頂済み=雪冠、計画中=白丸、未登頂=なし
+    let inner = "";
+    if (status === "done") inner = '<path d="M14 2 L18.2 9.3 L14 11.8 L9.8 9.3 Z" fill="#ffffff" fill-opacity="0.9"/>';
+    else if (status === "planned") inner = '<circle cx="14" cy="16" r="3.1" fill="#ffffff" fill-opacity="0.95"/>';
     return L.divIcon({
-      className: `peak-marker ${done ? "peak-marker--done" : "peak-marker--todo"}`,
+      className: `peak-marker peak-marker--${status}`,
       html: `<svg width="28" height="26" viewBox="0 0 28 26" aria-hidden="true">
         <path d="M14 2 L26 23 H2 Z" fill="${fill}" stroke="#ffffff" stroke-width="2.2" stroke-linejoin="round"/>
-        ${done ? '<path d="M14 2 L18.2 9.3 L14 11.8 L9.8 9.3 Z" fill="#ffffff" fill-opacity="0.9"/>' : ""}
+        ${inner}
       </svg>`,
       iconSize: [28, 26],
       iconAnchor: [14, 23], // 三角の底辺中央（山の麓）を座標に合わせる
@@ -138,8 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function buildMarkers() {
     for (const m of mountains) {
-      const done = AscentStore.isAscended(m.id);
-      const marker = L.marker([m.lat, m.lng], { icon: peakIcon(done), title: m.name });
+      const marker = L.marker([m.lat, m.lng], { icon: peakIcon(AscentStore.status(m.id)), title: m.name });
       marker.on("click", () => openDetail(m.id));
       markerById.set(m.id, marker);
     }
@@ -147,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function refreshMarker(id) {
     const marker = markerById.get(id);
-    if (marker) marker.setIcon(peakIcon(AscentStore.isAscended(id)));
+    if (marker) marker.setIcon(peakIcon(AscentStore.status(id)));
   }
 
   // ════════════════ フィルタUI構築 ════════════════
@@ -158,7 +170,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function buildFilters() {
     dom.ascentFilterGroup.innerHTML =
-      renderToggleChip("ascent", "done", "登頂済み") + renderToggleChip("ascent", "todo", "未登頂");
+      renderToggleChip("ascent", "done", "登頂済み") +
+      renderToggleChip("ascent", "planned", "計画中") +
+      renderToggleChip("ascent", "todo", "未登頂");
     dom.regionFilterGroup.innerHTML = regionsInData
       .map((r) => renderToggleChip("regions", r.id, r.label))
       .join("");
@@ -187,11 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
           !(m.alias || "").toLowerCase().includes(q) &&
           !m.reading.toLowerCase().includes(q)) return false;
     }
-    if (state.ascent.size) {
-      const done = AscentStore.isAscended(m.id);
-      const key = done ? "done" : "todo";
-      if (!state.ascent.has(key)) return false;
-    }
+    if (state.ascent.size && !state.ascent.has(AscentStore.status(m.id))) return false;
     if (state.regions.size && !state.regions.has(m.regionId)) return false;
     if (state.prefectures.size && !m.prefIds.some((id) => state.prefectures.has(id))) return false;
     if (state.elevFrom !== null && m.elevation < state.elevFrom) return false;
@@ -244,13 +254,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderListItem(m) {
-    const done = AscentStore.isAscended(m.id);
+    const status = AscentStore.status(m.id);
+    const done = status === "done";
     const latest = AscentStore.latestDate(m.id);
     const history = AscentStore.getEntry(m.id).history;
     const count = history.length;
-    const badge = done
-      ? `<span class="status-badge status-badge--done">登頂済み</span>`
-      : `<span class="status-badge status-badge--todo">未登頂</span>`;
+    const badge = `<span class="status-badge status-badge--${status}">${STATUS_LABEL[status]}</span>`;
     const dateLine = done
       ? `<span class="meta-chip"><span class="material-symbols-outlined">event</span>${latest ? escHtml(latest) : "日付未記録"}${count > 1 ? ` 他${count - 1}回` : ""}</span>`
       : "";
@@ -258,7 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const linkLine = urlEntry
       ? `<a class="meta-chip meta-chip--link" href="${escAttr(urlEntry.url)}" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined">hiking</span>記録</a>`
       : "";
-    return `<li class="mountain-item ${done ? "is-done" : ""}" data-id="${m.id}" role="listitem">
+    return `<li class="mountain-item is-${status}" data-id="${m.id}" role="listitem">
       <div class="mountain-item__no">${m.no}</div>
       <div class="mountain-item__main">
         <div class="mountain-item__head">
@@ -304,17 +313,43 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderTimeline() {
     const events = buildTimelineEvents();
     const peaks = new Set(events.map((e) => e.m.id)).size;
-    dom.timelineSummary.textContent = events.length
-      ? `延べ ${events.length} 回 ・ ${peaks} 座`
-      : "";
+    const planned = mountains.filter((m) => AscentStore.isPlanned(m.id));
+    const summary = [];
+    if (events.length) summary.push(`登頂 延べ ${events.length} 回・${peaks} 座`);
+    if (planned.length) summary.push(`計画中 ${planned.length} 座`);
+    dom.timelineSummary.textContent = summary.join(" ／ ");
 
-    if (!events.length) {
+    if (!events.length && !planned.length) {
       dom.timelineBody.innerHTML =
-        `<p class="timeline-empty">まだ登頂記録がありません。マップで山を選んで登頂日を記録すると、ここに時系列で表示されます。</p>`;
+        `<p class="timeline-empty">まだ記録がありません。「計画を追加」で登る予定の山を登録するか、マップで山を選んで登頂日を記録できます。</p>`;
       return;
     }
 
     let html = "";
+
+    // 計画中セクション（日付なし・先頭に表示）
+    if (planned.length) {
+      html += `<div class="timeline-year-label timeline-year-label--plan"><span class="material-symbols-outlined">flag</span>計画中</div><div class="timeline-group">`;
+      for (const m of planned) {
+        html += `<div class="timeline-item timeline-item--plan" data-id="${m.id}" role="button" tabindex="0">
+          <div class="timeline-item__date">計画中</div>
+          <div class="timeline-item__dot"></div>
+          <div class="timeline-item__card">
+            <div class="timeline-item__head">
+              <span class="timeline-item__no">${m.no}</span>
+              <span class="timeline-item__name">${escHtml(m.name)}</span>
+              <span class="meta-chip"><span class="material-symbols-outlined">straighten</span>${m.elevation.toLocaleString()}m</span>
+              <span class="meta-chip">${escHtml(m.regionLabel)}</span>
+              <button class="plan-remove" data-plan-remove="${m.id}" type="button" aria-label="計画から外す">
+                <span class="material-symbols-outlined">close</span>計画を外す
+              </button>
+            </div>
+          </div>
+        </div>`;
+      }
+      html += `</div>`;
+    }
+
     let currentYear = null;
     for (const e of events) {
       const year = e.date ? e.date.slice(0, 4) : "日付不明";
@@ -327,7 +362,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const link = e.url
         ? `<a class="timeline-item__link" href="${escAttr(e.url)}" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined">hiking</span>記録</a>`
         : "";
-      html += `<div class="timeline-item" data-id="${m.id}" role="button" tabindex="0">
+      html += `<div class="timeline-item timeline-item--done" data-id="${m.id}" role="button" tabindex="0">
         <div class="timeline-item__date">${e.date ? escHtml(formatDate(e.date)) : "日付不明"}</div>
         <div class="timeline-item__dot"></div>
         <div class="timeline-item__card">
@@ -387,9 +422,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderDetail() {
     const m = mountainById.get(state.selectedId);
     if (!m) return;
-    const done = AscentStore.isAscended(m.id);
-    dom.detailStatus.className = `status-badge ${done ? "status-badge--done" : "status-badge--todo"}`;
-    dom.detailStatus.textContent = done ? "登頂済み" : "未登頂";
+    const status = AscentStore.status(m.id);
+    const done = status === "done";
+    const planned = status === "planned";
+    dom.detailStatus.className = `status-badge status-badge--${status}`;
+    dom.detailStatus.textContent = STATUS_LABEL[status];
     dom.detailTitle.textContent = `${m.no}. ${m.name}${m.alias ? `（${m.alias}）` : ""}`;
     dom.detailLocation.textContent = `${m.reading}　${m.prefLabels.join("・")}`;
 
@@ -429,6 +466,9 @@ document.addEventListener("DOMContentLoaded", () => {
             <button class="chip-button" data-action="add" type="button">
               <span class="material-symbols-outlined">add</span>登頂を追加
             </button>
+            ${!done ? `<button class="chip-button chip-button--ghost" data-action="toggle-planned" type="button">
+              <span class="material-symbols-outlined">${planned ? "flag" : "outlined_flag"}</span>${planned ? "計画を外す" : "計画中にする"}
+            </button>` : ""}
             ${done ? `<button class="chip-button chip-button--ghost" data-action="clear" type="button">未登頂に戻す</button>` : ""}
           </div>
         </div>
@@ -462,6 +502,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!id) return;
     if (action === "add") {
       AscentStore.addAscent(id, { date: todayStr(), note: "" });
+      afterRecordChange();
+    } else if (action === "toggle-planned") {
+      AscentStore.setPlanned(id, !AscentStore.isPlanned(id));
       afterRecordChange();
     } else if (action === "clear") {
       AscentStore.setAscended(id, false);
@@ -565,11 +608,78 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btn) setView(btn.dataset.view);
   });
 
-  // タイムラインの項目クリックで詳細を開く
+  // タイムラインの項目クリックで詳細を開く（計画を外すボタンは別処理）
   dom.timelineBody.addEventListener("click", (e) => {
+    const rm = e.target.closest("[data-plan-remove]");
+    if (rm) {
+      const id = rm.dataset.planRemove;
+      AscentStore.setPlanned(id, false);
+      refreshMarker(id);
+      render();
+      return;
+    }
     if (e.target.closest("a")) return;
     const item = e.target.closest(".timeline-item");
     if (item) openDetail(item.dataset.id);
+  });
+
+  // 計画追加ピッカー
+  function renderPlanPicker() {
+    const q = dom.planPickerSearch.value.trim().toLowerCase();
+    const list = mountains
+      .filter((m) => AscentStore.status(m.id) !== "done")
+      .filter(
+        (m) =>
+          !q ||
+          m.name.toLowerCase().includes(q) ||
+          (m.alias || "").toLowerCase().includes(q) ||
+          m.reading.toLowerCase().includes(q)
+      );
+    dom.planPickerList.innerHTML =
+      list
+        .map((m) => {
+          const on = AscentStore.isPlanned(m.id);
+          return `<li class="plan-pick ${on ? "is-on" : ""}" data-id="${m.id}" role="button" tabindex="0">
+          <span class="plan-pick__check material-symbols-outlined">${on ? "check_circle" : "radio_button_unchecked"}</span>
+          <span class="plan-pick__no">${m.no}</span>
+          <span class="plan-pick__name">${escHtml(m.name)}</span>
+          <span class="plan-pick__meta">${m.elevation.toLocaleString()}m・${escHtml(m.regionLabel)}</span>
+        </li>`;
+        })
+        .join("") || `<li class="plan-pick-empty">該当する山がありません。</li>`;
+  }
+
+  function openPlanPicker() {
+    dom.planPickerSearch.value = "";
+    renderPlanPicker();
+    dom.planPickerOverlay.hidden = false;
+    dom.planPickerSearch.focus();
+  }
+
+  function togglePlanPick(id) {
+    AscentStore.setPlanned(id, !AscentStore.isPlanned(id));
+    refreshMarker(id);
+    renderPlanPicker();
+    render();
+  }
+
+  dom.addPlanBtn.addEventListener("click", openPlanPicker);
+  dom.closePlanPicker.addEventListener("click", () => (dom.planPickerOverlay.hidden = true));
+  dom.planPickerOverlay.addEventListener("click", (e) => {
+    if (e.target === dom.planPickerOverlay) dom.planPickerOverlay.hidden = true;
+  });
+  dom.planPickerSearch.addEventListener("input", renderPlanPicker);
+  dom.planPickerList.addEventListener("click", (e) => {
+    const row = e.target.closest(".plan-pick");
+    if (row) togglePlanPick(row.dataset.id);
+  });
+  dom.planPickerList.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter" && e.key !== " ") return;
+    const row = e.target.closest(".plan-pick");
+    if (row) {
+      e.preventDefault();
+      togglePlanPick(row.dataset.id);
+    }
   });
   dom.timelineBody.addEventListener("keydown", (e) => {
     if (e.key !== "Enter" && e.key !== " ") return;
@@ -588,6 +698,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Escape") {
       if (!dom.detailOverlay.hidden) closeDetail();
       if (!dom.syncOverlay.hidden) dom.syncOverlay.hidden = true;
+      if (!dom.planPickerOverlay.hidden) dom.planPickerOverlay.hidden = true;
     }
   });
 

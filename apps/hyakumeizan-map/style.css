@@ -8,10 +8,12 @@
   --text-sub: #4f6253;
   --accent: #1f7a3d;
   --accent-soft: #d6efdc;
-  --done-bg: #c8f0d2;
-  --done-fg: #0c4a1d;
-  --todo-bg: #e7ebe8;
-  --todo-fg: #4a5a4f;
+  --done-bg: #fbe0d0;
+  --done-fg: #7a300c;
+  --planned-bg: #d3f0df;
+  --planned-fg: #0f5a2e;
+  --todo-bg: #e2e8ef;
+  --todo-fg: #41506a;
   --danger: #c0392b;
   --shadow-low: 0 2px 8px rgba(20, 39, 26, 0.08);
   --shadow-mid: 0 8px 24px rgba(20, 39, 26, 0.16);
@@ -31,10 +33,12 @@
     --text-sub: #aec4b6;
     --accent: #7cd397;
     --accent-soft: #234231;
-    --done-bg: #1c4a2c;
-    --done-fg: #b9f5c9;
-    --todo-bg: #2c3a31;
-    --todo-fg: #cad9cf;
+    --done-bg: #4a2614;
+    --done-fg: #ffc9a8;
+    --planned-bg: #18432a;
+    --planned-fg: #a7f0c2;
+    --todo-bg: #283449;
+    --todo-fg: #c2d0e6;
     --danger: #e06a5c;
   }
 }
@@ -230,6 +234,12 @@ body {
   font-weight: 800;
 }
 
+.timeline-head__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .timeline-summary {
   font-size: 13px;
   font-weight: 700;
@@ -253,6 +263,20 @@ body {
   font-weight: 800;
   color: var(--accent);
   margin: 16px 0 10px;
+}
+
+.timeline-year-label--plan {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--planned-fg);
+  background: var(--planned-bg);
+  padding: 3px 12px 3px 8px;
+  border-radius: 999px;
+}
+
+.timeline-year-label--plan .material-symbols-outlined {
+  font-size: 18px;
 }
 
 .timeline-item {
@@ -299,6 +323,19 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.timeline-item--done .timeline-item__dot::after {
+  background: #e8590c;
+}
+
+.timeline-item--plan .timeline-item__dot::after {
+  background: #1f9e57;
+}
+
+.timeline-item--plan .timeline-item__date {
+  color: var(--planned-fg);
+  font-weight: 700;
+}
+
 .timeline-item__card {
   background: var(--surface);
   border: 1px solid var(--surface-border);
@@ -306,6 +343,31 @@ body {
   padding: 10px 12px;
   margin-bottom: 12px;
   transition: border-color 140ms ease, transform 140ms ease;
+}
+
+.plan-remove {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: auto;
+  padding: 3px 9px;
+  border: 1px solid var(--surface-border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-sub);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.plan-remove:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.plan-remove .material-symbols-outlined {
+  font-size: 14px;
 }
 
 .timeline-item:hover .timeline-item__card {
@@ -624,6 +686,10 @@ body {
   border-bottom-color: #e8590c;
 }
 
+.legend-dot--planned {
+  border-bottom-color: #1f9e57;
+}
+
 .legend-dot--todo {
   border-bottom-color: #1f3a5f;
 }
@@ -701,6 +767,10 @@ body {
   background: color-mix(in srgb, var(--done-bg) 35%, var(--surface));
 }
 
+.mountain-item.is-planned {
+  background: color-mix(in srgb, var(--planned-bg) 32%, var(--surface));
+}
+
 .mountain-item__no {
   flex-shrink: 0;
   width: 30px;
@@ -764,6 +834,11 @@ body {
 .status-badge--done {
   background: var(--done-bg);
   color: var(--done-fg);
+}
+
+.status-badge--planned {
+  background: var(--planned-bg);
+  color: var(--planned-fg);
 }
 
 .status-badge--todo {
@@ -1003,6 +1078,76 @@ body {
   margin: 16px 0 0;
   font-size: 11px;
   color: var(--text-sub);
+}
+
+/* ════ 計画追加ピッカー ════ */
+.plan-picker-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  max-height: 52vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.plan-pick {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border: 1px solid var(--surface-border);
+  border-radius: 10px;
+  background: var(--surface);
+  cursor: pointer;
+  transition: border-color 140ms ease, background 140ms ease;
+}
+
+.plan-pick:hover {
+  border-color: var(--accent);
+}
+
+.plan-pick.is-on {
+  background: color-mix(in srgb, var(--planned-bg) 40%, var(--surface));
+  border-color: var(--planned-fg);
+}
+
+.plan-pick__check {
+  font-size: 20px;
+  color: var(--text-sub);
+}
+
+.plan-pick.is-on .plan-pick__check {
+  color: var(--planned-fg);
+}
+
+.plan-pick__no {
+  width: 26px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.plan-pick__name {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.plan-pick__meta {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--text-sub);
+  white-space: nowrap;
+}
+
+.plan-pick-empty {
+  list-style: none;
+  padding: 16px;
+  text-align: center;
+  color: var(--text-sub);
+  font-size: 13px;
 }
 
 /* ════ 同期モーダル ════ */
