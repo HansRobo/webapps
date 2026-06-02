@@ -4,7 +4,7 @@
 // 使い方:
 //   node apps/autonomous-driving-map/check-sources.mjs             # URL確認あり
 //   node apps/autonomous-driving-map/check-sources.mjs --no-fetch  # 構造チェックのみ
-//   node apps/autonomous-driving-map/check-sources.mjs --stale 12  # 12ヶ月以上前を検出
+//   node apps/autonomous-driving-map/check-sources.mjs --stale 12  # 最終確認が12ヶ月以上前、または日時なしを検出
 //   node apps/autonomous-driving-map/check-sources.mjs --exp exp-001  # 単体確認
 
 import { createRequire } from "node:module";
@@ -65,6 +65,7 @@ async function checkUrl(url, timeout = 10000) {
 
 const urlMap = new Map(); // url → [{expId, refId}]
 const staleRefs = [];
+const missingCheckedAtRefs = [];
 const missingDateRefs = [];
 
 for (const exp of targets) {
@@ -73,8 +74,9 @@ for (const exp of targets) {
       if (!urlMap.has(ref.url)) urlMap.set(ref.url, []);
       urlMap.get(ref.url).push({ expId: exp.id, refId: ref.id });
     }
-    const age = monthsAgo(ref.date);
-    if (age > staleMonths) staleRefs.push({ expId: exp.id, refId: ref.id, date: ref.date, age, url: ref.url });
+    const age = monthsAgo(ref.checkedAt);
+    if (age > staleMonths) staleRefs.push({ expId: exp.id, refId: ref.id, checkedAt: ref.checkedAt, age, url: ref.url });
+    if (!ref.checkedAt) missingCheckedAtRefs.push({ expId: exp.id, refId: ref.id });
     if (!ref.date) missingDateRefs.push({ expId: exp.id, refId: ref.id });
   }
 }
@@ -136,16 +138,24 @@ if (!noFetch) {
 // ─── 鮮度チェック ─────────────────────────────────────────────────────────────
 
 if (staleRefs.length > 0) {
-  console.log(`\n── ${staleMonths}ヶ月以上前の参照: ${staleRefs.length} 件 ──`);
+  console.log(`\n── 要チェック参照（最終確認が ${staleMonths}ヶ月以上前、または日時なし）: ${staleRefs.length} 件 ──`);
   staleRefs.sort((a, b) => b.age - a.age);
-  for (const { expId, refId, date, age } of staleRefs.slice(0, 20)) {
-    console.log(`  ${expId} ref[${refId}]: ${date ?? "日付なし"} (${age === Infinity ? "不明" : age + "ヶ月前"})`);
+  for (const { expId, refId, checkedAt, age } of staleRefs.slice(0, 20)) {
+    console.log(`  ${expId} ref[${refId}]: ${checkedAt ?? "チェック日時なし"} (${age === Infinity ? "要チェック" : age + "ヶ月前"})`);
   }
   if (staleRefs.length > 20) console.log(`  ... 他 ${staleRefs.length - 20} 件`);
 }
 
+if (missingCheckedAtRefs.length > 0) {
+  console.log(`\n── チェック日時なしの参照: ${missingCheckedAtRefs.length} 件 ──`);
+  for (const { expId, refId } of missingCheckedAtRefs.slice(0, 10)) {
+    console.log(`  ${expId} ref[${refId}]`);
+  }
+  if (missingCheckedAtRefs.length > 10) console.log(`  ... 他 ${missingCheckedAtRefs.length - 10} 件`);
+}
+
 if (missingDateRefs.length > 0) {
-  console.log(`\n── 日付なしの参照: ${missingDateRefs.length} 件 ──`);
+  console.log(`\n── 公開日なしの参照: ${missingDateRefs.length} 件 ──`);
   for (const { expId, refId } of missingDateRefs.slice(0, 10)) {
     console.log(`  ${expId} ref[${refId}]`);
   }
@@ -168,12 +178,16 @@ if (!noFetch) {
   );
 }
 
-staleRefs.slice(0, 10).forEach(({ expId }) =>
-  actions.push(`[鮮度更新] ${expId}: ${staleMonths}ヶ月以上前の参照を再確認・更新`)
+missingCheckedAtRefs.slice(0, 10).forEach(({ expId, refId }) =>
+  actions.push(`[要チェック] ${expId} ref[${refId}]: 一次情報を確認し checkedAt を更新`)
+);
+
+staleRefs.filter(({ checkedAt }) => checkedAt).slice(0, 10).forEach(({ expId, refId }) =>
+  actions.push(`[鮮度更新] ${expId} ref[${refId}]: ${staleMonths}ヶ月以上前に確認した一次情報を再確認`)
 );
 
 missingDateRefs.slice(0, 10).forEach(({ expId, refId }) =>
-  actions.push(`[日付追加] ${expId} ref[${refId}]: date フィールドを追加`)
+  actions.push(`[公開日追加] ${expId} ref[${refId}]: date フィールドを追加`)
 );
 
 if (actions.length === 0) {

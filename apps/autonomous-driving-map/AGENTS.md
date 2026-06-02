@@ -83,8 +83,9 @@ d. node apps/autonomous-driving-map/validate-data.mjs で確認
       id: 1,
       title: "記事・プレスリリースのタイトル",
       url: "https://example.com/article",
-      date: "2024-04-01",
+      date: "2024-04-01",                 // 公開日
       source: "出典機関名",
+      checkedAt: "2026-06-02T00:00:00Z", // 一次情報 URL の最終確認日時。不明・未確認なら null
     },
   ],
 },
@@ -145,7 +146,7 @@ node apps/autonomous-driving-map/check-sources.mjs --no-fetch
 # URL確認あり
 node apps/autonomous-driving-map/check-sources.mjs
 
-# 12ヶ月以上前の参照を検出
+# 最終確認が12ヶ月以上前、または checkedAt が未設定の参照を検出
 node apps/autonomous-driving-map/check-sources.mjs --stale 12 --no-fetch
 
 # 特定実験のみ確認
@@ -165,6 +166,7 @@ node apps/autonomous-driving-map/check-sources.mjs --exp exp-001
 | 新車両をいきなり data.js に書く | → schema.js の VEH.* に先に追加する |
 | stakeholder.name に未登録の組織名 | → schema.js の KNOWN_ORGS に追加（警告が消える） |
 | refs に存在しない参考文献IDを指定 | → バリデーターでエラー検出。references に先に追加する |
+| `checkedAt` が未設定または `null` | → stale な要チェック候補。一次情報 URL を確認後、タイムゾーン付き ISO 8601 日時を記録 |
 
 ---
 
@@ -174,3 +176,4 @@ node apps/autonomous-driving-map/check-sources.mjs --exp exp-001
 - **エントリ順序**: 基本的に id 連番順を維持する
 - **最小限の編集**: 必要なフィールドのみ変更し、無関係なフィールドを触らない
 - **UTF-8 エンコーディング**: 日本語はそのまま記述する（エスケープ不要）
+- **一次情報の確認日時**: `references[].checkedAt` は URL を実際に確認した日時をタイムゾーン付き ISO 8601 形式で記録する。未確認の場合は `null` のままにする
