@@ -109,8 +109,8 @@ const EXPERIMENTS = [
       ],
       references: [
         { id: 1, title: "自動運転バス定期運行｜北海道 上士幌町", url: "https://www.kamishihoro.jp/sp/self_driving_bus", date: "2024-10-28", source: "上士幌町", checkedAt: "2026-06-02T01:34:01Z" },
-        { id: 2, title: "無人自動運転移動サービスに向けて国内6例目となる自動運転車（レベル４）を認可", url: "https://wwwtb.mlit.go.jp/hokkaido/press/20240531_00002.html", date: "2024-05-31", source: "国土交通省 北海道運輸局", checkedAt: null },
-        { id: 3, title: "特定自動運行に係る許可について（上士幌町）", url: "https://www.police.pref.hokkaido.lg.jp/info/koutuu/universal/kurumaisu_sinsei/automatic-drive-sinsei.html", date: "2024-10-25", source: "北海道警察", checkedAt: null }
+        { id: 2, title: "無人自動運転移動サービスに向けて国内6例目となる自動運転車（レベル４）を認可", url: "https://wwwtb.mlit.go.jp/hokkaido/press/20240531_00002.html", date: "2024-05-31", source: "国土交通省 北海道運輸局", checkedAt: "2026-06-02T02:11:42Z" },
+        { id: 3, title: "特定自動運行に係る許可について（上士幌町）", url: "https://www.police.pref.hokkaido.lg.jp/info/koutuu/universal/kurumaisu_sinsei/automatic-drive-sinsei.html", date: "2024-10-25", source: "北海道警察", checkedAt: "2026-06-02T02:11:42Z" }
       ]
     },
   {
@@ -136,9 +136,9 @@ const EXPERIMENTS = [
         { role: "支援機関", name: "千葉県", refs: [1, 3] }
       ],
       references: [
-        { id: 1, title: "日産自動車とDeNA、無人運転車両を活用した交通サービス「Easy Ride」の実証実験を開始", url: "https://dena.com/jp/news/3566", date: "2018-02-23", source: "DeNA ニュース", checkedAt: null },
-        { id: 2, title: "日産とDeNAが次世代交通サービス「Easy Ride」の実証実験へ、無人運転車両を活用", url: "https://techcrunchjapan.com/2018/02/23/easy-ride-test/", date: "2018-02-23", source: "TechCrunch Japan", checkedAt: null },
-        { id: 3, title: "自動運転モビリティの導入（幕張新都心スマートシティ）", url: "https://www.city.chiba.jp/sogoseisaku/miraitoshi/tokku/tokku_mobility.html", date: "2018-09-01", source: "千葉市", checkedAt: null }
+        { id: 1, title: "日産自動車とDeNA、無人運転車両を活用した交通サービス「Easy Ride」の実証実験を開始", url: "https://dena.com/jp/news/3566", date: "2018-02-23", source: "DeNA ニュース", checkedAt: "2026-06-02T02:11:42Z" },
+        { id: 2, title: "日産とDeNAが次世代交通サービス「Easy Ride」の実証実験へ、無人運転車両を活用", url: "https://techcrunchjapan.com/2018/02/23/easy-ride-test/", date: "2018-02-23", source: "TechCrunch Japan", checkedAt: "2026-06-02T02:11:42Z" },
+        { id: 3, title: "自動運転モビリティの導入（幕張新都心スマートシティ）", url: "https://www.city.chiba.jp/sogoseisaku/miraitoshi/tokku/tokku_mobility.html", date: "2018-09-01", source: "千葉市", checkedAt: "2026-06-02T02:11:42Z" }
       ]
     },
   {
@@ -193,8 +193,8 @@ const EXPERIMENTS = [
         { role: "実証支援", name: "国土交通省 近畿運輸局", refs: [1] }
       ],
       references: [
-        { id: 1, title: "道の駅「奥永源寺渓流の里」を拠点とした自動運転サービス", url: "https://www.city.higashiomi.shiga.jp/kurashi_tetsuzuki/koutsuu/1002061/1002062.html", date: "2020-10-01", source: "東近江市", checkedAt: null },
-        { id: 2, title: "国交省、滋賀県東近江市道の駅に自動運転サービス本格導入", url: "https://ligare.news/story/milt-0421/", date: "2021-04-01", source: "LIGARE", checkedAt: null }
+        { id: 1, title: "道の駅「奥永源寺渓流の里」を拠点とした自動運転サービス", url: "https://www.city.higashiomi.shiga.jp/kurashi_tetsuzuki/koutsuu/1002061/1002062.html", date: "2020-10-01", source: "東近江市", checkedAt: "2026-06-02T02:11:42Z" },
+        { id: 2, title: "国交省、滋賀県東近江市道の駅に自動運転サービス本格導入", url: "https://ligare.news/story/milt-0421/", date: "2021-04-01", source: "LIGARE", checkedAt: "2026-06-02T02:11:42Z" }
       ]
     },
   {
@@ -5916,6 +5916,33 @@ const EXPERIMENTS = [
       ],
       references: [
         { id: 1, title: "大阪市内路線バスにおける自動運転バス実証実験について", url: "https://autonomous.osakametro.co.jp/news/2026/02/375/", date: "2026-02-19", source: "Osaka Metro", checkedAt: null }
+      ]
+    },
+    {
+      id: "exp-262",
+      name: { value: "加賀市 自動運転EVバス「EVO」公道走行実証（マクニカ・加賀市）", refs: [1, 2, 3] },
+      location: { value: "石川県加賀市（加賀温泉駅〜イオン加賀の里店〜山代温泉総湯）", lat: 36.304, lng: 136.355, refs: [1, 2, 3] },
+      prefecture: { value: PREF.ISHIKAWA, refs: [1, 2, 3] },
+      period: { value: "2024年4月17日〜23日", refs: [1, 2, 3] },
+      status: { value: STATUS.COMPLETED, refs: [2] },
+      description: {
+        value: "ドライバー不足の解決と公共交通の維持に自動運転技術を活用できるかを調査するため、加賀市とマクニカが自動運転レベル4対応EVバス「EVO」の公道走行実証を実施。イオン加賀の里店を発着点として、加賀温泉駅および山代温泉総湯を結ぶ片道約5km・往復約10kmのルートを走行した。これに先立ち、2024年3月16日〜17日には北陸新幹線加賀温泉駅開業記念イベント「加賀未来市.」で手動走行体験会が行われた。",
+        refs: [1, 2, 3, 4]
+      },
+      vehicle: { value: VEH.NAVYA_EVO, refs: [1, 2, 3, 4] },
+      adSystem: { value: ADS.NAVYA, refs: [1, 2, 3, 4] },
+      route: { value: "イオン加賀の里店〜加賀温泉駅、イオン加賀の里店〜山代温泉総湯 往復約10km", refs: [1, 2, 3] },
+      operationType: { value: "レベル2（レベル4対応車両、オペレータ・保安員乗車）", refs: [1, 2, 3] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "自動運転システム・車両提供（Navya EVO）", name: "マクニカ株式会社", refs: [1, 2, 4] },
+        { role: "自治体・事業主体", name: "加賀市（石川県）", refs: [1, 3] }
+      ],
+      references: [
+        { id: 1, title: "マクニカ、加賀市にて自動運転レベル４対応車両“EVO”による世界最長の公道走行実証を実施", url: "https://www.macnica.co.jp/public-relations/news/2024/145132/", date: "2024-04-16", source: "株式会社マクニカ", checkedAt: "2026-06-02T02:19:36Z" },
+        { id: 2, title: "加賀市レポ―ト Vol.2 自動運転EVバス 実証実験", url: "https://www.macnica.co.jp/business/maas/cases/149118/", date: "2024-09-03", source: "株式会社マクニカ", checkedAt: "2026-06-02T02:19:36Z" },
+        { id: 3, title: "自動運転EVバス公道走行実証について", url: "https://www.city.kaga.ishikawa.jp/material/files/group/126/autonomous.pdf", date: "2024-04-16", source: "加賀市", checkedAt: "2026-06-02T02:19:36Z" },
+        { id: 4, title: "加賀市レポート Vol.1【北陸新幹線加賀温泉駅開業記念】自動運転EVバス「EVO」走行体験会", url: "https://www.macnica.co.jp/business/maas/cases/149122/", date: "2024-05-08", source: "株式会社マクニカ", checkedAt: "2026-06-02T02:19:36Z" }
       ]
     },
 ];

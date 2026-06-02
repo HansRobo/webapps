@@ -21,6 +21,12 @@ const LAT_MIN = 24;
 const LAT_MAX = 46;
 const LNG_MIN = 122;
 const LNG_MAX = 154;
+const EDIT_GUIDANCE = [
+  "── データ編集時の検証ガイダンス ──",
+  "既存エントリを更新する前に、別年度・別期間・別ルート・別車両・別事業者・別実証フェーズなど、独立した実験である可能性を幅広く確認してください。",
+  "一次情報を照合してあらゆる合理的な可能性を検討し、別実験と判断できる場合は既存エントリを上書きせず、新しい exp-XXX エントリとして分離してください。",
+  "checkedAt は、参照先の存在だけでなく、対象エントリの内容と一次情報の整合性を確認した後に更新してください。",
+].join("\n");
 
 export function loadSchema() {
   delete require.cache[require.resolve(SCHEMA_PATH)];
@@ -334,6 +340,7 @@ export function main() {
     return;
   }
 
+  console.log(`${EDIT_GUIDANCE}\n`);
   console.log(`バリデーション開始: ${Array.isArray(experiments) ? experiments.length : 0} 件の実験データ\n`);
   const { errors, warnings } = runValidation(schema, experiments);
   if (warnings.length > 0) {
