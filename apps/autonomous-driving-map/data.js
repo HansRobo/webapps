@@ -1637,23 +1637,25 @@ const EXPERIMENTS = [
       name: { value: "常陸太田市・自動運転EVバス「じょっピー」定常運行", refs: [1] },
       location: { value: "茨城県常陸太田市", lat: 36.54, lng: 140.53, refs: [1] },
       prefecture: { value: PREF.IBARAKI, refs: [1] },
-      period: { value: "2024年2月〜（定常運行継続中）", refs: [1] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
+      period: { value: "2024年2月〜（定常運行継続中、2026年3月25日に一部区間でレベル4車両認可）", refs: [1, 2, 3] },
+      status: { value: STATUS.ACTIVE, refs: [1, 2, 3] },
       description: {
-        value: "中心市街地において、自動運転EVバスを用いた国内有数の定常運行を実施。2025年にはルート拡充を行い、利便性を向上させている。",
-        refs: [1]
+        value: "中心市街地において、自動運転EVバスを用いた定常運行を実施。2025年にはルートを拡充し、2台運行体制へ移行した。2026年3月25日、一般道の一部約200m区間について、NAVYA EVOとして国内初となる道路運送車両法に基づくレベル4車両認可を取得。2027年度のレベル4社会実装に向け、今後は走行区間拡大、道路交通法に基づく特定自動運行許可、道路運送法に係る営業運行許可の取得を目指す。",
+        refs: [1, 2, 3]
       },
-      vehicle: { value: VEH.NAVYA_EVO, refs: [1] },
-      adSystem: { value: ADS.NAVYA, refs: [1] },
-      route: { value: "常陸太田市 中心市街地ルート", refs: [1] },
-      operationType: { value: "定常運行（将来レベル4認可取得済）", refs: [1] },
-      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      vehicle: { value: VEH.NAVYA_EVO, refs: [1, 2, 3] },
+      adSystem: { value: ADS.NAVYA, refs: [1, 2, 3] },
+      route: { value: "常陸太田市中心市街地ルート（レベル4車両認可対象：カインズ常陸太田店北西側〜太田さくら認定こども園東側 約200m）", refs: [1, 2, 3] },
+      operationType: { value: "定常運行（一般道の一部区間でレベル4車両認可済、特定自動運行許可は取得準備中）", refs: [1, 2, 3] },
+      lv4Approval: { value: LV4_APPROVAL.VEHICLE_AUTHORIZED, refs: [2, 3] },
       stakeholders: [
-        { role: "自治体", name: "常陸太田市（茨城県）", refs: [1] },
-        { role: "協力", name: "株式会社マクニカ", refs: [1] }
+        { role: "自治体", name: "常陸太田市（茨城県）", refs: [1, 2] },
+        { role: "運行主体", name: "株式会社マクニカ", refs: [1, 2, 3] }
       ],
       references: [
-        { id: 1, title: "自動運転EVバス「じょっピー」の運行について", url: "https://www.city.hitachiota.ibaraki.jp/page/page008901.html", date: "2025-02-18", source: "常陸太田市" }
+        { id: 1, title: "自動運転EVバス「じょっピー」の運行について", url: "https://www.city.hitachiota.ibaraki.jp/page/page008901.html", date: "2025-02-18", source: "常陸太田市" },
+        { id: 2, title: "マクニカ、茨城県常陸太田市にて定常運行中の自動運転EVバス「EVO」による 自動運転車（レベル4）の認可を国土交通省より取得", url: "https://www.macnica.co.jp/public-relations/news/2026/149455/", date: "2026-03-25", source: "株式会社マクニカ" },
+        { id: 3, title: "自動運転車（レベル4）の認可を行いました ～運転者を必要としない自動運転車～", url: "https://wwwtb.mlit.go.jp/kanto/content/000370411.pdf", date: "2026-03-25", source: "国土交通省 関東運輸局" }
       ]
     },
   {
