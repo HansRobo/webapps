@@ -5868,19 +5868,19 @@ const EXPERIMENTS = [
     },
     {
       id: "exp-260",
-      name: { value: "丸の内シャトルルート 自動運転バス実証実験", refs: [1] },
-      location: { value: "東京都千代田区（大手町・丸の内・有楽町エリア）", lat: 35.681, lng: 139.765, refs: [1] },
-      prefecture: { value: PREF.TOKYO, refs: [1] },
-      period: { value: "2026年6月23日〜7月2日", refs: [1] },
-      status: { value: STATUS.PLANNED, refs: [1] },
+      name: { value: "丸の内シャトルルート 自動運転バス実証実験", refs: [1, 2] },
+      location: { value: "東京都千代田区（大手町・丸の内・有楽町エリア）", lat: 35.681, lng: 139.765, refs: [1, 2] },
+      prefecture: { value: PREF.TOKYO, refs: [1, 2] },
+      period: { value: "2026年6月23日〜7月2日", refs: [1, 2] },
+      status: { value: STATUS.PLANNED, refs: [1, 2] },
       description: {
         value: "東京都が推進する自動運転サービス導入に向けた走行環境整備プロジェクトの一環として、大丸有エリアの無料循環バス「丸の内シャトル」と同様のルートで初めて実施する自動運転バス実証。BYD J6を用いて、事前予約不要・無料で乗車できるレベル2運行を行い、都市部での社会実装に向けた課題と対策を検証する。",
-        refs: [1]
+        refs: [1, 2]
       },
-      vehicle: { value: VEH.BYD_J6, refs: [1] },
-      adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
-      route: { value: "丸の内シャトル運行ルート（大手町・丸の内・有楽町エリア、約40〜50分間隔）", refs: [1] },
-      operationType: { value: "レベル2（乗車無料・事前予約不要）", refs: [1] },
+      vehicle: { value: VEH.BYD_J6, refs: [1, 2] },
+      adSystem: { value: ADS.UNKNOWN, refs: [1, 2] },
+      route: { value: "丸の内シャトル運行ルート（大手町・丸の内・有楽町エリア、約40〜50分間隔）", refs: [1, 2] },
+      operationType: { value: "レベル2（乗車無料・事前予約不要）", refs: [1, 2] },
       lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "実施主体", name: "東京都 都市整備局", refs: [1] },
@@ -5890,7 +5890,8 @@ const EXPERIMENTS = [
         { role: "協力", name: "千代田区（東京都）", refs: [1] }
       ],
       references: [
-        { id: 1, title: "丸の内シャトルルートにおける自動運転（レベル2）バス実証実験", url: "https://tokyo-omy.jp/press-release/press-release-2484/", date: "2026-05-11", source: "大丸有INDEX", checkedAt: null }
+        { id: 1, title: "丸の内シャトルルートにおける自動運転（レベル2）バス実証実験", url: "https://tokyo-omy.jp/press-release/press-release-2484/", date: "2026-05-11", source: "大丸有INDEX", checkedAt: null },
+        { id: 2, title: "大丸有地区 | 令和8年度自動運転サービスの導入推進に向けた走行環境整備に関するプロジェクト", url: "https://toshiseibi.jidouunntenn1.metro.tokyo.lg.jp/dmu.html", date: "2026-05-07", source: "東京都 都市整備局", checkedAt: null }
       ]
     },
     {
