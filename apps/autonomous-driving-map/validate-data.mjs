@@ -1,307 +1,354 @@
-// validate-data.mjs
-// 自動運転実証実験マップ データ整合性バリデータ
-//
-// 使い方:
-//   node apps/autonomous-driving-map/validate-data.mjs
-//   node apps/autonomous-driving-map/validate-data.mjs --verbose
-//
-// 終了コード:
-//   0 = エラーなし（警告があっても OK）
-//   1 = エラーあり
+#!/usr/bin/env node
+// 自動運転実証実験データ バリデーションスクリプト
+// 使い方: node apps/autonomous-driving-map/validate-data.mjs
+// 終了コード: 0=OK（警告あり可）, 1=エラーあり
 
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
+import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
+import vm from "node:vm";
 
-const __dir = dirname(fileURLToPath(import.meta.url));
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const require = createRequire(import.meta.url);
-const verbose = process.argv.includes("--verbose");
+const SCHEMA_PATH = join(__dirname, "schema.js");
+const DATA_PATH = join(__dirname, "data.js");
+const ENUM_NAMES = ["STATUS", "LV4_APPROVAL", "PREF", "VEH", "ADS"];
+const STRING_VALUE_FIELDS = ["name", "location", "period", "description", "route", "operationType"];
+const ENUM_VALUE_FIELDS = ["status", "prefecture", "lv4Approval"];
+const ID_PATTERN = /^exp-\d{3}$/;
+const LAT_MIN = 24;
+const LAT_MAX = 46;
+const LNG_MIN = 122;
+const LNG_MAX = 154;
 
-// ─── schema.js 読み込み ─────────────────────────────────────────────────────
-
-const schema = require(join(__dir, "schema.js"));
-const { STATUS, LV4_APPROVAL, PREF, VEH, ADS, KNOWN_ORGS, KNOWN_ROLES } = schema;
-
-// ─── data.js 読み込み（Node.js 環境での globals 注入） ───────────────────────
-
-// ブラウザでは schema.js が <script> で先にロードされグローバルになるが、
-// Node.js では global に手動で注入する
-for (const [k, v] of Object.entries(schema)) {
-  global[k] = v;
+export function loadSchema() {
+  delete require.cache[require.resolve(SCHEMA_PATH)];
+  return require(SCHEMA_PATH);
 }
 
-const dataText = readFileSync(join(__dir, "data.js"), "utf-8");
-// eval で EXPERIMENTS グローバルを生成
-// const は eval スコープに閉じるため、globalThis への代入に変換してから eval する
-try {
-  const transformed = dataText.replace(/\bconst\s+EXPERIMENTS\s*=/, "globalThis.EXPERIMENTS =");
-  eval(transformed); // eslint-disable-line no-eval
-} catch (e) {
-  console.error(`[FATAL] data.js の読み込みに失敗しました: ${e.message}`);
-  process.exit(1);
+export function loadExperiments(schema, dataPath = DATA_PATH) {
+  const src = readFileSync(dataPath, "utf-8");
+  // const はサンドボックスオブジェクトのプロパティにならないため、var 宣言に置き換える。
+  const patched = src.replace(/\bconst\s+EXPERIMENTS\s*=/, "var EXPERIMENTS =");
+  const sandbox = Object.fromEntries(ENUM_NAMES.map((name) => [name, schema[name]]));
+  sandbox.EXPERIMENTS = undefined;
+  vm.runInNewContext(patched, sandbox, { filename: dataPath });
+  return sandbox.EXPERIMENTS;
 }
 
-// ─── カウンタ ────────────────────────────────────────────────────────────────
-
-let errors = 0;
-let warnings = 0;
-
-function err(msg)  { console.error(`  [ERROR] ${msg}`); errors++; }
-function warn(msg) { if (verbose || true) console.warn(`  [WARN]  ${msg}`); warnings++; }
-function ok(msg)   { if (verbose) console.log(`  [OK]    ${msg}`); }
-
-// ─── Step 1: スキーマ定義チェック ───────────────────────────────────────────
-
-console.log("\n── Step 1: スキーマ定義チェック ──");
-
-function checkEnumDef(enumObj, name) {
-  const ids = new Set();
-  for (const [key, val] of Object.entries(enumObj)) {
-    if (!val || typeof val !== "object") { err(`${name}.${key}: オブジェクトではありません`); continue; }
-    if (!val.id)    err(`${name}.${key}: id が未定義`);
-    if (!val.label) err(`${name}.${key}: label が未定義`);
-    if (val.id && ids.has(val.id)) err(`${name}: id "${val.id}" が重複しています`);
-    if (val.id) ids.add(val.id);
-  }
-  ok(`${name}: ${Object.keys(enumObj).length} 件 定義済み`);
+function normalizeRole(role) {
+  return String(role).replace(/[ 　]/g, "").replace(/（[^）]*）/g, "").trim();
 }
 
-checkEnumDef(STATUS, "STATUS");
-checkEnumDef(LV4_APPROVAL, "LV4_APPROVAL");
-checkEnumDef(PREF, "PREF");
-checkEnumDef(VEH, "VEH");
-checkEnumDef(ADS, "ADS");
-
-// ─── Step 2: エントリ構造チェック ───────────────────────────────────────────
-
-console.log("\n── Step 2: エントリ構造チェック ──");
-
-const validStatuses    = new Set(Object.values(STATUS));
-const validLv4Approvals = new Set(Object.values(LV4_APPROVAL));
-const validPrefs       = new Set(Object.values(PREF));
-const validVehs        = new Set(Object.values(VEH));
-const validAds         = new Set(Object.values(ADS));
-
-const experimentIds = new Set();
-
-const REQUIRED_FIELDS = ["id", "name", "location", "prefecture", "period", "status",
-  "description", "vehicle", "adSystem", "route", "operationType", "lv4Approval", "stakeholders", "references"];
-
-// eslint-disable-next-line no-undef
-const experiments = typeof EXPERIMENTS !== "undefined" ? EXPERIMENTS : [];
-if (experiments.length === 0) {
-  err("EXPERIMENTS が空または未定義です");
+function normalizeOrgName(name) {
+  return String(name)
+    .replace(/[ 　]/g, "")
+    .replace(/（[^）]*）/g, "")
+    .replace(/\([^)]*\)/g, "")
+    .replace(/株式会社|（株）|有限会社|一般財団法人|一般社団法人|国立研究開発法人/g, "")
+    .trim();
 }
 
-for (const exp of experiments) {
-  const tag = exp.id ?? "(id不明)";
-
-  // 必須フィールドの存在確認
-  for (const f of REQUIRED_FIELDS) {
-    if (!(f in exp)) err(`${tag}: 必須フィールド "${f}" がありません`);
+function groupNormalized(values, normalize) {
+  const groups = new Map();
+  for (const value of values) {
+    const normalized = normalize(value);
+    if (!groups.has(normalized)) groups.set(normalized, []);
+    groups.get(normalized).push(value);
   }
+  return groups;
+}
 
-  // ID の重複チェック
-  if (experimentIds.has(exp.id)) err(`${tag}: ID が重複しています`);
-  experimentIds.add(exp.id);
+function isPositiveInteger(value) {
+  return Number.isInteger(value) && value > 0;
+}
 
-  // status のオブジェクト同一性チェック
-  if (exp.status && typeof exp.status === "object" && "value" in exp.status) {
-    if (!validStatuses.has(exp.status.value)) {
-      err(`${tag}: status.value が STATUS に存在しないオブジェクトです（文字列リテラル？）: ${JSON.stringify(exp.status.value)}`);
-    }
-    if (!Array.isArray(exp.status.refs)) err(`${tag}: status.refs が配列ではありません`);
-  } else {
-    err(`${tag}: status が {value, refs} 形式ではありません`);
-  }
+function isValidDate(value) {
+  if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const [year, month, day] = value.split("-").map(Number);
+  const parsed = new Date(Date.UTC(year, month - 1, day));
+  return parsed.getUTCFullYear() === year && parsed.getUTCMonth() === month - 1 && parsed.getUTCDate() === day;
+}
 
-  // prefecture のオブジェクト同一性チェック
-  if (exp.prefecture && typeof exp.prefecture === "object" && "value" in exp.prefecture) {
-    if (!validPrefs.has(exp.prefecture.value)) {
-      err(`${tag}: prefecture.value が PREF に存在しないオブジェクトです: ${JSON.stringify(exp.prefecture.value)}`);
-    }
-    if (!Array.isArray(exp.prefecture.refs)) err(`${tag}: prefecture.refs が配列ではありません`);
-  } else {
-    err(`${tag}: prefecture が {value, refs} 形式ではありません`);
-  }
-
-  // vehicle のチェック（単一 or 配列）
-  const vehicleArr = Array.isArray(exp.vehicle) ? exp.vehicle : exp.vehicle ? [exp.vehicle] : [];
-  if (vehicleArr.length === 0) warn(`${tag}: vehicle が空です`);
-  for (const v of vehicleArr) {
-    if (!v || typeof v !== "object" || !("value" in v)) {
-      err(`${tag}: vehicle エントリが {value, refs} 形式ではありません`);
-      continue;
-    }
-    if (!validVehs.has(v.value)) {
-      err(`${tag}: vehicle.value が VEH に存在しないオブジェクトです: ${JSON.stringify(v.value)}`);
-    }
-    if (!Array.isArray(v.refs)) err(`${tag}: vehicle.refs が配列ではありません`);
-  }
-
-  // adSystem のチェック（null / 単一 / 配列）
-  if (exp.adSystem !== null && exp.adSystem !== undefined) {
-    const adsArr = Array.isArray(exp.adSystem) ? exp.adSystem : [exp.adSystem];
-    for (const a of adsArr) {
-      if (!a || typeof a !== "object" || !("value" in a)) {
-        err(`${tag}: adSystem エントリが {value, refs} 形式ではありません`);
-        continue;
-      }
-      if (!validAds.has(a.value)) {
-        err(`${tag}: adSystem.value が ADS に存在しないオブジェクトです: ${JSON.stringify(a.value)}`);
-      }
-      if (!Array.isArray(a.refs)) err(`${tag}: adSystem.refs が配列ではありません`);
-    }
-  }
-
-  // lv4Approval のチェック
-  if (exp.lv4Approval && typeof exp.lv4Approval === "object" && "value" in exp.lv4Approval) {
-    if (!validLv4Approvals.has(exp.lv4Approval.value)) {
-      err(`${tag}: lv4Approval.value が LV4_APPROVAL に存在しないオブジェクトです: ${JSON.stringify(exp.lv4Approval.value)}`);
-    }
-    if (!Array.isArray(exp.lv4Approval.refs)) err(`${tag}: lv4Approval.refs が配列ではありません`);
-  } else {
-    err(`${tag}: lv4Approval が {value, refs} 形式ではありません`);
+function isHttpUrl(value) {
+  if (typeof value !== "string" || value.trim() !== value || value === "") return false;
+  try {
+    const url = new URL(value);
+    return (url.protocol === "http:" || url.protocol === "https:") && url.hostname !== "";
+  } catch {
+    return false;
   }
 }
 
-console.log(`  ${experiments.length} 件チェック完了`);
+function isValidCheckedAt(value) {
+  if (value === null) return true;
+  if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?(?:Z|[+-]\d{2}:\d{2})$/.test(value)) return false;
+  return isValidDate(value.slice(0, 10)) && !Number.isNaN(Date.parse(value));
+}
 
-// ─── Step 3: 参照整合性チェック ──────────────────────────────────────────────
-
-console.log("\n── Step 3: 参照整合性チェック ──");
-
-function collectAllRefs(obj, refsSet, path) {
-  if (obj === null || obj === undefined) return;
-  if (Array.isArray(obj)) {
-    obj.forEach((item, i) => collectAllRefs(item, refsSet, `${path}[${i}]`));
+function addDuplicateErrors(values, label, err) {
+  if (!Array.isArray(values)) {
+    err(`${label} が配列ではありません`);
     return;
   }
-  if (typeof obj === "object") {
-    for (const [key, val] of Object.entries(obj)) {
-      if (key === "refs" && Array.isArray(val)) {
-        val.forEach((id) => refsSet.add(id));
-      } else if (key !== "references") {
-        collectAllRefs(val, refsSet, `${path}.${key}`);
-      }
+  const seen = new Set();
+  for (const [index, value] of values.entries()) {
+    if (typeof value !== "string" || value.trim() === "") {
+      err(`${label}[${index}] が空または文字列ではありません`);
+    } else if (seen.has(value)) {
+      err(`${label}: "${value}" が重複しています`);
     }
+    seen.add(value);
   }
 }
 
-let refErrors = 0;
-let unusedTotal = 0;
-let emptyRefsTotal = 0;
+export function validateSchema(schema) {
+  const errors = [];
+  const warnings = [];
+  const err = (msg) => errors.push(`[ERROR] schema: ${msg}`);
 
-for (const exp of experiments) {
-  const tag = exp.id ?? "(id不明)";
-  const refIds = new Set((exp.references ?? []).map((r) => r.id));
-
-  // reference の重複ID チェック
-  const seenRefIds = new Set();
-  for (const ref of (exp.references ?? [])) {
-    if (seenRefIds.has(ref.id)) { err(`${tag}: references[].id ${ref.id} が重複しています`); refErrors++; }
-    seenRefIds.add(ref.id);
-    if (!ref.url || !/^https?:\/\//.test(ref.url)) warn(`${tag}: ref[${ref.id}] の url が不正です: ${ref.url}`);
-    if (!ref.title) warn(`${tag}: ref[${ref.id}] に title がありません`);
-    if (!ref.source) warn(`${tag}: ref[${ref.id}] に source がありません`);
-    if (!ref.date) warn(`${tag}: ref[${ref.id}] に date がありません`);
+  if (!schema || typeof schema !== "object") {
+    err("schema.js がオブジェクトを公開していません");
+    return { errors, warnings };
   }
 
-  // 全 refs の収集（references フィールド自体を除く）
-  const usedRefs = new Set();
-  collectAllRefs(exp, usedRefs, tag);
-
-  // 存在しない ref への参照チェック
-  for (const id of usedRefs) {
-    if (!refIds.has(id)) { err(`${tag}: refs に ${id} があるが references に存在しません`); refErrors++; }
-  }
-
-  // 未使用 references の検出
-  for (const id of refIds) {
-    if (!usedRefs.has(id)) { warn(`${tag}: references[${id}] が参照されていません（未使用）`); unusedTotal++; }
-  }
-
-  // 空 refs の検出
-  function findEmptyRefs(obj, path) {
-    if (!obj || typeof obj !== "object") return;
-    if (Array.isArray(obj)) { obj.forEach((v, i) => findEmptyRefs(v, `${path}[${i}]`)); return; }
-    for (const [key, val] of Object.entries(obj)) {
-      if (key === "references") continue;
-      if (key === "refs" && Array.isArray(val) && val.length === 0) {
-        // 値があるのに refs が空の場合のみ警告
-        const parentValue = obj.value;
-        if (parentValue !== null && parentValue !== undefined) {
-          warn(`${tag}: ${path}.refs が空です（出典なし）`);
-          emptyRefsTotal++;
+  for (const enumName of ENUM_NAMES) {
+    const enumObject = schema[enumName];
+    if (!enumObject || typeof enumObject !== "object" || Array.isArray(enumObject)) {
+      err(`${enumName} がオブジェクトではありません`);
+      continue;
+    }
+    const ids = new Set();
+    const labels = new Set();
+    for (const [key, value] of Object.entries(enumObject)) {
+      if (!value || typeof value !== "object" || Array.isArray(value)) {
+        err(`${enumName}.${key} がオブジェクトではありません`);
+        continue;
+      }
+      for (const field of ["id", "label"]) {
+        if (typeof value[field] !== "string" || value[field].trim() === "") {
+          err(`${enumName}.${key}.${field} が空または文字列ではありません`);
         }
-      } else {
-        findEmptyRefs(val, `${path}.${key}`);
+      }
+      if (typeof value.id === "string" && ids.has(value.id)) err(`${enumName}: id "${value.id}" が重複しています`);
+      if (typeof value.label === "string" && labels.has(value.label)) err(`${enumName}: label "${value.label}" が重複しています`);
+      ids.add(value.id);
+      labels.add(value.label);
+    }
+  }
+
+  addDuplicateErrors(schema.KNOWN_ORGS, "KNOWN_ORGS", err);
+  addDuplicateErrors(schema.KNOWN_ROLES, "KNOWN_ROLES", err);
+  return { errors, warnings };
+}
+
+export function validateExperiments(experiments, schema) {
+  const errors = [];
+  const warnings = [];
+  const err = (id, msg) => errors.push(`[ERROR] ${id}: ${msg}`);
+  const warn = (id, msg) => warnings.push(`[WARN]  ${id}: ${msg}`);
+
+  if (!Array.isArray(experiments)) {
+    err("(全体)", "EXPERIMENTS が配列ではありません");
+    return { errors, warnings };
+  }
+  if (experiments.length === 0) err("(全体)", "EXPERIMENTS が空です");
+
+  const validStatuses = new Set(Object.values(schema.STATUS ?? {}));
+  const validLv4Approvals = new Set(Object.values(schema.LV4_APPROVAL ?? {}));
+  const validPrefs = new Set(Object.values(schema.PREF ?? {}));
+  const validVehs = new Set(Object.values(schema.VEH ?? {}));
+  const validAds = new Set(Object.values(schema.ADS ?? {}));
+  const knownRoles = Array.isArray(schema.KNOWN_ROLES) ? schema.KNOWN_ROLES : [];
+  const knownOrgs = Array.isArray(schema.KNOWN_ORGS) ? schema.KNOWN_ORGS : [];
+  const roleNormToKnown = groupNormalized(knownRoles, normalizeRole);
+  const orgNormToKnown = groupNormalized(knownOrgs, normalizeOrgName);
+  const seenIds = new Set();
+
+  function checkRefs(id, label, refs) {
+    if (!Array.isArray(refs)) {
+      err(id, `${label} が配列ではありません`);
+      return false;
+    }
+    if (refs.some((ref) => !isPositiveInteger(ref))) err(id, `${label} に正の整数以外の値が含まれています`);
+    return true;
+  }
+
+  function checkEnumValue(id, field, item, validValues, { nullable = false } = {}) {
+    if (nullable && item === null) return;
+    if (!item || typeof item !== "object" || Array.isArray(item) || !("value" in item)) {
+      err(id, `${field} が {value, refs} 形式ではありません`);
+      return;
+    }
+    if (!validValues.has(item.value)) err(id, `${field}.value が schema.js の定数を参照していません: ${JSON.stringify(item.value)}`);
+    checkRefs(id, `${field}.refs`, item.refs);
+  }
+
+  for (const exp of experiments) {
+    if (!exp || typeof exp !== "object" || Array.isArray(exp)) {
+      err("(不明)", "実験エントリがオブジェクトではありません");
+      continue;
+    }
+    const id = typeof exp.id === "string" && exp.id !== "" ? exp.id : "(不明)";
+    if (!ID_PATTERN.test(id)) err(id, 'id は "exp-XXX" 形式ではありません');
+    if (seenIds.has(id)) err(id, `ID "${id}" が重複しています`);
+    seenIds.add(id);
+
+    for (const field of STRING_VALUE_FIELDS) {
+      const item = exp[field];
+      if (!item || typeof item !== "object" || Array.isArray(item)) {
+        err(id, `${field} が {value, refs} 形式ではありません`);
+        continue;
+      }
+      if (typeof item.value !== "string" || item.value.trim() === "") err(id, `${field}.value が空または文字列ではありません`);
+      checkRefs(id, `${field}.refs`, item.refs);
+    }
+
+    checkEnumValue(id, "status", exp.status, validStatuses);
+    checkEnumValue(id, "prefecture", exp.prefecture, validPrefs);
+    checkEnumValue(id, "lv4Approval", exp.lv4Approval, validLv4Approvals);
+
+    if (exp.location && typeof exp.location === "object") {
+      const { lat, lng } = exp.location;
+      if (!Number.isFinite(lat) || lat < LAT_MIN || lat > LAT_MAX) err(id, `location.lat "${lat}" は日本の緯度範囲 [${LAT_MIN}, ${LAT_MAX}] 外です`);
+      if (!Number.isFinite(lng) || lng < LNG_MIN || lng > LNG_MAX) err(id, `location.lng "${lng}" は日本の経度範囲 [${LNG_MIN}, ${LNG_MAX}] 外です`);
+    }
+
+    const vehicleItems = Array.isArray(exp.vehicle) ? exp.vehicle : exp.vehicle ? [exp.vehicle] : [];
+    if (vehicleItems.length === 0) err(id, 'フィールド "vehicle" がありません');
+    for (const [index, item] of vehicleItems.entries()) checkEnumValue(id, `vehicle[${index}]`, item, validVehs);
+
+    if (!("adSystem" in exp)) {
+      err(id, 'フィールド "adSystem" がありません');
+    } else {
+      const adSystemItems = Array.isArray(exp.adSystem) ? exp.adSystem : [exp.adSystem];
+      if (adSystemItems.length === 0) err(id, "adSystem が空の配列です。不明な場合は null を指定してください");
+      for (const [index, item] of adSystemItems.entries()) checkEnumValue(id, `adSystem[${index}]`, item, validAds, { nullable: true });
+    }
+
+    const stakeholders = Array.isArray(exp.stakeholders) ? exp.stakeholders : [];
+    if (stakeholders.length === 0) {
+      warn(id, "stakeholders が空または配列ではありません");
+    } else {
+      for (const [index, stakeholder] of stakeholders.entries()) {
+        const prefix = `stakeholders[${index}]`;
+        if (!stakeholder || typeof stakeholder !== "object" || Array.isArray(stakeholder)) {
+          err(id, `${prefix} がオブジェクトではありません`);
+          continue;
+        }
+        if (typeof stakeholder.role !== "string" || stakeholder.role.trim() === "") err(id, `${prefix}.role が空または文字列ではありません`);
+        if (typeof stakeholder.name !== "string" || stakeholder.name.trim() === "") err(id, `${prefix}.name が空または文字列ではありません`);
+        checkRefs(id, `${prefix}.refs`, stakeholder.refs);
+
+        if (typeof stakeholder.role === "string" && stakeholder.role !== "" && !knownRoles.includes(stakeholder.role)) {
+          const matches = roleNormToKnown.get(normalizeRole(stakeholder.role)) ?? [];
+          if (matches.length > 0) err(id, `${prefix}.role "${stakeholder.role}" は既存表記 "${matches.join(" / ")}" と表記ゆれがあります`);
+          else warn(id, `${prefix}.role "${stakeholder.role}" が KNOWN_ROLES に未登録です`);
+        }
+        if (typeof stakeholder.name === "string") {
+          for (const org of stakeholder.name.split(/[、,，/／]/).map((value) => value.trim()).filter(Boolean)) {
+            if (knownOrgs.includes(org)) continue;
+            const matches = orgNormToKnown.get(normalizeOrgName(org)) ?? [];
+            if (matches.length > 0) err(id, `${prefix}.name 内 "${org}" は既存表記 "${matches.join(" / ")}" と表記ゆれがあります`);
+            else warn(id, `${prefix}.name 内 "${org}" が KNOWN_ORGS に未登録です`);
+          }
+        }
       }
     }
-  }
-  findEmptyRefs(exp, tag);
-}
 
-if (refErrors === 0) ok("参照整合性: エラーなし");
+    if (!Array.isArray(exp.references) || exp.references.length === 0) {
+      err(id, "references が空または配列ではありません");
+      continue;
+    }
 
-// ─── Step 4: データ品質監査（警告レベル） ────────────────────────────────────
+    const refIds = new Set();
+    const refUrls = new Map();
+    for (const [index, ref] of exp.references.entries()) {
+      const prefix = `references[${index}]`;
+      if (!ref || typeof ref !== "object" || Array.isArray(ref)) {
+        err(id, `${prefix} がオブジェクトではありません`);
+        continue;
+      }
+      if (!isPositiveInteger(ref.id)) err(id, `${prefix}.id が正の整数ではありません`);
+      else if (refIds.has(ref.id)) err(id, `${prefix}.id "${ref.id}" が重複しています`);
+      else refIds.add(ref.id);
+      if (typeof ref.title !== "string" || ref.title.trim() === "") err(id, `${prefix}.title が空または文字列ではありません`);
+      if (!isHttpUrl(ref.url)) err(id, `${prefix}.url "${ref.url}" は有効な http(s) URL ではありません`);
+      else if (refUrls.has(ref.url)) warn(id, `${prefix}.url "${ref.url}" は references[${refUrls.get(ref.url)}] と同じ URL です（重複参照）`);
+      else refUrls.set(ref.url, index);
+      if (!isValidDate(ref.date)) err(id, `${prefix}.date "${ref.date}" は実在する YYYY-MM-DD 形式の日付ではありません`);
+      if (typeof ref.source !== "string" || ref.source.trim() === "") warn(id, `${prefix}.source が空または文字列ではありません`);
+      if (!("checkedAt" in ref)) warn(id, `${prefix}.checkedAt がありません。一次情報の要チェック候補として扱われます`);
+      else if (!isValidCheckedAt(ref.checkedAt)) err(id, `${prefix}.checkedAt "${ref.checkedAt}" は null またはタイムゾーン付き ISO 8601 日時ではありません`);
+    }
 
-console.log("\n── Step 4: データ品質監査 ──");
-
-const knownOrgsSet  = new Set(KNOWN_ORGS);
-const knownRolesSet = new Set(KNOWN_ROLES);
-let unknownOrgs  = 0;
-let unknownRoles = 0;
-
-// Japan の緯度経度の大まかな範囲
-const LAT_MIN = 20, LAT_MAX = 46, LNG_MIN = 122, LNG_MAX = 154;
-
-for (const exp of experiments) {
-  const tag = exp.id ?? "(id不明)";
-
-  // GPS 範囲チェック
-  if (exp.location) {
-    const { lat, lng } = exp.location;
-    if (typeof lat !== "number" || lat < LAT_MIN || lat > LAT_MAX) warn(`${tag}: lat=${lat} が日本の範囲外です`);
-    if (typeof lng !== "number" || lng < LNG_MIN || lng > LNG_MAX) warn(`${tag}: lng=${lng} が日本の範囲外です`);
-  }
-
-  // ステークホルダー組織名チェック
-  for (const s of (exp.stakeholders ?? [])) {
-    const names = String(s.name ?? "").split(/[、,，/／]/).map((v) => v.trim()).filter(Boolean);
-    for (const name of names) {
-      if (!knownOrgsSet.has(name)) {
-        warn(`${tag}: stakeholder.name "${name}" が KNOWN_ORGS に未登録です（新規組織の場合は schema.js に追加してください）`);
-        unknownOrgs++;
+    const citedIds = new Set();
+    function inspectRefs(label, refs) {
+      if (!Array.isArray(refs)) return;
+      const seen = new Set();
+      for (const ref of refs) {
+        citedIds.add(ref);
+        if (!refIds.has(ref)) err(id, `${label} に参照番号 ${ref} がありますが、references[].id に存在しません`);
+        if (seen.has(ref)) warn(id, `${label} に参照番号 ${ref} が重複して含まれています`);
+        seen.add(ref);
       }
     }
-    if (s.role && !knownRolesSet.has(s.role)) {
-      warn(`${tag}: stakeholder.role "${s.role}" が KNOWN_ROLES に未登録です`);
-      unknownRoles++;
+    for (const field of [...STRING_VALUE_FIELDS, ...ENUM_VALUE_FIELDS]) inspectRefs(`${field}.refs`, exp[field]?.refs);
+    for (const [index, item] of vehicleItems.entries()) inspectRefs(`vehicle[${index}].refs`, item?.refs);
+    const adSystemItems = Array.isArray(exp.adSystem) ? exp.adSystem : exp.adSystem === null || exp.adSystem === undefined ? [] : [exp.adSystem];
+    for (const [index, item] of adSystemItems.entries()) inspectRefs(`adSystem[${index}].refs`, item?.refs);
+    for (const [index, item] of stakeholders.entries()) inspectRefs(`stakeholders[${index}].refs`, item?.refs);
+    for (const ref of exp.references) {
+      if (isPositiveInteger(ref?.id) && !citedIds.has(ref.id)) warn(id, `references id=${ref.id}（"${ref.title}"）はどのフィールドの refs にも引用されていません`);
     }
   }
+
+  return { errors, warnings };
 }
 
-if (unknownOrgs === 0) ok("KNOWN_ORGS: すべての組織名が登録済みです");
-if (unknownRoles === 0) ok("KNOWN_ROLES: すべての役割が登録済みです");
-
-// ─── 結果サマリー ────────────────────────────────────────────────────────────
-
-console.log("\n═══════════════════════════════════════");
-console.log(`  エントリ数:    ${experiments.length} 件`);
-console.log(`  エラー:        ${errors} 件`);
-console.log(`  警告:          ${warnings} 件`);
-if (unusedTotal > 0)   console.log(`    うち 未使用 references:  ${unusedTotal} 件`);
-if (emptyRefsTotal > 0) console.log(`    うち 空 refs フィールド: ${emptyRefsTotal} 件`);
-if (unknownOrgs > 0)   console.log(`    うち 未登録組織名:        ${unknownOrgs} 件`);
-if (unknownRoles > 0)  console.log(`    うち 未登録役割:           ${unknownRoles} 件`);
-console.log("═══════════════════════════════════════\n");
-
-if (errors > 0) {
-  console.error(`[FAIL] ${errors} 件のエラーがあります。data.js または schema.js を修正してください。`);
-  process.exit(1);
-} else {
-  console.log("[OK] バリデーション通過。エラーはありません。");
-  process.exit(0);
+export function runValidation(schema = loadSchema(), experiments = loadExperiments(schema)) {
+  const schemaResult = validateSchema(schema);
+  const dataResult = validateExperiments(experiments, schema);
+  return {
+    errors: [...schemaResult.errors, ...dataResult.errors],
+    warnings: [...schemaResult.warnings, ...dataResult.warnings],
+  };
 }
+
+export function main() {
+  let schema;
+  let experiments;
+  try {
+    schema = loadSchema();
+  } catch (error) {
+    console.error(`[FATAL] schema.js の読み込みに失敗しました: ${error.message}`);
+    process.exitCode = 1;
+    return;
+  }
+  try {
+    experiments = loadExperiments(schema);
+  } catch (error) {
+    console.error(`[FATAL] data.js の読み込みに失敗しました: ${error.message}`);
+    process.exitCode = 1;
+    return;
+  }
+
+  console.log(`バリデーション開始: ${Array.isArray(experiments) ? experiments.length : 0} 件の実験データ\n`);
+  const { errors, warnings } = runValidation(schema, experiments);
+  if (warnings.length > 0) {
+    warnings.forEach((warning) => console.warn(warning));
+    console.log(`\n警告: ${warnings.length} 件`);
+  }
+  if (errors.length > 0) {
+    console.log("");
+    errors.forEach((error) => console.error(error));
+    console.log(`\nエラー: ${errors.length} 件`);
+    console.log("バリデーション失敗");
+    process.exitCode = 1;
+    return;
+  }
+  console.log(warnings.length === 0 ? "バリデーション成功: エラー・警告なし" : "\nバリデーション成功（警告あり）");
+}
+
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();
