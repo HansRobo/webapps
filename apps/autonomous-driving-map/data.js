@@ -221,10 +221,10 @@ const EXPERIMENTS = [
         { role: "支援", name: "経済産業省、国土交通省", refs: [1] }
       ],
       references: [
-        { id: 1, title: "国内初！レベル4自動運転の中型バス「ひたちBRT自動運転バス」の運行サービスが開始されました", url: "https://www.meti.go.jp/press/2024/02/20250203003/20250203003.html", date: "2025-02-03", source: "経済産業省", checkedAt: null },
-        { id: 2, title: "各地の取り組み：日立市", url: "https://www.road-to-the-l4.go.jp/case/hitachi/index2.html", date: "2025-05-29", source: "RoAD to the L4 プロジェクト", checkedAt: null },
-        { id: 3, title: "ひたちBRTバス専用道全線でのレベル4自動運転開始について", url: "https://www.aist.go.jp/aist_j/news/announce/au20250520_2.html", date: "2025-05-20", source: "産業技術総合研究所", checkedAt: null },
-        { id: 4, title: "ひたちBRTで自動運転バスの営業運行がスタートします！（2026年4月1日より、運行を休止しています）", url: "https://www.city.hitachi.lg.jp/machizukuri_kankyo/kotsu_doro/1002832/1015631.html", date: "2026-04-02", source: "日立市", checkedAt: null }
+        { id: 1, title: "国内初！レベル4自動運転の中型バス「ひたちBRT自動運転バス」の運行サービスが開始されました", url: "https://www.meti.go.jp/press/2024/02/20250203003/20250203003.html", date: "2025-02-03", source: "経済産業省", checkedAt: "2026-06-02T03:09:06Z" },
+        { id: 2, title: "各地の取り組み：日立市", url: "https://www.road-to-the-l4.go.jp/case/hitachi/index2.html", date: "2025-05-29", source: "RoAD to the L4 プロジェクト", checkedAt: "2026-06-02T03:09:06Z" },
+        { id: 3, title: "ひたちBRTバス専用道全線でのレベル4自動運転開始について", url: "https://www.aist.go.jp/aist_j/news/announce/au20250520_2.html", date: "2025-05-20", source: "産業技術総合研究所", checkedAt: "2026-06-02T03:09:06Z" },
+        { id: 4, title: "ひたちBRTで自動運転バスの営業運行がスタートします！（2026年4月1日より、運行を休止しています）", url: "https://www.city.hitachi.lg.jp/machizukuri_kankyo/kotsu_doro/1002832/1015631.html", date: "2026-04-02", source: "日立市", checkedAt: "2026-06-02T03:09:06Z" }
       ]
     },
   {
@@ -235,27 +235,26 @@ const EXPERIMENTS = [
       period: { value: "2019年11月〜（2025年8月にレベル4車両認可、同年11月に特定自動運行許可）", refs: [1, 2, 3] },
       status: { value: STATUS.ACTIVE, refs: [1] },
       description: {
-        value: "東京大学を幹事とするCooL4コンソーシアムによる柏の葉地域での自動運転実証。2025年8月にレベル4車両認可、同年11月に特定自動運行許可を取得し、2026年1月13日から東京都市圏初の公道レベル4営業運行を開始。いすゞエルガミオ（ティアフォーADS）を用い、約2.6kmのルートのうち約700m区間でレベル4走行を実施。",
+        value: "東京大学を幹事とするCooL4コンソーシアムによる柏の葉地域での自動運転実証。2025年8月にレベル4車両認可、同年11月に特定自動運行許可を取得し、2026年1月13日から東京都市圏初の公道レベル4営業運行を開始。いすゞエルガミオ（先進モビリティの自動運転システム）を用い、約2.6kmのルートのうち約700m区間でレベル4走行を実施。",
         refs: [1, 2, 3, 4]
       },
       vehicle: { value: VEH.ISUZU_ERGA_MIO, refs: [1] },
-      adSystem: { value: ADS.TIER_IV, refs: [1] },
+      adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1, 3] },
       route: { value: "柏の葉キャンパス駅〜東京大学柏キャンパス 約2.6km（うち約700m区間レベル4）", refs: [1] },
       operationType: { value: "レベル2運行＋レベル4（特定自動運行）", refs: [1, 2, 3] },
       lv4Approval: { value: LV4_APPROVAL.OPERATION_PERMITTED, refs: [1] },
       stakeholders: [
         { role: "事業主体（CooL4幹事）", name: "東京大学", refs: [2, 4] },
         { role: "運行主体", name: "東武バスセントラル株式会社", refs: [1] },
-        { role: "自動運転システム開発", name: "株式会社ティアフォー", refs: [1, 4] },
         { role: "自動運転システム・車両整備", name: "先進モビリティ株式会社", refs: [3] },
         { role: "車両提供", name: "いすゞ自動車株式会社", refs: [1] },
         { role: "自治体", name: "柏市（千葉県）", refs: [2] },
         { role: "支援", name: "経済産業省、国土交通省", refs: [1, 2] }
       ],
       references: [
-        { id: 1, title: "柏の葉地域において、特定自動運行（自動運転レベル４）および旅客自動車運送事業の認可を取得しました", url: "https://www.meti.go.jp/press/2025/01/20260113001/20260113001.html", date: "2025-12-10", source: "経済産業省", checkedAt: null },
-        { id: 2, title: "柏の葉地区における自動運転公道走行試験開始について", url: "https://www.city.kashiwa.lg.jp/koho/pressrelease/r7houdou/12gatsu/r7121004.html", date: "2025-12-10", source: "柏市", checkedAt: null },
-        { id: 3, title: "東京都市圏の公道で初！ 柏の葉地区で特定自動運行（自動運転レベル4）の運行開始", url: "https://www.as-mobi.com/news/", date: "2026-01-13", source: "先進モビリティ株式会社", checkedAt: null },
+        { id: 1, title: "一般道における中型バスでのレベル4自動運転による運行を開始します", url: "https://www.meti.go.jp/press/2025/01/20260113001/20260113001.html", date: "2026-01-13", source: "経済産業省", checkedAt: "2026-06-02T03:09:06Z" },
+        { id: 2, title: "＼千葉県内初！／柏の葉地区で特定自動運行（自動運転レベル4）を開始（令和7年12月10日発表）", url: "https://www.city.kashiwa.lg.jp/koho/pressrelease/r7houdou/12gatsu/r7121004.html", date: "2025-12-10", source: "柏市", checkedAt: "2026-06-02T03:09:06Z" },
+        { id: 3, title: "東京都市圏の公道で初！ 柏の葉地区で特定自動運行（自動運転レベル4）の運行開始", url: "https://www.as-mobi.com/news/", date: "2026-01-13", source: "先進モビリティ株式会社", checkedAt: "2026-06-02T03:09:06Z" },
         { id: 4, title: "柏の葉キャンパス地区でレベル4自動運転シャトルバスの営業運行を開始", url: "https://www.u-tokyo.ac.jp/focus/ja/press/z0111_00001.html", date: "2026-01-13", source: "東京大学", checkedAt: null }
       ]
     },
