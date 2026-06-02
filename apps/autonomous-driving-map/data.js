@@ -23,8 +23,8 @@ const EXPERIMENTS = [
         { role: "事業連携", name: "マクニカ株式会社", refs: [] }
       ],
       references: [
-        { id: 1, title: "境町で自動運転バスを定常運行しています", url: "https://www.town.ibaraki-sakai.lg.jp/page/page002440.html", date: "2020-10-25", source: "境町", checkedAt: null },
-        { id: 2, title: "Boldly、境町での自動運転バス運行1周年", url: "https://www.softbank.jp/drive/set/data/press/2022/shared/20220208_01.pdf", date: "2022-02-08", source: "BOLDLY / ソフトバンク", checkedAt: null }
+        { id: 1, title: "境町で自動運転バスを定常運行しています", url: "https://www.town.ibaraki-sakai.lg.jp/page/page002440.html", date: "2020-10-25", source: "境町", checkedAt: "2026-06-02T01:34:01Z" },
+        { id: 2, title: "Boldly、境町での自動運転バス運行1周年", url: "https://www.softbank.jp/drive/set/data/press/2022/shared/20220208_01.pdf", date: "2022-02-08", source: "BOLDLY / ソフトバンク", checkedAt: "2026-06-02T01:34:01Z" }
       ]
     },
   {
@@ -51,10 +51,10 @@ const EXPERIMENTS = [
         { role: "支援", name: "国土交通省、経済産業省", refs: [1, 3] }
       ],
       references: [
-        { id: 1, title: "国内初！運転者を必要としない自動運転車（レベル４）の認可について", url: "https://www.mlit.go.jp/report/press/jidosha07_hh_000442.html", date: "2023-03-31", source: "国土交通省", checkedAt: null },
-        { id: 2, title: "国内初の自動運転レベル4車両認可を取得（福井県永平寺町）", url: "https://www.yamaha-motor.co.jp/gsm/topics/eiheiji2.html", date: "2023-03-30", source: "ヤマハ発動機", checkedAt: null },
-        { id: 3, title: "国内初！運転者を配置しないレベル４での自動運転移動サービスの開始について", url: "https://www.mlit.go.jp/report/press/jidosha07_hh_000448.html", date: "2023-05-12", source: "国土交通省", checkedAt: null },
-        { id: 4, title: "国内初の自動運転レベル4運行認可を取得（福井県永平寺町）", url: "https://www.yamaha-motor.co.jp/gsm/topics/eiheiji3.html", date: "2023-05-11", source: "ヤマハ発動機", checkedAt: null }
+        { id: 1, title: "国内初！運転者を必要としない自動運転車（レベル４）の認可について", url: "https://www.mlit.go.jp/report/press/jidosha07_hh_000442.html", date: "2023-03-31", source: "国土交通省", checkedAt: "2026-06-02T01:34:01Z" },
+        { id: 2, title: "国内初の自動運転レベル4車両認可を取得（福井県永平寺町）", url: "https://www.yamaha-motor.co.jp/gsm/topics/eiheiji2.html", date: "2023-03-30", source: "ヤマハ発動機", checkedAt: "2026-06-02T01:34:01Z" },
+        { id: 3, title: "国内初！運転者を配置しないレベル４での自動運転移動サービスの開始について", url: "https://www.mlit.go.jp/report/press/jidosha07_hh_000448.html", date: "2023-05-12", source: "国土交通省", checkedAt: "2026-06-02T01:34:01Z" },
+        { id: 4, title: "国内初の自動運転レベル4運行認可を取得（福井県永平寺町）", url: "https://www.yamaha-motor.co.jp/gsm/topics/eiheiji3.html", date: "2023-05-11", source: "ヤマハ発動機", checkedAt: "2026-06-02T01:34:01Z" }
       ]
     },
   {
@@ -80,9 +80,9 @@ const EXPERIMENTS = [
         { role: "協力機関", name: "一般財団法人 日本自動車研究所（JARI）", refs: [3] }
       ],
       references: [
-        { id: 1, title: "【都内初】西新宿でまちのインフラと協調した自動運転移動サービスの実証実験を実施", url: "https://www.aisantec.co.jp/ir/information/2021/12/post-49.html", date: "2021-12-15", source: "アイサンテクノロジー株式会社", checkedAt: null },
-        { id: 2, title: "先進モビリティ お知らせ", url: "https://www.as-mobi.com/news/?ca=3", date: "2019-09-17", source: "先進モビリティ株式会社", checkedAt: null },
-        { id: 3, title: "都内初、西新宿でまちのインフラと協調した自動運転移動サービスの実証実験を実施", url: "https://news.kddi.com/kddi/corporate/newsrelease/2021/12/15/5596.html", date: "2021-12-15", source: "KDDI ニュースリリース", checkedAt: null }
+        { id: 1, title: "【都内初】西新宿でまちのインフラと協調した自動運転移動サービスの実証実験を実施", url: "https://www.aisantec.co.jp/ir/information/2021/12/post-49.html", date: "2021-12-15", source: "アイサンテクノロジー株式会社", checkedAt: "2026-06-02T01:34:01Z" },
+        { id: 2, title: "先進モビリティ お知らせ", url: "https://www.as-mobi.com/news/?ca=3", date: "2019-09-17", source: "先進モビリティ株式会社", checkedAt: "2026-06-02T01:34:01Z" },
+        { id: 3, title: "都内初、西新宿でまちのインフラと協調した自動運転移動サービスの実証実験を実施", url: "https://news.kddi.com/kddi/corporate/newsrelease/2021/12/15/5596.html", date: "2021-12-15", source: "KDDI ニュースリリース", checkedAt: "2026-06-02T01:34:01Z" }
       ]
     },
   {
@@ -108,7 +108,7 @@ const EXPERIMENTS = [
         { role: "特定自動運行許可", name: "北海道公安委員会", refs: [3] }
       ],
       references: [
-        { id: 1, title: "自動運転バス定期運行｜北海道 上士幌町", url: "https://www.kamishihoro.jp/sp/self_driving_bus", date: "2024-10-28", source: "上士幌町", checkedAt: null },
+        { id: 1, title: "自動運転バス定期運行｜北海道 上士幌町", url: "https://www.kamishihoro.jp/sp/self_driving_bus", date: "2024-10-28", source: "上士幌町", checkedAt: "2026-06-02T01:34:01Z" },
         { id: 2, title: "無人自動運転移動サービスに向けて国内6例目となる自動運転車（レベル４）を認可", url: "https://wwwtb.mlit.go.jp/hokkaido/press/20240531_00002.html", date: "2024-05-31", source: "国土交通省 北海道運輸局", checkedAt: null },
         { id: 3, title: "特定自動運行に係る許可について（上士幌町）", url: "https://www.police.pref.hokkaido.lg.jp/info/koutuu/universal/kurumaisu_sinsei/automatic-drive-sinsei.html", date: "2024-10-25", source: "北海道警察", checkedAt: null }
       ]

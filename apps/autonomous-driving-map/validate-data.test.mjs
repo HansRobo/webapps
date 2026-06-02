@@ -116,8 +116,8 @@ test("checkedAt は null またはタイムゾーン付き ISO 8601 日時を受
 });
 
 test("check-sources は checkedAt が null の参照を要チェック候補に含める", () => {
-  const result = spawnSync(process.execPath, [join(__dirname, "check-sources.mjs"), "--no-fetch", "--exp", "exp-001"], { encoding: "utf8" });
+  const result = spawnSync(process.execPath, [join(__dirname, "check-sources.mjs"), "--no-fetch", "--exp", "exp-004"], { encoding: "utf8" });
   assert.equal(result.status, 0, result.stderr);
   assert.match(result.stdout, /要チェック参照（最終確認が 18ヶ月以上前、または日時なし）: 2 件/);
-  assert.match(result.stdout, /\[要チェック\] exp-001 ref\[1\]: 一次情報を確認し checkedAt を更新/);
+  assert.match(result.stdout, /\[要チェック\] exp-004 ref\[2\]: 一次情報を確認し checkedAt を更新/);
 });
