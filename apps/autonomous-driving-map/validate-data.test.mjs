@@ -116,8 +116,17 @@ test("checkedAt は null またはタイムゾーン付き ISO 8601 日時を受
 });
 
 test("check-sources は checkedAt が null の参照を要チェック候補に含める", () => {
-  const result = spawnSync(process.execPath, [join(__dirname, "check-sources.mjs"), "--no-fetch", "--exp", "exp-004"], { encoding: "utf8" });
+  const result = spawnSync(process.execPath, [join(__dirname, "check-sources.mjs"), "--no-fetch", "--exp", "exp-006"], { encoding: "utf8" });
   assert.equal(result.status, 0, result.stderr);
-  assert.match(result.stdout, /要チェック参照（最終確認が 18ヶ月以上前、または日時なし）: 2 件/);
-  assert.match(result.stdout, /\[要チェック\] exp-004 ref\[2\]: 一次情報を確認し checkedAt を更新/);
+  assert.match(result.stdout, /要チェック参照（最終確認が 18ヶ月以上前、または日時なし）: 3 件/);
+  assert.match(result.stdout, /\[要チェック\] exp-006 ref\[1\]: 一次情報を確認し checkedAt を更新/);
+});
+
+
+test("CLI は既存エントリの上書き前に実験分離と一次情報照合を促す", () => {
+  const result = spawnSync(process.execPath, [join(__dirname, "validate-data.mjs")], { encoding: "utf8" });
+  assert.equal(result.status, 0, result.stderr);
+  assert.match(result.stdout, /別年度・別期間・別ルート・別車両・別事業者・別実証フェーズ/);
+  assert.match(result.stdout, /別実験と判断できる場合は既存エントリを上書きせず、新しい exp-XXX エントリとして分離/);
+  assert.match(result.stdout, /対象エントリの内容と一次情報の整合性を確認した後に更新/);
 });
