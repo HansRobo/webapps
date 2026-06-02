@@ -265,9 +265,9 @@ const EXPERIMENTS = [
       location: { value: "静岡県（新東名高速道路 駿河湾沼津SA〜浜松SA間）", lat: 34.904, lng: 138.163, refs: [1] },
       prefecture: { value: PREF.SHIZUOKA, refs: [1] },
       period: { value: "2024年11月〜2025年12月（総合走行実証）", refs: [1, 3, 4] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
+      status: { value: STATUS.COMPLETED, refs: [4] },
       description: {
-        value: "深夜時間帯に設定される「自動運転車優先レーン」を活用し、レベル4自動運転トラックの実現に向けた実証走行を実施。2024年11月の公道実証開始後、2025年3月から優先レーンでの実証に参画し、同年10月には最終年度の総合走行実証を開始した。路車協調システムを用いた本線合流支援などの技術検証を行う。",
+        value: "深夜時間帯に設定される「自動運転車優先レーン」を活用し、レベル4自動運転トラックの実現に向けた実証走行を実施。2024年11月の公道実証開始後、2025年3月から優先レーンでの実証に参画し、同年10月には最終年度の総合走行実証を開始した。路車協調システムを用いた本線合流支援などの技術検証を行った。",
         refs: [1, 2, 3, 4]
       },
       vehicle: { value: VEH.ISUZU_GIGA, refs: [3] },
@@ -1026,8 +1026,8 @@ const EXPERIMENTS = [
       name: { value: "大阪・関西万博 舞洲・夢洲自動運転バス（大阪府）", refs: [1, 2] },
       location: { value: "大阪府大阪市此花区（舞洲・夢洲エリア）", lat: 34.66, lng: 135.39, refs: [1] },
       prefecture: { value: PREF.OSAKA, refs: [1] },
-      period: { value: "2024年11月〜2025年10月", refs: [1, 2] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
+      period: { value: "2024年11月〜2025年10月13日", refs: [1, 2] },
+      status: { value: STATUS.COMPLETED, refs: [2] },
       description: {
         value: "2025年大阪・関西万博への来場者輸送を見据え、大型EVバスを用いた自動運転実証を実施。舞洲パーク&ライドの一部区間では、特定自動運行の許可・認可を得てレベル4運行も実施した。",
         refs: [1, 2]
@@ -1211,10 +1211,10 @@ const EXPERIMENTS = [
       name: { value: "鳴門市 ロボットタクシー実証運行（徳島県）", refs: [1] },
       location: { value: "徳島県鳴門市", lat: 34.185, lng: 134.607, refs: [1] },
       prefecture: { value: PREF.TOKUSHIMA, refs: [1] },
-      period: { value: "2025年度〜2026年3月", refs: [1] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
+      period: { value: "2026年2月6日〜3月31日", refs: [1] },
+      status: { value: STATUS.COMPLETED, refs: [1] },
       description: {
-        value: "国土交通省事業の一環として、NECや電脳交通と連携し、レベル4を見据えたロボットタクシーの運行実証を実施。オンデマンド配車システムとの連携や遠隔監視体制の構築を検証している。",
+        value: "国土交通省事業の一環として、NECや電脳交通と連携し、レベル4を見据えたロボットタクシーの運行実証を実施。オンデマンド配車システムとの連携や遠隔監視体制の構築を検証した。",
         refs: [1]
       },
       vehicle: { value: VEH.HYUNDAI_IONIQ5, refs: [1] },
@@ -1239,10 +1239,10 @@ const EXPERIMENTS = [
       name: { value: "三豊市 信号協調EVバス実証（香川県）", refs: [1] },
       location: { value: "香川県三豊市", lat: 34.172, lng: 133.727, refs: [1] },
       prefecture: { value: PREF.KAGAWA, refs: [1] },
-      period: { value: "2025年度", refs: [1] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
+      period: { value: "2025年11月1日〜11月30日（11月16日は運休）", refs: [1] },
+      status: { value: STATUS.COMPLETED, refs: [1] },
       description: {
-        value: "持続可能な公共交通の実現に向け、信号協調システムを導入した自動運転EVバスの実証を実施。走行ルートの拡大や、将来のレベル4移行を見据えた安全管理体制の強化に取り組んでいる。",
+        value: "持続可能な公共交通の実現に向け、信号協調システムを導入した自動運転EVバスの実証を実施。走行ルートの拡大や、将来のレベル4移行を見据えた安全管理体制の強化に取り組んだ。",
         refs: [1]
       },
       vehicle: { value: VEH.NAVYA_EVO, refs: [1] },
@@ -1614,7 +1614,7 @@ const EXPERIMENTS = [
       location: { value: "福島県磐梯町", lat: 37.59, lng: 140.00, refs: [1] },
       prefecture: { value: PREF.FUKUSHIMA, refs: [1] },
       period: { value: "2024年10月（実証実施）", refs: [1] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
+      status: { value: STATUS.COMPLETED, refs: [1] },
       description: {
         value: "「道の駅ばんだい」を拠点とした自動運転バスの公道走行実証。中山間地域におけるレベル4実装モデルの構築を目指す。",
         refs: [1]
@@ -1966,7 +1966,7 @@ const EXPERIMENTS = [
       location: { value: "三重県四日市市", lat: 34.97, lng: 136.62, refs: [1] },
       prefecture: { value: PREF.MIE, refs: [1] },
       period: { value: "2024年11月（実証実施）", refs: [1] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
+      status: { value: STATUS.COMPLETED, refs: [1] },
       description: {
         value: "中央通りの再開発と連携し、賑わい創出と回遊性向上を目指した自動運転EVバス実証。将来のレベル4実装に向けた公道データを蓄積。",
         refs: [1]
@@ -2911,8 +2911,8 @@ const EXPERIMENTS = [
       name: { value: "狛江市 自動運転バス実証実験", refs: [1] },
       location: { value: "東京都狛江市", lat: 35.634, lng: 139.578, refs: [1] },
       prefecture: { value: PREF.TOKYO, refs: [1] },
-      period: { value: "2025年12月〜2026年1月（試乗会2026年1月）", refs: [1] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
+      period: { value: "2025年12月〜2026年1月（試乗会：2026年1月12日・13日）", refs: [1] },
+      status: { value: STATUS.COMPLETED, refs: [1] },
       description: {
         value: "総務省「地域デジタル基盤活用推進事業（自動運転レベル4検証タイプ）」採択案件。NTT東日本代表6社コンソーシアムが実施。ローカル5G×路側センサ統合基盤（スマートポール）を活用し、見通し外の交通状況を先読みした遠隔監視型自動運転を実証。東京都多摩地区初の公道自動運転実証。和泉多摩川駅〜六郷さくら通り〜多摩川住宅の約5.1km周回コース。",
         refs: [1]
@@ -3491,9 +3491,9 @@ const EXPERIMENTS = [
       location: { value: "東京都港区（TAKANAWA GATEWAY CITY〜竹芝エリア）", lat: 35.646, lng: 139.752, refs: [1] },
       prefecture: { value: PREF.TOKYO, refs: [1] },
       period: { value: "2026年3月28日〜5月10日（4月1日〜7日は一部運休）", refs: [1] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
+      status: { value: STATUS.COMPLETED, refs: [1] },
       description: {
-        value: "JR東日本とKDDIが、都市部でのレベル4社会実装を見据えて実施する一般乗車可能な自動運転バス実証。高輪ゲートウェイシティ周回ルートと竹芝方面ルートの2ルートで、レベル2運行により自動運転率、乗り心地、社会受容性、運行オペレーションを検証する。",
+        value: "JR東日本とKDDIが、都市部でのレベル4社会実装を見据えて実施する一般乗車可能な自動運転バス実証。高輪ゲートウェイシティ周回ルートと竹芝方面ルートの2ルートで、レベル2運行により自動運転率、乗り心地、社会受容性、運行オペレーションを検証した。",
         refs: [1, 2]
       },
       vehicle: { value: VEH.BYD_J6, refs: [1] },
@@ -5280,9 +5280,9 @@ const EXPERIMENTS = [
       location: { value: "東京都江東区（臨海副都心）", lat: 35.627, lng: 139.779, refs: [1] },
       prefecture: { value: PREF.TOKYO, refs: [1] },
       period: { value: "2026年2月〜3月（不定期）", refs: [1] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
+      status: { value: STATUS.COMPLETED, refs: [1] },
       description: {
-        value: "MoveEzが金沢大学等と連携して実施する東京臨海副都心でのロボタク実証。経済産業省のAD-URBAN関連事業の一環として、自動運転用地図生成とロボタク運行を担当し、社会実装に向けた検証を行う。",
+        value: "MoveEzが金沢大学等と連携して実施する東京臨海副都心でのロボタク実証。経済産業省のAD-URBAN関連事業の一環として、自動運転用地図生成とロボタク運行を担当し、社会実装に向けた検証を行った。",
         refs: [1]
       },
       vehicle: { value: VEH.TOYOTA_ALPHARD, refs: [1] },
@@ -5305,9 +5305,9 @@ const EXPERIMENTS = [
       location: { value: "神奈川県横浜市（みなとみらい）", lat: 35.455, lng: 139.636, refs: [1] },
       prefecture: { value: PREF.KANAGAWA, refs: [1] },
       period: { value: "2026年4月3日〜4月5日", refs: [1] },
-      status: { value: STATUS.PLANNED, refs: [1] },
+      status: { value: STATUS.COMPLETED, refs: [1] },
       description: {
-        value: "MoveEzがS.RIDE、ソニー、ソニー・ミュージックソリューションズと連携して実施する、ロボタクと没入型車内エンターテインメントを組み合わせた実証。みなとみらいでレベル2車両を用い、一般参加者向けの体験型PoCを行う。",
+        value: "MoveEzがS.RIDE、ソニー、ソニー・ミュージックソリューションズと連携して実施した、ロボタクと没入型車内エンターテインメントを組み合わせた実証。みなとみらいでレベル2車両を用い、一般参加者向けの体験型PoCを行った。",
         refs: [1]
       },
       vehicle: { value: VEH.TOYOTA_ALPHARD, refs: [1] },
