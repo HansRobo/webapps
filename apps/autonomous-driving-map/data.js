@@ -255,7 +255,7 @@ const EXPERIMENTS = [
         { id: 1, title: "一般道における中型バスでのレベル4自動運転による運行を開始します", url: "https://www.meti.go.jp/press/2025/01/20260113001/20260113001.html", date: "2026-01-13", source: "経済産業省", checkedAt: "2026-06-02T03:09:06Z" },
         { id: 2, title: "＼千葉県内初！／柏の葉地区で特定自動運行（自動運転レベル4）を開始（令和7年12月10日発表）", url: "https://www.city.kashiwa.lg.jp/koho/pressrelease/r7houdou/12gatsu/r7121004.html", date: "2025-12-10", source: "柏市", checkedAt: "2026-06-02T03:09:06Z" },
         { id: 3, title: "東京都市圏の公道で初！ 柏の葉地区で特定自動運行（自動運転レベル4）の運行開始", url: "https://www.as-mobi.com/news/", date: "2026-01-13", source: "先進モビリティ株式会社", checkedAt: "2026-06-02T03:09:06Z" },
-        { id: 4, title: "柏の葉キャンパス地区でレベル4自動運転シャトルバスの営業運行を開始", url: "https://www.u-tokyo.ac.jp/focus/ja/press/z0111_00001.html", date: "2026-01-13", source: "東京大学", checkedAt: null }
+        { id: 4, title: "東京都市圏の公道で初！ 柏の葉地区で特定自動運行（自動運転レベル4）の運行開始", url: "https://www.k.u-tokyo.ac.jp/information/category/press/0028990.html", date: "2026-01-13", source: "東京大学大学院新領域創成科学研究科", checkedAt: "2026-06-02T04:17:44Z" }
       ]
     },
   {
@@ -280,10 +280,10 @@ const EXPERIMENTS = [
         { role: "参画企業", name: "先進モビリティ株式会社、いすゞ自動車株式会社、日野自動車株式会社、三菱ふそうトラック・バス株式会社、UDトラックス株式会社", refs: [1, 4] }
       ],
       references: [
-        { id: 1, title: "新東名高速道路における自動運転トラックの要素技術検証を開始", url: "https://www.mlit.go.jp/report/press/road01_hh_001853.html", date: "2024-11-05", source: "国土交通省", checkedAt: null },
-        { id: 2, title: "新東名高速道路における自動運転トラックの要素技術検証を開始", url: "https://www.c-nexco.co.jp/corporate/pressroom/news_release/6224.html", date: "2024-11-05", source: "NEXCO中日本", checkedAt: null },
-        { id: 3, title: "新東名高速道路の自動運転車優先レーンで 自動運転大型トラックの実証実験を開始", url: "https://www.udtrucks.com/japan/news-and-stories/info/20250218/rttl4-shintomei", date: "2025-02-18", source: "UDトラックス", checkedAt: null },
-        { id: 4, title: "レベル4自動運転トラックの社会実装に向けた実証開始", url: "https://www.udtrucks.com/japan/news-and-stories/news/20251021/road-to-the-l4", date: "2025-10-21", source: "UDトラックス", checkedAt: null }
+        { id: 1, title: "新東名高速道路における自動運転トラックの要素技術検証を開始", url: "https://www.mlit.go.jp/report/press/road01_hh_001853.html", date: "2024-11-05", source: "国土交通省", checkedAt: "2026-06-02T04:17:44Z" },
+        { id: 2, title: "新東名高速道路における自動運転トラックの要素技術検証を開始", url: "https://www.c-nexco.co.jp/corporate/pressroom/news_release/6224.html", date: "2024-11-05", source: "NEXCO中日本", checkedAt: "2026-06-02T04:17:44Z" },
+        { id: 3, title: "新東名高速道路の自動運転車優先レーンで 自動運転大型トラックの実証実験を開始", url: "https://www.udtrucks.com/japan/news-and-stories/info/20250218/rttl4-shintomei", date: "2025-02-18", source: "UDトラックス", checkedAt: "2026-06-02T04:17:44Z" },
+        { id: 4, title: "レベル4自動運転トラックの社会実装に向けた実証開始", url: "https://www.udtrucks.com/japan/news-and-stories/news/20251021/road-to-the-l4", date: "2025-10-21", source: "UDトラックス", checkedAt: "2026-06-02T04:17:44Z" }
       ]
     },
   {
@@ -291,24 +291,24 @@ const EXPERIMENTS = [
       name: { value: "ロボタクシー自動運転サービス計画（ホンダ・GM・Cruise、計画中止）", refs: [1, 2, 3] },
       location: { value: "東京都内中心部", lat: 35.681, lng: 139.767, refs: [1] },
       prefecture: { value: PREF.TOKYO, refs: [1] },
-      period: { value: "2023年10月発表〜2024年12月（2026年初頭開始計画は中止判断へ）", refs: [1, 2, 3] },
-      status: { value: STATUS.CANCELLED, refs: [2, 3] },
+      period: { value: "2023年10月発表〜2024年12月（GMのCruiseロボタクシー開発停止により2026年初頭開始計画は中止扱い）", refs: [1, 2, 3] },
+      status: { value: STATUS.CANCELLED, refs: [2] },
       description: {
-        value: "ホンダ、GM、Cruiseの3社は2023年に「Cruise Origin」を使った東京都心部でのレベル4ロボタクシー（2026年初頭開始）を計画していたが、2024年12月にGMがCruiseのロボタクシー開発への資金投入停止と戦略転換を発表。これを受け、ホンダも日本での当初計画について中止を含めて判断する方針を示し、当初計画は中止扱いとなった。",
+        value: "ホンダ、GM、Cruiseの3社は2023年に「Cruise Origin」を使った東京都心部でのレベル4ロボタクシー（2026年初頭開始）を計画していた。2024年12月、GMがCruiseのロボタクシー開発への資金投入停止と、個人所有車向け自動運転・運転支援へ開発方針を転換することを公式発表したため、当初の3社による2026年初頭開始計画は中止扱いとなった。Honda側の対応については、同社が中止を含め判断する予定と報じられている。",
         refs: [1, 2, 3]
       },
       vehicle: { value: VEH.CRUISE_ORIGIN, refs: [1, 2] },
       adSystem: { value: ADS.CRUISE, refs: [1, 2] },
-      route: { value: "東京都心部の一般道（計画段階で終了）", refs: [1, 3] },
-      operationType: { value: "レベル4（計画のみ、実運用なし）", refs: [1, 3] },
+      route: { value: "東京都心部の一般道（計画段階で終了）", refs: [1, 2] },
+      operationType: { value: "レベル4（計画のみ、実運用なし）", refs: [1, 2] },
       lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "サービス運営・車両提供", name: "本田技研工業株式会社、ゼネラル・モーターズ（GM）、Cruise", refs: [1, 2, 3] }
       ],
       references: [
-        { id: 1, title: "日本での自動運転タクシーサービスを2026年初頭に開始予定", url: "https://global.honda/jp/news/2023/c231019a.html", date: "2023-10-19", source: "Honda 企業情報", checkedAt: null },
-        { id: 2, title: "GM to refocus autonomous driving development on personal vehicles", url: "https://investor.gm.com/news-releases/news-release-details/gm-refocus-autonomous-driving-development-personal-vehicles/", date: "2024-12-10", source: "GM News Release", checkedAt: null },
-        { id: 3, title: "ホンダ、ＧＭとの日本での自動運転タクシーサービス中止含め判断へ", url: "https://www.bloomberg.co.jp/news/articles/2024-12-11/SOB2VXT0AFB400", date: "2024-12-11", source: "Bloomberg", checkedAt: null }
+        { id: 1, title: "日本での自動運転タクシーサービスを2026年初頭に開始予定", url: "https://global.honda/jp/news/2023/c231019a.html", date: "2023-10-19", source: "Honda 企業情報", checkedAt: "2026-06-02T04:17:44Z" },
+        { id: 2, title: "GM to refocus autonomous driving development on personal vehicles", url: "https://investor.gm.com/news-releases/news-release-details/gm-refocus-autonomous-driving-development-personal-vehicles/", date: "2024-12-10", source: "GM News Release", checkedAt: "2026-06-02T04:17:44Z" },
+        { id: 3, title: "ホンダ、ＧＭとの日本での自動運転タクシーサービス中止含め判断へ", url: "https://www.bloomberg.co.jp/news/articles/2024-12-11/SOB2VXT0AFB400", date: "2024-12-11", source: "Bloomberg（Hondaコメント報道・二次情報）", checkedAt: null }
       ]
     },
   {
