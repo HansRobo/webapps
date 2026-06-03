@@ -164,9 +164,9 @@ const EXPERIMENTS = [
         { role: "地域連携", name: "片山津温泉旅館組合", refs: [3] }
       ],
       references: [
-        { id: 1, title: "加賀市レポ―ト Vol.2 自動運転EVバス 実証実験", url: "https://www.macnica.co.jp/business/maas/cases/149118/", date: "2021-12-09", source: "マクニカ", checkedAt: null },
-        { id: 2, title: "マクニカ、加賀市にて自動運転レベル４対応車両“EVO”による世界最長の公道走行実証を実施", url: "https://prtimes.jp/main/html/rd/p/000000037.000014021.html", date: "2021-09-15", source: "PR TIMES（株式会社マクニカ）", checkedAt: null },
-        { id: 3, title: "加賀市の交通政策・自動運転EVバス実証", url: "https://www.city.kaga.ishikawa.jp/soshiki/seisaku_senryaku/seisaku_suishin/5/index.html", date: "2021-09-15", source: "加賀市", checkedAt: null }
+        { id: 1, title: "加賀市レポ―ト Vol.2 自動運転EVバス 実証実験", url: "https://www.macnica.co.jp/business/maas/cases/149118/", date: "2024-09-03", source: "マクニカ", checkedAt: "2026-06-03T03:28:06Z" },
+        { id: 2, title: "マクニカ、加賀市にて自動運転レベル４対応車両“EVO”による世界最長の公道走行実証を実施", url: "https://prtimes.jp/main/html/rd/p/000000037.000014021.html", date: "2024-04-16", source: "PR TIMES（株式会社マクニカ）", checkedAt: "2026-06-03T03:28:06Z" },
+        { id: 3, title: "自動運転レベル４対応車両“EVO”による世界最長の公道走行実証を実施します。", url: "https://www.city.kaga.ishikawa.jp/material/files/group/126/autonomous.pdf", date: "2024-04-16", source: "加賀市", checkedAt: "2026-06-03T03:28:06Z" }
       ]
     },
   {
@@ -308,7 +308,7 @@ const EXPERIMENTS = [
       references: [
         { id: 1, title: "日本での自動運転タクシーサービスを2026年初頭に開始予定", url: "https://global.honda/jp/news/2023/c231019a.html", date: "2023-10-19", source: "Honda 企業情報", checkedAt: "2026-06-02T04:17:44Z" },
         { id: 2, title: "GM to refocus autonomous driving development on personal vehicles", url: "https://investor.gm.com/news-releases/news-release-details/gm-refocus-autonomous-driving-development-personal-vehicles/", date: "2024-12-10", source: "GM News Release", checkedAt: "2026-06-02T04:17:44Z" },
-        { id: 3, title: "ホンダ、ＧＭとの日本での自動運転タクシーサービス中止含め判断へ", url: "https://www.bloomberg.co.jp/news/articles/2024-12-11/SOB2VXT0AFB400", date: "2024-12-11", source: "Bloomberg（Hondaコメント報道・二次情報）", checkedAt: null }
+        { id: 3, title: "ホンダ、ＧＭとの日本での自動運転タクシーサービス中止含め判断へ", url: "https://www.bloomberg.co.jp/news/articles/2024-12-11/SOB2VXT0AFB400", date: "2024-12-11", source: "Bloomberg（Hondaコメント報道・二次情報）", checkedAt: "2026-06-03T03:28:06Z" }
       ]
     },
   {
@@ -333,8 +333,8 @@ const EXPERIMENTS = [
         { role: "配車プラットフォーム", name: "Uber Technologies", refs: [1, 2] }
       ],
       references: [
-        { id: 1, title: "Wayve、Uber、日産がロボタクシーでの協業を発表", url: "https://car.watch.impress.co.jp/docs/news/2092665.html", date: "2026-03-12", source: "Car Watch", checkedAt: null },
-        { id: 2, title: "Wayve・Uber・日産、東京でロボタクシー試験運行へ", url: "https://www.kankokeizai.com/2603231030kks/", date: "2026-03-23", source: "観光経済新聞", checkedAt: null }
+        { id: 1, title: "Wayve、Uber、日産がロボタクシーでの協業を発表", url: "https://car.watch.impress.co.jp/docs/news/2092665.html", date: "2026-03-12", source: "Car Watch", checkedAt: "2026-06-03T03:28:06Z" },
+        { id: 2, title: "Wayve・Uber・日産、東京でロボタクシー試験運行へ", url: "https://www.kankokeizai.com/2603231030kks/", date: "2026-03-23", source: "観光経済新聞", checkedAt: "2026-06-03T03:28:06Z" }
       ]
     },
   {
@@ -358,8 +358,8 @@ const EXPERIMENTS = [
         { role: "自動運転システム開発", name: "株式会社ティアフォー", refs: [1, 2] }
       ],
       references: [
-        { id: 1, title: "トヨタとティアフォー、2027年度内を目指しレベル4自動運転をバッテリEV「イーパレット」で実現へ AI自動運転機能も一部検討", url: "https://car.watch.impress.co.jp/docs/news/2081229.html", date: "2026-01-27", source: "Car Watch", checkedAt: null },
-        { id: 2, title: "トヨタ、Googleやテスラに負けじと「市販の自動運転レベル4」発売へ", url: "https://jidounten-lab.com/u_56966", date: "2025-09-22", source: "自動運転ラボ", checkedAt: null }
+        { id: 1, title: "トヨタとティアフォー、2027年度内を目指しレベル4自動運転をバッテリEV「イーパレット」で実現へ AI自動運転機能も一部検討", url: "https://car.watch.impress.co.jp/docs/news/2081229.html", date: "2026-01-27", source: "Car Watch", checkedAt: "2026-06-03T03:28:06Z" },
+        { id: 2, title: "トヨタ、Googleやテスラに負けじと「市販の自動運転レベル4」発売へ", url: "https://jidounten-lab.com/u_56966", date: "2025-09-22", source: "自動運転ラボ", checkedAt: "2026-06-03T03:28:06Z" }
       ]
     },
   {
@@ -385,8 +385,8 @@ const EXPERIMENTS = [
         { role: "支援事業", name: "東京都", refs: [1] }
       ],
       references: [
-        { id: 1, title: "移動課題の解決と地域の価値向上に向けて、東京の有明地区などで自動運転技術を用いた移動サービスを2024年度後半に開始", url: "https://www.monet-technologies.com/news/press/20240828_01", date: "2024-08-28", source: "MONET Technologies", checkedAt: null },
-        { id: 2, title: "東京臨海副都心での自動運転技術を用いた移動サービスの実証", url: "https://www.monet-technologies.com/tokyo-bay", date: "2024-12-23", source: "MONET Technologies", checkedAt: null },
+        { id: 1, title: "移動課題の解決と地域の価値向上に向けて、東京の有明地区などで自動運転技術を用いた移動サービスを2024年度後半に開始", url: "https://www.monet-technologies.com/news/press/20240828_01", date: "2024-08-28", source: "MONET Technologies", checkedAt: "2026-06-03T03:28:06Z" },
+        { id: 2, title: "東京臨海副都心での自動運転技術を用いた移動サービスの実証", url: "https://www.monet-technologies.com/tokyo-bay", date: "2024-12-23", source: "MONET Technologies", checkedAt: "2026-06-03T03:28:06Z" },
         { id: 3, title: "東京臨海副都心の公道で自動運転活用の移動サービス開始　MONET", url: "https://www.watch.impress.co.jp/docs/news/1619102.html", date: "2024-08-28", source: "Impress Watch", checkedAt: null },
         { id: 4, title: "May Mobility’s Expanding Autonomous Footprint in Japan", url: "https://maymobility.com/posts/may-mobilitys-expanding-autonomous-footprint-in-japan/", date: "2026-02-24", source: "May Mobility", checkedAt: null }
       ]
