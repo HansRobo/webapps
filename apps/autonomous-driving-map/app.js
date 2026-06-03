@@ -876,6 +876,53 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>`;
   }
 
+  function groupExpsByStatus(exps) {
+    const groups = new Map();
+    for (const exp of exps) {
+      const key = exp.statusId || exp.status || "unknown";
+      if (!groups.has(key)) {
+        groups.set(key, { id: key, label: exp.status || "不明", exps: [] });
+      }
+      groups.get(key).exps.push(exp);
+    }
+    return [...groups.values()].sort((a, b) => {
+      const priorityDiff = (statusPriority[a.id] ?? 99) - (statusPriority[b.id] ?? 99);
+      if (priorityDiff !== 0) return priorityDiff;
+      return a.label.localeCompare(b.label, "ja");
+    });
+  }
+
+  function renderStatusSummary(exps) {
+    const groups = groupExpsByStatus(exps);
+    if (groups.length <= 1) return "";
+    return `<div class="lv4-status-summary" aria-label="ステータス別件数">
+      ${groups.map((group) => `
+        <span class="lv4-status-summary__item">
+          <span class="status-badge" data-status="${escAttr(group.id)}">${escHtml(group.label)}</span>
+          <span class="lv4-status-summary__count">${group.exps.length}件</span>
+        </span>
+      `).join("")}
+    </div>`;
+  }
+
+  function renderStatusGroupedMiniCards(exps) {
+    const groups = groupExpsByStatus(exps);
+    if (groups.length <= 1) {
+      return `<div class="entity-grid">${exps.map((e) => buildExperimentMiniCard(e)).join("")}</div>`;
+    }
+    return `<div class="lv4-status-groups">
+      ${groups.map((group) => `
+        <section class="lv4-status-group" data-status="${escAttr(group.id)}">
+          <div class="lv4-status-group__header">
+            <span class="status-badge" data-status="${escAttr(group.id)}">${escHtml(group.label)}</span>
+            <span class="count-pill">${group.exps.length}件</span>
+          </div>
+          <div class="entity-grid">${group.exps.map((e) => buildExperimentMiniCard(e)).join("")}</div>
+        </section>
+      `).join("")}
+    </div>`;
+  }
+
   function bindMiniCardEvents(container) {
     container.querySelectorAll(".experiment-mini-card").forEach((card) => {
       const activate = () => {
@@ -1211,6 +1258,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="lv4-badge" data-lv4="${escAttr(lv4.id)}">${escHtml(lv4.label)}</span>
             <span class="count-pill">${exps.length}件</span>
           </div>
+          ${renderStatusSummary(exps)}
         </div>
         ${exps.length > 0 ? `
         <div class="lv4-stage__body">
@@ -1219,8 +1267,8 @@ document.addEventListener("DOMContentLoaded", () => {
             ${renderDistributionBars(exps, (e) => e.prefecture, (p) => p)}
           </div>
           <div class="entity-detail__section">
-            <div class="entity-detail__section-title"><span class="material-symbols-outlined">science</span>実証実験一覧（${exps.length}件）</div>
-            <div class="entity-grid">${exps.map((e) => buildExperimentMiniCard(e)).join("")}</div>
+            <div class="entity-detail__section-title"><span class="material-symbols-outlined">science</span>実証実験一覧（ステータス別 / ${exps.length}件）</div>
+            ${renderStatusGroupedMiniCards(exps)}
           </div>
         </div>` : ""}
       </div>
@@ -1244,6 +1292,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div>
             <h2 class="entity-detail__hero-title">Lv4認可状況</h2>
             <p class="entity-detail__hero-sub">認可取得済 ${approvedCount}件（車両認可 ${vehExps.length}件 ／ 特定自動運行許可 ${opExps.length}件）</p>
+            <p class="entity-detail__hero-sub">完了・休止中の案件も判別しやすいよう、認可別一覧をステータス別に整理しています。</p>
           </div>
         </div>
 
