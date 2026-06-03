@@ -387,8 +387,8 @@ const EXPERIMENTS = [
       references: [
         { id: 1, title: "移動課題の解決と地域の価値向上に向けて、東京の有明地区などで自動運転技術を用いた移動サービスを2024年度後半に開始", url: "https://www.monet-technologies.com/news/press/20240828_01", date: "2024-08-28", source: "MONET Technologies", checkedAt: "2026-06-03T03:28:06Z" },
         { id: 2, title: "東京臨海副都心での自動運転技術を用いた移動サービスの実証", url: "https://www.monet-technologies.com/tokyo-bay", date: "2024-12-23", source: "MONET Technologies", checkedAt: "2026-06-03T03:28:06Z" },
-        { id: 3, title: "東京臨海副都心の公道で自動運転活用の移動サービス開始　MONET", url: "https://www.watch.impress.co.jp/docs/news/1619102.html", date: "2024-08-28", source: "Impress Watch", checkedAt: null },
-        { id: 4, title: "May Mobility’s Expanding Autonomous Footprint in Japan", url: "https://maymobility.com/posts/may-mobilitys-expanding-autonomous-footprint-in-japan/", date: "2026-02-24", source: "May Mobility", checkedAt: null }
+        { id: 3, title: "東京臨海副都心の公道で自動運転活用の移動サービス開始　MONET", url: "https://www.watch.impress.co.jp/docs/news/1619102.html", date: "2024-08-28", source: "Impress Watch", checkedAt: "2026-06-03T03:57:08Z" },
+        { id: 4, title: "May Mobility’s Expanding Autonomous Footprint in Japan", url: "https://maymobility.com/posts/may-mobilitys-expanding-autonomous-footprint-in-japan/", date: "2026-02-24", source: "May Mobility", checkedAt: "2026-06-03T03:57:08Z" }
       ]
     },
   {
@@ -413,8 +413,8 @@ const EXPERIMENTS = [
         { role: "技術協力", name: "NTT東日本", refs: [1] }
       ],
       references: [
-        { id: 1, title: "May Mobility, Inc. and NTT Group collaboration launches autonomous driving demonstration experiment using \"e-Palette\"", url: "https://maymobility.com/posts/may-mobility-inc-and-ntt-group-collaboration-launches-autonomous-driving-demonstration-experiment-using-e-palette/", date: "2025-03-27", source: "May Mobility", checkedAt: null },
-        { id: 2, title: "May Mobility’s Expanding Autonomous Footprint in Japan", url: "https://maymobility.com/posts/may-mobilitys-expanding-autonomous-footprint-in-japan/", date: "2026-02-24", source: "May Mobility", checkedAt: null }
+        { id: 1, title: "May Mobility, Inc. and NTT Group collaboration launches autonomous driving demonstration experiment using \"e-Palette\"", url: "https://maymobility.com/posts/may-mobility-inc-and-ntt-group-collaboration-launches-autonomous-driving-demonstration-experiment-using-e-palette/", date: "2025-03-27", source: "May Mobility", checkedAt: "2026-06-03T03:57:08Z" },
+        { id: 2, title: "May Mobility’s Expanding Autonomous Footprint in Japan", url: "https://maymobility.com/posts/may-mobilitys-expanding-autonomous-footprint-in-japan/", date: "2026-02-24", source: "May Mobility", checkedAt: "2026-06-03T03:57:08Z" }
       ]
     },
   {
@@ -439,8 +439,8 @@ const EXPERIMENTS = [
         { role: "参画企業", name: "NTTドコモ", refs: [1] }
       ],
       references: [
-        { id: 1, title: "May Mobility’s Expanding Autonomous Footprint in Japan", url: "https://maymobility.com/posts/may-mobilitys-expanding-autonomous-footprint-in-japan/", date: "2026-02-24", source: "May Mobility", checkedAt: null },
-        { id: 2, title: "あいち自動運転ループ", url: "https://aichi-autonomous-loop2025.com/", date: "2025-10-14", source: "あいち自動運転ループ事務局", checkedAt: null }
+        { id: 1, title: "May Mobility’s Expanding Autonomous Footprint in Japan", url: "https://maymobility.com/posts/may-mobilitys-expanding-autonomous-footprint-in-japan/", date: "2026-02-24", source: "May Mobility", checkedAt: "2026-06-03T03:57:08Z" },
+        { id: 2, title: "あいち自動運転ループ", url: "https://aichi-autonomous-loop2025.com/", date: "2025-10-14", source: "あいち自動運転ループ事務局", checkedAt: "2026-06-03T03:57:08Z" }
       ]
     },
   {
@@ -448,8 +448,8 @@ const EXPERIMENTS = [
       name: { value: "羽田イノベーションシティ 自動運転バス実証（大田区）", refs: [1, 2] },
       location: { value: "東京都大田区（羽田イノベーションシティ内）", lat: 35.548, lng: 139.754, refs: [1] },
       prefecture: { value: PREF.TOKYO, refs: [1] },
-      period: { value: "2020年9月〜（2023年10月にレベル4車両認可、2024年6月に特定自動運行許可、2024年8月からレベル4営業運行）", refs: [1, 2, 3] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
+      period: { value: "2020年9月〜2025年8月（レベル2）／2024年8月〜2025年8月（レベル4）。再開時期検討中", refs: [1, 2, 3] },
+      status: { value: STATUS.SUSPENDED, refs: [2] },
       lv4Approval: { value: LV4_APPROVAL.OPERATION_PERMITTED, refs: [3] },
       stakeholders: [
         { role: "事業主体", name: "羽田みらい開発株式会社", refs: [1, 3] },
@@ -458,7 +458,7 @@ const EXPERIMENTS = [
         { role: "自治体", name: "大田区（東京都）", refs: [1, 2] }
       ],
       description: {
-        value: "新産業創造・発信拠点「羽田イノベーションシティ」内における自動運転バス運行。2023年10月にレベル4車両認可を取得し、2024年6月21日に東京都公安委員会から特定自動運行許可（民間事業者として国内初）を取得。2024年8月1日よりNAVYA ARMAによるレベル4営業運行を開始。",
+        value: "新産業創造・発信拠点「羽田イノベーションシティ」内における自動運転バス運行。2023年10月にレベル4車両認可を取得し、2024年6月21日に東京都公安委員会から特定自動運行許可（民間事業者として国内初）を取得。2024年8月1日よりNAVYA ARMAによるレベル4営業運行を開始。RoAD to the L4の2026年更新では、2025年8月までの運行実績と再開時期検討中であることが示されている。",
         refs: [1, 2, 3]
       },
       vehicle: { value: VEH.NAVYA_ARMA, refs: [1] },
@@ -466,9 +466,9 @@ const EXPERIMENTS = [
       route: { value: "羽田イノベーションシティ内の循環ルート（約800m）", refs: [3] },
       operationType: { value: "レベル4（特定自動運行・民間初）", refs: [3] },
       references: [
-        { id: 1, title: "関東で初めて自動運転車（レベル4）の認可を行いました", url: "https://wwwtb.mlit.go.jp/kanto/content/000304988.pdf", date: "2023-10-20", source: "国土交通省 関東運輸局", checkedAt: null },
-        { id: 2, title: "各地の取り組み：大田区", url: "https://www.road-to-the-l4.go.jp/case/ota/haneda.html", date: "2025-05-29", source: "RoAD to the L4 プロジェクト", checkedAt: null },
-        { id: 3, title: "民間初、自動運転レベル4の運行許可を取得", url: "https://www.kajima.co.jp/news/press/202406/26a1-j.htm", date: "2024-06-26", source: "鹿島建設株式会社", checkedAt: null }
+        { id: 1, title: "関東で初めて自動運転車（レベル4）の認可を行いました", url: "https://wwwtb.mlit.go.jp/kanto/content/000304988.pdf", date: "2023-10-20", source: "国土交通省 関東運輸局", checkedAt: "2026-06-03T03:57:08Z" },
+        { id: 2, title: "各地の取り組み：大田区", url: "https://www.road-to-the-l4.go.jp/case/ota/haneda.html", date: "2025-05-29", source: "RoAD to the L4 プロジェクト", checkedAt: "2026-06-03T03:57:08Z" },
+        { id: 3, title: "民間初、自動運転レベル4の運行許可を取得", url: "https://www.kajima.co.jp/news/press/202406/26a1-j.htm", date: "2024-06-26", source: "鹿島建設株式会社", checkedAt: "2026-06-03T03:57:08Z" }
       ]
     },
   {
@@ -482,9 +482,9 @@ const EXPERIMENTS = [
         value: "塩尻駅〜市役所周辺で、一般道の混在空間を対象に自動運転を段階的に導入。2024年にレベル4実証を行い、2025年1月に塩尻駅→市役所の往路で特定自動運行許可、2026年3月には往復区間で特定自動運行許可を取得。並行して2025年5月からはレベル2で東西2ルートの定常運行を開始している。",
         refs: [1, 2, 3, 4]
       },
-      vehicle: { value: VEH.BYD_J6, refs: [1] },
+      vehicle: { value: VEH.BYD_J6, refs: [1, 2, 3] },
       adSystem: { value: ADS.TIER_IV, refs: [1] },
-      route: { value: "塩尻駅周辺〜市役所方面（東回り・西回り、各約5.5km）", refs: [1, 3, 4] },
+      route: { value: "塩尻駅周辺〜市役所方面（東回り・西回り、各約5km。レベル4区間は塩尻駅〜塩尻市役所の約1km）", refs: [1, 3, 4] },
       operationType: { value: "レベル2（定常運行）および レベル4（一般道実証・特定自動運行）", refs: [1, 2, 3, 4] },
       lv4Approval: { value: LV4_APPROVAL.OPERATION_PERMITTED, refs: [2, 4] },
       stakeholders: [
@@ -493,7 +493,7 @@ const EXPERIMENTS = [
         { role: "自動運転システム等", name: "A-Drive、アイサンテクノロジー株式会社、株式会社ティアフォー、損害保険ジャパン株式会社", refs: [1, 4] }
       ],
       references: [
-        { id: 1, title: "各地の取り組み：塩尻市", url: "https://www.road-to-the-l4.go.jp/case/shiojiri/", date: "2025-05-29", source: "RoAD to the L4 プロジェクト", checkedAt: null },
+        { id: 1, title: "各地の取り組み：塩尻市", url: "https://www.road-to-the-l4.go.jp/case/shiojiri/", date: "2025-05-29", source: "RoAD to the L4 プロジェクト", checkedAt: "2026-06-03T03:57:08Z" },
         { id: 2, title: "長野県塩尻市で特定自動運行(自動運転レベル4)の許可を取得しました", url: "https://a-drive.jp/2025/01/10/202501shiojiri_level4/", date: "2025-01-10", source: "A-Drive", checkedAt: null },
         { id: 3, title: "【長野県塩尻市】市内中心市街地で自動運転バスの定常運行を開始します", url: "https://a-drive.jp/2025/04/25/202504shiojiri/", date: "2025-04-25", source: "A-Drive", checkedAt: null },
         { id: 4, title: "長野県塩尻市で特定自動運行(自動運転レベル4)の許可を取得 ～塩尻駅から塩尻市役所間において一般向け試乗会を行います～", url: "https://a-drive.jp/2026/03/11/202602shiojiri/", date: "2026-03-11", source: "A-Drive", checkedAt: null }
