@@ -1378,6 +1378,67 @@ body {
   background: var(--surface1);
 }
 
+.lv4-status-summary {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.lv4-status-summary__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 7px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+}
+
+.lv4-status-summary__count {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.lv4-status-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.lv4-status-group {
+  padding: 12px;
+  border: 1px solid var(--surface-border);
+  border-radius: 14px;
+  background: var(--surface1);
+}
+
+.lv4-status-group[data-status="active"],
+.lv4-status-group[data-status="active-planned"],
+.lv4-status-group[data-status="active-dev"] {
+  border-color: color-mix(in srgb, var(--ok-fg) 28%, var(--surface-border));
+  background: color-mix(in srgb, var(--ok-bg) 48%, var(--surface1));
+}
+
+.lv4-status-group[data-status="suspended"] {
+  border-color: color-mix(in srgb, var(--plan-fg) 30%, var(--surface-border));
+  background: color-mix(in srgb, var(--plan-bg) 45%, var(--surface1));
+}
+
+.lv4-status-group[data-status="completed"] {
+  border-color: color-mix(in srgb, var(--done-fg) 24%, var(--surface-border));
+  background: color-mix(in srgb, var(--done-bg) 42%, var(--surface1));
+}
+
+.lv4-status-group__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
 @media (prefers-color-scheme: dark) {
   .lv4-pipeline__stage[data-lv4="vehicle-authorized"] {
     background: rgba(200, 76, 0, 0.15);
