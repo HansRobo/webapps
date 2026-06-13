@@ -494,9 +494,9 @@ const EXPERIMENTS = [
       ],
       references: [
         { id: 1, title: "各地の取り組み：塩尻市", url: "https://www.road-to-the-l4.go.jp/case/shiojiri/", date: "2025-05-29", source: "RoAD to the L4 プロジェクト", checkedAt: "2026-06-03T03:57:08Z" },
-        { id: 2, title: "長野県塩尻市で特定自動運行(自動運転レベル4)の許可を取得しました", url: "https://a-drive.jp/2025/01/10/202501shiojiri_level4/", date: "2025-01-10", source: "A-Drive", checkedAt: null },
-        { id: 3, title: "【長野県塩尻市】市内中心市街地で自動運転バスの定常運行を開始します", url: "https://a-drive.jp/2025/04/25/202504shiojiri/", date: "2025-04-25", source: "A-Drive", checkedAt: null },
-        { id: 4, title: "長野県塩尻市で特定自動運行(自動運転レベル4)の許可を取得 ～塩尻駅から塩尻市役所間において一般向け試乗会を行います～", url: "https://a-drive.jp/2026/03/11/202602shiojiri/", date: "2026-03-11", source: "A-Drive", checkedAt: null }
+        { id: 2, title: "長野県塩尻市で特定自動運行(自動運転レベル4)の許可を取得しました", url: "https://a-drive.jp/2025/01/10/202501shiojiri_level4/", date: "2025-01-10", source: "A-Drive", checkedAt: "2026-06-12T14:27:14Z" },
+        { id: 3, title: "【長野県塩尻市】市内中心市街地で自動運転バスの定常運行を開始します", url: "https://a-drive.jp/2025/04/25/202504shiojiri/", date: "2025-04-25", source: "A-Drive", checkedAt: "2026-06-12T14:27:14Z" },
+        { id: 4, title: "長野県塩尻市で特定自動運行(自動運転レベル4)の許可を取得 ～塩尻駅から塩尻市役所間において一般向け試乗会を行います～", url: "https://a-drive.jp/2026/03/11/202602shiojiri/", date: "2026-03-11", source: "A-Drive", checkedAt: "2026-06-12T14:27:14Z" }
       ]
     },
   {
@@ -521,7 +521,7 @@ const EXPERIMENTS = [
         { role: "システム・地図", name: "先進モビリティ株式会社、アイサンテクノロジー株式会社", refs: [1] }
       ],
       references: [
-        { id: 1, title: "各地の取り組み：和光市", url: "https://www.road-to-the-l4.go.jp/case/wako/", date: "2025-05-29", source: "RoAD to the L4 プロジェクト", checkedAt: null }
+        { id: 1, title: "各地の取り組み：和光市", url: "https://www.road-to-the-l4.go.jp/case/wako/", date: "2025-05-29", source: "RoAD to the L4 プロジェクト", checkedAt: "2026-06-12T14:27:14Z" }
       ]
     },
   {
@@ -544,7 +544,7 @@ const EXPERIMENTS = [
         { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
       ],
       references: [
-        { id: 1, title: "実験事例：愛知県 知多半島", url: "https://www.as-mobi.com/case/", date: "2025-12-05", source: "先進モビリティ株式会社", checkedAt: null }
+        { id: 1, title: "実験事例：愛知県 知多半島", url: "https://www.as-mobi.com/case/", date: "2025-12-05", source: "先進モビリティ株式会社", checkedAt: "2026-06-12T14:27:14Z" }
       ]
     },
   {
@@ -567,7 +567,7 @@ const EXPERIMENTS = [
         { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
       ],
       references: [
-        { id: 1, title: "実験事例：兵庫県 洲本市", url: "https://www.as-mobi.com/case/", date: "2025-12-14", source: "先進モビリティ株式会社", checkedAt: null }
+        { id: 1, title: "実験事例：兵庫県 洲本市", url: "https://www.as-mobi.com/case/", date: "2025-12-14", source: "先進モビリティ株式会社", checkedAt: "2026-06-12T14:27:14Z" }
       ]
     },
   {
@@ -594,9 +594,9 @@ const EXPERIMENTS = [
         { role: "事業統括", name: "日本工営株式会社", refs: [1] }
       ],
       references: [
-        { id: 1, title: "八丈島でAIデマンドタクシー・自動運転バスの実証事業を実施", url: "https://www.metro.tokyo.lg.jp/information/press/2025/06/2025062001", date: "2025-06-20", source: "東京都 報道発表資料", checkedAt: null },
-        { id: 2, title: "八丈島スマートモビリティサービス実証事業（自動運転バス）", url: "https://hachijo-mobility-tokyo.jp/autobus.html", date: "2025-07-19", source: "八丈島スマートモビリティサービス実証事業", checkedAt: null },
-        { id: 3, title: "八丈島スマートモビリティ実証事業について", url: "https://www.as-mobi.com/case/", date: "2024-07-01", source: "先進モビリティ株式会社", checkedAt: null }
+        { id: 1, title: "八丈島でAIデマンドタクシー・自動運転バスの実証事業を実施", url: "https://www.metro.tokyo.lg.jp/information/press/2025/06/2025062001", date: "2025-06-20", source: "東京都 報道発表資料", checkedAt: "2026-06-12T14:27:14Z" },
+        { id: 2, title: "八丈島スマートモビリティサービス実証事業（自動運転バス）", url: "https://hachijo-mobility-tokyo.jp/autobus.html", date: "2025-07-19", source: "八丈島スマートモビリティサービス実証事業", checkedAt: "2026-06-12T14:27:14Z" },
+        { id: 3, title: "八丈島スマートモビリティ実証事業について", url: "https://www.as-mobi.com/case/", date: "2024-07-01", source: "先進モビリティ株式会社", checkedAt: "2026-06-12T14:27:14Z" }
       ]
     },
   {
@@ -621,7 +621,7 @@ const EXPERIMENTS = [
         { role: "バス事業者", name: "三重交通株式会社", refs: [2] }
       ],
       references: [
-        { id: 1, title: "【三重県桑名市】自動運転バスの社会実装を見据えた安全性検証 / レベル2本番走行", url: "https://aisan-mobility.com/202501kuwana/", date: "2025-01-01", source: "アイサンテクノロジー", checkedAt: null },
+        { id: 1, title: "【三重県桑名市】自動運転バスの社会実装を見据えた安全性検証 / レベル2本番走行", url: "https://aisan-mobility.com/202501kuwana/", date: "2025-01-01", source: "アイサンテクノロジー", checkedAt: "2026-06-12T14:27:14Z" },
         { id: 2, title: "【三重県桑名市】鉄道駅と観光施設を結ぶ国内最長レベルの路線において自動運転実証実験を実施しました", url: "https://aisan-mobility.com/202501kuwana/", date: "2025-03-03", source: "アイサンテクノロジー株式会社", checkedAt: null }
       ]
     },
