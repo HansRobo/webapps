@@ -141,6 +141,8 @@
     TOYOTA_SIENNA:          { id: "toyota-sienna",          label: "トヨタ シエナ" },
     TOYOTA_ESTIMA:          { id: "toyota-estima",          label: "トヨタ エスティマ" },
     TOYOTA_JPN_TAXI:        { id: "toyota-jpn-taxi",        label: "トヨタ JPN TAXI" },
+    // レクサス
+    LEXUS_RX:               { id: "lexus-rx",               label: "レクサス RX" },
     // UDトラックス
     UD_QUON:                { id: "ud-quon",                label: "UDトラックス クオン" },
     // WeRide
@@ -197,6 +199,7 @@
     AISANTEC:         { id: "aisantec",          label: "アイサンテクノロジー" },
     MOVEEZ:           { id: "moveez",            label: "MoveEz" },
     T2:               { id: "t2",                label: "T2" },
+    NEWMO:            { id: "newmo",             label: "newmo" },
     // 大学・研究機関系
     SAITAMA_UNIV:     { id: "saitama-univ",      label: "埼玉工業大学" },
     MEIJI_MIAD:       { id: "meiji-miad",        label: "明治大学 自動運転社会総合研究所" },
@@ -285,6 +288,10 @@
     "株式会社ディー・エヌ・エー（DeNA）",
     "株式会社Mobility Technologies",
     "株式会社T2",
+    "newmo株式会社",
+    "堺相互タクシー株式会社",
+    "株式会社未来都",
+    "ロート製薬株式会社",
     "株式会社マクニカ",
     "株式会社ワークシステムサービス",
     "株式会社長大",
@@ -700,6 +707,8 @@
     "車両技術協力",
     "自動運転システム",
     "自動運転システム開発",
+    "自動運転タクシー事業者",
+    "荷主",
     "自動運転システム開発・車両提供",
     "自動運転システム等",
     "自動運転AI技術",

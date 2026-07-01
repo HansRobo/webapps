@@ -4,8 +4,8 @@ const EXPERIMENTS = [
       name: { value: "境町自動運転バス（NAVYA ARMA）定常運行", refs: [1, 2] },
       location: { value: "茨城県境町（関東鉄道バス代替ルート）", lat: 36.153, lng: 139.775, refs: [1] },
       prefecture: { value: PREF.IBARAKI, refs: [1] },
-      period: { value: "2020年11月〜（継続中）", refs: [1, 2] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
+      period: { value: "2020年11月〜（2026年6月9日より車両トータルメンテナンスのため当面の間全便運休、代替は普通車で運行）", refs: [1, 2] },
+      status: { value: STATUS.SUSPENDED, refs: [1] },
       description: {
         value: "国内初の公道における自動運転バスの定常運行。フランスNavya製の自動走行小型バス「NAVYA ARMA」を使用し、境町内の路線バス代替ルートを運行。レベル2相当（乗務員乗車）から開始し、段階的な自動化を目指す。",
         refs: [1, 2]
@@ -23,7 +23,7 @@ const EXPERIMENTS = [
         { role: "事業連携", name: "マクニカ株式会社", refs: [] }
       ],
       references: [
-        { id: 1, title: "境町で自動運転バスを定常運行しています", url: "https://www.town.ibaraki-sakai.lg.jp/page/page002440.html", date: "2020-10-25", source: "境町", checkedAt: "2026-06-02T01:34:01Z" },
+        { id: 1, title: "境町で自動運転バスを定常運行しています", url: "https://www.town.ibaraki-sakai.lg.jp/page/page002440.html", date: "2020-10-25", source: "境町", checkedAt: "2026-07-01T00:00:00Z" },
         { id: 2, title: "Boldly、境町での自動運転バス運行1周年", url: "https://www.softbank.jp/drive/set/data/press/2022/shared/20220208_01.pdf", date: "2022-02-08", source: "BOLDLY / ソフトバンク", checkedAt: "2026-06-02T01:34:01Z" }
       ]
     },
@@ -32,8 +32,8 @@ const EXPERIMENTS = [
       name: { value: "永平寺町自動運転サービス（ゆっくり号）レベル4認可", refs: [1, 2] },
       location: { value: "福井県永平寺町（永平寺参ろーど）", lat: 36.091, lng: 136.469, refs: [1] },
       prefecture: { value: PREF.FUKUI, refs: [1] },
-      period: { value: "2018年〜（2023年3月にレベル4車両認可、同年5月に特定自動運行サービス開始）", refs: [1, 2, 3] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
+      period: { value: "2018年〜2026年3月（2023年3月にレベル4車両認可、同年5月に特定自動運行サービス開始。車両・システムの保証保守期間満了に伴い2026年4月1日以降当面の間運休、再開のめど立たず）", refs: [1, 2, 3, 5] },
+      status: { value: STATUS.SUSPENDED, refs: [5] },
       description: {
         value: "廃線跡を活用した専用道路「永平寺参ろーど」での自動運転移動サービス。2023年3月30日に国内初のレベル4車両認可を取得し、同年5月21日から運転者を配置しないレベル4サービスを開始した。特定自動運行計画では7人乗りのAR-07ベース車両4台（うち1台は予備車両）を使用する。",
         refs: [1, 2, 3, 4]
@@ -54,7 +54,8 @@ const EXPERIMENTS = [
         { id: 1, title: "国内初！運転者を必要としない自動運転車（レベル４）の認可について", url: "https://www.mlit.go.jp/report/press/jidosha07_hh_000442.html", date: "2023-03-31", source: "国土交通省", checkedAt: "2026-06-02T01:34:01Z" },
         { id: 2, title: "国内初の自動運転レベル4車両認可を取得（福井県永平寺町）", url: "https://www.yamaha-motor.co.jp/gsm/topics/eiheiji2.html", date: "2023-03-30", source: "ヤマハ発動機", checkedAt: "2026-06-02T01:34:01Z" },
         { id: 3, title: "国内初！運転者を配置しないレベル４での自動運転移動サービスの開始について", url: "https://www.mlit.go.jp/report/press/jidosha07_hh_000448.html", date: "2023-05-12", source: "国土交通省", checkedAt: "2026-06-02T01:34:01Z" },
-        { id: 4, title: "国内初の自動運転レベル4運行認可を取得（福井県永平寺町）", url: "https://www.yamaha-motor.co.jp/gsm/topics/eiheiji3.html", date: "2023-05-11", source: "ヤマハ発動機", checkedAt: "2026-06-02T01:34:01Z" }
+        { id: 4, title: "国内初の自動運転レベル4運行認可を取得（福井県永平寺町）", url: "https://www.yamaha-motor.co.jp/gsm/topics/eiheiji3.html", date: "2023-05-11", source: "ヤマハ発動機", checkedAt: "2026-06-02T01:34:01Z" },
+        { id: 5, title: "自動運転移動サービス（近未来交通システム）の運休について", url: "https://www.town.eiheiji.lg.jp/200/206/208/p010484.html", date: "2026-03-25", source: "永平寺町", checkedAt: "2026-07-01T00:00:00Z" }
       ]
     },
   {
@@ -232,8 +233,8 @@ const EXPERIMENTS = [
       name: { value: "柏の葉キャンパス自動運転バス公道走行試験（CooL4）", refs: [1, 2] },
       location: { value: "千葉県柏市（柏の葉キャンパス駅〜東京大学柏キャンパス）", lat: 35.894, lng: 139.952, refs: [1] },
       prefecture: { value: PREF.CHIBA, refs: [1] },
-      period: { value: "2019年11月〜（2025年8月にレベル4車両認可、同年11月に特定自動運行許可）", refs: [1, 2, 3] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
+      period: { value: "2019年11月〜2026年3月（2025年8月にレベル4車両認可、同年11月に特定自動運行許可。国交省・経産省の「RoAD to the L4」事業終了に伴い2026年4月1日以降当面の間運行休止）", refs: [1, 2, 3, 5] },
+      status: { value: STATUS.SUSPENDED, refs: [5] },
       description: {
         value: "東京大学を幹事とするCooL4コンソーシアムによる柏の葉地域での自動運転実証。2025年8月にレベル4車両認可、同年11月に特定自動運行許可を取得し、2026年1月13日から東京都市圏初の公道レベル4営業運行を開始。いすゞエルガミオ（先進モビリティの自動運転システム）を用い、約2.6kmのルートのうち約700m区間でレベル4走行を実施。",
         refs: [1, 2, 3, 4]
@@ -255,7 +256,8 @@ const EXPERIMENTS = [
         { id: 1, title: "一般道における中型バスでのレベル4自動運転による運行を開始します", url: "https://www.meti.go.jp/press/2025/01/20260113001/20260113001.html", date: "2026-01-13", source: "経済産業省", checkedAt: "2026-06-02T03:09:06Z" },
         { id: 2, title: "＼千葉県内初！／柏の葉地区で特定自動運行（自動運転レベル4）を開始（令和7年12月10日発表）", url: "https://www.city.kashiwa.lg.jp/koho/pressrelease/r7houdou/12gatsu/r7121004.html", date: "2025-12-10", source: "柏市", checkedAt: "2026-06-02T03:09:06Z" },
         { id: 3, title: "東京都市圏の公道で初！ 柏の葉地区で特定自動運行（自動運転レベル4）の運行開始", url: "https://www.as-mobi.com/news/", date: "2026-01-13", source: "先進モビリティ株式会社", checkedAt: "2026-06-02T03:09:06Z" },
-        { id: 4, title: "東京都市圏の公道で初！ 柏の葉地区で特定自動運行（自動運転レベル4）の運行開始", url: "https://www.k.u-tokyo.ac.jp/information/category/press/0028990.html", date: "2026-01-13", source: "東京大学大学院新領域創成科学研究科", checkedAt: "2026-06-02T04:17:44Z" }
+        { id: 4, title: "東京都市圏の公道で初！ 柏の葉地区で特定自動運行（自動運転レベル4）の運行開始", url: "https://www.k.u-tokyo.ac.jp/information/category/press/0028990.html", date: "2026-01-13", source: "東京大学大学院新領域創成科学研究科", checkedAt: "2026-06-02T04:17:44Z" },
+        { id: 5, title: "自動運転バスの運行休止について（RoAD to the L4事業終了に伴う）", url: "https://www.city.kashiwa.lg.jp/kotsuseisaku/living_environment/bus_taxi/jidouunkobus.html", date: "2026-04-01", source: "柏市", checkedAt: "2026-07-01T00:00:00Z" }
       ]
     },
   {
@@ -1765,11 +1767,11 @@ const EXPERIMENTS = [
       name: { value: "多摩市・都内初大型自動運転バス実証運行", refs: [1] },
       location: { value: "東京都多摩市", lat: 35.62, lng: 139.42, refs: [1] },
       prefecture: { value: PREF.TOKYO, refs: [1] },
-      period: { value: "2026年1月〜2月（実証実施）", refs: [1] },
+      period: { value: "2026年1月10日〜2月1日（実証実施。2025年12月に事前発表）", refs: [1, 2, 3] },
       status: { value: STATUS.COMPLETED, refs: [1] },
       description: {
-        value: "都内初となる「大型バス」を用いた自動運転実証。路線バスの乗務員不足解消を目指し、多摩センター駅周辺で技術検証を実施し、2026年2月1日に終了した。延べ938人が乗車し、自動運転による走行割合は96.8％だった。",
-        refs: [1]
+        value: "都内初となる「大型バス」を用いた自動運転実証。路線バスの乗務員不足解消を目指し、多摩センター駅周辺で技術検証を実施し、2026年2月1日に終了した。延べ938人が乗車し、自動運転による走行割合は96.8％だった。アイサンテクノロジーの高精度3次元地図とA-Driveの自動運転システムを活用。",
+        refs: [1, 2, 3]
       },
       vehicle: { value: VEH.ISUZU_ERGA, refs: [1] },
       adSystem: { value: ADS.A_DRIVE, refs: [1] },
@@ -1778,10 +1780,13 @@ const EXPERIMENTS = [
       lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
         { role: "自治体", name: "多摩市（東京都）", refs: [1] },
-        { role: "運行主体", name: "京王電鉄バス株式会社", refs: [1] }
+        { role: "運行主体", name: "京王電鉄バス株式会社", refs: [1, 3] },
+        { role: "高精度地図提供", name: "アイサンテクノロジー株式会社", refs: [2] }
       ],
       references: [
-        { id: 1, title: "【終了しました】多摩市大型自動運転バス実証運行（R7年度事業）", url: "https://www.city.tama.lg.jp/kurashi/bus/minibus/1019026.html", date: "2026-05-21", source: "多摩市", checkedAt: null }
+        { id: 1, title: "【終了しました】多摩市大型自動運転バス実証運行（R7年度事業）", url: "https://www.city.tama.lg.jp/kurashi/bus/minibus/1019026.html", date: "2026-05-21", source: "多摩市", checkedAt: "2026-07-01T00:00:00Z" },
+        { id: 2, title: "多摩市における大型自動運転バス運行にA-Driveとアイサンテクノロジーが参画", url: "https://prtimes.jp/main/html/rd/p/000000225.000050415.html", date: "2025-12-01", source: "アイサンテクノロジー株式会社（PR TIMES）", checkedAt: "2026-07-01T00:00:00Z" },
+        { id: 3, title: "都内初！多摩市で大型自動運転バスの実証運行を行います", url: "https://prtimes.jp/main/html/rd/p/000000023.000022679.html", date: "2025-12-18", source: "京王電鉄バス株式会社", checkedAt: "2026-07-01T00:00:00Z" }
       ]
     },
   {
@@ -1816,8 +1821,8 @@ const EXPERIMENTS = [
       name: { value: "小松市・自動運転バス通年運行（レベル4検証）", refs: [1, 2] },
       location: { value: "石川県小松市", lat: 36.402, lng: 136.45, refs: [1] },
       prefecture: { value: PREF.ISHIKAWA, refs: [1] },
-      period: { value: "2024年3月9日〜（通年運行継続中）", refs: [1, 2] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
+      period: { value: "2024年3月9日〜（2026年5月13日の接触事故により自動運転バスの運行を一時休止。代替車両で路線バス自体は継続運行）", refs: [1, 2] },
+      status: { value: STATUS.SUSPENDED, refs: [1] },
       description: {
         value: "JR小松駅と小松空港を結ぶ片道約4.4kmで、自動運転バスの通年運行を実施。ティアフォー製MinibusとBOLDLYの運行管理基盤を用い、路線バスとして継続運用しながら社会実装を進めている。",
         refs: [1, 2]
@@ -1834,7 +1839,7 @@ const EXPERIMENTS = [
         { role: "技術協力", name: "アイサンテクノロジー株式会社、損害保険ジャパン株式会社", refs: [2] }
       ],
       references: [
-        { id: 1, title: "自動運転バスの運行について", url: "https://www.city.komatsu.lg.jp/soshiki/1985/rosenbasu/4/16580.html", date: "2026-02-01", source: "小松市", checkedAt: null },
+        { id: 1, title: "自動運転バスの運行について", url: "https://www.city.komatsu.lg.jp/soshiki/1985/rosenbasu/4/16580.html", date: "2026-02-01", source: "小松市", checkedAt: "2026-07-01T00:00:00Z" },
         { id: 2, title: "石川県小松市で自動運転バスの通年運行を開始", url: "https://www.city.komatsu.lg.jp/material/files/group/22/press_release20240308.pdf", date: "2024-03-08", source: "小松市/BOLDLY/ティアフォー/アイサンテクノロジー/損害保険ジャパン", checkedAt: null }
       ]
     },
@@ -2644,8 +2649,8 @@ const EXPERIMENTS = [
       name: { value: "弥彦村 自動運転バス「MiCa」定常運行", refs: [1] },
       location: { value: "新潟県西蒲原郡弥彦村", lat: 37.703, lng: 138.824, refs: [1] },
       prefecture: { value: PREF.NIIGATA, refs: [1] },
-      period: { value: "2024年2月〜（通年運行）", refs: [1] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
+      period: { value: "2024年2月〜（2026年4月12日の人身事故により全面運行停止。同年5月28日、村は2026年度中の運行再開を見送ると表明）", refs: [1, 3] },
+      status: { value: STATUS.SUSPENDED, refs: [3] },
       description: {
         value: "弥彦村内において、エストニアAuve Tech社の新型自動運転EV「MiCa」を用いた通年運行を実施（2024年2月2日開始）。北吉田ルート（片道約5.7km）・井田ルートの2ルート、13バス停、定員8名で運行。観光地における移動の高度化と、住民の生活交通の維持を目的としている。BOLDLYが運行管理を担当。",
         refs: [1, 2]
@@ -2662,7 +2667,8 @@ const EXPERIMENTS = [
       ],
       references: [
         { id: 1, title: "新潟県弥彦村で自動運転EV「MiCa」の通年運行を開始", url: "https://prtimes.jp/main/html/rd/p/000000540.000069194.html", date: "2024-02-02", source: "大日本印刷株式会社", checkedAt: null },
-        { id: 2, title: "自動運転車両について｜自動運転車両「ミコぴょん号」", url: "https://www.vill.yahiko.niigata.jp/life/?content=704", date: "2025-04-01", source: "弥彦村", checkedAt: null }
+        { id: 2, title: "自動運転車両について｜自動運転車両「ミコぴょん号」", url: "https://www.vill.yahiko.niigata.jp/life/?content=704", date: "2025-04-01", source: "弥彦村", checkedAt: null },
+        { id: 3, title: "自動運転バスが歩行者2人はねる 弥彦村、2026年度の運行再開見送りへ", url: "https://www.niigata-nippo.co.jp/articles/-/839056", date: "2026-05-28", source: "新潟日報", checkedAt: "2026-07-01T00:00:00Z" }
       ]
     },
   {
@@ -4388,32 +4394,6 @@ const EXPERIMENTS = [
       ]
     },
   {
-      id: "exp-190",
-      name: { value: "多摩市 大型自動運転バス実証（京王電鉄バス連携）", refs: [1, 2] },
-      location: { value: "東京都多摩市（多摩センター〜聖蹟桜ヶ丘周辺）", lat: 35.637, lng: 139.446, refs: [1] },
-      prefecture: { value: PREF.TOKYO, refs: [1] },
-      period: { value: "2025年12月〜（実証実験期間）", refs: [1] },
-      status: { value: STATUS.ACTIVE, refs: [1] },
-      description: {
-        value: "多摩市において京王電鉄バスと連携し、アイサンテクノロジーの高精度3次元地図を活用した大型自動運転バス（いすゞ エルガ）の実証実験を実施。路線バスの大型車両による自動運転の実現可能性を検証し、地域公共交通の持続的な維持を目指す。",
-        refs: [1, 2]
-      },
-      vehicle: { value: VEH.ISUZU_ERGA, refs: [1] },
-      adSystem: { value: ADS.TIER_IV, refs: [1] },
-      route: { value: "多摩センター〜聖蹟桜ヶ丘周辺（詳細ルート調整中）", refs: [1] },
-      operationType: { value: "実証実験（大型路線バス自動運転）", refs: [1] },
-      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
-      stakeholders: [
-        { role: "高精度地図提供", name: "アイサンテクノロジー株式会社", refs: [1, 2] },
-        { role: "バス事業者", name: "京王電鉄バス株式会社", refs: [1] },
-        { role: "自治体", name: "多摩市（東京都）", refs: [1] }
-      ],
-      references: [
-        { id: 1, title: "多摩市における大型自動運転バス運行にA-Driveとアイサンテクノロジーが参画", url: "https://prtimes.jp/main/html/rd/p/000000225.000050415.html", date: "2025-12-01", source: "アイサンテクノロジー株式会社（PR TIMES）", checkedAt: null },
-        { id: 2, title: "都内初！多摩市で大型自動運転バスの実証運行を行います", url: "https://prtimes.jp/main/html/rd/p/000000023.000022679.html", date: "2025-12-18", source: "京王電鉄バス株式会社", checkedAt: null }
-      ]
-    },
-  {
       id: "exp-191",
       name: { value: "京田辺・木津川市 EVバス自動運転実証（けいはんな）", refs: [1, 2] },
       location: { value: "京都府（けいはんな学研都市、京田辺市・木津川市エリア）", lat: 34.737, lng: 135.812, refs: [1] },
@@ -5871,7 +5851,7 @@ const EXPERIMENTS = [
       location: { value: "東京都千代田区（大手町・丸の内・有楽町エリア）", lat: 35.681, lng: 139.765, refs: [1, 2] },
       prefecture: { value: PREF.TOKYO, refs: [1, 2] },
       period: { value: "2026年6月23日〜7月2日", refs: [1, 2] },
-      status: { value: STATUS.PLANNED, refs: [1, 2] },
+      status: { value: STATUS.ACTIVE, refs: [1, 2] },
       description: {
         value: "東京都が推進する自動運転サービス導入に向けた走行環境整備プロジェクトの一環として、大丸有エリアの無料循環バス「丸の内シャトル」と同様のルートで初めて実施する自動運転バス実証。BYD J6を用いて、事前予約不要・無料で乗車できるレベル2運行を行い、都市部での社会実装に向けた課題と対策を検証する。",
         refs: [1, 2]
@@ -5942,6 +5922,80 @@ const EXPERIMENTS = [
         { id: 2, title: "加賀市レポ―ト Vol.2 自動運転EVバス 実証実験", url: "https://www.macnica.co.jp/business/maas/cases/149118/", date: "2024-09-03", source: "株式会社マクニカ", checkedAt: "2026-06-02T02:19:36Z" },
         { id: 3, title: "自動運転EVバス公道走行実証について", url: "https://www.city.kaga.ishikawa.jp/material/files/group/126/autonomous.pdf", date: "2024-04-16", source: "加賀市", checkedAt: "2026-06-02T02:19:36Z" },
         { id: 4, title: "加賀市レポート Vol.1【北陸新幹線加賀温泉駅開業記念】自動運転EVバス「EVO」走行体験会", url: "https://www.macnica.co.jp/business/maas/cases/149122/", date: "2024-05-08", source: "株式会社マクニカ", checkedAt: "2026-06-02T02:19:36Z" }
+      ]
+    },
+  {
+      id: "exp-263",
+      name: { value: "newmo 堺市堺浜 自動運転タクシー実証", refs: [1] },
+      location: { value: "大阪府堺市（堺浜・みなと堺グリーン広場周辺）", lat: 34.612, lng: 135.434, refs: [1] },
+      prefecture: { value: PREF.OSAKA, refs: [1] },
+      period: { value: "2026年4月下旬〜（実証実験開始）", refs: [1] },
+      status: { value: STATUS.ACTIVE, refs: [1] },
+      description: {
+        value: "newmoが堺相互タクシー・株式会社未来都・堺市との連携協定に基づき、堺浜エリアで自動運転タクシーの公道実証を開始。走行動画をAI学習させた自動運転システムを構築し、レベル2（保安要員同乗）で開始。デジタル庁「自動運転社会実装先行的事業化地域」に選定され、2027年度のレベル4認可取得を目指す。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.LEXUS_RX, refs: [1] },
+      adSystem: { value: ADS.NEWMO, refs: [1] },
+      route: { value: "堺浜・みなと堺グリーン広場周辺エリア", refs: [1] },
+      operationType: { value: "レベル2（保安要員同乗、将来レベル4目標）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "自動運転タクシー事業者", name: "newmo株式会社", refs: [1] },
+        { role: "タクシー事業者", name: "堺相互タクシー株式会社", refs: [1] },
+        { role: "タクシー事業者", name: "株式会社未来都", refs: [1] },
+        { role: "自治体", name: "堺市（大阪府）", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "newmo、堺市・堺相互タクシー・未来都と連携協定を締結し自動運転タクシーの実証実験を開始", url: "https://prtimes.jp/main/html/rd/p/000000054.000137033.html", date: "2026-04-08", source: "newmo株式会社（PR TIMES）", checkedAt: "2026-07-01T00:00:00Z" }
+      ]
+    },
+  {
+      id: "exp-264",
+      name: { value: "newmo 大阪市此花区舞洲 自動運転タクシー実証", refs: [1] },
+      location: { value: "大阪府大阪市此花区（舞洲エリア）", lat: 34.664, lng: 135.408, refs: [1] },
+      prefecture: { value: PREF.OSAKA, refs: [1] },
+      period: { value: "2026年5月〜（実証実験開始）", refs: [1] },
+      status: { value: STATUS.ACTIVE, refs: [1] },
+      description: {
+        value: "大阪市とnewmoの連携協定に基づき、鉄道駅が近くなくタクシー需要が見込める舞洲エリアで自動運転タクシーの実証実験を開始。堺浜（exp-263）と同様に閉鎖空間・交通量の少ない公道での走行からレベル2で開始し、newmoとして2028年度の商用運行（エリア限定）を目指す。堺市堺浜の実証（exp-263）とは別の連携協定に基づく取り組み。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.ROBOTAXI_GENERIC, refs: [1] },
+      adSystem: { value: ADS.NEWMO, refs: [1] },
+      route: { value: "此花区舞洲エリア", refs: [1] },
+      operationType: { value: "レベル2（保安要員同乗、将来レベル4目標）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "自動運転タクシー事業者", name: "newmo株式会社", refs: [1] },
+        { role: "自治体", name: "大阪市（大阪府）", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "ニューモ、大阪で自動運転タクシー実証　舞洲・堺浜で開始", url: "https://www.nikkei.com/article/DGXZQOUF206UI0Q6A420C2000000/", date: "2026-04-20", source: "日本経済新聞", checkedAt: "2026-07-01T00:00:00Z" }
+      ]
+    },
+  {
+      id: "exp-265",
+      name: { value: "T2×ロート製薬 自動運転トラック 関西〜関東間輸送実証", refs: [1] },
+      location: { value: "大阪府茨木市（関西物流拠点）〜神奈川県相模原市（関東物流拠点）", lat: 34.816, lng: 135.569, refs: [1] },
+      prefecture: { value: PREF.OSAKA, refs: [1] },
+      period: { value: "2026年6月29日〜12月（計4回の往復輸送予定）", refs: [1] },
+      status: { value: STATUS.ACTIVE, refs: [1] },
+      description: {
+        value: "T2がロート製薬のスキンケア関連製品等を対象に、関西物流拠点（大阪府茨木市）〜関東物流拠点（神奈川県相模原市）の約490km（うち名神高速道路・茨木ICから東名高速道路・綾瀬スマートICまでの高速道路約450kmを自動運転区間）でレベル2自動運転トラックによる実輸送実証を開始。既存exp-255（T2の関東〜関西500km無介入完走実証）とは異なる、ロート製薬向けの商用貨物を用いた実輸送検証。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.LARGE_TRUCK_GENERIC, refs: [1] },
+      adSystem: { value: ADS.T2, refs: [1] },
+      route: { value: "名神高速道路 茨木IC 〜 東名高速道路 綾瀬スマートIC（高速道路区間 約450km）", refs: [1] },
+      operationType: { value: "レベル2（ドライバー監視下、特定条件下で自動走行）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "自動運転システム開発", name: "株式会社T2", refs: [1] },
+        { role: "荷主", name: "ロート製薬株式会社", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "ロート製薬、T2の自動運転トラックでスキンケア関連製品等の輸送実証を開始", url: "https://prtimes.jp/main/html/rd/p/000000589.000044879.html", date: "2026-06-29", source: "ロート製薬株式会社／株式会社T2（PR TIMES）", checkedAt: "2026-07-01T00:00:00Z" }
       ]
     },
 ];
