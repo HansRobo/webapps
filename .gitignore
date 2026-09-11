@@ -1,5 +1,9 @@
 .idea/
+.serena/
 apps/autonomous-driving-map/research/reference-check-progress.md
 apps/autonomous-driving-map/research/reference-structure-issues.json
 apps/autonomous-driving-map/research/reference-url-results.json
 apps/autonomous-driving-map/research/reference-urls.json
+apps/autonomous-driving-map/research/content-verification-*.json
+apps/autonomous-driving-map/research/experiments-extract.json
+apps/autonomous-driving-map/research/exp/
