@@ -19,10 +19,14 @@ category: CAT.AUTO_LONG
 scanningMethod: SCAN.MECHANICAL
 wavelength: WAVE.NM905
 returnModes: { value: [RET_MODE.SINGLE, RET_MODE.DUAL], unit: null, refs: [1] }
+timeSynchronization: { value: [TIME_SYNC.PTP, TIME_SYNC.GPTP], unit: null, refs: [1] }
+protection: { value: [PROTECTION.IP6K7, PROTECTION.IP6K9K], unit: null, refs: [1] }
+imuBuiltIn: { value: IMU.AXIS_6, unit: null, refs: [1] }
+interface: { value: [INTERFACE.ETH_1000], unit: null, refs: [1] }
 ```
 
-`M.*`, `CAT.*`, `SCAN.*`, `WAVE.*`, `SRC_TYPE.*`, `RET_MODE.*` はすべて `schema.js` で定義されている。
-新しいメーカー・カテゴリ・方式・リターンモードが必要な場合は **schema.js を先に編集してから** data.js を更新する。
+`M.*`, `CAT.*`, `SCAN.*`, `WAVE.*`, `SRC_TYPE.*`, `RET_MODE.*`, `TIME_SYNC.*`, `PROTECTION.*`, `IMU.*`, `INTERFACE.*` はすべて `schema.js` で定義されている。
+新しいメーカー・カテゴリ・方式・リターンモード・同期方式・保護等級・IMU・インタフェースが必要な場合は **schema.js を先に編集してから** data.js を更新する。
 
 ---
 
@@ -103,8 +107,8 @@ references: [
 | `power`     | 消費電力（通常動作時）| `"W"`          |
 | `size`      | 外形寸法            | `null`（文字列）|
 | `weight`    | 重量                | `"g"` or `"kg"`|
-| `protection`| 保護等級（IP等級）   | `null`（文字列）|
-| `interface` | 通信インタフェース    | `null`（文字列）|
+| `protection`| 保護等級（`[PROTECTION.IP67]` 等。補足は `note` に記述）| `null`（PROTECTION配列）|
+| `interface` | 通信インタフェース（`[INTERFACE.ETH_1000]` 等。補足は `note` に記述）| `null`（INTERFACE配列）|
 
 ### オプショナルスペックフィールド一覧
 
@@ -122,8 +126,8 @@ references: [
 
 | フィールド            | 説明                                      | 単位例          |
 |-----------------------|-------------------------------------------|----------------|
-| `timeSynchronization` | 時刻同期方式（PTP/gPTP/NTP/PPS+NMEA等）    | `null`（文字列）|
-| `imuBuiltIn`          | 内蔵IMU（例: "6軸 IMU内蔵"）              | `null`（文字列）|
+| `timeSynchronization` | 時刻同期方式（`[TIME_SYNC.PTP, TIME_SYNC.GPTP]` 等。補足は `note` に記述）| `null`（TIME_SYNC配列）|
+| `imuBuiltIn`          | 内蔵IMU（`IMU.AXIS_6`, `IMU.BUILTIN` 等。型番等は `note` に記述）| `null`（IMU定数）|
 | `supportedSoftware`   | ソフトウェアサポート（ROS 1/2, SDK等）      | `null`（文字列）|
 
 **環境・物理耐性:**

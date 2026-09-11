@@ -10,10 +10,18 @@ const verbose = process.argv.includes("--verbose");
 
 // ── schema.js をロード（グローバルに展開してから data.js をロード）
 const schema = require(path.join(__dirname, "schema.js"));
-const { M, SCAN, CAT, WAVE, SRC_TYPE, RET_MODE, RET_MODE_DETAILS } = schema;
+const {
+  M, SCAN, CAT, WAVE, SRC_TYPE, RET_MODE, RET_MODE_DETAILS,
+  TIME_SYNC, TIME_SYNC_DETAILS, PROTECTION, PROTECTION_DETAILS,
+  IMU, IMU_DETAILS, INTERFACE, INTERFACE_DETAILS,
+} = schema;
 
 // グローバルに注入（data.js が参照するため）
-Object.assign(global, { M, SCAN, CAT, WAVE, SRC_TYPE, RET_MODE, RET_MODE_DETAILS });
+Object.assign(global, {
+  M, SCAN, CAT, WAVE, SRC_TYPE, RET_MODE, RET_MODE_DETAILS,
+  TIME_SYNC, TIME_SYNC_DETAILS, PROTECTION, PROTECTION_DETAILS,
+  IMU, IMU_DETAILS, INTERFACE, INTERFACE_DETAILS,
+});
 
 // data.js をロード
 const { LIDARS } = require(path.join(__dirname, "data.js"));
@@ -82,7 +90,7 @@ const NUMERIC_HINT_KEYS = new Set([
   "sunlightImmunity",
   "powerMax",
 ]);
-const STRING_ARRAY_HINT_KEYS = new Set(["timeSynchronization", "protection", "returnModes"]);
+const STRING_ARRAY_HINT_KEYS = new Set(["timeSynchronization", "protection", "returnModes", "interface"]);
 const NUMBER_ARRAY_HINT_KEYS = new Set(["beamDivergence"]);
 
 function err(msg) {
@@ -243,6 +251,52 @@ function validateSpecCommon(prefix, key, spec, required = false) {
       }
     }
   }
+
+  if (key === "timeSynchronization" && spec.value !== null && spec.value !== undefined) {
+    const validTimeSyncs = new Set(Object.values(TIME_SYNC));
+    if (!Array.isArray(spec.value)) {
+      err(`${prefix} specs.timeSynchronization: value は配列である必要がある（例: [TIME_SYNC.PTP, TIME_SYNC.GPTP]）`);
+    } else {
+      for (const t of spec.value) {
+        if (!validTimeSyncs.has(t)) {
+          err(`${prefix} specs.timeSynchronization: 不正な時刻同期値 "${t}"。schema.js の TIME_SYNC 定数を使用してください`);
+        }
+      }
+    }
+  }
+
+  if (key === "protection" && spec.value !== null && spec.value !== undefined) {
+    const validProtections = new Set(Object.values(PROTECTION));
+    if (!Array.isArray(spec.value)) {
+      err(`${prefix} specs.protection: value は配列である必要がある（例: [PROTECTION.IP67, PROTECTION.IP6K9K]）`);
+    } else {
+      for (const p of spec.value) {
+        if (!validProtections.has(p)) {
+          err(`${prefix} specs.protection: 不正な保護等級 "${p}"。schema.js の PROTECTION 定数を使用してください`);
+        }
+      }
+    }
+  }
+
+  if (key === "imuBuiltIn" && spec.value !== null && spec.value !== undefined) {
+    const validImus = new Set(Object.values(IMU));
+    if (!validImus.has(spec.value)) {
+      err(`${prefix} specs.imuBuiltIn: 不正な内蔵IMU値 "${spec.value}"。schema.js の IMU 定数を使用してください（例: IMU.AXIS_6）`);
+    }
+  }
+
+  if (key === "interface" && spec.value !== null && spec.value !== undefined) {
+    const validInterfaces = new Set(Object.values(INTERFACE));
+    if (!Array.isArray(spec.value)) {
+      err(`${prefix} specs.interface: value は配列である必要がある（例: [INTERFACE.ETH_1000]）`);
+    } else {
+      for (const iface of spec.value) {
+        if (!validInterfaces.has(iface)) {
+          err(`${prefix} specs.interface: 不正なインタフェース "${iface}"。schema.js の INTERFACE 定数を使用してください`);
+        }
+      }
+    }
+  }
 }
 
 function validateSchemaEntry(prefix, obj, { idPattern, requiredStrings = [], warnStrings = [], allowedKeys, extra } = {}) {
@@ -360,6 +414,26 @@ for (const [key, wave] of Object.entries(WAVE)) {
 for (const [key, srcType] of Object.entries(SRC_TYPE)) {
   if (!isNonEmptyString(srcType)) err(`SRC_TYPE.${key}: 値が文字列でない`);
   else ok(`SRC_TYPE.${key} OK`);
+}
+for (const [key, ts] of Object.entries(TIME_SYNC)) {
+  if (!isNonEmptyString(ts)) err(`TIME_SYNC.${key}: 値が文字列でない`);
+  else if (!TIME_SYNC_DETAILS[ts]) warn(`TIME_SYNC_DETAILS[TIME_SYNC.${key}] が未定義`);
+  else ok(`TIME_SYNC.${key} OK`);
+}
+for (const [key, p] of Object.entries(PROTECTION)) {
+  if (!isNonEmptyString(p)) err(`PROTECTION.${key}: 値が文字列でない`);
+  else if (!PROTECTION_DETAILS[p]) warn(`PROTECTION_DETAILS[PROTECTION.${key}] が未定義`);
+  else ok(`PROTECTION.${key} OK`);
+}
+for (const [key, imu] of Object.entries(IMU)) {
+  if (!isNonEmptyString(imu)) err(`IMU.${key}: 値が文字列でない`);
+  else if (!IMU_DETAILS[imu]) warn(`IMU_DETAILS[IMU.${key}] が未定義`);
+  else ok(`IMU.${key} OK`);
+}
+for (const [key, iface] of Object.entries(INTERFACE)) {
+  if (!isNonEmptyString(iface)) err(`INTERFACE.${key}: 値が文字列でない`);
+  else if (!INTERFACE_DETAILS[iface]) warn(`INTERFACE_DETAILS[INTERFACE.${key}] が未定義`);
+  else ok(`INTERFACE.${key} OK`);
 }
 
 // 2. 重複IDチェック

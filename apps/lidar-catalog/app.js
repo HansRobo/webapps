@@ -78,6 +78,16 @@ function normalize(lidar) {
     returnModes: Array.isArray(lidar.specs?.returnModes?.value)
       ? lidar.specs.returnModes.value
       : (lidar.specs?.returnModes?.value ? [lidar.specs.returnModes.value] : []),
+    timeSync: Array.isArray(lidar.specs?.timeSynchronization?.value)
+      ? lidar.specs.timeSynchronization.value
+      : (lidar.specs?.timeSynchronization?.value ? [lidar.specs.timeSynchronization.value] : []),
+    protection: Array.isArray(lidar.specs?.protection?.value)
+      ? lidar.specs.protection.value
+      : (lidar.specs?.protection?.value ? [lidar.specs.protection.value] : []),
+    imu: lidar.specs?.imuBuiltIn?.value ?? null,
+    interfaces: Array.isArray(lidar.specs?.interface?.value)
+      ? lidar.specs.interface.value
+      : (lidar.specs?.interface?.value ? [lidar.specs.interface.value] : []),
     searchText: [
       lidar.name,
       lidar.manufacturer.name,
@@ -88,7 +98,23 @@ function normalize(lidar) {
       ...(Array.isArray(lidar.specs?.returnModes?.value)
         ? lidar.specs.returnModes.value.flatMap(m => [m, RET_MODE_DETAILS[m]?.labelJa ?? "", RET_MODE_DETAILS[m]?.label ?? ""])
         : []),
+      ...(Array.isArray(lidar.specs?.timeSynchronization?.value)
+        ? lidar.specs.timeSynchronization.value.flatMap(t => [t, TIME_SYNC_DETAILS[t]?.labelJa ?? "", TIME_SYNC_DETAILS[t]?.label ?? ""])
+        : []),
+      ...(Array.isArray(lidar.specs?.protection?.value)
+        ? lidar.specs.protection.value.flatMap(p => [p, PROTECTION_DETAILS[p]?.labelJa ?? "", PROTECTION_DETAILS[p]?.label ?? ""])
+        : []),
+      ...(lidar.specs?.imuBuiltIn?.value
+        ? [lidar.specs.imuBuiltIn.value, IMU_DETAILS[lidar.specs.imuBuiltIn.value]?.labelJa ?? "", IMU_DETAILS[lidar.specs.imuBuiltIn.value]?.label ?? ""]
+        : []),
+      ...(Array.isArray(lidar.specs?.interface?.value)
+        ? lidar.specs.interface.value.flatMap(i => [i, INTERFACE_DETAILS[i]?.labelJa ?? "", INTERFACE_DETAILS[i]?.label ?? ""])
+        : []),
       lidar.specs?.returnModes?.note ?? "",
+      lidar.specs?.timeSynchronization?.note ?? "",
+      lidar.specs?.protection?.note ?? "",
+      lidar.specs?.imuBuiltIn?.note ?? "",
+      lidar.specs?.interface?.note ?? "",
       lidar.useCases ?? "",
     ].join(" ").toLowerCase(),
   };
@@ -280,16 +306,48 @@ const FILTER_FIELDS = [
   { id: "beamDivergence", label: "ビーム広がり角", group: "光学・走査", type: "number", unit: "°", getter: item => item.raw.specs.beamDivergence?.value ?? null },
   { id: "sunlightImmunity", label: "耐外乱光性能", group: "光学・走査", type: "number", unit: "lux", getter: item => item.raw.specs.sunlightImmunity?.value ?? null },
 
-  { id: "interface", label: "インタフェース", group: "システム統合", type: "text", getter: item => item.raw.specs.interface?.value ?? null },
-  { id: "timeSynchronization", label: "時刻同期方式", group: "システム統合", type: "text", getter: item => item.raw.specs.timeSynchronization?.value ?? null },
-  { id: "imuBuiltIn", label: "内蔵IMU", group: "システム統合", type: "text", getter: item => item.raw.specs.imuBuiltIn?.value ?? null },
+  {
+    id: "interface",
+    label: "インタフェース",
+    group: "システム統合",
+    type: "enum",
+    getter: item => item.interfaces,
+    options: Object.values(INTERFACE_DETAILS).map(d => ({ value: d.id, label: `${d.labelJa}` })),
+    valueLabel: value => INTERFACE_DETAILS[value]?.labelJa ?? value,
+  },
+  {
+    id: "timeSynchronization",
+    label: "時刻同期方式",
+    group: "システム統合",
+    type: "enum",
+    getter: item => item.timeSync,
+    options: Object.values(TIME_SYNC_DETAILS).map(d => ({ value: d.id, label: `${d.labelJa}` })),
+    valueLabel: value => TIME_SYNC_DETAILS[value]?.labelJa ?? value,
+  },
+  {
+    id: "imuBuiltIn",
+    label: "内蔵IMU",
+    group: "システム統合",
+    type: "enum",
+    getter: item => item.imu,
+    options: Object.values(IMU_DETAILS).map(d => ({ value: d.id, label: `${d.labelJa}` })),
+    valueLabel: value => IMU_DETAILS[value]?.labelJa ?? value,
+  },
   { id: "supportedSoftware", label: "ソフトウェアサポート", group: "システム統合", type: "text", getter: item => item.raw.specs.supportedSoftware?.value ?? null },
 
   { id: "power", label: "消費電力", group: "物理仕様", type: "number", unit: "W", getter: item => item.raw.specs.power?.value ?? null },
   { id: "powerMax", label: "最大消費電力", group: "物理仕様", type: "number", unit: "W", getter: item => item.raw.specs.powerMax?.value ?? null },
   { id: "size", label: "サイズ", group: "物理仕様", type: "text", getter: item => item.raw.specs.size?.value ?? null },
   { id: "weight", label: "重量", group: "物理仕様", type: "number", unit: "g", getter: item => item.raw.specs.weight?.value ?? null },
-  { id: "protection", label: "保護等級", group: "物理仕様", type: "text", getter: item => item.raw.specs.protection?.value ?? null },
+  {
+    id: "protection",
+    label: "保護等級",
+    group: "物理仕様",
+    type: "enum",
+    getter: item => item.protection,
+    options: Object.values(PROTECTION_DETAILS).map(d => ({ value: d.id, label: `${d.labelJa}` })),
+    valueLabel: value => PROTECTION_DETAILS[value]?.labelJa ?? value,
+  },
   { id: "operatingTemperature", label: "動作温度", group: "物理仕様", type: "text", getter: item => item.raw.specs.operatingTemperature?.value ?? null },
   { id: "shockVibration", label: "耐衝撃・耐振動", group: "物理仕様", type: "text", getter: item => item.raw.specs.shockVibration?.value ?? null },
 ];
@@ -490,6 +548,22 @@ function getParameterDisplayText(item, field) {
   }
   if (field.id === "returnModes") {
     const display = formatReturnModesDisplay(spec);
+    return display.isMissing ? null : display.text;
+  }
+  if (field.id === "timeSynchronization") {
+    const display = formatTimeSyncDisplay(spec);
+    return display.isMissing ? null : display.text;
+  }
+  if (field.id === "protection") {
+    const display = formatProtectionDisplay(spec);
+    return display.isMissing ? null : display.text;
+  }
+  if (field.id === "imuBuiltIn") {
+    const display = formatImuDisplay(spec);
+    return display.isMissing ? null : display.text;
+  }
+  if (field.id === "interface") {
+    const display = formatInterfaceDisplay(spec);
     return display.isMissing ? null : display.text;
   }
   const display = formatSpecDisplay(spec, { includeUnit: field.type === "number" });
@@ -1168,6 +1242,65 @@ function formatReturnModesDisplay(spec) {
   const labels = modes.map(m => {
     const def = RET_MODE_DETAILS[m];
     return def ? `${def.labelJa} (${def.label})` : String(m);
+  });
+  return {
+    text: labels.join(" / "),
+    isMissing: false,
+  };
+}
+
+function formatTimeSyncDisplay(spec) {
+  if (!spec || spec.value === null || spec.value === undefined) {
+    return { text: "—", isMissing: true };
+  }
+  const items = Array.isArray(spec.value) ? spec.value : [spec.value];
+  if (items.length === 0) return { text: "—", isMissing: true };
+  const labels = items.map(t => {
+    const def = TIME_SYNC_DETAILS[t];
+    return def ? def.labelJa : String(t);
+  });
+  return {
+    text: labels.join(" / "),
+    isMissing: false,
+  };
+}
+
+function formatProtectionDisplay(spec) {
+  if (!spec || spec.value === null || spec.value === undefined) {
+    return { text: "—", isMissing: true };
+  }
+  const items = Array.isArray(spec.value) ? spec.value : [spec.value];
+  if (items.length === 0) return { text: "—", isMissing: true };
+  const labels = items.map(p => {
+    const def = PROTECTION_DETAILS[p];
+    return def ? def.labelJa : String(p);
+  });
+  return {
+    text: labels.join(", "),
+    isMissing: false,
+  };
+}
+
+function formatImuDisplay(spec) {
+  if (!spec || spec.value === null || spec.value === undefined) {
+    return { text: "—", isMissing: true };
+  }
+  const def = IMU_DETAILS[spec.value];
+  return {
+    text: def ? def.labelJa : String(spec.value),
+    isMissing: false,
+  };
+}
+
+function formatInterfaceDisplay(spec) {
+  if (!spec || spec.value === null || spec.value === undefined) {
+    return { text: "—", isMissing: true };
+  }
+  const items = Array.isArray(spec.value) ? spec.value : [spec.value];
+  if (items.length === 0) return { text: "—", isMissing: true };
+  const labels = items.map(i => {
+    const def = INTERFACE_DETAILS[i];
+    return def ? def.labelJa : String(i);
   });
   return {
     text: labels.join(" / "),
@@ -2568,11 +2701,22 @@ function buildDetailBody(item) {
       ? `<a class="spec-link" href="#/parameters/${fieldId}">${esc(label)}</a>`
       : esc(label);
     if (!spec) return `<tr><td>${labelHtml}</td><td class="spec-na">—</td></tr>`;
-    const display = fieldId === "beamDivergence"
-      ? formatBeamDivergenceDisplay(spec)
-      : fieldId === "returnModes"
-        ? formatReturnModesDisplay(spec)
-        : formatSpecDisplay(spec, { joiner: fieldId === "protection" ? ", " : null });
+    let display;
+    if (fieldId === "beamDivergence") {
+      display = formatBeamDivergenceDisplay(spec);
+    } else if (fieldId === "returnModes") {
+      display = formatReturnModesDisplay(spec);
+    } else if (fieldId === "timeSynchronization") {
+      display = formatTimeSyncDisplay(spec);
+    } else if (fieldId === "protection") {
+      display = formatProtectionDisplay(spec);
+    } else if (fieldId === "imuBuiltIn") {
+      display = formatImuDisplay(spec);
+    } else if (fieldId === "interface") {
+      display = formatInterfaceDisplay(spec);
+    } else {
+      display = formatSpecDisplay(spec, { joiner: fieldId === "protection" ? ", " : null });
+    }
     if (display.isMissing)
       return `<tr><td>${labelHtml}</td><td class="spec-na">不明 / 非公開${refLinks(spec.refs)}</td></tr>`;
     const note = spec.note ? `<span class="spec-note">${esc(spec.note)}</span>` : "";

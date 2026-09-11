@@ -462,6 +462,108 @@
     },
   };
 
+  // ─────────────────────────────────────────────
+  // TIME_SYNC: 時刻同期方式定義
+  // ─────────────────────────────────────────────
+  const TIME_SYNC = {
+    PTP:  "ptp",      // IEEE 1588 PTP / PTPv2
+    GPTP: "gptp",     // IEEE 802.1AS gPTP
+    PPS:  "pps",      // Pulse Per Second / 1PPS / External PPS
+    NMEA: "nmea",     // NMEA-0183
+    GPS:  "gps",      // GPS同期
+    INS:  "ins",      // 慣性航法装置同期
+    NTP:  "ntp",      // NTP
+  };
+
+  const TIME_SYNC_DETAILS = {
+    [TIME_SYNC.PTP]:  { id: "ptp",  label: "PTP",  labelJa: "PTP (IEEE 1588)", descriptionJa: "サブマイクロ秒精度のネットワーク時刻同期規格（PTP / PTPv2 / IEEE 1588）。" },
+    [TIME_SYNC.GPTP]: { id: "gptp", label: "gPTP", labelJa: "gPTP (IEEE 802.1AS)", descriptionJa: "TSN（Time-Sensitive Networking）および車載イーサネット向け高精度時刻同期規格。" },
+    [TIME_SYNC.PPS]:  { id: "pps",  label: "PPS",  labelJa: "PPS (1PPS)", descriptionJa: "ハードウェアパルス信号（1秒周期パルス）による高精度時刻同期。" },
+    [TIME_SYNC.NMEA]: { id: "nmea", label: "NMEA", labelJa: "NMEA-0183", descriptionJa: "GPS受信機等からシリアル出力される標準時刻・位置センテンス。" },
+    [TIME_SYNC.GPS]:  { id: "gps",  label: "GPS",  labelJa: "GPS同期", descriptionJa: "GPSアンテナ/レシーバー直接接続による絶対時刻同期。" },
+    [TIME_SYNC.INS]:  { id: "ins",  label: "INS",  labelJa: "INS同期", descriptionJa: "慣性航法システム（INS/GNSS複合）からの時刻・オドメトリ同期。" },
+    [TIME_SYNC.NTP]:  { id: "ntp",  label: "NTP",  labelJa: "NTP", descriptionJa: "ネットワークタイムプロトコルによるミリ秒精度の時刻同期。" },
+  };
+
+  // ─────────────────────────────────────────────
+  // PROTECTION: 保護等級定義（防塵・防水・耐衝撃）
+  // ─────────────────────────────────────────────
+  const PROTECTION = {
+    IP67:   "ip67",
+    IP6K7:  "ip6k7",
+    IP68:   "ip68",
+    IP69K:  "ip69k",
+    IP6K9K: "ip6k9k",
+    IP65:   "ip65",
+    IP66:   "ip66",
+    IP64:   "ip64",
+    IP40:   "ip40",
+    IK07:   "ik07",
+  };
+
+  const PROTECTION_DETAILS = {
+    [PROTECTION.IP67]:   { id: "ip67",   label: "IP67",   labelJa: "IP67",   descriptionJa: "完全防塵・一時的水没（水深1m・30分）に耐える防浸型。" },
+    [PROTECTION.IP6K7]:  { id: "ip6k7",  label: "IP6K7",  labelJa: "IP6K7",  descriptionJa: "ISO 20653準拠。車載向け完全防塵・一時的水没耐性。" },
+    [PROTECTION.IP68]:   { id: "ip68",   label: "IP68",   labelJa: "IP68",   descriptionJa: "完全防塵・指定条件下での連続水没に耐える水中型。" },
+    [PROTECTION.IP69K]:  { id: "ip69k",  label: "IP69K",  labelJa: "IP69K",  descriptionJa: "DIN 40050-9準拠。高温・高圧スチームジェット洗浄耐性。" },
+    [PROTECTION.IP6K9K]: { id: "ip6k9k", label: "IP6K9K", labelJa: "IP6K9K", descriptionJa: "ISO 20653準拠。車載電子機器向け高温高圧スチーム洗浄耐性（最高等級）。" },
+    [PROTECTION.IP65]:   { id: "ip65",   label: "IP65",   labelJa: "IP65",   descriptionJa: "完全防塵・全方向からの噴流水に耐える防噴流型。" },
+    [PROTECTION.IP66]:   { id: "ip66",   label: "IP66",   labelJa: "IP66",   descriptionJa: "完全防塵・暴風雨や強力な噴流水に耐える耐水型。" },
+    [PROTECTION.IP64]:   { id: "ip64",   label: "IP64",   labelJa: "IP64",   descriptionJa: "完全防塵・あらゆる方向からの飛沫に耐える防沫型。" },
+    [PROTECTION.IP40]:   { id: "ip40",   label: "IP40",   labelJa: "IP40",   descriptionJa: "直径1.0mm以上の固形物に対する保護（屋内ロボット向け）。" },
+    [PROTECTION.IK07]:   { id: "ik07",   label: "IK07",   labelJa: "IK07",   descriptionJa: "2Jの衝撃エネルギー（0.5kgを40cm落下）に耐える耐衝撃外装。" },
+  };
+
+  // ─────────────────────────────────────────────
+  // IMU: 内蔵IMU定義
+  // ─────────────────────────────────────────────
+  const IMU = {
+    AXIS_6:  "6-axis",
+    BUILTIN: "builtin",
+    FUSION:  "fusion",
+  };
+
+  const IMU_DETAILS = {
+    [IMU.AXIS_6]:  { id: "6-axis",  label: "6-axis IMU", labelJa: "6軸 IMU内蔵", descriptionJa: "3軸加速度＋3軸角速度センサを内蔵し、高精度な姿勢・角速度推定が可能。" },
+    [IMU.BUILTIN]: { id: "builtin", label: "Built-in IMU", labelJa: "内蔵 IMU", descriptionJa: "IMUを本体内に内蔵（軸数・型番非公開）。" },
+    [IMU.FUSION]:  { id: "fusion",  label: "Integrated INS/GNSS", labelJa: "高精度IMU/GNSS統合", descriptionJa: "高精度IMU、RTK-GNSS、LiDARオドメトリ(LIO)を統合処理。" },
+  };
+
+  // ─────────────────────────────────────────────
+  // INTERFACE: 通信インタフェース定義
+  // ─────────────────────────────────────────────
+  const INTERFACE = {
+    ETH_100:       "100base-tx",
+    ETH_1000:      "1000base-t",
+    AUTO_ETH_100:  "100base-t1",
+    AUTO_ETH_1000: "1000base-t1",
+    AUTO_ETH:      "automotive-eth",
+    ETH_GENERIC:   "ethernet",
+    USB:           "usb",
+    SERIAL:        "serial",
+    CAN:           "can",
+    GMSL:          "gmsl",
+    INDUSTRIAL:    "industrial",
+    WIFI:          "wifi",
+    POE:           "poe",
+  };
+
+  const INTERFACE_DETAILS = {
+    [INTERFACE.ETH_100]:       { id: "100base-tx",    label: "100BASE-TX",    labelJa: "100BASE-TX (Fast Ethernet)", descriptionJa: "100Mbps 有線LAN（RJ45/産業用コネクタ等）。" },
+    [INTERFACE.ETH_1000]:      { id: "1000base-t",    label: "1000BASE-T",    labelJa: "1000BASE-T (Gigabit Ethernet)", descriptionJa: "1Gbps ギガビットイーサネット。" },
+    [INTERFACE.AUTO_ETH_100]:  { id: "100base-t1",    label: "100BASE-T1",    labelJa: "車載Ethernet (100BASE-T1)", descriptionJa: "1対のツイストペア線を使う100Mbps車載イーサネット（IEEE 802.3bw）。" },
+    [INTERFACE.AUTO_ETH_1000]: { id: "1000base-t1",   label: "1000BASE-T1",   labelJa: "車載Ethernet (1000BASE-T1)", descriptionJa: "1対のツイストペア線を使う1Gbps車載イーサネット（IEEE 802.3bp）。" },
+    [INTERFACE.AUTO_ETH]:      { id: "automotive-eth", label: "Auto Ethernet", labelJa: "車載Ethernet", descriptionJa: "車載イーサネット（規格型番未詳）。" },
+    [INTERFACE.ETH_GENERIC]:   { id: "ethernet",      label: "Ethernet",      labelJa: "Ethernet (規格未特定)", descriptionJa: "標準有線イーサネット。" },
+    [INTERFACE.USB]:           { id: "usb",           label: "USB",           labelJa: "USB", descriptionJa: "USBインタフェース（USB 2.0等）。" },
+    [INTERFACE.SERIAL]:        { id: "serial",        label: "Serial",        labelJa: "シリアル (RS-232C/RS-485)", descriptionJa: "シリアル通信（RS-232C, RS-485等）。" },
+    [INTERFACE.CAN]:           { id: "can",           label: "CAN",           labelJa: "CAN / CAN-FD", descriptionJa: "車載・産業用CANバス。" },
+    [INTERFACE.GMSL]:          { id: "gmsl",          label: "GMSL",          labelJa: "GMSL / GMSL2", descriptionJa: "Gigabit Multimedia Serial Link高速シリアル通信。" },
+    [INTERFACE.INDUSTRIAL]:    { id: "industrial",    label: "Industrial Bus", labelJa: "産業用バス (EtherNet/IP, PROFINET等)", descriptionJa: "FA向け産業用通信ネットワークおよびデジタルI/O。" },
+    [INTERFACE.WIFI]:          { id: "wifi",          label: "Wi-Fi",         labelJa: "Wi-Fi", descriptionJa: "無線LAN (IEEE 802.11ac等)。" },
+    [INTERFACE.POE]:           { id: "poe",           label: "PoE",           labelJa: "PoE (Power over Ethernet)", descriptionJa: "イーサネットケーブル経由での給電（PoE / PoE+ / PoE++）。" },
+  };
+
   exports.M = M;
   exports.SCAN = SCAN;
   exports.CAT = CAT;
@@ -469,6 +571,14 @@
   exports.SRC_TYPE = SRC_TYPE;
   exports.RET_MODE = RET_MODE;
   exports.RET_MODE_DETAILS = RET_MODE_DETAILS;
+  exports.TIME_SYNC = TIME_SYNC;
+  exports.TIME_SYNC_DETAILS = TIME_SYNC_DETAILS;
+  exports.PROTECTION = PROTECTION;
+  exports.PROTECTION_DETAILS = PROTECTION_DETAILS;
+  exports.IMU = IMU;
+  exports.IMU_DETAILS = IMU_DETAILS;
+  exports.INTERFACE = INTERFACE;
+  exports.INTERFACE_DETAILS = INTERFACE_DETAILS;
   exports.parseReleaseYear = parseReleaseYear;
 
 })(typeof module !== "undefined" ? module.exports : this);
