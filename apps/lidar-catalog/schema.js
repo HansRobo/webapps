@@ -28,6 +28,22 @@
       url: "https://www.baraja.com/",
       notes: "Spectrum-Scan™で波長可変レーザーを使うソリッドステートLiDAR専業。",
     },
+    BLICKFELD: {
+      id: "blickfeld",
+      name: "Blickfeld",
+      nameJa: "Blickfeld",
+      country: "🇩🇪 ドイツ",
+      url: "https://www.blickfeld.com/",
+      notes: "ミュンヘン工科大発。独自MEMSミラー技術とエッジAI処理（Qb2）を統合したスマート3D LiDARメーカー。",
+    },
+    CEPTON: {
+      id: "cepton",
+      name: "Cepton",
+      nameJa: "Cepton（小糸製作所グループ）",
+      country: "🇺🇸 アメリカ",
+      url: "https://www.cepton.com/",
+      notes: "元Velodyneエンジニア創業。独自のMMT®（微小動作技術）とMagnoSteer™を採用。2025年1月に小糸製作所が完全子会社化。",
+    },
     DENSO: {
       id: "denso",
       name: "Denso",
@@ -269,6 +285,13 @@
       pros: ["fast axis がソリッドステート", "高解像度をソフトウェアで調整可能", "干渉耐性が高い", "車載・産業の高耐久要求に適合"],
       cons: ["専用の光学・制御設計が必要", "採用製品がまだ少ない", "一般的なToF/MEMSより独自性が強い"],
     },
+    MMT: {
+      id: "mmt", label: "Micro Motion Technology (MMT)", labelJa: "微小動作機構（MMT®）",
+      icon: "vibration",
+      descriptionJa: "Ceptonが特許を持つ走査方式。回転モーターや大型MEMSミラーを用いず、微小な屈曲バネと電磁アクチュエータ（MagnoSteer™等）で光学アレイを精密に振動させる。摩擦がなく高信頼性・長寿命を実現。",
+      pros: ["摩擦部・回転部がなく長寿命・高信頼性", "車載ADASの厳しい耐振動・耐久要件に適合", "低消費電力", "低コスト設計"],
+      cons: ["Cepton独自技術", "超広角（360度）には複数台設置が必要"],
+    },
   };
 
   // ─────────────────────────────────────────────
@@ -344,6 +367,13 @@
       eyeSafety: "Class 1相当（905nmより太陽光干渉が少ない）",
       detectorType: "シリコン APD / SPAD（940nm最適化品）",
       descriptionJa: "905nmの近傍波長。太陽光スペクトルの940nm帯は大気中の水蒸気吸収により比較的弱いため、太陽光による雑音（バックグラウンドノイズ）を低減しやすい利点がある。",
+    },
+    NM1535: {
+      id: "1535nm", label: "1535 nm", note: "eye-safe",
+      colorHex: "#8b5cf6",
+      eyeSafety: "Class 1 アイセーフ（高出力でも安全）",
+      detectorType: "InGaAs APD / センサアレイ",
+      descriptionJa: "エルビウムガラスレーザー等で採用される短波長赤外（SWIR）帯。1550nmと同様に人間の網膜に到達しないアイセーフ波長であり、高出力パルス照射が可能なため、1000m級の超長距離計測に適している。",
     },
     NM1550: {
       id: "1550nm", label: "1550 nm", note: "eye-safe",
