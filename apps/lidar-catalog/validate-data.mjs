@@ -411,6 +411,55 @@ for (const lidar of LIDARS) {
     for (const key of OPTIONAL_SPEC_KEYS) {
       validateSpecCommon(prefix, key, lidar.specs[key], false);
     }
+
+    // --- specs サニティ・整合性チェック ---
+    const s = lidar.specs;
+    if (typeof s.maxRange?.value === "number" && typeof s.peakRange?.value === "number") {
+      if (s.maxRange.value > s.peakRange.value) {
+        err(`${prefix} maxRange (${s.maxRange.value}m) が peakRange (${s.peakRange.value}m) より大きい（逆転の疑い）`);
+      }
+    }
+    if (typeof s.minRange?.value === "number" && typeof s.maxRange?.value === "number") {
+      if (s.minRange.value >= s.maxRange.value) {
+        err(`${prefix} minRange (${s.minRange.value}m) が maxRange (${s.maxRange.value}m) 以上`);
+      }
+    }
+    if (s.beamDivergence?.value !== null && s.beamDivergence?.value !== undefined) {
+      const bVals = Array.isArray(s.beamDivergence.value) ? s.beamDivergence.value : [s.beamDivergence.value];
+      for (const bv of bVals) {
+        if (typeof bv === "number" && bv > 5) {
+          err(`${prefix} specs.beamDivergence (${bv}°) が異常に大きい（内部レーザー角やFOV混同の疑い）`);
+        }
+      }
+    }
+    if (s.weight?.value !== null && s.weight?.value !== undefined) {
+      const wVals = Array.isArray(s.weight.value) ? s.weight.value : [s.weight.value];
+      for (const wv of wVals) {
+        if (typeof wv === "number") {
+          if (s.weight.unit !== "g") {
+            err(`${prefix} specs.weight の単位は "g" でなければならない (現在: "${s.weight.unit}")`);
+          }
+          if (wv < 10 || wv > 30000) {
+            err(`${prefix} specs.weight の数値 (${wv}g) が想定範囲外 (10g〜30kg)`);
+          }
+        } else {
+          warn(`${prefix} specs.weight に文字列表現が入っている (${wv})。可能なら数値をg単位で格納し、注記は note に記載すること`);
+        }
+      }
+    }
+    if (lidar.scanningMethod === SCAN.MECHANICAL_2D) {
+      if (s.fovV?.value !== null && s.fovV?.value !== undefined) {
+        err(`${prefix} 2D LiDAR (SCAN.MECHANICAL_2D) の fovV.value は null でなければならない (現在: ${JSON.stringify(s.fovV.value)})`);
+      }
+    }
+    if (typeof s.precision?.value === "string" && s.precision.value.includes("°")) {
+      err(`${prefix} specs.precision に角度単位 "°" が含まれている（距離精度ではなく角度精度が混入している疑い）`);
+    }
+    for (const resKey of ["resH", "resV"]) {
+      if (s[resKey]?.unit !== null && s[resKey]?.unit !== undefined) {
+        warn(`${prefix} specs.${resKey}.unit は null であるべき（現在: "${s[resKey].unit}"）`);
+      }
+    }
   }
 
   // --- 参考文献 ---
