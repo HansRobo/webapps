@@ -412,10 +412,20 @@
     OTHER:          "other",           // その他
   };
 
+  // ─────────────────────────────────────────────
+  // RELEASE_SPEC: リリース情報定義ヘルパー
+  // ─────────────────────────────────────────────
+  function parseReleaseYear(val) {
+    if (!val || typeof val !== "string") return null;
+    const m = val.match(/(?:^|[^\d])(19\d\d|20\d\d)(?:[^\d]|$)/);
+    return m ? parseInt(m[1], 10) : null;
+  }
+
   exports.M = M;
   exports.SCAN = SCAN;
   exports.CAT = CAT;
   exports.WAVE = WAVE;
   exports.SRC_TYPE = SRC_TYPE;
+  exports.parseReleaseYear = parseReleaseYear;
 
 })(typeof module !== "undefined" ? module.exports : this);

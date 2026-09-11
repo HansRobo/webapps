@@ -238,7 +238,15 @@ const FILTER_FIELDS = [
     getter: item => item.discontinued,
     valueLabel: value => String(value) === "true" ? "はい" : "いいえ",
   },
-  { id: "release", label: "リリース", group: "基本情報", type: "text", getter: item => item.raw.release?.value ?? null },
+  {
+    id: "releaseYear",
+    label: "リリース年",
+    group: "基本情報",
+    type: "number",
+    unit: "年",
+    getter: item => item.releaseYear,
+  },
+  { id: "release", label: "リリース詳細", group: "基本情報", type: "text", getter: item => item.raw.release?.value ?? null },
   { id: "useCases", label: "用途", group: "基本情報", type: "text", getter: item => item.raw.useCases ?? null },
 
   { id: "channels", label: "チャンネル数", group: "基本性能", type: "number", unit: "ch", getter: item => item.raw.specs.channels?.value ?? null },
@@ -278,6 +286,7 @@ const FILTER_FIELD_GROUPS = [...new Set(FILTER_FIELDS.map(field => field.group))
 }));
 
 const PARAMETER_FIELD_IDS = [
+  "releaseYear",
   "channels",
   "maxRange",
   "peakRange",
@@ -305,9 +314,10 @@ const PARAMETER_FIELD_IDS = [
   "shockVibration",
 ];
 
-const PARAMETER_GROUP_ORDER = ["基本性能", "光学・走査", "システム統合", "物理仕様"];
+const PARAMETER_GROUP_ORDER = ["基本情報", "基本性能", "光学・走査", "システム統合", "物理仕様"];
 
 const PARAMETER_TEXT_OVERRIDES = {
+  releaseYear: "製品の発表または量産・出荷開始年です。LiDARセンサの世代や技術トレンドの変遷を比較する基準軸となります。",
   channels: "レーザー本数や受光系の数を表します。点群密度や角度分解能に関係します。",
   maxRange: "10%反射率などの条件付き最大距離です。比較時は条件の表記に注意します。",
   peakRange: "高反射率条件などで到達しうる参考距離です。最大距離とは条件が異なることがあります。",
@@ -356,6 +366,10 @@ const PARAMETER_FACETS = [
 const PARAMETER_FACET_BY_ID = Object.fromEntries(PARAMETER_FACETS.map(f => [f.id, f]));
 
 const PARAMETER_GROUP_LABELS = {
+  "基本情報": {
+    icon: "calendar_month",
+    description: "製品の発表・発売時期など、世代や技術トレンドの比較に関わる基本指標です。",
+  },
   "基本性能": {
     icon: "tune",
     description: "LiDAR の用途適合を判断する中核指標です。距離、分解能、点群量のバランスを見ます。",
@@ -396,6 +410,8 @@ function getParameterGroupMeta(group) {
 }
 
 function getParameterValue(item, field) {
+  if (field.id === "releaseYear") return item.releaseYear;
+  if (field.getter) return field.getter(item);
   return item.raw.specs?.[field.id]?.value ?? null;
 }
 
@@ -446,6 +462,11 @@ function getAccuracyPrecisionNumericValue(spec) {
 }
 
 function getParameterDisplayText(item, field) {
+  if (field.id === "releaseYear") {
+    const raw = item.raw.release?.value;
+    if (!raw) return item.releaseYear ? `${item.releaseYear}年` : null;
+    return item.releaseYear ? `${item.releaseYear}年 (${raw})` : raw;
+  }
   const spec = item.raw.specs?.[field.id];
   if (!spec) return null;
   if (field.id === "beamDivergence") {
@@ -457,6 +478,9 @@ function getParameterDisplayText(item, field) {
 }
 
 function getNumericParameterValue(item, field) {
+  if (field.id === "releaseYear") {
+    return item.releaseYear;
+  }
   const spec = item.raw.specs?.[field.id];
   if (!spec) return null;
   if (field.id === "accuracy" || field.id === "precision") {
@@ -1364,6 +1388,8 @@ function renderProductsView() {
               <label for="sortSelect">並び替え</label>
               <select id="sortSelect" class="filter-select">
                 <option value="default">メーカー順</option>
+                <option value="release-desc">リリース（新しい順）</option>
+                <option value="release-asc">リリース（古い順）</option>
                 <option value="range-desc">最大距離（遠い順）</option>
                 <option value="range-asc">最大距離（近い順）</option>
                 <option value="name-asc">製品名順</option>
@@ -1497,7 +1523,23 @@ function applyFilters() {
     return true;
   });
 
-  if (state.sort === "range-desc") {
+  if (state.sort === "release-desc") {
+    result.sort((a, b) => {
+      if (a.releaseYear === null && b.releaseYear === null) return 0;
+      if (a.releaseYear === null) return 1;
+      if (b.releaseYear === null) return -1;
+      const cmp = b.releaseYear - a.releaseYear;
+      return cmp !== 0 ? cmp : a.raw.name.localeCompare(b.raw.name);
+    });
+  } else if (state.sort === "release-asc") {
+    result.sort((a, b) => {
+      if (a.releaseYear === null && b.releaseYear === null) return 0;
+      if (a.releaseYear === null) return 1;
+      if (b.releaseYear === null) return -1;
+      const cmp = a.releaseYear - b.releaseYear;
+      return cmp !== 0 ? cmp : a.raw.name.localeCompare(b.raw.name);
+    });
+  } else if (state.sort === "range-desc") {
     result.sort((a, b) => {
       if (a.maxRange === null && b.maxRange === null) return 0;
       if (a.maxRange === null) return 1;
@@ -1574,6 +1616,7 @@ function buildCard(item) {
       </div>
       <div class="lidar-card__badges">
         <span class="badge badge--cat-${catClass}">${esc(item.raw.category.labelJa)}</span>
+        ${item.releaseYear ? `<span class="badge badge--year" title="${esc(item.raw.release?.value ?? `${item.releaseYear}年`)}">${item.releaseYear}年</span>` : ""}
         ${item.discontinued ? '<span class="badge badge--discontinued">廃番 / 統合</span>' : ""}
       </div>
     </div>
@@ -2400,6 +2443,7 @@ function openDetail(item) {
     <a href="#/categories/${item.raw.category.id}" class="badge badge--cat-${catClass}" style="text-decoration:none">${esc(item.raw.category.labelJa)}</a>
     <a href="#/scan-methods/${item.raw.scanningMethod.id}" class="badge badge--scan" style="text-decoration:none">${esc(item.raw.scanningMethod.labelJa)}</a>
     ${item.raw.wavelength.id !== "unknown" ? `<a href="#/wavelengths/${item.raw.wavelength.id}" class="badge badge--wave-1550" style="text-decoration:none">${esc(item.raw.wavelength.label)}</a>` : ""}
+    ${item.releaseYear ? `<a href="#/parameters/releaseYear" class="badge badge--year" style="text-decoration:none">📅 ${item.releaseYear}年</a>` : ""}
     ${item.discontinued ? '<span class="badge badge--discontinued">廃番 / 統合済み</span>' : ""}
   `;
 
@@ -2451,7 +2495,7 @@ function buildDetailBody(item) {
           &nbsp;<a href="#/manufacturers/${r.manufacturer.id}" class="entity-link" style="font-size:11px;">← メーカーページ</a></td></tr>
         <tr><td>国</td><td>${esc(r.manufacturer.country)}</td></tr>
         ${r.manufacturer.notes ? `<tr><td>概要</td><td>${esc(r.manufacturer.notes)}</td></tr>` : ""}
-        ${r.release?.value ? `<tr><td>リリース</td><td>${esc(String(r.release.value))}${refLinks(r.release.refs)}</td></tr>` : ""}
+        ${r.release?.value ? `<tr><td><a class="spec-link" href="#/parameters/releaseYear">リリース時期</a></td><td>${item.releaseYear ? `<strong>${item.releaseYear}年</strong> ` : ""}${esc(String(r.release.value))}${refLinks(r.release.refs)}</td></tr>` : ""}
         ${r.useCases ? `<tr><td>用途</td><td>${esc(r.useCases)}</td></tr>` : ""}
       </table>
     </div>
@@ -2943,6 +2987,7 @@ function buildMiniCard(item) {
         </div>
         <div class="lidar-card__badges">
           <span class="badge badge--cat-${catClass}">${esc(item.raw.category.labelJa)}</span>
+          ${item.releaseYear ? `<span class="badge badge--year" title="${esc(item.raw.release?.value ?? `${item.releaseYear}年`)}">${item.releaseYear}年</span>` : ""}
           ${item.discontinued ? '<span class="badge badge--discontinued">廃番 / 統合</span>' : ""}
         </div>
       </div>

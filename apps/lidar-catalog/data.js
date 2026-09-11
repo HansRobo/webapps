@@ -680,7 +680,7 @@ const LIDARS = [
       beamDivergence:      { value: [0.35, 0.35], unit: "°", joiner: " × ", refs: [2] },
       precision:           { value: "±1 cm", numericValue: 10,          unit: null, refs: [1] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "REV7: 2023年発表（CES 2023）", refs: [1] },
     useCases: "倉庫・安全監視・スマートインフラ・屋内人検知向けの180°ヘミスフェリカルLiDAR。",
     references: [
       { id: 1, url: "https://ouster.com/products/hardware/osdome-lidar-sensor/", title: "Ouster OSDome Product Page", date: "2026-03", source: "Ouster", type: SRC_TYPE.PRODUCT_PAGE },
@@ -761,7 +761,7 @@ const LIDARS = [
       beamDivergence:      { value: [0.35, 0.35], unit: "°", joiner: " × ", refs: [1] },
       precision:           { value: "±0.8 cm", numericValue: 8,        unit: null, refs: [1] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "REV7: 2023年発表", refs: [1] },
     useCases: "OS0系のSRバリアント。超広角の近距離認識、壁際・棚際の監視、ロボット安全監視向け。",
     references: [
       { id: 1, url: "https://data.ouster.io/downloads/datasheets/datasheet-rev7p1-v3p2-os0.pdf", title: "Ouster OS0 SR Datasheet", date: "2026-03", source: "Ouster", type: SRC_TYPE.DATASHEET },
@@ -880,7 +880,7 @@ const LIDARS = [
       beamDivergence:      { value: [0.18, 0.18], unit: "°", joiner: " × ", refs: [1] },
       precision:           { value: "±0.8 cm", numericValue: 8,        unit: null, refs: [1] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "REV7: 2023年発表", refs: [1] },
     useCases: "OS1系のSRバリアント。中距離の屋内外認識、ロボット、ドローン、固定インフラ向け。",
     references: [
       { id: 1, url: "https://data.ouster.io/downloads/hardware-user-manual/hardware-user-manual-rev7-os1.pdf", title: "Ouster OS1 Hardware User Manual", date: "2026-03", source: "Ouster", type: SRC_TYPE.DATASHEET },
@@ -988,7 +988,7 @@ const LIDARS = [
       returnModes:         { value: "Single / Dual",  unit: null, refs: [1] },
       supportedSoftware:   { value: "ROS 1 / ROS 2 (velodyne_driver)", unit: null, refs: [1] },
     },
-    release: { value: "VLP-16 familyの派生版", refs: [1] },
+    release: { value: "2016年発表（VLP-16 familyの派生版）", refs: [1] },
     useCases: "VLP-16 の派生。Puck LITE の名前で流通した軽量・低コストモデル。",
     references: [
       { id: 1, url: "https://data.ouster.io/downloads/velodyne/user-manual/vlp-16-user-manual-revf.pdf", title: "VLP-16 User Manual", date: "2026-03", source: "Ouster", type: SRC_TYPE.DATASHEET },
@@ -1021,7 +1021,7 @@ const LIDARS = [
       returnModes:         { value: "Single / Dual",  unit: null, refs: [1] },
       supportedSoftware:   { value: "ROS 1 / ROS 2 (velodyne_driver)", unit: null, refs: [1] },
     },
-    release: { value: "VLP-16 familyの高分解能派生版", refs: [1] },
+    release: { value: "2016年発表（VLP-16 familyの高分解能派生版）", refs: [1] },
     useCases: "VLP-16 の高分解能派生。近距離でより細かい縦方向サンプリングが必要な用途向け。",
     references: [
       { id: 1, url: "https://data.ouster.io/downloads/velodyne/user-manual/vlp-16-user-manual-revf.pdf", title: "VLP-16 User Manual", date: "2026-03", source: "Ouster", type: SRC_TYPE.DATASHEET },
@@ -1056,7 +1056,7 @@ const LIDARS = [
       timeSynchronization: { value: ["GPS", "INS", "NMEA"], unit: null, refs: [1] },
       supportedSoftware:   { value: "VeloView, ROS drivers", unit: null, refs: [1] },
     },
-    release: { value: "Ultra Puck", refs: [1] },
+    release: { value: "2017年発表（Ultra Puck）", refs: [1] },
     useCases: "ロボティクス・マッピング・セキュリティ・自律航行向けの高密度 32ch モデル。",
     references: [
       { id: 1, url: "https://data.ouster.io/downloads/datasheets/velodyne/63-9378_Rev-F_Ultra-Puck_Datasheet_Web.pdf", title: "Ultra Puck Datasheet", date: "2026-03", source: "Ouster", type: SRC_TYPE.DATASHEET },
@@ -1091,7 +1091,7 @@ const LIDARS = [
       timeSynchronization: { value: ["GPS", "INS", "PPS", "NMEA"], unit: null, refs: [1] },
       supportedSoftware:   { value: "VeloView", unit: null, refs: [1] },
     },
-    release: { value: "Alpha Prime", refs: [1] },
+    release: { value: "2017年発表（Alpha Prime）", refs: [1] },
     useCases: "高速道路自動運転・L4開発用長距離高解像度",
     references: [
       { id: 1, url: "https://data.ouster.io/downloads/datasheets/velodyne/63-9679_Rev-B_DATASHEET_ALPHA-PRIME_web.pdf", title: "Alpha Prime Datasheet", date: "2026-03", source: "Ouster", type: SRC_TYPE.DATASHEET },
@@ -1127,7 +1127,7 @@ const LIDARS = [
       timeSynchronization: { value: ["GPS", "PPS", "NMEA"], unit: null, refs: [1] },
       supportedSoftware:   { value: "VeloView", unit: null, refs: [1] },
     },
-    release: { value: "HDL family", refs: [1] },
+    release: { value: "2010年発表（HDL family）", refs: [1] },
     useCases: "初期の高密度 32ch スピニング LiDAR。地図生成・自律走行プロトタイプ・研究用途。",
     references: [
       { id: 1, url: "https://www.manualslib.com/manual/1596526/Velodyne-Lidar-Hdl-32e.html", title: "HDL-32E User Manual", date: "2026-03", source: "ManualsLib", type: SRC_TYPE.SPEC_SHEET },
@@ -1163,7 +1163,7 @@ const LIDARS = [
       timeSynchronization: { value: ["GPS", "PPS", "NMEA"], unit: null, refs: [1] },
       supportedSoftware:   { value: "VeloView", unit: null, refs: [1] },
     },
-    release: { value: "HDL family", refs: [1] },
+    release: { value: "2007年発表（HDL family）", refs: [1] },
     useCases: "HDL 系の高密度 64ch ヘリテージ機。研究開発・3Dモデリング・屋外認識向け。",
     references: [
       { id: 1, url: "https://www.manualslib.com/manual/533049/Velodyne-Hdl-64e.html", title: "HDL-64E User Manual", date: "2026-03", source: "ManualsLib", type: SRC_TYPE.SPEC_SHEET },
@@ -1200,7 +1200,7 @@ const LIDARS = [
       operatingTemperature: { value: "-30 ~ 50 °C", unit: null, refs: [1] },
       supportedSoftware:   { value: "ROS", unit: null, refs: [1] },
     },
-    release: { value: "現行販売", refs: [1] },
+    release: { value: "2018年発売（現行販売）", refs: [1] },
     useCases: "屋内外の短距離2D検知。軽量・低消費電力のコンパクト機。",
     references: [
       { id: 1, url: "https://www.hokuyo-aut.co.jp/search/single.php?serial=211", title: "UST-15LX Product Page", date: "2026-03", source: "Hokuyo Automatic", type: SRC_TYPE.PRODUCT_PAGE },
@@ -1233,7 +1233,7 @@ const LIDARS = [
       operatingTemperature: { value: "-30 ~ 50 °C", unit: null, refs: [1] },
       supportedSoftware:   { value: "ROS", unit: null, refs: [1] },
     },
-    release: { value: "現行販売", refs: [1] },
+    release: { value: "2018年発売（現行販売）", refs: [1] },
     useCases: "長距離2D検知の標準機。AGV/AMRや屋外ロボット向け。",
     references: [
       { id: 1, url: "https://www.hokuyo-aut.co.jp/search/single.php?serial=215", title: "UST-30LX-X01 Product Page", date: "2026-03", source: "Hokuyo Automatic", type: SRC_TYPE.PRODUCT_PAGE },
@@ -1265,7 +1265,7 @@ const LIDARS = [
       interface:  { value: "Ethernet 100BASE-TX", unit: null, refs: [1] },
       operatingTemperature: { value: "-30 ~ 50 °C", unit: null, refs: [1] },
     },
-    release: { value: "現行販売", refs: [1] },
+    release: { value: "2018年発売（現行販売）", refs: [1] },
     useCases: "安全用途・区域侵入検知の2Dスキャナ。屋内設備向け。",
     references: [
       { id: 1, url: "https://www.hokuyo-aut.co.jp/search/single.php?serial=216", title: "UST-30LC/LCN-X01 Product Page", date: "2026-03", source: "Hokuyo Automatic", type: SRC_TYPE.PRODUCT_PAGE },
@@ -1299,7 +1299,7 @@ const LIDARS = [
       operatingTemperature: { value: "-10 ~ 50 °C", unit: null, refs: [1] },
       supportedSoftware:   { value: "Safety controller integration", unit: null, refs: [1] },
     },
-    release: { value: "現行販売", refs: [1] },
+    release: { value: "2016年発売（現行販売）", refs: [1] },
     useCases: "安全柵代替や区域侵入検知など、近距離の安全用途向け。",
     references: [
       { id: 1, url: "https://www.hokuyo-aut.co.jp/search/single.php?serial=217", title: "UAM-05LPA-T301/T301C Product Page", date: "2026-03", source: "Hokuyo Automatic", type: SRC_TYPE.PRODUCT_PAGE },
@@ -1332,7 +1332,7 @@ const LIDARS = [
       operatingTemperature: { value: "-10 ~ 50 °C", unit: null, refs: [1] },
       supportedSoftware:   { value: "ROS", unit: null, refs: [1] },
     },
-    release: { value: "現行販売", refs: [1] },
+    release: { value: "2011年発売（現行販売）", refs: [1] },
     useCases: "ROS対応の定番2D LiDAR。移動ロボットや研究用途に広く使われる。",
     references: [
       { id: 1, url: "https://www.hokuyo-aut.co.jp/search/single.php?serial=146", title: "UTM-30LX-EW Product Page", date: "2026-03", source: "Hokuyo Automatic", type: SRC_TYPE.PRODUCT_PAGE },
@@ -1365,7 +1365,7 @@ const LIDARS = [
       operatingTemperature: { value: "-10 ~ 50 °C", unit: null, refs: [1] },
       shockVibration:      { value: "Shock 196 m/s², vibration 10-55 Hz", unit: null, refs: [1] },
     },
-    release: { value: "現行販売", refs: [1] },
+    release: { value: "2017年発売（現行販売）", refs: [1] },
     useCases: "産業設備のエリア監視・入退場検知向けの高耐環境2Dセンサ。",
     references: [
       { id: 1, url: "https://www.hokuyo-aut.co.jp/search/single.php?serial=189", title: "URM-40LC/LCN-EW Product Page", date: "2026-03", source: "Hokuyo Automatic", type: SRC_TYPE.PRODUCT_PAGE },
@@ -1399,7 +1399,7 @@ const LIDARS = [
       operatingTemperature: { value: "-10 ~ 50 °C", unit: null, refs: [1] },
       shockVibration:      { value: "50G single shock; 5G vibration", unit: null, refs: [1] },
     },
-    release: { value: "現行販売", refs: [1] },
+    release: { value: "2018年発売（現行販売）", refs: [1] },
     useCases: "大型設備・車両周囲監視など、広域をカバーする2Dセンサ。",
     references: [
       { id: 1, url: "https://www.hokuyo-aut.co.jp/search/single.php?serial=191", title: "UGM-50LAP/LAN Product Page", date: "2026-03", source: "Hokuyo Automatic", type: SRC_TYPE.PRODUCT_PAGE },
@@ -1433,7 +1433,7 @@ const LIDARS = [
       operatingTemperature: { value: "-10 ~ 50 °C", unit: null, refs: [1] },
       shockVibration:      { value: "50G single shock; 5G vibration", unit: null, refs: [1] },
     },
-    release: { value: "現行販売", refs: [1] },
+    release: { value: "2018年発売（現行販売）", refs: [1] },
     useCases: "UGM系の低消費電力・省配線版。設備監視や一般産業用途向け。",
     references: [
       { id: 1, url: "https://www.hokuyo-aut.co.jp/search/single.php?serial=192", title: "UGM-50LXP/LXN Product Page", date: "2026-03", source: "Hokuyo Automatic", type: SRC_TYPE.PRODUCT_PAGE },
@@ -1468,7 +1468,7 @@ const LIDARS = [
       returnModes:         { value: "Multi-echo",   unit: null, refs: [1] },
       supportedSoftware:   { value: "ROS", unit: null, refs: [1] },
     },
-    release: { value: "現行販売", refs: [1] },
+    release: { value: "2014年発売（現行販売）", refs: [1] },
     useCases: "中距離ロボット・AGV向けの堅牢な2Dセンサ。",
     references: [
       { id: 1, url: "https://www.hokuyo-aut.co.jp/search/single.php?serial=169", title: "UXM-30LXH-EHA Product Page", date: "2026-03", source: "Hokuyo Automatic", type: SRC_TYPE.PRODUCT_PAGE },
@@ -1503,7 +1503,7 @@ const LIDARS = [
       operatingTemperature: { value: "-10 ~ 50 °C", unit: null, refs: [1] },
       supportedSoftware:   { value: "ROS", unit: null, refs: [1] },
     },
-    release: { value: "現行販売", refs: [1] },
+    release: { value: "2018年発売（現行販売）", refs: [1] },
     useCases: "3D空間検知・自律移動体向け。カメラ補助の3Dレンジセンサ。",
     references: [
       { id: 1, url: "https://www.hokuyo-aut.co.jp/search/single.php?serial=165", title: "YVT-35LX-F0/FK Product Page", date: "2026-03", source: "Hokuyo Automatic", type: SRC_TYPE.PRODUCT_PAGE },
@@ -1571,7 +1571,7 @@ const LIDARS = [
       sunlightImmunity:    { value: 80000, unit: "lux", refs: [1] },
       operatingTemperature: { value: "-30 ~ 50 °C", unit: null, refs: [1] },
     },
-    release: { value: "現行販売", refs: [1] },
+    release: { value: "2017年発売（現行販売）", refs: [1] },
     useCases: "830nm帯の短距離2D検知機。屋外ロボット向けの特殊バリエーション。",
     references: [
       { id: 1, url: "https://www.hokuyo-aut.co.jp/search/single.php?serial=223", title: "UST-10LXB-H02 Product Page", date: "2026-03", source: "Hokuyo Automatic", type: SRC_TYPE.PRODUCT_PAGE },
@@ -1602,7 +1602,7 @@ const LIDARS = [
       protection: { value: ["IP40"],    unit: null,       refs: [1] },
       interface:  { value: "USB Ver2.0 FS / RS-232C", unit: null, refs: [1] },
     },
-    release: { value: "旧世代・販売終了", refs: [1] },
+    release: { value: "2005年発売（旧世代・販売終了）", refs: [1] },
     useCases: "初期の小型ロボット向け2D LiDAR。教育・研究用途で広く使われた。",
     references: [
       { id: 1, url: "https://www.hokuyo-aut.co.jp/search/single.php?serial=29", title: "URG-04LX Product Page", date: "2026-03", source: "Hokuyo Automatic", type: SRC_TYPE.PRODUCT_PAGE },
@@ -1633,7 +1633,7 @@ const LIDARS = [
       protection: { value: ["IP40"],    unit: null,       refs: [1] },
       interface:  { value: "USB Ver2.0 FS", unit: null,   refs: [1] },
     },
-    release: { value: "旧世代・販売終了", refs: [1] },
+    release: { value: "2008年発売（旧世代・販売終了）", refs: [1] },
     useCases: "URG-04LXの派生版。USB接続の研究・学習用途向け。",
     references: [
       { id: 1, url: "https://www.hokuyo-aut.co.jp/search/single.php?serial=17", title: "URG-04LX-UG01 Product Page", date: "2026-03", source: "Hokuyo Automatic", type: SRC_TYPE.PRODUCT_PAGE },
@@ -2142,7 +2142,7 @@ const LIDARS = [
       imuBuiltIn:          { value: "あり",        unit: null,   refs: [1] },
       beamDivergence:      { value: [0.2, 0.05],  unit: "°", joiner: " × ", refs: [1] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "2021年発表・量産出荷", refs: [1] },
     useCases: "M1の量産改良版。車載ADAS向けのMプラットフォーム中核機。",
     references: [
       { id: 1, url: "https://www.robosense.ai/en/IncrementalComponents/RS-LiDAR-M1", title: "RoboSense M1 & M1 Plus Product Page", date: "2026-03", source: "RoboSense", type: SRC_TYPE.PRODUCT_PAGE },
@@ -2248,7 +2248,7 @@ const LIDARS = [
       interface:  { value: null,         unit: null,       refs: [] },
       operatingTemperature: { value: null, unit: null,     refs: [] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "2023年発表（CES 2023）", refs: [1] },
     useCases: "車載の死角補完・周辺監視。E Platform のフラッシュ式盲点センサ。",
     references: [
       { id: 1, url: "https://www.robosense.ai/en/IncrementalComponents/E1", title: "RoboSense E1 Product Page", date: "2026-03", source: "RoboSense", type: SRC_TYPE.PRODUCT_PAGE },
@@ -2281,7 +2281,7 @@ const LIDARS = [
       operatingTemperature: { value: "-40 ~ 85 °C", unit: null, refs: [1] },
       shockVibration: { value: "Automotive-grade reliability", unit: null, refs: [1] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "2023年発表", refs: [1] },
     useCases: "ロボットの死角補完・近接検知。完全ソリッドステートの短距離センサ。",
     references: [
       { id: 1, url: "https://store.robosense.ai/products/e1r", title: "RoboSense E1R Product Page", date: "2026-03", source: "RoboSense", type: SRC_TYPE.PRODUCT_PAGE },
@@ -2313,7 +2313,7 @@ const LIDARS = [
       interface:  { value: "100BASE-TX", unit: null,       refs: [1] },
       imuBuiltIn: { value: "Integrated IMU", unit: null,   refs: [1] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "2024年発表", refs: [1] },
     useCases: "屋内外SLAM、3Dマッピング、ロボットの全周囲認識。",
     references: [
       { id: 1, url: "https://store.robosense.ai/products/airy", title: "RoboSense Airy Product Page", date: "2026-03", source: "RoboSense", type: SRC_TYPE.PRODUCT_PAGE },
@@ -2345,7 +2345,7 @@ const LIDARS = [
       interface:  { value: "100BASE-TX", unit: null,       refs: [1] },
       imuBuiltIn: { value: "Integrated IMU", unit: null,   refs: [1] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "2024年発表", refs: [1] },
     useCases: "ロボットの中長距離認識、3D地図生成、障害物回避。",
     references: [
       { id: 1, url: "https://www.robosense.ai/rslidar/Fairy", title: "RoboSense Fairy Product Page", date: "2026-03", source: "RoboSense", type: SRC_TYPE.PRODUCT_PAGE },
@@ -3562,7 +3562,7 @@ const LIDARS = [
       protection: { value: null,         unit: null,       refs: [] },
       interface:  { value: null,         unit: null,       refs: [] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "2021年発表（Aeva共同開発）", refs: [1] },
     useCases: "4D LiDAR（速度直接計測）。太陽光・干渉耐性。Aevaとの共同開発品。",
     references: [
       { id: 1, url: "https://www.denso.com/global/en/innovation/technology/lidar/", title: "Denso LiDAR Technology", date: "2026-03", source: "Denso", type: SRC_TYPE.PRODUCT_PAGE },
@@ -3633,7 +3633,7 @@ const LIDARS = [
       interface:  { value: "Ethernet",   unit: null,       refs: [1] },
       supportedSoftware:   { value: "ROS 1 / ROS 2 (urg_node)", unit: null, refs: [1] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "2014年発売（現行販売）", refs: [1] },
     useCases: "AGV・AMR・屋内ロボット用2D測域センサ。ROSドライバ充実。",
     references: [
       { id: 1, url: "https://www.hokuyo-aut.co.jp/search/single.php?serial=21", title: "Hokuyo UST-10LX Product Page", date: "2026-03", source: "Hokuyo Automatic", type: SRC_TYPE.PRODUCT_PAGE },
@@ -3664,7 +3664,7 @@ const LIDARS = [
       protection: { value: ["IP65"],     unit: null,       refs: [1] },
       interface:  { value: "Ethernet",   unit: null,       refs: [1] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "2016年発売（現行販売）", refs: [1] },
     useCases: "AGV・AMR・屋外ロボット用2D測域センサ。30m長距離対応。",
     references: [
       { id: 1, url: "https://www.hokuyo-aut.co.jp/search/single.php?serial=22", title: "Hokuyo UST-30LX Product Page", date: "2026-03", source: "Hokuyo Automatic", type: SRC_TYPE.PRODUCT_PAGE },
@@ -3685,7 +3685,7 @@ const LIDARS = [
       fovH:       { value: 210,          unit: "°",        refs: [1] },
       fovV:       { value: 40,           unit: "°",        refs: [1] },
       resH:       { value: null,         unit: null,       refs: [] },
-      resV:       { value: null,         unit: null,       refs: [] },
+      resV:       { value: null,        unit: null,       refs: [] },
       pointRate:  { value: null,         unit: "pts/s",    refs: [] },
       power:      { value: 9.6,          unit: "W",        note: "DC12V 0.8A (通常時)", refs: [1] },
       size:       { value: "70 × 106 × 95 mm", unit: null, note: "F0モデル（FKは76×106×95mm）", refs: [1] },
@@ -3697,7 +3697,7 @@ const LIDARS = [
       imuBuiltIn: { value: "あり（InvenSense MPU-6500 6軸IMU）", unit: null, refs: [1] },
       returnModes: { value: "4 echoes (Multi-echo)", unit: null, refs: [1] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "2018年発売（現行販売）", refs: [1] },
     useCases: "3D産業用LiDAR。低反射率物体の検知強化。",
     references: [
       { id: 1, url: "https://www.hokuyo-aut.co.jp/search/single.php?serial=165", title: "YVT-35LX-F0/FK Product Page", date: "2026-04", source: "Hokuyo Automatic", type: SRC_TYPE.PRODUCT_PAGE },
@@ -3766,7 +3766,7 @@ const LIDARS = [
       protection: { value: ["IP67"],     unit: null,       refs: [1] },
       interface:  { value: "USB / Ethernet", unit: null,   refs: [1] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "2019年発売（現行販売）", refs: [1] },
     useCases: "屋内外AGV・AMR・モバイルロボット用コンパクト2Dスキャナ",
     references: [
       { id: 1, url: "https://www.sick.com/de/en/catalog/products/lidar-and-radar-sensors/lidar-sensors/tim7xx/c/g575498", title: "SICK TiM Series Product Page", date: "2026-03", source: "SICK AG", type: SRC_TYPE.PRODUCT_PAGE },
@@ -3833,7 +3833,7 @@ const LIDARS = [
       interface:  { value: "EtherNet/IP, PROFINET", unit: null, refs: [1] },
       operatingTemperature: { value: "-10 ~ 55 °C",   unit: null, refs: [1] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "2016年発売（現行販売）", refs: [1] },
     useCases: "機能安全認証（SIL2/PLd）安全スキャナ。衝突防止・保護ゾーン管理。",
     references: [
       { id: 1, url: "https://www.sick.com/microscan3", title: "SICK microScan3 Product Page", date: "2026-03", source: "SICK AG", type: SRC_TYPE.PRODUCT_PAGE },
@@ -4046,7 +4046,7 @@ const LIDARS = [
       protection: { value: null,         unit: null,       refs: [] },
       interface:  { value: null,         unit: null,       refs: [] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "2021年発表", refs: [1] },
     useCases: "カメラ・レーダー・LiDARのローレベル融合知覚ソフト。L2〜L4対応。Ficosa・Visteonと協業。",
     references: [
       { id: 1, url: "https://leddartech.com/leddarvision/", title: "LeddarTech LeddarVision", date: "2026-03", source: "LeddarTech", type: SRC_TYPE.PRODUCT_PAGE },
@@ -4081,7 +4081,7 @@ const LIDARS = [
       protection: { value: ["IP69K"],    unit: null,       refs: [1] },
       interface:  { value: "PoE Ethernet", unit: null,     refs: [1] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "2014年発表・出荷", refs: [1] },
     useCases: "物理セキュリティ・スマートスペース・産業IoT（2022年破産申請後、セキュリティ特化で再建中）",
     references: [
       { id: 1, url: "https://quanergy.com/products/m8/", title: "Quanergy M8 Product Page", date: "2026-03", source: "Quanergy Solutions", type: SRC_TYPE.PRODUCT_PAGE },
@@ -4112,7 +4112,7 @@ const LIDARS = [
       protection: { value: null,         unit: null,       refs: [] },
       interface:  { value: null,         unit: null,       refs: [] },
     },
-    release: { value: null, refs: [] },
+    release: { value: "2016年発表（CES 2016）", refs: [1] },
     useCases: "OPA方式で完全可動部なし。MTBF 100,000時間以上。走査パターンをソフトウェア設定。",
     references: [
       { id: 1, url: "https://quanergy.com/products/s3/", title: "Quanergy S3 Product Page", date: "2026-03", source: "Quanergy Solutions", type: SRC_TYPE.PRODUCT_PAGE },

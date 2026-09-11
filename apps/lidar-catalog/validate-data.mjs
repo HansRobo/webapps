@@ -489,6 +489,14 @@ for (const lidar of LIDARS) {
   }
   if (isPlainObject(lidar.release)) {
     if (lidar.release.value !== null && !isNonEmptyString(lidar.release.value)) err(`${prefix} release.value が文字列または null でない`);
+    if (lidar.release.value === null) {
+      warn(`${prefix} release.value が未設定 (null) です。比較可能パラメータとして西暦年を含めることが推奨されます`);
+    } else if (isNonEmptyString(lidar.release.value)) {
+      const yearMatch = lidar.release.value.match(/(?:^|[^\d])(19\d\d|20\d\d)(?:[^\d]|$)/);
+      if (!yearMatch) {
+        warn(`${prefix} release.value ("${lidar.release.value}") から西暦年（19xx/20xx）が抽出できません。比較用パラメータとして年を明記してください`);
+      }
+    }
     if (!Array.isArray(lidar.release.refs)) {
       err(`${prefix} release.refs が配列でない`);
     } else {
