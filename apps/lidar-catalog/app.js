@@ -34,11 +34,29 @@ const COMPARE_AXES = [
   { id: "pointRate",  label: "点群レート",     unit: "kpt/s", type: "numeric", getter: item => specValueToNumeric(item.raw.specs.pointRate?.value) },
   { id: "power",      label: "消費電力",       unit: "W",   type: "numeric", getter: item => specValueToNumeric(item.raw.specs.power?.value) },
   { id: "weight",     label: "重量",           unit: "g",   type: "numeric", getter: item => specValueToNumeric(item.raw.specs.weight?.value) },
+  {
+    id: "releaseYear",
+    label: "リリース年",
+    unit: "年",
+    type: "numeric",
+    getter: item => item.releaseYear,
+    formatTooltip: item => {
+      const raw = item.raw.release?.value;
+      if (!raw) return item.releaseYear ? `${item.releaseYear}年` : "—";
+      return item.releaseYear ? `${item.releaseYear}年 (${raw})` : raw;
+    },
+  },
   { id: "manufacturer", label: "メーカー",     unit: "",    type: "category", getter: item => item.raw.manufacturer.name },
   { id: "scanMethod", label: "走査方式",       unit: "",    type: "category", getter: item => item.raw.scanningMethod.labelJa },
   { id: "wavelength", label: "波長",           unit: "",    type: "category", getter: item => item.raw.wavelength.label },
   { id: "category",   label: "カテゴリ",       unit: "",    type: "category", getter: item => item.raw.category.labelJa },
 ];
+
+function parseReleaseYear(val) {
+  if (!val || typeof val !== "string") return null;
+  const m = val.match(/(?:^|[^\d])(19\d\d|20\d\d)(?:[^\d]|$)/);
+  return m ? parseInt(m[1], 10) : null;
+}
 
 // ─────────────────────────────────────────────
 // データ正規化 + インデックス
@@ -56,6 +74,7 @@ function normalize(lidar) {
     discontinued: !!lidar.discontinued,
     maxRange: specValueToNumeric(lidar.specs.maxRange?.value),
     channels: specValueToNumeric(lidar.specs.channels?.value),
+    releaseYear: parseReleaseYear(lidar.release?.value),
     searchText: [
       lidar.name,
       lidar.manufacturer.name,
@@ -2977,7 +2996,7 @@ function compareStateToQueryParams() {
 
 function applyCompareQuery(query) {
   const axisIds = new Set(COMPARE_AXES.map(a => a.id));
-  const colorByOptions = new Set(["category", "manufacturer", "scan", "wave"]);
+  const colorByOptions = new Set(["category", "manufacturer", "scan", "wave", "releaseYear"]);
   compareState.xAxisId = axisIds.has(query.get("x")) ? query.get("x") : "maxRange";
   compareState.yAxisId = axisIds.has(query.get("y")) ? query.get("y") : "channels";
   compareState.colorBy = colorByOptions.has(query.get("colorBy")) ? query.get("colorBy") : "category";
@@ -3014,6 +3033,7 @@ function renderCompareView(query = new URLSearchParams()) {
             <option value="manufacturer">メーカー</option>
             <option value="scan">走査方式</option>
             <option value="wave">波長</option>
+            <option value="releaseYear">リリース年</option>
           </select>
         </div>
       </div>
@@ -3089,6 +3109,11 @@ function getCompareColorPalette(colorBy) {
       Object.values(WAVE).map(w => [w.id, w.colorHex])
     );
   }
+  if (colorBy === "releaseYear") {
+    return {
+      "unknown": "#94a3b8",
+    };
+  }
   // メーカー・走査方式は自動生成
   const palette = ["#0d5fd8","#16a34a","#ca8a04","#7c3aed","#e11d48","#0891b2","#ea580c","#4338ca","#15803d","#be185d","#0369a1","#a16207"];
   return null; // nullで自動生成モードを示す
@@ -3113,6 +3138,7 @@ function getColorKey(item, colorBy) {
   if (colorBy === "manufacturer") return item.manufacturerId;
   if (colorBy === "scan") return item.scanId;
   if (colorBy === "wave") return item.waveId;
+  if (colorBy === "releaseYear") return item.releaseYear != null ? String(item.releaseYear) : "unknown";
   return item.categoryId;
 }
 
@@ -3121,6 +3147,7 @@ function getColorLabel(key, colorBy) {
   if (colorBy === "manufacturer") return M_BY_ID[key]?.name ?? key;
   if (colorBy === "scan") return SCAN_BY_ID[key]?.labelJa ?? key;
   if (colorBy === "wave") return WAVE_BY_ID[key]?.label ?? key;
+  if (colorBy === "releaseYear") return key === "unknown" ? "不明" : `${key}年`;
   return key;
 }
 
@@ -3311,7 +3338,14 @@ function drawCompare() {
   }
 
   // 凡例を更新
-  const colorKeys = [...new Set(ALL.map(item => getColorKey(item, compareState.colorBy)))];
+  let colorKeys = [...new Set(ALL.map(item => getColorKey(item, compareState.colorBy)))];
+  if (compareState.colorBy === "releaseYear") {
+    colorKeys.sort((a, b) => {
+      if (a === "unknown") return 1;
+      if (b === "unknown") return -1;
+      return Number(a) - Number(b);
+    });
+  }
   const legend = document.getElementById("compareLegend");
   if (legend) {
     legend.innerHTML = colorKeys.map(k => `
@@ -3349,11 +3383,17 @@ function handleCompareHover(mx, my, clientX, clientY) {
     const yVal = yAxis?.getter(found);
     const xText = formatSpecValue(xVal).text;
     const yText = formatSpecValue(yVal).text;
+    const xDisplay = xAxis?.formatTooltip
+      ? xAxis.formatTooltip(found)
+      : `${xText}${xText !== "—" && xAxis?.unit ? " " + xAxis.unit : ""}`;
+    const yDisplay = yAxis?.formatTooltip
+      ? yAxis.formatTooltip(found)
+      : `${yText}${yText !== "—" && yAxis?.unit ? " " + yAxis.unit : ""}`;
     tooltip.querySelector(".compare-tooltip__name").textContent = found.raw.name;
     tooltip.querySelector(".compare-tooltip__mfr").textContent = found.raw.manufacturer.name;
     tooltip.querySelector(".compare-tooltip__vals").innerHTML = `
-      <span>${xAxis?.label}: ${xText}${xText !== "—" && xAxis?.unit ? " " + xAxis.unit : ""}</span>
-      <span>${yAxis?.label}: ${yText}${yText !== "—" && yAxis?.unit ? " " + yAxis.unit : ""}</span>
+      <span>${xAxis?.label}: ${xDisplay}</span>
+      <span>${yAxis?.label}: ${yDisplay}</span>
     `;
     const wrap = document.getElementById("compareCanvasWrap");
     const wW = wrap.clientWidth;
