@@ -10,10 +10,10 @@ const verbose = process.argv.includes("--verbose");
 
 // ── schema.js をロード（グローバルに展開してから data.js をロード）
 const schema = require(path.join(__dirname, "schema.js"));
-const { M, SCAN, CAT, WAVE, SRC_TYPE } = schema;
+const { M, SCAN, CAT, WAVE, SRC_TYPE, RET_MODE, RET_MODE_DETAILS } = schema;
 
 // グローバルに注入（data.js が参照するため）
-Object.assign(global, { M, SCAN, CAT, WAVE, SRC_TYPE });
+Object.assign(global, { M, SCAN, CAT, WAVE, SRC_TYPE, RET_MODE, RET_MODE_DETAILS });
 
 // data.js をロード
 const { LIDARS } = require(path.join(__dirname, "data.js"));
@@ -82,7 +82,7 @@ const NUMERIC_HINT_KEYS = new Set([
   "sunlightImmunity",
   "powerMax",
 ]);
-const STRING_ARRAY_HINT_KEYS = new Set(["timeSynchronization", "protection"]);
+const STRING_ARRAY_HINT_KEYS = new Set(["timeSynchronization", "protection", "returnModes"]);
 const NUMBER_ARRAY_HINT_KEYS = new Set(["beamDivergence"]);
 
 function err(msg) {
@@ -229,6 +229,19 @@ function validateSpecCommon(prefix, key, spec, required = false) {
 
   if (spec.joiner !== undefined && !Array.isArray(spec.value)) {
     warn(`${prefix} specs.${key}: joiner があるが value は配列ではない`);
+  }
+
+  if (key === "returnModes" && spec.value !== null && spec.value !== undefined) {
+    const validModes = new Set(Object.values(RET_MODE));
+    if (!Array.isArray(spec.value)) {
+      err(`${prefix} specs.returnModes: value は配列である必要がある（例: [RET_MODE.SINGLE, RET_MODE.DUAL]）`);
+    } else {
+      for (const m of spec.value) {
+        if (!validModes.has(m)) {
+          err(`${prefix} specs.returnModes: 不正なリターンモード "${m}"。schema.js の RET_MODE 定数を使用してください`);
+        }
+      }
+    }
   }
 }
 

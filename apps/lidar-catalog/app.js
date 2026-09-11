@@ -75,6 +75,9 @@ function normalize(lidar) {
     maxRange: specValueToNumeric(lidar.specs.maxRange?.value),
     channels: specValueToNumeric(lidar.specs.channels?.value),
     releaseYear: parseReleaseYear(lidar.release?.value),
+    returnModes: Array.isArray(lidar.specs?.returnModes?.value)
+      ? lidar.specs.returnModes.value
+      : (lidar.specs?.returnModes?.value ? [lidar.specs.returnModes.value] : []),
     searchText: [
       lidar.name,
       lidar.manufacturer.name,
@@ -82,6 +85,10 @@ function normalize(lidar) {
       lidar.manufacturer.country,
       lidar.category.labelJa,
       lidar.scanningMethod.labelJa,
+      ...(Array.isArray(lidar.specs?.returnModes?.value)
+        ? lidar.specs.returnModes.value.flatMap(m => [m, RET_MODE_DETAILS[m]?.labelJa ?? "", RET_MODE_DETAILS[m]?.label ?? ""])
+        : []),
+      lidar.specs?.returnModes?.note ?? "",
       lidar.useCases ?? "",
     ].join(" ").toLowerCase(),
   };
@@ -261,7 +268,15 @@ const FILTER_FIELDS = [
   { id: "resH", label: "角度分解能（水平）", group: "光学・走査", type: "text", getter: item => item.raw.specs.resH?.value ?? null },
   { id: "resV", label: "角度分解能（垂直）", group: "光学・走査", type: "text", getter: item => item.raw.specs.resV?.value ?? null },
   { id: "pointRate", label: "点群レート", group: "光学・走査", type: "number", unit: "pts/s", getter: item => item.raw.specs.pointRate?.value ?? null },
-  { id: "returnModes", label: "リターンモード", group: "光学・走査", type: "text", getter: item => item.raw.specs.returnModes?.value ?? null },
+  {
+    id: "returnModes",
+    label: "リターンモード",
+    group: "光学・走査",
+    type: "enum",
+    getter: item => item.returnModes,
+    options: Object.values(RET_MODE_DETAILS).map(d => ({ value: d.id, label: `${d.labelJa} (${d.label})` })),
+    valueLabel: value => RET_MODE_DETAILS[value]?.labelJa ?? value,
+  },
   { id: "beamDivergence", label: "ビーム広がり角", group: "光学・走査", type: "number", unit: "°", getter: item => item.raw.specs.beamDivergence?.value ?? null },
   { id: "sunlightImmunity", label: "耐外乱光性能", group: "光学・走査", type: "number", unit: "lux", getter: item => item.raw.specs.sunlightImmunity?.value ?? null },
 
@@ -473,6 +488,10 @@ function getParameterDisplayText(item, field) {
     const display = formatBeamDivergenceDisplay(spec, { includeUnit: field.type === "number" });
     return display.isMissing ? null : display.text;
   }
+  if (field.id === "returnModes") {
+    const display = formatReturnModesDisplay(spec);
+    return display.isMissing ? null : display.text;
+  }
   const display = formatSpecDisplay(spec, { includeUnit: field.type === "number" });
   return display.isMissing ? null : display.text;
 }
@@ -576,6 +595,27 @@ function formatAxisValue(value) {
 }
 
 function buildTextBuckets(items, field) {
+  if (field.id === "returnModes") {
+    const counts = new Map();
+    for (const def of Object.values(RET_MODE_DETAILS)) {
+      counts.set(`${def.labelJa} (${def.label})`, 0);
+    }
+    for (const item of items) {
+      if (!item.returnModes || item.returnModes.length === 0) continue;
+      for (const m of item.returnModes) {
+        const def = RET_MODE_DETAILS[m];
+        if (def) {
+          const k = `${def.labelJa} (${def.label})`;
+          counts.set(k, (counts.get(k) ?? 0) + 1);
+        }
+      }
+    }
+    return [...counts.entries()]
+      .filter(([, count]) => count > 0)
+      .sort((a, b) => b[1] - a[1])
+      .map(([label, count]) => ({ label, count }));
+  }
+
   const counts = new Map();
   for (const item of items) {
     const text = getParameterDisplayText(item, field);
@@ -1119,6 +1159,22 @@ function formatBeamDivergenceDisplay(spec, { includeUnit = true } = {}) {
   return { text, isMissing: false };
 }
 
+function formatReturnModesDisplay(spec) {
+  if (!spec || spec.value === null || spec.value === undefined) {
+    return { text: "—", isMissing: true };
+  }
+  const modes = Array.isArray(spec.value) ? spec.value : [spec.value];
+  if (modes.length === 0) return { text: "—", isMissing: true };
+  const labels = modes.map(m => {
+    const def = RET_MODE_DETAILS[m];
+    return def ? `${def.labelJa} (${def.label})` : String(m);
+  });
+  return {
+    text: labels.join(" / "),
+    isMissing: false,
+  };
+}
+
 function specValueToNumeric(value) {
   if (value === null || value === undefined) return null;
   if (Array.isArray(value)) {
@@ -1271,6 +1327,7 @@ const state = {
   query: "",
   categories: new Set(),
   scans: new Set(),
+  returnModes: new Set(),
   countries: new Set(),
   manufacturers: new Set(),
   rangeMin: "",
@@ -1313,6 +1370,10 @@ function renderProductsView() {
               <select id="scanFilterSelect" class="filter-select filter-select--facet">
                 <option value="">すべて</option>
               </select>
+            </section>
+            <section class="filter-block">
+              <div class="filter-block__title">リターンモード</div>
+              <div class="chip-group" id="returnModeFilterGroup"></div>
             </section>
             <section class="filter-block">
               <div class="filter-block__title">波長</div>
@@ -1485,6 +1546,10 @@ function syncFacetControls() {
     btn.classList.toggle("active", state.countries.has(btn.dataset.countryKey));
   });
 
+  document.querySelectorAll(".return-mode-btn").forEach(btn => {
+    btn.classList.toggle("active", state.returnModes.has(btn.dataset.modeKey));
+  });
+
   const qInput = document.getElementById("queryInput");
   if (qInput) qInput.value = state.query;
   const hdCheck = document.getElementById("hideDiscontinued");
@@ -1501,6 +1566,9 @@ function applyFilters() {
     if (state.query && !item.searchText.includes(normalizeText(state.query))) return false;
     if (state.categories.size > 0 && !state.categories.has(item.categoryId)) return false;
     if (state.scans.size > 0 && !state.scans.has(item.scanId)) return false;
+    if (state.returnModes.size > 0) {
+      if (!item.returnModes.some(m => state.returnModes.has(m))) return false;
+    }
     if (state.manufacturers.size > 0 && !state.manufacturers.has(item.manufacturerId)) return false;
     if (state.countries.size > 0) {
       const itemCountries = parseCountryList(item.raw.manufacturer.country).map(c => c.key);
@@ -1623,6 +1691,10 @@ function buildCard(item) {
     <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px;">
       <span class="badge badge--scan">${esc(item.raw.scanningMethod.labelJa)}</span>
       ${waveHtml}
+      ${item.returnModes && item.returnModes.length > 0 ? item.returnModes.map(m => {
+        const def = RET_MODE_DETAILS[m];
+        return def ? `<span class="badge badge--return" title="${esc(def.fullName)}: ${esc(def.descriptionJa)}">${esc(def.label)}</span>` : "";
+      }).join("") : ""}
     </div>
     <div class="lidar-card__specs">
       <div class="spec-item${range.isMissing ? " spec-item--na" : ""}">
@@ -1709,6 +1781,22 @@ function buildFilterChips() {
     btn.dataset.countryKey = c.key;
     btn.classList.toggle("active", state.countries.has(c.key));
     countryGroup.appendChild(btn);
+  }
+
+  const returnModeGroup = document.getElementById("returnModeFilterGroup");
+  if (returnModeGroup) {
+    returnModeGroup.innerHTML = "";
+    for (const def of Object.values(RET_MODE_DETAILS)) {
+      const btn = document.createElement("button");
+      btn.className = "chip-button return-mode-btn";
+      btn.type = "button";
+      btn.textContent = def.labelJa;
+      btn.title = `${def.fullName}: ${def.descriptionJa}`;
+      btn.dataset.modeKey = def.id;
+      btn.classList.toggle("active", state.returnModes.has(def.id));
+      btn.addEventListener("click", () => toggleFilter(state.returnModes, def.id, btn));
+      returnModeGroup.appendChild(btn);
+    }
   }
 }
 
@@ -1945,6 +2033,7 @@ function clearAllFilters() {
   state.query = "";
   state.categories.clear();
   state.scans.clear();
+  state.returnModes.clear();
   state.countries.clear();
   state.manufacturers.clear();
   state.rangeMin = "";
@@ -1989,6 +2078,14 @@ function renderActiveFilters() {
     const scan = SCAN_BY_ID[id];
     if (scan) addChip(scan.labelJa, () => {
       state.scans.delete(id);
+      renderProductResults();
+    });
+  }
+  for (const id of state.returnModes) {
+    const def = RET_MODE_DETAILS[id];
+    const label = def ? def.labelJa : id;
+    addChip(`リターン: ${label}`, () => {
+      state.returnModes.delete(id);
       renderProductResults();
     });
   }
@@ -2473,7 +2570,9 @@ function buildDetailBody(item) {
     if (!spec) return `<tr><td>${labelHtml}</td><td class="spec-na">—</td></tr>`;
     const display = fieldId === "beamDivergence"
       ? formatBeamDivergenceDisplay(spec)
-      : formatSpecDisplay(spec, { joiner: fieldId === "protection" ? ", " : null });
+      : fieldId === "returnModes"
+        ? formatReturnModesDisplay(spec)
+        : formatSpecDisplay(spec, { joiner: fieldId === "protection" ? ", " : null });
     if (display.isMissing)
       return `<tr><td>${labelHtml}</td><td class="spec-na">不明 / 非公開${refLinks(spec.refs)}</td></tr>`;
     const note = spec.note ? `<span class="spec-note">${esc(spec.note)}</span>` : "";

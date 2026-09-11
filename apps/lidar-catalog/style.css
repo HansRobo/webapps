@@ -742,6 +742,18 @@ body {
   color: var(--discontinued-fg);
 }
 
+.badge--return {
+  background: color-mix(in srgb, #0ea5e9 14%, var(--surface-soft, #f8fafc));
+  color: #0369a1;
+  border: 1px solid color-mix(in srgb, #0ea5e9 25%, transparent);
+}
+
+[data-theme="dark"] .badge--return {
+  background: color-mix(in srgb, #38bdf8 15%, #0f172a);
+  color: #38bdf8;
+  border-color: color-mix(in srgb, #38bdf8 25%, transparent);
+}
+
 .badge--year {
   background: #f1f5f9;
   color: #334155;

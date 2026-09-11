@@ -32,8 +32,8 @@ const noFetch = args.includes("--no-fetch");
 
 // schema.js をロード
 const schema = require(path.join(__dirname, "schema.js"));
-const { M, SCAN, CAT, WAVE, SRC_TYPE } = schema;
-Object.assign(global, { M, SCAN, CAT, WAVE, SRC_TYPE });
+const { M, SCAN, CAT, WAVE, SRC_TYPE, RET_MODE, RET_MODE_DETAILS } = schema;
+Object.assign(global, { M, SCAN, CAT, WAVE, SRC_TYPE, RET_MODE, RET_MODE_DETAILS });
 
 const { LIDARS } = require(path.join(__dirname, "data.js"));
 

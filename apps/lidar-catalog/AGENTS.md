@@ -18,10 +18,11 @@ manufacturer: M.HESAI
 category: CAT.AUTO_LONG
 scanningMethod: SCAN.MECHANICAL
 wavelength: WAVE.NM905
+returnModes: { value: [RET_MODE.SINGLE, RET_MODE.DUAL], unit: null, refs: [1] }
 ```
 
-`M.*`, `CAT.*`, `SCAN.*`, `WAVE.*`, `SRC_TYPE.*` はすべて `schema.js` で定義されている。
-新しいメーカー・カテゴリ・方式が必要な場合は **schema.js を先に編集してから** data.js を更新する。
+`M.*`, `CAT.*`, `SCAN.*`, `WAVE.*`, `SRC_TYPE.*`, `RET_MODE.*` はすべて `schema.js` で定義されている。
+新しいメーカー・カテゴリ・方式・リターンモードが必要な場合は **schema.js を先に編集してから** data.js を更新する。
 
 ---
 
@@ -113,7 +114,7 @@ references: [
 
 | フィールド          | 説明                                | 単位例          |
 |---------------------|-------------------------------------|----------------|
-| `returnModes`       | リターンモード（Single/Dual/Triple） | `null`（文字列）|
+| `returnModes`       | リターンモード（`[RET_MODE.SINGLE, RET_MODE.DUAL]` 等。補足は `note` に記述） | `null`（RET_MODE配列）|
 | `beamDivergence`    | ビーム広がり角（例: "0.11° × 0.03°"）| `null`（文字列）|
 | `sunlightImmunity`  | 耐外乱光性能                         | `"lux"`         |
 

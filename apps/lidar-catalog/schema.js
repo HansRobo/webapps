@@ -421,11 +421,54 @@
     return m ? parseInt(m[1], 10) : null;
   }
 
+  // ─────────────────────────────────────────────
+  // RET_MODE: リターンモード定義
+  // ─────────────────────────────────────────────
+  const RET_MODE = {
+    SINGLE: "single",
+    DUAL:   "dual",
+    TRIPLE: "triple",
+    MULTI:  "multi",
+  };
+
+  const RET_MODE_DETAILS = {
+    [RET_MODE.SINGLE]: {
+      id: "single",
+      label: "Single",
+      labelJa: "シングル",
+      fullName: "Single Return",
+      descriptionJa: "1照射あたり1点（最強反射または最初・最終反射）を取得する標準モード。",
+    },
+    [RET_MODE.DUAL]: {
+      id: "dual",
+      label: "Dual",
+      labelJa: "デュアル",
+      fullName: "Dual Return",
+      descriptionJa: "1照射あたり2点（例: 最強と最終、または初回と最強）を同時取得し、ガラス・雨・埃の透過や植生下の計測を可能にするモード。",
+    },
+    [RET_MODE.TRIPLE]: {
+      id: "triple",
+      label: "Triple",
+      labelJa: "トリプル",
+      fullName: "Triple Return",
+      descriptionJa: "1照射あたり3点（最初・最強・最終など）を取得し、悪天候や複雑な植生下での検出精度を高めるモード。",
+    },
+    [RET_MODE.MULTI]: {
+      id: "multi",
+      label: "Multi-echo",
+      labelJa: "マルチエコー（4+）",
+      fullName: "Multi-echo / 4+ Returns",
+      descriptionJa: "1パルスあたり4点以上のエコーを検出・出力できる高機能モード。濃霧・豪雨・森林キャノピー貫通マッピング等に活用。",
+    },
+  };
+
   exports.M = M;
   exports.SCAN = SCAN;
   exports.CAT = CAT;
   exports.WAVE = WAVE;
   exports.SRC_TYPE = SRC_TYPE;
+  exports.RET_MODE = RET_MODE;
+  exports.RET_MODE_DETAILS = RET_MODE_DETAILS;
   exports.parseReleaseYear = parseReleaseYear;
 
 })(typeof module !== "undefined" ? module.exports : this);
