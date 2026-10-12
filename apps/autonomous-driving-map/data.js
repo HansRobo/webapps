@@ -5998,4 +5998,59 @@ const EXPERIMENTS = [
         { id: 1, title: "ロート製薬、T2の自動運転トラックでスキンケア関連製品等の輸送実証を開始", url: "https://prtimes.jp/main/html/rd/p/000000589.000044879.html", date: "2026-06-29", source: "ロート製薬株式会社／株式会社T2（PR TIMES）", checkedAt: "2026-07-01T00:00:00Z" }
       ]
     },
+  {
+      id: "exp-266",
+      name: { value: "横浜市・日産 自動運転モビリティサービス実証（2026年度・みなとみらい／関内）", refs: [1] },
+      location: { value: "神奈川県横浜市（みなとみらい・桜木町・関内エリア）", lat: 35.45, lng: 139.635, refs: [1] },
+      prefecture: { value: PREF.KANAGAWA, refs: [1] },
+      period: { value: "2026年10月1日〜12月18日（第1期: 10/1〜10/30、第2期: 11/4〜12/18。火〜金 8:30〜16:00）", refs: [1] },
+      status: { value: STATUS.ACTIVE, refs: [1] },
+      description: {
+        value: "日産自動車が横浜市で実施する自動運転モビリティサービスの2026年度実証。セレナベースの自動運転車両を前年度の5台から10台に増やし、乗降地点も26か所から28か所に拡大。約500名の一般モニターが無料で乗車する。第1期でKDDIによる通信環境の評価・改善、第2期でプレミア・エイドによる乗客サポートを検証する。2027年以降のドライバーレス（レベル4相当）サービス開始を目指す。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.NISSAN_SERENA, refs: [1] },
+      adSystem: { value: ADS.NISSAN, refs: [1] },
+      route: { value: "みなとみらい・桜木町・関内エリア内の乗降地28か所（石川町駅、横浜中華街、山下公園、大さん橋、赤レンガ倉庫周辺など）", refs: [1] },
+      operationType: { value: "レベル2相当（セーフティドライバー同乗、将来レベル4相当のドライバーレスを目標）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "主体・車両提供", name: "日産自動車株式会社", refs: [1] },
+        { role: "サービス運営支援", name: "株式会社Moplus", refs: [1] },
+        { role: "通信環境評価", name: "KDDI株式会社", refs: [1] },
+        { role: "乗客サポート", name: "株式会社プレミア・エイド", refs: [1] },
+        { role: "運行体制支援", name: "国際自動車株式会社", refs: [1] },
+        { role: "自治体", name: "横浜市（神奈川県）", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "2026年度の横浜市における自動運転モビリティサービス実証実験の詳細を発表", url: "https://global.nissannews.com/ja-JP/releases/260914-01-j", date: "2026-09-14", source: "日産自動車", checkedAt: "2026-10-12T00:00:00Z" }
+      ]
+    },
+  {
+      id: "exp-267",
+      name: { value: "多摩市（諏訪・永山地区）自動運転車両 実証走行（東京都）", refs: [1] },
+      location: { value: "東京都多摩市（諏訪・永山地区）", lat: 35.625, lng: 139.445, refs: [1] },
+      prefecture: { value: PREF.TOKYO, refs: [1] },
+      period: { value: "2026年9月上旬〜（実証走行後に地域住民向け一般試乗を予定）", refs: [1] },
+      status: { value: STATUS.ACTIVE, refs: [1] },
+      description: {
+        value: "東京都都市整備局が、多摩ニュータウンの諏訪・永山地区で実施する自動運転車両の実証走行。坂道や複雑な交差点など地区特有の道路環境への適応を検証し、シミュレーションによる安全確認、現地リスクアセスメント、遠隔監視の運用検証を行う。実証走行後に地域住民向けの試乗を予定し、詳細は特設サイトで案内される。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.NISSAN_SERENA, refs: [1] },
+      adSystem: { value: ADS.NISSAN, refs: [1] },
+      route: { value: "多摩市諏訪・永山地区内（詳細ルートは発表資料の地図参照）", refs: [1] },
+      operationType: { value: "レベル2（運転手搭乗型）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "事業主体", name: "東京都 都市整備局", refs: [1] },
+        { role: "運行管理", name: "株式会社Moplus", refs: [1] },
+        { role: "協力", name: "日産自動車株式会社", refs: [1] },
+        { role: "協力", name: "多摩市（東京都）", refs: [1] },
+        { role: "運行支援", name: "京王自動車株式会社", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "多摩市（諏訪・永山地区）において自動運転車両の実証走行を行います！", url: "https://www.metro.tokyo.lg.jp/information/press/2026/09/2026090413", date: "2026-09-04", source: "東京都都市整備局", checkedAt: "2026-10-12T00:00:00Z" }
+      ]
+    },
 ];
