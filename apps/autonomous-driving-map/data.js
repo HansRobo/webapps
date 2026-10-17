@@ -6053,4 +6053,55 @@ const EXPERIMENTS = [
         { id: 1, title: "多摩市（諏訪・永山地区）において自動運転車両の実証走行を行います！", url: "https://www.metro.tokyo.lg.jp/information/press/2026/09/2026090413", date: "2026-09-04", source: "東京都都市整備局", checkedAt: "2026-10-12T00:00:00Z" }
       ]
     },
+    {
+      id: "exp-268",
+      name: { value: "つくば市 関東鉄道「筑波大学循環」自動運転バス本格運行（レベル2）", refs: [1] },
+      location: { value: "茨城県つくば市（つくばセンター〜筑波大学構内周回）", lat: 36.082, lng: 140.111, refs: [1] },
+      prefecture: { value: PREF.IBARAKI, refs: [1] },
+      period: { value: "2026年10月2日〜（有償の本格運行。2027年度のレベル4実装を目指す）", refs: [1] },
+      status: { value: STATUS.ACTIVE, refs: [1] },
+      description: {
+        value: "つくば市・KDDI・関東鉄道ほか5者が、関東鉄道の既存路線「筑波大学循環（右回り）」で自動運転バスの本格運行を開始。実証ではなく通常運賃を収受する路線バスとして、レベル2（運転手乗車）で運行する。ティアフォー製Minibus 2.0（BYD J6ベース、定員15名、最高速度40km/h）を使用し、KDDIが都内のモビリティコントロールセンターから遠隔監視を行う。2026年10月1日に運行開始セレモニーを実施。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.BYD_J6, refs: [1] },
+      adSystem: { value: ADS.TIER_IV, refs: [1] },
+      route: { value: "つくばセンター〜筑波大学構内〜周辺 25停留所・周回約10km（筑波大学循環・右回り）", refs: [1] },
+      operationType: { value: "レベル2（運転手乗車）、2027年度のレベル4を目指す", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "運行管理", name: "関東鉄道株式会社", refs: [1] },
+        { role: "自治体・運行依頼", name: "つくば市（茨城県）", refs: [1] },
+        { role: "サービス運営支援", name: "KDDI株式会社", refs: [1] },
+        { role: "サービス運営支援", name: "KDDIスマートモビリティ株式会社", refs: [1] },
+        { role: "自動運転システム開発", name: "株式会社ティアフォー", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "つくば市の自動運転バス、10月2日に本格運行開始 27年度にレベル4目指す", url: "https://car.watch.impress.co.jp/docs/news/2145321.html", date: "2026-10-02", source: "Car Watch", checkedAt: "2026-10-17T00:00:00Z" }
+      ]
+    },
+    {
+      id: "exp-269",
+      name: { value: "武蔵野市 NTTモビリティ×あいおいニッセイ同和損保 自動運転安全性評価 共同実証", refs: [1] },
+      location: { value: "東京都武蔵野市（武蔵野市役所〜吉祥寺駅周辺）", lat: 35.705, lng: 139.579, refs: [1] },
+      prefecture: { value: PREF.TOKYO, refs: [1] },
+      period: { value: "2026年9月〜2027年3月", refs: [1] },
+      status: { value: STATUS.ACTIVE, refs: [1] },
+      description: {
+        value: "NTTモビリティが武蔵野市で実施するレベル2自動運転実証に、あいおいニッセイ同和損保のテレマティクスデバイスを搭載し、走行データとテレマティクスデータを比較・分析することで、自動運転固有の走行特性や交通環境の潜在リスクを可視化し、安全性評価の高度化を目指す共同実証。分析結果をもとに自動運転システムと運行管理の改善も継続的に行う。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.E_PALETTE, refs: [1] },
+      adSystem: null,
+      route: { value: "武蔵野市役所〜吉祥寺駅周辺（NTTモビリティ自動運転実証フィールド）", refs: [1] },
+      operationType: { value: "レベル2", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "運行管理・事業主体", name: "NTTモビリティ株式会社", refs: [1] },
+        { role: "サービス運営支援", name: "あいおいニッセイ同和損害保険株式会社", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "NTTモビリティとあいおいニッセイ同和損保、自動運転の安全性評価の高度化に向けた共同実証を開始", url: "https://www.aioinissaydowa.co.jp/corporate/about/news/pdf/2026/news_2026090301521.pdf", date: "2026-09-04", source: "NTTモビリティ / あいおいニッセイ同和損保", checkedAt: "2026-10-17T00:00:00Z" }
+      ]
+    },
 ];
