@@ -6104,4 +6104,57 @@ const EXPERIMENTS = [
         { id: 1, title: "NTTモビリティとあいおいニッセイ同和損保、自動運転の安全性評価の高度化に向けた共同実証を開始", url: "https://www.aioinissaydowa.co.jp/corporate/about/news/pdf/2026/news_2026090301521.pdf", date: "2026-09-04", source: "NTTモビリティ / あいおいニッセイ同和損保", checkedAt: "2026-10-17T00:00:00Z" }
       ]
     },
+  {
+      id: "exp-270",
+      name: { value: "あいち自動運転コネクト（名古屋駅・STATION Ai・IGアリーナ周辺 自動運転×オンデマンド配車）", refs: [1, 2] },
+      location: { value: "愛知県名古屋市（名古屋駅前・STATION Ai・愛知芸術文化センター・IGアリーナ前・FUJIなごや科学館）", lat: 35.171, lng: 136.906, refs: [1, 2] },
+      prefecture: { value: PREF.AICHI, refs: [1] },
+      period: { value: "2026年9月11日〜2027年3月19日（土日祝・年末年始を除く平日運行）", refs: [1, 2] },
+      status: { value: STATUS.ACTIVE, refs: [1] },
+      description: {
+        value: "愛知県の受託事業として、NTTドコモビジネス・NTTモビリティ・NTTドコモが実施する、自動運転とオンデマンド配車システムを組み合わせた実証。名古屋鉄道のMaaSアプリ「デライド」と自動運転ソフトウェアを連携させ、予約に応じて各乗降地点へ配車する。名鉄タクシーホールディングスが運行を支援し、利用者の利便性や交通事業者の運用面の課題を検証する。前年度の「あいち自動運転ループ」（exp-211）の後継にあたる。",
+        refs: [1, 2]
+      },
+      vehicle: { value: VEH.UNKNOWN, refs: [] },
+      adSystem: { value: ADS.MAY_MOBILITY, refs: [2] },
+      route: { value: "名古屋駅前・STATION Ai・愛知芸術文化センター・IGアリーナ前・FUJIなごや科学館の5拠点を含むエリア（自動運転車両3台）", refs: [1, 2] },
+      operationType: { value: "オンデマンド配車型（自動運転、運転士同乗）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "自治体・事業主体", name: "愛知県", refs: [1] },
+        { role: "受託事業者", name: "NTTドコモビジネス株式会社", refs: [1] },
+        { role: "運行管理", name: "NTTモビリティ株式会社", refs: [1] },
+        { role: "受託事業者", name: "NTTドコモ", refs: [1] },
+        { role: "運行支援", name: "名鉄タクシーホールディングス株式会社", refs: [2] },
+        { role: "自動運転システム", name: "May Mobility", refs: [2] }
+      ],
+      references: [
+        { id: 1, title: "名古屋市都心部における自動運転×オンデマンド配車の実証実験を開始", url: "https://www.ntt.com/about-us/area-info/article/20260812.html", date: "2026-08-12", source: "NTTドコモビジネス / NTTモビリティ / NTTドコモ", checkedAt: null },
+        { id: 2, title: "NTTドコモビジネスなど、名古屋市で自動運転とオンデマンド配車システムを組み合わせた実証実験", url: "https://car.watch.impress.co.jp/docs/news/2132348.html", date: "2026-08-12", source: "Car Watch", checkedAt: null }
+      ]
+    },
+  {
+      id: "exp-271",
+      name: { value: "軽井沢町 自動運転バス実証運行（軽井沢駅〜中軽井沢駅〜星野温泉・千ヶ滝温泉）", refs: [1] },
+      location: { value: "長野県軽井沢町（軽井沢駅・中軽井沢駅・星野温泉トンボの湯・軽井沢千ヶ滝温泉）", lat: 36.342, lng: 138.635, refs: [1] },
+      prefecture: { value: PREF.NAGANO, refs: [1] },
+      period: { value: "2026年9月6日〜12月15日（10月は全日、11月1〜8日、毎週水曜ほか運休日あり）", refs: [1] },
+      status: { value: STATUS.ACTIVE, refs: [1] },
+      description: {
+        value: "軽井沢町・JR東日本・西武ホールディングスが、国土交通省2026年度「交通空白解消等リ・デザイン全面展開プロジェクト」採択事業として実施する、軽井沢駅と温泉地を結ぶ自動運転バスの実証運行。公共交通の空白時間帯の解消を目的とし、今年度はレベル2で運行、将来のレベル4を目指す。無料・予約制（JRE MALL）で、1日6便程度、各便定員15人。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.UNKNOWN, refs: [] },
+      adSystem: null,
+      route: { value: "軽井沢駅〜中軽井沢駅〜星野温泉トンボの湯〜軽井沢千ヶ滝温泉 約6.7km", refs: [1] },
+      operationType: { value: "レベル2（無料・予約制、将来のレベル4を目指す）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "事業主体", name: "東日本旅客鉄道株式会社（JR東日本）、株式会社西武ホールディングス", refs: [1] },
+        { role: "自治体", name: "軽井沢町（長野県）", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "JR東日本・西武HD・軽井沢町、軽井沢駅と温泉地を結ぶ自動運転バスの実証運行", url: "https://www.travelvoice.jp/20260817-160301", date: "2026-08-17", source: "トラベルボイス", checkedAt: "2026-10-19T00:00:00Z" }
+      ]
+    },
 ];
