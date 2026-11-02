@@ -6157,4 +6157,52 @@ const EXPERIMENTS = [
         { id: 1, title: "JR東日本・西武HD・軽井沢町、軽井沢駅と温泉地を結ぶ自動運転バスの実証運行", url: "https://www.travelvoice.jp/20260817-160301", date: "2026-08-17", source: "トラベルボイス", checkedAt: "2026-10-19T00:00:00Z" }
       ]
     },
+  {
+      id: "exp-272",
+      name: { value: "京都市 洛西ニュータウン 自動運転バス テスト走行（NTTドコモビジネス・先進モビリティ）", refs: [1] },
+      location: { value: "京都府京都市西京区（洛西バスターミナル・洛西ニュータウン）", lat: 34.9, lng: 135.65, refs: [1] },
+      prefecture: { value: PREF.KYOTO, refs: [1] },
+      period: { value: "2026年11月1日〜2027年1月31日（テスト走行、12/29〜1/3除く）。2027年2月1日〜14日に市民試乗体験を予定", refs: [1] },
+      status: { value: STATUS.ACTIVE, refs: [1] },
+      description: {
+        value: "京都市がNTTドコモビジネスを代表機関として実施する、市バス車両（いすゞ エルガミオ）を改造した自動運転バスのテスト走行。洛西バスターミナル発着で洛西ニュータウンを周回し、ドライバー乗車のもとシステム・車両の調整を行う（期間中の一般乗車は不可）。2028年度の社会実装を目指す。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.ISUZU_ERGA_MIO, refs: [1] },
+      adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
+      route: { value: "洛西バスターミナル発着・洛西ニュータウン周回 1周約6.9km", refs: [1] },
+      operationType: { value: "レベル2（ドライバー乗車・テスト走行）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "自治体・実施主体", name: "京都市（京都府）", refs: [1] },
+        { role: "代表機関", name: "NTTドコモビジネス株式会社", refs: [1] },
+        { role: "自動運転システム", name: "先進モビリティ株式会社", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "自動運転バスの実証実験の実施", url: "https://www.city.kyoto.lg.jp/tokei/page/0000359616.html", date: "2026-10-26", source: "京都市", checkedAt: "2026-11-02T00:00:00Z" }
+      ]
+    },
+  {
+      id: "exp-273",
+      name: { value: "佐賀市 自動運転バス有償実証（佐賀駅〜SAGAサンライズパーク・レベル4相当）", refs: [1] },
+      location: { value: "佐賀県佐賀市（佐賀駅バスセンター〜SAGAサンライズパーク）", lat: 33.26, lng: 130.30, refs: [1] },
+      prefecture: { value: PREF.SAGA, refs: [1] },
+      period: { value: "2026年11月14日〜12月22日", refs: [1] },
+      status: { value: STATUS.PLANNED, refs: [1] },
+      description: {
+        value: "佐賀市が実施する運賃（最大180円）を徴収する有償の自動運転バス実証。小型電気バスで全区間をレベル4相当で運行し、1日6往復。複数箇所で信号情報を受信して進行・停止を行う。2027年度中の認可申請、2028年度の社会実装を目指す（認可されれば九州初の見通し）。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.UNKNOWN, refs: [] },
+      adSystem: null,
+      route: { value: "佐賀駅バスセンター〜SAGAサンライズパーク 片道約1.6km（公道）", refs: [1] },
+      operationType: { value: "レベル4相当（有償・1日6往復）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "自治体・事業主体", name: "佐賀市（佐賀県）", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "佐賀市、自動運転バスを全区間レベル4相当で実証", url: "https://www.nikkei.com/article/DGXZQOJC213Y70R21C26A0000000/", date: "2026-10-21", source: "日本経済新聞", checkedAt: "2026-11-02T00:00:00Z" }
+      ]
+    },
 ];
