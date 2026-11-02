@@ -6159,6 +6159,54 @@ const EXPERIMENTS = [
     },
   {
       id: "exp-272",
+      name: { value: "三豊市 自動運転EVバス実証運行（2026年度・路車協調／運行ルート拡大）", refs: [1] },
+      location: { value: "香川県三豊市（地域交流館荘内・香川高専詫間キャンパス・JR詫間駅周辺）", lat: 34.2, lng: 133.65, refs: [1] },
+      prefecture: { value: PREF.KAGAWA, refs: [1] },
+      period: { value: "2026年11月1日〜12月25日（10月30日は開始式・関係者試乗、11月15日・29日、12月13日は運休）", refs: [1] },
+      status: { value: STATUS.PLANNED, refs: [1] },
+      description: {
+        value: "三豊市で3度目となる自動運転EVバスの実証運行。新たに路車協調（道路と車両の通信による安全運転支援）の検証を取り入れ、運行ルートを拡大する。国土交通省令和8年度「地域公共交通確保維持改善事業（自動運転社会実装推進事業）」採択事業。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.NAVYA_EVO, refs: [1] },
+      adSystem: { value: ADS.NAVYA, refs: [1] },
+      route: { value: "地域交流館荘内〜香川高専詫間キャンパス〜JR詫間駅の周回 1日6便（自動運転時は時速20km未満）", refs: [1] },
+      operationType: { value: "レベル2（オペレータ1名・乗客9名、レベル4に向けた検証）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "自治体・実施主体", name: "三豊市（香川県）", refs: [1] },
+        { role: "事業統括・通信インフラ", name: "NTT西日本株式会社", refs: [1] },
+        { role: "自動運転システム・車両提供", name: "マクニカ株式会社", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "三豊市における自動運転EVバスの実証運行について", url: "https://prtimes.jp/main/html/rd/p/000000645.000032702.html", date: "2026-10-23", source: "NTT西日本（PR TIMES）", checkedAt: "2026-10-26T00:00:00Z" }
+      ]
+    },
+  {
+      id: "exp-273",
+      name: { value: "佐賀市 自動運転バス運賃収受実証（レベル4相当・佐賀駅〜SAGAサンライズパーク、2026年度）", refs: [1] },
+      location: { value: "佐賀県佐賀市（佐賀駅バスセンター〜SAGAサンライズパーク）", lat: 33.265, lng: 130.3, refs: [1] },
+      prefecture: { value: PREF.SAGA, refs: [1] },
+      period: { value: "2026年11月14日〜12月22日（10月8日からテスト走行）", refs: [1] },
+      status: { value: STATUS.PLANNED, refs: [1] },
+      description: {
+        value: "公道で運賃（最大180円）を収受する自動運転バスの実証。交通量の多い駅前やバスセンター内を含む全区間をレベル4相当で走行する。今年度は同型の小型電気バス1台を購入（約1億円）。2027年度中にレベル4認可申請、2028年度の社会実装を目指す。認可されれば九州初となる見通し。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.UNKNOWN, refs: [] },
+      adSystem: null,
+      route: { value: "佐賀駅バスセンター〜SAGAサンライズパーク 片道約1.6km、1日6往復", refs: [1] },
+      operationType: { value: "レベル4相当（運賃収受あり、2027年度中に認可申請予定）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "自治体・事業主体", name: "佐賀市（佐賀県）", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "佐賀市、自動運転バスを全区間レベル4相当で実証", url: "https://www.nikkei.com/article/DGXZQOJC213Y70R21C26A0000000/", date: "2026-10-21", source: "日本経済新聞", checkedAt: "2026-10-26T00:00:00Z" }
+      ]
+    },
+  {
+      id: "exp-274",
       name: { value: "京都市 洛西ニュータウン 自動運転バス テスト走行（NTTドコモビジネス・先進モビリティ）", refs: [1] },
       location: { value: "京都府京都市西京区（洛西バスターミナル・洛西ニュータウン）", lat: 34.9, lng: 135.65, refs: [1] },
       prefecture: { value: PREF.KYOTO, refs: [1] },
@@ -6180,29 +6228,6 @@ const EXPERIMENTS = [
       ],
       references: [
         { id: 1, title: "自動運転バスの実証実験の実施", url: "https://www.city.kyoto.lg.jp/tokei/page/0000359616.html", date: "2026-10-26", source: "京都市", checkedAt: "2026-11-02T00:00:00Z" }
-      ]
-    },
-  {
-      id: "exp-273",
-      name: { value: "佐賀市 自動運転バス有償実証（佐賀駅〜SAGAサンライズパーク・レベル4相当）", refs: [1] },
-      location: { value: "佐賀県佐賀市（佐賀駅バスセンター〜SAGAサンライズパーク）", lat: 33.26, lng: 130.30, refs: [1] },
-      prefecture: { value: PREF.SAGA, refs: [1] },
-      period: { value: "2026年11月14日〜12月22日", refs: [1] },
-      status: { value: STATUS.PLANNED, refs: [1] },
-      description: {
-        value: "佐賀市が実施する運賃（最大180円）を徴収する有償の自動運転バス実証。小型電気バスで全区間をレベル4相当で運行し、1日6往復。複数箇所で信号情報を受信して進行・停止を行う。2027年度中の認可申請、2028年度の社会実装を目指す（認可されれば九州初の見通し）。",
-        refs: [1]
-      },
-      vehicle: { value: VEH.UNKNOWN, refs: [] },
-      adSystem: null,
-      route: { value: "佐賀駅バスセンター〜SAGAサンライズパーク 片道約1.6km（公道）", refs: [1] },
-      operationType: { value: "レベル4相当（有償・1日6往復）", refs: [1] },
-      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
-      stakeholders: [
-        { role: "自治体・事業主体", name: "佐賀市（佐賀県）", refs: [1] }
-      ],
-      references: [
-        { id: 1, title: "佐賀市、自動運転バスを全区間レベル4相当で実証", url: "https://www.nikkei.com/article/DGXZQOJC213Y70R21C26A0000000/", date: "2026-10-21", source: "日本経済新聞", checkedAt: "2026-11-02T00:00:00Z" }
       ]
     },
 ];
