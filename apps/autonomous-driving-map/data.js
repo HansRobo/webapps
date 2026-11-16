@@ -6268,13 +6268,116 @@ const EXPERIMENTS = [
       vehicle: { value: VEH.UNKNOWN, refs: [1] },
       adSystem: null,
       route: { value: "北部：上ノ太子駅前〜太子町役場〜近つ飛鳥博物館前／南部：富田林駅〜河南町役場〜千早赤阪村役場", refs: [1] },
-      operationType: { value: "不明（乗客乗車実証）", refs: [1] },
+      operationType: { value: "レベル2（運転手乗車・無料・電話予約制・1日6便）。2026年7月からレベル2でテスト走行", refs: [1, 2] },
       lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
       stakeholders: [
-        { role: "自治体・実施主体", name: "大阪府", refs: [1] }
+        { role: "自治体・実施主体", name: "大阪府", refs: [1] },
+        { role: "事業主体", name: "大阪市高速電気軌道株式会社", refs: [2] }
       ],
       references: [
-        { id: 1, title: "自動運転バス実証実験(乗客乗車)の運行計画について", url: "https://www.pref.osaka.lg.jp/o130050/unkoukeikaku.html", date: "2026-10-29", source: "大阪府", checkedAt: "2026-11-09T00:00:00Z" }
+        { id: 1, title: "自動運転バス実証実験(乗客乗車)の運行計画について", url: "https://www.pref.osaka.lg.jp/o130050/unkoukeikaku.html", date: "2026-10-29", source: "大阪府", checkedAt: "2026-11-09T00:00:00Z" },
+        { id: 2, title: "大阪・南河内の自動運転バス、乗客乗車の実証実験へ 12月から開始", url: "https://www.nikkei.com/article/DGXZQOUF287PU0Y6A021C2000000/", date: "2026-10-28", source: "日本経済新聞", checkedAt: "2026-11-16T00:00:00Z" }
+      ]
+    },
+  {
+      id: "exp-277",
+      name: { value: "足立区 自動運転バス 試験走行・実証実験（西新井駅東口〜六町駅）", refs: [1] },
+      location: { value: "東京都足立区（西新井駅東口〜六町駅）", lat: 35.785, lng: 139.802, refs: [1] },
+      prefecture: { value: PREF.TOKYO, refs: [1] },
+      period: { value: "2026年11月4日〜約3か月間（乗客なし試験走行）。2027年2月中旬頃から乗客を乗せた実証実験を予定", refs: [1] },
+      status: { value: STATUS.ACTIVE_PLANNED, refs: [1] },
+      description: {
+        value: "足立区が進める自動運転バスの取り組み。2026年11月4日から約3か月間、乗客を乗せずに運転手の手動走行で走行環境をAIに学習させる試験走行を行い、自動運転システム事業者による確認と区担当者の試乗を経て、2027年2月中旬頃から乗客を乗せた実証実験を開始する予定。2028年度（令和10年度）に乗務員乗車型のレベル4自動運転の開始を目標とする。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.UNKNOWN, refs: [] },
+      adSystem: null,
+      route: { value: "西新井駅東口〜六町駅間（公道）", refs: [1] },
+      operationType: { value: "手動走行による試験走行（乗客なし）→ 乗客乗車の実証実験へ移行予定", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "自治体・事業主体", name: "足立区（東京都）", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "自動運転バスの試験走行が始まります", url: "https://www.city.adachi.tokyo.jp/hisho/20261102-mainichi.html", date: "2026-11-02", source: "足立区", checkedAt: "2026-11-16T00:00:00Z" }
+      ]
+    },
+  {
+      id: "exp-278",
+      name: { value: "海老名市 e-Palette改造車両 自動運転バス実証（相鉄バス・NTTドコモビジネス）", refs: [1] },
+      location: { value: "神奈川県海老名市（海老名駅発着の周回ルート）", lat: 35.452, lng: 139.391, refs: [1] },
+      prefecture: { value: PREF.KANAGAWA, refs: [1] },
+      period: { value: "調律走行: 2026年10月13日〜27日、11月5日〜2027年1月22日。一般走行（予約制）: 2027年1月25日〜2月18日", refs: [1, 2] },
+      status: { value: STATUS.ACTIVE_PLANNED, refs: [1, 2] },
+      description: {
+        value: "海老名市・相鉄バス・NTTドコモビジネスが2026年10月13日に締結した連携協定に基づく自動運転バス実証。トヨタ「e-Palette」をベースに改造した7人乗り車両で、海老名駅を起点に病院・学校・団地・市役所などを経由する周回ルートを走行する。NTTドコモビジネスが遠隔監視システムとデータ連携基盤を構築し、将来のレベル4に向けて5Gワイドやネットワークスライシングの活用も検討する。2028年度のレベル4実装を目指す。",
+        refs: [1, 2]
+      },
+      vehicle: { value: VEH.E_PALETTE, refs: [1, 2] },
+      adSystem: null,
+      route: { value: "海老名駅発着 周回ルート（中新田循環線）全長約3.4km・約20分", refs: [1, 2] },
+      operationType: { value: "レベル2（運転士乗車・遠隔監視併用）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "自治体", name: "海老名市（神奈川県）", refs: [1] },
+        { role: "運行事業者", name: "相鉄バス株式会社", refs: [1, 2] },
+        { role: "通信システム検証", name: "NTTドコモビジネス株式会社", refs: [1, 2] }
+      ],
+      references: [
+        { id: 1, title: "海老名市 自動運転バスを実証実験 地域交通を持続可能に", url: "https://www.townnews.co.jp/0402/2026/11/06/860901.html", date: "2026-11-06", source: "タウンニュース", checkedAt: "2026-11-16T00:00:00Z" },
+        { id: 2, title: "神奈川県海老名市で自動運転バスの一般走行 「レベル4」実現に向けNWスライシング活用も視野に", url: "https://businessnetwork.jp/?p=38272", date: "2026-10-29", source: "BUSINESS NETWORK", checkedAt: "2026-11-16T00:00:00Z" }
+      ]
+    },
+  {
+      id: "exp-279",
+      name: { value: "神戸市 灘五郷エリア オンデマンド自動運転実証（日産・2026年度）", refs: [1] },
+      location: { value: "兵庫県神戸市東灘区・灘区（灘五郷エリアおよび周辺地域）", lat: 34.712, lng: 135.265, refs: [1] },
+      prefecture: { value: PREF.HYOGO, refs: [1] },
+      period: { value: "2026年12月8日〜12月18日（平日火〜金）", refs: [1] },
+      status: { value: STATUS.PLANNED, refs: [1] },
+      description: {
+        value: "日産自動車が神戸市・灘五郷酒造組合・モプラスと実施する2026年度の自動運転モビリティサービス実証。セレナをベースとした自動運転開発車両を用い、スマートフォンで予約・配車するオンデマンド型で灘五郷エリアと周辺地域を運行する。一般モニター100名程度を募集。2026年1月の実証（exp-133）に続く取り組み。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.NISSAN_SERENA, refs: [1] },
+      adSystem: { value: ADS.NISSAN, refs: [1] },
+      route: { value: "灘五郷エリア（酒蔵・周辺駅）および周辺地域（オンデマンド運行）", refs: [1] },
+      operationType: { value: "SAE レベル2相当（セーフティドライバー乗車・オンデマンド配車）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "自治体・事業主体", name: "神戸市（兵庫県）", refs: [1] },
+        { role: "サービス運営・車両提供", name: "日産自動車株式会社", refs: [1] },
+        { role: "地域連携", name: "灘五郷酒造組合", refs: [1] },
+        { role: "サービス運営支援", name: "株式会社モプラス", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "日産自動車、神戸市における2026年度自動運転モビリティサービス実証実験の詳細を発表", url: "https://global.nissannews.com/ja-JP/releases/261014-01-j", date: "2026-10-14", source: "日産自動車", checkedAt: "2026-11-16T00:00:00Z" }
+      ]
+    },
+  {
+      id: "exp-280",
+      name: { value: "NTTモビリティ HDマップレス型（E2E）自動運転バス 公道実証（武蔵野市 Co-Creation Hub）", refs: [1] },
+      location: { value: "東京都武蔵野市（NTT武蔵野研究開発センタ周辺の公道を含む実証フィールド「Co-Creation Hub」）", lat: 35.716, lng: 139.566, refs: [1] },
+      prefecture: { value: PREF.TOKYO, refs: [1] },
+      period: { value: "2026年12月〜構内走行試験、2027年2月〜公道走行、2027年4月〜評価・課題取りまとめ", refs: [1] },
+      status: { value: STATUS.PLANNED, refs: [1] },
+      description: {
+        value: "NTTモビリティが実施する、事前作成のHDマップやLiDARに依存せずカメラ映像をもとに認識から走行計画・車両制御までを一体で行うE2E方式の自動運転バスの公道実証（同社は日本初としている）。Imagry社の自動運転システム（ADK）とeVersum社製バスを用い、2026年12月7日の納車後にシステム調整・構内試験を経て、2027年2月からドライバー乗車のレベル2で公道走行を開始する。新規ルートへの展開容易性を検証し、交通事業者と連携した商用化を目指す。",
+        refs: [1, 2]
+      },
+      vehicle: { value: VEH.EVERSUM_BUS, refs: [1] },
+      adSystem: { value: ADS.IMAGRY, refs: [1] },
+      route: { value: "NTT武蔵野研究開発センタ周辺の公道（Co-Creation Hub）", refs: [1] },
+      operationType: { value: "レベル2（ドライバー乗車）から開始", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "実証主体", name: "NTTモビリティ株式会社", refs: [1] },
+        { role: "自動運転システム提供", name: "Imagry (Israel) Ltd.", refs: [1] },
+        { role: "車両製造", name: "eVersum", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "日本初！ HDマップレス型の自動運転バスの公道実証開始", url: "https://prtimes.jp/main/html/rd/p/000000014.000183366.html", date: "2026-11-13", source: "NTTモビリティ（PR TIMES）", checkedAt: "2026-11-16T00:00:00Z" },
+        { id: 2, title: "HDマップレス自動運転バス、NTTモビリティが2月に公道実証", url: "https://response.jp/article/2026/11/15/419042.html", date: "2026-11-15", source: "レスポンス", checkedAt: "2026-11-16T00:00:00Z" }
       ]
     },
 ];
