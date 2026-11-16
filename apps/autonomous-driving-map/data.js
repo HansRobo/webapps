@@ -6232,6 +6232,55 @@ const EXPERIMENTS = [
     },
   {
       id: "exp-275",
+      name: { value: "富士市 自動運転バス実証（2026年度・新富士駅〜富士駅／田子の浦港・信号連携検証）", refs: [1] },
+      location: { value: "静岡県富士市（新富士駅富士山口〜富士駅北口・田子の浦港）", lat: 35.161, lng: 138.676, refs: [1] },
+      prefecture: { value: PREF.SHIZUOKA, refs: [1] },
+      period: { value: "2026年11月6日〜15日（月曜運休）", refs: [1] },
+      status: { value: STATUS.ACTIVE, refs: [1] },
+      description: {
+        value: "富士市が先進モビリティの車両・技術支援のもとで実施する自動運転バス実証。平日は新富士駅富士山口〜富士駅北口（片道約2km・1日6便）、土日は同区間に加え新富士駅富士山口〜田子の浦港（片道約3km・1日4便）を運行。運賃無料・事前予約制で、混雑する市街地での信号連携も検証し、将来のレベル4社会実装を目指す。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.UNKNOWN, refs: [1] },
+      adSystem: { value: ADS.ADVANCED_MOBILITY, refs: [1] },
+      route: { value: "新富士駅富士山口〜富士駅北口 片道約2km／新富士駅富士山口〜田子の浦港 片道約3km（土日）", refs: [1] },
+      operationType: { value: "レベル2（無料・事前予約制）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "自治体・実施主体", name: "富士市（静岡県）", refs: [1] },
+        { role: "自動運転システム・車両提供", name: "先進モビリティ株式会社", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "先進モビリティ、静岡県富士市の自動運転バス実証に参画", url: "https://www.logi-today.com/1018924", date: "2026-11-06", source: "LogiToday", checkedAt: "2026-11-09T00:00:00Z" }
+      ]
+    },
+  {
+      id: "exp-276",
+      name: { value: "大阪府 自動運転バス実証実験（乗客乗車・北部ルート：上ノ太子駅〜近つ飛鳥博物館）", refs: [1] },
+      location: { value: "大阪府南河内郡太子町・河南町周辺（上ノ太子駅前〜近つ飛鳥博物館前）", lat: 34.5, lng: 135.65, refs: [1] },
+      prefecture: { value: PREF.OSAKA, refs: [1] },
+      period: { value: "2026年12月14日〜2027年2月23日（12/29〜1/3運休）。南部ルートは2027年3月中旬から乗客乗車開始予定", refs: [1] },
+      status: { value: STATUS.PLANNED, refs: [1] },
+      description: {
+        value: "大阪府が新モビリティ導入検討の一環として、南河内地域で乗客を乗せる自動運転バス実証を実施する計画。北部ルート（上ノ太子駅前〜太子町役場〜近つ飛鳥博物館前）を2026年12月14日から運行し、南部ルート（富田林駅〜河南町役場〜千早赤阪村役場）は2027年3月中旬から乗客乗車を開始予定。車両・システム・事業者は公式ページに記載なし。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.UNKNOWN, refs: [1] },
+      adSystem: null,
+      route: { value: "北部：上ノ太子駅前〜太子町役場〜近つ飛鳥博物館前／南部：富田林駅〜河南町役場〜千早赤阪村役場", refs: [1] },
+      operationType: { value: "レベル2（運転手乗車・無料・電話予約制・1日6便）。2026年7月からレベル2でテスト走行", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "自治体・実施主体", name: "大阪府", refs: [1] },
+        { role: "事業主体", name: "大阪市高速電気軌道株式会社", refs: [2] }
+      ],
+      references: [
+        { id: 1, title: "自動運転バス実証実験(乗客乗車)の運行計画について", url: "https://www.pref.osaka.lg.jp/o130050/unkoukeikaku.html", date: "2026-10-29", source: "大阪府", checkedAt: "2026-11-09T00:00:00Z" },
+        { id: 2, title: "大阪・南河内の自動運転バス、乗客乗車の実証実験へ 12月から開始", url: "https://www.nikkei.com/article/DGXZQOUF287PU0Y6A021C2000000/", date: "2026-10-28", source: "日本経済新聞", checkedAt: "2026-11-16T00:00:00Z" }
+      ]
+    },
+  {
+      id: "exp-277",
       name: { value: "足立区 自動運転バス 試験走行・実証実験（西新井駅東口〜六町駅）", refs: [1] },
       location: { value: "東京都足立区（西新井駅東口〜六町駅）", lat: 35.785, lng: 139.802, refs: [1] },
       prefecture: { value: PREF.TOKYO, refs: [1] },
@@ -6254,7 +6303,7 @@ const EXPERIMENTS = [
       ]
     },
   {
-      id: "exp-276",
+      id: "exp-278",
       name: { value: "海老名市 e-Palette改造車両 自動運転バス実証（相鉄バス・NTTドコモビジネス）", refs: [1] },
       location: { value: "神奈川県海老名市（海老名駅発着の周回ルート）", lat: 35.452, lng: 139.391, refs: [1] },
       prefecture: { value: PREF.KANAGAWA, refs: [1] },
@@ -6280,31 +6329,7 @@ const EXPERIMENTS = [
       ]
     },
   {
-      id: "exp-277",
-      name: { value: "南河内地域 自動運転バス 乗客乗車実証（大阪府・Osaka Metro、太子町北部ルート）", refs: [1] },
-      location: { value: "大阪府南河内郡太子町ほか（上ノ太子駅・太子町役場周辺）", lat: 34.519, lng: 135.644, refs: [1] },
-      prefecture: { value: PREF.OSAKA, refs: [1] },
-      period: { value: "2026年12月14日〜2027年2月23日（北部ルートで乗客乗車）。南部ルート（富田林駅など経由）は2027年3月中旬以降を目指す", refs: [1] },
-      status: { value: STATUS.PLANNED, refs: [1] },
-      description: {
-        value: "大阪府と大阪市高速電気軌道（Osaka Metro）でつくる協議会が南河内地域で進める自動運転バス実証。2026年7月から運転手が必要に応じて操作するレベル2でテスト走行を行い、12月14日から乗車定員10人のバスで乗客を乗せた運行を開始する（1日6便・無料・電話による事前予約制）。2028年度末までに全区間でのレベル4走行を目指す。",
-        refs: [1]
-      },
-      vehicle: { value: VEH.UNKNOWN, refs: [] },
-      adSystem: null,
-      route: { value: "北部ルート（上ノ太子駅・太子町役場などを経由）", refs: [1] },
-      operationType: { value: "レベル2（運転手乗車・無料・事前予約制、1日6便）", refs: [1] },
-      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
-      stakeholders: [
-        { role: "自治体・事業主体", name: "大阪府", refs: [1] },
-        { role: "事業主体・運行", name: "大阪市高速電気軌道株式会社", refs: [1] }
-      ],
-      references: [
-        { id: 1, title: "大阪・南河内の自動運転バス、乗客乗車の実証実験へ 12月から開始", url: "https://www.nikkei.com/article/DGXZQOUF287PU0Y6A021C2000000/", date: "2026-10-28", source: "日本経済新聞", checkedAt: "2026-11-16T00:00:00Z" }
-      ]
-    },
-  {
-      id: "exp-278",
+      id: "exp-279",
       name: { value: "神戸市 灘五郷エリア オンデマンド自動運転実証（日産・2026年度）", refs: [1] },
       location: { value: "兵庫県神戸市東灘区・灘区（灘五郷エリアおよび周辺地域）", lat: 34.712, lng: 135.265, refs: [1] },
       prefecture: { value: PREF.HYOGO, refs: [1] },
@@ -6330,7 +6355,7 @@ const EXPERIMENTS = [
       ]
     },
   {
-      id: "exp-279",
+      id: "exp-280",
       name: { value: "NTTモビリティ HDマップレス型（E2E）自動運転バス 公道実証（武蔵野市 Co-Creation Hub）", refs: [1] },
       location: { value: "東京都武蔵野市（NTT武蔵野研究開発センタ周辺の公道を含む実証フィールド「Co-Creation Hub」）", lat: 35.716, lng: 139.566, refs: [1] },
       prefecture: { value: PREF.TOKYO, refs: [1] },
