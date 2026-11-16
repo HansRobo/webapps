@@ -172,6 +172,7 @@
     LARGE_TRUCK_GENERIC:    { id: "large-truck-generic",    label: "大型トラック（車種詳細不明）" },
     ROBOTAXI_GENERIC:       { id: "robotaxi-generic",       label: "ロボタクシー（車種詳細不明）" },
     SPECIAL_EQUIPMENT_VEHICLE:{ id: "special-equipment-vehicle", label: "特別装置自動車（ハンドル・ペダルなし）" },
+    EVERSUM_BUS:            { id: "eversum-bus",            label: "eVersum 自動運転バス" },
     UNKNOWN:                { id: "unknown-vehicle",        label: "詳細不明" },
   };
 
@@ -219,6 +220,7 @@
     NTT_DOCOMO:       { id: "ntt-docomo",        label: "NTTドコモ" },
     JTEKT:            { id: "jtekt",             label: "ジェイテクト" },
     KCCS:             { id: "kccs",              label: "KCCS" },
+    IMAGRY:           { id: "imagry",            label: "Imagry" },
     UNKNOWN:          { id: "unknown-ads",       label: "不明" },
   };
 
@@ -337,6 +339,12 @@
     "那覇バス株式会社",
     "日ノ丸自動車株式会社",
     "日産自動車株式会社",
+    "灘五郷酒造組合",
+    "足立区（東京都）",
+    "海老名市（神奈川県）",
+    "株式会社モプラス",
+    "Imagry (Israel) Ltd.",
+    "eVersum",
     "株式会社Moplus",
     "国際自動車株式会社",
     "京王自動車株式会社",
