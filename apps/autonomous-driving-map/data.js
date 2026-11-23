@@ -6380,4 +6380,94 @@ const EXPERIMENTS = [
         { id: 2, title: "HDマップレス自動運転バス、NTTモビリティが2月に公道実証", url: "https://response.jp/article/2026/11/15/419042.html", date: "2026-11-15", source: "レスポンス", checkedAt: "2026-11-16T00:00:00Z" }
       ]
     },
+  {
+      id: "exp-281",
+      name: { value: "坂出市 自動運転バス実証実験（2026年度・坂出駅起終点循環、KDDIスマートモビリティ）", refs: [1] },
+      location: { value: "香川県坂出市（坂出駅起終点、市役所・市立病院等を経由する中心部循環ルート）", lat: 34.316, lng: 133.856, refs: [1] },
+      prefecture: { value: PREF.KAGAWA, refs: [1] },
+      period: { value: "2026年11月28日〜12月27日（30日間。11月26日報道向け先行試乗会、11月27日出発式）", refs: [1, 2] },
+      status: { value: STATUS.PLANNED, refs: [1] },
+      description: {
+        value: "坂出市・琴参バス・坂出自動車学校のコンソーシアムとKDDIスマートモビリティが、国土交通省「地域公共交通確保維持改善事業費補助金」を活用して実施する2026年度の自動運転バス実証。2025年度実証に続くもので、建設中の新施設付近を通るようルートを変更。minibus2.0（着席13名、自動運転時最高40km/h、AIとルールベースのハイブリッド方式）を用い、坂出駅起終点の11停留所循環ルートを平日7便・土日祝8便、予約不要・無料で運行する。持続可能な運行体制・事業モデル、複数台運行や他路線展開の可能性を検証し、2028年のレベル4社会実装を目指す。",
+        refs: [1, 2, 3]
+      },
+      vehicle: { value: VEH.BYD_J6, refs: [] },
+      adSystem: { value: ADS.TIER_IV, refs: [] },
+      route: { value: "坂出駅→聖マルチン病院→東部小学校→市役所前→商工会議所→両景橋東詰→入船町→港町→市立病院→図書館・美術館→香風園→坂出駅（循環）", refs: [1] },
+      operationType: { value: "レベル2（運転士乗務、一部区間手動運転。無料・予約不要）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "自治体・事業主体", name: "坂出市（香川県）", refs: [1, 2] },
+        { role: "運行主体", name: "琴参バス株式会社", refs: [1, 2] },
+        { role: "遠隔監視", name: "株式会社坂出自動車学校", refs: [1, 2] },
+        { role: "実証支援", name: "KDDIスマートモビリティ株式会社", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "香川県坂出市にて自動運転バスの実証実験を開始", url: "https://prtimes.jp/main/html/rd/p/000000027.000185443.html", date: "2026-11-20", source: "KDDIスマートモビリティ（PR TIMES）", checkedAt: "2026-11-23T00:00:00Z" },
+        { id: 2, title: "自動運転バス実証運行を実施します", url: "https://www.city.sakaide.lg.jp/soshiki/seisaku/ad-bus.html", date: "2026-10-22", source: "坂出市", checkedAt: "2026-11-23T00:00:00Z" },
+        { id: 3, title: "KDDIスマートモビリティら、坂出市で自動運転バス実証 - 2028年レベル4へ", url: "https://news.mynavi.jp/techplus/article/20261120-5366352/", date: "2026-11-20", source: "マイナビニュース", checkedAt: "2026-11-23T00:00:00Z" }
+      ]
+    },
+  {
+      id: "exp-282",
+      name: { value: "豊田市 市街地・山村・郊外の異なる交通環境における自動走行実証実験（2026年度・シエナ／e-Palette）", refs: [1] },
+      location: { value: "愛知県豊田市（市街地：豊田市駅〜豊田スタジアム東／山村：小原地区の小学校間／郊外：土橋駅〜三河豊田駅）", lat: 35.084, lng: 137.156, refs: [1] },
+      prefecture: { value: PREF.AICHI, refs: [1] },
+      period: { value: "市街地：2026年9月14日〜2027年2月26日／山村：2026年11月上旬〜2027年2月26日／郊外：2027年2月上旬〜下旬", refs: [1] },
+      status: { value: STATUS.ACTIVE_PLANNED, refs: [1] },
+      description: {
+        value: "豊田市が実施主体となり、交通環境や利用ニーズの異なる市街地・山村・郊外の3ルートで、May Mobilityの自動運転ソフトウェアを搭載した車両によるレベル2の公道実証を行う。市街地・山村はトヨタ シエナ（乗務員除き4名）、郊外はe-Palette（全席着席7名）を使用し、いずれも無料。市街地はMONETアプリで乗車5分前まで予約可能。技術的安全性に加え、遠隔監視・運行支援モデル、地域公共交通としての運用性・事業性・社会受容性を検証し、将来のレベル4運行に向けたノウハウを蓄積する。NTTモビリティは郊外ルートで「NTTモビリティ 運行アシスト」を用いた運行管理を検証する。",
+        refs: [1, 2]
+      },
+      vehicle: [
+        { value: VEH.TOYOTA_SIENNA, refs: [1] },
+        { value: VEH.E_PALETTE, refs: [1] }
+      ],
+      adSystem: { value: ADS.MAY_MOBILITY, refs: [1] },
+      route: { value: "市街地：豊田市駅（若宮町）〜豊田スタジアム東（広川町）／山村：道慈小学校（舟洗町）〜小原中部小学校（遊屋町）〜本城小学校（市場町）／郊外：名鉄三河線土橋駅（土橋町）〜愛知環状鉄道三河豊田駅（山之手）", refs: [1] },
+      operationType: { value: "レベル2（無料、市街地はアプリ予約制の定時定路線）", refs: [1, 2] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "自治体・実施主体", name: "豊田市（愛知県）", refs: [1] },
+        { role: "事業統括", name: "MONET Technologies株式会社", refs: [1] },
+        { role: "車両提供・運行支援", name: "NTTモビリティ株式会社", refs: [1] },
+        { role: "自動運転システム", name: "May Mobility Japan合同会社", refs: [1] },
+        { role: "運行支援", name: "名鉄バス株式会社", refs: [1] },
+        { role: "運行支援", name: "豊栄交通株式会社", refs: [1] },
+        { role: "効果検証・地域広報", name: "公益財団法人豊田都市交通研究所", refs: [1] },
+        { role: "遠隔監視", name: "三井住友海上火災保険株式会社", refs: [1] },
+        { role: "安全性評価", name: "あいおいニッセイ同和損害保険株式会社", refs: [1] },
+        { role: "リスクアセスメント", name: "MS&ADインターリスク総研株式会社", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "愛知県豊田市におけるシエナ・e-Paletteを活用した自動運転実証を開始", url: "https://prtimes.jp/main/html/rd/p/000000010.000183366.html", date: "2026-09-07", source: "NTTモビリティ（PR TIMES）", checkedAt: "2026-11-23T00:00:00Z" },
+        { id: 2, title: "豊田市、3ルートで自動運転の地域適応検証", url: "https://www.logi-today.com/997037", date: "2026-09-07", source: "LOGISTICS TODAY", checkedAt: "2026-11-23T00:00:00Z" }
+      ]
+    },
+  {
+      id: "exp-283",
+      name: { value: "宮津市 府中地区 自動運転EVバス実証運行（一の宮桟橋〜天橋立ワイナリー、NTT西日本・マクニカ）", refs: [1] },
+      location: { value: "京都府宮津市（府中地区、一の宮桟橋〜天橋立ワイナリー）", lat: 35.584, lng: 135.196, refs: [1] },
+      prefecture: { value: PREF.KYOTO, refs: [1] },
+      period: { value: "2026年12月22日〜2027年1月19日（平日のみ計14日間、12月29日〜1月5日を除く）", refs: [1] },
+      status: { value: STATUS.PLANNED, refs: [1] },
+      description: {
+        value: "総務省「地域社会DX推進パッケージ事業（自動運転レベル4検証タイプ）」に採択された、NTT西日本・マクニカ・宮津市による自動運転EVバス実証。幅員3.1〜3.9mの狭隘道路で路側センサーと情報表示板を活用した安全なすれ違い、AIによる積雪・凍結路面検知に基づく運行・減速・停止判断を検証する。Navya Mobility製EVO3（乗客定員8名、最高時速18km/h）を用い、平日1日6往復を無料で運行。同様の条件を持つ他地域へ展開可能なモデル構築と、通年でのレベル4運行を目指す。",
+        refs: [1]
+      },
+      vehicle: { value: VEH.NAVYA_EVO, refs: [1] },
+      adSystem: { value: ADS.NAVYA, refs: [1] },
+      route: { value: "一の宮桟橋〜府中地区公民館〜天橋立ワイナリー（約2.1km）", refs: [1] },
+      operationType: { value: "レベル2（オペレーター乗車・無料、事前予約制）", refs: [1] },
+      lv4Approval: { value: LV4_APPROVAL.NONE, refs: [] },
+      stakeholders: [
+        { role: "事業統括", name: "NTT西日本株式会社", refs: [1] },
+        { role: "システム導入・運行支援", name: "株式会社マクニカ", refs: [1] },
+        { role: "自治体", name: "宮津市（京都府）", refs: [1] },
+        { role: "事業主体", name: "総務省", refs: [1] }
+      ],
+      references: [
+        { id: 1, title: "京都府宮津市で自動運転EVバスの実証運行を実施", url: "https://prtimes.jp/main/html/rd/p/000000657.000032702.html", date: "2026-11-19", source: "NTT西日本（PR TIMES）", checkedAt: "2026-11-23T00:00:00Z" }
+      ]
+    },
 ];
